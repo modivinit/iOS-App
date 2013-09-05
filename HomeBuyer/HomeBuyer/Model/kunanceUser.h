@@ -12,8 +12,8 @@
 @property (nonatomic, strong) FFUser* mLoggedInKunanceUser;
 
 + (kunanceUser*) getInstance;
--(BOOL) isLoggedInUser;
--(void) saveUserInfoAfterSignUp:(NSString*) passwrod email:(NSString*) email;
--(void) saveUserInfoAfterLogin:(FFUser*) newUser;
--(BOOL)userAccountFoundOnDevice;
+-(BOOL) isUserLoggedIn;
+-(void) saveUserInfoAfterLoginSignUp:(FFUser*) newUser passowrd:(NSString*) pswd;
+-(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password;
+-(BOOL) userAccountFoundOnDevice;
 @end

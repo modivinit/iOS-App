@@ -31,15 +31,20 @@ static kunanceUser *kunanceUserSingleton;
     return self;
 }
 
--(BOOL) isLoggedInUser
+-(BOOL) isUserLoggedIn
 {
     return ([[FatFractal main] loggedIn] && [kunanceUser getInstance].mLoggedInKunanceUser);
 }
 
--(void) saveUserInfoAfterSignUp:(NSString*) passwrod email:(NSString*) email
+-(void) saveUserInfoAfterLoginSignUp:(FFUser*) newUser passowrd:(NSString*) pswd
 {
-    [KeychainWrapper createKeychainValue:passwrod forIdentifier:@"pswd"];
-    [KeychainWrapper createKeychainValue:email forIdentifier:@"email"];
+    if(!newUser || !pswd)
+        return;
+    
+    [KeychainWrapper createKeychainValue:pswd forIdentifier:@"pswd"];
+    [KeychainWrapper createKeychainValue:newUser.email forIdentifier:@"email"];
+    
+    self.mLoggedInKunanceUser = newUser;
 }
 
 -(BOOL)userAccountFoundOnDevice
@@ -56,9 +61,39 @@ static kunanceUser *kunanceUserSingleton;
     return NO;
 }
 
--(void) saveUserInfoAfterLogin:(FFUser*) newUser
+-(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password
 {
+    if(!email || !password)
+        return NO;
     
+    NSData* emailData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"email"];
+    if(!emailData)
+        return NO;
+    
+    NSString* emailStr = [[NSString alloc] initWithData:emailData
+                                               encoding:NSUTF8StringEncoding];
+    NSString* pswdStr = nil;
+    if(emailStr)
+    {
+        NSData* pswdData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"pswd"];
+
+        if(!pswdData)
+            return NO;
+        
+        pswdStr = [[NSString alloc] initWithData:pswdData
+                                        encoding:NSUTF8StringEncoding];
+    }
+    
+    if(emailStr && pswdStr)
+    {
+        *email = [emailStr copy];
+        *password = [pswdStr copy];
+        
+        return YES;
+    }
+    
+    return NO;
+
 }
 
 + (kunanceUser*) getInstance

@@ -71,7 +71,7 @@
     newUser.firstName = self.mFirstNameField.text;
     newUser.lastName = self.mLastNameField.text;
     newUser.userName = self.mEmailField.text;
-    __block NSString* email = newUser.email = self.mEmailField.text;
+    newUser.email = self.mEmailField.text;
     __block NSString *password = self.mPasswordField.text;
     
     [ff registerUser:newUser
@@ -81,7 +81,9 @@
         FFUser *loggedInUser = (FFUser *)obj;
         if(loggedInUser)
         {
-            [[kunanceUser getInstance] saveUserInfoAfterSignUp:password email:email];
+            [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
+                                                           passowrd:password];
+            
             [Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
         }
         else

@@ -7,19 +7,20 @@
 //
 
 #import "MainController.h"
+#import "SignUpViewController.h"
 
 @interface MainController ()
 @end
 
 @implementation MainController
 
--(id) init
+-(id) initWithNavController:(UINavigationController*) navController
 {
     self = [super init];
     
     if(self)
     {
-        
+        self.mMainNavController = navController;
     }
     
     return self;
@@ -28,7 +29,7 @@
 -(void) start
 {
     //if logged in,
-    if([[kunanceUser getInstance] isLoggedInUser])
+    if([[kunanceUser getInstance] isUserLoggedIn])
     {
         //then go to the dashboard
     }
@@ -38,13 +39,54 @@
         if([[kunanceUser getInstance] userAccountFoundOnDevice])
         {
             //then login
-            [[kunanceUser getInstance] loginSavedUser];
+            [self loginSavedUser];
         }
         else //If there is no user account
         {
-            //then show the create account view
+            //then show the signup view
+            SignUpViewController* signupCOntroller = [[SignUpViewController alloc] init];
+            [self.mMainNavController pushViewController:signupCOntroller animated:NO];
         }
- 
     }
 }
+
+-(void) loginSavedUser
+{
+    __block NSString* email = nil;
+    __block NSString* password = nil;
+    
+    if([[kunanceUser getInstance] getUserEmail:&email andPassword:&password])
+    {
+        FatFractal *ff = [FatFractal main];
+        [ff loginWithUserName:email andPassword:password
+                   onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
+        {
+            FFUser *loggedInUser = (FFUser *)obj;
+            if(loggedInUser)
+            {
+                [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
+                                                               passowrd:password];
+                
+                [self savedUserLoggedInSuccessfully];
+                [Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
+            }
+            else
+            {
+                [self failedToLoginSavedUser];
+            }
+
+        }];
+    }
+}
+
+-(void) savedUserLoggedInSuccessfully
+{
+        
+}
+
+-(void) failedToLoginSavedUser
+{
+    //show login screen here
+}
+
 @end

@@ -76,6 +76,7 @@
 		D696EB1B17D5123C00F475F3 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		D696EB1C17D5123C00F475F3 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		D696EB1F17D5127400F475F3 /* kunanceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kunanceConstants.h; sourceTree = "<group>"; };
+		D6CACE8117D6F0D0000AC8EE /* kunanceError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kunanceError.h; sourceTree = "<group>"; };
 		D6EEFFD117CDC8C700EB28C7 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		D6EEFFD217CDC8C700EB28C7 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,6 +207,7 @@
 				D68462CA17D0757900EF769B /* Utilities.h */,
 				D68462CB17D0757900EF769B /* Utilities.m */,
 				D696EB1F17D5127400F475F3 /* kunanceConstants.h */,
+				D6CACE8117D6F0D0000AC8EE /* kunanceError.h */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";

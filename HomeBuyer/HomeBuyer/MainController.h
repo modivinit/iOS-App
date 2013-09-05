@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface MainController : NSObject
+@property (nonatomic, strong) UINavigationController* mMainNavController;
 
+-(id) initWithNavController:(UINavigationController*) navController;
+-(void) start;
 @end

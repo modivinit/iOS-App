@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "MainController.h"
-#import "SignUpViewController.h"
 #import <FFEF/FatFractal.h>
 
 @interface AppDelegate ()
@@ -33,8 +32,11 @@
     NSString *baseUrl = @"https://kunance.fatfractal.com/kCAT";
     self.ff = [[FatFractal alloc] initWithBaseUrl:baseUrl];
     
-    SignUpViewController *viewController = [[SignUpViewController alloc] init];
-    self.window.rootViewController = viewController;
+    UINavigationController* navController = [[UINavigationController alloc] init];
+    self.window.rootViewController = navController;
+    
+    MainController* mainController = [[MainController alloc] initWithNavController:navController];
+    [mainController start];
     return YES;
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
+		D64AAF3017D91405006CA7E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64AAF2E17D91405006CA7E4 /* LoginViewController.m */; };
+		D64AAF3117D91405006CA7E4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D64AAF2F17D91405006CA7E4 /* LoginViewController.xib */; };
 		D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE217CCE1280082F6C7 /* Foundation.framework */; };
 		D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */; };
 		D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE617CCE1280082F6C7 /* UIKit.framework */; };
@@ -48,6 +50,9 @@
 /* Begin PBXFileReference section */
 		D610B4FC17D15E5500C6EE4A /* kunanceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kunanceUser.h; path = Model/kunanceUser.h; sourceTree = "<group>"; };
 		D610B4FD17D15E5500C6EE4A /* kunanceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kunanceUser.m; path = Model/kunanceUser.m; sourceTree = "<group>"; };
+		D64AAF2D17D91405006CA7E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D64AAF2E17D91405006CA7E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D64AAF2F17D91405006CA7E4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67EFDE217CCE1280082F6C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +116,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D64AAF3217D916FC006CA7E4 /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				D68462C117D0616400EF769B /* SignUpViewController.h */,
+				D68462C217D0616400EF769B /* SignUpViewController.m */,
+				D64AAF2D17D91405006CA7E4 /* LoginViewController.h */,
+				D64AAF2E17D91405006CA7E4 /* LoginViewController.m */,
+			);
+			name = Login/Signup;
+			sourceTree = "<group>";
+		};
 		D67EFDD617CCE1280082F6C7 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +228,13 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		D6C88B2417DA6CF100DEA25D /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		D6EEFFC417CDBDCD00EB28C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +247,7 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D64AAF2F17D91405006CA7E4 /* LoginViewController.xib */,
 				D68462C317D0616400EF769B /* SignUpViewController.xib */,
 			);
 			name = View;
@@ -232,10 +256,10 @@
 		D6EEFFC617CDBDEA00EB28C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D6C88B2417DA6CF100DEA25D /* Dashboard */,
+				D64AAF3217D916FC006CA7E4 /* Login/Signup */,
 				D6EEFFD117CDC8C700EB28C7 /* MainController.h */,
 				D6EEFFD217CDC8C700EB28C7 /* MainController.m */,
-				D68462C117D0616400EF769B /* SignUpViewController.h */,
-				D68462C217D0616400EF769B /* SignUpViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -337,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64AAF3117D91405006CA7E4 /* LoginViewController.xib in Resources */,
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
 				D68462C517D0616400EF769B /* SignUpViewController.xib in Resources */,
 				D67EFDFA17CCE1280082F6C7 /* Images.xcassets in Resources */,
@@ -358,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64AAF3017D91405006CA7E4 /* LoginViewController.m in Sources */,
 				D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */,
 				D6EEFFD317CDC8C700EB28C7 /* MainController.m in Sources */,
 				D67EFDF517CCE1280082F6C7 /* AppDelegate.m in Sources */,

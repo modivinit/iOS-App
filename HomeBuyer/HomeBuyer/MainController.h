@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SignUpViewController.h"
 
-@interface MainController : NSObject
+@interface MainController : NSObject <SignUpDelegate>
 @property (nonatomic, strong) UINavigationController* mMainNavController;
 
 -(id) initWithNavController:(UINavigationController*) navController;

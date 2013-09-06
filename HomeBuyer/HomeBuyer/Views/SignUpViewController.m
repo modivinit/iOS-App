@@ -84,6 +84,10 @@
             [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
                                                            passowrd:password];
             
+            if(self.mSignUpDelegate &&
+               [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
+                [self.mSignUpDelegate userSignedUpSuccessfully];
+                
             [Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
         }
         else

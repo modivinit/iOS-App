@@ -7,7 +7,7 @@
 //
 
 #import "MainController.h"
-#import "SignUpViewController.h"
+#import "LoginViewController.h"
 
 @interface MainController ()
 @end
@@ -45,6 +45,7 @@
         {
             //then show the signup view
             SignUpViewController* signupCOntroller = [[SignUpViewController alloc] init];
+            signupCOntroller.mSignUpDelegate = self;
             [self.mMainNavController pushViewController:signupCOntroller animated:NO];
         }
     }
@@ -81,12 +82,21 @@
 
 -(void) savedUserLoggedInSuccessfully
 {
-        
+    //display the dashboard
 }
 
 -(void) failedToLoginSavedUser
 {
     //show login screen here
+    LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    [self.mMainNavController pushViewController:loginViewController animated:YES];
 }
 
+
+#pragma mark SignUpDelegate
+-(void) userSignedUpSuccessfully
+{
+    //Display the dashboard
+}
+#pragma end
 @end

@@ -27,7 +27,14 @@ static kunanceUser *kunanceUserSingleton;
     if (self) {
         // Initialization
         self.mLoggedInKunanceUser = nil;
+        self.mLoggedInKunanceUser = nil;
+        self.mkunanceUserPFInfo = nil;
+        self.mkunanceUserFixedExpenses = nil;
+        self.mKunanceUserHomes = nil;
+        self.mKunanceUserLoans = nil;
+        self.mUserProfileStatus = ProfileStatusNoInfoEntered;
     }
+    
     return self;
 }
 

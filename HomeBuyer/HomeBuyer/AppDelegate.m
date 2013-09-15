@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MainController.h"
 #import <FFEF/FatFractal.h>
 
 @interface AppDelegate ()
@@ -36,8 +35,15 @@
     self.window.rootViewController = navController;
     
     MainController* mainController = [[MainController alloc] initWithNavController:navController];
+    mainController.mMainControllerDelegate = self;
     [mainController start];
     return YES;
+}
+
+-(void) resetRootView:(UIViewController *)aViewController
+{
+    if(aViewController)
+    self.window.rootViewController = aViewController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

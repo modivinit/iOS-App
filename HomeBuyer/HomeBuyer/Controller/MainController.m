@@ -8,8 +8,12 @@
 
 #import "MainController.h"
 #import "LoginViewController.h"
+#import "DashboardViewController.h"
+#import "LeftMenuViewController.h"
+#import "PKRevealController.h"
 
 @interface MainController ()
+@property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @end
 
 @implementation MainController
@@ -69,7 +73,7 @@
                                                                passowrd:password];
                 
                 [self savedUserLoggedInSuccessfully];
-                [Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
+                //[Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
             }
             else
             {
@@ -80,9 +84,26 @@
     }
 }
 
+-(void) displayDash
+{
+    UINavigationController *frontViewController = [[UINavigationController alloc] initWithRootViewController:[[DashboardViewController alloc] init]];
+    LeftMenuViewController *leftViewController = [[LeftMenuViewController alloc] init];
+    
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontViewController
+                                                                     leftViewController:leftViewController
+                                                                    rightViewController:nil
+                                                                                options:nil];
+   if(self.mMainControllerDelegate &&
+      [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+   {
+       [self.mMainControllerDelegate resetRootView:self.revealController];
+   }
+}
+
 -(void) savedUserLoggedInSuccessfully
 {
     //display the dashboard
+    [self displayDash];
 }
 
 -(void) failedToLoginSavedUser
@@ -97,6 +118,7 @@
 -(void) userSignedUpSuccessfully
 {
     //Display the dashboard
+    [self displayDash];
 }
 #pragma end
 @end

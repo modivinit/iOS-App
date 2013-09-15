@@ -36,5 +36,10 @@ typedef enum {
     kTextFieldPassword
 } TextFieldTypes;
 
-
+typedef enum{
+    ProfileStatusNoInfoEntered = 0,
+    ProfileStatusUserPersonalFinanceInfoEntered,
+    ProfileStatusUser1HomeInfoEntered,
+    ProfileStatusUserMultipleHomesInfoEntered
+}kunanceUserProfileStatus;
 #endif

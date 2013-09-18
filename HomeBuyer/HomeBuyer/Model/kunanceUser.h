@@ -19,10 +19,11 @@
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
 @property (nonatomic, strong) usersLoansList* mKunanceUserLoans;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
+@property (nonatomic, strong) NSString*        mKunanceUserGUID;
 
 + (kunanceUser*) getInstance;
 -(BOOL) isUserLoggedIn;
--(void) saveUserInfoAfterLoginSignUp:(FFUser*) newUser passowrd:(NSString*) pswd;
+-(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd;
 -(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password;
 -(BOOL) userAccountFoundOnDevice;
 @end

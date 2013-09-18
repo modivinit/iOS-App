@@ -64,6 +64,34 @@
 		D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */; };
 		D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C890B617DC4426007CB46F /* LeftMenuViewController.m */; };
 		D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */; };
+		D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */; };
+		D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */; };
+		D6E6EE5417E65A8A005D7526 /* couple.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5217E65A8A005D7526 /* couple.png */; };
+		D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5317E65A8A005D7526 /* couple@2x.png */; };
+		D6E6EE5817E65A9E005D7526 /* single.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5617E65A9E005D7526 /* single.png */; };
+		D6E6EE5917E65A9E005D7526 /* single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5717E65A9E005D7526 /* single@2x.png */; };
+		D6E6EE5C17E65AAF005D7526 /* salary.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5A17E65AAF005D7526 /* salary.png */; };
+		D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5B17E65AAF005D7526 /* salary@2x.png */; };
+		D6E6EE6017E65AC0005D7526 /* savings.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5E17E65AC0005D7526 /* savings.png */; };
+		D6E6EE6117E65AC0005D7526 /* savings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5F17E65AC0005D7526 /* savings@2x.png */; };
+		D6E6EE6417E65AD1005D7526 /* children.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6217E65AD1005D7526 /* children.png */; };
+		D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6317E65AD1005D7526 /* children@2x.png */; };
+		D6E6EE6817E65AE2005D7526 /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6617E65AE2005D7526 /* dashboard.png */; };
+		D6E6EE6917E65AE2005D7526 /* dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6717E65AE2005D7526 /* dashboard@2x.png */; };
+		D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6A17E660EA005D7526 /* single-selected.png */; };
+		D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */; };
+		D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6E17E660F9005D7526 /* couple-selected.png */; };
+		D6E6EE7117E660F9005D7526 /* couple-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6F17E660F9005D7526 /* couple-selected@2x.png */; };
+		D6E6EEB117E79D05005D7526 /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EEAF17E79D05005D7526 /* ExpensesViewController.m */; };
+		D6E6EEB217E79D05005D7526 /* ExpensesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB017E79D05005D7526 /* ExpensesViewController.xib */; };
+		D6E6EEB717E79D6F005D7526 /* rent.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB517E79D6F005D7526 /* rent.png */; };
+		D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB617E79D6F005D7526 /* rent@2x.png */; };
+		D6E6EEBB17E79D7D005D7526 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB917E79D7D005D7526 /* car.png */; };
+		D6E6EEBC17E79D7D005D7526 /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEBA17E79D7D005D7526 /* car@2x.png */; };
+		D6E6EEBF17E79D8C005D7526 /* otherexpenses.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEBD17E79D8C005D7526 /* otherexpenses.png */; };
+		D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEBE17E79D8C005D7526 /* otherexpenses@2x.png */; };
+		D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC117E79DA8005D7526 /* back-icon.png */; };
+		D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */; };
 		D6F9D3FC17DE67F1001DE8D1 /* compare.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F9D3F417DE67F1001DE8D1 /* compare.png */; };
 		D6F9D3FD17DE67F1001DE8D1 /* compare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F9D3F517DE67F1001DE8D1 /* compare@2x.png */; };
 		D6F9D3FE17DE67F1001DE8D1 /* couple-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F9D3F617DE67F1001DE8D1 /* couple-dashboard.png */; };
@@ -158,6 +186,36 @@
 		D6C890B517DC4426007CB46F /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		D6C890B617DC4426007CB46F /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
+		D6E6EE4D17E659DD005D7526 /* AboutYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutYouViewController.h; path = Controller/AboutYouViewController.h; sourceTree = "<group>"; };
+		D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutYouViewController.m; path = Controller/AboutYouViewController.m; sourceTree = "<group>"; };
+		D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutYouViewController.xib; path = Controller/AboutYouViewController.xib; sourceTree = "<group>"; };
+		D6E6EE5217E65A8A005D7526 /* couple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = couple.png; sourceTree = "<group>"; };
+		D6E6EE5317E65A8A005D7526 /* couple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple@2x.png"; sourceTree = "<group>"; };
+		D6E6EE5617E65A9E005D7526 /* single.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single.png; sourceTree = "<group>"; };
+		D6E6EE5717E65A9E005D7526 /* single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single@2x.png"; sourceTree = "<group>"; };
+		D6E6EE5A17E65AAF005D7526 /* salary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salary.png; sourceTree = "<group>"; };
+		D6E6EE5B17E65AAF005D7526 /* salary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "salary@2x.png"; sourceTree = "<group>"; };
+		D6E6EE5E17E65AC0005D7526 /* savings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = savings.png; sourceTree = "<group>"; };
+		D6E6EE5F17E65AC0005D7526 /* savings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "savings@2x.png"; sourceTree = "<group>"; };
+		D6E6EE6217E65AD1005D7526 /* children.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = children.png; sourceTree = "<group>"; };
+		D6E6EE6317E65AD1005D7526 /* children@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "children@2x.png"; sourceTree = "<group>"; };
+		D6E6EE6617E65AE2005D7526 /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard.png; sourceTree = "<group>"; };
+		D6E6EE6717E65AE2005D7526 /* dashboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard@2x.png"; sourceTree = "<group>"; };
+		D6E6EE6A17E660EA005D7526 /* single-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-selected.png"; sourceTree = "<group>"; };
+		D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-selected@2x.png"; sourceTree = "<group>"; };
+		D6E6EE6E17E660F9005D7526 /* couple-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-selected.png"; sourceTree = "<group>"; };
+		D6E6EE6F17E660F9005D7526 /* couple-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-selected@2x.png"; sourceTree = "<group>"; };
+		D6E6EEAE17E79D05005D7526 /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesViewController.h; path = Controller/ExpensesViewController.h; sourceTree = "<group>"; };
+		D6E6EEAF17E79D05005D7526 /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesViewController.m; path = Controller/ExpensesViewController.m; sourceTree = "<group>"; };
+		D6E6EEB017E79D05005D7526 /* ExpensesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpensesViewController.xib; path = Controller/ExpensesViewController.xib; sourceTree = "<group>"; };
+		D6E6EEB517E79D6F005D7526 /* rent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rent.png; sourceTree = "<group>"; };
+		D6E6EEB617E79D6F005D7526 /* rent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rent@2x.png"; sourceTree = "<group>"; };
+		D6E6EEB917E79D7D005D7526 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		D6E6EEBA17E79D7D005D7526 /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
+		D6E6EEBD17E79D8C005D7526 /* otherexpenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherexpenses.png; sourceTree = "<group>"; };
+		D6E6EEBE17E79D8C005D7526 /* otherexpenses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "otherexpenses@2x.png"; sourceTree = "<group>"; };
+		D6E6EEC117E79DA8005D7526 /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
+		D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@2x.png"; sourceTree = "<group>"; };
 		D6F9D3F417DE67F1001DE8D1 /* compare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compare.png; path = Resources/Icons/compare.png; sourceTree = "<group>"; };
 		D6F9D3F517DE67F1001DE8D1 /* compare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compare@2x.png"; path = "Resources/Icons/compare@2x.png"; sourceTree = "<group>"; };
 		D6F9D3F617DE67F1001DE8D1 /* couple-dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "couple-dashboard.png"; path = "Resources/Icons/couple-dashboard.png"; sourceTree = "<group>"; };
@@ -387,6 +445,64 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
+		D6E6EE4B17E659A7005D7526 /* AboutYou */ = {
+			isa = PBXGroup;
+			children = (
+				D6E6EE6E17E660F9005D7526 /* couple-selected.png */,
+				D6E6EE6F17E660F9005D7526 /* couple-selected@2x.png */,
+				D6E6EE6A17E660EA005D7526 /* single-selected.png */,
+				D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */,
+				D6E6EE6617E65AE2005D7526 /* dashboard.png */,
+				D6E6EE6717E65AE2005D7526 /* dashboard@2x.png */,
+				D6E6EE6217E65AD1005D7526 /* children.png */,
+				D6E6EE6317E65AD1005D7526 /* children@2x.png */,
+				D6E6EE5A17E65AAF005D7526 /* salary.png */,
+				D6E6EE5B17E65AAF005D7526 /* salary@2x.png */,
+				D6E6EE5617E65A9E005D7526 /* single.png */,
+				D6E6EE5E17E65AC0005D7526 /* savings.png */,
+				D6E6EE5F17E65AC0005D7526 /* savings@2x.png */,
+				D6E6EE5717E65A9E005D7526 /* single@2x.png */,
+				D6E6EE5217E65A8A005D7526 /* couple.png */,
+				D6E6EE5317E65A8A005D7526 /* couple@2x.png */,
+				D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */,
+			);
+			name = AboutYou;
+			sourceTree = "<group>";
+		};
+		D6E6EE4C17E659AF005D7526 /* AboutYou */ = {
+			isa = PBXGroup;
+			children = (
+				D6E6EE4D17E659DD005D7526 /* AboutYouViewController.h */,
+				D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */,
+			);
+			name = AboutYou;
+			sourceTree = "<group>";
+		};
+		D6E6EEB317E79D19005D7526 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				D6E6EEAE17E79D05005D7526 /* ExpensesViewController.h */,
+				D6E6EEAF17E79D05005D7526 /* ExpensesViewController.m */,
+			);
+			name = Expenses;
+			sourceTree = "<group>";
+		};
+		D6E6EEB417E79D2A005D7526 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				D6E6EEC117E79DA8005D7526 /* back-icon.png */,
+				D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */,
+				D6E6EEBD17E79D8C005D7526 /* otherexpenses.png */,
+				D6E6EEBE17E79D8C005D7526 /* otherexpenses@2x.png */,
+				D6E6EEB917E79D7D005D7526 /* car.png */,
+				D6E6EEBA17E79D7D005D7526 /* car@2x.png */,
+				D6E6EEB517E79D6F005D7526 /* rent.png */,
+				D6E6EEB617E79D6F005D7526 /* rent@2x.png */,
+				D6E6EEB017E79D05005D7526 /* ExpensesViewController.xib */,
+			);
+			name = Expenses;
+			sourceTree = "<group>";
+		};
 		D6EEFFC417CDBDCD00EB28C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +529,8 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6E6EEB417E79D2A005D7526 /* Expenses */,
+				D6E6EE4B17E659A7005D7526 /* AboutYou */,
 				D6F9D3EF17DE66AA001DE8D1 /* NoInfoDash */,
 				D6C88B2617DA6EEF00DEA25D /* Dashboard */,
 				D6C88B2517DA6D7900DEA25D /* Login/SignUp */,
@@ -423,6 +541,8 @@
 		D6EEFFC617CDBDEA00EB28C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D6E6EEB317E79D19005D7526 /* Expenses */,
+				D6E6EE4C17E659AF005D7526 /* AboutYou */,
 				D6C88B2717DA79AA00DEA25D /* MainController.m */,
 				D6C88B2817DA79AA00DEA25D /* MainController.h */,
 				D6C88B2417DA6CF100DEA25D /* Dashboard */,
@@ -559,22 +679,48 @@
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
 				D6F9D40717DE6921001DE8D1 /* forward-icon@2x.png in Resources */,
 				D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */,
+				D6E6EE5917E65A9E005D7526 /* single@2x.png in Resources */,
 				D6F9D40A17DE6956001DE8D1 /* help.png in Resources */,
+				D6E6EEBF17E79D8C005D7526 /* otherexpenses.png in Resources */,
+				D6E6EE5C17E65AAF005D7526 /* salary.png in Resources */,
 				D6C88B4417DA7C0A00DEA25D /* Dash1HomeEnteredView.xib in Resources */,
+				D6E6EEBC17E79D7D005D7526 /* car@2x.png in Resources */,
+				D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */,
+				D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */,
+				D6E6EEBB17E79D7D005D7526 /* car.png in Resources */,
 				D6F9D41317DE72CF001DE8D1 /* DashNoInfoEnteredView.xib in Resources */,
 				D6C88B3417DA7B3000DEA25D /* SignUpViewController.xib in Resources */,
+				D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */,
+				D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */,
 				D6F9D40317DE67F1001DE8D1 /* sfh@2x.png in Resources */,
 				D6C88B4617DA7F7200DEA25D /* DashMultipleHomesView.xib in Resources */,
+				D6E6EE6817E65AE2005D7526 /* dashboard.png in Resources */,
+				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
+				D6E6EE5417E65A8A005D7526 /* couple.png in Resources */,
+				D6E6EEB217E79D05005D7526 /* ExpensesViewController.xib in Resources */,
+				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
+				D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */,
 				D6F9D3FD17DE67F1001DE8D1 /* compare@2x.png in Resources */,
 				D6F9D40217DE67F1001DE8D1 /* sfh.png in Resources */,
+				D6E6EE6117E65AC0005D7526 /* savings@2x.png in Resources */,
+				D6E6EE6417E65AD1005D7526 /* children.png in Resources */,
 				D6F9D40117DE67F1001DE8D1 /* lifestyle-beach@2x.png in Resources */,
+				D6E6EE6917E65AE2005D7526 /* dashboard@2x.png in Resources */,
 				D6F9D3FC17DE67F1001DE8D1 /* compare.png in Resources */,
 				D6F9D40B17DE6956001DE8D1 /* help@2x.png in Resources */,
+				D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */,
+				D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */,
 				D6842E5317DD22060028AF00 /* MenuIcon.png in Resources */,
+				D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */,
 				D6F9D40017DE67F1001DE8D1 /* lifestyle-beach.png in Resources */,
+				D6E6EE7117E660F9005D7526 /* couple-selected@2x.png in Resources */,
+				D6E6EE6017E65AC0005D7526 /* savings.png in Resources */,
+				D6E6EE5817E65A9E005D7526 /* single.png in Resources */,
+				D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */,
 				D6F9D3FE17DE67F1001DE8D1 /* couple-dashboard.png in Resources */,
 				D67EFDFA17CCE1280082F6C7 /* Images.xcassets in Resources */,
 				D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */,
+				D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */,
 				D6C88B4217DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,11 +751,13 @@
 				D6C88B3017DA7B1600DEA25D /* LoginViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
+				D6E6EEB117E79D05005D7526 /* ExpensesViewController.m in Sources */,
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				D6C88B4A17DA7FEC00DEA25D /* DashboardViewController.m in Sources */,
+				D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */,
 				D6842E5A17DD317F0028AF00 /* userFixedExpensesInfo.m in Sources */,
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,
 				D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */,

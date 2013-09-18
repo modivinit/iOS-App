@@ -43,7 +43,7 @@ static kunanceUser *kunanceUserSingleton;
     return ([[FatFractal main] loggedIn] && [kunanceUser getInstance].mLoggedInKunanceUser);
 }
 
--(void) saveUserInfoAfterLoginSignUp:(FFUser*) newUser passowrd:(NSString*) pswd
+-(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd
 {
     if(!newUser || !pswd)
         return;
@@ -52,6 +52,10 @@ static kunanceUser *kunanceUserSingleton;
     [KeychainWrapper createKeychainValue:newUser.email forIdentifier:@"email"];
     
     self.mLoggedInKunanceUser = newUser;
+    
+    FatFractal *ff = [FatFractal main];
+    if(ff)
+        self.mKunanceUserGUID = [[ff metaDataForObj:newUser] guid];
 }
 
 -(BOOL)userAccountFoundOnDevice

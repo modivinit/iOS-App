@@ -9,6 +9,7 @@
 #import "DashboardViewController.h"
 #import "PKRevealController.h"
 #import "DashNoInfoEnteredView.h"
+#import "AboutYouViewController.h"
 
 @interface DashboardViewController ()
 @property (nonatomic, strong) DashNoInfoEnteredView* mDashNoInfoEnteredView;
@@ -30,7 +31,9 @@
 -(void) showNoInfoEnteredView
 {
     self.mDashNoInfoEnteredView = [[[NSBundle mainBundle] loadNibNamed:@"DashNoInfoEnteredView"
-                                                                 owner:self options:nil] objectAtIndex:0];
+                                                                 owner:self options:nil]
+                                   objectAtIndex:0];
+    
     [self.mDashBoardMasterView addSubview:self.mDashNoInfoEnteredView];
     
     UITapGestureRecognizer* tapAboutYou = [[UITapGestureRecognizer alloc]
@@ -118,7 +121,8 @@
 
 -(void) aboutYouTapped
 {
-    NSLog(@"aboutYouTapped");
+    AboutYouViewController* aboutYouController = [[AboutYouViewController alloc] init];
+    [self.navigationController pushViewController:aboutYouController animated:YES];
 }
 
 

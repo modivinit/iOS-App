@@ -11,13 +11,15 @@
 typedef enum
 {
     StatusMarried = 0,
-    StatusSingle = 1
+    StatusSingle = 1,
+    StatusNotDefined = 3
 }userMaritalStatus;
 
 @interface userPFInfo : NSObject
 @property (nonatomic, readwrite) userMaritalStatus mMaritalStatus;
-@property (nonatomic) UInt16                       mGrossAnnualIncome;
+@property (nonatomic) UInt64                       mGrossAnnualIncome;
 @property (nonatomic) UInt8                        mNumberOfChildren;
-@property (nonatomic) UInt16                       mAnnualRetirementSavingsContributions;
+@property (nonatomic) UInt64                       mAnnualRetirementSavingsContributions;
 @property (nonatomic) UInt16                       mCurrentMonthlyIncomeTax;
+@property (nonatomic, strong) NSString*            mUserPFInfoGUID;
 @end

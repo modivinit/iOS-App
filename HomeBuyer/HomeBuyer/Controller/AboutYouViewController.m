@@ -66,20 +66,10 @@
 {
     uint tags = 0;
     
-    self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
-    self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
-                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
-                           nil];
-    [self.mKeyBoardToolbar sizeToFit];
-    
     self.mAnnualGrossIncomeField.tag = tags++;
-    self.mAnnualGrossIncomeField.inputAccessoryView = self.mKeyBoardToolbar;
     self.mAnnualGrossIncomeField.delegate = self;
     
     self.mAnnualRetirementContributionField.tag = tags++;
-    self.mAnnualRetirementContributionField.inputAccessoryView = self.mKeyBoardToolbar;
     self.mAnnualRetirementContributionField.delegate = self;
 
     self.mNumberOfChildrenControl.tag = tags++;
@@ -150,20 +140,23 @@
 
 -(void) userExpensesButtonTapped
 {
-    //Extract the form info into the UserPFInfo object of the current user
-    
-    userPFInfo* currentPFInfo = [[userPFInfo alloc] init];
-    currentPFInfo.mMaritalStatus = self.mSelectedMaritalStatus;
-    currentPFInfo.mGrossAnnualIncome = [self.mAnnualGrossIncomeField.text intValue];
-    currentPFInfo.mAnnualRetirementSavingsContributions = [self.mAnnualRetirementContributionField.text intValue];
-    
-    currentPFInfo.mNumberOfChildren = self.mNumberOfChildrenControl.selectedSegmentIndex;
+    userPFInfo* currentPFInfo = nil;
     
     //upload it to the back
     if([kunanceUser getInstance].mkunanceUserPFInfo)
         [self updateUserPfObj:currentPFInfo];
     else
+    {
+        userPFInfo* currentPFInfo = [[userPFInfo alloc] init];
         [self createUserPFObj:currentPFInfo];
+    }
+    
+
+    currentPFInfo.mMaritalStatus = self.mSelectedMaritalStatus;
+    currentPFInfo.mGrossAnnualIncome = [self.mAnnualGrossIncomeField.text intValue];
+    currentPFInfo.mAnnualRetirementSavingsContributions = [self.mAnnualRetirementContributionField.text intValue];
+    
+    currentPFInfo.mNumberOfChildren = self.mNumberOfChildrenControl.selectedSegmentIndex;
     
     //let the dashcontroller know that this form is done
     if(self.mAboutYouControllerDelegate &&
@@ -184,7 +177,7 @@
         }
         else
         {
-            NSLog(@"Error Uploading User PF Info");
+            NSLog(@"Error updating User PF Info %@", err);
         }
     }];
 }
@@ -203,12 +196,28 @@
         }
         else
         {
-            NSLog(@"Error Uploading User PF Info");
+            NSLog(@"Error creating User PF Info: %@", err);
         }
     }];
 }
 
 #pragma mark - UITextField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.mAnnualGrossIncomeField)
+    {
+        [self.mAnnualRetirementContributionField becomeFirstResponder];
+    }
+    else if (textField == self.mAnnualRetirementContributionField)
+    {
+        [self.mNumberOfChildrenControl becomeFirstResponder];
+    }
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.mActiveField = textField;

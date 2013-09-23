@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9ECCAD3A17F0C8BD001EAF4C /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCAD3917F0C8BD001EAF4C /* FFEF.framework */; };
+		9ECCAD3B17F0C8BD001EAF4C /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCAD3917F0C8BD001EAF4C /* FFEF.framework */; };
 		D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */; };
@@ -42,8 +44,6 @@
 		D6842E6B17DD9A670028AF00 /* homeAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E6917DD9A670028AF00 /* homeAddress.m */; };
 		D6842E6E17DDA8720028AF00 /* UsersHomesList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E6D17DDA8720028AF00 /* UsersHomesList.m */; };
 		D6842E6F17DDA8720028AF00 /* UsersHomesList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E6D17DDA8720028AF00 /* UsersHomesList.m */; };
-		D696EB0917D3161100F475F3 /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB0817D3161100F475F3 /* FFEF.framework */; };
-		D696EB0A17D3161100F475F3 /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB0817D3161100F475F3 /* FFEF.framework */; };
 		D696EB1817D50ABA00F475F3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB1717D50ABA00F475F3 /* MobileCoreServices.framework */; };
 		D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB1917D50AEE00F475F3 /* Security.framework */; };
 		D6B93F6217E96F9F0049B5D5 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B93F6117E96F9F0049B5D5 /* APIService.m */; };
@@ -121,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9ECCAD3917F0C8BD001EAF4C /* FFEF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFEF.framework; sourceTree = "<group>"; };
 		D610B4FC17D15E5500C6EE4A /* kunanceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kunanceUser.h; path = Model/kunanceUser.h; sourceTree = "<group>"; };
 		D610B4FD17D15E5500C6EE4A /* kunanceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kunanceUser.m; path = Model/kunanceUser.m; sourceTree = "<group>"; };
 		D6468B0A17DAF8CD0056EF57 /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
@@ -162,7 +163,6 @@
 		D6842E6917DD9A670028AF00 /* homeAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = homeAddress.m; path = Model/homeAddress.m; sourceTree = "<group>"; };
 		D6842E6C17DDA8720028AF00 /* UsersHomesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersHomesList.h; path = Model/UsersHomesList.h; sourceTree = "<group>"; };
 		D6842E6D17DDA8720028AF00 /* UsersHomesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersHomesList.m; path = Model/UsersHomesList.m; sourceTree = "<group>"; };
-		D696EB0817D3161100F475F3 /* FFEF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFEF.framework; sourceTree = "<group>"; };
 		D696EB1717D50ABA00F475F3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D696EB1917D50AEE00F475F3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D696EB1F17D5127400F475F3 /* kunanceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kunanceConstants.h; sourceTree = "<group>"; };
@@ -243,10 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */,
+				9ECCAD3A17F0C8BD001EAF4C /* FFEF.framework in Frameworks */,
 				D696EB1817D50ABA00F475F3 /* MobileCoreServices.framework in Frameworks */,
 				D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */,
 				D67EFDE917CCE1280082F6C7 /* CoreData.framework in Frameworks */,
-				D696EB0917D3161100F475F3 /* FFEF.framework in Frameworks */,
 				D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */,
 				D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */,
 			);
@@ -258,7 +258,7 @@
 			files = (
 				D67EFE0117CCE1290082F6C7 /* XCTest.framework in Frameworks */,
 				D67EFE0417CCE1290082F6C7 /* CoreData.framework in Frameworks */,
-				D696EB0A17D3161100F475F3 /* FFEF.framework in Frameworks */,
+				9ECCAD3B17F0C8BD001EAF4C /* FFEF.framework in Frameworks */,
 				D67EFE0317CCE1290082F6C7 /* UIKit.framework in Frameworks */,
 				D67EFE0217CCE1290082F6C7 /* Foundation.framework in Frameworks */,
 			);
@@ -321,9 +321,9 @@
 		D67EFDE117CCE1280082F6C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9ECCAD3917F0C8BD001EAF4C /* FFEF.framework */,
 				D696EB1917D50AEE00F475F3 /* Security.framework */,
 				D696EB1717D50ABA00F475F3 /* MobileCoreServices.framework */,
-				D696EB0817D3161100F475F3 /* FFEF.framework */,
 				D67EFDE217CCE1280082F6C7 /* Foundation.framework */,
 				D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */,
 				D67EFDE617CCE1280082F6C7 /* UIKit.framework */,
@@ -903,6 +903,7 @@
 					"$(inherited)",
 					/Users/shilpamodi/Downloads,
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/Macbook\\ Pro\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
@@ -923,6 +924,7 @@
 					"$(inherited)",
 					/Users/shilpamodi/Downloads,
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/Macbook\\ Pro\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
@@ -943,6 +945,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/Macbook\\ Pro\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
@@ -966,6 +969,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/Macbook\\ Pro\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";

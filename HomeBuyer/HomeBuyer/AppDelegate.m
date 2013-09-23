@@ -30,7 +30,8 @@
 
     NSString *baseUrl = @"https://kunance.fatfractal.com/kCAT";
     self.ff = [[FatFractal alloc] initWithBaseUrl:baseUrl];
-    
+    [FFHttpDelegate addTrustedHost:@"kunance.fatfractal.com"];
+
     UINavigationController* navController = [[UINavigationController alloc] init];
     self.window.rootViewController = navController;
     

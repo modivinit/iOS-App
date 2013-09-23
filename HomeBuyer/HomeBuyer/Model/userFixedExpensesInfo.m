@@ -19,6 +19,7 @@
         self.mCurrentMonthlyRent = 0;
         self.mCurrentCarPayment = 0;
         self.mOtherExpenses = 0;
+        self.mUserExpensesGUID = nil;
     }
     
     return self;

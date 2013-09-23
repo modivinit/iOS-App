@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "userPFInfo.h"
 
+@protocol AboutYouControllerDelegate <NSObject>
+-(void) userExpensesButtonTapped;
+@end
+
 @interface AboutYouViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic, strong) UISegmentedControl *mNavControl;
@@ -26,4 +30,5 @@
 @property (nonatomic) IBOutlet UISegmentedControl* mNumberOfChildrenControl;
 @property (nonatomic) IBOutlet UIView*  mUserExpensesViewAsButton;
 
+@property (nonatomic, weak) id <AboutYouControllerDelegate> mAboutYouControllerDelegate;
 @end

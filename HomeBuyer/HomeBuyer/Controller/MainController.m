@@ -11,6 +11,7 @@
 #import "DashboardViewController.h"
 #import "LeftMenuViewController.h"
 #import "PKRevealController.h"
+#import "APIService.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
@@ -25,6 +26,8 @@
     if(self)
     {
         self.mMainNavController = navController;
+        self.mAPIService = [[APIService alloc] init];
+        self.mAPIService.mAPIServiceDelegate = self;
     }
     
     return self;
@@ -102,6 +105,9 @@
 
 -(void) savedUserLoggedInSuccessfully
 {
+    if(self.mAPIService)
+        [self.mAPIService readUserPFInfo];
+
     //display the dashboard
     [self displayDash];
 }
@@ -119,6 +125,18 @@
 {
     //Display the dashboard
     [self displayDash];
+}
+#pragma end
+
+#pragma mark APIServiceDelegate
+-(void) userPFInfoReadSuccessfully
+{
+    [self.mAPIService readUserExpensesInfo];
+}
+
+-(void) userExpensesInfoReadSuccessfully
+{
+    
 }
 #pragma end
 @end

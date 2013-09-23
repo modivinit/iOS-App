@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ExpensesControllerDelegate <NSObject>
+-(void) currentLifeStyleIncomeButtonPressed;
+@end
+
 @interface ExpensesViewController : UIViewController
 
+@property (nonatomic, weak) id <ExpensesControllerDelegate> mExpensesControllerDelegate;
 @end

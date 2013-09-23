@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+PKRevealController.h"
+#import "AboutYouViewController.h"
+#import "ExpensesViewController.h"
 
-@interface DashboardViewController : UIViewController
+@interface DashboardViewController : UIViewController<AboutYouControllerDelegate, ExpensesControllerDelegate>
+
 @property (nonatomic, strong) IBOutlet UIView* mDashBoardMasterView;
 
 @end

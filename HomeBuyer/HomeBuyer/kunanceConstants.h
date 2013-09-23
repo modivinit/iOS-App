@@ -39,6 +39,7 @@ typedef enum {
 typedef enum{
     ProfileStatusNoInfoEntered = 0,
     ProfileStatusUserPersonalFinanceInfoEntered,
+    ProfileStatusUserExpensesInfoEntered,
     ProfileStatusUser1HomeInfoEntered,
     ProfileStatusUserMultipleHomesInfoEntered
 }kunanceUserProfileStatus;

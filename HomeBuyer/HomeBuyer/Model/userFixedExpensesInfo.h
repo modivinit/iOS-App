@@ -12,4 +12,5 @@
 @property (nonatomic) UInt16 mCurrentMonthlyRent;
 @property (nonatomic) UInt16 mCurrentCarPayment;
 @property (nonatomic) UInt16 mOtherExpenses;
+@property (nonatomic, strong) NSString* mUserExpensesGUID;
 @end

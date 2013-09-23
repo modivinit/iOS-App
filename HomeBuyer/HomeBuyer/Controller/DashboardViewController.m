@@ -9,7 +9,6 @@
 #import "DashboardViewController.h"
 #import "PKRevealController.h"
 #import "DashNoInfoEnteredView.h"
-#import "AboutYouViewController.h"
 
 @interface DashboardViewController ()
 @property (nonatomic, strong) DashNoInfoEnteredView* mDashNoInfoEnteredView;
@@ -122,8 +121,24 @@
 -(void) aboutYouTapped
 {
     AboutYouViewController* aboutYouController = [[AboutYouViewController alloc] init];
+    aboutYouController.mAboutYouControllerDelegate = self;
     [self.navigationController pushViewController:aboutYouController animated:YES];
 }
 
 
+#pragma AboutYouControllerDelegate
+-(void) userExpensesButtonTapped
+{
+    ExpensesViewController* expensesController = [[ExpensesViewController alloc] init];
+    expensesController.mExpensesControllerDelegate = self;
+    [self.navigationController pushViewController:expensesController animated:YES];
+}
+#pragma end
+
+#pragma ExpensesControllerDelegate
+-(void) currentLifeStyleIncomeButtonPressed
+{
+    
+}
+#pragma end
 @end

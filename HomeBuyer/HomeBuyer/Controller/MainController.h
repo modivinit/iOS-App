@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "SignUpViewController.h"
-
+#import "APIService.h"
 
 @protocol MainControllerDelegate <NSObject>
 -(void) resetRootView:(UIViewController*) viewController;
 @end
 
-@interface MainController : NSObject <SignUpDelegate>
+@interface MainController : NSObject <SignUpDelegate, APIServiceDelegate>
 @property (nonatomic, strong) UINavigationController* mMainNavController;
 @property (nonatomic, weak) id <MainControllerDelegate> mMainControllerDelegate;
+@property (nonatomic, strong) APIService* mAPIService;
 
 -(id) initWithNavController:(UINavigationController*) navController;
 -(void) start;

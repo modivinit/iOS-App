@@ -166,6 +166,11 @@
         [self createUserPFObj:currentPFInfo];
     
     //let the dashcontroller know that this form is done
+    if(self.mAboutYouControllerDelegate &&
+       [self.mAboutYouControllerDelegate respondsToSelector:@selector(userExpensesButtonTapped)])
+    {
+        [self.mAboutYouControllerDelegate userExpensesButtonTapped];
+    }
 }
 
 -(void) updateUserPfObj:(userPFInfo*) currentPFInfo
@@ -243,18 +248,20 @@
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    UIEdgeInsets tmpContainerContentInset = self.mFormScrollView.contentInset;
-	
-    tmpContainerContentInset.bottom = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.mFormScrollView.contentInset = contentInsets;
+    self.mFormScrollView.scrollIndicatorInsets = contentInsets;
     
-    [self.mFormScrollView setScrollIndicatorInsets:tmpContainerContentInset];
-    
-    NSTimeInterval tmpAnimationDuration = [[[aNotification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    
-    [UIView animateWithDuration:tmpAnimationDuration
-                     animations:^{
-                         [self.mFormScrollView setContentInset:tmpContainerContentInset];
-                     }];
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.mActiveField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.mActiveField.frame.origin.y-kbSize.height);
+        [self.mFormScrollView setContentOffset:scrollPoint animated:YES];
+    }
 }
 
 // Called when the UIKeyboardWillHideNotification is sent

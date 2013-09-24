@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+PKRevealController.h"
 #import "AboutYouViewController.h"
-#import "ExpensesViewController.h"
+#import "FixedCostsViewController.h"
 
 @interface DashboardViewController : UIViewController<AboutYouControllerDelegate, ExpensesControllerDelegate>
 

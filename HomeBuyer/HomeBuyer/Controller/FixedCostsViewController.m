@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "ExpensesViewController.h"
+#import "FixedCostsViewController.h"
 
-@interface ExpensesViewController ()
+@interface FixedCostsViewController ()
 
 @end
 
-@implementation ExpensesViewController
+@implementation FixedCostsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

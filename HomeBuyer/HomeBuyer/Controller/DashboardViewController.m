@@ -129,7 +129,7 @@
 #pragma AboutYouControllerDelegate
 -(void) userExpensesButtonTapped
 {
-    ExpensesViewController* expensesController = [[ExpensesViewController alloc] init];
+    FixedCostsViewController* expensesController = [[FixedCostsViewController alloc] init];
     expensesController.mExpensesControllerDelegate = self;
     [self.navigationController pushViewController:expensesController animated:YES];
 }

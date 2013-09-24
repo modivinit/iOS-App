@@ -146,8 +146,8 @@
 		D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */; };
 		D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6E17E660F9005D7526 /* couple-selected.png */; };
 		D6E6EE7117E660F9005D7526 /* couple-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6F17E660F9005D7526 /* couple-selected@2x.png */; };
-		D6E6EEB117E79D05005D7526 /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EEAF17E79D05005D7526 /* ExpensesViewController.m */; };
-		D6E6EEB217E79D05005D7526 /* ExpensesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB017E79D05005D7526 /* ExpensesViewController.xib */; };
+		D6E6EEB117E79D05005D7526 /* FixedCostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EEAF17E79D05005D7526 /* FixedCostsViewController.m */; };
+		D6E6EEB217E79D05005D7526 /* FixedCostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB017E79D05005D7526 /* FixedCostsViewController.xib */; };
 		D6E6EEB717E79D6F005D7526 /* rent.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB517E79D6F005D7526 /* rent.png */; };
 		D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB617E79D6F005D7526 /* rent@2x.png */; };
 		D6E6EEBB17E79D7D005D7526 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEB917E79D7D005D7526 /* car.png */; };
@@ -308,9 +308,9 @@
 		D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-selected@2x.png"; sourceTree = "<group>"; };
 		D6E6EE6E17E660F9005D7526 /* couple-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-selected.png"; sourceTree = "<group>"; };
 		D6E6EE6F17E660F9005D7526 /* couple-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-selected@2x.png"; sourceTree = "<group>"; };
-		D6E6EEAE17E79D05005D7526 /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesViewController.h; path = Controller/ExpensesViewController.h; sourceTree = "<group>"; };
-		D6E6EEAF17E79D05005D7526 /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesViewController.m; path = Controller/ExpensesViewController.m; sourceTree = "<group>"; };
-		D6E6EEB017E79D05005D7526 /* ExpensesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpensesViewController.xib; path = Controller/ExpensesViewController.xib; sourceTree = "<group>"; };
+		D6E6EEAE17E79D05005D7526 /* FixedCostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FixedCostsViewController.h; path = Controller/FixedCostsViewController.h; sourceTree = "<group>"; };
+		D6E6EEAF17E79D05005D7526 /* FixedCostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FixedCostsViewController.m; path = Controller/FixedCostsViewController.m; sourceTree = "<group>"; };
+		D6E6EEB017E79D05005D7526 /* FixedCostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FixedCostsViewController.xib; path = Controller/FixedCostsViewController.xib; sourceTree = "<group>"; };
 		D6E6EEB517E79D6F005D7526 /* rent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rent.png; sourceTree = "<group>"; };
 		D6E6EEB617E79D6F005D7526 /* rent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rent@2x.png"; sourceTree = "<group>"; };
 		D6E6EEB917E79D7D005D7526 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
@@ -646,16 +646,16 @@
 			name = AboutYou;
 			sourceTree = "<group>";
 		};
-		D6E6EEB317E79D19005D7526 /* Expenses */ = {
+		D6E6EEB317E79D19005D7526 /* FixedCosts */ = {
 			isa = PBXGroup;
 			children = (
-				D6E6EEAE17E79D05005D7526 /* ExpensesViewController.h */,
-				D6E6EEAF17E79D05005D7526 /* ExpensesViewController.m */,
+				D6E6EEAE17E79D05005D7526 /* FixedCostsViewController.h */,
+				D6E6EEAF17E79D05005D7526 /* FixedCostsViewController.m */,
 			);
-			name = Expenses;
+			name = FixedCosts;
 			sourceTree = "<group>";
 		};
-		D6E6EEB417E79D2A005D7526 /* Expenses */ = {
+		D6E6EEB417E79D2A005D7526 /* FixedCosts */ = {
 			isa = PBXGroup;
 			children = (
 				D6E6EEC117E79DA8005D7526 /* back-icon.png */,
@@ -666,9 +666,9 @@
 				D6E6EEBA17E79D7D005D7526 /* car@2x.png */,
 				D6E6EEB517E79D6F005D7526 /* rent.png */,
 				D6E6EEB617E79D6F005D7526 /* rent@2x.png */,
-				D6E6EEB017E79D05005D7526 /* ExpensesViewController.xib */,
+				D6E6EEB017E79D05005D7526 /* FixedCostsViewController.xib */,
 			);
-			name = Expenses;
+			name = FixedCosts;
 			sourceTree = "<group>";
 		};
 		D6EEFFC417CDBDCD00EB28C7 /* Model */ = {
@@ -698,7 +698,7 @@
 				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
 				9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */,
-				D6E6EEB417E79D2A005D7526 /* Expenses */,
+				D6E6EEB417E79D2A005D7526 /* FixedCosts */,
 				D6E6EE4B17E659A7005D7526 /* AboutYou */,
 				D6F9D3EF17DE66AA001DE8D1 /* NoInfoDash */,
 				D6C88B2617DA6EEF00DEA25D /* Dashboard */,
@@ -713,7 +713,7 @@
 				9EA5D40517F162BC00CE7BD8 /* LoanInfo */,
 				9EA5D3F217F1624E00CE7BD8 /* HomeAddress */,
 				9EA5D3CF17F15D0200CE7BD8 /* HomeInfo */,
-				D6E6EEB317E79D19005D7526 /* Expenses */,
+				D6E6EEB317E79D19005D7526 /* FixedCosts */,
 				D6E6EE4C17E659AF005D7526 /* AboutYou */,
 				D6C88B2717DA79AA00DEA25D /* MainController.m */,
 				D6C88B2817DA79AA00DEA25D /* MainController.h */,
@@ -895,7 +895,7 @@
 				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
 				D6E6EE5417E65A8A005D7526 /* couple.png in Resources */,
 				9EA5D3E317F15DC500CE7BD8 /* condo@2x.png in Resources */,
-				D6E6EEB217E79D05005D7526 /* ExpensesViewController.xib in Resources */,
+				D6E6EEB217E79D05005D7526 /* FixedCostsViewController.xib in Resources */,
 				9ECCAD9617F0E696001EAF4C /* compare-dash@2x.png in Resources */,
 				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
 				D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */,
@@ -979,7 +979,7 @@
 				D6C88B3017DA7B1600DEA25D /* LoginViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
-				D6E6EEB117E79D05005D7526 /* ExpensesViewController.m in Sources */,
+				D6E6EEB117E79D05005D7526 /* FixedCostsViewController.m in Sources */,
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,

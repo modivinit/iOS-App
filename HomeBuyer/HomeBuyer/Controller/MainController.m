@@ -131,7 +131,6 @@
 #pragma mark APIServiceDelegate
 -(void) userPFInfoReadSuccessfully
 {
-    [self.mAPIService readUserExpensesInfo];
 }
 
 -(void) userExpensesInfoReadSuccessfully

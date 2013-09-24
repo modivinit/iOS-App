@@ -12,40 +12,67 @@ static APIService* apiServiceSingleton;
 
 @implementation APIService
 
--(BOOL) readUserExpensesInfo
+-(BOOL) writeUserPFInfo:(UInt64)annualGross
+       annualRetirement:(UInt64)annualRetirement
+       numberOfChildren:(uint)numberOfChildren
+          maritalStatus:(userMaritalStatus) status
 {
-    FatFractal* ff = [FatFractal main];
-    __block userFixedExpensesInfo* aUserExpensesInfo = nil;
-    
-    NSString* userGUID = [kunanceUser getInstance].mKunanceUserGUID;
-    
-    if(!userGUID)
+    if(!annualGross)
         return NO;
     
-    NSString* queryURI  = [NSString stringWithFormat:@"/UserExpensesInfo/(createdBy eq '%@')", userGUID];
-    NSLog(@"queryuri = %@", queryURI);
+    userPFInfo* currentPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
     
-    [ff getObjFromUri:queryURI onComplete:^(NSError *theErr, id theObj, NSHTTPURLResponse *theResponse)
-     {
-         if(theObj)
-         {
-             aUserExpensesInfo = (userFixedExpensesInfo*) theObj;
-             aUserExpensesInfo.mUserExpensesGUID = [[ff metaDataForObj:aUserExpensesInfo] guid];
-             
-             if(aUserExpensesInfo && aUserExpensesInfo.mUserExpensesGUID)
-             {
-                 [kunanceUser getInstance].mkunanceUserFixedExpenses = aUserExpensesInfo;
-                 [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
-                 
-                 if(self.mAPIServiceDelegate && [self.mAPIServiceDelegate respondsToSelector:@selector(userExpensesInfoReadSuccessfully)])
-                 {
-                     [self.mAPIServiceDelegate userExpensesInfoReadSuccessfully];
-                 }
-             }
-         }
-     }];
+    if(!currentPFInfo)
+    {
+        currentPFInfo = [[userPFInfo alloc] init];
+    }
+    
+    currentPFInfo.mGrossAnnualIncome = annualGross;
+    currentPFInfo.mAnnualRetirementSavingsContributions = annualRetirement;
+    currentPFInfo.mNumberOfChildren = numberOfChildren;
+    currentPFInfo.mMaritalStatus = status;
+    
+    if([kunanceUser getInstance].mkunanceUserPFInfo)
+        [self updateUserPfObj:currentPFInfo];
+    else
+    {
+        userPFInfo* currentPFInfo = [[userPFInfo alloc] init];
+        [self createUserPFObj:currentPFInfo];
+    }
     
     return YES;
+}
+
+-(void) updateUserPfObj:(userPFInfo*) currentPFInfo
+{
+    FatFractal *ff = [FatFractal main];
+    [ff updateObj:currentPFInfo onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
+        // handle error, response
+        if(obj)
+        {
+            [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
+        }
+        else
+        {
+            NSLog(@"Error updating User PF Info %@", err);
+        }
+    }];
+}
+
+-(void) createUserPFObj:(userPFInfo*) currentPFInfo
+{
+    FatFractal *ff = [FatFractal main];
+    [ff createObj:currentPFInfo atUri:@"/UserPFInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
+        // handle error, response
+        if(obj)
+        {
+            [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
+        }
+        else
+        {
+            NSLog(@"Error creating User PF Info: %@", err);
+        }
+    }];
 }
 
 -(BOOL) readUserPFInfo

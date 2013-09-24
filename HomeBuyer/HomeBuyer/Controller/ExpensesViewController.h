@@ -12,7 +12,7 @@
 -(void) currentLifeStyleIncomeButtonPressed;
 @end
 
-@interface ExpensesViewController : UIViewController
+@interface ExpensesViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyRent;
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyCarPayments;

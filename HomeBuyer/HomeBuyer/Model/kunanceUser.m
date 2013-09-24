@@ -29,13 +29,20 @@ static kunanceUser *kunanceUserSingleton;
         self.mLoggedInKunanceUser = nil;
         self.mLoggedInKunanceUser = nil;
         self.mkunanceUserPFInfo = nil;
-        self.mkunanceUserFixedExpenses = nil;
         self.mKunanceUserHomes = nil;
         self.mKunanceUserLoans = nil;
         self.mUserProfileStatus = ProfileStatusNoInfoEntered;
     }
     
     return self;
+}
+
+-(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
+{
+    FatFractal *ff = [FatFractal main];
+    self.mkunanceUserPFInfo = newUserPFInfo;
+    if(newUserPFInfo)
+        self.mkunanceUserPFInfo.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
 }
 
 -(BOOL) isUserLoggedIn

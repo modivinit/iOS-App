@@ -19,6 +19,10 @@
         self.mNumberOfChildren = 0;
         self.mAnnualRetirementSavingsContributions = 0;
         self.mCurrentMonthlyIncomeTax = 0;
+
+        self.mCurrentMonthlyRent = 0;
+        self.mCurrentCarPayment = 0;
+        self.mOtherMonthlyExpenses = 0;
         self.mUserPFInfoGUID = nil;
     }
     

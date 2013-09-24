@@ -23,16 +23,53 @@
     return self;
 }
 
+-(void) setupNavControl
+{
+    uint tags = 0;
+    
+    self.mMonthlyRent.tag = tags++;
+    self.mMonthlyRent.delegate = self;
+    
+    self.mMonthlyCarPayments.tag = tags++;
+    self.mMonthlyCarPayments.delegate = self;
+    
+    self.mOtherMonthlyPayments.tag = tags++;
+    self.mOtherMonthlyPayments.delegate = self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self setupNavControl];
+    
+    UITapGestureRecognizer* currentLifestyleTappedGesture = [[UITapGestureRecognizer alloc]
+                                                         initWithTarget:self
+                                                         action:@selector(currentLifeStyleIncomeTapped)];
+    [self.mCurrentLifestyleIncomeViewAsButton addGestureRecognizer:currentLifestyleTappedGesture];
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) currentLifeStyleIncomeTapped
+{
+    if(!self.mMonthlyRent.text || !self.mMonthlyCarPayments.text || !self.mOtherMonthlyPayments.text)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                   message:@"Please enter all fields"
+                                  delegate:self
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil];
+        
+        [alert show];
+        return;
+    }
 }
 
 #pragma mark - UITextField

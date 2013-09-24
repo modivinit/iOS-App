@@ -8,6 +8,7 @@
 
 #import "AboutYouViewController.h"
 #import "userPFInfo.h"
+#import "APIService.h"
 
 @interface AboutYouViewController ()
 
@@ -140,23 +141,27 @@
 
 -(void) userExpensesButtonTapped
 {
+    if(self.mSelectedMaritalStatus == StatusNotDefined)
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
+    }
+    
     userPFInfo* currentPFInfo = nil;
     
     //upload it to the back
-    if([kunanceUser getInstance].mkunanceUserPFInfo)
-        [self updateUserPfObj:currentPFInfo];
-    else
-    {
-        userPFInfo* currentPFInfo = [[userPFInfo alloc] init];
-        [self createUserPFObj:currentPFInfo];
-    }
-    
-
     currentPFInfo.mMaritalStatus = self.mSelectedMaritalStatus;
     currentPFInfo.mGrossAnnualIncome = [self.mAnnualGrossIncomeField.text intValue];
     currentPFInfo.mAnnualRetirementSavingsContributions = [self.mAnnualRetirementContributionField.text intValue];
-    
     currentPFInfo.mNumberOfChildren = self.mNumberOfChildrenControl.selectedSegmentIndex;
+    
+    APIService* apiService = [[APIService alloc] init];
+    if(apiService)
+    {
+        [apiService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
+                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
+                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
+                      maritalStatus:self.mSelectedMaritalStatus];
+    }
     
     //let the dashcontroller know that this form is done
     if(self.mAboutYouControllerDelegate &&
@@ -164,41 +169,6 @@
     {
         [self.mAboutYouControllerDelegate userExpensesButtonTapped];
     }
-}
-
--(void) updateUserPfObj:(userPFInfo*) currentPFInfo
-{
-    FatFractal *ff = [FatFractal main];
-    [ff updateObj:currentPFInfo onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
-        // handle error, response
-        if(obj)
-        {
-            NSLog(@"updated USer PF Info: %@", (userPFInfo*)obj);
-        }
-        else
-        {
-            NSLog(@"Error updating User PF Info %@", err);
-        }
-    }];
-}
-
--(void) createUserPFObj:(userPFInfo*) currentPFInfo
-{
-    FatFractal *ff = [FatFractal main];
-    [ff createObj:currentPFInfo atUri:@"/UserPFInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
-        // handle error, response
-        if(obj)
-        {
-            userPFInfo* createdPF = (userPFInfo*)obj;
-            NSLog(@"created USer PF Info %@", createdPF);
-            createdPF.mUserPFInfoGUID = [[ff metaDataForObj:createdPF] guid];
-            [kunanceUser getInstance].mkunanceUserPFInfo = createdPF;
-        }
-        else
-        {
-            NSLog(@"Error creating User PF Info: %@", err);
-        }
-    }];
 }
 
 #pragma mark - UITextField

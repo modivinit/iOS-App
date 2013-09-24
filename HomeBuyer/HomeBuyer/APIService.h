@@ -14,8 +14,13 @@
 @end
 
 @interface APIService : NSObject
+
+-(BOOL) writeUserPFInfo:(UInt64)annualGross
+       annualRetirement:(UInt64)annualRetirement
+       numberOfChildren:(uint)numberOfChildren
+          maritalStatus:(userMaritalStatus) status;
+
 -(BOOL) readUserPFInfo;
--(BOOL) readUserExpensesInfo;
 
 @property (nonatomic, weak) id <APIServiceDelegate> mAPIServiceDelegate;
 @end

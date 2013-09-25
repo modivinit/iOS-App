@@ -20,12 +20,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dashboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkh-hz-wOB">
-                    <rect key="frame" x="20" y="519" width="43" height="29"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dashboard-profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkh-hz-wOB">
+                    <rect key="frame" x="20" y="518" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="hFb-jJ-m77">
-                    <rect key="frame" x="270" y="519" width="30" height="29"/>
+                    <rect key="frame" x="280" y="523" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="645-M3-N40">
@@ -127,8 +127,8 @@
     <resources>
         <image name="back-icon.png" width="10" height="20"/>
         <image name="car.png" width="29" height="29"/>
-        <image name="dashboard.png" width="43" height="29"/>
-        <image name="help.png" width="30" height="29"/>
+        <image name="dashboard-profile.png" width="30" height="30"/>
+        <image name="help.png" width="20" height="20"/>
         <image name="otherexpenses.png" width="29" height="29"/>
         <image name="rent.png" width="29" height="29"/>
     </resources>

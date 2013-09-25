@@ -15,12 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dashboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-wz-xim">
-                    <rect key="frame" x="20" y="519" width="43" height="29"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dashboard-home.png" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-wz-xim">
+                    <rect key="frame" x="20" y="518" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="8qC-Cg-w1z">
-                    <rect key="frame" x="270" y="519" width="30" height="29"/>
+                    <rect key="frame" x="280" y="523" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Common across all prospective homes." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf8-60-xPE">
@@ -122,9 +122,9 @@
         </view>
     </objects>
     <resources>
-        <image name="dashboard.png" width="43" height="29"/>
+        <image name="dashboard-home.png" width="30" height="30"/>
         <image name="downpayment.png" width="29" height="29"/>
-        <image name="help.png" width="30" height="29"/>
+        <image name="help.png" width="20" height="20"/>
         <image name="interestrate.png" width="29" height="29"/>
         <image name="loantime.png" width="29" height="29"/>
     </resources>

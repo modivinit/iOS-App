@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E00FAA317F34DB100380997 /* HelpProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E00FAA117F34DB100380997 /* HelpProfileViewController.m */; };
+		9E00FAA417F34DB100380997 /* HelpProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAA217F34DB100380997 /* HelpProfileViewController.xib */; };
+		9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E00FAA917F34DEC00380997 /* HelpHomeViewController.m */; };
+		9E00FAAC17F34DEC00380997 /* HelpHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAAA17F34DEC00380997 /* HelpHomeViewController.xib */; };
+		9E00FAB017F34E0100380997 /* HelpDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E00FAAE17F34E0100380997 /* HelpDashboardViewController.m */; };
+		9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */; };
+		9E00FAB417F34FB600380997 /* dashboard-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAB217F34FB600380997 /* dashboard-dashboard.png */; };
+		9E00FAB517F34FB600380997 /* dashboard-dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAB317F34FB600380997 /* dashboard-dashboard@2x.png */; };
+		9E00FABE17F356EB00380997 /* helpbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FABC17F356EB00380997 /* helpbox.png */; };
+		9E00FABF17F356EB00380997 /* helpbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FABD17F356EB00380997 /* helpbox@2x.png */; };
+		9E5D592717F23738000CA229 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D592517F23738000CA229 /* help.png */; };
+		9E5D592817F23738000CA229 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D592617F23738000CA229 /* help@2x.png */; };
+		9E5D593717F23AE2000CA229 /* dashboard-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D593517F23AE2000CA229 /* dashboard-profile.png */; };
+		9E5D593817F23AE2000CA229 /* dashboard-profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D593617F23AE2000CA229 /* dashboard-profile@2x.png */; };
+		9E5D593B17F23B21000CA229 /* dashboard-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D593917F23B21000CA229 /* dashboard-home.png */; };
+		9E5D593C17F23B21000CA229 /* dashboard-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D593A17F23B21000CA229 /* dashboard-home@2x.png */; };
 		9EA5D3CD17F15C8200CE7BD8 /* HomeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CB17F15C8200CE7BD8 /* HomeInfoViewController.m */; };
 		9EA5D3CE17F15C8200CE7BD8 /* HomeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CC17F15C8200CE7BD8 /* HomeInfoViewController.xib */; };
 		9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3D017F15DC500CE7BD8 /* besthomefeature.png */; };
@@ -45,10 +61,6 @@
 		9ECCAD5917F0CBFC001EAF4C /* forward-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */; };
 		9ECCAD5A17F0CBFC001EAF4C /* forward-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */; };
 		9ECCAD5B17F0CBFC001EAF4C /* forward-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */; };
-		9ECCAD5C17F0CBFC001EAF4C /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5617F0CBFC001EAF4C /* help.png */; };
-		9ECCAD5D17F0CBFC001EAF4C /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5617F0CBFC001EAF4C /* help.png */; };
-		9ECCAD5E17F0CBFC001EAF4C /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5717F0CBFC001EAF4C /* help@2x.png */; };
-		9ECCAD5F17F0CBFC001EAF4C /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5717F0CBFC001EAF4C /* help@2x.png */; };
 		9ECCAD8C17F0E556001EAF4C /* downarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD8A17F0E556001EAF4C /* downarrow.png */; };
 		9ECCAD8D17F0E556001EAF4C /* downarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD8A17F0E556001EAF4C /* downarrow.png */; };
 		9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD8B17F0E556001EAF4C /* downarrow@2x.png */; };
@@ -140,8 +152,6 @@
 		D6E6EE6117E65AC0005D7526 /* savings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5F17E65AC0005D7526 /* savings@2x.png */; };
 		D6E6EE6417E65AD1005D7526 /* children.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6217E65AD1005D7526 /* children.png */; };
 		D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6317E65AD1005D7526 /* children@2x.png */; };
-		D6E6EE6817E65AE2005D7526 /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6617E65AE2005D7526 /* dashboard.png */; };
-		D6E6EE6917E65AE2005D7526 /* dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6717E65AE2005D7526 /* dashboard@2x.png */; };
 		D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6A17E660EA005D7526 /* single-selected.png */; };
 		D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */; };
 		D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE6E17E660F9005D7526 /* couple-selected.png */; };
@@ -171,6 +181,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E00FAA017F34DB100380997 /* HelpProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpProfileViewController.h; path = Controller/HelpProfileViewController.h; sourceTree = "<group>"; };
+		9E00FAA117F34DB100380997 /* HelpProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpProfileViewController.m; path = Controller/HelpProfileViewController.m; sourceTree = "<group>"; };
+		9E00FAA217F34DB100380997 /* HelpProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpProfileViewController.xib; path = Controller/HelpProfileViewController.xib; sourceTree = "<group>"; };
+		9E00FAA817F34DEC00380997 /* HelpHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpHomeViewController.h; path = Controller/HelpHomeViewController.h; sourceTree = "<group>"; };
+		9E00FAA917F34DEC00380997 /* HelpHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpHomeViewController.m; path = Controller/HelpHomeViewController.m; sourceTree = "<group>"; };
+		9E00FAAA17F34DEC00380997 /* HelpHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpHomeViewController.xib; path = Controller/HelpHomeViewController.xib; sourceTree = "<group>"; };
+		9E00FAAD17F34E0100380997 /* HelpDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpDashboardViewController.h; path = Controller/HelpDashboardViewController.h; sourceTree = "<group>"; };
+		9E00FAAE17F34E0100380997 /* HelpDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpDashboardViewController.m; path = Controller/HelpDashboardViewController.m; sourceTree = "<group>"; };
+		9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpDashboardViewController.xib; path = Controller/HelpDashboardViewController.xib; sourceTree = "<group>"; };
+		9E00FAB217F34FB600380997 /* dashboard-dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-dashboard.png"; sourceTree = "<group>"; };
+		9E00FAB317F34FB600380997 /* dashboard-dashboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-dashboard@2x.png"; sourceTree = "<group>"; };
+		9E00FABC17F356EB00380997 /* helpbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpbox.png; sourceTree = "<group>"; };
+		9E00FABD17F356EB00380997 /* helpbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpbox@2x.png"; sourceTree = "<group>"; };
+		9E5D592517F23738000CA229 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		9E5D592617F23738000CA229 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
+		9E5D593517F23AE2000CA229 /* dashboard-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-profile.png"; sourceTree = "<group>"; };
+		9E5D593617F23AE2000CA229 /* dashboard-profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-profile@2x.png"; sourceTree = "<group>"; };
+		9E5D593917F23B21000CA229 /* dashboard-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-home.png"; sourceTree = "<group>"; };
+		9E5D593A17F23B21000CA229 /* dashboard-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-home@2x.png"; sourceTree = "<group>"; };
 		9EA5D3CA17F15C8100CE7BD8 /* HomeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeInfoViewController.h; path = Controller/HomeInfoViewController.h; sourceTree = "<group>"; };
 		9EA5D3CB17F15C8200CE7BD8 /* HomeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeInfoViewController.m; path = Controller/HomeInfoViewController.m; sourceTree = "<group>"; };
 		9EA5D3CC17F15C8200CE7BD8 /* HomeInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeInfoViewController.xib; path = Controller/HomeInfoViewController.xib; sourceTree = "<group>"; };
@@ -209,8 +238,6 @@
 		9ECCAD3917F0C8BD001EAF4C /* FFEF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFEF.framework; sourceTree = "<group>"; };
 		9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-icon.png"; sourceTree = "<group>"; };
 		9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-icon@2x.png"; sourceTree = "<group>"; };
-		9ECCAD5617F0CBFC001EAF4C /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
-		9ECCAD5717F0CBFC001EAF4C /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
 		9ECCAD8A17F0E556001EAF4C /* downarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downarrow.png; sourceTree = "<group>"; };
 		9ECCAD8B17F0E556001EAF4C /* downarrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downarrow@2x.png"; sourceTree = "<group>"; };
 		9ECCAD9017F0E696001EAF4C /* compare-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compare-dash.png"; sourceTree = "<group>"; };
@@ -302,8 +329,6 @@
 		D6E6EE5F17E65AC0005D7526 /* savings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "savings@2x.png"; sourceTree = "<group>"; };
 		D6E6EE6217E65AD1005D7526 /* children.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = children.png; sourceTree = "<group>"; };
 		D6E6EE6317E65AD1005D7526 /* children@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "children@2x.png"; sourceTree = "<group>"; };
-		D6E6EE6617E65AE2005D7526 /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard.png; sourceTree = "<group>"; };
-		D6E6EE6717E65AE2005D7526 /* dashboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard@2x.png"; sourceTree = "<group>"; };
 		D6E6EE6A17E660EA005D7526 /* single-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-selected.png"; sourceTree = "<group>"; };
 		D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-selected@2x.png"; sourceTree = "<group>"; };
 		D6E6EE6E17E660F9005D7526 /* couple-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-selected.png"; sourceTree = "<group>"; };
@@ -354,9 +379,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E00FA9D17F34D9100380997 /* HelpProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9E00FABC17F356EB00380997 /* helpbox.png */,
+				9E00FABD17F356EB00380997 /* helpbox@2x.png */,
+				9E00FAA217F34DB100380997 /* HelpProfileViewController.xib */,
+			);
+			name = HelpProfile;
+			sourceTree = "<group>";
+		};
+		9E00FA9E17F34D9900380997 /* HelpHome */ = {
+			isa = PBXGroup;
+			children = (
+				9E00FAAA17F34DEC00380997 /* HelpHomeViewController.xib */,
+			);
+			name = HelpHome;
+			sourceTree = "<group>";
+		};
+		9E00FA9F17F34D9F00380997 /* HelpDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				9E00FAB217F34FB600380997 /* dashboard-dashboard.png */,
+				9E00FAB317F34FB600380997 /* dashboard-dashboard@2x.png */,
+				9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */,
+			);
+			name = HelpDashboard;
+			sourceTree = "<group>";
+		};
+		9E00FAA517F34DB800380997 /* HelpProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9E00FAA017F34DB100380997 /* HelpProfileViewController.h */,
+				9E00FAA117F34DB100380997 /* HelpProfileViewController.m */,
+			);
+			name = HelpProfile;
+			sourceTree = "<group>";
+		};
+		9E00FAA617F34DBE00380997 /* HelpHome */ = {
+			isa = PBXGroup;
+			children = (
+				9E00FAA817F34DEC00380997 /* HelpHomeViewController.h */,
+				9E00FAA917F34DEC00380997 /* HelpHomeViewController.m */,
+			);
+			name = HelpHome;
+			sourceTree = "<group>";
+		};
+		9E00FAA717F34DC400380997 /* HelpDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				9E00FAAD17F34E0100380997 /* HelpDashboardViewController.h */,
+				9E00FAAE17F34E0100380997 /* HelpDashboardViewController.m */,
+			);
+			name = HelpDashboard;
+			sourceTree = "<group>";
+		};
 		9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */ = {
 			isa = PBXGroup;
 			children = (
+				9E5D593917F23B21000CA229 /* dashboard-home.png */,
+				9E5D593A17F23B21000CA229 /* dashboard-home@2x.png */,
 				9EA5D3D017F15DC500CE7BD8 /* besthomefeature.png */,
 				9EA5D3D117F15DC500CE7BD8 /* besthomefeature@2x.png */,
 				9EA5D3D217F15DC500CE7BD8 /* condo-selected.png */,
@@ -616,12 +698,12 @@
 		D6E6EE4B17E659A7005D7526 /* AboutYou */ = {
 			isa = PBXGroup;
 			children = (
+				9E5D593517F23AE2000CA229 /* dashboard-profile.png */,
+				9E5D593617F23AE2000CA229 /* dashboard-profile@2x.png */,
 				D6E6EE6E17E660F9005D7526 /* couple-selected.png */,
 				D6E6EE6F17E660F9005D7526 /* couple-selected@2x.png */,
 				D6E6EE6A17E660EA005D7526 /* single-selected.png */,
 				D6E6EE6B17E660EA005D7526 /* single-selected@2x.png */,
-				D6E6EE6617E65AE2005D7526 /* dashboard.png */,
-				D6E6EE6717E65AE2005D7526 /* dashboard@2x.png */,
 				D6E6EE6217E65AD1005D7526 /* children.png */,
 				D6E6EE6317E65AD1005D7526 /* children@2x.png */,
 				D6E6EE5A17E65AAF005D7526 /* salary.png */,
@@ -695,6 +777,9 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9E00FA9F17F34D9F00380997 /* HelpDashboard */,
+				9E00FA9E17F34D9900380997 /* HelpHome */,
+				9E00FA9D17F34D9100380997 /* HelpProfile */,
 				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
 				9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */,
@@ -710,6 +795,9 @@
 		D6EEFFC617CDBDEA00EB28C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E00FAA717F34DC400380997 /* HelpDashboard */,
+				9E00FAA617F34DBE00380997 /* HelpHome */,
+				9E00FAA517F34DB800380997 /* HelpProfile */,
 				9EA5D40517F162BC00CE7BD8 /* LoanInfo */,
 				9EA5D3F217F1624E00CE7BD8 /* HomeAddress */,
 				9EA5D3CF17F15D0200CE7BD8 /* HomeInfo */,
@@ -752,6 +840,8 @@
 		D6F9D3EF17DE66AA001DE8D1 /* NoInfoDash */ = {
 			isa = PBXGroup;
 			children = (
+				9E5D592517F23738000CA229 /* help.png */,
+				9E5D592617F23738000CA229 /* help@2x.png */,
 				9ECCADA817F0E809001EAF4C /* couple-dash.png */,
 				9ECCADA917F0E809001EAF4C /* couple-dash@2x.png */,
 				9ECCADA217F0E7B8001EAF4C /* lifestyle-beach-dash.png */,
@@ -766,8 +856,6 @@
 				9ECCAD8B17F0E556001EAF4C /* downarrow@2x.png */,
 				9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */,
 				9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */,
-				9ECCAD5617F0CBFC001EAF4C /* help.png */,
-				9ECCAD5717F0CBFC001EAF4C /* help@2x.png */,
 				D6F9D41117DE72CF001DE8D1 /* DashNoInfoEnteredView.xib */,
 				D6F9D41517DE73E0001DE8D1 /* DashNoInfoEnteredView.h */,
 				D6F9D41617DE73E0001DE8D1 /* DashNoInfoEnteredView.m */,
@@ -850,18 +938,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */,
 				D6842E5217DD22060028AF00 /* MenuIcon@2x.png in Resources */,
 				9EA5D3FE17F1627300CE7BD8 /* street@2x.png in Resources */,
 				9ECCAD9A17F0E696001EAF4C /* doubledownarrow@2x.png in Resources */,
-				9ECCAD5E17F0CBFC001EAF4C /* help@2x.png in Resources */,
 				9EA5D3E217F15DC500CE7BD8 /* condo.png in Resources */,
+				9E5D592717F23738000CA229 /* help.png in Resources */,
+				9E00FAA417F34DB100380997 /* HelpProfileViewController.xib in Resources */,
 				9EA5D3F917F1627300CE7BD8 /* city.png in Resources */,
 				D6C88B3517DA7B3000DEA25D /* LoginViewController.xib in Resources */,
+				9E5D593817F23AE2000CA229 /* dashboard-profile@2x.png in Resources */,
 				9EA5D40417F162B500CE7BD8 /* LoanInfoViewController.xib in Resources */,
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
 				D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */,
 				9ECCADA017F0E724001EAF4C /* sfh-dash@2x.png in Resources */,
 				9EA5D3F117F1624300CE7BD8 /* HomeAddressViewController.xib in Resources */,
+				9E5D593717F23AE2000CA229 /* dashboard-profile.png in Resources */,
 				D6E6EE5917E65A9E005D7526 /* single@2x.png in Resources */,
 				9EA5D40E17F162DE00CE7BD8 /* interestrate.png in Resources */,
 				D6E6EEBF17E79D8C005D7526 /* otherexpenses.png in Resources */,
@@ -874,7 +966,9 @@
 				9EA5D3FA17F1627300CE7BD8 /* city@2x.png in Resources */,
 				D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */,
 				D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */,
+				9E00FAB517F34FB600380997 /* dashboard-dashboard@2x.png in Resources */,
 				D6E6EEBB17E79D7D005D7526 /* car.png in Resources */,
+				9E00FABE17F356EB00380997 /* helpbox.png in Resources */,
 				9EA5D3E817F15DC500CE7BD8 /* sfh-homeinfo-selected.png in Resources */,
 				9ECCADAC17F0E809001EAF4C /* couple-dash@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
@@ -883,25 +977,24 @@
 				D6C88B3417DA7B3000DEA25D /* SignUpViewController.xib in Resources */,
 				D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */,
 				9EA5D3CE17F15C8200CE7BD8 /* HomeInfoViewController.xib in Resources */,
+				9E00FAB417F34FB600380997 /* dashboard-dashboard.png in Resources */,
 				9EA5D3E717F15DC500CE7BD8 /* homeprice@2x.png in Resources */,
 				9EA5D3E917F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png in Resources */,
 				D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */,
-				9ECCAD5C17F0CBFC001EAF4C /* help.png in Resources */,
 				D6C88B4617DA7F7200DEA25D /* DashMultipleHomesView.xib in Resources */,
 				9EA5D3FB17F1627300CE7BD8 /* location.png in Resources */,
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
-				D6E6EE6817E65AE2005D7526 /* dashboard.png in Resources */,
 				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
 				D6E6EE5417E65A8A005D7526 /* couple.png in Resources */,
 				9EA5D3E317F15DC500CE7BD8 /* condo@2x.png in Resources */,
 				D6E6EEB217E79D05005D7526 /* FixedCostsViewController.xib in Resources */,
+				9E5D593C17F23B21000CA229 /* dashboard-home@2x.png in Resources */,
 				9ECCAD9617F0E696001EAF4C /* compare-dash@2x.png in Resources */,
 				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
 				D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */,
 				D6E6EE6117E65AC0005D7526 /* savings@2x.png in Resources */,
 				D6E6EE6417E65AD1005D7526 /* children.png in Resources */,
-				D6E6EE6917E65AE2005D7526 /* dashboard@2x.png in Resources */,
 				D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */,
 				D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */,
 				D6842E5317DD22060028AF00 /* MenuIcon.png in Resources */,
@@ -910,15 +1003,19 @@
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,
 				D6E6EE7117E660F9005D7526 /* couple-selected@2x.png in Resources */,
 				9EA5D3E117F15DC500CE7BD8 /* condo-selected@2x.png in Resources */,
+				9E5D592817F23738000CA229 /* help@2x.png in Resources */,
 				9ECCAD8C17F0E556001EAF4C /* downarrow.png in Resources */,
 				D6E6EE6017E65AC0005D7526 /* savings.png in Resources */,
 				9EA5D40C17F162DE00CE7BD8 /* downpayment.png in Resources */,
+				9E00FAAC17F34DEC00380997 /* HelpHomeViewController.xib in Resources */,
+				9E5D593B17F23B21000CA229 /* dashboard-home.png in Resources */,
 				9EA5D3E017F15DC500CE7BD8 /* condo-selected.png in Resources */,
 				D6E6EE5817E65A9E005D7526 /* single.png in Resources */,
 				D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */,
 				9EA5D3DF17F15DC500CE7BD8 /* besthomefeature@2x.png in Resources */,
 				D67EFDFA17CCE1280082F6C7 /* Images.xcassets in Resources */,
 				9EA5D3E517F15DC500CE7BD8 /* hoa@2x.png in Resources */,
+				9E00FABF17F356EB00380997 /* helpbox@2x.png in Resources */,
 				9EA5D41117F162DE00CE7BD8 /* loantime@2x.png in Resources */,
 				D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */,
 				9ECCADA417F0E7B8001EAF4C /* lifestyle-beach-dash.png in Resources */,
@@ -946,13 +1043,11 @@
 				9ECCAD5B17F0CBFC001EAF4C /* forward-icon@2x.png in Resources */,
 				9ECCADA517F0E7B8001EAF4C /* lifestyle-beach-dash.png in Resources */,
 				9ECCAD9917F0E696001EAF4C /* doubledownarrow.png in Resources */,
-				9ECCAD5F17F0CBFC001EAF4C /* help@2x.png in Resources */,
 				9ECCADAB17F0E809001EAF4C /* couple-dash.png in Resources */,
 				9ECCAD8F17F0E556001EAF4C /* downarrow@2x.png in Resources */,
 				9ECCAD9F17F0E724001EAF4C /* sfh-dash.png in Resources */,
 				9ECCAD5917F0CBFC001EAF4C /* forward-icon.png in Resources */,
 				9ECCAD9B17F0E696001EAF4C /* doubledownarrow@2x.png in Resources */,
-				9ECCAD5D17F0CBFC001EAF4C /* help.png in Resources */,
 				9ECCADAD17F0E809001EAF4C /* couple-dash@2x.png in Resources */,
 				9ECCAD9717F0E696001EAF4C /* compare-dash@2x.png in Resources */,
 				9ECCAD8D17F0E556001EAF4C /* downarrow.png in Resources */,
@@ -971,7 +1066,9 @@
 				D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */,
 				D6C88B3D17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */,
 				D6842E6617DD97090028AF00 /* homeInfo.m in Sources */,
+				9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */,
 				9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */,
+				9E00FAB017F34E0100380997 /* HelpDashboardViewController.m in Sources */,
 				D6842E6217DD95E30028AF00 /* loan.m in Sources */,
 				D6842E6E17DDA8720028AF00 /* UsersHomesList.m in Sources */,
 				D6842E5E17DD32510028AF00 /* usersLoansList.m in Sources */,
@@ -987,6 +1084,7 @@
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				D6C88B4A17DA7FEC00DEA25D /* DashboardViewController.m in Sources */,
+				9E00FAA317F34DB100380997 /* HelpProfileViewController.m in Sources */,
 				D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */,
 				D6B93F6217E96F9F0049B5D5 /* APIService.m in Sources */,
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,

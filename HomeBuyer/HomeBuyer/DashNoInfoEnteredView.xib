@@ -96,7 +96,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="dd3-gC-Kjq">
-                    <rect key="frame" x="280" y="515" width="30" height="29"/>
+                    <rect key="frame" x="280" y="524" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -114,7 +114,7 @@
         <image name="doubledownarrow.png" width="30" height="30"/>
         <image name="downarrow.png" width="15" height="30"/>
         <image name="forward-icon.png" width="10" height="20"/>
-        <image name="help.png" width="30" height="29"/>
+        <image name="help.png" width="20" height="20"/>
         <image name="lifestyle-beach-dash.png" width="40" height="34"/>
         <image name="sfh-dash.png" width="36" height="40"/>
     </resources>

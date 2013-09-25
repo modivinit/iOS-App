@@ -22,12 +22,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard.png" id="ze7-9b-3mx">
-                    <rect key="frame" x="20" y="519" width="43" height="29"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-profile.png" id="ze7-9b-3mx">
+                    <rect key="frame" x="20" y="518" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help.png" id="2Uh-kF-nJl">
-                    <rect key="frame" x="270" y="519" width="30" height="29"/>
+                    <rect key="frame" x="280" y="523" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" id="wKv-qI-lvS">
@@ -143,9 +143,9 @@
     <resources>
         <image name="children.png" width="29" height="29"/>
         <image name="couple.png" width="40" height="40"/>
-        <image name="dashboard.png" width="43" height="29"/>
+        <image name="dashboard-profile.png" width="30" height="30"/>
         <image name="forward-icon.png" width="10" height="20"/>
-        <image name="help.png" width="30" height="29"/>
+        <image name="help.png" width="20" height="20"/>
         <image name="salary.png" width="29" height="29"/>
         <image name="savings.png" width="29" height="29"/>
         <image name="single.png" width="40" height="40"/>

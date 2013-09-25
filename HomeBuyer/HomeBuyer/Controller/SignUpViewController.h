@@ -13,5 +13,5 @@
 @end
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>
-@property (nonatomic, readwrite, weak) id <SignUpDelegate> mSignUpDelegate;
+@property (nonatomic, weak) id <SignUpDelegate> mSignUpDelegate;
 @end

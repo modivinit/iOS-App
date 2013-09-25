@@ -35,9 +35,9 @@
     UINavigationController* navController = [[UINavigationController alloc] init];
     self.window.rootViewController = navController;
     
-    MainController* mainController = [[MainController alloc] initWithNavController:navController];
-    mainController.mMainControllerDelegate = self;
-    [mainController start];
+    self.mMainController = [[MainController alloc] initWithNavController:navController];
+    self.mMainController.mMainControllerDelegate = self;
+    [self.mMainController start];
     return YES;
 }
 

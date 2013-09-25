@@ -51,9 +51,9 @@
         else //If there is no user account
         {
             //then show the signup view
-            SignUpViewController* signupCOntroller = [[SignUpViewController alloc] init];
-            signupCOntroller.mSignUpDelegate = self;
-            [self.mMainNavController pushViewController:signupCOntroller animated:NO];
+            self.mSignUpViewController = [[SignUpViewController alloc] init];
+            self.mSignUpViewController.mSignUpDelegate = self;
+            [self.mMainNavController presentViewController:self.mSignUpViewController animated:NO completion:nil];
         }
     }
 }

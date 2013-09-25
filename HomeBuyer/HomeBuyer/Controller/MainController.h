@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UINavigationController* mMainNavController;
 @property (nonatomic, weak) id <MainControllerDelegate> mMainControllerDelegate;
 @property (nonatomic, strong) APIService* mAPIService;
+@property (nonatomic, strong) SignUpViewController* mSignUpViewController;
 
 -(id) initWithNavController:(UINavigationController*) navController;
 -(void) start;

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
             <connections>
+                <outlet property="mCreateAccountButton" destination="7qE-Pv-CSk" id="Mcg-dM-wZa"/>
+                <outlet property="mEmailField" destination="sZZ-rB-cNZ" id="bYW-AB-VxV"/>
+                <outlet property="mNameField" destination="u18-4Q-11r" id="rg5-nJ-uxE"/>
+                <outlet property="mPasswordField" destination="hwm-NM-GRx" id="krm-6u-Hbx"/>
+                <outlet property="mRealtorCodeField" destination="3gb-gm-4n2" id="kpS-6v-gSV"/>
+                <outlet property="mRegisterButton" destination="2hd-Bg-e9U" id="qX5-T7-ZeV"/>
+                <outlet property="mSignInButton" destination="JEL-Sr-Ynd" id="c0D-Zz-k1Q"/>
                 <outlet property="scrollView" destination="vmg-8p-RrU" id="vhX-6n-qx3"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -87,6 +94,9 @@
                     <state key="normal" title="Register">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="registerUser:" destination="-1" eventType="touchDown" id="d6C-Ni-A9I"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By clicking register I agree to the Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxX-dD-EsT">
                     <rect key="frame" x="20" y="370" width="280" height="20"/>
@@ -100,6 +110,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="Sign In"/>
+                    <connections>
+                        <action selector="showSignInView:" destination="-1" eventType="touchDown" id="Jcs-uK-0cx"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-7K-0B7">
                     <rect key="frame" x="95" y="30" width="120" height="21"/>

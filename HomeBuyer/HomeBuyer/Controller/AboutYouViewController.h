@@ -22,7 +22,6 @@
 
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
 
-@property (nonatomic, strong)  NSArray*      mAllFields;
 @property (nonatomic) IBOutlet UIImageView*  mMarriedImageAsButton;
 @property (nonatomic) IBOutlet UIImageView*  mSingleImageAsButton;
 @property (nonatomic) IBOutlet UITextField*   mAnnualGrossIncomeField;

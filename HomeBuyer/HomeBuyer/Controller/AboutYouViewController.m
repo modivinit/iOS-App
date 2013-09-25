@@ -26,6 +26,11 @@
     return self;
 }
 
+-(void)dismissKeyboard
+{
+    [self.mActiveField resignFirstResponder];
+}
+
 -(void) selectMarried
 {
     self.mMarriedImageAsButton.image = [UIImage imageNamed:@"couple-selected.png"];
@@ -57,34 +62,46 @@
                                                          initWithTarget:self
                                                          action:@selector(userExpensesButtonTapped)];
     [self.mUserExpensesViewAsButton addGestureRecognizer:userExpensesTappedGesture];
-}
-
--(void)doneWithNumberPad{
-    [self.mActiveField resignFirstResponder];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 -(void) setupNavControl
 {
     uint tags = 0;
     
+    
+    self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
+    self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
+                                   [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                   [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                                   nil];
+    [self.mKeyBoardToolbar sizeToFit];
+
+    
     self.mAnnualGrossIncomeField.tag = tags++;
     self.mAnnualGrossIncomeField.delegate = self;
+    self.mAnnualGrossIncomeField.inputAccessoryView = self.mKeyBoardToolbar;
     
     self.mAnnualRetirementContributionField.tag = tags++;
     self.mAnnualRetirementContributionField.delegate = self;
-
+    self.mAnnualRetirementContributionField.inputAccessoryView = self.mKeyBoardToolbar;
+    
     self.mNumberOfChildrenControl.tag = tags++;
 }
 
-- (void)viewDidLoad
+-(void)doneWithNumberPad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    //[self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
+    [self.mActiveField resignFirstResponder];
+}
 
-    self.mAllFields = [[NSArray alloc] initWithObjects:self.mAnnualGrossIncomeField, self.mAnnualRetirementContributionField, self.mNumberOfChildrenControl,  nil];
-    
+-(void) initWithCurrentUserPFInfo
+{
     userPFInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
     if(theUserPFInfo)
     {
@@ -104,11 +121,21 @@
         
         self.mNumberOfChildrenControl.selectedSegmentIndex = theUserPFInfo.mNumberOfChildren;
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+    
     
     [self setupNavControl];
     
     [self setupGestureRecognizers];
-
+    
+    [self initWithCurrentUserPFInfo];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -144,6 +171,12 @@
     if(self.mSelectedMaritalStatus == StatusNotDefined)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
+        return;
+    }
+    else if(!self.mAnnualGrossIncomeField.text || ![self.mAnnualGrossIncomeField.text intValue])
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
+        return;
     }
     
     userPFInfo* currentPFInfo = nil;
@@ -178,10 +211,7 @@
     {
         [self.mAnnualRetirementContributionField becomeFirstResponder];
     }
-    else if (textField == self.mAnnualRetirementContributionField)
-    {
-        [self.mNumberOfChildrenControl becomeFirstResponder];
-    }
+    
     
     [textField resignFirstResponder];
     
@@ -229,17 +259,17 @@
 {
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
     self.mFormScrollView.contentInset = contentInsets;
     self.mFormScrollView.scrollIndicatorInsets = contentInsets;
     
     // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
+    // Your app might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     if (!CGRectContainsPoint(aRect, self.mActiveField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.mActiveField.frame.origin.y-kbSize.height);
-        [self.mFormScrollView setContentOffset:scrollPoint animated:YES];
+        [self.mFormScrollView scrollRectToVisible:self.mActiveField.frame animated:YES];
     }
 }
 

@@ -32,6 +32,7 @@ static kunanceUser *kunanceUserSingleton;
         self.mKunanceUserHomes = nil;
         self.mKunanceUserLoans = nil;
         self.mUserProfileStatus = ProfileStatusNoInfoEntered;
+        self.mUserPFInfoGUID = nil;
     }
     
     return self;
@@ -42,7 +43,7 @@ static kunanceUser *kunanceUserSingleton;
     FatFractal *ff = [FatFractal main];
     self.mkunanceUserPFInfo = newUserPFInfo;
     if(newUserPFInfo)
-        self.mkunanceUserPFInfo.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
+        self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
 }
 
 -(BOOL) isUserLoggedIn

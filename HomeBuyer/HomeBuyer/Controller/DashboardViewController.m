@@ -9,9 +9,11 @@
 #import "DashboardViewController.h"
 #import "PKRevealController.h"
 #import "DashNoInfoEnteredView.h"
+#import "DashUserPFInfoEnteredView.h"
 
 @interface DashboardViewController ()
 @property (nonatomic, strong) DashNoInfoEnteredView* mDashNoInfoEnteredView;
+@property (nonatomic, strong) DashUserPFInfoEnteredView* mDashUserPFInfoEnteredView;
 @end
 
 @implementation DashboardViewController
@@ -49,6 +51,15 @@
     self.navigationController.navigationBar.topItem.title = titleText;
 }
 
+-(void) showUserPFInfoEnteredView
+{
+    self.mDashUserPFInfoEnteredView = [[[NSBundle mainBundle] loadNibNamed:@"DashUserPFInfoEnteredView"
+                                                                     owner:self
+                                                                   options:nil]
+                                       objectAtIndex:0];
+    [self.mDashBoardMasterView addSubview:self.mDashUserPFInfoEnteredView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -65,6 +76,7 @@
                                                                                 action:@selector(showLeftView:)];
     }
     
+    NSLog(@"User status = %d", [kunanceUser getInstance].mUserProfileStatus);
     switch ([kunanceUser getInstance].mUserProfileStatus) {
         case ProfileStatusNoInfoEntered:
         {
@@ -73,6 +85,12 @@
             break;
             
         case ProfileStatusUserPersonalFinanceInfoEntered:
+            break;
+            
+        case ProfileStatusUserExpensesInfoEntered:
+        {
+            [self showUserPFInfoEnteredView];
+        }
             break;
             
         case ProfileStatusUser1HomeInfoEntered:

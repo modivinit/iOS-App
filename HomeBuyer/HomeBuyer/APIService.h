@@ -15,6 +15,10 @@
 
 @interface APIService : NSObject
 
+-(BOOL) writeFixedCostsInfo:(UInt64)enteredMonthlyRent
+          monthlyCarPaments:(UInt64)enteredCarPayments
+            otherFixedCosts:(UInt64)enteredOtherCosts;
+
 -(BOOL) writeUserPFInfo:(UInt64)annualGross
        annualRetirement:(UInt64)annualRetirement
        numberOfChildren:(uint)numberOfChildren

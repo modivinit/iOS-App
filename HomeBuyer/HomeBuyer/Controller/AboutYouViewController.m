@@ -26,11 +26,6 @@
     return self;
 }
 
--(void)dismissKeyboard
-{
-    [self.mActiveField resignFirstResponder];
-}
-
 -(void) selectMarried
 {
     self.mMarriedImageAsButton.image = [UIImage imageNamed:@"couple-selected.png"];
@@ -95,11 +90,6 @@
     self.mNumberOfChildrenControl.tag = tags++;
 }
 
--(void)doneWithNumberPad
-{
-    [self.mActiveField resignFirstResponder];
-}
-
 -(void) initWithCurrentUserPFInfo
 {
     userPFInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
@@ -155,7 +145,19 @@
 }
 
 
-#pragma mark Actions
+#pragma mark action functions
+//IBActions, action target methods, gesture targets
+
+-(void)dismissKeyboard
+{
+    [self.mActiveField resignFirstResponder];
+}
+
+-(void)doneWithNumberPad
+{
+    [self.mActiveField resignFirstResponder];
+}
+
 -(void) marriedButtonTapped
 {
     [self selectMarried];
@@ -179,14 +181,6 @@
         return;
     }
     
-    userPFInfo* currentPFInfo = nil;
-    
-    //upload it to the back
-    currentPFInfo.mMaritalStatus = self.mSelectedMaritalStatus;
-    currentPFInfo.mGrossAnnualIncome = [self.mAnnualGrossIncomeField.text intValue];
-    currentPFInfo.mAnnualRetirementSavingsContributions = [self.mAnnualRetirementContributionField.text intValue];
-    currentPFInfo.mNumberOfChildren = self.mNumberOfChildrenControl.selectedSegmentIndex;
-    
     APIService* apiService = [[APIService alloc] init];
     if(apiService)
     {
@@ -203,6 +197,7 @@
         [self.mAboutYouControllerDelegate userExpensesButtonTapped];
     }
 }
+
 
 #pragma mark - UITextField
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -260,7 +255,7 @@
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height-50, 0.0);
     self.mFormScrollView.contentInset = contentInsets;
     self.mFormScrollView.scrollIndicatorInsets = contentInsets;
     

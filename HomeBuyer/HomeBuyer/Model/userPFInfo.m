@@ -20,10 +20,10 @@
         self.mAnnualRetirementSavingsContributions = 0;
         self.mCurrentMonthlyIncomeTax = 0;
 
+        self.mFixedCostsInfoEntered = NO;
         self.mCurrentMonthlyRent = 0;
         self.mCurrentCarPayment = 0;
         self.mOtherMonthlyExpenses = 0;
-        self.mUserPFInfoGUID = nil;
     }
     
     return self;

@@ -7,6 +7,7 @@
 //
 
 #import "FixedCostsViewController.h"
+#import "APIService.h"
 
 @interface FixedCostsViewController ()
 
@@ -49,9 +50,17 @@
     self.mOtherMonthlyPayments.inputAccessoryView = self.mKeyBoardToolbar;
 }
 
--(void)doneWithNumberPad
+-(void) addGestureRecognizers
 {
-    [self.mActiveField resignFirstResponder];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+
+    UITapGestureRecognizer* currentLifestyleTappedGesture = [[UITapGestureRecognizer alloc]
+                                                             initWithTarget:self
+                                                             action:@selector(currentLifeStyleIncomeTapped)];
+    [self.mCurrentLifestyleIncomeViewAsButton addGestureRecognizer:currentLifestyleTappedGesture];
 }
 
 - (void)viewDidLoad
@@ -60,14 +69,9 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setupNavControl];
+    [self addGestureRecognizers];
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 320)];
-
-    UITapGestureRecognizer* currentLifestyleTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                         action:@selector(currentLifeStyleIncomeTapped)];
-    [self.mCurrentLifestyleIncomeViewAsButton addGestureRecognizer:currentLifestyleTappedGesture];
-
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 200)];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -86,20 +90,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Action Functions
+//IBActions, target action, gesture targets
 -(void) currentLifeStyleIncomeTapped
 {
     if(!self.mMonthlyRent.text || !self.mMonthlyCarPayments.text || !self.mOtherMonthlyPayments.text)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                   message:@"Please enter all fields"
-                                  delegate:self
-                         cancelButtonTitle:@"OK"
-                         otherButtonTitles:nil];
+                                                        message:@"Please enter all fields"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         
         [alert show];
         return;
     }
+    
+    APIService* service = [[APIService alloc] init];
+    if(service)
+    {
+        [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
+                   monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
+                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];
+    }
 }
+
+-(void)dismissKeyboard
+{
+    [self.mActiveField resignFirstResponder];
+}
+
+-(void)doneWithNumberPad
+{
+    [self.mActiveField resignFirstResponder];
+}
+
 
 #pragma mark - UITextField
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -160,7 +185,7 @@
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height-130, 0.0);
     self.mFormScrollView.contentInset = contentInsets;
     self.mFormScrollView.scrollIndicatorInsets = contentInsets;
     

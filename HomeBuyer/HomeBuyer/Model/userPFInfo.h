@@ -23,9 +23,9 @@ typedef enum
 @property (nonatomic) UInt64                       mAnnualRetirementSavingsContributions;
 @property (nonatomic) UInt16                       mCurrentMonthlyIncomeTax;
 
+@property (nonatomic) BOOL   mFixedCostsInfoEntered;
 @property (nonatomic) UInt16 mCurrentMonthlyRent;
 @property (nonatomic) UInt16 mCurrentCarPayment;
 @property (nonatomic) UInt16 mOtherMonthlyExpenses;
 
-@property (nonatomic, strong) NSString*            mUserPFInfoGUID;
 @end

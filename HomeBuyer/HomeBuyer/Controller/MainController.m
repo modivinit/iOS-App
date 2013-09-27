@@ -107,9 +107,6 @@
 {
     if(self.mAPIService)
         [self.mAPIService readUserPFInfo];
-
-    //display the dashboard
-    [self displayDash];
 }
 
 -(void) failedToLoginSavedUser
@@ -131,6 +128,7 @@
 #pragma mark APIServiceDelegate
 -(void) userPFInfoReadSuccessfully
 {
+    [self displayDash];
 }
 
 -(void) userExpensesInfoReadSuccessfully

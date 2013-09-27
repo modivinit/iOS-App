@@ -122,6 +122,7 @@
 		D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB1917D50AEE00F475F3 /* Security.framework */; };
 		D6B93F6217E96F9F0049B5D5 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B93F6117E96F9F0049B5D5 /* APIService.m */; };
 		D6B93F6317E96F9F0049B5D5 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B93F6117E96F9F0049B5D5 /* APIService.m */; };
+		D6C3E79417F400AC009EDCAE /* DashUserPFInfoEnteredView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */; };
 		D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2717DA79AA00DEA25D /* MainController.m */; };
 		D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
 		D6C88B2F17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
@@ -294,6 +295,8 @@
 		D696EB1F17D5127400F475F3 /* kunanceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kunanceConstants.h; sourceTree = "<group>"; };
 		D6B93F6017E96F9F0049B5D5 /* APIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIService.h; sourceTree = "<group>"; };
 		D6B93F6117E96F9F0049B5D5 /* APIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIService.m; sourceTree = "<group>"; };
+		D6C3E79217F400AC009EDCAE /* DashUserPFInfoEnteredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashUserPFInfoEnteredView.h; sourceTree = "<group>"; };
+		D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashUserPFInfoEnteredView.m; sourceTree = "<group>"; };
 		D6C88B2717DA79AA00DEA25D /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = Controller/MainController.m; sourceTree = "<group>"; };
 		D6C88B2817DA79AA00DEA25D /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = Controller/MainController.h; sourceTree = "<group>"; };
 		D6C88B2A17DA7B1600DEA25D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Controller/SignUpViewController.h; sourceTree = "<group>"; };
@@ -625,13 +628,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D6842E4E17DD21F30028AF00 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		D6842E4F17DD21F90028AF00 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +659,16 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		D6C3E79117F3FE23009EDCAE /* UserPFDash */ = {
+			isa = PBXGroup;
+			children = (
+				D6C88B4117DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib */,
+				D6C3E79217F400AC009EDCAE /* DashUserPFInfoEnteredView.h */,
+				D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */,
+			);
+			name = UserPFDash;
+			sourceTree = "<group>";
+		};
 		D6C88B2417DA6CF100DEA25D /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,7 +694,6 @@
 			children = (
 				D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */,
 				D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */,
-				D6C88B4117DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib */,
 				D6C88B4317DA7C0900DEA25D /* Dash1HomeEnteredView.xib */,
 				D6C88B4517DA7F7200DEA25D /* DashMultipleHomesView.xib */,
 			);
@@ -777,6 +782,7 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6C3E79117F3FE23009EDCAE /* UserPFDash */,
 				9E00FA9F17F34D9F00380997 /* HelpDashboard */,
 				9E00FA9E17F34D9900380997 /* HelpHome */,
 				9E00FA9D17F34D9100380997 /* HelpProfile */,
@@ -814,7 +820,6 @@
 		D6EEFFC717CDBDF100EB28C7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				D6842E4E17DD21F30028AF00 /* New Group */,
 				D6B93F6017E96F9F0049B5D5 /* APIService.h */,
 				D6B93F6117E96F9F0049B5D5 /* APIService.m */,
 			);
@@ -1081,6 +1086,7 @@
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoViewController.m in Sources */,
+				D6C3E79417F400AC009EDCAE /* DashUserPFInfoEnteredView.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				D6C88B4A17DA7FEC00DEA25D /* DashboardViewController.m in Sources */,

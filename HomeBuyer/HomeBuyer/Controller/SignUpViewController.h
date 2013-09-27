@@ -10,6 +10,7 @@
 
 @protocol SignUpDelegate <NSObject>
 -(void) userSignedUpSuccessfully;
+-(void) loadSignInClicked;
 @end
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>

@@ -40,7 +40,7 @@
     self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
     self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
                                                [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                               [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                                               [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard)],
                                                 nil];
     [self.mKeyBoardToolbar sizeToFit];
     
@@ -61,10 +61,16 @@
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;
     
     [self disableRegisterButton];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)doneWithNumberPad{
+-(void)dismissKeyboard{
     [self.mActiveField resignFirstResponder];
 }
 
@@ -89,6 +95,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction) showSignInView :(id)sender
+{
+    if(self.mSignUpDelegate && [self.mSignUpDelegate respondsToSelector:@selector(loadSignInClicked)])
+    {
+        [self.mSignUpDelegate loadSignInClicked];
+    }
 }
 
 -(void) registerUser:(id)sender

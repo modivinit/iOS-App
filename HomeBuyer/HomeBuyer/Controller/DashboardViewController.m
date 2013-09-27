@@ -79,12 +79,10 @@
     NSLog(@"User status = %d", [kunanceUser getInstance].mUserProfileStatus);
     switch ([kunanceUser getInstance].mUserProfileStatus) {
         case ProfileStatusNoInfoEntered:
+        case ProfileStatusUserPersonalFinanceInfoEntered:
         {
             [self showNoInfoEnteredView];
         }
-            break;
-            
-        case ProfileStatusUserPersonalFinanceInfoEntered:
             break;
             
         case ProfileStatusUserExpensesInfoEntered:
@@ -156,7 +154,7 @@
 #pragma ExpensesControllerDelegate
 -(void) currentLifeStyleIncomeButtonPressed
 {
-    
+    [self.view setNeedsDisplay];
 }
 #pragma end
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "FixedCostsViewController.h"
-#import "APIService.h"
+#import "kunanceUser.h"
 
 @interface FixedCostsViewController ()
 
@@ -90,6 +90,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark APIServiceDelegate
+-(void) finishedWritingUserPFInfo
+{
+    if(self.mExpensesControllerDelegate &&
+       [self.mExpensesControllerDelegate respondsToSelector:@selector(currentLifeStyleIncomeButtonPressed)])
+    {
+        [self currentLifeStyleIncomeTapped];
+    }
+}
+#pragma end
+
 #pragma mark Action Functions
 //IBActions, target action, gesture targets
 -(void) currentLifeStyleIncomeTapped
@@ -109,6 +120,7 @@
     APIService* service = [[APIService alloc] init];
     if(service)
     {
+        service.mAPIServiceDelegate = self;
         [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
                      otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];

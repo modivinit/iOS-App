@@ -7,6 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="mLoginButton" destination="HRQ-j3-5fL" id="QVk-kG-ztg"/>
+                <outlet property="mLoginEmail" destination="d6z-hI-ER1" id="nXw-AS-iwf"/>
+                <outlet property="mPassword" destination="6FE-p6-KDX" id="1Ny-Lh-ewA"/>
+                <outlet property="mSignInFooterBUtton" destination="y8a-ta-KMj" id="7Wm-8f-1yp"/>
+                <outlet property="mSignUpFooterButton" destination="vY1-8S-ZLR" id="uO4-Gx-6bL"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -28,6 +33,9 @@
                     <state key="normal" title="Sign In">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="loginButtonPressed:" destination="-1" eventType="touchDown" id="qvv-dp-Aiq"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yXv-KG-xHO">
                     <rect key="frame" x="134" y="30" width="53" height="20"/>
@@ -53,7 +61,7 @@
                     <rect key="frame" x="20" y="160" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bxh-bC-mqe">
                     <rect key="frame" x="20" y="80" width="90" height="17"/>
@@ -80,6 +88,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="Create Account"/>
+                    <connections>
+                        <action selector="signupButtonPressedAction:" destination="-1" eventType="touchDown" id="1qE-Ra-4OL"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

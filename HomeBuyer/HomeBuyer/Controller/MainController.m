@@ -116,6 +116,26 @@
     [self.mMainNavController pushViewController:loginViewController animated:YES];
 }
 
+#pragma mark LoginDelegate
+-(void) loggedInUserSuccessfully
+{
+    if(self.mAPIService)
+        [self.mAPIService readUserPFInfo];
+}
+
+-(void) signupButtonPressed
+{
+    if(self.mLoginViewController)
+        [self.mLoginViewController dismissViewControllerAnimated:NO completion:nil];
+    
+    if(self.mSignUpViewController)
+        self.mSignUpViewController = nil;
+    
+    self.mSignUpViewController = [[SignUpViewController alloc] init];
+    self.mSignUpViewController.mSignUpDelegate = self;
+    [self.mMainNavController presentViewController:self.mSignUpViewController animated:NO completion:nil];
+}
+#pragma end
 
 #pragma mark SignUpDelegate
 -(void) userSignedUpSuccessfully
@@ -123,17 +143,26 @@
     //Display the dashboard
     [self displayDash];
 }
+
+-(void) loadSignInClicked
+{
+    if(self.mSignUpViewController)
+        [self.mSignUpViewController dismissViewControllerAnimated:NO completion:nil];
+    
+    if(self.mLoginViewController)
+        self.mLoginViewController = nil;
+    
+    self.mLoginViewController = [[LoginViewController alloc] init];
+    self.mLoginViewController.mLoginDelegate = self;
+    [self.mMainNavController presentViewController:self.mLoginViewController animated:NO completion:nil];
+}
 #pragma end
 
 #pragma mark APIServiceDelegate
--(void) userPFInfoReadSuccessfully
+-(void) finishedReadingUserPFInfo
 {
     [self displayDash];
 }
 
--(void) userExpensesInfoReadSuccessfully
-{
-    
-}
 #pragma end
 @end

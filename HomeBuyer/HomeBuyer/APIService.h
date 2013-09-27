@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @protocol APIServiceDelegate <NSObject>
--(void) userPFInfoReadSuccessfully;
--(void) userExpensesInfoReadSuccessfully;
+
+@optional
+-(void) finishedReadingUserPFInfo;
+-(void) finishedWritingUserPFInfo;
+
 @end
 
 @interface APIService : NSObject

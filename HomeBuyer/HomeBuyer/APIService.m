@@ -80,6 +80,12 @@ static APIService* apiServiceSingleton;
         {
             NSLog(@"Error updating User PF Info %@", err);
         }
+        
+        if(self.mAPIServiceDelegate && [self.mAPIServiceDelegate respondsToSelector:@selector(finishedWritingUserPFInfo)])
+        {
+            [self.mAPIServiceDelegate finishedWritingUserPFInfo];
+        }
+
     }];
 }
 
@@ -127,12 +133,12 @@ static APIService* apiServiceSingleton;
                     [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
                 else
                     [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
-                
-                if(self.mAPIServiceDelegate && [self.mAPIServiceDelegate respondsToSelector:@selector(userPFInfoReadSuccessfully)])
-                {
-                    [self.mAPIServiceDelegate userPFInfoReadSuccessfully];
-                }
             }
+        }
+        
+        if(self.mAPIServiceDelegate && [self.mAPIServiceDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
+        {
+            [self.mAPIServiceDelegate finishedReadingUserPFInfo];
         }
     }];
     

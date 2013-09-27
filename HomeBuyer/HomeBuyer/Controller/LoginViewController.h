@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@protocol LoginDelegate <NSObject>
+-(void) loggedInUserSuccessfully;
+-(void) signupButtonPressed;
+@end
 
+@interface LoginViewController : UIViewController<UITextFieldDelegate>
+@property (nonatomic, weak) id <LoginDelegate> mLoginDelegate;
+@property (nonatomic, strong) UITextField* mActiveField;
+
+@property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;
+@property (nonatomic, strong) IBOutlet UITextField* mPassword;
+@property (nonatomic, strong) IBOutlet UIButton*    mLoginButton;
+@property (nonatomic, strong) IBOutlet UIButton*    mSignInFooterBUtton;
+@property (nonatomic, strong) IBOutlet UIButton*    mSignUpFooterButton;
+
+-(IBAction) loginButtonPressed:(id)sender;
+-(IBAction) signupButtonPressedAction:(id)sender;
+
+@property (nonatomic, strong) UIColor* mLoginButtonColor;
 @end

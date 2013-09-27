@@ -74,7 +74,7 @@
     self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
     self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
                                    [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                   [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                                   [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard)],
                                    nil];
     [self.mKeyBoardToolbar sizeToFit];
 
@@ -149,11 +149,6 @@
 //IBActions, action target methods, gesture targets
 
 -(void)dismissKeyboard
-{
-    [self.mActiveField resignFirstResponder];
-}
-
--(void)doneWithNumberPad
 {
     [self.mActiveField resignFirstResponder];
 }

@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIService.h"
 
 @protocol ExpensesControllerDelegate <NSObject>
 -(void) currentLifeStyleIncomeButtonPressed;
 @end
 
-@interface FixedCostsViewController : UIViewController<UITextFieldDelegate>
+@interface FixedCostsViewController : UIViewController<UITextFieldDelegate, APIServiceDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyRent;
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyCarPayments;

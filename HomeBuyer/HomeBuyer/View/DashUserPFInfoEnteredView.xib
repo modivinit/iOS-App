@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gMQ-z6-2MU">
-                    <rect key="frame" x="100" y="482" width="120" height="30"/>
+                    <rect key="frame" x="105" y="490" width="120" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="forward-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ast-ft-nV8">
@@ -20,7 +20,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add A Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3C-bN-AAb">
-                            <rect key="frame" x="3" y="5" width="97" height="21"/>
+                            <rect key="frame" x="8" y="5" width="92" height="19"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,20 +28,6 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
-                <view alpha="0.15000000596046448" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xvT-kB-ole">
-                    <rect key="frame" x="87" y="96" width="123" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$3,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-R3-B1m">
-                            <rect key="frame" x="0.0" y="0.0" width="123" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.22144632980000001" green="0.47450980390000003" blue="0.38434697769999998" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-food.png" translatesAutoresizingMaskIntoConstraints="NO" id="zEz-GD-txD">
                     <rect key="frame" x="43" y="149" width="29" height="25"/>
@@ -71,7 +57,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-WV-04y" customClass="DashNoInfoEnteredView">
-                    <rect key="frame" x="0.0" y="255" width="320" height="208"/>
+                    <rect key="frame" x="0.0" y="260" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfh-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="dNt-44-gNx">
@@ -105,15 +91,29 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="mQp-cw-nMH">
+                    <rect key="frame" x="275" y="523" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view alpha="0.14999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ge-Wu-NtS">
+                    <rect key="frame" x="94" y="70" width="132" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$3,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-R3-B1m">
+                            <rect key="frame" x="29" y="9" width="74" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                            <color key="textColor" red="0.086274509803921567" green="0.62745098039215685" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help.png" id="nLj-qr-rEL">
-            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </imageView>
     </objects>
     <resources>
         <image name="compare-dash.png" width="40" height="36"/>
@@ -121,11 +121,11 @@
         <image name="forward-icon.png" width="10" height="20"/>
         <image name="help.png" width="20" height="20"/>
         <image name="lifestyle-beach-dash.png" width="40" height="34"/>
-        <image name="lifestyle-food.png" width="45" height="50"/>
-        <image name="lifestyle-music.png" width="45" height="50"/>
-        <image name="lifestyle-shopping.png" width="45" height="50"/>
-        <image name="lifestyle-sports.png" width="45" height="50"/>
+        <image name="lifestyle-food.png" width="29" height="25"/>
+        <image name="lifestyle-music.png" width="29" height="28"/>
+        <image name="lifestyle-shopping.png" width="29" height="28"/>
+        <image name="lifestyle-sports.png" width="29" height="26"/>
         <image name="sfh-dash.png" width="36" height="40"/>
-        <image name="surfing.png" width="45" height="50"/>
+        <image name="surfing.png" width="29" height="28"/>
     </resources>
 </document>

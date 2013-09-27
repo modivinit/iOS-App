@@ -29,6 +29,16 @@
 		9E53442517F55205006BA12D /* aboutbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442317F55205006BA12D /* aboutbox@2x.png */; };
 		9E53442817F55310006BA12D /* companyName.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442617F55310006BA12D /* companyName.png */; };
 		9E53442917F55310006BA12D /* companyName@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442717F55310006BA12D /* companyName@2x.png */; };
+		9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442A17F555B8006BA12D /* lifestyle-food.png */; };
+		9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */; };
+		9E53443417F555B8006BA12D /* lifestyle-music.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442C17F555B8006BA12D /* lifestyle-music.png */; };
+		9E53443517F555B8006BA12D /* lifestyle-music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442D17F555B8006BA12D /* lifestyle-music@2x.png */; };
+		9E53443617F555B8006BA12D /* lifestyle-shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442E17F555B8006BA12D /* lifestyle-shopping.png */; };
+		9E53443717F555B8006BA12D /* lifestyle-shopping@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442F17F555B8006BA12D /* lifestyle-shopping@2x.png */; };
+		9E53443817F555B8006BA12D /* lifestyle-sports.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53443017F555B8006BA12D /* lifestyle-sports.png */; };
+		9E53443917F555B8006BA12D /* lifestyle-sports@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53443117F555B8006BA12D /* lifestyle-sports@2x.png */; };
+		9E53443C17F555C7006BA12D /* surfing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53443A17F555C7006BA12D /* surfing.png */; };
+		9E53443D17F555C7006BA12D /* surfing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53443B17F555C7006BA12D /* surfing@2x.png */; };
 		9E5D592717F23738000CA229 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D592517F23738000CA229 /* help.png */; };
 		9E5D592817F23738000CA229 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D592617F23738000CA229 /* help@2x.png */; };
 		9E5D593717F23AE2000CA229 /* dashboard-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D593517F23AE2000CA229 /* dashboard-profile.png */; };
@@ -219,6 +229,16 @@
 		9E53442317F55205006BA12D /* aboutbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aboutbox@2x.png"; sourceTree = "<group>"; };
 		9E53442617F55310006BA12D /* companyName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = companyName.png; sourceTree = "<group>"; };
 		9E53442717F55310006BA12D /* companyName@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "companyName@2x.png"; sourceTree = "<group>"; };
+		9E53442A17F555B8006BA12D /* lifestyle-food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-food.png"; sourceTree = "<group>"; };
+		9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-food@2x.png"; sourceTree = "<group>"; };
+		9E53442C17F555B8006BA12D /* lifestyle-music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-music.png"; sourceTree = "<group>"; };
+		9E53442D17F555B8006BA12D /* lifestyle-music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-music@2x.png"; sourceTree = "<group>"; };
+		9E53442E17F555B8006BA12D /* lifestyle-shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-shopping.png"; sourceTree = "<group>"; };
+		9E53442F17F555B8006BA12D /* lifestyle-shopping@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-shopping@2x.png"; sourceTree = "<group>"; };
+		9E53443017F555B8006BA12D /* lifestyle-sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-sports.png"; sourceTree = "<group>"; };
+		9E53443117F555B8006BA12D /* lifestyle-sports@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-sports@2x.png"; sourceTree = "<group>"; };
+		9E53443A17F555C7006BA12D /* surfing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surfing.png; sourceTree = "<group>"; };
+		9E53443B17F555C7006BA12D /* surfing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surfing@2x.png"; sourceTree = "<group>"; };
 		9E5D592517F23738000CA229 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		9E5D592617F23738000CA229 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
 		9E5D593517F23AE2000CA229 /* dashboard-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-profile.png"; sourceTree = "<group>"; };
@@ -740,6 +760,16 @@
 		D6C3E79117F3FE23009EDCAE /* UserPFDash */ = {
 			isa = PBXGroup;
 			children = (
+				9E53443A17F555C7006BA12D /* surfing.png */,
+				9E53443B17F555C7006BA12D /* surfing@2x.png */,
+				9E53442A17F555B8006BA12D /* lifestyle-food.png */,
+				9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */,
+				9E53442C17F555B8006BA12D /* lifestyle-music.png */,
+				9E53442D17F555B8006BA12D /* lifestyle-music@2x.png */,
+				9E53442E17F555B8006BA12D /* lifestyle-shopping.png */,
+				9E53442F17F555B8006BA12D /* lifestyle-shopping@2x.png */,
+				9E53443017F555B8006BA12D /* lifestyle-sports.png */,
+				9E53443117F555B8006BA12D /* lifestyle-sports@2x.png */,
 				D6C88B4117DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib */,
 				D6C3E79217F400AC009EDCAE /* DashUserPFInfoEnteredView.h */,
 				D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */,
@@ -1029,6 +1059,7 @@
 			files = (
 				9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */,
 				D6842E5217DD22060028AF00 /* MenuIcon@2x.png in Resources */,
+				9E53443717F555B8006BA12D /* lifestyle-shopping@2x.png in Resources */,
 				9EA5D3FE17F1627300CE7BD8 /* street@2x.png in Resources */,
 				9ECCAD9A17F0E696001EAF4C /* doubledownarrow@2x.png in Resources */,
 				9E00FAD417F365B500380997 /* AboutKunanceViewController.xib in Resources */,
@@ -1038,12 +1069,15 @@
 				9EA5D3F917F1627300CE7BD8 /* city.png in Resources */,
 				D6C88B3517DA7B3000DEA25D /* LoginViewController.xib in Resources */,
 				9E5D593817F23AE2000CA229 /* dashboard-profile@2x.png in Resources */,
+				9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */,
 				9EA5D40417F162B500CE7BD8 /* LoanInfoViewController.xib in Resources */,
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
 				D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */,
+				9E53443617F555B8006BA12D /* lifestyle-shopping.png in Resources */,
 				9ECCADA017F0E724001EAF4C /* sfh-dash@2x.png in Resources */,
 				9E00FAC517F3646F00380997 /* PrivacyPolicyViewController.xib in Resources */,
 				9EA5D3F117F1624300CE7BD8 /* HomeAddressViewController.xib in Resources */,
+				9E53443C17F555C7006BA12D /* surfing.png in Resources */,
 				9E5D593717F23AE2000CA229 /* dashboard-profile.png in Resources */,
 				D6E6EE5917E65A9E005D7526 /* single@2x.png in Resources */,
 				9EA5D40E17F162DE00CE7BD8 /* interestrate.png in Resources */,
@@ -1067,6 +1101,7 @@
 				9ECCADAC17F0E809001EAF4C /* couple-dash@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
 				D6F9D41317DE72CF001DE8D1 /* DashNoInfoEnteredView.xib in Resources */,
+				9E53443D17F555C7006BA12D /* surfing@2x.png in Resources */,
 				9ECCAD9417F0E696001EAF4C /* compare-dash.png in Resources */,
 				D6C88B3417DA7B3000DEA25D /* SignUpViewController.xib in Resources */,
 				D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */,
@@ -1074,11 +1109,14 @@
 				9E00FAB417F34FB600380997 /* dashboard-dashboard.png in Resources */,
 				9EA5D3E717F15DC500CE7BD8 /* homeprice@2x.png in Resources */,
 				9EA5D3E917F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png in Resources */,
+				9E53443817F555B8006BA12D /* lifestyle-sports.png in Resources */,
 				D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */,
 				D6C88B4617DA7F7200DEA25D /* DashMultipleHomesView.xib in Resources */,
 				9EA5D3FB17F1627300CE7BD8 /* location.png in Resources */,
+				9E53443417F555B8006BA12D /* lifestyle-music.png in Resources */,
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
+				9E53443917F555B8006BA12D /* lifestyle-sports@2x.png in Resources */,
 				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
 				9E53442517F55205006BA12D /* aboutbox@2x.png in Resources */,
 				D6E6EE5417E65A8A005D7526 /* couple.png in Resources */,
@@ -1094,6 +1132,7 @@
 				D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */,
 				D6842E5317DD22060028AF00 /* MenuIcon.png in Resources */,
 				9E53442417F55205006BA12D /* aboutbox.png in Resources */,
+				9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */,
 				D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */,
 				9EA5D3EA17F15DC500CE7BD8 /* sfh-homeinfo.png in Resources */,
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,
@@ -1106,6 +1145,7 @@
 				9E00FAAC17F34DEC00380997 /* HelpHomeViewController.xib in Resources */,
 				9E5D593B17F23B21000CA229 /* dashboard-home.png in Resources */,
 				9EA5D3E017F15DC500CE7BD8 /* condo-selected.png in Resources */,
+				9E53443517F555B8006BA12D /* lifestyle-music@2x.png in Resources */,
 				D6E6EE5817E65A9E005D7526 /* single.png in Resources */,
 				D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */,
 				9EA5D3DF17F15DC500CE7BD8 /* besthomefeature@2x.png in Resources */,

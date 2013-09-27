@@ -35,7 +35,7 @@
                             <rect key="frame" x="15" y="15" width="250" height="390"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <mutableString key="text">Single Family vs. Townhouse/Condo: The type of home you are looking to buy. You are responsible for the complete care of a single family house vs. a condo/townhouse that includes some maintenance as part of your HOA dues.
+                            <string key="text">Single Family vs. Townhouse/Condo: The type of home you are looking to buy. You are responsible for the complete care of a single family house vs. a condo/townhouse that includes some maintenance as part of your HOA dues.
 
 Best Home Feature:  Insert a description of the property to help queue your memory as to which house you are comparing.
 
@@ -50,7 +50,7 @@ Available down payment:  The amount of money you have for the down payment of th
 
 Interest rate: Insert the interest rate for the mortgage.  Note:  If it is a variable rate mortage (such as an adjustable mortgage), it is impossible to know what the future interest rate will be with a certainty. The system will use the interest rate you provide as if it is fixed for the length of the loan.  We recommend you adjust the interest rate to see the effects.
 
-Loan term: Years of the mortgage. Note: if adjustable, please insert the entire length of the loan term. For example:  5/1 ARM still might be a 30 year mortgage where the interest rate changes every year after the first five years.</mutableString>
+Loan term: Years of the mortgage. Note: if adjustable, please insert the entire length of the loan term. For example:  5/1 ARM still might be a 30 year mortgage where the interest rate changes every year after the first five years.</string>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>

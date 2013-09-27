@@ -35,7 +35,7 @@
                             <rect key="frame" x="15" y="15" width="250" height="390"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <mutableString key="text">Marital status: Enter married if in a marriage recognized by the state you live in.  Starting in 2013, this includes same-sex marriages.  Note:  This does not include domestic partnerships or an equivalent. 
+                            <string key="text">Marital status: Enter married if in a marriage recognized by the state you live in.  Starting in 2013, this includes same-sex marriages.  Note:  This does not include domestic partnerships or an equivalent. 
 
 Number of kids:  list the number of your children who are minors, including officially adopted children.
 
@@ -47,7 +47,7 @@ Monthly Rent:  Amount of your monthly rent payment.
 
 Monthly Car payments:  Amount of your monthly car payments across all cars.
 
-Other Monthly Fixed Costs: Total amount of your other monthly fixed costs not previously listed. Fixed costs typically do not change month to month.</mutableString>
+Other Monthly Fixed Costs: Total amount of your other monthly fixed costs not previously listed. Fixed costs typically do not change month to month.</string>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>

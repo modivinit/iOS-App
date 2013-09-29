@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FormViewController.h"
 
 @protocol SignUpDelegate <NSObject>
 -(void) userSignedUpSuccessfully;
 -(void) loadSignInClicked;
 @end
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+@interface SignUpViewController : FormViewController <UITextFieldDelegate>
 @property (nonatomic, weak) id <SignUpDelegate> mSignUpDelegate;
 @end

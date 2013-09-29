@@ -15,41 +15,6 @@
 
 @implementation FixedCostsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
--(void) setupNavControl
-{
-    uint tags = 0;
-    
-    self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
-    self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
-                                   [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                   [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
-                                   nil];
-    
-    [self.mKeyBoardToolbar sizeToFit];
-    
-    self.mMonthlyRent.tag = tags++;
-    self.mMonthlyRent.delegate = self;
-    self.mMonthlyRent.inputAccessoryView = self.mKeyBoardToolbar;
-    
-    self.mMonthlyCarPayments.tag = tags++;
-    self.mMonthlyCarPayments.delegate = self;
-    self.mMonthlyCarPayments.inputAccessoryView = self.mKeyBoardToolbar;
-    
-    self.mOtherMonthlyPayments.tag = tags++;
-    self.mOtherMonthlyPayments.delegate = self;
-    self.mOtherMonthlyPayments.inputAccessoryView = self.mKeyBoardToolbar;
-}
-
 -(void) addGestureRecognizers
 {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -65,23 +30,15 @@
 
 - (void)viewDidLoad
 {
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mMonthlyRent,
+                self.mMonthlyCarPayments, self.mOtherMonthlyPayments, nil];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self setupNavControl];
     [self addGestureRecognizers];
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 200)];
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-    [self registerForKeyboardNotifications];
-}
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    [self deregisterForKeyboardNotifications];
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,10 +50,17 @@
 #pragma mark APIServiceDelegate
 -(void) finishedWritingUserPFInfo
 {
-    if(self.mExpensesControllerDelegate &&
-       [self.mExpensesControllerDelegate respondsToSelector:@selector(currentLifeStyleIncomeButtonPressed)])
+    if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
     {
-        [self currentLifeStyleIncomeTapped];
+        if(self.mExpensesControllerDelegate &&
+           [self.mExpensesControllerDelegate respondsToSelector:@selector(currentLifeStyleIncomeButtonPressed)])
+        {
+            [self.mExpensesControllerDelegate currentLifeStyleIncomeButtonPressed];
+        }
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry. Unable to connect to server"];
     }
 }
 #pragma end
@@ -120,102 +84,13 @@
     APIService* service = [[APIService alloc] init];
     if(service)
     {
-        service.mAPIServiceDelegate = self;
-        [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
-                   monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
-                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];
-    }
-}
-
--(void)dismissKeyboard
-{
-    [self.mActiveField resignFirstResponder];
-}
-
--(void)doneWithNumberPad
-{
-    [self.mActiveField resignFirstResponder];
-}
-
-
-#pragma mark - UITextField
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.mMonthlyRent)
-    {
-        [self.mMonthlyCarPayments becomeFirstResponder];
-    }
-    else if (textField == self.mMonthlyCarPayments)
-    {
-        [self.mOtherMonthlyPayments becomeFirstResponder];
+//        service.mAPIServiceDelegate = self;
+//        [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
+//                   monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
+//                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];
     }
     
-    [textField resignFirstResponder];
-    
-    return YES;
+    [self.mExpensesControllerDelegate currentLifeStyleIncomeButtonPressed];
+
 }
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.mActiveField = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.mActiveField = nil;
-}
-
-#pragma mark - Keyboard
-
--(void) deregisterForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardDidShowNotification
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-    
-}
-
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
-}
-
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height-130, 0.0);
-    self.mFormScrollView.contentInset = contentInsets;
-    self.mFormScrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your app might not need or want this behavior.
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.mActiveField.frame.origin) ) {
-        [self.mFormScrollView scrollRectToVisible:self.mActiveField.frame animated:YES];
-    }
-}
-
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.mFormScrollView.contentInset = contentInsets;
-    self.mFormScrollView.scrollIndicatorInsets = contentInsets;
-}
-
 @end

@@ -72,12 +72,15 @@ static APIService* apiServiceSingleton;
     FatFractal *ff = [FatFractal main];
     [ff updateObj:currentPFInfo onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
-        if(obj)
+        if(!err && obj)
         {
             [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
+            if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
+                [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
         }
         else
         {
+            [kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered = NO;
             NSLog(@"Error updating User PF Info %@", err);
         }
         

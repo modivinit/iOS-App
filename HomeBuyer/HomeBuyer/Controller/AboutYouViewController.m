@@ -55,7 +55,7 @@
     
     UITapGestureRecognizer* userExpensesTappedGesture = [[UITapGestureRecognizer alloc]
                                                          initWithTarget:self
-                                                         action:@selector(userExpensesButtonTapped)];
+                                                         action:@selector(fixedCostsButtonTapped)];
     [self.mUserExpensesViewAsButton addGestureRecognizer:userExpensesTappedGesture];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -63,31 +63,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-}
-
--(void) setupNavControl
-{
-    uint tags = 0;
-    
-    
-    self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
-    self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
-                                   [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                   [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard)],
-                                   nil];
-    [self.mKeyBoardToolbar sizeToFit];
-
-    
-    self.mAnnualGrossIncomeField.tag = tags++;
-    self.mAnnualGrossIncomeField.delegate = self;
-    self.mAnnualGrossIncomeField.inputAccessoryView = self.mKeyBoardToolbar;
-    
-    self.mAnnualRetirementContributionField.tag = tags++;
-    self.mAnnualRetirementContributionField.delegate = self;
-    self.mAnnualRetirementContributionField.inputAccessoryView = self.mKeyBoardToolbar;
-    
-    self.mNumberOfChildrenControl.tag = tags++;
 }
 
 -(void) initWithCurrentUserPFInfo
@@ -115,27 +90,16 @@
 
 - (void)viewDidLoad
 {
+    
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mAnnualGrossIncomeField,
+                        self.mAnnualRetirementContributionField, nil];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    
-    
-    [self setupNavControl];
-    
     [self setupGestureRecognizers];
-    
     [self initWithCurrentUserPFInfo];
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-    [self registerForKeyboardNotifications];
-}
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    [self deregisterForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,11 +112,6 @@
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
 
--(void)dismissKeyboard
-{
-    [self.mActiveField resignFirstResponder];
-}
-
 -(void) marriedButtonTapped
 {
     [self selectMarried];
@@ -163,7 +122,7 @@
     [self selectSingle];
 }
 
--(void) userExpensesButtonTapped
+-(void) fixedCostsButtonTapped
 {
     if(self.mSelectedMaritalStatus == StatusNotDefined)
     {
@@ -179,10 +138,10 @@
     APIService* apiService = [[APIService alloc] init];
     if(apiService)
     {
-        [apiService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
-                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
-                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
-                      maritalStatus:self.mSelectedMaritalStatus];
+//        [apiService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
+//                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
+//                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
+//                      maritalStatus:self.mSelectedMaritalStatus];
     }
     
     //let the dashcontroller know that this form is done
@@ -191,83 +150,5 @@
     {
         [self.mAboutYouControllerDelegate userExpensesButtonTapped];
     }
-}
-
-
-#pragma mark - UITextField
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.mAnnualGrossIncomeField)
-    {
-        [self.mAnnualRetirementContributionField becomeFirstResponder];
-    }
-    
-    
-    [textField resignFirstResponder];
-    
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.mActiveField = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.mActiveField = nil;
-}
-
-#pragma mark - Keyboard
-
--(void) deregisterForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardDidShowNotification
-                                                  object:nil];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-
-}
-
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
-}
-
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height-50, 0.0);
-    self.mFormScrollView.contentInset = contentInsets;
-    self.mFormScrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your app might not need or want this behavior.
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.mActiveField.frame.origin) ) {
-        [self.mFormScrollView scrollRectToVisible:self.mActiveField.frame animated:YES];
-    }
-}
-
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.mFormScrollView.contentInset = contentInsets;
-    self.mFormScrollView.scrollIndicatorInsets = contentInsets;
 }
 @end

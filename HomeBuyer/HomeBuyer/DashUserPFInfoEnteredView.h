@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DashUserPFInfoEnteredView : UIView
-
+@property (nonatomic, strong) IBOutlet UIView* mMainView;
+@property (nonatomic, strong) IBOutlet UILabel* mTrialLabel;
 @end

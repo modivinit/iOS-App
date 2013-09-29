@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="mAnnualGrossIncomeField" destination="Yhf-IU-clI" id="UA3-MP-ZsO"/>
                 <outlet property="mAnnualRetirementContributionField" destination="ciF-Ca-Yh5" id="l5u-xW-0N6"/>
-                <outlet property="mFormScrollView" destination="0bh-L2-Dwl" id="jYJ-6f-mY9"/>
+                <outlet property="mFormScrollView" destination="0bh-L2-Dwl" id="NFu-rL-FlB"/>
                 <outlet property="mMarriedImageAsButton" destination="QiK-Q9-drf" id="J2Q-ok-RYc"/>
                 <outlet property="mNumberOfChildrenControl" destination="qYC-6V-4Ch" id="l7v-Kt-zem"/>
                 <outlet property="mSingleImageAsButton" destination="uBq-EB-gXD" id="Xns-iI-NvI"/>
@@ -50,7 +50,7 @@
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0bh-L2-Dwl">
                     <rect key="frame" x="0.0" y="80" width="320" height="350"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <subviews>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="single.png" id="uBq-EB-gXD">
                             <rect key="frame" x="70" y="20" width="40" height="40"/>

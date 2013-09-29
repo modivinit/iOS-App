@@ -18,7 +18,6 @@
 @property (nonatomic, strong) IBOutlet UITextField* mEmailField;
 @property (nonatomic, strong) IBOutlet UITextField* mPasswordField;
 @property (nonatomic, strong) IBOutlet UITextField* mRealtorCodeField;
-@property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
 @property (nonatomic, strong) UIColor* mRegisterButtonEnabledColor;
 
 @property (nonatomic, strong) UIToolbar *mKeyBoardToolbar;
@@ -207,35 +206,5 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
     
-}
-
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    CGPoint origin = self.mActiveField.frame.origin;
-    origin.y -= self.scrollView.contentOffset.y;
-    if (!CGRectContainsPoint(aRect, origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.mActiveField.frame.origin.y-(aRect.size.height));
-        [self.scrollView setContentOffset:scrollPoint animated:YES];
-    }
-}
-
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 @end

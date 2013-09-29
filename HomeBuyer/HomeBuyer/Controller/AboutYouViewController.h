@@ -8,18 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "userPFInfo.h"
+#import "FormViewController.h"
 
 @protocol AboutYouControllerDelegate <NSObject>
 -(void) userExpensesButtonTapped;
 @end
 
-@interface AboutYouViewController : UIViewController<UITextFieldDelegate>
+@interface AboutYouViewController : FormViewController
 
 @property (nonatomic, strong) UISegmentedControl *mNavControl;
-@property (nonatomic, strong) UIToolbar *mKeyBoardToolbar;
-@property (nonatomic, strong) UIView*    mActiveField;
-@property (nonatomic, strong) IBOutlet UIScrollView* mFormScrollView;
-
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
 
 @property (nonatomic) IBOutlet UIImageView*  mMarriedImageAsButton;

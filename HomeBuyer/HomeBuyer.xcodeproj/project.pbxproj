@@ -107,6 +107,10 @@
 		9ECCADAB17F0E809001EAF4C /* couple-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCADA817F0E809001EAF4C /* couple-dash.png */; };
 		9ECCADAC17F0E809001EAF4C /* couple-dash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCADA917F0E809001EAF4C /* couple-dash@2x.png */; };
 		9ECCADAD17F0E809001EAF4C /* couple-dash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCADA917F0E809001EAF4C /* couple-dash@2x.png */; };
+		D607A20917F8FB6D008E093C /* DashNoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607A20717F8FB6D008E093C /* DashNoInfoViewController.m */; };
+		D607A20A17F8FB6D008E093C /* DashNoInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607A20817F8FB6D008E093C /* DashNoInfoViewController.xib */; };
+		D607A21117F902EA008E093C /* DashUserPFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607A20F17F902EA008E093C /* DashUserPFInfoViewController.m */; };
+		D607A21217F902EA008E093C /* DashUserPFInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */; };
 		D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */; };
@@ -144,7 +148,6 @@
 		D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB1917D50AEE00F475F3 /* Security.framework */; };
 		D6B93F6217E96F9F0049B5D5 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B93F6117E96F9F0049B5D5 /* APIService.m */; };
 		D6B93F6317E96F9F0049B5D5 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B93F6117E96F9F0049B5D5 /* APIService.m */; };
-		D6C3E79417F400AC009EDCAE /* DashUserPFInfoEnteredView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */; };
 		D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2717DA79AA00DEA25D /* MainController.m */; };
 		D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
 		D6C88B2F17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
@@ -156,10 +159,8 @@
 		D6C88B3C17DA7B7D00DEA25D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3717DA7B7D00DEA25D /* Utilities.m */; };
 		D6C88B3D17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */; };
 		D6C88B3E17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */; };
-		D6C88B4217DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C88B4117DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib */; };
 		D6C88B4417DA7C0A00DEA25D /* Dash1HomeEnteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C88B4317DA7C0900DEA25D /* Dash1HomeEnteredView.xib */; };
 		D6C88B4617DA7F7200DEA25D /* DashMultipleHomesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C88B4517DA7F7200DEA25D /* DashMultipleHomesView.xib */; };
-		D6C88B4A17DA7FEC00DEA25D /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B4817DA7FEC00DEA25D /* DashboardViewController.m */; };
 		D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */; };
 		D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C890B617DC4426007CB46F /* LeftMenuViewController.m */; };
 		D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */; };
@@ -190,8 +191,6 @@
 		D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC117E79DA8005D7526 /* back-icon.png */; };
 		D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */; };
 		D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E7CC7817F74DF10099C0B8 /* FormViewController.m */; };
-		D6F9D41317DE72CF001DE8D1 /* DashNoInfoEnteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F9D41117DE72CF001DE8D1 /* DashNoInfoEnteredView.xib */; };
-		D6F9D41717DE73E0001DE8D1 /* DashNoInfoEnteredView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F9D41617DE73E0001DE8D1 /* DashNoInfoEnteredView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +298,12 @@
 		9ECCADA317F0E7B8001EAF4C /* lifestyle-beach-dash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-beach-dash@2x.png"; sourceTree = "<group>"; };
 		9ECCADA817F0E809001EAF4C /* couple-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-dash.png"; sourceTree = "<group>"; };
 		9ECCADA917F0E809001EAF4C /* couple-dash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "couple-dash@2x.png"; sourceTree = "<group>"; };
+		D607A20617F8FB6D008E093C /* DashNoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashNoInfoViewController.h; path = Controller/DashNoInfoViewController.h; sourceTree = "<group>"; };
+		D607A20717F8FB6D008E093C /* DashNoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashNoInfoViewController.m; path = Controller/DashNoInfoViewController.m; sourceTree = "<group>"; };
+		D607A20817F8FB6D008E093C /* DashNoInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashNoInfoViewController.xib; path = Controller/DashNoInfoViewController.xib; sourceTree = "<group>"; };
+		D607A20E17F902EA008E093C /* DashUserPFInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashUserPFInfoViewController.h; path = Controller/DashUserPFInfoViewController.h; sourceTree = "<group>"; };
+		D607A20F17F902EA008E093C /* DashUserPFInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashUserPFInfoViewController.m; path = Controller/DashUserPFInfoViewController.m; sourceTree = "<group>"; };
+		D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashUserPFInfoViewController.xib; path = Controller/DashUserPFInfoViewController.xib; sourceTree = "<group>"; };
 		D610B4FC17D15E5500C6EE4A /* kunanceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kunanceUser.h; path = Model/kunanceUser.h; sourceTree = "<group>"; };
 		D610B4FD17D15E5500C6EE4A /* kunanceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kunanceUser.m; path = Model/kunanceUser.m; sourceTree = "<group>"; };
 		D6468B0A17DAF8CD0056EF57 /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
@@ -343,8 +348,6 @@
 		D696EB1F17D5127400F475F3 /* kunanceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kunanceConstants.h; sourceTree = "<group>"; };
 		D6B93F6017E96F9F0049B5D5 /* APIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIService.h; sourceTree = "<group>"; };
 		D6B93F6117E96F9F0049B5D5 /* APIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIService.m; sourceTree = "<group>"; };
-		D6C3E79217F400AC009EDCAE /* DashUserPFInfoEnteredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashUserPFInfoEnteredView.h; sourceTree = "<group>"; };
-		D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashUserPFInfoEnteredView.m; sourceTree = "<group>"; };
 		D6C88B2717DA79AA00DEA25D /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = Controller/MainController.m; sourceTree = "<group>"; };
 		D6C88B2817DA79AA00DEA25D /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = Controller/MainController.h; sourceTree = "<group>"; };
 		D6C88B2A17DA7B1600DEA25D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Controller/SignUpViewController.h; sourceTree = "<group>"; };
@@ -358,11 +361,8 @@
 		D6C88B3817DA7B7D00DEA25D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = Utilities/Utilities.h; sourceTree = "<group>"; };
 		D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = Utilities/KeychainWrapper.m; sourceTree = "<group>"; };
 		D6C88B3A17DA7B7D00DEA25D /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = Utilities/KeychainWrapper.h; sourceTree = "<group>"; };
-		D6C88B4117DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashUserPFInfoEnteredView.xib; path = View/DashUserPFInfoEnteredView.xib; sourceTree = "<group>"; };
 		D6C88B4317DA7C0900DEA25D /* Dash1HomeEnteredView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Dash1HomeEnteredView.xib; path = View/Dash1HomeEnteredView.xib; sourceTree = "<group>"; };
 		D6C88B4517DA7F7200DEA25D /* DashMultipleHomesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashMultipleHomesView.xib; path = View/DashMultipleHomesView.xib; sourceTree = "<group>"; };
-		D6C88B4717DA7FEC00DEA25D /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashboardViewController.h; path = Controller/DashboardViewController.h; sourceTree = "<group>"; };
-		D6C88B4817DA7FEC00DEA25D /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashboardViewController.m; path = Controller/DashboardViewController.m; sourceTree = "<group>"; };
 		D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashboardViewController.xib; path = View/DashboardViewController.xib; sourceTree = "<group>"; };
 		D6C890B517DC4426007CB46F /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		D6C890B617DC4426007CB46F /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
@@ -397,9 +397,6 @@
 		D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@2x.png"; sourceTree = "<group>"; };
 		D6E7CC7717F74DF10099C0B8 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = Controller/FormViewController.h; sourceTree = "<group>"; };
 		D6E7CC7817F74DF10099C0B8 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = Controller/FormViewController.m; sourceTree = "<group>"; };
-		D6F9D41117DE72CF001DE8D1 /* DashNoInfoEnteredView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashNoInfoEnteredView.xib; sourceTree = "<group>"; };
-		D6F9D41517DE73E0001DE8D1 /* DashNoInfoEnteredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashNoInfoEnteredView.h; path = View/DashNoInfoEnteredView.h; sourceTree = "<group>"; };
-		D6F9D41617DE73E0001DE8D1 /* DashNoInfoEnteredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashNoInfoEnteredView.m; path = View/DashNoInfoEnteredView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,6 +620,33 @@
 			name = LoanInfo;
 			sourceTree = "<group>";
 		};
+		D607A20B17F9029A008E093C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D6C88B2817DA79AA00DEA25D /* MainController.h */,
+				D6C88B2717DA79AA00DEA25D /* MainController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D607A20C17F902A3008E093C /* DashNoInfo */ = {
+			isa = PBXGroup;
+			children = (
+				D607A20617F8FB6D008E093C /* DashNoInfoViewController.h */,
+				D607A20717F8FB6D008E093C /* DashNoInfoViewController.m */,
+			);
+			name = DashNoInfo;
+			sourceTree = "<group>";
+		};
+		D607A20D17F902AC008E093C /* DashUserPFInfo */ = {
+			isa = PBXGroup;
+			children = (
+				D607A20E17F902EA008E093C /* DashUserPFInfoViewController.h */,
+				D607A20F17F902EA008E093C /* DashUserPFInfoViewController.m */,
+			);
+			name = DashUserPFInfo;
+			sourceTree = "<group>";
+		};
 		D6468ADD17DAA6670056EF57 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,16 +716,16 @@
 		D67EFDEA17CCE1280082F6C7 /* HomeBuyer */ = {
 			isa = PBXGroup;
 			children = (
-				D6468ADD17DAA6670056EF57 /* External */,
-				D68462C917D0751F00EF769B /* Utilities */,
 				D68462C617D0673900EF769B /* Application */,
+				D6EEFFC617CDBDEA00EB28C7 /* Controller */,
+				D6468ADD17DAA6670056EF57 /* External */,
+				D67EFDF917CCE1280082F6C7 /* Images.xcassets */,
+				D6EEFFC417CDBDCD00EB28C7 /* Model */,
 				D6EEFFC817CDBDFA00EB28C7 /* Resources */,
 				D6EEFFC717CDBDF100EB28C7 /* Service */,
-				D6EEFFC617CDBDEA00EB28C7 /* Controller */,
-				D6EEFFC517CDBDE500EB28C7 /* View */,
-				D6EEFFC417CDBDCD00EB28C7 /* Model */,
-				D67EFDF917CCE1280082F6C7 /* Images.xcassets */,
 				D67EFDEB17CCE1280082F6C7 /* Supporting Files */,
+				D68462C917D0751F00EF769B /* Utilities */,
+				D6EEFFC517CDBDE500EB28C7 /* View */,
 			);
 			path = HomeBuyer;
 			sourceTree = "<group>";
@@ -767,7 +791,7 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		D6C3E79117F3FE23009EDCAE /* UserPFDash */ = {
+		D6C3E79117F3FE23009EDCAE /* DashUserPFInfo */ = {
 			isa = PBXGroup;
 			children = (
 				9E53443A17F555C7006BA12D /* surfing.png */,
@@ -780,18 +804,14 @@
 				9E53442F17F555B8006BA12D /* lifestyle-shopping@2x.png */,
 				9E53443017F555B8006BA12D /* lifestyle-sports.png */,
 				9E53443117F555B8006BA12D /* lifestyle-sports@2x.png */,
-				D6C88B4117DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib */,
-				D6C3E79217F400AC009EDCAE /* DashUserPFInfoEnteredView.h */,
-				D6C3E79317F400AC009EDCAE /* DashUserPFInfoEnteredView.m */,
+				D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */,
 			);
-			name = UserPFDash;
+			name = DashUserPFInfo;
 			sourceTree = "<group>";
 		};
 		D6C88B2417DA6CF100DEA25D /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				D6C88B4717DA7FEC00DEA25D /* DashboardViewController.h */,
-				D6C88B4817DA7FEC00DEA25D /* DashboardViewController.m */,
 				D6C890B517DC4426007CB46F /* LeftMenuViewController.h */,
 				D6C890B617DC4426007CB46F /* LeftMenuViewController.m */,
 			);
@@ -909,21 +929,21 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6C3E79117F3FE23009EDCAE /* UserPFDash */,
 				9E00FACE17F3659E00380997 /* AboutKunance */,
-				9E00FAC717F3654C00380997 /* MemberAgreement */,
-				9E00FAC017F3645A00380997 /* PrivacyPolicy */,
+				D6E6EE4B17E659A7005D7526 /* AboutYou */,
+				D6C88B2617DA6EEF00DEA25D /* Dashboard */,
+				D6F9D3EF17DE66AA001DE8D1 /* DashNoInfo */,
+				D6C3E79117F3FE23009EDCAE /* DashUserPFInfo */,
+				D6E6EEB417E79D2A005D7526 /* FixedCosts */,
 				9E00FA9F17F34D9F00380997 /* HelpDashboard */,
 				9E00FA9E17F34D9900380997 /* HelpHome */,
 				9E00FA9D17F34D9100380997 /* HelpProfile */,
-				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
 				9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */,
-				D6E6EEB417E79D2A005D7526 /* FixedCosts */,
-				D6E6EE4B17E659A7005D7526 /* AboutYou */,
-				D6F9D3EF17DE66AA001DE8D1 /* NoInfoDash */,
-				D6C88B2617DA6EEF00DEA25D /* Dashboard */,
+				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				D6C88B2517DA6D7900DEA25D /* Login/SignUp */,
+				9E00FAC717F3654C00380997 /* MemberAgreement */,
+				9E00FAC017F3645A00380997 /* PrivacyPolicy */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -932,20 +952,21 @@
 			isa = PBXGroup;
 			children = (
 				9E00FACF17F365A500380997 /* AboutKunance */,
-				9E00FAC817F3655600380997 /* MemberAgreement */,
-				9E00FAC617F3647800380997 /* PrivacyPolicy */,
+				D6E6EE4C17E659AF005D7526 /* AboutYou */,
+				D6C88B2417DA6CF100DEA25D /* Dashboard */,
+				D607A20C17F902A3008E093C /* DashNoInfo */,
+				D607A20D17F902AC008E093C /* DashUserPFInfo */,
+				D6E6EEB317E79D19005D7526 /* FixedCosts */,
 				9E00FAA717F34DC400380997 /* HelpDashboard */,
 				9E00FAA617F34DBE00380997 /* HelpHome */,
 				9E00FAA517F34DB800380997 /* HelpProfile */,
-				9EA5D40517F162BC00CE7BD8 /* LoanInfo */,
 				9EA5D3F217F1624E00CE7BD8 /* HomeAddress */,
 				9EA5D3CF17F15D0200CE7BD8 /* HomeInfo */,
-				D6E6EEB317E79D19005D7526 /* FixedCosts */,
-				D6E6EE4C17E659AF005D7526 /* AboutYou */,
-				D6C88B2717DA79AA00DEA25D /* MainController.m */,
-				D6C88B2817DA79AA00DEA25D /* MainController.h */,
-				D6C88B2417DA6CF100DEA25D /* Dashboard */,
+				9EA5D40517F162BC00CE7BD8 /* LoanInfo */,
 				D64AAF3217D916FC006CA7E4 /* Login/Signup */,
+				D607A20B17F9029A008E093C /* Main */,
+				9E00FAC817F3655600380997 /* MemberAgreement */,
+				9E00FAC617F3647800380997 /* PrivacyPolicy */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -975,7 +996,7 @@
 			name = PhoneContent;
 			sourceTree = "<group>";
 		};
-		D6F9D3EF17DE66AA001DE8D1 /* NoInfoDash */ = {
+		D6F9D3EF17DE66AA001DE8D1 /* DashNoInfo */ = {
 			isa = PBXGroup;
 			children = (
 				9E5D592517F23738000CA229 /* help.png */,
@@ -994,11 +1015,9 @@
 				9ECCAD8B17F0E556001EAF4C /* downarrow@2x.png */,
 				9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */,
 				9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */,
-				D6F9D41117DE72CF001DE8D1 /* DashNoInfoEnteredView.xib */,
-				D6F9D41517DE73E0001DE8D1 /* DashNoInfoEnteredView.h */,
-				D6F9D41617DE73E0001DE8D1 /* DashNoInfoEnteredView.m */,
+				D607A20817F8FB6D008E093C /* DashNoInfoViewController.xib */,
 			);
-			name = NoInfoDash;
+			name = DashNoInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1119,7 +1138,6 @@
 				9EA5D3E817F15DC500CE7BD8 /* sfh-homeinfo-selected.png in Resources */,
 				9ECCADAC17F0E809001EAF4C /* couple-dash@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
-				D6F9D41317DE72CF001DE8D1 /* DashNoInfoEnteredView.xib in Resources */,
 				9E53443D17F555C7006BA12D /* surfing@2x.png in Resources */,
 				9EB7C65B17F5FF9C00F14BAA /* flip@2x.png in Resources */,
 				9ECCAD9417F0E696001EAF4C /* compare-dash.png in Resources */,
@@ -1175,13 +1193,14 @@
 				9E00FABF17F356EB00380997 /* helpbox@2x.png in Resources */,
 				9EA5D41117F162DE00CE7BD8 /* loantime@2x.png in Resources */,
 				D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */,
+				D607A21217F902EA008E093C /* DashUserPFInfoViewController.xib in Resources */,
 				9ECCADA417F0E7B8001EAF4C /* lifestyle-beach-dash.png in Resources */,
 				9ECCADA617F0E7B8001EAF4C /* lifestyle-beach-dash@2x.png in Resources */,
+				D607A20A17F8FB6D008E093C /* DashNoInfoViewController.xib in Resources */,
 				9EA5D41017F162DE00CE7BD8 /* loantime.png in Resources */,
 				9ECCAD9817F0E696001EAF4C /* doubledownarrow.png in Resources */,
 				9ECCAD9E17F0E724001EAF4C /* sfh-dash.png in Resources */,
 				D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */,
-				D6C88B4217DA7BEE00DEA25D /* DashUserPFInfoEnteredView.xib in Resources */,
 				9EA5D40D17F162DE00CE7BD8 /* downpayment@2x.png in Resources */,
 				9EA5D3E617F15DC500CE7BD8 /* homeprice.png in Resources */,
 				9ECCADAA17F0E809001EAF4C /* couple-dash.png in Resources */,
@@ -1222,6 +1241,7 @@
 				D6842E6A17DD9A670028AF00 /* homeAddress.m in Sources */,
 				D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */,
 				D6C88B3D17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */,
+				D607A20917F8FB6D008E093C /* DashNoInfoViewController.m in Sources */,
 				D6842E6617DD97090028AF00 /* homeInfo.m in Sources */,
 				9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */,
 				9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */,
@@ -1240,18 +1260,16 @@
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoViewController.m in Sources */,
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
-				D6C3E79417F400AC009EDCAE /* DashUserPFInfoEnteredView.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				9E00FAD317F365B500380997 /* AboutKunanceViewController.m in Sources */,
+				D607A21117F902EA008E093C /* DashUserPFInfoViewController.m in Sources */,
 				9E00FAC417F3646F00380997 /* PrivacyPolicyViewController.m in Sources */,
-				D6C88B4A17DA7FEC00DEA25D /* DashboardViewController.m in Sources */,
 				9E00FAA317F34DB100380997 /* HelpProfileViewController.m in Sources */,
 				D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */,
 				D6B93F6217E96F9F0049B5D5 /* APIService.m in Sources */,
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,
 				D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */,
-				D6F9D41717DE73E0001DE8D1 /* DashNoInfoEnteredView.m in Sources */,
 				D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

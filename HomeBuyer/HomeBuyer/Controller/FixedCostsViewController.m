@@ -84,13 +84,10 @@
     APIService* service = [[APIService alloc] init];
     if(service)
     {
-//        service.mAPIServiceDelegate = self;
-//        [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
-//                   monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
-//                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];
+        service.mAPIServiceDelegate = self;
+        [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
+                   monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
+                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];
     }
-    
-    [self.mExpensesControllerDelegate currentLifeStyleIncomeButtonPressed];
-
 }
 @end

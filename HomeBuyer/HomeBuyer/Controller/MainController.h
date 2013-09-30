@@ -9,19 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
-
+#import "DashNoInfoViewController.h"
 #import "APIService.h"
+#import "DashUserPFInfoViewController.h"
 
 @protocol MainControllerDelegate <NSObject>
 -(void) resetRootView:(UIViewController*) viewController;
 @end
 
-@interface MainController : NSObject <SignUpDelegate, APIServiceDelegate, LoginDelegate>
+@interface MainController : NSObject <SignUpDelegate, APIServiceDelegate, LoginDelegate, DashNoInfoViewDelegate>
 @property (nonatomic, strong) UINavigationController* mMainNavController;
 @property (nonatomic, weak) id <MainControllerDelegate> mMainControllerDelegate;
 @property (nonatomic, strong) APIService* mAPIService;
 @property (nonatomic, strong) SignUpViewController* mSignUpViewController;
 @property (nonatomic, strong) LoginViewController* mLoginViewController;
+@property (nonatomic, strong) UIViewController*    mMainDashController;
+
 -(id) initWithNavController:(UINavigationController*) navController;
 -(void) start;
 @end

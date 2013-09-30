@@ -138,10 +138,10 @@
     APIService* apiService = [[APIService alloc] init];
     if(apiService)
     {
-//        [apiService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
-//                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
-//                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
-//                      maritalStatus:self.mSelectedMaritalStatus];
+        [apiService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
+                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
+                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
+                      maritalStatus:self.mSelectedMaritalStatus];
     }
     
     //let the dashcontroller know that this form is done

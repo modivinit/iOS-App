@@ -8,10 +8,10 @@
 
 #import "MainController.h"
 #import "LoginViewController.h"
-#import "DashboardViewController.h"
 #import "LeftMenuViewController.h"
 #import "PKRevealController.h"
 #import "APIService.h"
+#import "DashNoInfoViewController.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
@@ -89,7 +89,30 @@
 
 -(void) displayDash
 {
-    UINavigationController *frontViewController = [[UINavigationController alloc] initWithRootViewController:[[DashboardViewController alloc] init]];
+    switch ([kunanceUser getInstance].mUserProfileStatus)
+    {
+        case ProfileStatusNoInfoEntered:
+        case ProfileStatusUserPersonalFinanceInfoEntered:
+            self.mMainDashController = [[DashNoInfoViewController alloc] init];
+            ((DashNoInfoViewController*) self.mMainDashController).mDashNoInfoViewDelegate = self;
+            break;
+            
+        case ProfileStatusUserExpensesInfoEntered:
+            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
+            //((DashUserPFInfoViewController*) self.mMainDashController).mDashNoInfoViewDelegate = self;
+            break;
+            
+        case ProfileStatusUser1HomeInfoEntered:
+            break;
+            
+        case ProfileStatusUserMultipleHomesInfoEntered:
+            break;
+            
+        default:
+            break;
+    }
+    
+    UINavigationController *frontViewController = [[UINavigationController alloc] initWithRootViewController: self.mMainDashController];
     LeftMenuViewController *leftViewController = [[LeftMenuViewController alloc] init];
     
     self.revealController = [PKRevealController revealControllerWithFrontViewController:frontViewController
@@ -155,6 +178,13 @@
     self.mLoginViewController = [[LoginViewController alloc] init];
     self.mLoginViewController.mLoginDelegate = self;
     [self.mMainNavController presentViewController:self.mLoginViewController animated:NO completion:nil];
+}
+#pragma end
+
+#pragma mark DashNoInfoViewDelegate
+-(void) showAndCalcCurrentLifeStyleIncome
+{
+    [self displayDash];
 }
 #pragma end
 

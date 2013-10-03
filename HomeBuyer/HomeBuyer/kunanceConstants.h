@@ -16,6 +16,10 @@
 // Used for saving the user's name to NSUserDefaults.
 #define USERNAME @"username"
 
+
+#define FIRST_HOME 1
+#define SECOND_HOME 2
+
 // Used to specify the application used in accessing the Keychain.
 #define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 
@@ -41,6 +45,8 @@ typedef enum{
     ProfileStatusUserPersonalFinanceInfoEntered,
     ProfileStatusUserExpensesInfoEntered,
     ProfileStatusUser1HomeInfoEntered,
-    ProfileStatusUserMultipleHomesInfoEntered
+    ProfileStatusUser1HomeAndLoanInfoEntered,
+    ProfileStatusUser2HomesButNoLoanEntered, //This can only be an intermidiate state
+    ProfileStatusUserTwoHomesAndLoanInfoEntered,
 }kunanceUserProfileStatus;
 #endif

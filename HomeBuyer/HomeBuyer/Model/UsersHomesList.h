@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "homeInfo.h"
 
+#define MAX_NUMBER_OF_HOMES_PER_USER 2
+
 @interface UsersHomesList : NSObject
-@property (nonatomic, strong) NSArray* mHomesAddedByUser;
+-(uint) getCurrentHomesCount;
+-(void) addNewHome:(homeInfo*) newHomeInfo;
 @end

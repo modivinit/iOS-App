@@ -8,7 +8,7 @@
 
 #import "AboutYouViewController.h"
 #import "userPFInfo.h"
-#import "APIService.h"
+#import "kunanceUser.h"
 
 @interface AboutYouViewController ()
 
@@ -55,7 +55,7 @@
     
     UITapGestureRecognizer* userExpensesTappedGesture = [[UITapGestureRecognizer alloc]
                                                          initWithTarget:self
-                                                         action:@selector(fixedCostsButtonTapped)];
+                                                         action:@selector(fixedCostsButtonTapped:)];
     [self.mUserExpensesViewAsButton addGestureRecognizer:userExpensesTappedGesture];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -122,7 +122,7 @@
     [self selectSingle];
 }
 
--(void) fixedCostsButtonTapped
+-(void) fixedCostsButtonTapped:(UITapGestureRecognizer*)recognizer
 {
     if(self.mSelectedMaritalStatus == StatusNotDefined)
     {
@@ -135,20 +135,37 @@
         return;
     }
     
-    APIService* apiService = [[APIService alloc] init];
-    if(apiService)
+    APIUserInfoService* apiUserInfoService = [[APIUserInfoService alloc] init];
+    if(apiUserInfoService)
     {
-        [apiService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
+        apiUserInfoService.mAPIUserInfoServiceDelegate = self;
+        if(![apiUserInfoService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
                    annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
                    numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
-                      maritalStatus:self.mSelectedMaritalStatus];
-    }
-    
-    //let the dashcontroller know that this form is done
-    if(self.mAboutYouControllerDelegate &&
-       [self.mAboutYouControllerDelegate respondsToSelector:@selector(userExpensesButtonTapped)])
-    {
-        [self.mAboutYouControllerDelegate userExpensesButtonTapped];
+                      maritalStatus:self.mSelectedMaritalStatus])
+        {
+            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
+        }
     }
 }
+
+#pragma mark APIUserInfoServiceDelegate
+-(void) finishedWritingUserPFInfo
+{
+    if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
+    {
+        //let the dashcontroller know that this form is done
+        if(self.mAboutYouControllerDelegate &&
+           [self.mAboutYouControllerDelegate respondsToSelector:@selector(userExpensesButtonTapped)])
+        {
+            [self.mAboutYouControllerDelegate userExpensesButtonTapped];
+        }
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry, unable to update you info"];
+    }
+}
+
+#pragma end
 @end

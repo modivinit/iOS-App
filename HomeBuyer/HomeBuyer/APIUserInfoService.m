@@ -1,16 +1,14 @@
 //
-//  APIService.m
+//  APIUserInfoService.m
 //  HomeBuyer
 //
 //  Created by Shilpa Modi on 9/17/13.
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "APIService.h"
+#import "APIUserInfoService.h"
 
-static APIService* apiServiceSingleton;
-
-@implementation APIService
+@implementation APIUserInfoService
 
 -(BOOL) writeFixedCostsInfo:(UInt64)enteredMonthlyRent
           monthlyCarPaments:(UInt64)enteredCarPayments
@@ -76,7 +74,10 @@ static APIService* apiServiceSingleton;
         {
             [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
             if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
+            {
                 [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
+                NSLog(@"User profile status = ProfileStatusUserExpensesInfoEntered");
+            }
         }
         else
         {
@@ -84,9 +85,9 @@ static APIService* apiServiceSingleton;
             NSLog(@"Error updating User PF Info %@", err);
         }
         
-        if(self.mAPIServiceDelegate && [self.mAPIServiceDelegate respondsToSelector:@selector(finishedWritingUserPFInfo)])
+        if(self.mAPIUserInfoServiceDelegate && [self.mAPIUserInfoServiceDelegate respondsToSelector:@selector(finishedWritingUserPFInfo)])
         {
-            [self.mAPIServiceDelegate finishedWritingUserPFInfo];
+            [self.mAPIUserInfoServiceDelegate finishedWritingUserPFInfo];
         }
 
     }];
@@ -95,7 +96,7 @@ static APIService* apiServiceSingleton;
 -(void) createUserPFObj:(userPFInfo*) currentPFInfo
 {
     FatFractal *ff = [FatFractal main];
-    [ff createObj:currentPFInfo atUri:@"/UserPFInfo-test" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
+    [ff createObj:currentPFInfo atUri:@"/UserPFInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
         if(obj)
         {
@@ -105,6 +106,12 @@ static APIService* apiServiceSingleton;
         {
             NSLog(@"Error creating User PF Info: %@", err);
         }
+        
+        if(self.mAPIUserInfoServiceDelegate && [self.mAPIUserInfoServiceDelegate respondsToSelector:@selector(finishedWritingUserPFInfo)])
+        {
+            [self.mAPIUserInfoServiceDelegate finishedWritingUserPFInfo];
+        }
+
     }];
 }
 
@@ -118,7 +125,7 @@ static APIService* apiServiceSingleton;
     if(!userGUID)
         return NO;
     
-    NSString* queryURI  = [NSString stringWithFormat:@"/UserPFInfo-test/(createdBy eq '%@')", userGUID];
+    NSString* queryURI  = [NSString stringWithFormat:@"/UserPFInfo/(createdBy eq '%@')", userGUID];
     NSLog(@"queryuri = %@", queryURI);
     
     [ff getObjFromUri:queryURI onComplete:^(NSError *theErr, id theObj, NSHTTPURLResponse *theResponse)
@@ -133,15 +140,21 @@ static APIService* apiServiceSingleton;
                 [kunanceUser getInstance].mkunanceUserPFInfo = aUserPFInfp;
                 
                 if(aUserPFInfp.mFixedCostsInfoEntered)
+                {
                     [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
+                                    NSLog(@"User profile status = ProfileStatusUserExpensesInfoEntered");
+                }
                 else
+                {
                     [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
+                                    NSLog(@"User profile status = ProfileStatusUserPersonalFinanceInfoEntered");
+                }
             }
         }
         
-        if(self.mAPIServiceDelegate && [self.mAPIServiceDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
+        if(self.mAPIUserInfoServiceDelegate && [self.mAPIUserInfoServiceDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
         {
-            [self.mAPIServiceDelegate finishedReadingUserPFInfo];
+            [self.mAPIUserInfoServiceDelegate finishedReadingUserPFInfo];
         }
     }];
     
@@ -154,7 +167,7 @@ static APIService* apiServiceSingleton;
     if (self)
     {
         // Initialization
-        self.mAPIServiceDelegate = nil;
+        self.mAPIUserInfoServiceDelegate = nil;
     }
     
     return self;

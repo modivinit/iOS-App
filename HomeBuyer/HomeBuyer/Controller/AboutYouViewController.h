@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "userPFInfo.h"
 #import "FormViewController.h"
+#import "APIUserInfoService.h"
 
 @protocol AboutYouControllerDelegate <NSObject>
 -(void) userExpensesButtonTapped;
 @end
 
-@interface AboutYouViewController : FormViewController
-
-@property (nonatomic, strong) UISegmentedControl *mNavControl;
+@interface AboutYouViewController : FormViewController <APIUserInfoServiceDelegate>
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
 
 @property (nonatomic) IBOutlet UIImageView*  mMarriedImageAsButton;

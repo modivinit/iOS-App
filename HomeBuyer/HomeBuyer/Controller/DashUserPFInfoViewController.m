@@ -23,11 +23,48 @@
     return self;
 }
 
+-(void) addGestureRecognizers
+{
+    UITapGestureRecognizer* homeInfoGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addHomeInfo)];
+    [self.mAddAHomeViewAsButton addGestureRecognizer:homeInfoGesture];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self addGestureRecognizers];
 }
+
+
+#pragma mark actions, gestures
+-(void) addHomeInfo
+{
+    self.mHomeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:FIRST_HOME];
+    self.mHomeInfoViewController.mHomeInfoViewDelegate = self;
+    [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
+}
+#pragma end
+
+#pragma HomeInfoViewDelegate
+-(void) loanInfoButtonTapped
+{
+    self.mLoanInfoViewController = [[LoanInfoViewController alloc] init];
+    self.mLoanInfoViewController.mLoanInfoViewDelegate = self;
+    [self.navigationController pushViewController:self.mLoanInfoViewController animated:NO];
+}
+#pragma end
+
+#pragma LoanInfoViewDelegate
+-(void) compareHomesButtonTappedFromLoanInfoView
+{
+    if(self.mDashUserPFInfoDelegate && [self.mDashUserPFInfoDelegate respondsToSelector:@selector(showAndCalculateRentVsBuy)])
+    {
+        [self.mDashUserPFInfoDelegate showAndCalculateRentVsBuy];
+    }
+}
+
+#pragma end
 
 - (void)didReceiveMemoryWarning
 {

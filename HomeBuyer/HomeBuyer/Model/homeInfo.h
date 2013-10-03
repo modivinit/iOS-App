@@ -10,8 +10,9 @@
 #import "homeAddress.h"
 typedef enum
 {
-    singleFamily = 0,
-    condominium = 1
+    homeTypeNotDefined = 0,
+    homeTypeSingleFamily = 1,
+    homeTypeCondominium = 2
 }homeType;
 
 @interface homeInfo : NSObject
@@ -24,4 +25,5 @@ typedef enum
 @property (nonatomic) uint              mMonthlyPropertyTaxOnHome;
 @property (nonatomic) uint              mMonthlyInsurance;
 @property (nonatomic) uint              mPMIForHome;
+@property (nonatomic) uint              mHomeId;
 @end

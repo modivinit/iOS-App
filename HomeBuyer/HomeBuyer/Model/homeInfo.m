@@ -23,6 +23,7 @@
         self.mHomeListPrice = 0;
         self.mIdentifiyingHomeFeature = nil;
         self.mMonthlyLoanPayment = 0;
+        self.mHomeId = 0;
     }
     
     return self;

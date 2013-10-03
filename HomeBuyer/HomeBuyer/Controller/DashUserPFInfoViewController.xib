@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashUserPFInfoViewController">
             <connections>
+                <outlet property="mAddAHomeViewAsButton" destination="t5z-ww-ulW" id="hef-xN-gGe"/>
                 <outlet property="view" destination="3Jn-H6-qR6" id="LNn-Ad-q1k"/>
             </connections>
         </placeholder>
@@ -60,7 +61,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-nd-2XE" userLabel="Dash No Info" customClass="DashNoInfoEnteredView">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-nd-2XE" userLabel="Dash No Info">
                     <rect key="frame" x="0.0" y="260" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>

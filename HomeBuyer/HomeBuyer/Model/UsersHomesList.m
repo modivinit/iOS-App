@@ -8,6 +8,12 @@
 
 #import "UsersHomesList.h"
 
+@interface UsersHomesList ()
+    @property (nonatomic, strong) NSMutableArray* mHomesAddedByUser;
+@end
+
+
+
 @implementation UsersHomesList
 
 -(id) init
@@ -16,9 +22,23 @@
     
     if(self)
     {
-        self.mHomesAddedByUser = nil;
+        self.mHomesAddedByUser = [[NSMutableArray alloc] init];
     }
     
     return self;
+}
+
+-(void) addNewHome:(homeInfo *)newHomeInfo
+{
+    if(!newHomeInfo)
+        return;
+    
+    if(self.mHomesAddedByUser)
+        [self.mHomesAddedByUser addObject:newHomeInfo];
+}
+
+-(uint) getCurrentHomesCount
+{
+    return self.mHomesAddedByUser.count;
 }
 @end

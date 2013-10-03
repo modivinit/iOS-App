@@ -47,7 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark APIServiceDelegate
+#pragma mark APIUserInfoServiceDelegate
 -(void) finishedWritingUserPFInfo
 {
     if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
@@ -81,13 +81,16 @@
         return;
     }
     
-    APIService* service = [[APIService alloc] init];
+    APIUserInfoService* service = [[APIUserInfoService alloc] init];
     if(service)
     {
-        service.mAPIServiceDelegate = self;
-        [service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
+        service.mAPIUserInfoServiceDelegate = self;
+        if(![service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
-                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]];
+                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]])
+        {
+            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];
+        }
     }
 }
 @end

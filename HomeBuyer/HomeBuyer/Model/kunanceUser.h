@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "userPFInfo.h"
 #import "UsersHomesList.h"
-#import "usersLoansList.h"
+#import "loan.h"
+#import "homeInfo.h"
+#import "UsersHomesList.h"
 
 @interface kunanceUser : NSObject
 @property (nonatomic, strong) FFUser* mLoggedInKunanceUser;
 @property (nonatomic, strong) userPFInfo* mkunanceUserPFInfo;
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
-@property (nonatomic, strong) usersLoansList* mKunanceUserLoans;
+@property (nonatomic, strong) loan* mKunanceUserLoan;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
 @property (nonatomic, strong) NSString*        mKunanceUserGUID;
 @property (nonatomic, strong) NSString*        mUserPFInfoGUID;
@@ -27,4 +29,8 @@
 -(BOOL) userAccountFoundOnDevice;
 
 -(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo;
+-(void) addNewHomeInfo:(homeInfo*)newHomeInfo;
+-(void) updateExistingHome:(homeInfo*)homeInfo;
+
+-(void) updateLoanInfo:(loan*) aLoan;
 @end

@@ -1,5 +1,5 @@
 //
-//  APIService.h
+//  APIUserInfoService.h
 //  HomeBuyer
 //
 //  Created by Shilpa Modi on 9/17/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol APIServiceDelegate <NSObject>
+@protocol APIUserInfoServiceDelegate <NSObject>
 
 @optional
 -(void) finishedReadingUserPFInfo;
@@ -16,7 +16,7 @@
 
 @end
 
-@interface APIService : NSObject
+@interface APIUserInfoService : NSObject
 
 -(BOOL) writeFixedCostsInfo:(UInt64)enteredMonthlyRent
           monthlyCarPaments:(UInt64)enteredCarPayments
@@ -29,5 +29,5 @@
 
 -(BOOL) readUserPFInfo;
 
-@property (nonatomic, weak) id <APIServiceDelegate> mAPIServiceDelegate;
+@property (nonatomic, weak) id <APIUserInfoServiceDelegate> mAPIUserInfoServiceDelegate;
 @end

@@ -10,7 +10,7 @@
 #import "LoginViewController.h"
 #import "LeftMenuViewController.h"
 #import "PKRevealController.h"
-#import "APIService.h"
+#import "APIUserInfoService.h"
 #import "DashNoInfoViewController.h"
 
 @interface MainController ()
@@ -26,8 +26,8 @@
     if(self)
     {
         self.mMainNavController = navController;
-        self.mAPIService = [[APIService alloc] init];
-        self.mAPIService.mAPIServiceDelegate = self;
+        self.mAPIUserInfoService = [[APIUserInfoService alloc] init];
+        self.mAPIUserInfoService.mAPIUserInfoServiceDelegate = self;
     }
     
     return self;
@@ -99,13 +99,18 @@
             
         case ProfileStatusUserExpensesInfoEntered:
             self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
-            //((DashUserPFInfoViewController*) self.mMainDashController).mDashNoInfoViewDelegate = self;
+            ((DashUserPFInfoViewController*) self.mMainDashController).mDashUserPFInfoDelegate = self;
             break;
             
         case ProfileStatusUser1HomeInfoEntered:
+        case ProfileStatusUser1HomeAndLoanInfoEntered:
+            self.mMainDashController = [[Dash1HomeEnteredViewController alloc] init];
+            ((Dash1HomeEnteredViewController*) self.mMainDashController).mDash1HomEnteredDelegate = self;
             break;
             
-        case ProfileStatusUserMultipleHomesInfoEntered:
+        case ProfileStatusUserTwoHomesAndLoanInfoEntered:
+            self.mMainDashController = [[Dash2HomesEnteredViewController alloc] init];
+            //((Dash2HomesEnteredViewController*) self.mMainDashController).mDash1HomEnteredDelegate = self;
             break;
             
         default:
@@ -126,10 +131,15 @@
    }
 }
 
+-(void) readUserPFInfo
+{
+    if(self.mAPIUserInfoService)
+        [self.mAPIUserInfoService readUserPFInfo];
+}
+
 -(void) savedUserLoggedInSuccessfully
 {
-    if(self.mAPIService)
-        [self.mAPIService readUserPFInfo];
+    [self readUserPFInfo];
 }
 
 -(void) failedToLoginSavedUser
@@ -142,8 +152,7 @@
 #pragma mark LoginDelegate
 -(void) loggedInUserSuccessfully
 {
-    if(self.mAPIService)
-        [self.mAPIService readUserPFInfo];
+    [self readUserPFInfo];
 }
 
 -(void) signupButtonPressed
@@ -188,9 +197,41 @@
 }
 #pragma end
 
+#pragma mark DashUserPFInfoDelegate
+-(void) showAndCalculateRentVsBuy
+{
+    [self displayDash];
+}
+#pragma end
+
+#pragma mark Dash1HomeEnteredViewDelegate
+-(void) calculateAndCompareHomes
+{
+    [self displayDash];
+}
+#pragma end
+
 #pragma mark APIServiceDelegate
 -(void) finishedReadingUserPFInfo
 {
+    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
+    if(homeInfoService)
+    {
+        if(![homeInfoService readHomesInfo])
+        {
+            NSLog(@"Error: reading homes info for user");
+        }
+    }
+    
+    APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
+    if(loanInfoService)
+    {
+        if(![loanInfoService readLoanInfo])
+        {
+            NSLog(@"Error: Unable to read user laons Info");
+        }
+    }
+    
     [self displayDash];
 }
 

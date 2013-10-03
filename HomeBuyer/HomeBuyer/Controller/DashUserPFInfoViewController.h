@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeInfoViewController.h"
+#import "LoanInfoViewController.h"
 
-@interface DashUserPFInfoViewController : UIViewController
+@protocol DashUserPFInfoDelegate <NSObject>
+-(void) showAndCalculateRentVsBuy;
+@end
 
+@interface DashUserPFInfoViewController : UIViewController <HomeInfoViewDelegate, LoanInfoViewDelegate>
+@property (nonatomic, strong) IBOutlet UIView* mAddAHomeViewAsButton;
+@property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;
+@property (nonatomic, strong) LoanInfoViewController* mLoanInfoViewController;
+
+@property (nonatomic,weak) id <DashUserPFInfoDelegate> mDashUserPFInfoDelegate;
 @end

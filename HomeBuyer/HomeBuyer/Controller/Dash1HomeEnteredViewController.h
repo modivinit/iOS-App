@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeInfoViewController.h"
+#import "DashLeftMenuViewController.h"
 
 @protocol Dash1HomeEnteredViewDelegate <NSObject>
 -(void) calculateAndCompareHomes;
 @end
 
-@interface Dash1HomeEnteredViewController : UIViewController<HomeInfoViewDelegate>
+@interface Dash1HomeEnteredViewController : DashLeftMenuViewController<HomeInfoViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView* mAddAHomeButtonAsView;
 @property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;

@@ -40,17 +40,6 @@
      
      NSString* titleText = [NSString stringWithFormat:@"Welcome %@", userName];
      self.navigationController.navigationBar.topItem.title = titleText;
-    
-    UIImage *revealImagePortrait = [UIImage imageNamed:@"MenuIcon.png"];
-   
-   if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
-       {
-          self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait
-                                                                     landscapeImagePhone:nil
-                                                                                   style:UIBarButtonItemStylePlain
-                                                                                  target:self
-                                                                                  action:@selector(showLeftView:)];
-      }
 }
 
 #pragma mark target action functions geature recognizers
@@ -60,34 +49,6 @@
      self.mAboutYouViewController.mAboutYouControllerDelegate = self;
      [self.navigationController pushViewController:self.mAboutYouViewController animated:YES];
 }
-
--(void)showLeftView:(id)sender
-{
-   if (self.navigationController.revealController.focusedController == self.navigationController.revealController.leftViewController)
-  {
-          [self.navigationController.revealController
-           showViewController:self.navigationController.revealController.frontViewController];
-  }
-  else
-  {
-      [self.navigationController.revealController
-       showViewController:self.navigationController.revealController.leftViewController];
-  }
-}
-
-- (void)showRightView:(id)sender
-{
-   if (self.navigationController.revealController.focusedController == self.navigationController.revealController.rightViewController)
-  {
-          [self.navigationController.revealController showViewController:self.navigationController.revealController.frontViewController];
-  }
-   else
-  {
-      [self.navigationController.revealController
-       showViewController:self.navigationController.revealController.rightViewController];
-  }
-}
-
 
 #pragma AboutYouControllerDelegate
 -(void) userExpensesButtonTapped

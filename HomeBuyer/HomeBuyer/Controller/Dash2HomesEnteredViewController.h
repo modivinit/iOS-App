@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DashLeftMenuViewController.h"
 
-@interface Dash2HomesEnteredViewController : UIViewController
+@interface Dash2HomesEnteredViewController : DashLeftMenuViewController
 
 @end

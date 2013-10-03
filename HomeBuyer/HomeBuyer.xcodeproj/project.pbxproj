@@ -125,6 +125,7 @@
 		D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */; };
 		D65A217D17FDFDE900884291 /* Dash2HomesEnteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* Dash2HomesEnteredViewController.m */; };
 		D65A217E17FDFDE900884291 /* Dash2HomesEnteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* Dash2HomesEnteredViewController.xib */; };
+		D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */; };
 		D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE217CCE1280082F6C7 /* Foundation.framework */; };
 		D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */; };
 		D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE617CCE1280082F6C7 /* UIKit.framework */; };
@@ -168,7 +169,6 @@
 		D6C88B3C17DA7B7D00DEA25D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3717DA7B7D00DEA25D /* Utilities.m */; };
 		D6C88B3D17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */; };
 		D6C88B3E17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */; };
-		D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */; };
 		D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C890B617DC4426007CB46F /* LeftMenuViewController.m */; };
 		D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */; };
 		D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */; };
@@ -332,6 +332,8 @@
 		D65A217A17FDFDE900884291 /* Dash2HomesEnteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dash2HomesEnteredViewController.h; path = Controller/Dash2HomesEnteredViewController.h; sourceTree = "<group>"; };
 		D65A217B17FDFDE900884291 /* Dash2HomesEnteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dash2HomesEnteredViewController.m; path = Controller/Dash2HomesEnteredViewController.m; sourceTree = "<group>"; };
 		D65A217C17FDFDE900884291 /* Dash2HomesEnteredViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Dash2HomesEnteredViewController.xib; path = Controller/Dash2HomesEnteredViewController.xib; sourceTree = "<group>"; };
+		D65A217F17FE0E9D00884291 /* DashLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashLeftMenuViewController.h; path = Controller/DashLeftMenuViewController.h; sourceTree = "<group>"; };
+		D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashLeftMenuViewController.m; path = Controller/DashLeftMenuViewController.m; sourceTree = "<group>"; };
 		D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67EFDE217CCE1280082F6C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -381,7 +383,6 @@
 		D6C88B3817DA7B7D00DEA25D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = Utilities/Utilities.h; sourceTree = "<group>"; };
 		D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = Utilities/KeychainWrapper.m; sourceTree = "<group>"; };
 		D6C88B3A17DA7B7D00DEA25D /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = Utilities/KeychainWrapper.h; sourceTree = "<group>"; };
-		D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashboardViewController.xib; path = View/DashboardViewController.xib; sourceTree = "<group>"; };
 		D6C890B517DC4426007CB46F /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		D6C890B617DC4426007CB46F /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -891,13 +892,15 @@
 			name = DashUserPFInfo;
 			sourceTree = "<group>";
 		};
-		D6C88B2417DA6CF100DEA25D /* Dashboard */ = {
+		D6C88B2417DA6CF100DEA25D /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
 				D6C890B517DC4426007CB46F /* LeftMenuViewController.h */,
 				D6C890B617DC4426007CB46F /* LeftMenuViewController.m */,
+				D65A217F17FE0E9D00884291 /* DashLeftMenuViewController.h */,
+				D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */,
 			);
-			name = Dashboard;
+			name = LeftMenu;
 			sourceTree = "<group>";
 		};
 		D6C88B2517DA6D7900DEA25D /* Login/SignUp */ = {
@@ -909,13 +912,12 @@
 			name = Login/SignUp;
 			sourceTree = "<group>";
 		};
-		D6C88B2617DA6EEF00DEA25D /* Dashboard */ = {
+		D6C88B2617DA6EEF00DEA25D /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
 				D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */,
-				D6C88B4C17DA800F00DEA25D /* DashboardViewController.xib */,
 			);
-			name = Dashboard;
+			name = LeftMenu;
 			sourceTree = "<group>";
 		};
 		D6E6EE4B17E659A7005D7526 /* AboutYou */ = {
@@ -1009,11 +1011,10 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D65A217817FDFDAD00884291 /* Dash2HomesEntered */,
 				9E00FACE17F3659E00380997 /* AboutKunance */,
 				D6E6EE4B17E659A7005D7526 /* AboutYou */,
 				D63EA1F617FCF3F400E50E44 /* Dash1HomeEntered */,
-				D6C88B2617DA6EEF00DEA25D /* Dashboard */,
+				D65A217817FDFDAD00884291 /* Dash2HomesEntered */,
 				D6F9D3EF17DE66AA001DE8D1 /* DashNoInfo */,
 				D6C3E79117F3FE23009EDCAE /* DashUserPFInfo */,
 				D6E6EEB417E79D2A005D7526 /* FixedCosts */,
@@ -1022,6 +1023,7 @@
 				9E00FA9D17F34D9100380997 /* HelpProfile */,
 				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
 				9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */,
+				D6C88B2617DA6EEF00DEA25D /* LeftMenu */,
 				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				D6C88B2517DA6D7900DEA25D /* Login/SignUp */,
 				9E00FAC717F3654C00380997 /* MemberAgreement */,
@@ -1037,7 +1039,6 @@
 				D6E6EE4C17E659AF005D7526 /* AboutYou */,
 				D63EA1F517FCF3B400E50E44 /* Dash1HomeEntered */,
 				D65A217917FDFDC300884291 /* Dash2HomesEntered */,
-				D6C88B2417DA6CF100DEA25D /* Dashboard */,
 				D607A20C17F902A3008E093C /* DashNoInfo */,
 				D607A20D17F902AC008E093C /* DashUserPFInfo */,
 				D6E6EEB317E79D19005D7526 /* FixedCosts */,
@@ -1046,6 +1047,7 @@
 				9E00FAA517F34DB800380997 /* HelpProfile */,
 				9EA5D3F217F1624E00CE7BD8 /* HomeAddress */,
 				9EA5D3CF17F15D0200CE7BD8 /* HomeInfo */,
+				D6C88B2417DA6CF100DEA25D /* LeftMenu */,
 				9EA5D40517F162BC00CE7BD8 /* LoanInfo */,
 				D64AAF3217D916FC006CA7E4 /* Login/Signup */,
 				D607A20B17F9029A008E093C /* Main */,
@@ -1195,7 +1197,6 @@
 				9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */,
 				9EA5D40417F162B500CE7BD8 /* LoanInfoViewController.xib in Resources */,
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
-				D6C88B4D17DA800F00DEA25D /* DashboardViewController.xib in Resources */,
 				9E53443617F555B8006BA12D /* lifestyle-shopping.png in Resources */,
 				9ECCADA017F0E724001EAF4C /* sfh-dash@2x.png in Resources */,
 				9E00FAC517F3646F00380997 /* PrivacyPolicyViewController.xib in Resources */,
@@ -1340,6 +1341,7 @@
 				D65A217D17FDFDE900884291 /* Dash2HomesEnteredViewController.m in Sources */,
 				D67EFDF517CCE1280082F6C7 /* AppDelegate.m in Sources */,
 				D6C88B3017DA7B1600DEA25D /* LoginViewController.m in Sources */,
+				D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */,
 				9E00FACC17F3656900380997 /* MemberAgreementViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,

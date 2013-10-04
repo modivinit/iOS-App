@@ -191,41 +191,59 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReuseIdentifier];
     }
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    
+    CGRect rect = cell.frame;
+    
+    UIImageView* cellImage = [[UIImageView alloc]
+                              initWithFrame:CGRectMake(rect.origin.x+10 , rect.origin.y, 25, 25)];
+    cellImage.center = CGPointMake(cellImage.center.x, cell.center.y);
+
+    UILabel* cellText = [[UILabel alloc]
+                         initWithFrame:CGRectMake(cellImage.bounds.origin.x+cellImage.bounds.size.width+20 ,
+                                                  rect.origin.y, rect.size.width-45, rect.size.height)];
+    
+    cellText.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
+    
+    [cell addSubview:cellText];
+    [cell addSubview:cellImage];
+    
     switch (indexPath.section)
     {
         case SECTION_USER_NAME_DASH_REALTOR:
             if(indexPath.row == 0)
-                cell.textLabel.text = @"Dashboard";
+            {
+                cellText.text = @"Dashboard";
+                cellImage.image = [UIImage imageNamed:@"dashboard-help-menu.png"];
+            }
             else if(indexPath.row == 1)
-                cell.textLabel.text = @"Contact Realtor";
+                cellText.text = @"Contact Realtor";
             break;
             
         case SECTION_HOMES:
             if(indexPath.row == 0)
-                cell.textLabel.text = @"Home 1";
+                cellText.text = @"First Home";
             else
-                cell.textLabel.text = @"Home 2";
+                cellText.text = @"Second Home";
             break;
             
         case SECTION_LOAN:
-            cell.textLabel.text = @"Loan Info";
+                cellText.text = @"Loan Info";
             break;
             
         case SECTION_USER_PROFILE:
             if(indexPath.row == 0)
-                cell.textLabel.text = @"Your Profile";
+                cellText.text = @"Your Profile";
             else if(indexPath.row == 1)
-                cell.textLabel.text = @"Fixed Costs";
+                cellText.text = @"Fixed Costs";
             break;
 
         case SECTION_INFO:
             if(indexPath.row == 0)
-                cell.textLabel.text = @"Help Center";
+                cellText.text = @"Help Center";
             else if(indexPath.row == 1)
-                cell.textLabel.text = @"Terms & Policies";
+                cellText.text = @"Terms & Policies";
             else if(indexPath.row == 2)
-                cell.textLabel.text = @"Logout";
+                cellText.text = @"Logout";
 
             break;
             

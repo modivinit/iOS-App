@@ -8,13 +8,13 @@
 
 #import "LeftMenuViewController.h"
 
-#define SECTION_USER_NAME 0
-#define SECTION_DASH 1
-#define SECTION_REALTOR 2
-#define SECTION_HOMES 3
-#define SECTION_LOAN 4
-#define SECTION_USER_PROFILE 5
-#define SECTION_INFO 6
+#define SECTION_USER_NAME_DASH_REALTOR 0
+//#define SECTION_DASH 1
+//#define SECTION_REALTOR 2
+#define SECTION_HOMES 1
+#define SECTION_LOAN 2
+#define SECTION_USER_PROFILE 3
+#define SECTION_INFO 4
 
 @interface LeftMenuViewController ()
 @property (nonatomic, strong) UITableView* mMenuTableView;
@@ -36,7 +36,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // Custom initialization
-    self.mMenuTableView = [[UITableView alloc] initWithFrame:self.view.bounds
+    CGRect rect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+20, self.view.bounds.size.width, self.view.bounds.size.height);
+    self.mMenuTableView = [[UITableView alloc] initWithFrame:rect
                                                        style:UITableViewStyleGrouped];
     self.mMenuTableView.dataSource = self;
     self.mMenuTableView.delegate = self;
@@ -56,7 +57,60 @@
     
 }
 #pragma mark UITableViewDataSource
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(5, 0, tableView.frame.size.width-60, 30.0)];
+    header.backgroundColor = [UIColor grayColor];
+    
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:header.frame];
+    textLabel.backgroundColor = [UIColor grayColor];
+    textLabel.textColor = [UIColor whiteColor];
+    textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    [header addSubview:textLabel];
+    
+    switch ((int)section) {
+        case SECTION_USER_NAME_DASH_REALTOR:
+            textLabel.text = [[NSString stringWithFormat:@"%@",[kunanceUser getInstance].mLoggedInKunanceUser.firstName] uppercaseString];
+            textLabel.textAlignment = NSTextAlignmentCenter;
+            break;
+            
+        case SECTION_HOMES:
+            textLabel.text = @"HOMES";
+            break;
+            
+        case SECTION_LOAN:
+            textLabel.text = @"LOAN";
+            break;
+            
+        case SECTION_USER_PROFILE:
+            textLabel.text = @"PROFILE";
+            break;
+            
+        case SECTION_INFO:
+            textLabel.text = @"";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if(section == SECTION_INFO)
+        return 10.0;
+    else
+        return 1.0;
+}
+
+/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString* header = nil;
     switch ((int)section) {
@@ -90,25 +144,17 @@
     }
     
     return header;
-}
+}*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numOfRows = 0;
     switch (section)
     {
-        case SECTION_USER_NAME:
-            numOfRows = 1;
+        case SECTION_USER_NAME_DASH_REALTOR:
+            numOfRows = 2;
             break;
             
-        case SECTION_DASH:
-            numOfRows = 1;
-            break;
-
-        case SECTION_REALTOR:
-            numOfRows = 1;
-            break;
-
         case SECTION_HOMES:
             numOfRows = MAX_NUMBER_OF_HOMES_PER_USER;
             break;
@@ -118,11 +164,11 @@
             break;
             
         case SECTION_USER_PROFILE:
-            numOfRows = 1;
+            numOfRows = 2;
             break;
             
         case SECTION_INFO:
-            numOfRows = 2;
+            numOfRows = 3;
             break;
             
         default:
@@ -133,7 +179,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,21 +191,16 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReuseIdentifier];
     }
-    
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     switch (indexPath.section)
     {
-        case SECTION_USER_NAME:
-            cell.textLabel.text = [NSString stringWithFormat:@"%@",[kunanceUser getInstance].mLoggedInKunanceUser.firstName];
+        case SECTION_USER_NAME_DASH_REALTOR:
+            if(indexPath.row == 0)
+                cell.textLabel.text = @"Dashboard";
+            else if(indexPath.row == 1)
+                cell.textLabel.text = @"Contact Realtor";
             break;
             
-        case SECTION_DASH:
-            cell.textLabel.text = @"Dash";
-            break;
-
-        case SECTION_REALTOR:
-            cell.textLabel.text = @"Realtor";
-            break;
-
         case SECTION_HOMES:
             if(indexPath.row == 0)
                 cell.textLabel.text = @"Home 1";
@@ -173,16 +214,18 @@
             
         case SECTION_USER_PROFILE:
             if(indexPath.row == 0)
-                cell.textLabel.text = @"About You";
-            else
-                cell.textLabel.text = @"Expenses";
+                cell.textLabel.text = @"Your Profile";
+            else if(indexPath.row == 1)
+                cell.textLabel.text = @"Fixed Costs";
             break;
 
         case SECTION_INFO:
             if(indexPath.row == 0)
-                cell.textLabel.text = @"Help";
-            else
-                cell.textLabel.text = @"About Kunance";
+                cell.textLabel.text = @"Help Center";
+            else if(indexPath.row == 1)
+                cell.textLabel.text = @"Terms & Policies";
+            else if(indexPath.row == 2)
+                cell.textLabel.text = @"Logout";
 
             break;
             

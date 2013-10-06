@@ -7,6 +7,7 @@
 //
 
 #import "APIUserInfoService.h"
+#import "AppDelegate.h"
 
 @implementation APIUserInfoService
 
@@ -67,7 +68,7 @@
 
 -(void) updateUserPfObj:(userPFInfo*) currentPFInfo
 {
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     [ff updateObj:currentPFInfo onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
         if(!err && obj)
@@ -95,7 +96,7 @@
 
 -(void) createUserPFObj:(userPFInfo*) currentPFInfo
 {
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     [ff createObj:currentPFInfo atUri:@"/UserPFInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
         if(obj)
@@ -117,7 +118,7 @@
 
 -(BOOL) readUserPFInfo
 {
-    FatFractal* ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     __block userPFInfo* aUserPFInfp = nil;
  
     NSString* userGUID = [kunanceUser getInstance].mKunanceUserGUID;

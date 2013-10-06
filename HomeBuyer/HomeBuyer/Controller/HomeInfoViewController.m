@@ -27,19 +27,25 @@
     return self;
 }
 
-- (id)initWithExistingHomeInfo:(homeInfo*) aHomeInfo
+-(void) addExistingHomeInfo
 {
-    self = [super init];
-    if (self)
+    self.mCorrespondingHomeInfo = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:self.mHomeNumber];
+    if(self.mCorrespondingHomeInfo)
     {
-        // Custom initialization
-        self.mSelectedHomeType = homeTypeNotDefined;
-        if(aHomeInfo)
-        {
-            self.mCorrespondingHomeInfo = aHomeInfo;
-        }
+        if(self.mCorrespondingHomeInfo.mHomeType == homeTypeSingleFamily)
+            [self selectSingleFamilyHome];
+        else if(self.mCorrespondingHomeInfo.mHomeType == homeTypeCondominium)
+            [self selectCondominuim];
+        
+        if(self.mCorrespondingHomeInfo.mHomeListPrice)
+            self.mAskingPriceField.text = [NSString stringWithFormat:@"%llu", self.mCorrespondingHomeInfo.mHomeListPrice];
+        
+        if(self.mCorrespondingHomeInfo.mIdentifiyingHomeFeature)
+            self.mBestHomeFeatureField.text = self.mCorrespondingHomeInfo.mIdentifiyingHomeFeature;
+        
+        if(self.mCorrespondingHomeInfo.mHOAFees)
+            self.mMontylyHOAField.text = [NSString stringWithFormat:@"%d", self.mCorrespondingHomeInfo.mHOAFees];
     }
-    return self;
 }
 
 -(void) selectSingleFamilyHome
@@ -88,16 +94,18 @@
     [self.view addGestureRecognizer:tap];
 }
 
--(void) setupAsFirstHome
+-(void) setupButtons
 {
-    self.mCompareHomesViewAsButton.hidden = YES;
-    self.mLoanInfoViewAsButton.hidden = NO;
-}
-
--(void) setupAsSecondHome
-{
-    self.mCompareHomesViewAsButton.hidden = NO;
-    self.mLoanInfoViewAsButton.hidden = YES;
+    if([kunanceUser getInstance].mKunanceUserLoan)
+    {
+        self.mCompareHomesViewAsButton.hidden = NO;
+        self.mLoanInfoViewAsButton.hidden = YES;
+    }
+    else
+    {
+        self.mCompareHomesViewAsButton.hidden = YES;
+        self.mLoanInfoViewAsButton.hidden = NO;
+    }
 }
 
 - (void)viewDidLoad
@@ -114,14 +122,8 @@
     
     [self setupGestureRecognizers];
     
-    if(self.mHomeNumber == FIRST_HOME)
-    {
-        [self setupAsFirstHome];
-    }
-    else if(self.mHomeNumber == SECOND_HOME)
-    {
-        [self setupAsSecondHome];
-    }
+    [self setupButtons];
+    [self addExistingHomeInfo];
 }
 
 -(void) uploadHomeInfo
@@ -133,13 +135,6 @@
     }
     
     uint currentNumberOfHomes = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
-    
-    if((currentNumberOfHomes+1) != self.mHomeNumber)
-    {
-        NSLog(@"uploadHomeInfo Error: home numbers do not match, current+1 = %d, future = %d", currentNumberOfHomes+1, self.mHomeNumber);
-        [Utilities showAlertWithTitle:@"Error" andMessage:@"Internal Error"];
-        return;
-    }
     
     APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
     homeInfo* aHomeInfo = [[homeInfo alloc] init];
@@ -201,14 +196,14 @@
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedWritingHomeInfo
 {
-    if(self.mHomeNumber == FIRST_HOME)
+    if(!self.mLoanInfoViewAsButton.hidden)
     {
         if(self.mHomeInfoViewDelegate && [self.mHomeInfoViewDelegate respondsToSelector:@selector(loanInfoButtonTapped)])
         {
             [self.mHomeInfoViewDelegate loanInfoButtonTapped];
         }
     }
-    else if(self.mHomeNumber == SECOND_HOME)
+    else if(!self.mCompareHomesViewAsButton.hidden)
     {
         if(self.mHomeInfoViewDelegate &&
            [self.mHomeInfoViewDelegate respondsToSelector:@selector(calculateAndCompareHomes)])

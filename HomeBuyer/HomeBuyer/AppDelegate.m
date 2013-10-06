@@ -10,15 +10,19 @@
 #import <FFEF/FatFractal.h>
 
 @interface AppDelegate ()
-@property (strong, nonatomic) FatFractal *ff;
 @end
 
 @implementation AppDelegate
 
+static FatFractal *_ff;
+
++ (FatFractal *) ff {
+    return _ff;
+}
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize ff = _ff;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -29,7 +33,9 @@
     [self.window makeKeyAndVisible];
 
     NSString *baseUrl = @"https://kunance.fatfractal.com/kCAT";
-    self.ff = [[FatFractal alloc] initWithBaseUrl:baseUrl];
+    _ff = [[FatFractal alloc]
+           initWithBaseUrl:@"http://kunance.fatfractal.com/kCAT"
+           sslUrl:baseUrl];
     [FFHttpDelegate addTrustedHost:@"kunance.fatfractal.com"];
 
     UINavigationController* navController = [[UINavigationController alloc] init];

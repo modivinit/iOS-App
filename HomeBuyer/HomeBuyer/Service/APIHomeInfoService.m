@@ -7,6 +7,7 @@
 //
 
 #import "APIHomeInfoService.h"
+#import "AppDelegate.h"
 
 @implementation APIHomeInfoService
 
@@ -15,7 +16,7 @@
     if(!aHomeInfo || !aHomeInfo.mIdentifiyingHomeFeature || !aHomeInfo.mHomeListPrice || !aHomeInfo.mHomeId)
         return NO;
 
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     [ff createObj:aHomeInfo atUri:@"/HomeInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
         if(obj)
@@ -53,6 +54,21 @@
     if(!aHomeInfo || !aHomeInfo.mIdentifiyingHomeFeature || !aHomeInfo.mHomeListPrice)
         return NO;
     
+    FatFractal *ff = [AppDelegate ff];
+    [ff updateObj:aHomeInfo onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
+    {
+        if(!err && obj)
+        {
+            [[kunanceUser getInstance] updateExistingHome:aHomeInfo];
+        }
+    }];
+    
+    if(self.mAPIHomeInfoDelegate &&
+       [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
+    {
+        [self.mAPIHomeInfoDelegate finishedWritingHomeInfo];
+    }
+
     return YES;
 }
 
@@ -64,22 +80,38 @@
         return NO;
     }
     
-    FatFractal* ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];    
+    NSString* userGUID = [kunanceUser getInstance].mKunanceUserGUID;
     
-    NSError *err;
-    NSArray *userHomes = [ff grabBagGetAllForObj:[kunanceUser getInstance].mLoggedInKunanceUser grabBagName:@"homes" error:&err];
-    if(!err && userHomes)
-    {
-        NSLog(@"Success, number of homes = %d", userHomes.count);
-        for (homeInfo* aHome in userHomes)
-        {
-            [[kunanceUser getInstance] addNewHomeInfo:aHome];
-        }
-        
-        return YES;
-    }
-    else
+    if(!userGUID)
         return NO;
+    
+    NSString* queryURI  = [NSString stringWithFormat:@"/HomeInfo/(createdBy eq '%@')", userGUID];
+    NSLog(@"queryuri = %@", queryURI);
+
+    //[ff grabBagGetAllForObj:[kunanceUser getInstance].mLoggedInKunanceUser grabBagName:@"homes" error:&err];
+    [ff getArrayFromUri:queryURI onComplete:^(NSError *theErr, id theObj, NSHTTPURLResponse *theResponse)
+     {
+        if(!theErr && theObj)
+        {
+            NSArray* userHomes = theObj;
+            NSLog(@"Success, number of homes = %d", userHomes.count);
+            for (homeInfo* aHome in userHomes)
+            {
+                [[kunanceUser getInstance] addNewHomeInfo:aHome];
+                //FFMetaData* metaData = [[AppDelegate ff] metaDataForObj:aHome];
+            }
+            
+            if(self.mAPIHomeInfoDelegate &&
+               [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedReadingHomeInfo)])
+            {
+                [self.mAPIHomeInfoDelegate finishedReadingHomeInfo];
+            }
+
+        }
+     }];
+    
+    return YES;
 }
 
 @end

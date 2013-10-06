@@ -37,8 +37,22 @@
         [self.mHomesAddedByUser addObject:newHomeInfo];
 }
 
+-(void) updateHomeInfo:(homeInfo*) aHomeInfo
+{
+    if(aHomeInfo && (aHomeInfo.mHomeId < self.mHomesAddedByUser.count))
+        self.mHomesAddedByUser[aHomeInfo.mHomeId] = aHomeInfo;
+}
+
 -(uint) getCurrentHomesCount
 {
     return self.mHomesAddedByUser.count;
+}
+
+-(homeInfo*) getHomeAtIndex:(uint) index
+{
+    if(index >= self.mHomesAddedByUser.count)
+        return nil;
+    else
+        return (homeInfo*) self.mHomesAddedByUser[index];
 }
 @end

@@ -12,6 +12,7 @@
 #import "PKRevealController.h"
 #import "APIUserInfoService.h"
 #import "DashNoInfoViewController.h"
+#import "AppDelegate.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
@@ -28,6 +29,8 @@
         self.mMainNavController = navController;
         self.mAPIUserInfoService = [[APIUserInfoService alloc] init];
         self.mAPIUserInfoService.mAPIUserInfoServiceDelegate = self;
+        self.mLeftMenuViewController = [[LeftMenuViewController alloc] init];
+        self.mLeftMenuViewController.mLeftMenuDelegate = self;
     }
     
     return self;
@@ -65,7 +68,7 @@
     
     if([[kunanceUser getInstance] getUserEmail:&email andPassword:&password])
     {
-        FatFractal *ff = [FatFractal main];
+        FatFractal *ff = [AppDelegate ff];
         [ff loginWithUserName:email andPassword:password
                    onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
         {
@@ -117,22 +120,23 @@
             break;
     }
     
-    UINavigationController *frontViewController = [[UINavigationController alloc] initWithRootViewController: self.mMainDashController];
+    [self setRootView:self.mMainDashController];
+}
 
-    [frontViewController.navigationController.navigationBar setTranslucent:NO];
-    frontViewController.navigationBar.barTintColor = [UIColor colorWithRed:52 green:73 blue:94 alpha:1];
+-(void) setRootView:(UIViewController*) viewController
+{
+    self.mFrontViewController = [[UINavigationController alloc]
+                                 initWithRootViewController:viewController];
     
-    LeftMenuViewController *leftViewController = [[LeftMenuViewController alloc] init];
-    
-    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontViewController
-                                                                     leftViewController:leftViewController
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
+                                                                     leftViewController:self.mLeftMenuViewController
                                                                     rightViewController:nil
                                                                                 options:nil];
-   if(self.mMainControllerDelegate &&
-      [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
-   {
-       [self.mMainControllerDelegate resetRootView:self.revealController];
-   }
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:self.revealController];
+    }
 }
 
 -(void) readUserPFInfo
@@ -150,6 +154,7 @@
 {
     //show login screen here
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    loginViewController.mLoginDelegate = self;
     [self.mMainNavController pushViewController:loginViewController animated:YES];
 }
 
@@ -215,19 +220,17 @@
 }
 #pragma end
 
-#pragma mark APIServiceDelegate
--(void) finishedReadingUserPFInfo
+#pragma mark APILoanInfoDelegate
+-(void) finishedReadingLoanInfo
 {
-    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
-    if(homeInfoService)
-    {
-        if(![homeInfoService readHomesInfo])
-        {
-            NSLog(@"Error: reading homes info for user");
-        }
-    }
-    
+    [self displayDash];
+}
+#pragma end
+#pragma mark APIHomeInfoServiceDelegate
+-(void) finishedReadingHomeInfo
+{
     APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
+    loanInfoService.mAPILoanInfoDelegate = self;
     if(loanInfoService)
     {
         if(![loanInfoService readLoanInfo])
@@ -235,8 +238,161 @@
             NSLog(@"Error: Unable to read user laons Info");
         }
     }
+}
+#pragma end
+
+#pragma mark APIServiceDelegate
+-(void) finishedReadingUserPFInfo
+{
+    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
+    if(homeInfoService)
+    {
+        homeInfoService.mAPIHomeInfoDelegate = self;
+        if(![homeInfoService readHomesInfo])
+        {
+            NSLog(@"Error: reading homes info for user");
+        }
+    }
+}
+
+#pragma end
+
+-(void) handleUserMenu:(NSInteger) row
+{
+    switch (row) {
+        case ROW_DASHBOARD:
+        {
+            [self displayDash];
+        }
+            break;
+            
+        case ROW_REALTOR:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void) handleHomeMenu:(NSInteger) row
+{
+    uint currentNumOfHomes = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
+
+    if(row <0 || row >= MAX_NUMBER_OF_HOMES_PER_USER)
+    {
+        NSLog(@"ROw %d out of bounds", row);
+        return;
+    }
     
-    [self displayDash];
+    if(row == ROW_SECOND_HOME && currentNumOfHomes == 0)
+    {
+        NSLog(@"Error: Cannot enter 2nd home before first");
+        return;
+    }
+    
+    HomeInfoViewController* homeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:row];
+    homeInfoViewController.mHomeInfoViewDelegate = self;
+    [self setRootView:homeInfoViewController];
+}
+
+-(void) handleLoanMenu:(NSInteger) row
+{
+   if(row != ROW_LOAN_INFO)
+       return;
+    
+    LoanInfoViewController* loanInfoViewController = [[LoanInfoViewController alloc] init];
+    loanInfoViewController.mLoanInfoViewDelegate = self;
+    [self setRootView:loanInfoViewController];
+}
+
+-(void) handleProfileMenu:(NSInteger) row
+{
+    switch (row)
+    {
+        case ROW_YOUR_PROFILE:
+        {
+            
+        }
+            break;
+            
+        case ROW_FIXED_COSTS:
+        {
+            
+        }
+            break;
+    }
+}
+
+-(void) handleHelpMenu:(NSInteger) row
+{
+    switch (row)
+    {
+        case ROW_HELP_CENTER:
+        {
+            
+        }
+            break;
+            
+        case ROW_TERMS_AND_POLICIES:
+        {
+            
+        }
+            break;
+            
+        case ROW_LOGOUT:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark LeftMenuDelegate
+-(void) showFrontViewForSection:(NSInteger)section andRow:(NSInteger)row
+{
+    [self.mMainDashController hideLeftView];
+    
+    switch (section)
+    {
+        case SECTION_USER_NAME_DASH_REALTOR:
+        {
+            [self handleUserMenu:row];
+        }
+            break;
+            
+        case SECTION_HOMES:
+        {
+            [self handleHomeMenu:row];
+        }
+            break;
+            
+        case SECTION_LOAN:
+        {
+            [self handleLoanMenu:row];
+        }
+            break;
+        
+        case SECTION_USER_PROFILE:
+        {
+            [self handleProfileMenu:row];
+        }
+            break;
+            
+        case SECTION_INFO:
+        {
+            [self handleHelpMenu:row];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma end

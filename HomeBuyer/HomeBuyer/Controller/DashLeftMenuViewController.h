@@ -10,5 +10,7 @@
 #import "PKRevealController.h"
 
 @interface DashLeftMenuViewController : UIViewController
+-(void) hideLeftView;
+-(void)showLeftView;
 
 @end

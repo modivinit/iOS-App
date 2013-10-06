@@ -7,6 +7,7 @@
 //
 
 #import "APILoanInfoService.h"
+#import "AppDelegate.h"
 
 @implementation APILoanInfoService
 
@@ -32,7 +33,7 @@
     if(!aLoan)
         return NO;
     
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     [ff createObj:aLoan atUri:@"/loanInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
         [self updateUserCacheWithLoan:(loan*)obj error:err];
@@ -46,7 +47,7 @@
     if(!aLoan)
         return NO;
     
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     [ff createObj:aLoan atUri:@"/loanInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
         // handle error, response
         
@@ -71,8 +72,9 @@
     {
         if(![kunanceUser getInstance].mKunanceUserLoan)
         {
-            FatFractal *ff = [FatFractal main];
-            [ff grabBagAdd:theLoan to:[kunanceUser getInstance].mLoggedInKunanceUser grabBagName:@"loans" error:&err];
+            FatFractal *ff = [AppDelegate ff];
+            [ff grabBagAdd:theLoan to:[kunanceUser getInstance].mLoggedInKunanceUser
+               grabBagName:@"loans" error:&err];
         }
 
         [[kunanceUser getInstance] updateLoanInfo:theLoan];
@@ -82,7 +84,8 @@
         NSLog(@"Error creating loan Info: %@", err);
     }
     
-    if(self.mAPILoanInfoDelegate && [self.mAPILoanInfoDelegate respondsToSelector:@selector(finishedWritingLoanInfo)])
+    if(self.mAPILoanInfoDelegate &&
+       [self.mAPILoanInfoDelegate respondsToSelector:@selector(finishedWritingLoanInfo)])
     {
         [self.mAPILoanInfoDelegate finishedWritingLoanInfo];
     }
@@ -96,22 +99,40 @@
         return NO;
     }
     
-    FatFractal* ff = [FatFractal main];
-    
+    FatFractal *ff = [AppDelegate ff];    
     NSError *err;
-    NSArray *userLoans = [ff grabBagGetAllForObj:[kunanceUser getInstance].mLoggedInKunanceUser grabBagName:@"loans" error:&err];
-    if(!err && userLoans)
-    {
-        NSLog(@"Success, number of loans = %d", userLoans.count);
-        for (loan* aLoan in userLoans)
-        {
-            [[kunanceUser getInstance] updateLoanInfo:aLoan];
-        }
-        
-        return YES;
-    }
-    else
+    NSString* userGUID = [kunanceUser getInstance].mKunanceUserGUID;
+    
+    if(!userGUID)
         return NO;
+
+    NSString* queryURI  = [NSString stringWithFormat:@"/loanInfo/(createdBy eq '%@')", userGUID];
+    NSLog(@"queryuri = %@", queryURI);
+
+    //NSArray *userLoans = [ff grabBagGetAllForObj:[kunanceUser getInstance].mLoggedInKunanceUser grabBagName:@"loans" error:&err];
+    //[ff grabBagGetAllForObj:[kunanceUser getInstance].mLoggedInKunanceUser grabBagName:@"homes" error:&err];
+    
+    [ff getArrayFromUri:queryURI onComplete:^(NSError *theErr, id theObj, NSHTTPURLResponse *theResponse)
+     {
+        if(!err && theObj)
+        {
+            NSArray* userLoans = (NSArray*) theObj;
+            NSLog(@"Success, number of loans = %d", userLoans.count);
+            for (loan* aLoan in userLoans)
+            {
+                [[kunanceUser getInstance] updateLoanInfo:aLoan];
+            }
+        }
+         
+         if(self.mAPILoanInfoDelegate &&
+            [self.mAPILoanInfoDelegate respondsToSelector:@selector(finishedReadingHomeInfo)])
+         {
+             [self.mAPILoanInfoDelegate finishedReadingLoanInfo];
+         }
+
+     }];
+    
+    return YES;
 }
 
 @end

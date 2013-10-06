@@ -8,14 +8,6 @@
 
 #import "LeftMenuViewController.h"
 
-#define SECTION_USER_NAME_DASH_REALTOR 0
-//#define SECTION_DASH 1
-//#define SECTION_REALTOR 2
-#define SECTION_HOMES 1
-#define SECTION_LOAN 2
-#define SECTION_USER_PROFILE 3
-#define SECTION_INFO 4
-
 @interface LeftMenuViewController ()
 @property (nonatomic, strong) UITableView* mMenuTableView;
 @end
@@ -54,8 +46,12 @@
 #pragma mark UITableViewDelegate
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(self.mLeftMenuDelegate && [self.mLeftMenuDelegate respondsToSelector:@selector(showFrontViewForSection:andRow:)])
+    {
+        [self.mLeftMenuDelegate showFrontViewForSection:indexPath.section andRow:indexPath.row];
+    }
 }
+
 #pragma mark UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -210,39 +206,40 @@
     switch (indexPath.section)
     {
         case SECTION_USER_NAME_DASH_REALTOR:
-            if(indexPath.row == 0)
+            if(indexPath.row == ROW_DASHBOARD)
             {
                 cellText.text = @"Dashboard";
                 cellImage.image = [UIImage imageNamed:@"dashboard-help-menu.png"];
             }
-            else if(indexPath.row == 1)
+            else if(indexPath.row == ROW_REALTOR)
                 cellText.text = @"Contact Realtor";
             break;
             
         case SECTION_HOMES:
-            if(indexPath.row == 0)
+            if(indexPath.row == ROW_FIRST_HOME)
                 cellText.text = @"First Home";
-            else
+            else if(indexPath.row == ROW_SECOND_HOME)
                 cellText.text = @"Second Home";
             break;
             
         case SECTION_LOAN:
+            if(indexPath.row == ROW_LOAN_INFO)
                 cellText.text = @"Loan Info";
             break;
             
         case SECTION_USER_PROFILE:
-            if(indexPath.row == 0)
+            if(indexPath.row == ROW_YOUR_PROFILE)
                 cellText.text = @"Your Profile";
-            else if(indexPath.row == 1)
+            else if(indexPath.row == ROW_FIXED_COSTS)
                 cellText.text = @"Fixed Costs";
             break;
 
         case SECTION_INFO:
-            if(indexPath.row == 0)
+            if(indexPath.row == ROW_HELP_CENTER)
                 cellText.text = @"Help Center";
-            else if(indexPath.row == 1)
+            else if(indexPath.row == ROW_TERMS_AND_POLICIES)
                 cellText.text = @"Terms & Policies";
-            else if(indexPath.row == 2)
+            else if(indexPath.row == ROW_LOGOUT)
                 cellText.text = @"Logout";
 
             break;

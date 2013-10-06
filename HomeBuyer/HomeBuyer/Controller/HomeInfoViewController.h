@@ -34,6 +34,5 @@
 
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;
 -(IBAction) enterHomeAddressButtonTapped;
-- (id)initWithExistingHomeInfo:(homeInfo*) aHomeInfo;
 -(id) initAsHomeNumber:(uint) homeNumber;
 @end

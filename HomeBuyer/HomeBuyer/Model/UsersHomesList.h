@@ -14,4 +14,6 @@
 @interface UsersHomesList : NSObject
 -(uint) getCurrentHomesCount;
 -(void) addNewHome:(homeInfo*) newHomeInfo;
+-(void) updateHomeInfo:(homeInfo*) aHomeInfo;
+-(homeInfo*) getHomeAtIndex:(uint) index;
 @end

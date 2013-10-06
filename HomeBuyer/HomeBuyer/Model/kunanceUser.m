@@ -8,6 +8,7 @@
 
 #import "kunanceUser.h"
 #import "KeychainWrapper.h"
+#import "AppDelegate.h"
 
 static kunanceUser *kunanceUserSingleton;
 
@@ -42,7 +43,7 @@ static kunanceUser *kunanceUserSingleton;
 
 -(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
 {
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     self.mkunanceUserPFInfo = newUserPFInfo;
     if(newUserPFInfo)
         self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
@@ -50,7 +51,8 @@ static kunanceUser *kunanceUserSingleton;
 
 -(BOOL) isUserLoggedIn
 {
-    return ([[FatFractal main] loggedIn] && [kunanceUser getInstance].mLoggedInKunanceUser);
+    return ([[AppDelegate ff] loggedIn] &&
+            [kunanceUser getInstance].mLoggedInKunanceUser);
 }
 
 -(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd
@@ -63,7 +65,7 @@ static kunanceUser *kunanceUserSingleton;
     
     self.mLoggedInKunanceUser = newUser;
     
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     if(ff)
         self.mKunanceUserGUID = [[ff metaDataForObj:newUser] guid];
 }
@@ -159,7 +161,13 @@ static kunanceUser *kunanceUserSingleton;
 
 -(void) updateExistingHome:(homeInfo*)homeInfo
 {
+    if(!homeInfo)
+        return;
     
+    if(homeInfo.mHomeId >= [self.mKunanceUserHomes getCurrentHomesCount])
+        return;
+    
+    [self.mKunanceUserHomes updateHomeInfo:homeInfo];
 }
 
 -(void) updateLoanInfo:(loan*) aLoan

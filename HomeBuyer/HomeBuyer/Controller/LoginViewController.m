@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -63,7 +64,7 @@
     if(!email || !password)
         return;
     
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     [ff loginWithUserName:email andPassword:password
                onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
      {

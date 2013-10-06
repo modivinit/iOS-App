@@ -35,11 +35,20 @@
                                                                    landscapeImagePhone:nil
                                                                                  style:UIBarButtonItemStylePlain
                                                                                 target:self
-                                                                                action:@selector(showLeftView:)];
+                                                                                action:@selector(showLeftView)];
     }
 }
 
--(void)showLeftView:(id)sender
+-(void) hideLeftView
+{
+    if (self.navigationController.revealController.focusedController == self.navigationController.revealController.leftViewController)
+    {
+        [self.navigationController.revealController
+         showViewController:self.navigationController.revealController.frontViewController];
+    }
+}
+
+-(void)showLeftView
 {
     if (self.navigationController.revealController.focusedController == self.navigationController.revealController.leftViewController)
     {
@@ -50,19 +59,6 @@
     {
         [self.navigationController.revealController
          showViewController:self.navigationController.revealController.leftViewController];
-    }
-}
-
-- (void)showRightView:(id)sender
-{
-    if (self.navigationController.revealController.focusedController == self.navigationController.revealController.rightViewController)
-    {
-        [self.navigationController.revealController showViewController:self.navigationController.revealController.frontViewController];
-    }
-    else
-    {
-        [self.navigationController.revealController
-         showViewController:self.navigationController.revealController.rightViewController];
     }
 }
 

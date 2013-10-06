@@ -17,8 +17,8 @@
 #define USERNAME @"username"
 
 
-#define FIRST_HOME 1
-#define SECOND_HOME 2
+#define FIRST_HOME 0
+#define SECOND_HOME 1
 
 // Used to specify the application used in accessing the Keychain.
 #define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]

@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "kunanceUser.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 @property (nonatomic, strong) IBOutlet UIButton* mCreateAccountButton;
@@ -114,7 +115,7 @@
         return;
     }
     
-    FatFractal *ff = [FatFractal main];
+    FatFractal *ff = [AppDelegate ff];
     FFUser *newUser = [[FFUser alloc] initWithFF:ff];
     newUser.firstName = self.mNameField.text;
     newUser.userName = self.mEmailField.text;

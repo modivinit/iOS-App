@@ -20,4 +20,5 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
++ (FatFractal *) ff;
 @end

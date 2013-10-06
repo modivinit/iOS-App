@@ -14,6 +14,9 @@
 #import "DashUserPFInfoViewController.h"
 #import "Dash1HomeEnteredViewController.h"
 #import "Dash2HomesEnteredViewController.h"
+#import "LeftMenuViewController.h"
+#import "DashLeftMenuViewController.h"
+#import "APIHomeInfoService.h"
 
 @protocol MainControllerDelegate <NSObject>
 -(void) resetRootView:(UIViewController*) viewController;
@@ -26,7 +29,11 @@ APIUserInfoServiceDelegate,
 LoginDelegate,
 DashNoInfoViewDelegate,
 DashUserPFInfoDelegate,
-Dash1HomeEnteredViewDelegate
+Dash1HomeEnteredViewDelegate,
+LeftMenuDelegate,
+HomeInfoViewDelegate,
+APIHomeInfoServiceDelegate,
+APILoanInfoServiceDelegate
 >
 
 @property (nonatomic, strong) UINavigationController* mMainNavController;
@@ -34,7 +41,9 @@ Dash1HomeEnteredViewDelegate
 @property (nonatomic, strong) APIUserInfoService* mAPIUserInfoService;
 @property (nonatomic, strong) SignUpViewController* mSignUpViewController;
 @property (nonatomic, strong) LoginViewController* mLoginViewController;
-@property (nonatomic, strong) UIViewController*    mMainDashController;
+@property (nonatomic, strong) DashLeftMenuViewController*    mMainDashController;
+@property (nonatomic, strong) LeftMenuViewController* mLeftMenuViewController;
+@property (nonatomic, strong) UINavigationController* mFrontViewController;
 
 -(id) initWithNavController:(UINavigationController*) navController;
 -(void) start;

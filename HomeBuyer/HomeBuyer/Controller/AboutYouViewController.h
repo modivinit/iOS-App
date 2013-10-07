@@ -23,6 +23,9 @@
 @property (nonatomic) IBOutlet UITextField*   mAnnualGrossIncomeField;
 @property (nonatomic) IBOutlet UITextField*   mAnnualRetirementContributionField;
 @property (nonatomic) IBOutlet UISegmentedControl* mNumberOfChildrenControl;
+
+@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
+
 @property (nonatomic) IBOutlet UIView*  mUserExpensesViewAsButton;
 
 @property (nonatomic, weak) id <AboutYouControllerDelegate> mAboutYouControllerDelegate;

@@ -58,6 +58,9 @@
 
 - (void)viewDidLoad
 {
+    NSString* titleText = [NSString stringWithFormat:@"Home Loan Info"];
+    self.navigationController.navigationBar.topItem.title = titleText;
+
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentField, self.mInterestRateField, nil];
     [super viewDidLoad];
     
@@ -67,6 +70,9 @@
     UITapGestureRecognizer* compareHomesGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(compareHomeButtonTapped:)];
     [self.mCompareHomesViewAsButton addGestureRecognizer:compareHomesGesture];
     
+    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
+    [self.mDashboardIcon addGestureRecognizer:dboardTap];
+
     self.mPercentDollarValueChoice.selectedSegmentIndex = PERCENT_VALUE_DOWN_PAYMENT;
     
     [self.mPercentDollarValueChoice addTarget:self
@@ -79,6 +85,11 @@
 }
 
 #pragma mark actions. gestures
+-(void) dashButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+}
+
 -(void) compareHomeButtonTapped:(UITapGestureRecognizer*) gesture
 {
     if(!self.mDownPaymentField.text || !self.mInterestRateField.text)

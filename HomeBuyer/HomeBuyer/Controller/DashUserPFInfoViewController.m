@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString* titleText = [NSString stringWithFormat:@"Current Lifestyle Income"];
+    self.navigationController.navigationBar.topItem.title = titleText;
     // Do any additional setup after loading the view from its nib.
     [self addGestureRecognizers];
 }

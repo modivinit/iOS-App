@@ -27,6 +27,7 @@
 @property (nonatomic) IBOutlet UIButton*      mHomeAddressButton;
 @property (nonatomic) IBOutlet UIView*       mLoanInfoViewAsButton;
 @property (nonatomic) IBOutlet UIView*       mCompareHomesViewAsButton;
+@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
 
 @property (nonatomic) uint mHomeNumber;
 @property (nonatomic, weak) id <HomeInfoViewDelegate> mHomeInfoViewDelegate;

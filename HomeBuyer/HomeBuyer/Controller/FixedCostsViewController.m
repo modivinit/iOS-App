@@ -26,6 +26,9 @@
                                                              initWithTarget:self
                                                              action:@selector(currentLifeStyleIncomeTapped)];
     [self.mCurrentLifestyleIncomeViewAsButton addGestureRecognizer:currentLifestyleTappedGesture];
+    
+    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
+    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) initWithExisitingFixedCosts
@@ -44,6 +47,10 @@
 
 - (void)viewDidLoad
 {
+    NSString* titleText = [NSString stringWithFormat:@"Fixed Costs"];
+    self.navigationController.navigationBar.topItem.title = titleText;
+
+    
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mMonthlyRent,
                 self.mMonthlyCarPayments, self.mOtherMonthlyPayments, nil];
     
@@ -78,6 +85,11 @@
 
 #pragma mark Action Functions
 //IBActions, target action, gesture targets
+-(void) dashButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+}
+
 -(void) currentLifeStyleIncomeTapped
 {
     if(!self.mMonthlyRent.text || !self.mMonthlyCarPayments.text || !self.mOtherMonthlyPayments.text)

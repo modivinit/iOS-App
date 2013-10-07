@@ -34,6 +34,10 @@
 {
     [super viewDidLoad];
     
+    NSString* titleText = [NSString stringWithFormat:@"Create Account"];
+    self.navigationController.navigationBar.topItem.title = titleText;
+
+    
     [self registerForKeyboardNotifications];
     
     self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];

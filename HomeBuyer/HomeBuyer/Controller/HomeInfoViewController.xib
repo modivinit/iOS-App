@@ -11,6 +11,7 @@
                 <outlet property="mBestHomeFeatureField" destination="78p-Dd-Eox" id="2nd-sC-Cdx"/>
                 <outlet property="mCompareHomesViewAsButton" destination="pOz-0F-ynO" id="Jfk-jH-LXM"/>
                 <outlet property="mCondoImageAsButton" destination="zJk-ZI-AGX" id="74J-vK-Mxr"/>
+                <outlet property="mDashboardIcon" destination="WjS-ka-54o" id="dwx-ta-MQn"/>
                 <outlet property="mFormScrollView" destination="3ey-ie-M8m" id="ZgU-nd-Vo2"/>
                 <outlet property="mHomeAddressButton" destination="K4D-gI-Ifx" id="OvW-kj-jPC"/>
                 <outlet property="mLoanInfoViewAsButton" destination="j7E-Zk-7nJ" id="Pmv-kg-TNE"/>
@@ -33,7 +34,7 @@
                         <action selector="enterHomeAddressButtonTapped" destination="-1" eventType="touchDown" id="piD-Lo-vpn"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-home.png" id="WjS-ka-54o">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-home.png" id="WjS-ka-54o">
                     <rect key="frame" x="20" y="518" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

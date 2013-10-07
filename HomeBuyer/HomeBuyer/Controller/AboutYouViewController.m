@@ -63,6 +63,9 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
+    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) initWithCurrentUserPFInfo
@@ -91,7 +94,9 @@
 
 - (void)viewDidLoad
 {
-    
+    NSString* titleText = [NSString stringWithFormat:@"Profile"];
+    self.navigationController.navigationBar.topItem.title = titleText;
+
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mAnnualGrossIncomeField,
                         self.mAnnualRetirementContributionField, nil];
 
@@ -112,6 +117,11 @@
 
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
+
+-(void) dashButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+}
 
 -(void) marriedButtonTapped
 {

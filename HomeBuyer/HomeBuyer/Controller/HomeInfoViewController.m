@@ -92,6 +92,9 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
+    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) setupButtons
@@ -124,6 +127,12 @@
     
     [self setupButtons];
     [self addExistingHomeInfo];
+    
+    if(self.mHomeNumber == FIRST_HOME)
+        self.navigationController.navigationBar.topItem.title = @"First Home Info";
+    else if(self.mHomeNumber == SECOND_HOME)
+        self.navigationController.navigationBar.topItem.title = @"Second Home Info";
+
 }
 
 -(void) uploadHomeInfo
@@ -168,6 +177,11 @@
 }
 
 #pragma mark actions gestures
+-(void) dashButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+}
+
 -(void) compareHomesButtonTapped:(UITapGestureRecognizer*)recognizer
 {
     [self uploadHomeInfo];

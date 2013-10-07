@@ -132,6 +132,7 @@
     self.mFrontViewController = [[UINavigationController alloc]
                                  initWithRootViewController:viewController];
     
+    //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
     self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
                                                                      leftViewController:self.mLeftMenuViewController
                                                                     rightViewController:nil

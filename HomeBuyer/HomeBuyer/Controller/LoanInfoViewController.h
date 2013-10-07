@@ -26,6 +26,7 @@
 @property (nonatomic, strong) IBOutlet UISegmentedControl* mLoanDurationField;
 
 @property (nonatomic, strong) IBOutlet UIView*             mCompareHomesViewAsButton;
+@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
 
 @property (nonatomic, weak) id <LoanInfoViewDelegate> mLoanInfoViewDelegate;
 @end

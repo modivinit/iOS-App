@@ -26,6 +26,10 @@
 
 - (void)viewDidLoad
 {
+    NSString* titleText = [NSString stringWithFormat:@"Sign In"];
+    self.navigationController.navigationBar.topItem.title = titleText;
+
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.mLoginEmail.delegate = self;

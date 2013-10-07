@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FixedCostsViewController">
             <connections>
                 <outlet property="mCurrentLifestyleIncomeViewAsButton" destination="TsK-Pl-9KU" id="ci7-gG-FCL"/>
+                <outlet property="mDashboardIcon" destination="mkh-hz-wOB" id="Vo3-vt-tdU"/>
                 <outlet property="mFormScrollView" destination="ZAE-Ld-lbX" id="wQY-2J-oiU"/>
                 <outlet property="mMonthlyCarPayments" destination="kVz-QE-aNR" id="szJ-WD-1HP"/>
                 <outlet property="mMonthlyRent" destination="K0A-au-c27" id="ox3-Ta-z6h"/>
@@ -20,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-profile.png" id="mkh-hz-wOB">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-profile.png" id="mkh-hz-wOB">
                     <rect key="frame" x="20" y="518" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

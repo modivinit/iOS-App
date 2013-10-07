@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString* titleText = [NSString stringWithFormat:@"First Home Lifestyle"];
+    self.navigationController.navigationBar.topItem.title = titleText;
+
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer* addAHomeTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addAHome)];
     [self.mAddAHomeButtonAsView addGestureRecognizer:addAHomeTapGesture];

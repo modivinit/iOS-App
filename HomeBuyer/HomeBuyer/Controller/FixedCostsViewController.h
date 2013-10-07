@@ -15,4 +15,6 @@
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyCarPayments;
 @property (nonatomic, strong) IBOutlet UITextField* mOtherMonthlyPayments;
 @property (nonatomic) IBOutlet UIView*  mCurrentLifestyleIncomeViewAsButton;
+@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
+
 @end

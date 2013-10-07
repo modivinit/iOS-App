@@ -28,6 +28,20 @@
     [self.mCurrentLifestyleIncomeViewAsButton addGestureRecognizer:currentLifestyleTappedGesture];
 }
 
+-(void) initWithExisitingFixedCosts
+{
+    userPFInfo* userInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
+    if(userInfo)
+    {
+        if(userInfo.mCurrentMonthlyRent)
+            self.mMonthlyRent.text = [NSString stringWithFormat:@"%d", userInfo.mCurrentMonthlyRent];
+        if(userInfo.mCurrentCarPayment)
+            self.mMonthlyCarPayments.text = [NSString stringWithFormat:@"%d", userInfo.mCurrentCarPayment];
+        if(userInfo.mOtherMonthlyExpenses)
+            self.mOtherMonthlyPayments.text = [NSString stringWithFormat:@"%d", userInfo.mOtherMonthlyExpenses];
+    }
+}
+
 - (void)viewDidLoad
 {
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mMonthlyRent,
@@ -39,6 +53,7 @@
     [self addGestureRecognizers];
     
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+    [self initWithExisitingFixedCosts];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,11 +67,7 @@
 {
     if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
     {
-        if(self.mExpensesControllerDelegate &&
-           [self.mExpensesControllerDelegate respondsToSelector:@selector(currentLifeStyleIncomeButtonPressed)])
-        {
-            [self.mExpensesControllerDelegate currentLifeStyleIncomeButtonPressed];
-        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
     }
     else
     {

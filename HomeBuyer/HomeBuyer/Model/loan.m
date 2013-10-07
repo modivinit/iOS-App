@@ -28,24 +28,43 @@
 {
     switch (index) {
         case loanDurationTenYears:
-            return 10;
+            return LOAN_DURATION_10_YEARS;
             break;
 
         case loanDurationFifteenYears:
-            return 15;
+            return LOAN_DURATION_15_YEARS;
             break;
 
         case loanDurationTwentyYears:
-            return 20;
+            return LOAN_DURATION_20_YEARS;
             break;
 
         case loanDurationThirtyYears:
-            return 30;
+            return LOAN_DURATION_30_YEARS;
             break;
 
         default:
-            return 30;
+            return LOAN_DURATION_30_YEARS;
     }
 }
 
++(uint) getIndexForLoanDuration:(uint) loanDuration
+{
+    switch (loanDuration) {
+        case LOAN_DURATION_10_YEARS:
+            return loanDurationTenYears;
+            
+        case LOAN_DURATION_15_YEARS:
+            return loanDurationFifteenYears;
+            
+        case LOAN_DURATION_20_YEARS:
+            return loanDurationTwentyYears;
+            
+        case LOAN_DURATION_30_YEARS:
+            return loanDurationThirtyYears;
+            
+        default:
+            return loanDurationThirtyYears;
+    }
+}
 @end

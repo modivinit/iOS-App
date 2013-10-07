@@ -27,13 +27,10 @@
 <SignUpDelegate,
 APIUserInfoServiceDelegate,
 LoginDelegate,
-DashNoInfoViewDelegate,
-DashUserPFInfoDelegate,
-Dash1HomeEnteredViewDelegate,
 LeftMenuDelegate,
-HomeInfoViewDelegate,
 APIHomeInfoServiceDelegate,
-APILoanInfoServiceDelegate
+APILoanInfoServiceDelegate,
+AboutYouControllerDelegate
 >
 
 @property (nonatomic, strong) UINavigationController* mMainNavController;

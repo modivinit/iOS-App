@@ -31,16 +31,6 @@
     [self.mAddAHomeButtonAsView addGestureRecognizer:addAHomeTapGesture];
 }
 
-#pragma HomeInfoViewDelegate
--(void) calculateAndCompareHomes
-{
-    if(self.mDash1HomEnteredDelegate && [self.mDash1HomEnteredDelegate respondsToSelector:@selector(calculateAndCompareHomes)])
-    {
-        [self.mDash1HomEnteredDelegate calculateAndCompareHomes];
-    }
-}
-#pragma end
-
 #pragma mark actions, gesture etc
 -(void) addAHome
 {

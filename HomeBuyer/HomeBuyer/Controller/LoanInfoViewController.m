@@ -42,6 +42,20 @@
     }
 }
 
+-(void) setupWithExisitingLoan
+{
+    loan* aLoan = [kunanceUser getInstance].mKunanceUserLoan;
+    if(aLoan)
+    {
+        self.mPercentDollarValueChoice.selectedSegmentIndex = aLoan.mDownPaymentType;
+        self.mDownPaymentField.text = [NSString  stringWithFormat:@"%.2f", aLoan.mDownPayment];
+        
+        self.mInterestRateField.text = [NSString stringWithFormat:@"%.2f", aLoan.mLoanInterestRate];
+        
+        self.mLoanDurationField.selectedSegmentIndex = [loan getIndexForLoanDuration:aLoan.mLoanDuration];
+    }
+}
+
 - (void)viewDidLoad
 {
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentField, self.mInterestRateField, nil];
@@ -60,7 +74,8 @@
                              forControlEvents:UIControlEventValueChanged];
     
     self.mLoanDurationField.selectedSegmentIndex = DEFAULT_LOAN_DURATION_IN_YEARS;
-
+    
+    [self setupWithExisitingLoan];
 }
 
 #pragma mark actions. gestures
@@ -124,10 +139,7 @@
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
-    if(self.mLoanInfoViewDelegate && [self.mLoanInfoViewDelegate respondsToSelector:@selector(compareHomesButtonTappedFromLoanInfoView)])
-    {
-        [self.mLoanInfoViewDelegate compareHomesButtonTappedFromLoanInfoView];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
 }
 #pragma end
 - (void)didReceiveMemoryWarning

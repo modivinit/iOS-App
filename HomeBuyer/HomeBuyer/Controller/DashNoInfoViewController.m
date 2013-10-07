@@ -54,20 +54,7 @@
 -(void) userExpensesButtonTapped
 {
     self.mFixedCostsViewController = [[FixedCostsViewController alloc] init];
-    self.mFixedCostsViewController.mExpensesControllerDelegate = self;
     [self.navigationController pushViewController:self.mFixedCostsViewController animated:YES];
-}
-#pragma end
-
-
-#pragma ExpensesControllerDelegate
--(void) currentLifeStyleIncomeButtonPressed
-{
-    if(self.mDashNoInfoViewDelegate &&
-       [self.mDashNoInfoViewDelegate respondsToSelector:@selector(showAndCalcCurrentLifeStyleIncome)])
-    {
-        [self.mDashNoInfoViewDelegate showAndCalcCurrentLifeStyleIncome];
-    }
 }
 #pragma end
 

@@ -9,18 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "APIUserInfoService.h"
 #import "FormViewController.h"
-
-@protocol ExpensesControllerDelegate <NSObject>
--(void) currentLifeStyleIncomeButtonPressed;
-@end
-
 @interface FixedCostsViewController : FormViewController <APIUserInfoServiceDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyRent;
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyCarPayments;
 @property (nonatomic, strong) IBOutlet UITextField* mOtherMonthlyPayments;
 @property (nonatomic) IBOutlet UIView*  mCurrentLifestyleIncomeViewAsButton;
-
-
-@property (nonatomic, weak) id <ExpensesControllerDelegate> mExpensesControllerDelegate;
 @end

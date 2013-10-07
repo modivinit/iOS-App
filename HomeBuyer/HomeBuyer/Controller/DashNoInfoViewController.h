@@ -12,14 +12,9 @@
 #import "UIViewController+PKRevealController.h"
 #import "DashLeftMenuViewController.h"
 
-@protocol DashNoInfoViewDelegate <NSObject>
--(void) showAndCalcCurrentLifeStyleIncome;
-@end
 
-@interface DashNoInfoViewController : DashLeftMenuViewController <AboutYouControllerDelegate, ExpensesControllerDelegate>
+@interface DashNoInfoViewController : DashLeftMenuViewController <AboutYouControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIView* mCompositeAboutYouButton;
 @property (nonatomic, strong) AboutYouViewController* mAboutYouViewController;
 @property (nonatomic, strong) FixedCostsViewController* mFixedCostsViewController;
-
-@property (nonatomic, weak) id <DashNoInfoViewDelegate> mDashNoInfoViewDelegate;
 @end

@@ -28,6 +28,8 @@
 // !!KEEP IT A SECRET!!
 #define SALT_HASH @"NIFojfmblMFLKmknvdknLFK3048njU9BHKB39reGVG8V2knahs8214HBHBibhsf"
 
+static NSString* kDisplayDashNotification=@"DisplayDash";
+
 // Typedefs just to make it a little easier to read in code.
 typedef enum {
     kAlertTypePIN = 0,

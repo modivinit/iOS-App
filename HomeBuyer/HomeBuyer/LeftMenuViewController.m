@@ -23,6 +23,11 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.mMenuTableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -100,9 +105,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if(section == SECTION_INFO)
-        return 10.0;
-    else
+//    if(section == SECTION_INFO)
+//        return 10.0;
+//    else
         return 1.0;
 }
 
@@ -196,7 +201,7 @@
 
     UILabel* cellText = [[UILabel alloc]
                          initWithFrame:CGRectMake(cellImage.bounds.origin.x+cellImage.bounds.size.width+20 ,
-                                                  rect.origin.y, rect.size.width-45, rect.size.height)];
+                                                  rect.origin.y, rect.size.width-110, rect.size.height)];
     
     cellText.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
     
@@ -212,35 +217,126 @@
                 cellImage.image = [UIImage imageNamed:@"dashboard-help-menu.png"];
             }
             else if(indexPath.row == ROW_REALTOR)
+            {
                 cellText.text = @"Contact Realtor";
+                cellImage.image = [UIImage imageNamed:@"menu-contact-realtor.png"];
+            }
             break;
             
         case SECTION_HOMES:
+        {
+            uint count = 0;
+            homeInfo* home = nil;
+           
+            if([kunanceUser getInstance].mKunanceUserHomes)
+            {
+                count = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
+                home = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:indexPath.row];
+            }
+            homeType type = homeTypeNotDefined;
+           
+            if(home)
+                type = home.mHomeType;
+            
             if(indexPath.row == ROW_FIRST_HOME)
-                cellText.text = @"First Home";
+            {
+                if(count == 0)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                }
+                else if(count >= 1)
+                {
+                    if(type == homeTypeCondominium)
+                        cellImage.image = [UIImage imageNamed:@"menu-home-condo.png"];
+                    else if(type == homeTypeSingleFamily)
+                        cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+                }
+                
+                if(home.mIdentifiyingHomeFeature)
+                    cellText.text = [NSString stringWithFormat:@"First Home - %@",
+                                                                         (home.mIdentifiyingHomeFeature)];
+                else
+                    cellText.text = [NSString stringWithFormat:@"First Home"];
+            }
             else if(indexPath.row == ROW_SECOND_HOME)
-                cellText.text = @"Second Home";
+            {
+                if(count ==0)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                }
+                else if(count == 1)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                }
+                else if(count == 2)
+                {
+                    if(type == homeTypeCondominium)
+                        cellImage.image = [UIImage imageNamed:@"menu-home-condo.png"];
+                    else if(type == homeTypeSingleFamily)
+                        cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+                }
+                
+                if(home.mIdentifiyingHomeFeature)
+                    cellText.text = [NSString stringWithFormat:@"Second Home - %@",
+                                     (home.mIdentifiyingHomeFeature)];
+                else
+                    cellText.text = [NSString stringWithFormat:@"Second Home"];
+            }
+        }
             break;
             
         case SECTION_LOAN:
             if(indexPath.row == ROW_LOAN_INFO)
+            {
                 cellText.text = @"Loan Info";
+                cellImage.image = [UIImage imageNamed:@"menu-loan-info.png"];
+            }
             break;
             
         case SECTION_USER_PROFILE:
+        {
+            userPFInfo* user = [kunanceUser getInstance].mkunanceUserPFInfo;
+            
             if(indexPath.row == ROW_YOUR_PROFILE)
+            {
                 cellText.text = @"Your Profile";
+                if(!user)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-create-profile.png"];
+                }
+                else if(user.mMaritalStatus == StatusSingle)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-profile-single.png"];
+                }
+                else if (user.mMaritalStatus == StatusMarried)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-profile-couple.png"];
+                }
+            }
             else if(indexPath.row == ROW_FIXED_COSTS)
+            {
                 cellText.text = @"Fixed Costs";
+                cellImage.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+            }
+        }
             break;
 
         case SECTION_INFO:
             if(indexPath.row == ROW_HELP_CENTER)
+            {
                 cellText.text = @"Help Center";
+                cellImage.image = [UIImage imageNamed:@"menu-help.png"];
+            }
             else if(indexPath.row == ROW_TERMS_AND_POLICIES)
+            {
                 cellText.text = @"Terms & Policies";
+                cellImage.image = [UIImage imageNamed:@"menu-terms-and-policies.png"];
+            }
             else if(indexPath.row == ROW_LOGOUT)
+            {
                 cellText.text = @"Logout";
+                cellImage.image = [UIImage imageNamed:@"menu-logout.png"];
+            }
 
             break;
             

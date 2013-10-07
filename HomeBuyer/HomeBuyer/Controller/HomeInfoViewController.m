@@ -205,11 +205,7 @@
     }
     else if(!self.mCompareHomesViewAsButton.hidden)
     {
-        if(self.mHomeInfoViewDelegate &&
-           [self.mHomeInfoViewDelegate respondsToSelector:@selector(calculateAndCompareHomes)])
-        {
-            [self.mHomeInfoViewDelegate calculateAndCompareHomes];
-        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
     }
 }
 #pragma end

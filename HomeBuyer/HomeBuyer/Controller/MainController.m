@@ -38,6 +38,10 @@
 
 -(void) start
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(displayDash)
+                                                 name:kDisplayDashNotification
+                                               object:nil];
     //if logged in,
     if([[kunanceUser getInstance] isUserLoggedIn])
     {
@@ -90,6 +94,9 @@
     }
 }
 
+#pragma mark DashNoInfoViewDelegate
+#pragma mark DashUserPFInfoDelegate
+#pragma mark Dash1HomeEnteredViewDelegate
 -(void) displayDash
 {
     switch ([kunanceUser getInstance].mUserProfileStatus)
@@ -97,23 +104,19 @@
         case ProfileStatusNoInfoEntered:
         case ProfileStatusUserPersonalFinanceInfoEntered:
             self.mMainDashController = [[DashNoInfoViewController alloc] init];
-            ((DashNoInfoViewController*) self.mMainDashController).mDashNoInfoViewDelegate = self;
             break;
             
         case ProfileStatusUserExpensesInfoEntered:
             self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
-            ((DashUserPFInfoViewController*) self.mMainDashController).mDashUserPFInfoDelegate = self;
             break;
             
         case ProfileStatusUser1HomeInfoEntered:
         case ProfileStatusUser1HomeAndLoanInfoEntered:
             self.mMainDashController = [[Dash1HomeEnteredViewController alloc] init];
-            ((Dash1HomeEnteredViewController*) self.mMainDashController).mDash1HomEnteredDelegate = self;
             break;
             
         case ProfileStatusUserTwoHomesAndLoanInfoEntered:
             self.mMainDashController = [[Dash2HomesEnteredViewController alloc] init];
-            //((Dash2HomesEnteredViewController*) self.mMainDashController).mDash1HomEnteredDelegate = self;
             break;
             
         default:
@@ -122,6 +125,7 @@
     
     [self setRootView:self.mMainDashController];
 }
+#pragma end
 
 -(void) setRootView:(UIViewController*) viewController
 {
@@ -199,27 +203,6 @@
 }
 #pragma end
 
-#pragma mark DashNoInfoViewDelegate
--(void) showAndCalcCurrentLifeStyleIncome
-{
-    [self displayDash];
-}
-#pragma end
-
-#pragma mark DashUserPFInfoDelegate
--(void) showAndCalculateRentVsBuy
-{
-    [self displayDash];
-}
-#pragma end
-
-#pragma mark Dash1HomeEnteredViewDelegate
--(void) calculateAndCompareHomes
-{
-    [self displayDash];
-}
-#pragma end
-
 #pragma mark APILoanInfoDelegate
 -(void) finishedReadingLoanInfo
 {
@@ -254,7 +237,14 @@
         }
     }
 }
+#pragma end
 
+#pragma mark AboutYouDelegate
+-(void) userExpensesButtonTapped
+{
+    FixedCostsViewController* fixedCostsViewController = [[FixedCostsViewController alloc] init];
+    [self setRootView:fixedCostsViewController];
+}
 #pragma end
 
 -(void) handleUserMenu:(NSInteger) row
@@ -294,7 +284,6 @@
     }
     
     HomeInfoViewController* homeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:row];
-    homeInfoViewController.mHomeInfoViewDelegate = self;
     [self setRootView:homeInfoViewController];
 }
 
@@ -304,7 +293,6 @@
        return;
     
     LoanInfoViewController* loanInfoViewController = [[LoanInfoViewController alloc] init];
-    loanInfoViewController.mLoanInfoViewDelegate = self;
     [self setRootView:loanInfoViewController];
 }
 
@@ -314,13 +302,16 @@
     {
         case ROW_YOUR_PROFILE:
         {
-            
+            AboutYouViewController* aboutYouViewController = [[AboutYouViewController alloc] init];
+            aboutYouViewController.mAboutYouControllerDelegate = self;
+            [self setRootView:aboutYouViewController];
         }
             break;
             
         case ROW_FIXED_COSTS:
         {
-            
+            FixedCostsViewController* fixedCostsViewController = [[FixedCostsViewController alloc] init];
+            [self setRootView:fixedCostsViewController];
         }
             break;
     }

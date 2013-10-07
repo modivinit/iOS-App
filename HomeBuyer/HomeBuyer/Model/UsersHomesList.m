@@ -55,4 +55,12 @@
     else
         return (homeInfo*) self.mHomesAddedByUser[index];
 }
+
+-(homeType) getTypeForHomeAtIndex:(uint) index
+{
+    if(index >= self.mHomesAddedByUser.count)
+        return homeTypeNotDefined;
+    else
+        return ((homeInfo*)self.mHomesAddedByUser[index]).mHomeType;
+}
 @end

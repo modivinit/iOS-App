@@ -55,16 +55,6 @@
 }
 #pragma end
 
-#pragma LoanInfoViewDelegate
--(void) compareHomesButtonTappedFromLoanInfoView
-{
-    if(self.mDashUserPFInfoDelegate && [self.mDashUserPFInfoDelegate respondsToSelector:@selector(showAndCalculateRentVsBuy)])
-    {
-        [self.mDashUserPFInfoDelegate showAndCalculateRentVsBuy];
-    }
-}
-
-#pragma end
 
 - (void)didReceiveMemoryWarning
 {

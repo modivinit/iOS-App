@@ -12,7 +12,8 @@
 #import "APILoanInfoService.h"
 
 @protocol LoanInfoViewDelegate <NSObject>
--(void) compareHomesButtonTappedFromLoanInfoView;
+@optional
+-(void) displayDash;
 @end
 
 @interface LoanInfoViewController : FormViewController <APILoanInfoServiceDelegate>

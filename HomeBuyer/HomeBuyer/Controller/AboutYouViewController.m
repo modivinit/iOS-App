@@ -67,6 +67,7 @@
 
 -(void) initWithCurrentUserPFInfo
 {
+    kunanceUser* user = [kunanceUser getInstance];
     userPFInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
     if(theUserPFInfo)
     {

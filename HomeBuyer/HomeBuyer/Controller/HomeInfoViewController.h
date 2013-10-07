@@ -14,7 +14,6 @@
 @protocol HomeInfoViewDelegate <NSObject>
 @optional
 -(void) loanInfoButtonTapped;
--(void) calculateAndCompareHomes;
 @end
 
 @interface HomeInfoViewController : FormViewController <APIHomeInfoServiceDelegate>

@@ -10,7 +10,13 @@
 #import "HomeInfoViewController.h"
 #import "DashLeftMenuViewController.h"
 
-@interface Dash1HomeEnteredViewController : DashLeftMenuViewController<HomeInfoViewDelegate>
+@protocol RentVsBuyDashViewDelegate <NSObject>
+-(void) setNavTitle:(NSString*) title;
+@end
+
+@interface RentVsBuyDashViewController : UIViewController<HomeInfoViewDelegate>
 @property (nonatomic, strong) IBOutlet UIView* mAddAHomeButtonAsView;
 @property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;
+
+@property (nonatomic, weak) id <RentVsBuyDashViewDelegate> mRentVsBuyDashViewDelegate;
 @end

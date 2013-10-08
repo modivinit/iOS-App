@@ -12,8 +12,8 @@
 #import "DashNoInfoViewController.h"
 #import "APIUserInfoService.h"
 #import "DashUserPFInfoViewController.h"
-#import "Dash1HomeEnteredViewController.h"
-#import "Dash2HomesEnteredViewController.h"
+#import "DashOneHomeEnteredViewController.h"
+#import "DashTwoHomesEnteredViewController.h"
 #import "LeftMenuViewController.h"
 #import "DashLeftMenuViewController.h"
 #import "APIHomeInfoService.h"
@@ -38,7 +38,7 @@ AboutYouControllerDelegate
 @property (nonatomic, strong) APIUserInfoService* mAPIUserInfoService;
 @property (nonatomic, strong) SignUpViewController* mSignUpViewController;
 @property (nonatomic, strong) LoginViewController* mLoginViewController;
-@property (nonatomic, strong) DashLeftMenuViewController*    mMainDashController;
+@property (nonatomic, strong) UIViewController*    mMainDashController;
 @property (nonatomic, strong) LeftMenuViewController* mLeftMenuViewController;
 @property (nonatomic, strong) UINavigationController* mFrontViewController;
 

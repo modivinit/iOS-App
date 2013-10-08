@@ -148,13 +148,13 @@ static kunanceUser *kunanceUserSingleton;
             (self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered))
     {
         self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-        NSLog(@"User profile status = ProfileStatusUserMultipleHomesInfoEntered");
+        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
     }
     else if( ([self.mKunanceUserHomes getCurrentHomesCount] == 2) &&
             (self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered))
     {
         self.mUserProfileStatus = ProfileStatusUser2HomesButNoLoanEntered;
-        NSLog(@"Intermidiate User profile status = ProfileStatusUserMultipleHomesInfoEntered");
+        NSLog(@"Intermidiate User profile status = ProfileStatusUser2HomesButNoLoanEntered");
     }
 
 }
@@ -189,13 +189,13 @@ static kunanceUser *kunanceUserSingleton;
              ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
     {
         self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-                NSLog(@"User profile status = ProfileStatusUserMultipleHomesInfoEntered");
+                NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
     }
     else if ((self.mUserProfileStatus == ProfileStatusUser2HomesButNoLoanEntered) &&
              ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
     {
         self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-        NSLog(@"User profile status = ProfileStatusUserMultipleHomesInfoEntered");
+        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
     }
 }
 

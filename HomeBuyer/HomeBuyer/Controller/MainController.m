@@ -112,11 +112,11 @@
             
         case ProfileStatusUser1HomeInfoEntered:
         case ProfileStatusUser1HomeAndLoanInfoEntered:
-            self.mMainDashController = [[Dash1HomeEnteredViewController alloc] init];
+            self.mMainDashController = [[DashOneHomeEnteredViewController alloc] init];
             break;
             
         case ProfileStatusUserTwoHomesAndLoanInfoEntered:
-            self.mMainDashController = [[Dash2HomesEnteredViewController alloc] init];
+            self.mMainDashController = [[DashTwoHomesEnteredViewController alloc] init];
             break;
             
         default:
@@ -348,7 +348,7 @@
 #pragma mark LeftMenuDelegate
 -(void) showFrontViewForSection:(NSInteger)section andRow:(NSInteger)row
 {
-    [self.mMainDashController hideLeftView];
+   // [self.mMainDashController hideLeftView];
     
     switch (section)
     {

@@ -1,18 +1,18 @@
 //
-//  Dash2HomesEnteredViewController.m
+//  OneHomeLifeStyleViewController.m
 //  HomeBuyer
 //
-//  Created by Shilpa Modi on 10/3/13.
+//  Created by Shilpa Modi on 10/7/13.
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "Dash2HomesEnteredViewController.h"
+#import "OneHomeLifeStyleViewController.h"
 
-@interface Dash2HomesEnteredViewController ()
+@interface OneHomeLifeStyleViewController ()
 
 @end
 
-@implementation Dash2HomesEnteredViewController
+@implementation OneHomeLifeStyleViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,6 +21,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.mOneHomeLifeStyleDelegate setNavTitle:@"Home Lifestyle"];
 }
 
 - (void)viewDidLoad

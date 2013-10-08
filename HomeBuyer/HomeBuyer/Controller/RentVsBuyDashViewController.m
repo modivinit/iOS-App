@@ -6,28 +6,22 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "Dash1HomeEnteredViewController.h"
+#import "RentVsBuyDashViewController.h"
 
-@interface Dash1HomeEnteredViewController ()
+@interface RentVsBuyDashViewController ()
 
 @end
 
-@implementation Dash1HomeEnteredViewController
+@implementation RentVsBuyDashViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void) viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:@"Dash1HomeEnteredViewController" bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [self.mRentVsBuyDashViewDelegate setNavTitle:@"Rent vs Buy"];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString* titleText = [NSString stringWithFormat:@"First Home Lifestyle"];
-    self.navigationController.navigationBar.topItem.title = titleText;
 
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer* addAHomeTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addAHome)];

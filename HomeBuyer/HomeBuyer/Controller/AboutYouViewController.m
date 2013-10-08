@@ -94,8 +94,7 @@
 
 - (void)viewDidLoad
 {
-    NSString* titleText = [NSString stringWithFormat:@"Profile"];
-    self.navigationController.navigationBar.topItem.title = titleText;
+    self.navigationController.navigationBar.topItem.title = @"Profile";
 
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mAnnualGrossIncomeField,
                         self.mAnnualRetirementContributionField, nil];

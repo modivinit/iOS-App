@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Dash1HomeEnteredViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RentVsBuyDashViewController">
             <connections>
                 <outlet property="mAddAHomeButtonAsView" destination="Avr-Zp-Tpu" id="3ar-8w-vLM"/>
                 <outlet property="view" destination="fzQ-Rx-b76" id="IwF-cc-EIW"/>

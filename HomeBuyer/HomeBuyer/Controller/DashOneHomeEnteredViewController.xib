@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashOneHomeEnteredViewController">
             <connections>
-                <outlet property="mDashImageAsButton" destination="CrM-7d-7Oi" id="uT9-Xx-Lcw"/>
-                <outlet property="mHelpImageAsButton" destination="Y9D-47-rbg" id="nCT-fh-tQa"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -17,21 +15,32 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y9D-47-rbg">
-                    <rect key="frame" x="270" y="519" width="30" height="29"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqk-YL-fK2">
+                    <rect key="frame" x="105" y="490" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="forward-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="dzO-Qp-zEZ">
+                            <rect key="frame" x="106" y="5" width="10" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add A Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-UM-xd9">
+                            <rect key="frame" x="8" y="5" width="92" height="19"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xs-Pi-RkG">
+                    <rect key="frame" x="280" y="524" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrM-7d-7Oi">
-                    <rect key="frame" x="20" y="519" width="34" height="29"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pd-1F-ZCG">
+                    <rect key="frame" x="20" y="519" width="29" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Button" image="logo_svl.gif">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="dashButtonTapped:" destination="-1" eventType="touchDown" id="6zP-cP-fDR"/>
-                    </connections>
-                </button>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -39,7 +48,7 @@
         </view>
     </objects>
     <resources>
+        <image name="forward-icon.png" width="10" height="20"/>
         <image name="help.png" width="20" height="20"/>
-        <image name="logo_svl.gif" width="34" height="29"/>
     </resources>
 </document>

@@ -32,6 +32,8 @@
 
 - (void)viewDidLoad
 {
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+    
     [super viewDidLoad];
     
     NSString* titleText = [NSString stringWithFormat:@"Create Account"];
@@ -39,29 +41,6 @@
 
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
 
-    [self registerForKeyboardNotifications];
-    
-    self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    self.mKeyBoardToolbar.barStyle = UIBarStyleDefault;
-    self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
-                                               [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                               [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard)],
-                                                nil];
-    [self.mKeyBoardToolbar sizeToFit];
-    
-    self.mNameField.delegate = self;
-    self.mNameField.inputAccessoryView = self.mKeyBoardToolbar;
-    
-    self.mEmailField.delegate = self;
-    self.mEmailField.inputAccessoryView = self.mKeyBoardToolbar;
-    
-    self.mPasswordField.delegate = self;
-    self.mPasswordField.inputAccessoryView = self.mKeyBoardToolbar;
-    self.mPasswordField.secureTextEntry = YES;
-
-    self.mRealtorCodeField.delegate = self;
-    self.mRealtorCodeField.inputAccessoryView = self.mKeyBoardToolbar;
-    
     self.mCreateAccountButton.enabled = NO;
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;
     
@@ -72,6 +51,8 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
 
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -154,63 +135,17 @@
 
 ///////Keyboard Animation Related
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (textField == self.mNameField)
+    if(textField == self.mPasswordField)
     {
-        [self.mEmailField becomeFirstResponder];
+        if(self.mPasswordField.text.length == 5 && self.mNameField.text.length > 0 &&
+           self.mEmailField.text.length > 0)
+        {
+            [self enableRegisterButton];
+        }
     }
-    else if (textField == self.mEmailField)
-    {
-        [self.mPasswordField becomeFirstResponder];
-    }
-    else if(textField == self.mPasswordField)
-    {
-        [self.mRealtorCodeField becomeFirstResponder];
-    }
-    
-    [textField resignFirstResponder];
     
     return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.mActiveField = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.mActiveField = nil;
-    
-    if(![Utilities isUITextFieldEmpty:self.mNameField] &&
-    ![Utilities isUITextFieldEmpty:self.mEmailField] &&
-    ![Utilities isUITextFieldEmpty:self.mPasswordField])
-    {
-        [self enableRegisterButton];
-    }
-}
-
--(void) deregisterForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];  }
-
-// Call this method somewhere in your view controller setup code.
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
 }
 @end

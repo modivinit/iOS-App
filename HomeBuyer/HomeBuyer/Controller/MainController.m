@@ -67,7 +67,13 @@
 {
     kCATIntroViewController* introView = [[kCATIntroViewController alloc] init];
     introView.mkCATIntroDelegate = self;
-    [self.mMainNavController presentViewController:introView animated:NO completion:nil];
+
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:introView];
+    }
+
 }
 
 -(void) loginSavedUser
@@ -376,11 +382,19 @@
     }
 }
 
+-(void) hideLeftView
+{
+    if (self.mFrontViewController.navigationController.revealController.focusedController == self.mFrontViewController.navigationController.revealController.leftViewController)
+    {
+        [self.mFrontViewController.navigationController.revealController
+         showViewController:self.mFrontViewController];
+    }
+}
+
+
 #pragma mark LeftMenuDelegate
 -(void) showFrontViewForSection:(NSInteger)section andRow:(NSInteger)row
-{
-   // [self.mMainDashController hideLeftView];
-    
+{    
     switch (section)
     {
         case SECTION_USER_NAME_DASH_REALTOR:

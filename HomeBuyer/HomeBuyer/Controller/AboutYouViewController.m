@@ -55,7 +55,7 @@
     
     UITapGestureRecognizer* userExpensesTappedGesture = [[UITapGestureRecognizer alloc]
                                                          initWithTarget:self
-                                                         action:@selector(fixedCostsButtonTapped:)];
+                                                         action:@selector(fixedCostsButtonTapped)];
     [self.mUserExpensesViewAsButton addGestureRecognizer:userExpensesTappedGesture];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -70,10 +70,11 @@
 
 -(void) initWithCurrentUserPFInfo
 {
-    kunanceUser* user = [kunanceUser getInstance];
     userPFInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
     if(theUserPFInfo)
     {
+        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %llu", theUserPFInfo.mGrossAnnualIncome);
+
         if(theUserPFInfo.mMaritalStatus == StatusMarried)
             [self selectMarried];
         
@@ -132,7 +133,7 @@
     [self selectSingle];
 }
 
--(void) fixedCostsButtonTapped:(UITapGestureRecognizer*)recognizer
+-(void) fixedCostsButtonTapped
 {
     if(self.mSelectedMaritalStatus == StatusNotDefined)
     {
@@ -164,6 +165,8 @@
 {
     if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
     {
+        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu", [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
+
         //let the dashcontroller know that this form is done
         if(self.mAboutYouControllerDelegate &&
            [self.mAboutYouControllerDelegate respondsToSelector:@selector(userExpensesButtonTapped)])

@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FormViewController.h"
 
 @protocol LoginDelegate <NSObject>
 -(void) loggedInUserSuccessfully;
 -(void) signupButtonPressed;
 @end
 
-@interface LoginViewController : UIViewController<UITextFieldDelegate>
+@interface LoginViewController : FormViewController<UITextFieldDelegate>
 @property (nonatomic, weak) id <LoginDelegate> mLoginDelegate;
-@property (nonatomic, strong) UITextField* mActiveField;
 
 @property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;
 @property (nonatomic, strong) IBOutlet UITextField* mPassword;

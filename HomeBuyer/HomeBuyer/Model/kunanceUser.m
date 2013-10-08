@@ -45,6 +45,9 @@ static kunanceUser *kunanceUserSingleton;
 {
     FatFractal *ff = [AppDelegate ff];
     self.mkunanceUserPFInfo = newUserPFInfo;
+    
+    NSLog(@"updateUserPFInfo: %llu", self.mkunanceUserPFInfo.mGrossAnnualIncome);
+    
     if(newUserPFInfo)
         self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
 }

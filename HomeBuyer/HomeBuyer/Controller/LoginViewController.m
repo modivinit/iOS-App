@@ -29,6 +29,7 @@
     NSString* titleText = [NSString stringWithFormat:@"Sign In"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mLoginEmail, self.mPassword, nil];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -45,6 +46,10 @@
     
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
     [self disableLoginButton];
+    
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -67,6 +72,11 @@
     
     if(!email || !password)
         return;
+    
+    [self dismissKeyboard];
+    
+    self.view.userInteractionEnabled = NO;
+    [self disableLoginButton];
     
     FatFractal *ff = [AppDelegate ff];
     [ff loginWithUserName:email andPassword:password
@@ -109,37 +119,23 @@
 -(void)dismissKeyboard
 {
     [self.mActiveField resignFirstResponder];
-    
-    if(self.mLoginEmail.text && self.mPassword.text)
-        [self enableLoginButton];
 }
 #pragma end
 
 #pragma mark - UITextField
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (textField == self.mLoginEmail)
+    if(textField == self.mPassword)
     {
-        [self.mPassword becomeFirstResponder];
+        if(self.mPassword.text.length == 5 && self.mLoginEmail.text.length > 0)
+        {
+            [self enableLoginButton];
+        }
     }
     
-    [textField resignFirstResponder];
-    
-    if(self.mLoginEmail.text && self.mPassword.text)
-        [self enableLoginButton];
-        
     return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.mActiveField = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.mActiveField = nil;
-}
 #pragma end
 
 - (void)didReceiveMemoryWarning

@@ -131,11 +131,10 @@
     switch ([kunanceUser getInstance].mUserProfileStatus)
     {
         case ProfileStatusNoInfoEntered:
-        case ProfileStatusUserPersonalFinanceInfoEntered:
             self.mMainDashController = [[DashNoInfoViewController alloc] init];
             break;
             
-        case ProfileStatusUserExpensesInfoEntered:
+        case ProfileStatusUserPersonalFinanceInfoEntered:
             self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
             break;
             

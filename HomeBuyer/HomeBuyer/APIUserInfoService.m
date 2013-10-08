@@ -76,7 +76,6 @@
             [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
             if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
             {
-                //[kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
                 NSLog(@"User profile status = ProfileStatusUserExpensesInfoEntered");
             }
         }
@@ -139,18 +138,7 @@
             NSLog(@"readUserPFInfo: user annul gross = %llu", aUserPFInfp.mGrossAnnualIncome);
             if(aUserPFInfp && [kunanceUser getInstance].mUserPFInfoGUID)
             {
-                [kunanceUser getInstance].mkunanceUserPFInfo = aUserPFInfp;
-                
-                if(aUserPFInfp.mFixedCostsInfoEntered)
-                {
-                    [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserExpensesInfoEntered;
-                                    NSLog(@"User profile status = ProfileStatusUserExpensesInfoEntered");
-                }
-                else
-                {
-                    [kunanceUser getInstance].mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
-                                    NSLog(@"User profile status = ProfileStatusUserPersonalFinanceInfoEntered");
-                }
+                [[kunanceUser getInstance] updateUserPFInfo:aUserPFInfp];
             }
         }
         

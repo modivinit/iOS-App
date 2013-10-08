@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashUserPFInfoViewController">
             <connections>
                 <outlet property="mAddAHomeViewAsButton" destination="t5z-ww-ulW" id="hef-xN-gGe"/>
+                <outlet property="mDashImageAsButton" destination="k16-De-liG" id="hG9-gT-cLf"/>
+                <outlet property="mHelpImageAsButton" destination="9nc-Ti-OSg" id="D05-rq-Sth"/>
                 <outlet property="view" destination="3Jn-H6-qR6" id="LNn-Ad-q1k"/>
             </connections>
         </placeholder>
@@ -97,7 +99,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="9nc-Ti-OSg">
-                    <rect key="frame" x="275" y="523" width="20" height="20"/>
+                    <rect key="frame" x="265" y="518" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view alpha="0.15000000596046448" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw6-XL-ilK">
@@ -112,6 +114,17 @@
                     <color key="textColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k16-De-liG">
+                    <rect key="frame" x="20" y="518" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="dashboard-dashboard.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dashButtonTapped:" destination="-1" eventType="touchDown" id="PfM-7J-fjl"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -120,6 +133,7 @@
     </objects>
     <resources>
         <image name="compare-dash.png" width="40" height="36"/>
+        <image name="dashboard-dashboard.png" width="30" height="30"/>
         <image name="doubledownarrow.png" width="30" height="30"/>
         <image name="forward-icon.png" width="10" height="20"/>
         <image name="help.png" width="20" height="20"/>

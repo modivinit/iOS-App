@@ -14,10 +14,11 @@
 
 @interface DashOneHomeEnteredViewController : BasePageViewController
 <OneHomeLifeStyleDelegate, OneHomePaymentsDelegate, RentVsBuyDashViewDelegate>
-{
-    
-}
 
+@property (nonatomic, strong) IBOutlet UIButton* mDashImageAsButton;
+@property (nonatomic, strong) IBOutlet UIImageView* mHelpImageAsButton;
+
+-(IBAction)dashButtonTapped:(id)sender;
 -(void) hideLeftView;
 -(void)showLeftView;
 

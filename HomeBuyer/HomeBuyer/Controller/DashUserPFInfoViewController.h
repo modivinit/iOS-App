@@ -15,4 +15,10 @@
 @property (nonatomic, strong) IBOutlet UIView* mAddAHomeViewAsButton;
 @property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoViewController;
+
+@property (nonatomic, strong) IBOutlet UIButton* mDashImageAsButton;
+@property (nonatomic, strong) IBOutlet UIImageView* mHelpImageAsButton;
+
+-(IBAction)dashButtonTapped:(id)sender;
+
 @end

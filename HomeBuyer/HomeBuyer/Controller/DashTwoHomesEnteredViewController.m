@@ -7,6 +7,7 @@
 //
 
 #import "DashTwoHomesEnteredViewController.h"
+#import "HelpDashboardViewController.h"
 
 @interface DashTwoHomesEnteredViewController ()
 
@@ -42,12 +43,28 @@
                                                                                 target:self
                                                                                 action:@selector(showLeftView)];
     }
+    
+    UITapGestureRecognizer* helpTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(helpButtonTapped)];
+    [self.mHelpImageAsButton addGestureRecognizer:helpTapGesture];
+
+}
+
+-(void) helpButtonTapped
+{
+    HelpDashboardViewController* dashHelp = [[HelpDashboardViewController alloc] init];
+    [self.navigationController pushViewController:dashHelp animated:NO];
 }
 
 -(void) setNavTitle:(NSString *)title
 {
     if(title)
         self.navigationItem.title = title;
+}
+
+-(IBAction)dashButtonTapped:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
 }
 
 -(void) hideLeftView

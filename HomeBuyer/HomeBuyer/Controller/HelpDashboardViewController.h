@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HelpDashboardViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton* mDashboard;
 
+-(IBAction) dashboard:(id)sender;
 @end

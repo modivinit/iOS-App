@@ -7,6 +7,7 @@
 //
 
 #import "DashOneHomeEnteredViewController.h"
+#import "HelpDashboardViewController.h"
 
 @interface DashOneHomeEnteredViewController ()
 
@@ -44,12 +45,31 @@
                                                                                 action:@selector(showLeftView)];
     }
 
+    CGRect pageBound = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
+                                  self.view.bounds.size.width, self.view.bounds.size.height - 40);
+    self.pageController.view.frame = pageBound;
+    self.pageController.view.backgroundColor = [UIColor clearColor];
+    
+    UITapGestureRecognizer* helpTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(helpButtonTapped)];
+    [self.mHelpImageAsButton addGestureRecognizer:helpTapGesture];
 }
 
 -(void) setNavTitle:(NSString *)title
 {
     if(title)
         self.navigationItem.title = title;
+}
+
+-(void) helpButtonTapped
+{
+    HelpDashboardViewController* dashHelp = [[HelpDashboardViewController alloc] init];
+    [self.navigationController pushViewController:dashHelp animated:NO];
+}
+
+-(IBAction)dashButtonTapped:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
 }
 
 -(void) hideLeftView

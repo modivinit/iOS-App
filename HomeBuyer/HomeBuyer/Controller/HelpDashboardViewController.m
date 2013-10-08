@@ -23,6 +23,11 @@
     return self;
 }
 
+-(IBAction) dashboard:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

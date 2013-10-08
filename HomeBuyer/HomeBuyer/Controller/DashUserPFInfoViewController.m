@@ -7,6 +7,7 @@
 //
 
 #import "DashUserPFInfoViewController.h"
+#import "HelpDashboardViewController.h"
 
 @interface DashUserPFInfoViewController ()
 
@@ -27,6 +28,10 @@
 {
     UITapGestureRecognizer* homeInfoGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addHomeInfo)];
     [self.mAddAHomeViewAsButton addGestureRecognizer:homeInfoGesture];
+    
+    UITapGestureRecognizer* helpTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(helpButtonTapped)];
+    [self.mHelpImageAsButton addGestureRecognizer:helpTapGesture];
 }
 
 - (void)viewDidLoad
@@ -40,6 +45,17 @@
 
 
 #pragma mark actions, gestures
+-(void) helpButtonTapped
+{
+    HelpDashboardViewController* dashHelp = [[HelpDashboardViewController alloc] init];
+    [self.navigationController pushViewController:dashHelp animated:NO];
+}
+
+-(IBAction)dashButtonTapped:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+}
+
 -(void) addHomeInfo
 {
     self.mHomeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:FIRST_HOME];

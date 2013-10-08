@@ -58,11 +58,16 @@
         else //If there is no user account
         {
             //then show the signup view
-            self.mSignUpViewController = [[SignUpViewController alloc] init];
-            self.mSignUpViewController.mSignUpDelegate = self;
-            [self.mMainNavController presentViewController:self.mSignUpViewController animated:NO completion:nil];
+            [self showIntroScreens];
         }
     }
+}
+
+-(void) showIntroScreens
+{
+    kCATIntroViewController* introView = [[kCATIntroViewController alloc] init];
+    introView.mkCATIntroDelegate = self;
+    [self.mMainNavController presentViewController:introView animated:NO completion:nil];
 }
 
 -(void) loginSavedUser
@@ -93,6 +98,24 @@
         }];
     }
 }
+
+-(void) logUserOut
+{
+    [[kunanceUser getInstance] logoutUser];
+    [self showIntroScreens];
+}
+
+#pragma mark kCATIntroDelegate
+-(void) signInFromIntro
+{
+    [self presentLoginViewController];
+}
+
+-(void) signupFromIntro
+{
+    [self presentSignupViewController];
+}
+#pragma end
 
 #pragma mark DashNoInfoViewDelegate
 #pragma mark DashUserPFInfoDelegate
@@ -158,9 +181,21 @@
 -(void) failedToLoginSavedUser
 {
     //show login screen here
+    [self presentLoginViewController];
+}
+
+-(void) presentLoginViewController
+{
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
     loginViewController.mLoginDelegate = self;
-    [self.mMainNavController pushViewController:loginViewController animated:YES];
+    [self setRootView:loginViewController];
+}
+
+-(void) presentSignupViewController
+{
+    self.mSignUpViewController = [[SignUpViewController alloc] init];
+    self.mSignUpViewController.mSignUpDelegate = self;
+    [self setRootView:self.mSignUpViewController];
 }
 
 #pragma mark LoginDelegate
@@ -177,9 +212,7 @@
     if(self.mSignUpViewController)
         self.mSignUpViewController = nil;
     
-    self.mSignUpViewController = [[SignUpViewController alloc] init];
-    self.mSignUpViewController.mSignUpDelegate = self;
-    [self.mMainNavController presentViewController:self.mSignUpViewController animated:NO completion:nil];
+    [self presentSignupViewController];
 }
 #pragma end
 
@@ -197,10 +230,8 @@
     
     if(self.mLoginViewController)
         self.mLoginViewController = nil;
-    
-    self.mLoginViewController = [[LoginViewController alloc] init];
-    self.mLoginViewController.mLoginDelegate = self;
-    [self.mMainNavController presentViewController:self.mLoginViewController animated:NO completion:nil];
+
+    [self presentLoginViewController];
 }
 #pragma end
 
@@ -336,7 +367,7 @@
             
         case ROW_LOGOUT:
         {
-            
+            [self logUserOut];
         }
             break;
             

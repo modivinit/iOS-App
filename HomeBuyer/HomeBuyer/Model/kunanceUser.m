@@ -70,6 +70,20 @@ static kunanceUser *kunanceUserSingleton;
         self.mKunanceUserGUID = [[ff metaDataForObj:newUser] guid];
 }
 
+-(void) logoutUser
+{
+    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"pswd"];
+    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"email"];
+    
+    self.mLoggedInKunanceUser = nil;
+    self.mLoggedInKunanceUser = nil;
+    self.mkunanceUserPFInfo = nil;
+    self.mKunanceUserHomes = nil;
+    self.mKunanceUserLoan = nil;
+    self.mUserProfileStatus = ProfileStatusNoInfoEntered;
+    self.mUserPFInfoGUID = nil;
+}
+
 -(BOOL)userAccountFoundOnDevice
 {
     NSData* theData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"email"];

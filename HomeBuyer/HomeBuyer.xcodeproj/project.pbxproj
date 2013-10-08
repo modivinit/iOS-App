@@ -203,10 +203,14 @@
 		D6C3AB231803859400123260 /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB221803859400123260 /* download.jpeg */; };
 		D6C3AB281803892700123260 /* kCATIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB261803892700123260 /* kCATIntroViewController.m */; };
 		D6C3AB291803892700123260 /* kCATIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB271803892700123260 /* kCATIntroViewController.xib */; };
-		D6C3AB2E1803897700123260 /* kcatintro-lifestyle.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB2B1803897700123260 /* kcatintro-lifestyle.xib */; };
-		D6C3AB2F1803897700123260 /* kcatintro-rvb.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB2C1803897700123260 /* kcatintro-rvb.xib */; };
-		D6C3AB301803897700123260 /* kcatintro-tax.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB2D1803897700123260 /* kcatintro-tax.xib */; };
-		D6C3AB32180389B200123260 /* kcatintro.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB31180389B200123260 /* kcatintro.xib */; };
+		D6C3AB361803C93300123260 /* kCATIntroAffordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB341803C93300123260 /* kCATIntroAffordViewController.m */; };
+		D6C3AB371803C93300123260 /* kCATIntroAffordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB351803C93300123260 /* kCATIntroAffordViewController.xib */; };
+		D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB391803CA3600123260 /* kCATIntroLifestyleViewController.m */; };
+		D6C3AB3C1803CA3600123260 /* kCATIntroLifestyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */; };
+		D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB3E1803CA5A00123260 /* kCATIntroRVBViewController.m */; };
+		D6C3AB411803CA5A00123260 /* kCATIntroRVBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */; };
+		D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB431803CA7300123260 /* kCATIntroTaxViewController.m */; };
+		D6C3AB461803CA7300123260 /* kCATIntroTaxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */; };
 		D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2717DA79AA00DEA25D /* MainController.m */; };
 		D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
 		D6C88B2F17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
@@ -472,10 +476,18 @@
 		D6C3AB251803892700123260 /* kCATIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroViewController.h; path = Controller/kCATIntroViewController.h; sourceTree = "<group>"; };
 		D6C3AB261803892700123260 /* kCATIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroViewController.m; path = Controller/kCATIntroViewController.m; sourceTree = "<group>"; };
 		D6C3AB271803892700123260 /* kCATIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroViewController.xib; path = Controller/kCATIntroViewController.xib; sourceTree = "<group>"; };
-		D6C3AB2B1803897700123260 /* kcatintro-lifestyle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "kcatintro-lifestyle.xib"; sourceTree = "<group>"; };
-		D6C3AB2C1803897700123260 /* kcatintro-rvb.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "kcatintro-rvb.xib"; sourceTree = "<group>"; };
-		D6C3AB2D1803897700123260 /* kcatintro-tax.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "kcatintro-tax.xib"; sourceTree = "<group>"; };
-		D6C3AB31180389B200123260 /* kcatintro.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kcatintro.xib; sourceTree = "<group>"; };
+		D6C3AB331803C93300123260 /* kCATIntroAffordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroAffordViewController.h; path = Controller/kCATIntroAffordViewController.h; sourceTree = "<group>"; };
+		D6C3AB341803C93300123260 /* kCATIntroAffordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroAffordViewController.m; path = Controller/kCATIntroAffordViewController.m; sourceTree = "<group>"; };
+		D6C3AB351803C93300123260 /* kCATIntroAffordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroAffordViewController.xib; path = Controller/kCATIntroAffordViewController.xib; sourceTree = "<group>"; };
+		D6C3AB381803CA3600123260 /* kCATIntroLifestyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroLifestyleViewController.h; path = Controller/kCATIntroLifestyleViewController.h; sourceTree = "<group>"; };
+		D6C3AB391803CA3600123260 /* kCATIntroLifestyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroLifestyleViewController.m; path = Controller/kCATIntroLifestyleViewController.m; sourceTree = "<group>"; };
+		D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroLifestyleViewController.xib; path = Controller/kCATIntroLifestyleViewController.xib; sourceTree = "<group>"; };
+		D6C3AB3D1803CA5A00123260 /* kCATIntroRVBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroRVBViewController.h; path = Controller/kCATIntroRVBViewController.h; sourceTree = "<group>"; };
+		D6C3AB3E1803CA5A00123260 /* kCATIntroRVBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroRVBViewController.m; path = Controller/kCATIntroRVBViewController.m; sourceTree = "<group>"; };
+		D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroRVBViewController.xib; path = Controller/kCATIntroRVBViewController.xib; sourceTree = "<group>"; };
+		D6C3AB421803CA7300123260 /* kCATIntroTaxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroTaxViewController.h; path = Controller/kCATIntroTaxViewController.h; sourceTree = "<group>"; };
+		D6C3AB431803CA7300123260 /* kCATIntroTaxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroTaxViewController.m; path = Controller/kCATIntroTaxViewController.m; sourceTree = "<group>"; };
+		D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroTaxViewController.xib; path = Controller/kCATIntroTaxViewController.xib; sourceTree = "<group>"; };
 		D6C88B2717DA79AA00DEA25D /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = Controller/MainController.m; sourceTree = "<group>"; };
 		D6C88B2817DA79AA00DEA25D /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = Controller/MainController.h; sourceTree = "<group>"; };
 		D6C88B2A17DA7B1600DEA25D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Controller/SignUpViewController.h; sourceTree = "<group>"; };
@@ -1108,6 +1120,14 @@
 			children = (
 				D6C3AB251803892700123260 /* kCATIntroViewController.h */,
 				D6C3AB261803892700123260 /* kCATIntroViewController.m */,
+				D6C3AB331803C93300123260 /* kCATIntroAffordViewController.h */,
+				D6C3AB341803C93300123260 /* kCATIntroAffordViewController.m */,
+				D6C3AB381803CA3600123260 /* kCATIntroLifestyleViewController.h */,
+				D6C3AB391803CA3600123260 /* kCATIntroLifestyleViewController.m */,
+				D6C3AB3D1803CA5A00123260 /* kCATIntroRVBViewController.h */,
+				D6C3AB3E1803CA5A00123260 /* kCATIntroRVBViewController.m */,
+				D6C3AB421803CA7300123260 /* kCATIntroTaxViewController.h */,
+				D6C3AB431803CA7300123260 /* kCATIntroTaxViewController.m */,
 			);
 			name = kCATIntro;
 			sourceTree = "<group>";
@@ -1115,12 +1135,12 @@
 		D6C3AB2A1803893400123260 /* kCATIntro */ = {
 			isa = PBXGroup;
 			children = (
+				D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */,
+				D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */,
+				D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */,
+				D6C3AB351803C93300123260 /* kCATIntroAffordViewController.xib */,
 				9ECDED7A1803B34100F2449E /* appname.png */,
 				9ECDED7B1803B34100F2449E /* appname@2x.png */,
-				D6C3AB31180389B200123260 /* kcatintro.xib */,
-				D6C3AB2B1803897700123260 /* kcatintro-lifestyle.xib */,
-				D6C3AB2C1803897700123260 /* kcatintro-rvb.xib */,
-				D6C3AB2D1803897700123260 /* kcatintro-tax.xib */,
 				D6C3AB271803892700123260 /* kCATIntroViewController.xib */,
 			);
 			name = kCATIntro;
@@ -1467,10 +1487,8 @@
 			files = (
 				9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */,
 				9E53443717F555B8006BA12D /* lifestyle-shopping@2x.png in Resources */,
-				D6C3AB2E1803897700123260 /* kcatintro-lifestyle.xib in Resources */,
 				9ECDB80D17FF55AB004E5F25 /* menu-profile-couple@2x.png in Resources */,
 				9EA5D3FE17F1627300CE7BD8 /* street@2x.png in Resources */,
-				D6C3AB32180389B200123260 /* kcatintro.xib in Resources */,
 				9E5D1CED17FF37DF00F443AC /* dashboard-profile@2x.png in Resources */,
 				9ECDB80417FF55AB004E5F25 /* menu-home-condo.png in Resources */,
 				9ECCAD9A17F0E696001EAF4C /* doubledownarrow@2x.png in Resources */,
@@ -1481,6 +1499,7 @@
 				9ECDB7FB17FF55AB004E5F25 /* menu-create-profile@2x.png in Resources */,
 				9E00FAA417F34DB100380997 /* HelpProfileViewController.xib in Resources */,
 				9EA5D3F917F1627300CE7BD8 /* city.png in Resources */,
+				D6C3AB3C1803CA3600123260 /* kCATIntroLifestyleViewController.xib in Resources */,
 				D6C88B3517DA7B3000DEA25D /* LoginViewController.xib in Resources */,
 				9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */,
 				9EA5D40417F162B500CE7BD8 /* LoanInfoViewController.xib in Resources */,
@@ -1494,7 +1513,6 @@
 				9E53443C17F555C7006BA12D /* surfing.png in Resources */,
 				D6E6EE5917E65A9E005D7526 /* single@2x.png in Resources */,
 				9ECDB81517FF55B6004E5F25 /* dashboard-dashboard@2x.png in Resources */,
-				D6C3AB301803897700123260 /* kcatintro-tax.xib in Resources */,
 				9EA5D40E17F162DE00CE7BD8 /* interestrate.png in Resources */,
 				D6E6EEBF17E79D8C005D7526 /* otherexpenses.png in Resources */,
 				9EA5D40F17F162DE00CE7BD8 /* interestrate@2x.png in Resources */,
@@ -1512,7 +1530,7 @@
 				9EA5D3FA17F1627300CE7BD8 /* city@2x.png in Resources */,
 				D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */,
 				D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */,
-				D6C3AB2F1803897700123260 /* kcatintro-rvb.xib in Resources */,
+				D6C3AB411803CA5A00123260 /* kCATIntroRVBViewController.xib in Resources */,
 				D6E6EEBB17E79D7D005D7526 /* car.png in Resources */,
 				9E5D1CF417FF380800F443AC /* dashboard-home.png in Resources */,
 				9ECDB80617FF55AB004E5F25 /* menu-home-sfh.png in Resources */,
@@ -1523,6 +1541,7 @@
 				9E00FABE17F356EB00380997 /* helpbox.png in Resources */,
 				9EA5D3E817F15DC500CE7BD8 /* sfh-homeinfo-selected.png in Resources */,
 				9ECDED881803B63B00F2449E /* menu-add-home.png in Resources */,
+				D6C3AB461803CA7300123260 /* kCATIntroTaxViewController.xib in Resources */,
 				9ECCADAC17F0E809001EAF4C /* couple-dash@2x.png in Resources */,
 				9ECDB80F17FF55AB004E5F25 /* menu-profile-single@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
@@ -1550,6 +1569,7 @@
 				9ECDB80C17FF55AB004E5F25 /* menu-profile-couple.png in Resources */,
 				9ECDB80217FF55AB004E5F25 /* menu-help.png in Resources */,
 				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
+				D6C3AB371803C93300123260 /* kCATIntroAffordViewController.xib in Resources */,
 				9E53442517F55205006BA12D /* aboutbox@2x.png in Resources */,
 				9EB0EF27180338B500857763 /* menu-contact-realtor.png in Resources */,
 				9ED9559718032B7200846BB8 /* MenuIcon@2x.png in Resources */,
@@ -1661,6 +1681,7 @@
 				9E00FAB017F34E0100380997 /* HelpDashboardViewController.m in Sources */,
 				D6842E6217DD95E30028AF00 /* loan.m in Sources */,
 				D6842E6E17DDA8720028AF00 /* UsersHomesList.m in Sources */,
+				D6C3AB361803C93300123260 /* kCATIntroAffordViewController.m in Sources */,
 				D6842E5E17DD32510028AF00 /* usersLoansList.m in Sources */,
 				D65A217D17FDFDE900884291 /* Home1VsHome2ViewController.m in Sources */,
 				D67EFDF517CCE1280082F6C7 /* AppDelegate.m in Sources */,
@@ -1670,14 +1691,17 @@
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeRentVsBuyViewController.m in Sources */,
+				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,
 				D6E6EEB117E79D05005D7526 /* FixedCostsViewController.m in Sources */,
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
+				D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoViewController.m in Sources */,
 				D6C3AB0D18037B9D00123260 /* HomesComparisionViewController.m in Sources */,
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
+				D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */,
 				D618859E17FB572300ABEA3E /* APIHomeInfoService.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				9E00FAD317F365B500380997 /* AboutKunanceViewController.m in Sources */,

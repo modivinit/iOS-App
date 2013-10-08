@@ -33,4 +33,7 @@
 -(void) updateExistingHome:(homeInfo*)homeInfo;
 
 -(void) updateLoanInfo:(loan*) aLoan;
+
+-(void) logoutUser;
+
 @end

@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DashLeftMenuViewController.h"
 
-@interface FormViewController : DashLeftMenuViewController <UITextFieldDelegate>
+@interface FormViewController : UIViewController <UITextFieldDelegate>
 {
  
 }

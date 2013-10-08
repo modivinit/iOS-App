@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="kCATIntroViewController">
             <connections>
+                <outlet property="mSignInButton" destination="G0q-yk-C1p" id="zYg-01-cba"/>
+                <outlet property="mSignUpButton" destination="Lii-th-U7b" id="1jC-OO-Usz"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -16,21 +18,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.30000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTT-B6-XVn">
-                    <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                    <rect key="frame" x="0.0" y="522" width="320" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0q-yk-C1p">
-                    <rect key="frame" x="20" y="528" width="60" height="20"/>
+                    <rect key="frame" x="20" y="533" width="60" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="Sign In"/>
+                    <connections>
+                        <action selector="signInButtonTapped:" destination="-1" eventType="touchDown" id="tRI-3q-s8c"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lii-th-U7b">
-                    <rect key="frame" x="188" y="522" width="112" height="31"/>
+                    <rect key="frame" x="188" y="527" width="112" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="Create Account"/>
+                    <connections>
+                        <action selector="signUpButtonTapped:" destination="-1" eventType="touchDown" id="e1i-rf-u43"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

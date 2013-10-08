@@ -17,6 +17,7 @@
 #import "LeftMenuViewController.h"
 #import "DashLeftMenuViewController.h"
 #import "APIHomeInfoService.h"
+#import "kCATIntroViewController.h"
 
 @protocol MainControllerDelegate <NSObject>
 -(void) resetRootView:(UIViewController*) viewController;
@@ -30,7 +31,8 @@ LoginDelegate,
 LeftMenuDelegate,
 APIHomeInfoServiceDelegate,
 APILoanInfoServiceDelegate,
-AboutYouControllerDelegate
+AboutYouControllerDelegate,
+kCATIntroViewDelegate
 >
 
 @property (nonatomic, strong) UINavigationController* mMainNavController;

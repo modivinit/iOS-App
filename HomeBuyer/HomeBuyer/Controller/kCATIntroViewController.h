@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
 
-@interface kCATIntroViewController : BasePageViewController
+@protocol kCATIntroViewDelegate <NSObject>
+-(void) signInFromIntro;
+-(void) signupFromIntro;
+@end
 
+@interface kCATIntroViewController : BasePageViewController
+@property (nonatomic, strong) IBOutlet UIButton* mSignInButton;
+@property (nonatomic, strong) IBOutlet UIButton* mSignUpButton;
+
+@property (nonatomic, weak) id <kCATIntroViewDelegate> mkCATIntroDelegate;
+-(IBAction)signInButtonTapped:(id)sender;
+-(IBAction)signUpButtonTapped:(id)sender;
 @end

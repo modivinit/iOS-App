@@ -37,7 +37,8 @@
     NSString* titleText = [NSString stringWithFormat:@"Create Account"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
-    
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+
     [self registerForKeyboardNotifications];
     
     self.mKeyBoardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];

@@ -14,7 +14,6 @@
                 <outlet property="mMarriedImageAsButton" destination="QiK-Q9-drf" id="J2Q-ok-RYc"/>
                 <outlet property="mNumberOfChildrenControl" destination="qYC-6V-4Ch" id="l7v-Kt-zem"/>
                 <outlet property="mSingleImageAsButton" destination="uBq-EB-gXD" id="Xns-iI-NvI"/>
-                <outlet property="mUserExpensesViewAsButton" destination="wKv-qI-lvS" id="Yuf-tb-4GM"/>
                 <outlet property="view" destination="vpL-bZ-4vl" id="UKX-e8-QkF"/>
             </connections>
         </placeholder>
@@ -31,24 +30,6 @@
                     <rect key="frame" x="280" y="523" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" id="wKv-qI-lvS">
-                    <rect key="frame" x="192" y="460" width="108" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forward-icon.png" id="nkg-hp-1hq">
-                            <rect key="frame" x="98" y="5" width="10" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fixed Costs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ukS-Au-4uc">
-                            <rect key="frame" x="4" y="5" width="86" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0bh-L2-Dwl">
                     <rect key="frame" x="0.0" y="80" width="320" height="350"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
@@ -135,6 +116,13 @@
                         </imageView>
                     </subviews>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z6K-tW-1wY">
+                    <rect key="frame" x="206" y="460" width="94" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="fixedcosts.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -145,7 +133,7 @@
         <image name="children.png" width="29" height="29"/>
         <image name="couple.png" width="40" height="40"/>
         <image name="dashboard-profile.png" width="30" height="30"/>
-        <image name="forward-icon.png" width="10" height="20"/>
+        <image name="fixedcosts.png" width="94" height="22"/>
         <image name="help.png" width="20" height="20"/>
         <image name="salary.png" width="29" height="29"/>
         <image name="savings.png" width="29" height="29"/>

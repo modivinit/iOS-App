@@ -32,6 +32,23 @@
                             <rect key="frame" x="15" y="15" width="250" height="390"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <mutableString key="text">Current Lifestyle Income:
+Monthly money for food, entertainment, travel, gas, savings, etc. after your fixed expenses (including taxes and rent) are factored in.
+
+Future Home Lifestyle Income: 
+Monthly money for food, entertainment, travel, gas, savings, etc. after your fixed expenses (including taxes, mortgage, property taxes, etc.) are factored in.  
+
+Monthly Home Payment includes several components. It includes the following:
+
+Mortgage Payments:  This is your monthly mortgage payment.  If the mortgage interest rate adjusts at some point during the mortgage term, then once the adjustment occurs recalculations will have to be conducted as the payment will change.
+
+HOA:  Enter in your monthly Home Owner's Association ("HOA") dues.
+
+Property Taxes:  This amount only includes your deductible property taxes, which is any amount that is based on a % of your home's value.  
+
+Insurance:  Home owners insurance the specific property. 
+
+Rent vs. Buy:  This screen compares your lifestyle income of your current renting lifestyle versus what it would be if you were to purchase a home.</mutableString>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>

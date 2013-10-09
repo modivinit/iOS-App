@@ -1,18 +1,18 @@
 //
-//  MemberAgreementViewController.m
+//  TermsAndPoliciesViewController.m
 //  HomeBuyer
 //
-//  Created by Vinit Modi on 9/25/13.
+//  Created by Vinit Modi on 10/9/13.
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "MemberAgreementViewController.h"
+#import "TermsAndPoliciesViewController.h"
 
-@interface MemberAgreementViewController ()
+@interface TermsAndPoliciesViewController ()
 
 @end
 
-@implementation MemberAgreementViewController
+@implementation TermsAndPoliciesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

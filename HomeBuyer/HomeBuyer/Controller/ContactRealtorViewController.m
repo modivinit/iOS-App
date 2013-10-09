@@ -1,18 +1,18 @@
 //
-//  PrivacyPolicyViewController.m
+//  ContactRealtorViewController.m
 //  HomeBuyer
 //
-//  Created by Vinit Modi on 9/25/13.
+//  Created by Vinit Modi on 10/9/13.
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "PrivacyPolicyViewController.h"
+#import "ContactRealtorViewController.h"
 
-@interface PrivacyPolicyViewController ()
+@interface ContactRealtorViewController ()
 
 @end
 
-@implementation PrivacyPolicyViewController
+@implementation ContactRealtorViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

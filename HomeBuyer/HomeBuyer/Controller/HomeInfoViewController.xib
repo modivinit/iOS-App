@@ -9,12 +9,10 @@
             <connections>
                 <outlet property="mAskingPriceField" destination="iKP-gr-hUk" id="IdF-6d-Jkf"/>
                 <outlet property="mBestHomeFeatureField" destination="78p-Dd-Eox" id="2nd-sC-Cdx"/>
-                <outlet property="mCompareHomesViewAsButton" destination="pOz-0F-ynO" id="Jfk-jH-LXM"/>
                 <outlet property="mCondoImageAsButton" destination="zJk-ZI-AGX" id="74J-vK-Mxr"/>
                 <outlet property="mDashboardIcon" destination="WjS-ka-54o" id="dwx-ta-MQn"/>
                 <outlet property="mFormScrollView" destination="3ey-ie-M8m" id="ZgU-nd-Vo2"/>
                 <outlet property="mHomeAddressButton" destination="K4D-gI-Ifx" id="OvW-kj-jPC"/>
-                <outlet property="mLoanInfoViewAsButton" destination="j7E-Zk-7nJ" id="Pmv-kg-TNE"/>
                 <outlet property="mMontylyHOAField" destination="bmu-pZ-zaj" id="69t-Y3-VXD"/>
                 <outlet property="mSingleFamilyImageAsButton" destination="iea-NE-bGN" id="Gh9-gK-eeh"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -121,45 +119,20 @@
                         </textField>
                     </subviews>
                 </scrollView>
-                <view contentMode="scaleToFill" id="j7E-Zk-7nJ" userLabel="View-loan info">
-                    <rect key="frame" x="209" y="460" width="91" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VGx-Q6-CjB">
+                    <rect key="frame" x="223" y="465" width="77" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forward-icon.png" id="YP6-lJ-06c">
-                            <rect key="frame" x="77" y="5" width="10" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CLB-Ry-Gpc">
-                            <rect key="frame" x="2" y="5" width="67" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flip.png" id="HGn-U6-i4V">
-                    <rect key="frame" x="78" y="468" width="7" height="7"/>
+                    <state key="normal" image="loaninfo.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t7t-eR-fWu">
+                    <rect key="frame" x="184" y="460" width="116" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <view alpha="0.30000001192092896" contentMode="scaleToFill" id="pOz-0F-ynO" userLabel="View - compare homes">
-                    <rect key="frame" x="150" y="461" width="150" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare Homes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="svM-qx-uCA">
-                            <rect key="frame" x="14" y="6" width="122" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <accessibility key="accessibilityConfiguration">
-                        <bool key="isElement" value="YES"/>
-                    </accessibility>
-                </view>
+                    <state key="normal" title="Compare Homes">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -170,11 +143,10 @@
         <image name="besthomefeature.png" width="29" height="29"/>
         <image name="condo.png" width="40" height="40"/>
         <image name="dashboard-home.png" width="30" height="30"/>
-        <image name="flip.png" width="5" height="5"/>
-        <image name="forward-icon.png" width="10" height="20"/>
         <image name="help.png" width="20" height="20"/>
         <image name="hoa.png" width="29" height="29"/>
         <image name="homeprice.png" width="29" height="29"/>
+        <image name="loaninfo.png" width="77" height="22"/>
         <image name="sfh-homeinfo.png" width="40" height="40"/>
     </resources>
 </document>

@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoanInfoViewController">
             <connections>
-                <outlet property="mCompareHomesViewAsButton" destination="SmX-TI-H1T" id="x3Q-Oi-mcd"/>
                 <outlet property="mDownPaymentField" destination="tNB-de-x9o" id="Zl5-OA-Jfa"/>
                 <outlet property="mFormScrollView" destination="9iZ-cW-OPA" id="rgV-ah-B67"/>
                 <outlet property="mInterestRateField" destination="mFr-ni-Jnj" id="oWS-Ul-5ne"/>
@@ -29,20 +28,6 @@
                     <rect key="frame" x="280" y="523" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view alpha="0.30000001192092896" contentMode="scaleToFill" id="SmX-TI-H1T">
-                    <rect key="frame" x="150" y="460" width="150" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare Homes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wgK-fO-SXG">
-                            <rect key="frame" x="14" y="6" width="122" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9iZ-cW-OPA">
                     <rect key="frame" x="0.0" y="93" width="320" height="321"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -121,6 +106,21 @@
                         </segmentedControl>
                     </subviews>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="66r-49-Rek">
+                    <rect key="frame" x="178" y="460" width="122" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Compare Homes">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BZq-0X-5eH">
+                    <rect key="frame" x="20" y="465" width="85" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="homeinfo.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -131,6 +131,7 @@
         <image name="dashboard-home.png" width="30" height="30"/>
         <image name="downpayment.png" width="29" height="29"/>
         <image name="help.png" width="20" height="20"/>
+        <image name="homeinfo.png" width="85" height="22"/>
         <image name="interestrate.png" width="29" height="29"/>
         <image name="loantime.png" width="29" height="29"/>
     </resources>

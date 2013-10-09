@@ -21,6 +21,10 @@
 		9E0BCA7F18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */; };
 		9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA831804A60900863FB7 /* TwoHomeTaxSavingsViewController.m */; };
 		9E0BCA861804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA841804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib */; };
+		9E4B1D131805FE1B00D3D39C /* loaninfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D111805FE1B00D3D39C /* loaninfo.png */; };
+		9E4B1D141805FE1B00D3D39C /* loaninfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */; };
+		9E4B1D17180600EC00D3D39C /* homeinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D15180600EC00D3D39C /* homeinfo.png */; };
+		9E4B1D18180600EC00D3D39C /* homeinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D16180600EC00D3D39C /* homeinfo@2x.png */; };
 		9E4DBF651805CE2900F095F1 /* TermsAndPoliciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DBF631805CE2900F095F1 /* TermsAndPoliciesViewController.m */; };
 		9E4DBF661805CE2900F095F1 /* TermsAndPoliciesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF641805CE2900F095F1 /* TermsAndPoliciesViewController.xib */; };
 		9E4DBF6A1805D04200F095F1 /* termsbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF681805D04200F095F1 /* termsbox.png */; };
@@ -83,8 +87,6 @@
 		9EA5D41117F162DE00CE7BD8 /* loantime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D40B17F162DE00CE7BD8 /* loantime@2x.png */; };
 		9EB0EF27180338B500857763 /* menu-contact-realtor.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB0EF25180338B500857763 /* menu-contact-realtor.png */; };
 		9EB0EF28180338B500857763 /* menu-contact-realtor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */; };
-		9EB7C65A17F5FF9C00F14BAA /* flip.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7C65817F5FF9C00F14BAA /* flip.png */; };
-		9EB7C65B17F5FF9C00F14BAA /* flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7C65917F5FF9C00F14BAA /* flip@2x.png */; };
 		9ECCAD5817F0CBFC001EAF4C /* forward-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */; };
 		9ECCAD5917F0CBFC001EAF4C /* forward-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */; };
 		9ECCAD5A17F0CBFC001EAF4C /* forward-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */; };
@@ -296,6 +298,10 @@
 		9E0BCA821804A60900863FB7 /* TwoHomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomeTaxSavingsViewController.h; path = Controller/TwoHomeTaxSavingsViewController.h; sourceTree = "<group>"; };
 		9E0BCA831804A60900863FB7 /* TwoHomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomeTaxSavingsViewController.m; path = Controller/TwoHomeTaxSavingsViewController.m; sourceTree = "<group>"; };
 		9E0BCA841804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomeTaxSavingsViewController.xib; path = Controller/TwoHomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
+		9E4B1D111805FE1B00D3D39C /* loaninfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loaninfo.png; sourceTree = "<group>"; };
+		9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loaninfo@2x.png"; sourceTree = "<group>"; };
+		9E4B1D15180600EC00D3D39C /* homeinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeinfo.png; sourceTree = "<group>"; };
+		9E4B1D16180600EC00D3D39C /* homeinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeinfo@2x.png"; sourceTree = "<group>"; };
 		9E4DBF621805CE2900F095F1 /* TermsAndPoliciesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermsAndPoliciesViewController.h; path = Controller/TermsAndPoliciesViewController.h; sourceTree = "<group>"; };
 		9E4DBF631805CE2900F095F1 /* TermsAndPoliciesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermsAndPoliciesViewController.m; path = Controller/TermsAndPoliciesViewController.m; sourceTree = "<group>"; };
 		9E4DBF641805CE2900F095F1 /* TermsAndPoliciesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TermsAndPoliciesViewController.xib; path = Controller/TermsAndPoliciesViewController.xib; sourceTree = "<group>"; };
@@ -362,8 +368,6 @@
 		9EA5D40B17F162DE00CE7BD8 /* loantime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loantime@2x.png"; sourceTree = "<group>"; };
 		9EB0EF25180338B500857763 /* menu-contact-realtor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-contact-realtor.png"; sourceTree = "<group>"; };
 		9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-contact-realtor@2x.png"; sourceTree = "<group>"; };
-		9EB7C65817F5FF9C00F14BAA /* flip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flip.png; sourceTree = "<group>"; };
-		9EB7C65917F5FF9C00F14BAA /* flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flip@2x.png"; sourceTree = "<group>"; };
 		9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-icon.png"; sourceTree = "<group>"; };
 		9ECCAD5517F0CBFC001EAF4C /* forward-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-icon@2x.png"; sourceTree = "<group>"; };
 		9ECCAD8A17F0E556001EAF4C /* downarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downarrow.png; sourceTree = "<group>"; };
@@ -743,8 +747,6 @@
 			children = (
 				9E5D1CF217FF380800F443AC /* dashboard-home.png */,
 				9E5D1CF317FF380800F443AC /* dashboard-home@2x.png */,
-				9EB7C65817F5FF9C00F14BAA /* flip.png */,
-				9EB7C65917F5FF9C00F14BAA /* flip@2x.png */,
 				9EA5D3D017F15DC500CE7BD8 /* besthomefeature.png */,
 				9EA5D3D117F15DC500CE7BD8 /* besthomefeature@2x.png */,
 				9EA5D3D217F15DC500CE7BD8 /* condo-selected.png */,
@@ -776,6 +778,8 @@
 		9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */ = {
 			isa = PBXGroup;
 			children = (
+				9E4B1D111805FE1B00D3D39C /* loaninfo.png */,
+				9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */,
 				9EA5D3F317F1627300CE7BD8 /* city.png */,
 				9EA5D3F417F1627300CE7BD8 /* city@2x.png */,
 				9EA5D3F517F1627300CE7BD8 /* location.png */,
@@ -799,6 +803,8 @@
 		9EA5D3FF17F162A100CE7BD8 /* LoanInfo */ = {
 			isa = PBXGroup;
 			children = (
+				9E4B1D15180600EC00D3D39C /* homeinfo.png */,
+				9E4B1D16180600EC00D3D39C /* homeinfo@2x.png */,
 				9EA5D40617F162DE00CE7BD8 /* downpayment.png */,
 				9EA5D40717F162DE00CE7BD8 /* downpayment@2x.png */,
 				9EA5D40817F162DE00CE7BD8 /* interestrate.png */,
@@ -1578,6 +1584,7 @@
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
 				9E53443617F555B8006BA12D /* lifestyle-shopping.png in Resources */,
 				9ECCADA017F0E724001EAF4C /* sfh-dash@2x.png in Resources */,
+				9E4B1D17180600EC00D3D39C /* homeinfo.png in Resources */,
 				9ECDED891803B63B00F2449E /* menu-add-home@2x.png in Resources */,
 				D6C3AB1F180384E600123260 /* OneHomeLifeStyleViewController.xib in Resources */,
 				9EA5D3F117F1624300CE7BD8 /* HomeAddressViewController.xib in Resources */,
@@ -1594,10 +1601,12 @@
 				9EA5D3EB17F15DC500CE7BD8 /* sfh-homeinfo@2x.png in Resources */,
 				9ECDB7FD17FF55AB004E5F25 /* menu-dashboard@2x.png in Resources */,
 				9E5D1CEC17FF37DF00F443AC /* dashboard-profile.png in Resources */,
+				9E4B1D131805FE1B00D3D39C /* loaninfo.png in Resources */,
 				9ECDB80A17FF55AB004E5F25 /* menu-logout.png in Resources */,
 				9E53442917F55310006BA12D /* companyName@2x.png in Resources */,
 				9E53442817F55310006BA12D /* companyName.png in Resources */,
 				9ECCAD5A17F0CBFC001EAF4C /* forward-icon@2x.png in Resources */,
+				9E4B1D141805FE1B00D3D39C /* loaninfo@2x.png in Resources */,
 				9ECDB80317FF55AB004E5F25 /* menu-help@2x.png in Resources */,
 				9EA5D3FA17F1627300CE7BD8 /* city@2x.png in Resources */,
 				D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */,
@@ -1617,7 +1626,6 @@
 				9ECDB80F17FF55AB004E5F25 /* menu-profile-single@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
 				9E53443D17F555C7006BA12D /* surfing@2x.png in Resources */,
-				9EB7C65B17F5FF9C00F14BAA /* flip@2x.png in Resources */,
 				9E0BCA861804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib in Resources */,
 				9ECCAD9417F0E696001EAF4C /* compare-dash.png in Resources */,
 				D6C88B3417DA7B3000DEA25D /* SignUpViewController.xib in Resources */,
@@ -1652,7 +1660,6 @@
 				D6E6EE5417E65A8A005D7526 /* couple.png in Resources */,
 				9EA5D3E317F15DC500CE7BD8 /* condo@2x.png in Resources */,
 				D6E6EEB217E79D05005D7526 /* FixedCostsViewController.xib in Resources */,
-				9EB7C65A17F5FF9C00F14BAA /* flip.png in Resources */,
 				9ECCAD9617F0E696001EAF4C /* compare-dash@2x.png in Resources */,
 				9ECDB81417FF55B6004E5F25 /* dashboard-dashboard.png in Resources */,
 				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
@@ -1685,6 +1692,7 @@
 				9ECDB80917FF55AB004E5F25 /* menu-loan-info@2x.png in Resources */,
 				D6E6EE7117E660F9005D7526 /* couple-selected@2x.png in Resources */,
 				9EA5D3E117F15DC500CE7BD8 /* condo-selected@2x.png in Resources */,
+				9E4B1D18180600EC00D3D39C /* homeinfo@2x.png in Resources */,
 				9E5D1CF517FF380800F443AC /* dashboard-home@2x.png in Resources */,
 				9E5D592817F23738000CA229 /* help@2x.png in Resources */,
 				9E4DBF6B1805D04200F095F1 /* termsbox@2x.png in Resources */,

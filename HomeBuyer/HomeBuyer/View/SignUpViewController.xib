@@ -100,11 +100,6 @@
                         </label>
                     </subviews>
                 </scrollView>
-                <view alpha="0.30000001192092896" contentMode="scaleToFill" id="NAA-U3-uc2">
-                    <rect key="frame" x="0.0" y="508" width="320" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JEL-Sr-Ynd">
                     <rect key="frame" x="20" y="528" width="60" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

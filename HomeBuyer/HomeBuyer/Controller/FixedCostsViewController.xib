@@ -86,16 +86,17 @@
                     </subviews>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q2A-g7-w3i">
-                    <rect key="frame" x="20" y="460" width="85" height="22"/>
+                    <rect key="frame" x="20" y="465" width="85" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="aboutyou.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uBS-0X-DBZ">
-                    <rect key="frame" x="60" y="400" width="200" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oUv-T7-xI1">
+                    <rect key="frame" x="73" y="390" width="175" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="currentlifestyleincome.png">
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Current Lifestyle Income">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -108,7 +109,6 @@
     <resources>
         <image name="aboutyou.png" width="85" height="22"/>
         <image name="car.png" width="29" height="29"/>
-        <image name="currentlifestyleincome.png" width="200" height="30"/>
         <image name="dashboard-profile.png" width="30" height="30"/>
         <image name="help.png" width="20" height="20"/>
         <image name="otherexpenses.png" width="29" height="29"/>

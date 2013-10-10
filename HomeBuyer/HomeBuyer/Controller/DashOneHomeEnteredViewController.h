@@ -11,14 +11,16 @@
 #import "OneHomeLifeStyleViewController.h"
 #import "OneHomePaymentsViewController.h"
 #import "RentVsBuyDashViewController.h"
+#import "HomeInfoViewController.h"
 
 @interface DashOneHomeEnteredViewController : BasePageViewController
-<OneHomeLifeStyleDelegate, OneHomePaymentsDelegate, RentVsBuyDashViewDelegate>
+<OneHomeLifeStyleDelegate, OneHomePaymentsDelegate, RentVsBuyDashViewDelegate,HomeInfoViewDelegate>
+@property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;
 
-@property (nonatomic, strong) IBOutlet UIButton* mDashImageAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView* mHelpImageAsButton;
+@property (nonatomic, strong) UIButton* mContactRealtorButton;
+@property (nonatomic, strong) UIButton* mHelpButton;
+@property (nonatomic, strong) UIButton* mAddHomeButton;
 
--(IBAction)dashButtonTapped:(id)sender;
 -(void) hideLeftView;
 -(void)showLeftView;
 

@@ -8,6 +8,7 @@
 
 #import "DashOneHomeEnteredViewController.h"
 #import "HelpDashboardViewController.h"
+#import "ContactRealtorViewController.h"
 
 @interface DashOneHomeEnteredViewController ()
 
@@ -15,10 +16,10 @@
 
 @implementation DashOneHomeEnteredViewController
 
-- (void)viewDidLoad
+-(void) addPages
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
-
+    
     RentVsBuyDashViewController* viewController1 = [[RentVsBuyDashViewController alloc] init];
     viewController1.mRentVsBuyDashViewDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
@@ -30,6 +31,32 @@
     OneHomePaymentsViewController* viewController3 = [[OneHomePaymentsViewController alloc] init];
     viewController3.mOneHomePaymentsDelegate = self;
     [self.mPageViewControllers addObject:viewController3];
+}
+
+-(void) addButtons
+{
+    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 520, 30, 30)];
+    [self.mContactRealtorButton setImage:[UIImage imageNamed:@"logo-svl.gif"] forState:UIControlStateNormal];
+    [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mContactRealtorButton];
+    
+    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
+    [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
+    [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mHelpButton];
+    
+    self.mAddHomeButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 462, 87, 35)];
+    CGPoint buttonCenter = self.mAddHomeButton.center;
+    self.mAddHomeButton.center = CGPointMake(self.view.center.x, buttonCenter.y);
+    
+    [self.mAddHomeButton setImage:[UIImage imageNamed:@"addahome.png"] forState:UIControlStateNormal];
+    [self.mAddHomeButton addTarget:self action:@selector(addHomeInfo) forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mAddHomeButton];
+}
+
+- (void)viewDidLoad
+{
+    [self addPages];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -46,13 +73,11 @@
     }
 
     CGRect pageBound = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
-                                  self.view.bounds.size.width, self.view.bounds.size.height - 40);
+                                  self.view.bounds.size.width, self.view.bounds.size.height);
     self.pageController.view.frame = pageBound;
     self.pageController.view.backgroundColor = [UIColor clearColor];
     
-    UITapGestureRecognizer* helpTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                     action:@selector(helpButtonTapped)];
-    [self.mHelpImageAsButton addGestureRecognizer:helpTapGesture];
+    [self addButtons];
 }
 
 -(void) setNavTitle:(NSString *)title
@@ -61,15 +86,23 @@
         self.navigationItem.title = title;
 }
 
+-(void) addHomeInfo
+{
+    self.mHomeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:FIRST_HOME];
+    self.mHomeInfoViewController.mHomeInfoViewDelegate = self;
+    [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
+}
+
 -(void) helpButtonTapped
 {
     HelpDashboardViewController* dashHelp = [[HelpDashboardViewController alloc] init];
     [self.navigationController pushViewController:dashHelp animated:NO];
 }
 
--(IBAction)dashButtonTapped:(id)sender
+-(void)contactRealtor
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+    [self.navigationController pushViewController:contactRealtor animated:NO];
 }
 
 -(void) hideLeftView

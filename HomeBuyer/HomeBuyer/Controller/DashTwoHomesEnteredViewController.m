@@ -8,6 +8,7 @@
 
 #import "DashTwoHomesEnteredViewController.h"
 #import "HelpDashboardViewController.h"
+#import "ContactRealtorViewController.h"
 
 @interface DashTwoHomesEnteredViewController ()
 
@@ -15,10 +16,23 @@
 
 @implementation DashTwoHomesEnteredViewController
 
-- (void)viewDidLoad
+-(void) addButtons
+{
+    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 520, 30, 30)];
+    [self.mContactRealtorButton setImage:[UIImage imageNamed:@"logo-svl.gif"] forState:UIControlStateNormal];
+    [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mContactRealtorButton];
+    
+    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
+    [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
+    [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mHelpButton];
+}
+
+-(void) addPages
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
-
+    
     Home1VsHome2ViewController* viewController1 = [[Home1VsHome2ViewController alloc] init];
     viewController1.mHomes1VsHome2Delegate = self;
     [self.mPageViewControllers addObject:viewController1];
@@ -30,6 +44,11 @@
     TwoHomeRentVsBuyViewController* viewController3 = [[TwoHomeRentVsBuyViewController alloc] init];
     viewController3.mTwoHomeRentVsBuyDelegate = self;
     [self.mPageViewControllers addObject:viewController3];
+}
+
+- (void)viewDidLoad
+{
+    [self addPages];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -44,10 +63,7 @@
                                                                                 action:@selector(showLeftView)];
     }
     
-    UITapGestureRecognizer* helpTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                     action:@selector(helpButtonTapped)];
-    [self.mHelpImageAsButton addGestureRecognizer:helpTapGesture];
-
+    [self addButtons];
 }
 
 -(void) helpButtonTapped
@@ -62,9 +78,10 @@
         self.navigationItem.title = title;
 }
 
--(IBAction)dashButtonTapped:(id)sender
+-(void)contactRealtor
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+    [self.navigationController pushViewController:contactRealtor animated:NO];
 }
 
 -(void) hideLeftView

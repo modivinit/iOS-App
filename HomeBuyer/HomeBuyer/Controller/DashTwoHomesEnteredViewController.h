@@ -15,10 +15,8 @@
 
 @interface DashTwoHomesEnteredViewController : BasePageViewController
 <Homes1VsHome2Delegate, HomesComparisionDelegate, TwoHomeRentVsBuyDelegate>
-@property (nonatomic, strong) IBOutlet UIButton* mDashImageAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView* mHelpImageAsButton;
-
--(IBAction)dashButtonTapped:(id)sender;
+@property (nonatomic, strong) UIButton* mContactRealtorButton;
+@property (nonatomic, strong) UIButton* mHelpButton;
 
 -(void) hideLeftView;
 -(void)showLeftView;

@@ -15,10 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="17a-kO-laz">
-                    <rect key="frame" x="60" y="80" width="200" height="160"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu-home-condo.png" translatesAutoresizingMaskIntoConstraints="NO" id="lOR-kf-hCR">
                     <rect key="frame" x="182" y="251" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,7 +100,6 @@
         </view>
     </objects>
     <resources>
-        <image name="download.jpeg" width="259" height="194"/>
         <image name="homeprice.png" width="29" height="29"/>
         <image name="lifestyle-beach-dash.png" width="40" height="34"/>
         <image name="menu-home-condo.png" width="25" height="25"/>

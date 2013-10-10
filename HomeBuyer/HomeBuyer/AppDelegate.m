@@ -44,6 +44,10 @@ static FatFractal *_ff;
     self.mMainController = [[MainController alloc] initWithNavController:navController];
     self.mMainController.mMainControllerDelegate = self;
     [self.mMainController start];
+    
+    //TODO Shilpa, make sure we do OS check here
+    [ShinobiCharts setTheme:[SChartiOS7Theme new]];
+    
     return YES;
 }
 

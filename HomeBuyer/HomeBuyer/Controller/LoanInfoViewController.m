@@ -15,18 +15,6 @@
 
 @implementation LoanInfoViewController
 
-- (id)initWithExisitingLoan:(loan*) aLoan
-{
-    self = [super init];
-    if (self)
-    {
-        // Custom initialization
-        if(aLoan)
-            self.mCorrespondingLoan = aLoan;
-    }
-    
-    return self;
-}
 
 -(void) updateDownPaymentFields
 {
@@ -44,15 +32,15 @@
 
 -(void) setupWithExisitingLoan
 {
-    loan* aLoan = [kunanceUser getInstance].mKunanceUserLoan;
-    if(aLoan)
+    self.mCorrespondingLoan = [kunanceUser getInstance].mKunanceUserLoan;
+    if(self.mCorrespondingLoan)
     {
-        self.mPercentDollarValueChoice.selectedSegmentIndex = aLoan.mDownPaymentType;
-        self.mDownPaymentField.text = [NSString  stringWithFormat:@"%.2f", aLoan.mDownPayment];
+        self.mPercentDollarValueChoice.selectedSegmentIndex = self.mCorrespondingLoan.mDownPaymentType;
+        self.mDownPaymentField.text = [NSString  stringWithFormat:@"%.2f", self.mCorrespondingLoan.mDownPayment];
         
-        self.mInterestRateField.text = [NSString stringWithFormat:@"%.2f", aLoan.mLoanInterestRate];
+        self.mInterestRateField.text = [NSString stringWithFormat:@"%.2f", self.mCorrespondingLoan.mLoanInterestRate];
         
-        self.mLoanDurationField.selectedSegmentIndex = [loan getIndexForLoanDuration:aLoan.mLoanDuration];
+        self.mLoanDurationField.selectedSegmentIndex = [loan getIndexForLoanDuration:self.mCorrespondingLoan.mLoanDuration];
     }
 }
 
@@ -98,7 +86,12 @@
         return;
     }
     
-    loan* newLoanInfo = [[loan alloc] init];
+    loan* newLoanInfo = nil;
+    
+    if(self.mCorrespondingLoan)
+        newLoanInfo = self.mCorrespondingLoan;
+    else
+        newLoanInfo = [[loan alloc] init];
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setDecimalSeparator:@"."];
@@ -132,11 +125,24 @@
     if(loanInfoService)
     {
         loanInfoService.mAPILoanInfoDelegate = self;
-        if(![loanInfoService writeLoanInfo:newLoanInfo])
-        {
-            [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to update loan info"];
-            return;
-        }
+        
+        if(!self.mCorrespondingLoan)
+       {
+            if(![loanInfoService createLoanInfo:newLoanInfo])
+            {
+                [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
+                return;
+            }
+       }
+       else
+       {
+           if(![loanInfoService updateLoanInfo:newLoanInfo])
+           {
+               [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to update loan info"];
+               return;
+           }
+
+       }
     }
 
 }

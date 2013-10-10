@@ -11,32 +11,18 @@
 
 @implementation APILoanInfoService
 
--(BOOL) writeLoanInfo:(loan*) aLoanInfo
-{
-    if(!aLoanInfo || !aLoanInfo.mDownPayment || !aLoanInfo.mLoanInterestRate)
-        return NO;
-    loan* exisitingLoan = [kunanceUser getInstance].mKunanceUserLoan;
-    if(exisitingLoan)
-    {
-        return [self updateLoanInfo:aLoanInfo];
-    }
-    else
-    {
-        return [self createLoanInfo:aLoanInfo];
-    }
-    
-    return YES;
-}
-
 -(BOOL) updateLoanInfo:(loan*) aLoan
 {
     if(!aLoan)
         return NO;
     
     FatFractal *ff = [AppDelegate ff];
-    [ff createObj:aLoan atUri:@"/loanInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
-        // handle error, response
-        [self updateUserCacheWithLoan:(loan*)obj error:err];
+    [ff updateObj:aLoan onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
+        if(!err && obj)
+        {
+            // handle error, response
+            [self updateUserCacheWithLoan:(loan*)obj error:err];
+        }
     }];
     
     return YES;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface homeAddress : NSObject
-@property (nonatomic, strong) NSString* mStreetAddress;
-@property (nonatomic, strong) NSString* mCity;
-@property (nonatomic, strong) NSString* mZipCode;
+@property (nonatomic, copy) NSString* mStreetAddress;
+@property (nonatomic, copy) NSString* mCity;
+@property (nonatomic, copy) NSString* mZipCode;
 @end

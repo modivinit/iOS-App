@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoanInfoViewController">
             <connections>
+                <outlet property="mCompareHomesViewAsButton" destination="66r-49-Rek" id="XMy-vp-9vp"/>
+                <outlet property="mDashboardIcon" destination="O7N-wz-xim" id="89E-bd-UmM"/>
                 <outlet property="mDownPaymentField" destination="tNB-de-x9o" id="Zl5-OA-Jfa"/>
                 <outlet property="mFormScrollView" destination="9iZ-cW-OPA" id="rgV-ah-B67"/>
                 <outlet property="mInterestRateField" destination="mFr-ni-Jnj" id="oWS-Ul-5ne"/>

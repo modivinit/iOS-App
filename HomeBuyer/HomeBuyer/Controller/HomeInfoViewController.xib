@@ -9,10 +9,12 @@
             <connections>
                 <outlet property="mAskingPriceField" destination="iKP-gr-hUk" id="IdF-6d-Jkf"/>
                 <outlet property="mBestHomeFeatureField" destination="78p-Dd-Eox" id="2nd-sC-Cdx"/>
+                <outlet property="mCompareHomesViewAsButton" destination="t7t-eR-fWu" id="oRt-Ib-wkl"/>
                 <outlet property="mCondoImageAsButton" destination="zJk-ZI-AGX" id="74J-vK-Mxr"/>
                 <outlet property="mDashboardIcon" destination="WjS-ka-54o" id="dwx-ta-MQn"/>
                 <outlet property="mFormScrollView" destination="3ey-ie-M8m" id="ZgU-nd-Vo2"/>
                 <outlet property="mHomeAddressButton" destination="K4D-gI-Ifx" id="OvW-kj-jPC"/>
+                <outlet property="mLoanInfoViewAsButton" destination="VGx-Q6-CjB" id="HVP-lV-xda"/>
                 <outlet property="mMontylyHOAField" destination="bmu-pZ-zaj" id="69t-Y3-VXD"/>
                 <outlet property="mSingleFamilyImageAsButton" destination="iea-NE-bGN" id="Gh9-gK-eeh"/>
                 <outlet property="view" destination="1" id="3"/>

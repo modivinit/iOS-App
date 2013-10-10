@@ -18,7 +18,7 @@
 @interface APILoanInfoService : NSObject
 @property (nonatomic, weak) id <APILoanInfoServiceDelegate> mAPILoanInfoDelegate;
 
--(BOOL) writeLoanInfo:(loan*) aLoanInfo;
+-(BOOL) updateLoanInfo:(loan*) aLoan;
 -(BOOL) readLoanInfo;
-
+-(BOOL) createLoanInfo:(loan*) aLoan;
 @end

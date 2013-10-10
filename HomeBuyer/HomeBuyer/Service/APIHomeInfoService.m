@@ -55,11 +55,12 @@
         return NO;
     
     FatFractal *ff = [AppDelegate ff];
+    NSLog(@"Updating homeinfo object at: %@", aHomeInfo);
     [ff updateObj:aHomeInfo onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
     {
         if(!err && obj)
         {
-            [[kunanceUser getInstance] updateExistingHome:aHomeInfo];
+            [[kunanceUser getInstance] updateExistingHome:(homeInfo*)obj];
         }
     }];
     
@@ -98,6 +99,7 @@
             NSLog(@"Success, number of homes = %d", userHomes.count);
             for (homeInfo* aHome in userHomes)
             {
+                NSLog(@"aHome = %@ with %@", aHome, aHome.mIdentifiyingHomeFeature);
                 [[kunanceUser getInstance] addNewHomeInfo:aHome];
                 //FFMetaData* metaData = [[AppDelegate ff] metaDataForObj:aHome];
             }

@@ -16,6 +16,7 @@
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
+@property (nonatomic, strong) kCATIntroViewController* mIntroView;
 @end
 
 @implementation MainController
@@ -65,13 +66,13 @@
 
 -(void) showIntroScreens
 {
-    kCATIntroViewController* introView = [[kCATIntroViewController alloc] init];
-    introView.mkCATIntroDelegate = self;
+    self.mIntroView = [[kCATIntroViewController alloc] init];
+    self.mIntroView.mkCATIntroDelegate = self;
 
     if(self.mMainControllerDelegate &&
        [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
     {
-        [self.mMainControllerDelegate resetRootView:introView];
+        [self.mMainControllerDelegate resetRootView:self.mIntroView];
     }
 
 }

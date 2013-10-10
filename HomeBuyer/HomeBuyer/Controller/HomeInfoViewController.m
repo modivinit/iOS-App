@@ -146,7 +146,12 @@
     uint currentNumberOfHomes = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
     
     APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
-    homeInfo* aHomeInfo = [[homeInfo alloc] init];
+    
+    homeInfo* aHomeInfo = nil;
+    if(self.mCorrespondingHomeInfo)
+        aHomeInfo = self.mCorrespondingHomeInfo;
+    else
+        aHomeInfo = [[homeInfo alloc] init];
     
     aHomeInfo.mHomeType = self.mSelectedHomeType;
     aHomeInfo.mIdentifiyingHomeFeature = self.mBestHomeFeatureField.text;

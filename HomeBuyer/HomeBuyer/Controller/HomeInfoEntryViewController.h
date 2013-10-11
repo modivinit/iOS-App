@@ -11,12 +11,12 @@
 #import "homeInfo.h"
 #import "APIHomeInfoService.h"
 
-@protocol HomeInfoViewDelegate <NSObject>
+@protocol HomeInfoEntryViewDelegate <NSObject>
 @optional
 -(void) loanInfoButtonTapped;
 @end
 
-@interface HomeInfoViewController : FormViewController <APIHomeInfoServiceDelegate>
+@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
 
 @property (nonatomic) IBOutlet UIImageView*  mSingleFamilyImageAsButton;
@@ -30,7 +30,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
 
 @property (nonatomic) uint mHomeNumber;
-@property (nonatomic, weak) id <HomeInfoViewDelegate> mHomeInfoViewDelegate;
+@property (nonatomic, weak) id <HomeInfoEntryViewDelegate> mHomeInfoEntryViewDelegate;
 
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;
 -(IBAction) enterHomeAddressButtonTapped;

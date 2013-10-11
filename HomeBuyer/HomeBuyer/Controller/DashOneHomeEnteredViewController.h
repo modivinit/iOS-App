@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
-#import "OneHomeLifeStyleViewController.h"
-#import "OneHomePaymentsViewController.h"
+#import "HomeLifeStyleViewController.h"
+#import "HomePaymentsViewController.h"
 #import "RentVsBuyDashViewController.h"
-#import "HomeInfoViewController.h"
+#import "HomeInfoEntryViewController.h"
 
 @interface DashOneHomeEnteredViewController : BasePageViewController
-<OneHomeLifeStyleDelegate, OneHomePaymentsDelegate, RentVsBuyDashViewDelegate,HomeInfoViewDelegate>
-@property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;
+<HomeLifeStyleDelegate, HomePaymentsDelegate, RentVsBuyDashViewDelegate,HomeInfoEntryViewDelegate>
+@property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
 @property (nonatomic, strong) UIButton* mContactRealtorButton;
 @property (nonatomic, strong) UIButton* mHelpButton;

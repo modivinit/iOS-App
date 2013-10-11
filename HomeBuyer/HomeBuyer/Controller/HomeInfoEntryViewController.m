@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "HomeInfoViewController.h"
+#import "HomeInfoEntryViewController.h"
 
-@interface HomeInfoViewController ()
+@interface HomeInfoEntryViewController ()
 
 @end
 
-@implementation HomeInfoViewController
+@implementation HomeInfoEntryViewController
 
 - (id)initAsHomeNumber:(uint)homeNumber
 {
@@ -217,9 +217,9 @@
 {
     if(!self.mLoanInfoViewAsButton.hidden)
     {
-        if(self.mHomeInfoViewDelegate && [self.mHomeInfoViewDelegate respondsToSelector:@selector(loanInfoButtonTapped)])
+        if(self.mHomeInfoEntryViewDelegate && [self.mHomeInfoEntryViewDelegate respondsToSelector:@selector(loanInfoButtonTapped)])
         {
-            [self.mHomeInfoViewDelegate loanInfoButtonTapped];
+            [self.mHomeInfoEntryViewDelegate loanInfoButtonTapped];
         }
     }
     else if(!self.mCompareHomesViewAsButton.hidden)

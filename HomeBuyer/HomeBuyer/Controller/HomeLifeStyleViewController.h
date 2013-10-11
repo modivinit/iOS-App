@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol OneHomeLifeStyleDelegate <NSObject>
+@protocol HomeLifeStyleDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
 @end
 
 
 
-@interface OneHomeLifeStyleViewController : UIViewController
-@property (nonatomic, weak) id <OneHomeLifeStyleDelegate> mOneHomeLifeStyleDelegate;
+@interface HomeLifeStyleViewController : UIViewController
+@property (nonatomic, weak) id <HomeLifeStyleDelegate> mHomeLifeStyleDelegate;
 @end

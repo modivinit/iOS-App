@@ -24,12 +24,12 @@
     viewController1.mRentVsBuyDashViewDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
     
-    OneHomeLifeStyleViewController* viewController2 = [[OneHomeLifeStyleViewController alloc] init];
-    viewController2.mOneHomeLifeStyleDelegate = self;
+    HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
+    viewController2.mHomeLifeStyleDelegate = self;
     [self.mPageViewControllers addObject: viewController2];
     
-    OneHomePaymentsViewController* viewController3 = [[OneHomePaymentsViewController alloc] init];
-    viewController3.mOneHomePaymentsDelegate = self;
+    HomePaymentsViewController* viewController3 = [[HomePaymentsViewController alloc] init];
+    viewController3.mHomePaymentsDelegate = self;
     [self.mPageViewControllers addObject:viewController3];
 }
 
@@ -88,8 +88,9 @@
 
 -(void) addHomeInfo
 {
-    self.mHomeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:FIRST_HOME];
-    self.mHomeInfoViewController.mHomeInfoViewDelegate = self;
+    uint currentCount = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
+    self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:currentCount];
+    self.mHomeInfoViewController.mHomeInfoEntryViewDelegate = self;
     [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
 }
 

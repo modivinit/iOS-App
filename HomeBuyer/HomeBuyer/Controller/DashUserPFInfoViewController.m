@@ -58,8 +58,8 @@
 
 -(void) addHomeInfo
 {
-    self.mHomeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:FIRST_HOME];
-    self.mHomeInfoViewController.mHomeInfoViewDelegate = self;
+    self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:FIRST_HOME];
+    self.mHomeInfoViewController.mHomeInfoEntryViewDelegate = self;
     [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
 }
 #pragma end

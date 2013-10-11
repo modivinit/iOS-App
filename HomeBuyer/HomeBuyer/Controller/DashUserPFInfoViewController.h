@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeInfoViewController.h"
+#import "HomeInfoEntryViewController.h"
 #import "LoanInfoViewController.h"
 #import "DashLeftMenuViewController.h"
 
-@interface DashUserPFInfoViewController : DashLeftMenuViewController <HomeInfoViewDelegate, LoanInfoViewDelegate>
+@interface DashUserPFInfoViewController : DashLeftMenuViewController <HomeInfoEntryViewDelegate, LoanInfoViewDelegate>
 @property (nonatomic, strong) IBOutlet UIView* mAddAHomeViewAsButton;
-@property (nonatomic, strong) HomeInfoViewController* mHomeInfoViewController;
+@property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoViewController;
 
 @property (nonatomic, strong) IBOutlet UIButton* mDashImageAsButton;

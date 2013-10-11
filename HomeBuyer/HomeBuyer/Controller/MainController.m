@@ -321,7 +321,7 @@
         return;
     }
     
-    HomeInfoViewController* homeInfoViewController = [[HomeInfoViewController alloc] initAsHomeNumber:row];
+    HomeInfoEntryViewController* homeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
     [self setRootView:homeInfoViewController];
 }
 

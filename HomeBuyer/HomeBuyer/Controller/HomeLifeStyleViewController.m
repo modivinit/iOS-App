@@ -1,18 +1,18 @@
 //
-//  OneHomePaymentsViewController.m
+//  OneHomeLifeStyleViewController.m
 //  HomeBuyer
 //
 //  Created by Shilpa Modi on 10/7/13.
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "OneHomePaymentsViewController.h"
+#import "HomeLifeStyleViewController.h"
 
-@interface OneHomePaymentsViewController ()
+@interface HomeLifeStyleViewController ()
 
 @end
 
-@implementation OneHomePaymentsViewController
+@implementation HomeLifeStyleViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,10 +23,9 @@
     return self;
 }
 
-
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomePaymentsDelegate setNavTitle:@"Home Payments"];
+    [self.mHomeLifeStyleDelegate setNavTitle:@"Home Lifestyle"];
 }
 
 - (void)viewDidLoad

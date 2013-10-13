@@ -144,6 +144,10 @@
         {
             [self enableRegisterButton];
         }
+        else
+        {
+            [self disableRegisterButton];
+        }
     }
     
     return YES;

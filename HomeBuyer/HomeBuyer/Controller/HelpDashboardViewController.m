@@ -25,7 +25,7 @@
 
 -(IBAction) dashboard:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 - (void)viewDidLoad

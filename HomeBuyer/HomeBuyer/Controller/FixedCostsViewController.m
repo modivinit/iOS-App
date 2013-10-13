@@ -74,7 +74,7 @@
 {
     if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
     }
     else
     {
@@ -87,7 +87,7 @@
 //IBActions, target action, gesture targets
 -(void) dashButtonTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 -(void) currentLifeStyleIncomeTapped

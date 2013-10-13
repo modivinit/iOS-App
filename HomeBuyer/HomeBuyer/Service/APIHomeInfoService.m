@@ -32,15 +32,15 @@
                 NSLog(@"Added home grabbag successfully");
                 [[kunanceUser getInstance] addNewHomeInfo:(homeInfo*)obj];
             }
+            
+            if(self.mAPIHomeInfoDelegate && [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
+            {
+                [self.mAPIHomeInfoDelegate finishedWritingHomeInfo];
+            }
         }
         else
         {
             NSLog(@"Error creating Home Info: %@", err);
-        }
-        
-        if(self.mAPIHomeInfoDelegate && [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
-        {
-            [self.mAPIHomeInfoDelegate finishedWritingHomeInfo];
         }
         
     }];
@@ -62,14 +62,15 @@
         {
             [[kunanceUser getInstance] updateExistingHome:(homeInfo*)obj];
         }
+        
+        if(self.mAPIHomeInfoDelegate &&
+           [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
+        {
+            [self.mAPIHomeInfoDelegate finishedWritingHomeInfo];
+        }
+        
     }];
     
-    if(self.mAPIHomeInfoDelegate &&
-       [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
-    {
-        [self.mAPIHomeInfoDelegate finishedWritingHomeInfo];
-    }
-
     return YES;
 }
 

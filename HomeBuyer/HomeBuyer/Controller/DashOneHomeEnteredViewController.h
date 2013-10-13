@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
-#import "HomeLifeStyleViewController.h"
-#import "HomePaymentsViewController.h"
 #import "RentVsBuyDashViewController.h"
+#import "HomeTaxSavingsViewController.h"
 #import "HomeInfoEntryViewController.h"
 
 @interface DashOneHomeEnteredViewController : BasePageViewController
-<HomeLifeStyleDelegate, HomePaymentsDelegate, RentVsBuyDashViewDelegate,HomeInfoEntryViewDelegate>
+<RentVsBuyDashViewDelegate,HomeInfoEntryViewDelegate, HomeTaxSavingsViewDelegate>
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
 @property (nonatomic, strong) UIButton* mContactRealtorButton;

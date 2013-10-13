@@ -13,6 +13,7 @@
 #import "APIUserInfoService.h"
 #import "DashNoInfoViewController.h"
 #import "AppDelegate.h"
+#import "HomeInfoDashViewController.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
@@ -41,8 +42,14 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(displayDash)
-                                                 name:kDisplayDashNotification
+                                                 name:kDisplayMainDashNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(displayHomeDash:)
+                                                 name:kDisplayHomeDashNotification
+                                               object:nil];
+
     //if logged in,
     if([[kunanceUser getInstance] isUserLoggedIn])
     {
@@ -110,6 +117,16 @@
 {
     [[kunanceUser getInstance] logoutUser];
     [self showIntroScreens];
+}
+
+-(void)displayHomeDash:(NSNotification*) notice
+{
+    if(notice)
+    {
+        NSNumber* homeNumber = (NSNumber*) notice.object;
+        HomeInfoDashViewController* homeInfoDash = [[HomeInfoDashViewController alloc] initWithHomeNumber:homeNumber];
+        [self setRootView:homeInfoDash];
+    }
 }
 
 #pragma mark kCATIntroDelegate
@@ -315,14 +332,21 @@
         return;
     }
     
-    if(row == ROW_SECOND_HOME && currentNumOfHomes == 0)
+    if((row == currentNumOfHomes) && currentNumOfHomes < MAX_NUMBER_OF_HOMES_PER_USER)
+    {
+        HomeInfoEntryViewController* homeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
+        [self setRootView:homeInfoViewController];
+    }
+    else if(row < currentNumOfHomes)
+    {
+        HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc] init];
+        [self setRootView:homeDash];
+    }
+    else if(row > currentNumOfHomes)
     {
         NSLog(@"Error: Cannot enter 2nd home before first");
         return;
     }
-    
-    HomeInfoEntryViewController* homeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
-    [self setRootView:homeInfoViewController];
 }
 
 -(void) handleLoanMenu:(NSInteger) row

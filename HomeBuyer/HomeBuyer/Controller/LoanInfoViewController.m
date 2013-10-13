@@ -75,7 +75,7 @@
 #pragma mark actions. gestures
 -(void) dashButtonTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 -(void) compareHomeButtonTapped:(UITapGestureRecognizer*) gesture
@@ -156,7 +156,7 @@
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 #pragma end
 - (void)didReceiveMemoryWarning

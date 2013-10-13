@@ -184,7 +184,7 @@
 #pragma mark actions gestures
 -(void) dashButtonTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 -(void) compareHomesButtonTapped:(UITapGestureRecognizer*)recognizer
@@ -224,7 +224,7 @@
     }
     else if(!self.mCompareHomesViewAsButton.hidden)
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayHomeDashNotification object:[NSNumber numberWithInt:self.mHomeNumber]];
     }
 }
 #pragma end

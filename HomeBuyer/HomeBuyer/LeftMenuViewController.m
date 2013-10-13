@@ -252,11 +252,6 @@
                         cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
                 }
                 
-                if(home.mIdentifiyingHomeFeature)
-                    cellText.text = [NSString stringWithFormat:@"First Home - %@",
-                                                                         (home.mIdentifiyingHomeFeature)];
-                else
-                    cellText.text = [NSString stringWithFormat:@"First Home"];
             }
             else if(indexPath.row == ROW_SECOND_HOME)
             {
@@ -275,13 +270,13 @@
                     else if(type == homeTypeSingleFamily)
                         cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
                 }
-                
-                if(home.mIdentifiyingHomeFeature)
-                    cellText.text = [NSString stringWithFormat:@"Second Home - %@",
-                                     (home.mIdentifiyingHomeFeature)];
-                else
-                    cellText.text = [NSString stringWithFormat:@"Second Home"];
             }
+            
+            if(home && home.mIdentifiyingHomeFeature)
+                cellText.text = home.mIdentifiyingHomeFeature;
+            else
+                cellText.text = [NSString stringWithFormat:@"Add a Home"];
+
         }
             break;
             

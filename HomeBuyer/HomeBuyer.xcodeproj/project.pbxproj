@@ -15,8 +15,8 @@
 		9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */; };
 		9E00FABE17F356EB00380997 /* helpbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FABC17F356EB00380997 /* helpbox.png */; };
 		9E00FABF17F356EB00380997 /* helpbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FABD17F356EB00380997 /* helpbox@2x.png */; };
-		9E0BCA7E18048EF300863FB7 /* OneHomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7C18048EF300863FB7 /* OneHomeTaxSavingsViewController.m */; };
-		9E0BCA7F18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */; };
+		9E0BCA7E18048EF300863FB7 /* HomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7C18048EF300863FB7 /* HomeTaxSavingsViewController.m */; };
+		9E0BCA7F18048EF300863FB7 /* HomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7D18048EF300863FB7 /* HomeTaxSavingsViewController.xib */; };
 		9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA831804A60900863FB7 /* TwoHomeTaxSavingsViewController.m */; };
 		9E0BCA861804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA841804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib */; };
 		9E0DB87218075AD700B5184E /* addahome.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E0DB87018075AD700B5184E /* addahome.png */; };
@@ -294,9 +294,9 @@
 		9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpDashboardViewController.xib; path = Controller/HelpDashboardViewController.xib; sourceTree = "<group>"; };
 		9E00FABC17F356EB00380997 /* helpbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpbox.png; sourceTree = "<group>"; };
 		9E00FABD17F356EB00380997 /* helpbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpbox@2x.png"; sourceTree = "<group>"; };
-		9E0BCA7B18048EF300863FB7 /* OneHomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneHomeTaxSavingsViewController.h; path = Controller/OneHomeTaxSavingsViewController.h; sourceTree = "<group>"; };
-		9E0BCA7C18048EF300863FB7 /* OneHomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneHomeTaxSavingsViewController.m; path = Controller/OneHomeTaxSavingsViewController.m; sourceTree = "<group>"; };
-		9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneHomeTaxSavingsViewController.xib; path = Controller/OneHomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
+		9E0BCA7B18048EF300863FB7 /* HomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTaxSavingsViewController.h; path = Controller/HomeTaxSavingsViewController.h; sourceTree = "<group>"; };
+		9E0BCA7C18048EF300863FB7 /* HomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTaxSavingsViewController.m; path = Controller/HomeTaxSavingsViewController.m; sourceTree = "<group>"; };
+		9E0BCA7D18048EF300863FB7 /* HomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTaxSavingsViewController.xib; path = Controller/HomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
 		9E0BCA821804A60900863FB7 /* TwoHomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomeTaxSavingsViewController.h; path = Controller/TwoHomeTaxSavingsViewController.h; sourceTree = "<group>"; };
 		9E0BCA831804A60900863FB7 /* TwoHomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomeTaxSavingsViewController.m; path = Controller/TwoHomeTaxSavingsViewController.m; sourceTree = "<group>"; };
 		9E0BCA841804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomeTaxSavingsViewController.xib; path = Controller/TwoHomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
@@ -589,9 +589,9 @@
 		D6AE01D918055D5700797058 /* HomePaymentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePaymentsViewController.h; sourceTree = "<group>"; };
 		D6AE01DA18055D5700797058 /* HomePaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePaymentsViewController.m; sourceTree = "<group>"; };
 		D6AE01DB18055D5700797058 /* HomePaymentsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePaymentsViewController.xib; sourceTree = "<group>"; };
-		D6AE01DC18055D5700797058 /* OneHomeTaxSavingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneHomeTaxSavingsViewController.h; sourceTree = "<group>"; };
-		D6AE01DD18055D5700797058 /* OneHomeTaxSavingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneHomeTaxSavingsViewController.m; sourceTree = "<group>"; };
-		D6AE01DE18055D5700797058 /* OneHomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneHomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
+		D6AE01DC18055D5700797058 /* HomeTaxSavingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaxSavingsViewController.h; sourceTree = "<group>"; };
+		D6AE01DD18055D5700797058 /* HomeTaxSavingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaxSavingsViewController.m; sourceTree = "<group>"; };
+		D6AE01DE18055D5700797058 /* HomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
 		D6AE01DF18055D5700797058 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
 		D6AE01E018055D5700797058 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		D6AE01E118055D5700797058 /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
@@ -940,7 +940,7 @@
 		9E0BCA7A18048E6700863FB7 /* EstimatedTaxSavings */ = {
 			isa = PBXGroup;
 			children = (
-				9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */,
+				9E0BCA7D18048EF300863FB7 /* HomeTaxSavingsViewController.xib */,
 			);
 			name = EstimatedTaxSavings;
 			sourceTree = "<group>";
@@ -948,8 +948,8 @@
 		9E0BCA8018048EFD00863FB7 /* EstimatedTaxSavings */ = {
 			isa = PBXGroup;
 			children = (
-				9E0BCA7B18048EF300863FB7 /* OneHomeTaxSavingsViewController.h */,
-				9E0BCA7C18048EF300863FB7 /* OneHomeTaxSavingsViewController.m */,
+				9E0BCA7B18048EF300863FB7 /* HomeTaxSavingsViewController.h */,
+				9E0BCA7C18048EF300863FB7 /* HomeTaxSavingsViewController.m */,
 			);
 			name = EstimatedTaxSavings;
 			sourceTree = "<group>";
@@ -1007,7 +1007,7 @@
 			name = ContactRealtor;
 			sourceTree = "<group>";
 		};
-		9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */ = {
+		9EA5D3C917F15C1C00CE7BD8 /* HomeInfoEntry */ = {
 			isa = PBXGroup;
 			children = (
 				9E5D1CF217FF380800F443AC /* dashboard-home.png */,
@@ -1028,7 +1028,7 @@
 				9EA5D3DD17F15DC500CE7BD8 /* sfh-homeinfo@2x.png */,
 				9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */,
 			);
-			name = HomeInfo;
+			name = HomeInfoEntry;
 			sourceTree = "<group>";
 		};
 		9EA5D3CF17F15D0200CE7BD8 /* HomeInfoEntry */ = {
@@ -1597,9 +1597,9 @@
 				D6AE01D918055D5700797058 /* HomePaymentsViewController.h */,
 				D6AE01DA18055D5700797058 /* HomePaymentsViewController.m */,
 				D6AE01DB18055D5700797058 /* HomePaymentsViewController.xib */,
-				D6AE01DC18055D5700797058 /* OneHomeTaxSavingsViewController.h */,
-				D6AE01DD18055D5700797058 /* OneHomeTaxSavingsViewController.m */,
-				D6AE01DE18055D5700797058 /* OneHomeTaxSavingsViewController.xib */,
+				D6AE01DC18055D5700797058 /* HomeTaxSavingsViewController.h */,
+				D6AE01DD18055D5700797058 /* HomeTaxSavingsViewController.m */,
+				D6AE01DE18055D5700797058 /* HomeTaxSavingsViewController.xib */,
 				D6AE01DF18055D5700797058 /* PrivacyPolicyViewController.h */,
 				D6AE01E018055D5700797058 /* PrivacyPolicyViewController.m */,
 				D6AE01E118055D5700797058 /* PrivacyPolicyViewController.xib */,
@@ -2043,7 +2043,7 @@
 				9E00FA9E17F34D9900380997 /* HelpHome */,
 				9E00FA9D17F34D9100380997 /* HelpProfile */,
 				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
-				9EA5D3C917F15C1C00CE7BD8 /* HomeInfo */,
+				9EA5D3C917F15C1C00CE7BD8 /* HomeInfoEntry */,
 				D6C88B2617DA6EEF00DEA25D /* LeftMenu */,
 				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				D6C88B2517DA6D7900DEA25D /* Login/SignUp */,
@@ -2288,7 +2288,7 @@
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
 				9EB0EF28180338B500857763 /* menu-contact-realtor@2x.png in Resources */,
-				9E0BCA7F18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib in Resources */,
+				9E0BCA7F18048EF300863FB7 /* HomeTaxSavingsViewController.xib in Resources */,
 				9ECDB80117FF55AB004E5F25 /* menu-fixedcosts@2x.png in Resources */,
 				9EE693FA1805EBD000B541DF /* aboutyou.png in Resources */,
 				9E4DBF6A1805D04200F095F1 /* termsbox.png in Resources */,
@@ -2432,7 +2432,7 @@
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
-				9E0BCA7E18048EF300863FB7 /* OneHomeTaxSavingsViewController.m in Sources */,
+				9E0BCA7E18048EF300863FB7 /* HomeTaxSavingsViewController.m in Sources */,
 				9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */,
 				D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */,
@@ -2581,7 +2581,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kunance Inc. (45FEU24J55)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

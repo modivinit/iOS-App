@@ -24,13 +24,9 @@
     viewController1.mRentVsBuyDashViewDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
     
-    HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
-    viewController2.mHomeLifeStyleDelegate = self;
+    HomeTaxSavingsViewController* viewController2 = [[HomeTaxSavingsViewController alloc] init];
+    viewController2.mHomeTaxSavingsDelegate = self;
     [self.mPageViewControllers addObject: viewController2];
-    
-    HomePaymentsViewController* viewController3 = [[HomePaymentsViewController alloc] init];
-    viewController3.mHomePaymentsDelegate = self;
-    [self.mPageViewControllers addObject:viewController3];
 }
 
 -(void) addButtons

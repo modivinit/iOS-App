@@ -131,6 +131,10 @@
         {
             [self enableLoginButton];
         }
+        else
+        {
+            [self disableLoginButton];
+        }
     }
     
     return YES;

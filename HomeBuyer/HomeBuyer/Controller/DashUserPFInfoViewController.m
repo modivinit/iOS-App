@@ -53,7 +53,7 @@
 
 -(IBAction)dashButtonTapped:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayDashNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 -(void) addHomeInfo

@@ -6,21 +6,17 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "OneHomeTaxSavingsViewController.h"
+#import "HomeTaxSavingsViewController.h"
 
-@interface OneHomeTaxSavingsViewController ()
+@interface HomeTaxSavingsViewController ()
 
 @end
 
-@implementation OneHomeTaxSavingsViewController
+@implementation HomeTaxSavingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void) viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [self.mHomeTaxSavingsDelegate setNavTitle:@"Estimated Tax Savings"];
 }
 
 - (void)viewDidLoad

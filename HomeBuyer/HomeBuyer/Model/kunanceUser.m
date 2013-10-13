@@ -8,6 +8,7 @@
 
 #import "kunanceUser.h"
 #import "KeychainWrapper.h"
+#import "AppDelegate.h"
 
 static kunanceUser *kunanceUserSingleton;
 
@@ -27,19 +28,66 @@ static kunanceUser *kunanceUserSingleton;
     if (self) {
         // Initialization
         self.mLoggedInKunanceUser = nil;
+        self.mLoggedInKunanceUser = nil;
+        self.mkunanceUserPFInfo = nil;
+        self.mKunanceUserHomes = nil;
+        self.mKunanceUserLoan = nil;
+        self.mUserProfileStatus = ProfileStatusNoInfoEntered;
+        NSLog(@"User profile status = ProfileStatusNoInfoEntered");
+
+        self.mUserPFInfoGUID = nil;
     }
+    
     return self;
 }
 
--(BOOL) isLoggedInUser
+-(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
 {
-    return ([[FatFractal main] loggedIn] && [kunanceUser getInstance].mLoggedInKunanceUser);
+    FatFractal *ff = [AppDelegate ff];
+    self.mkunanceUserPFInfo = newUserPFInfo;
+    
+    NSLog(@"updateUserPFInfo: %llu", self.mkunanceUserPFInfo.mGrossAnnualIncome);
+    
+    if(newUserPFInfo)
+        self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
+    
+    if(self.mUserProfileStatus == ProfileStatusNoInfoEntered)
+        self.mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
 }
 
--(void) saveUserInfoAfterSignUp:(NSString*) passwrod email:(NSString*) email
+-(BOOL) isUserLoggedIn
 {
-    [KeychainWrapper createKeychainValue:passwrod forIdentifier:@"pswd"];
-    [KeychainWrapper createKeychainValue:email forIdentifier:@"email"];
+    return ([[AppDelegate ff] loggedIn] &&
+            [kunanceUser getInstance].mLoggedInKunanceUser);
+}
+
+-(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd
+{
+    if(!newUser || !pswd)
+        return;
+    
+    [KeychainWrapper createKeychainValue:pswd forIdentifier:@"pswd"];
+    [KeychainWrapper createKeychainValue:newUser.email forIdentifier:@"email"];
+    
+    self.mLoggedInKunanceUser = newUser;
+    
+    FatFractal *ff = [AppDelegate ff];
+    if(ff)
+        self.mKunanceUserGUID = [[ff metaDataForObj:newUser] guid];
+}
+
+-(void) logoutUser
+{
+    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"pswd"];
+    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"email"];
+    
+    self.mLoggedInKunanceUser = nil;
+    self.mLoggedInKunanceUser = nil;
+    self.mkunanceUserPFInfo = nil;
+    self.mKunanceUserHomes = nil;
+    self.mKunanceUserLoan = nil;
+    self.mUserProfileStatus = ProfileStatusNoInfoEntered;
+    self.mUserPFInfoGUID = nil;
 }
 
 -(BOOL)userAccountFoundOnDevice
@@ -56,9 +104,119 @@ static kunanceUser *kunanceUserSingleton;
     return NO;
 }
 
--(void) saveUserInfoAfterLogin:(FFUser*) newUser
+-(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password
 {
+    if(!email || !password)
+        return NO;
     
+    NSData* emailData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"email"];
+    if(!emailData)
+        return NO;
+    
+    NSString* emailStr = [[NSString alloc] initWithData:emailData
+                                               encoding:NSUTF8StringEncoding];
+    NSString* pswdStr = nil;
+    if(emailStr)
+    {
+        NSData* pswdData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"pswd"];
+
+        if(!pswdData)
+            return NO;
+        
+        pswdStr = [[NSString alloc] initWithData:pswdData
+                                        encoding:NSUTF8StringEncoding];
+    }
+    
+    if(emailStr && pswdStr)
+    {
+        *email = [emailStr copy];
+        *password = [pswdStr copy];
+        
+        return YES;
+    }
+    
+    return NO;
+
+}
+
+-(void) addNewHomeInfo:(homeInfo*)newHomeInfo
+{
+    if(!newHomeInfo)
+        return;
+    
+    uint currentHomeCount = [self.mKunanceUserHomes getCurrentHomesCount];
+    
+    if([self.mKunanceUserHomes getCurrentHomesCount] == MAX_NUMBER_OF_HOMES_PER_USER)
+    {
+        NSLog(@"Error: Number of user homes maxed out at %d", currentHomeCount);
+        return;
+    }
+    
+    if(!self.mKunanceUserHomes)
+    {
+        self.mKunanceUserHomes = [[UsersHomesList alloc] init];
+    }
+    
+    [self.mKunanceUserHomes addNewHome:newHomeInfo];
+    
+    if([self.mKunanceUserHomes getCurrentHomesCount] == 1)
+    {
+        self.mUserProfileStatus = ProfileStatusUser1HomeInfoEntered;
+        NSLog(@"User profile status = ProfileStatusUser1HomeInfoEntered");
+    }
+    else if( ([self.mKunanceUserHomes getCurrentHomesCount] == 2) &&
+            (self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered))
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
+    }
+    else if( ([self.mKunanceUserHomes getCurrentHomesCount] == 2) &&
+            (self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered))
+    {
+        self.mUserProfileStatus = ProfileStatusUser2HomesButNoLoanEntered;
+        NSLog(@"Intermidiate User profile status = ProfileStatusUser2HomesButNoLoanEntered");
+    }
+
+}
+
+-(void) updateExistingHome:(homeInfo*)homeInfo
+{
+    if(!homeInfo)
+        return;
+    
+    if(homeInfo.mHomeId >= [self.mKunanceUserHomes getCurrentHomesCount])
+        return;
+    
+    [self.mKunanceUserHomes updateHomeInfo:homeInfo];
+}
+
+-(void) updateLoanInfo:(loan*) aLoan
+{
+    if(!aLoan)
+        return;
+    if(self.mKunanceUserLoan)
+    {
+        NSLog(@"Overwriting current loan info");
+    }
+    
+    self.mKunanceUserLoan = aLoan;
+    if([self.mKunanceUserHomes getCurrentHomesCount] == 1)
+    {
+        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+                NSLog(@"User profile status = ProfileStatusUser1HomeAndLoanInfoEntered");
+    }
+    else if ((self.mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered) &&
+             ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+                NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
+    }
+    else if ((self.mUserProfileStatus == ProfileStatusUser2HomesButNoLoanEntered) &&
+             ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
+    }
 }
 
 + (kunanceUser*) getInstance

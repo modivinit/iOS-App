@@ -7,20 +7,22 @@
 //
 
 #import "AppDelegate.h"
-#import "MainController.h"
-#import "SignUpViewController.h"
 #import <FFEF/FatFractal.h>
 
 @interface AppDelegate ()
-@property (strong, nonatomic) FatFractal *ff;
 @end
 
 @implementation AppDelegate
 
+static FatFractal *_ff;
+
++ (FatFractal *) ff {
+    return _ff;
+}
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize ff = _ff;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -31,11 +33,28 @@
     [self.window makeKeyAndVisible];
 
     NSString *baseUrl = @"https://kunance.fatfractal.com/kCAT";
-    self.ff = [[FatFractal alloc] initWithBaseUrl:baseUrl];
+    _ff = [[FatFractal alloc]
+           initWithBaseUrl:@"http://kunance.fatfractal.com/kCAT"
+           sslUrl:baseUrl];
+    [FFHttpDelegate addTrustedHost:@"kunance.fatfractal.com"];
+
+    UINavigationController* navController = [[UINavigationController alloc] init];
+    self.window.rootViewController = navController;
     
-    SignUpViewController *viewController = [[SignUpViewController alloc] init];
-    self.window.rootViewController = viewController;
+    self.mMainController = [[MainController alloc] initWithNavController:navController];
+    self.mMainController.mMainControllerDelegate = self;
+    [self.mMainController start];
+    
+    //TODO Shilpa, make sure we do OS check here
+    [ShinobiCharts setTheme:[SChartiOS7Theme new]];
+    
     return YES;
+}
+
+-(void) resetRootView:(UIViewController *)aViewController
+{
+    if(aViewController)
+    self.window.rootViewController = aViewController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

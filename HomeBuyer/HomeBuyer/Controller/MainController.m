@@ -129,50 +129,6 @@
     }
 }
 
-#pragma mark kCATIntroDelegate
--(void) signInFromIntro
-{
-    [self presentLoginViewController];
-}
-
--(void) signupFromIntro
-{
-    [self presentSignupViewController];
-}
-#pragma end
-
-#pragma mark DashNoInfoViewDelegate
-#pragma mark DashUserPFInfoDelegate
-#pragma mark Dash1HomeEnteredViewDelegate
--(void) displayDash
-{
-    switch ([kunanceUser getInstance].mUserProfileStatus)
-    {
-        case ProfileStatusNoInfoEntered:
-            self.mMainDashController = [[DashNoInfoViewController alloc] init];
-            break;
-            
-        case ProfileStatusUserPersonalFinanceInfoEntered:
-            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
-            break;
-            
-        case ProfileStatusUser1HomeInfoEntered:
-        case ProfileStatusUser1HomeAndLoanInfoEntered:
-            self.mMainDashController = [[DashOneHomeEnteredViewController alloc] init];
-            break;
-            
-        case ProfileStatusUserTwoHomesAndLoanInfoEntered:
-            self.mMainDashController = [[DashTwoHomesEnteredViewController alloc] init];
-            break;
-            
-        default:
-            break;
-    }
-    
-    [self setRootView:self.mMainDashController];
-}
-#pragma end
-
 -(void) setRootView:(UIViewController*) viewController
 {
     self.mFrontViewController = [[UINavigationController alloc]
@@ -220,6 +176,59 @@
     self.mSignUpViewController.mSignUpDelegate = self;
     [self setRootView:self.mSignUpViewController];
 }
+
+#pragma mark kCATIntroDelegate
+-(void) signInFromIntro
+{
+    [self presentLoginViewController];
+}
+
+-(void) signupFromIntro
+{
+    [self presentSignupViewController];
+}
+#pragma end
+
+#pragma mark FixedCostsControllerDelegate
+-(void) aboutYouFromFixedCosts
+{
+    AboutYouViewController* aboutYouViewController = [[AboutYouViewController alloc] init];
+    [self setRootView:aboutYouViewController];
+}
+#pragma end
+
+#pragma mark DashNoInfoViewDelegate
+#pragma mark DashUserPFInfoDelegate
+#pragma mark Dash1HomeEnteredViewDelegate
+-(void) displayDash
+{
+    switch ([kunanceUser getInstance].mUserProfileStatus)
+    {
+        case ProfileStatusNoInfoEntered:
+        case ProfileStatusUserPersonalFinanceInfoEntered:
+            self.mMainDashController = [[DashNoInfoViewController alloc] init];
+            break;
+            
+        case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
+            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
+            break;
+            
+        case ProfileStatusUser1HomeInfoEntered:
+        case ProfileStatusUser1HomeAndLoanInfoEntered:
+            self.mMainDashController = [[DashOneHomeEnteredViewController alloc] init];
+            break;
+            
+        case ProfileStatusUserTwoHomesAndLoanInfoEntered:
+            self.mMainDashController = [[DashTwoHomesEnteredViewController alloc] init];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self setRootView:self.mMainDashController];
+}
+#pragma end
 
 #pragma mark LoginDelegate
 -(void) loggedInUserSuccessfully
@@ -294,14 +303,6 @@
 }
 #pragma end
 
-#pragma mark AboutYouDelegate
--(void) userExpensesButtonTapped
-{
-    FixedCostsViewController* fixedCostsViewController = [[FixedCostsViewController alloc] init];
-    [self setRootView:fixedCostsViewController];
-}
-#pragma end
-
 -(void) handleUserMenu:(NSInteger) row
 {
     switch (row) {
@@ -365,7 +366,6 @@
         case ROW_YOUR_PROFILE:
         {
             AboutYouViewController* aboutYouViewController = [[AboutYouViewController alloc] init];
-            aboutYouViewController.mAboutYouControllerDelegate = self;
             [self setRootView:aboutYouViewController];
         }
             break;
@@ -373,6 +373,7 @@
         case ROW_FIXED_COSTS:
         {
             FixedCostsViewController* fixedCostsViewController = [[FixedCostsViewController alloc] init];
+            fixedCostsViewController.mFixedCostsControllerDelegate = self;
             [self setRootView:fixedCostsViewController];
         }
             break;

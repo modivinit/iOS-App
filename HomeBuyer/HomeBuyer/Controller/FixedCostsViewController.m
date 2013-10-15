@@ -8,6 +8,7 @@
 
 #import "FixedCostsViewController.h"
 #import "kunanceUser.h"
+#import "HelpProfileViewController.h"
 
 @interface FixedCostsViewController ()
 
@@ -21,14 +22,6 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-
-    UITapGestureRecognizer* currentLifestyleTappedGesture = [[UITapGestureRecognizer alloc]
-                                                             initWithTarget:self
-                                                             action:@selector(currentLifeStyleIncomeTapped)];
-    [self.mCurrentLifestyleIncomeViewAsButton addGestureRecognizer:currentLifestyleTappedGesture];
-    
-    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
-    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) initWithExisitingFixedCosts
@@ -45,6 +38,12 @@
     }
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
+}
+
 - (void)viewDidLoad
 {
     NSString* titleText = [NSString stringWithFormat:@"Fixed Costs"];
@@ -59,7 +58,8 @@
     
     [self addGestureRecognizers];
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
     [self initWithExisitingFixedCosts];
 }
 
@@ -85,14 +85,30 @@
 
 #pragma mark Action Functions
 //IBActions, target action, gesture targets
--(void) dashButtonTapped
+-(IBAction)aboutYouButtonTapped:(id)sender
+{
+    if(self.mFixedCostsControllerDelegate &&
+       [self.mFixedCostsControllerDelegate respondsToSelector:@selector(aboutYouFromFixedCosts)])
+       {
+           [self.mFixedCostsControllerDelegate aboutYouFromFixedCosts];
+       }
+}
+
+-(IBAction)helpButtonTapped:(id)sender
+{
+    HelpProfileViewController* hPV = [[HelpProfileViewController alloc] init];
+    [self.navigationController pushViewController:hPV animated:NO];
+}
+
+-(IBAction)dashButtonTapped:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
--(void) currentLifeStyleIncomeTapped
+-(IBAction)currentLifeStyleIncomeTapped:(id)sender
 {
-    if(!self.mMonthlyRent.text || !self.mMonthlyCarPayments.text || !self.mOtherMonthlyPayments.text)
+    if(!self.mMonthlyRent.text || !self.mMonthlyCarPayments.text || !self.mOtherMonthlyPayments.text ||
+       !self.mMonthlyRent.text.length || !self.mMonthlyCarPayments.text.length || !self.mOtherMonthlyPayments.text.length)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"Please enter all fields"

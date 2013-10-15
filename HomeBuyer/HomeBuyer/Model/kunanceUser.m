@@ -51,8 +51,12 @@ static kunanceUser *kunanceUserSingleton;
     if(newUserPFInfo)
         self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
     
-    if(self.mUserProfileStatus == ProfileStatusNoInfoEntered)
+    if(self.mUserProfileStatus == ProfileStatusNoInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
+        self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
+    else if(self.mUserProfileStatus == ProfileStatusNoInfoEntered)
         self.mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
+    else if(self.mUserProfileStatus == ProfileStatusUserPersonalFinanceInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
+        self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
 }
 
 -(BOOL) isUserLoggedIn

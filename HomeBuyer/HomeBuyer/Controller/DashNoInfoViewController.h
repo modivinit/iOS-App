@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AboutYouViewController.h"
-#import "FixedCostsViewController.h"
 #import "UIViewController+PKRevealController.h"
 #import "DashLeftMenuViewController.h"
 
 
-@interface DashNoInfoViewController : DashLeftMenuViewController <AboutYouControllerDelegate>
+@interface DashNoInfoViewController : DashLeftMenuViewController //<AboutYouControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIView* mCompositeAboutYouButton;
 @property (nonatomic, strong) AboutYouViewController* mAboutYouViewController;
-@property (nonatomic, strong) FixedCostsViewController* mFixedCostsViewController;
 @end

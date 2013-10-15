@@ -49,6 +49,7 @@ typedef enum {
 typedef enum{
     ProfileStatusNoInfoEntered = 0,
     ProfileStatusUserPersonalFinanceInfoEntered,
+    ProfileStatusPersonalFinanceAndFixedCostsInfoEntered,
     ProfileStatusUser1HomeInfoEntered,
     ProfileStatusUser1HomeAndLoanInfoEntered,
     ProfileStatusUser2HomesButNoLoanEntered, //This can only be an intermidiate state

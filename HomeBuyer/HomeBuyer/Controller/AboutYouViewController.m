@@ -53,11 +53,6 @@
                                                                  action:@selector(singleButtonTapped)];
     [self.mSingleImageAsButton addGestureRecognizer:singleButtonTappedGesture];
     
-    UITapGestureRecognizer* userExpensesTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                         action:@selector(fixedCostsButtonTapped)];
-    [self.mUserExpensesViewAsButton addGestureRecognizer:userExpensesTappedGesture];
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -133,14 +128,16 @@
     [self selectSingle];
 }
 
--(void) fixedCostsButtonTapped
+-(IBAction)fixedCostsButtonTapped:(id)sender
 {
     if(self.mSelectedMaritalStatus == StatusNotDefined)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
-    else if(!self.mAnnualGrossIncomeField.text || ![self.mAnnualGrossIncomeField.text intValue])
+    else if(!self.mAnnualGrossIncomeField.text ||
+            self.mAnnualGrossIncomeField.text.length ||
+            ![self.mAnnualGrossIncomeField.text intValue])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
         return;
@@ -165,20 +162,25 @@
 {
     if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
     {
-        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu", [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
-
-        //let the dashcontroller know that this form is done
-        if(self.mAboutYouControllerDelegate &&
-           [self.mAboutYouControllerDelegate respondsToSelector:@selector(userExpensesButtonTapped)])
-        {
-            [self.mAboutYouControllerDelegate userExpensesButtonTapped];
-        }
+        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu",
+              [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
+        
+        self.mFixedCostsController = [[FixedCostsViewController alloc] init];
+        self.mFixedCostsController.mFixedCostsControllerDelegate = self;
+        [self.navigationController pushViewController:self.mFixedCostsController animated:NO];
+        
     }
     else
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry, unable to update you info"];
     }
 }
+#pragma end
 
+#pragma mark FixedCostsControllerDelegate
+-(void) aboutYouFromFixedCosts
+{
+    [self.navigationController popViewControllerAnimated:NO];
+}
 #pragma end
 @end

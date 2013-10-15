@@ -95,7 +95,9 @@
          }
          else
          {
-             [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed"];
+             [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
+             self.view.userInteractionEnabled = YES;
+             [self enableLoginButton];
          }
          
      }];
@@ -125,9 +127,10 @@
 #pragma mark - UITextField
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if(textField == self.mPassword)
+    //if(textField == self.mPassword)
     {
-        if(self.mPassword.text.length == 5 && self.mLoginEmail.text.length > 0)
+        NSLog(@"Password lenght: %d, email length: %d", self.mPassword.text.length, self.mLoginEmail.text.length);
+        if(self.mPassword.text.length >= 5 && self.mLoginEmail.text.length > 0)
         {
             [self enableLoginButton];
         }

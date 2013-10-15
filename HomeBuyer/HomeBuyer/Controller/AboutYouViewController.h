@@ -10,14 +10,12 @@
 #import "userPFInfo.h"
 #import "FormViewController.h"
 #import "APIUserInfoService.h"
+#import "FixedCostsViewController.h"
 
-@protocol AboutYouControllerDelegate <NSObject>
--(void) userExpensesButtonTapped;
-@end
-
-@interface AboutYouViewController : FormViewController <APIUserInfoServiceDelegate>
+@interface AboutYouViewController : FormViewController
+<APIUserInfoServiceDelegate, FixedCostsControllerDelegate>
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
-
+@property (nonatomic, strong) FixedCostsViewController* mFixedCostsController;
 @property (nonatomic) IBOutlet UIImageView*  mMarriedImageAsButton;
 @property (nonatomic) IBOutlet UIImageView*  mSingleImageAsButton;
 @property (nonatomic) IBOutlet UITextField*   mAnnualGrossIncomeField;
@@ -27,6 +25,5 @@
 @property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
 
 @property (nonatomic) IBOutlet UIView*  mUserExpensesViewAsButton;
-
-@property (nonatomic, weak) id <AboutYouControllerDelegate> mAboutYouControllerDelegate;
+-(IBAction)fixedCostsButtonTapped:(id)sender;
 @end

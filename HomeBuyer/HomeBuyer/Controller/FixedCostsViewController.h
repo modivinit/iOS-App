@@ -9,12 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "APIUserInfoService.h"
 #import "FormViewController.h"
+
+@protocol FixedCostsControllerDelegate <NSObject>
+-(void) aboutYouFromFixedCosts;
+@end
+
 @interface FixedCostsViewController : FormViewController <APIUserInfoServiceDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyRent;
 @property (nonatomic, strong) IBOutlet UITextField* mMonthlyCarPayments;
 @property (nonatomic, strong) IBOutlet UITextField* mOtherMonthlyPayments;
-@property (nonatomic) IBOutlet UIView*  mCurrentLifestyleIncomeViewAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
+@property (nonatomic, strong) IBOutlet UIButton*  mCurrentLifestyleIncomeButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mDashboardButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mHelpButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mAboutYouButton;
 
+@property (nonatomic, weak) id <FixedCostsControllerDelegate> mFixedCostsControllerDelegate;
+
+-(IBAction)currentLifeStyleIncomeTapped:(id)sender;
+-(IBAction)dashButtonTapped:(id)sender;
+-(IBAction)helpButtonTapped:(id)sender;
+-(IBAction)aboutYouButtonTapped:(id)sender;
 @end

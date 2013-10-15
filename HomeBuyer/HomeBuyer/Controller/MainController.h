@@ -31,7 +31,7 @@ LoginDelegate,
 LeftMenuDelegate,
 APIHomeInfoServiceDelegate,
 APILoanInfoServiceDelegate,
-AboutYouControllerDelegate,
+FixedCostsControllerDelegate,
 kCATIntroViewDelegate
 >
 

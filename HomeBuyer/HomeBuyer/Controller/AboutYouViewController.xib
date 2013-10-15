@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -14,6 +14,7 @@
                 <outlet property="mMarriedImageAsButton" destination="QiK-Q9-drf" id="J2Q-ok-RYc"/>
                 <outlet property="mNumberOfChildrenControl" destination="qYC-6V-4Ch" id="l7v-Kt-zem"/>
                 <outlet property="mSingleImageAsButton" destination="uBq-EB-gXD" id="Xns-iI-NvI"/>
+                <outlet property="mUserExpensesViewAsButton" destination="z6K-tW-1wY" id="4WK-fg-7a1"/>
                 <outlet property="view" destination="vpL-bZ-4vl" id="UKX-e8-QkF"/>
             </connections>
         </placeholder>
@@ -122,6 +123,9 @@
                     <state key="normal" image="fixedcosts.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="fixedCostsButtonTapped:" destination="-1" eventType="touchDown" id="j1S-te-0eh"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

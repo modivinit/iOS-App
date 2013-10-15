@@ -46,17 +46,8 @@
 -(void) aboutYouTapped
 {
      self.mAboutYouViewController = [[AboutYouViewController alloc] init];
-     self.mAboutYouViewController.mAboutYouControllerDelegate = self;
      [self.navigationController pushViewController:self.mAboutYouViewController animated:YES];
 }
-
-#pragma AboutYouControllerDelegate
--(void) userExpensesButtonTapped
-{
-    self.mFixedCostsViewController = [[FixedCostsViewController alloc] init];
-    [self.navigationController pushViewController:self.mFixedCostsViewController animated:YES];
-}
-#pragma end
 
 - (void)didReceiveMemoryWarning
 {

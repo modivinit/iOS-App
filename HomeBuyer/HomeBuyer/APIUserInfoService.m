@@ -59,7 +59,6 @@
     }
     else
     {
-        userPFInfo* currentPFInfo = [[userPFInfo alloc] init];
         [self createUserPFObj:currentPFInfo];
     }
     

@@ -108,6 +108,8 @@
     newUser.email = self.mEmailField.text;
     __block NSString *password = self.mPasswordField.text;
     
+    self.mSignInButton.enabled = NO;
+    self.view.userInteractionEnabled = NO;
     [ff registerUser:newUser
             password:password
           onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
@@ -126,8 +128,11 @@
         }
         else
         {
+            self.mSignInButton.enabled = YES;
+            self.view.userInteractionEnabled = YES;
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
         }
+        
         // if no error, your application is now in a logged-in state
     }];
 }

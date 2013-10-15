@@ -9,6 +9,7 @@
 #import "AboutYouViewController.h"
 #import "userPFInfo.h"
 #import "kunanceUser.h"
+#import "HelpProfileViewController.h"
 
 @interface AboutYouViewController ()
 
@@ -22,7 +23,9 @@
     if (self) {
         // Custom initialization
         self.mSelectedMaritalStatus = StatusNotDefined;
+        self.mFixedCostsController = nil;
     }
+    
     return self;
 }
 
@@ -58,9 +61,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
-    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
-    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) initWithCurrentUserPFInfo
@@ -113,7 +113,13 @@
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
 
--(void) dashButtonTapped
+-(IBAction)helpButtonTapped:(id)sender
+{
+    HelpProfileViewController* hPV = [[HelpProfileViewController alloc] init];
+    [self.navigationController pushViewController:hPV animated:NO];
+}
+
+-(IBAction)dashButtonTapped:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
@@ -136,7 +142,7 @@
         return;
     }
     else if(!self.mAnnualGrossIncomeField.text ||
-            self.mAnnualGrossIncomeField.text.length ||
+            !self.mAnnualGrossIncomeField.text.length ||
             ![self.mAnnualGrossIncomeField.text intValue])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
@@ -164,8 +170,8 @@
     {
         NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu",
               [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
-        
-        self.mFixedCostsController = [[FixedCostsViewController alloc] init];
+        if(!self.mFixedCostsController)
+            self.mFixedCostsController = [[FixedCostsViewController alloc] init];
         self.mFixedCostsController.mFixedCostsControllerDelegate = self;
         [self.navigationController pushViewController:self.mFixedCostsController animated:NO];
         

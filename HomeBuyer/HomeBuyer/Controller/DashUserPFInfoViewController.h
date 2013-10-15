@@ -12,13 +12,16 @@
 #import "DashLeftMenuViewController.h"
 
 @interface DashUserPFInfoViewController : DashLeftMenuViewController <HomeInfoEntryViewDelegate, LoanInfoViewDelegate>
-@property (nonatomic, strong) IBOutlet UIView* mAddAHomeViewAsButton;
+@property (nonatomic, strong) IBOutlet UIButton* mAddAHomeButton;
+@property (nonatomic, strong) IBOutlet UIButton* mAddAHomeIconButton;
+@property (nonatomic, strong) IBOutlet UIButton* mHelpButton;
+
+
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoViewController;
 
-@property (nonatomic, strong) IBOutlet UIButton* mDashImageAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView* mHelpImageAsButton;
 
--(IBAction)dashButtonTapped:(id)sender;
-
+-(IBAction)helpButtonTapped:(id)sender;
+-(IBAction)addHomeInfo:(id)sender;
+-(IBAction)addHomeIcon:(id)sender;
 @end

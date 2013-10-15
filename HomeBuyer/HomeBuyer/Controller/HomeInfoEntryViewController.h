@@ -10,29 +10,33 @@
 #import "FormViewController.h"
 #import "homeInfo.h"
 #import "APIHomeInfoService.h"
+#import "LoanInfoViewController.h"
 
-@protocol HomeInfoEntryViewDelegate <NSObject>
-@optional
--(void) loanInfoButtonTapped;
-@end
-
-@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate>
+@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate, LoanInfoViewDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
-
-@property (nonatomic) IBOutlet UIImageView*  mSingleFamilyImageAsButton;
-@property (nonatomic) IBOutlet UIImageView*  mCondoImageAsButton;
-@property (nonatomic) IBOutlet UITextField*   mBestHomeFeatureField;
-@property (nonatomic) IBOutlet UITextField*   mAskingPriceField;
-@property (nonatomic) IBOutlet UITextField*   mMontylyHOAField;
-@property (nonatomic) IBOutlet UIButton*      mHomeAddressButton;
-@property (nonatomic) IBOutlet UIView*       mLoanInfoViewAsButton;
-@property (nonatomic) IBOutlet UIView*       mCompareHomesViewAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
-
 @property (nonatomic) uint mHomeNumber;
-@property (nonatomic, weak) id <HomeInfoEntryViewDelegate> mHomeInfoEntryViewDelegate;
-
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;
--(IBAction) enterHomeAddressButtonTapped;
+@property (nonatomic, strong) LoanInfoViewController* mLoanInfoController;
 -(id) initAsHomeNumber:(uint) homeNumber;
+
+@property (nonatomic, strong) IBOutlet UIImageView*  mSingleFamilyImageAsButton;
+@property (nonatomic, strong) IBOutlet UIImageView*  mCondoImageAsButton;
+@property (nonatomic, strong) IBOutlet UITextField*   mBestHomeFeatureField;
+@property (nonatomic, strong) IBOutlet UITextField*   mAskingPriceField;
+@property (nonatomic, strong) IBOutlet UITextField*   mMontylyHOAField;
+
+@property (nonatomic, strong) IBOutlet UIButton*       mHomeAddressButton;
+-(IBAction) enterHomeAddressButtonTapped;
+
+@property (nonatomic, strong) IBOutlet UIButton*       mLoanInfoViewAsButton;
+-(IBAction)loanInfoButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*       mShowHomePayments;
+-(IBAction)showHomePaymentsButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*       mDashboardIcon;
+-(IBAction)dashButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*       mHelpButton;
+-(IBAction)helpButtonTapped:(id)sender;
 @end

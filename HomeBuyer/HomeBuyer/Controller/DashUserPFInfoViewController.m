@@ -53,20 +53,9 @@
 -(void) showHomeInfo
 {
     self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:FIRST_HOME];
-    self.mHomeInfoViewController.mHomeInfoEntryViewDelegate = self;
     [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
 }
 #pragma end
-
-#pragma HomeInfoViewDelegate
--(void) loanInfoButtonTapped
-{
-    self.mLoanInfoViewController = [[LoanInfoViewController alloc] init];
-    self.mLoanInfoViewController.mLoanInfoViewDelegate = self;
-    [self.navigationController pushViewController:self.mLoanInfoViewController animated:NO];
-}
-#pragma end
-
 
 - (void)didReceiveMemoryWarning
 {

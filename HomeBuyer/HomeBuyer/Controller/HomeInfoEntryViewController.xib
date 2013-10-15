@@ -9,13 +9,14 @@
             <connections>
                 <outlet property="mAskingPriceField" destination="iKP-gr-hUk" id="IdF-6d-Jkf"/>
                 <outlet property="mBestHomeFeatureField" destination="78p-Dd-Eox" id="2nd-sC-Cdx"/>
-                <outlet property="mCompareHomesViewAsButton" destination="t7t-eR-fWu" id="oRt-Ib-wkl"/>
                 <outlet property="mCondoImageAsButton" destination="zJk-ZI-AGX" id="74J-vK-Mxr"/>
-                <outlet property="mDashboardIcon" destination="WjS-ka-54o" id="dwx-ta-MQn"/>
+                <outlet property="mDashboardIcon" destination="L0v-88-1pZ" id="Teu-a6-HXv"/>
                 <outlet property="mFormScrollView" destination="3ey-ie-M8m" id="ZgU-nd-Vo2"/>
+                <outlet property="mHelpButton" destination="1OW-FQ-8cy" id="NQj-Xp-a8E"/>
                 <outlet property="mHomeAddressButton" destination="K4D-gI-Ifx" id="OvW-kj-jPC"/>
                 <outlet property="mLoanInfoViewAsButton" destination="VGx-Q6-CjB" id="HVP-lV-xda"/>
                 <outlet property="mMontylyHOAField" destination="bmu-pZ-zaj" id="69t-Y3-VXD"/>
+                <outlet property="mShowHomePayments" destination="t7t-eR-fWu" id="kgF-SW-JP1"/>
                 <outlet property="mSingleFamilyImageAsButton" destination="iea-NE-bGN" id="Gh9-gK-eeh"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -34,14 +35,6 @@
                         <action selector="enterHomeAddressButtonTapped" destination="-1" eventType="touchDown" id="piD-Lo-vpn"/>
                     </connections>
                 </button>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-home.png" id="WjS-ka-54o">
-                    <rect key="frame" x="20" y="518" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help.png" id="HeM-uB-1TQ">
-                    <rect key="frame" x="280" y="523" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3ey-ie-M8m">
                     <rect key="frame" x="0.0" y="86" width="320" height="342"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
@@ -127,6 +120,9 @@
                     <state key="normal" image="loaninfo.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="loanInfoButtonTapped:" destination="-1" eventType="touchDown" id="FQ3-v7-aYQ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t7t-eR-fWu">
                     <rect key="frame" x="82" y="420" width="157" height="35"/>
@@ -134,6 +130,31 @@
                     <state key="normal" title="Show Home Payments">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="showHomePaymentsButtonTapped:" destination="-1" eventType="touchDown" id="orh-AY-xv0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L0v-88-1pZ" userLabel="Button -dash">
+                    <rect key="frame" x="20" y="518" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="dashboard-profile.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dashButtonTapped:" destination="-1" eventType="touchDown" id="eKM-vT-ppn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1OW-FQ-8cy" userLabel="Button - help">
+                    <rect key="frame" x="280" y="523" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="help.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="helpButtonTapped:" destination="-1" eventType="touchDown" id="1He-XF-1HX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -144,7 +165,7 @@
     <resources>
         <image name="besthomefeature.png" width="29" height="29"/>
         <image name="condo.png" width="40" height="40"/>
-        <image name="dashboard-home.png" width="30" height="30"/>
+        <image name="dashboard-profile.png" width="30" height="30"/>
         <image name="help.png" width="20" height="20"/>
         <image name="hoa.png" width="29" height="29"/>
         <image name="homeprice.png" width="29" height="29"/>

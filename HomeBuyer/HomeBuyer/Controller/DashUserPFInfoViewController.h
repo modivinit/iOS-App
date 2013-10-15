@@ -11,7 +11,7 @@
 #import "LoanInfoViewController.h"
 #import "DashLeftMenuViewController.h"
 
-@interface DashUserPFInfoViewController : DashLeftMenuViewController <HomeInfoEntryViewDelegate, LoanInfoViewDelegate>
+@interface DashUserPFInfoViewController : DashLeftMenuViewController 
 @property (nonatomic, strong) IBOutlet UIButton* mAddAHomeButton;
 @property (nonatomic, strong) IBOutlet UIButton* mAddAHomeIconButton;
 @property (nonatomic, strong) IBOutlet UIButton* mHelpButton;

@@ -186,7 +186,8 @@
 #pragma mark FixedCostsControllerDelegate
 -(void) aboutYouFromFixedCosts
 {
-    [self.navigationController popViewControllerAnimated:NO];
+    if(self.mFixedCostsController)
+        [self.navigationController popViewControllerAnimated:NO];
 }
 #pragma end
 @end

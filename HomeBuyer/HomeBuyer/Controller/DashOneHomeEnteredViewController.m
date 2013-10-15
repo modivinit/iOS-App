@@ -86,7 +86,6 @@
 {
     uint currentCount = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
     self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:currentCount];
-    self.mHomeInfoViewController.mHomeInfoEntryViewDelegate = self;
     [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
 }
 

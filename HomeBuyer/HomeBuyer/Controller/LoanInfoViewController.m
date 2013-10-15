@@ -7,7 +7,7 @@
 //
 
 #import "LoanInfoViewController.h"
-
+#import "HelpHomeViewController.h"
 
 @interface LoanInfoViewController ()
 
@@ -15,6 +15,29 @@
 
 @implementation LoanInfoViewController
 
+-(id) initFromHomeInfoEntry:(NSNumber*) homeNumber
+{
+    self = [super init];
+    if(self)
+    {
+        if(homeNumber)
+            self.mHomeNumber = homeNumber;
+        self.mIsFromHomeEntry = YES;
+    }
+    
+    return self;
+}
+
+-(id) initFromMenu
+{
+    self = [super init];
+    if(self)
+    {
+        self.mIsFromHomeEntry = NO;
+    }
+    
+    return self;
+}
 
 -(void) updateDownPaymentFields
 {
@@ -44,6 +67,33 @@
     }
 }
 
+-(void) setupButtons
+{
+    if(self.mIsFromHomeEntry)
+    {
+        self.mHomeInfoButton.enabled = YES;
+        self.mHomeInfoButton.hidden = NO;
+        self.mShowHomePaymentsButton.enabled = YES;
+        self.mShowHomePaymentsButton.hidden = NO;
+        self.mCompareHomesButton.enabled = NO;
+        self.mCompareHomesButton.hidden = YES;
+    }
+    else
+    {
+        self.mHomeInfoButton.enabled = NO;
+        self.mHomeInfoButton.hidden = YES;
+        self.mShowHomePaymentsButton.enabled = NO;
+        self.mShowHomePaymentsButton.hidden = YES;
+        self.mCompareHomesButton.enabled = YES;
+        self.mCompareHomesButton.hidden = NO;
+    }
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+}
+
 - (void)viewDidLoad
 {
     NSString* titleText = [NSString stringWithFormat:@"Home Loan Info"];
@@ -54,12 +104,7 @@
     
     // Do any additional setup after loading the view from its nib.
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    
-    UITapGestureRecognizer* compareHomesGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(compareHomeButtonTapped:)];
-    [self.mCompareHomesViewAsButton addGestureRecognizer:compareHomesGesture];
-    
-    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
-    [self.mDashboardIcon addGestureRecognizer:dboardTap];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
 
     self.mPercentDollarValueChoice.selectedSegmentIndex = PERCENT_VALUE_DOWN_PAYMENT;
     
@@ -70,15 +115,10 @@
     self.mLoanDurationField.selectedSegmentIndex = DEFAULT_LOAN_DURATION_IN_YEARS;
     
     [self setupWithExisitingLoan];
+    [self setupButtons];
 }
 
-#pragma mark actions. gestures
--(void) dashButtonTapped
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
-}
-
--(void) compareHomeButtonTapped:(UITapGestureRecognizer*) gesture
+-(void) uploadLoanInfo
 {
     if(!self.mDownPaymentField.text || !self.mInterestRateField.text)
     {
@@ -127,36 +167,74 @@
         loanInfoService.mAPILoanInfoDelegate = self;
         
         if(!self.mCorrespondingLoan)
-       {
+        {
             if(![loanInfoService createLoanInfo:newLoanInfo])
             {
                 [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
                 return;
             }
-       }
-       else
-       {
-           if(![loanInfoService updateLoanInfo:newLoanInfo])
-           {
-               [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to update loan info"];
-               return;
-           }
-
-       }
+        }
+        else
+        {
+            if(![loanInfoService updateLoanInfo:newLoanInfo])
+            {
+                [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to update loan info"];
+                return;
+            }
+            
+        }
     }
+    
+}
 
+#pragma mark actions. gestures
+-(IBAction)dashButtonTapped:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+}
+
+-(IBAction)showHomePaymentButtonTapped:(id)sender
+{
+    [self uploadLoanInfo];
+}
+
+-(IBAction)compareHomeButtonTapped:(id)sender
+{
+    [self uploadLoanInfo];
 }
 
 -(void) percentDollarChoiceChanged
 {
     [self updateDownPaymentFields];
 }
+
+-(IBAction)helpButtonTapped:(id)sender
+{
+    HelpHomeViewController* hPV = [[HelpHomeViewController alloc] init];
+    [self.navigationController pushViewController:hPV animated:NO];
+}
+
+-(IBAction) homeInfoButtonTapped:(id)sender
+{
+    if(self.mLoanInfoViewDelegate && [self.mLoanInfoViewDelegate respondsToSelector:@selector(backToHomeInfo)])
+    {
+        [self.mLoanInfoViewDelegate backToHomeInfo];
+    }
+        
+}
 #pragma end
 
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+    if(self.mCompareHomesButton.enabled)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+    }
+    else if(self.mShowHomePaymentsButton.enabled)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayHomeDashNotification object:self.mHomeNumber];
+    }
 }
 #pragma end
 - (void)didReceiveMemoryWarning

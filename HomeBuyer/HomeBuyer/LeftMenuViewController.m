@@ -61,10 +61,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(5, 0, tableView.frame.size.width-60, 30.0)];
-    header.backgroundColor = [UIColor grayColor];
-    
+    header.backgroundColor = [UIColor colorWithRed:52/255.0 green:152/255.0 blue:219/255.0 alpha:(0.9)];
+
     UILabel *textLabel = [[UILabel alloc] initWithFrame:header.frame];
-    textLabel.backgroundColor = [UIColor grayColor];
+    textLabel.backgroundColor = [UIColor clearColor];
     textLabel.textColor = [UIColor whiteColor];
     textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     [header addSubview:textLabel];

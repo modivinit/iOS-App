@@ -283,8 +283,19 @@
         case SECTION_LOAN:
             if(indexPath.row == ROW_LOAN_INFO)
             {
+                userPFInfo* user = [kunanceUser getInstance].mkunanceUserPFInfo;
+                
                 cellText.text = @"Loan Info";
-                cellImage.image = [UIImage imageNamed:@"menu-loan-info.png"];
+                if(!user)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-loan-info-gray.png"];
+                    cellText.textColor = [UIColor grayColor];
+                }
+                else
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-loan-info.png"];
+                }
+                
             }
             break;
             
@@ -294,24 +305,37 @@
             
             if(indexPath.row == ROW_YOUR_PROFILE)
             {
-                cellText.text = @"Your Profile";
+                
                 if(!user)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-create-profile.png"];
+                    cellText.text = @"Enter Profile to Start";
                 }
                 else if(user.mMaritalStatus == StatusSingle)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-profile-single.png"];
+                    cellText.text = @"Profile & Income";
                 }
                 else if (user.mMaritalStatus == StatusMarried)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-profile-couple.png"];
+                    cellText.text = @"Profile & Income";
                 }
             }
             else if(indexPath.row == ROW_FIXED_COSTS)
             {
-                cellText.text = @"Fixed Costs";
-                cellImage.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+                
+                if(!user)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
+                    cellText.text = @"Fixed Costs";
+                    cellText.textColor = [UIColor grayColor];
+                }
+                else
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+                    cellText.text = @"Fixed Costs";
+                }
             }
         }
             break;

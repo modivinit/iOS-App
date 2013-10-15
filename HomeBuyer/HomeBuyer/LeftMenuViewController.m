@@ -61,10 +61,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(5, 0, tableView.frame.size.width-60, 30.0)];
-    header.backgroundColor = [UIColor grayColor];
-    
+    header.backgroundColor = [UIColor colorWithRed:52/255.0 green:152/255.0 blue:219/255.0 alpha:(0.9)];
+
     UILabel *textLabel = [[UILabel alloc] initWithFrame:header.frame];
-    textLabel.backgroundColor = [UIColor grayColor];
+    textLabel.backgroundColor = [UIColor clearColor];
     textLabel.textColor = [UIColor whiteColor];
     textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     [header addSubview:textLabel];
@@ -283,8 +283,19 @@
         case SECTION_LOAN:
             if(indexPath.row == ROW_LOAN_INFO)
             {
+                userPFInfo* user = [kunanceUser getInstance].mkunanceUserPFInfo;
+                
                 cellText.text = @"Loan Info";
-                cellImage.image = [UIImage imageNamed:@"menu-loan-info.png"];
+                if(!user)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-loan-info-gray.png"];
+                    cellText.textColor = [UIColor grayColor];
+                }
+                else
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-loan-info.png"];
+                }
+                
             }
             break;
             
@@ -294,24 +305,37 @@
             
             if(indexPath.row == ROW_YOUR_PROFILE)
             {
-                cellText.text = @"Your Profile";
+                
                 if(!user)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-create-profile.png"];
+                    cellText.text = @"Enter Profile to Start";
                 }
                 else if(user.mMaritalStatus == StatusSingle)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-profile-single.png"];
+                    cellText.text = @"Profile & Income";
                 }
                 else if (user.mMaritalStatus == StatusMarried)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-profile-couple.png"];
+                    cellText.text = @"Profile & Income";
                 }
             }
             else if(indexPath.row == ROW_FIXED_COSTS)
             {
-                cellText.text = @"Fixed Costs";
-                cellImage.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+                
+                if(!user)
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
+                    cellText.text = @"Fixed Costs";
+                    cellText.textColor = [UIColor grayColor];
+                }
+                else
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+                    cellText.text = @"Fixed Costs";
+                }
             }
         }
             break;

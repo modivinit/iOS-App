@@ -33,7 +33,6 @@
 		9E4DBF6B1805D04200F095F1 /* termsbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF691805D04200F095F1 /* termsbox@2x.png */; };
 		9E4DBF711805D08900F095F1 /* ContactRealtorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DBF6F1805D08900F095F1 /* ContactRealtorViewController.m */; };
 		9E4DBF721805D08900F095F1 /* ContactRealtorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF701805D08900F095F1 /* ContactRealtorViewController.xib */; };
-		9E53442017F54C48006BA12D /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		9E53442117F54C48006BA12D /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442A17F555B8006BA12D /* lifestyle-food.png */; };
 		9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */; };
@@ -150,6 +149,7 @@
 		9EE693FB1805EBD000B541DF /* aboutyou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EE693F91805EBD000B541DF /* aboutyou@2x.png */; };
 		9EEDBA66180719DD00C92976 /* currentlifestyleincome.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEDBA64180719DD00C92976 /* currentlifestyleincome.png */; };
 		9EEDBA67180719DD00C92976 /* currentlifestyleincome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEDBA65180719DD00C92976 /* currentlifestyleincome@2x.png */; };
+		9EFBA048180DB0FA00F78749 /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		D607A20917F8FB6D008E093C /* DashNoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607A20717F8FB6D008E093C /* DashNoInfoViewController.m */; };
 		D607A20A17F8FB6D008E093C /* DashNoInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607A20817F8FB6D008E093C /* DashNoInfoViewController.xib */; };
 		D607A21117F902EA008E093C /* DashUserPFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607A20F17F902EA008E093C /* DashUserPFInfoViewController.m */; };
@@ -581,13 +581,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFBA048180DB0FA00F78749 /* FFEF.framework in Frameworks */,
 				D6AE028B18055D9000797058 /* ShinobiCharts.framework in Frameworks */,
 				D6F68A641804CD3000BE5960 /* libstdc++.6.0.9.dylib in Frameworks */,
 				D6F68A621804CD2600BE5960 /* CoreText.framework in Frameworks */,
 				D6F68A601804CD1D00BE5960 /* OpenGLES.framework in Frameworks */,
 				D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */,
 				D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */,
-				9E53442017F54C48006BA12D /* FFEF.framework in Frameworks */,
 				D696EB1817D50ABA00F475F3 /* MobileCoreServices.framework in Frameworks */,
 				D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */,
 				D67EFDE917CCE1280082F6C7 /* CoreData.framework in Frameworks */,
@@ -1963,7 +1963,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/MacOS\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
@@ -1982,7 +1982,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/MacOS\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";

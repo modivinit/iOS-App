@@ -9,12 +9,13 @@
             <connections>
                 <outlet property="mAnnualGrossIncomeField" destination="Yhf-IU-clI" id="UA3-MP-ZsO"/>
                 <outlet property="mAnnualRetirementContributionField" destination="ciF-Ca-Yh5" id="l5u-xW-0N6"/>
-                <outlet property="mDashboardIcon" destination="ze7-9b-3mx" id="PSf-Xr-0lQ"/>
+                <outlet property="mDashboardButton" destination="alK-zQ-Ryl" id="1GC-7d-vfx"/>
+                <outlet property="mFixedCostsButton" destination="z6K-tW-1wY" id="qcQ-m7-kdM"/>
                 <outlet property="mFormScrollView" destination="0bh-L2-Dwl" id="NFu-rL-FlB"/>
+                <outlet property="mHelpButton" destination="OIx-0A-DPH" id="Fed-ZH-MOc"/>
                 <outlet property="mMarriedImageAsButton" destination="QiK-Q9-drf" id="J2Q-ok-RYc"/>
                 <outlet property="mNumberOfChildrenControl" destination="qYC-6V-4Ch" id="l7v-Kt-zem"/>
                 <outlet property="mSingleImageAsButton" destination="uBq-EB-gXD" id="Xns-iI-NvI"/>
-                <outlet property="mUserExpensesViewAsButton" destination="z6K-tW-1wY" id="4WK-fg-7a1"/>
                 <outlet property="view" destination="vpL-bZ-4vl" id="UKX-e8-QkF"/>
             </connections>
         </placeholder>
@@ -23,14 +24,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-profile.png" id="ze7-9b-3mx">
-                    <rect key="frame" x="20" y="518" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help.png" id="2Uh-kF-nJl">
-                    <rect key="frame" x="280" y="523" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0bh-L2-Dwl">
                     <rect key="frame" x="0.0" y="80" width="320" height="350"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
@@ -125,6 +118,28 @@
                     </state>
                     <connections>
                         <action selector="fixedCostsButtonTapped:" destination="-1" eventType="touchDown" id="j1S-te-0eh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="alK-zQ-Ryl" userLabel="Button -dash">
+                    <rect key="frame" x="20" y="518" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="dashboard-profile.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dashButtonTapped:" destination="-1" eventType="touchDown" id="OhC-RJ-wku"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OIx-0A-DPH" userLabel="Button - help">
+                    <rect key="frame" x="280" y="523" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="help.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="helpButtonTapped:" destination="-1" eventType="touchDown" id="mJX-Zh-w7L"/>
                     </connections>
                 </button>
             </subviews>

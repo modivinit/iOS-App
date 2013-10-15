@@ -41,7 +41,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
 }
 
 - (void)viewDidLoad
@@ -57,7 +56,6 @@
     // Do any additional setup after loading the view from its nib.
     
     [self addGestureRecognizers];
-    
     [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
     [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
     [self initWithExisitingFixedCosts];

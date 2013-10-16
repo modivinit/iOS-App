@@ -207,7 +207,7 @@
                 case ProfileStatusNoInfoEntered:
                 case ProfileStatusUserPersonalFinanceInfoEntered:
                 {
-                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                    cellImage.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                     cellText.textColor = [UIColor grayColor];
                     cellText.text = [NSString stringWithFormat:@"Add a Home"];
                     cell.userInteractionEnabled = NO;
@@ -222,6 +222,7 @@
                     if(indexPath.row == ROW_SECOND_HOME)
                     {
                         cellText.textColor = [UIColor grayColor];
+                        cellImage.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                         cell.userInteractionEnabled = NO;
                     }
                     break;
@@ -251,6 +252,7 @@
                            ProfileStatusUser1HomeInfoEntered)
                         {
                             cellText.textColor = [UIColor grayColor];
+                            cellImage.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                             cell.userInteractionEnabled = NO;
                         }
                     }

@@ -218,6 +218,7 @@
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
                     cellText.text = [NSString stringWithFormat:@"Add a Home"];
+                    cell.userInteractionEnabled = YES;
 
                     if(indexPath.row == ROW_SECOND_HOME)
                     {
@@ -247,6 +248,7 @@
                     {
                         cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
                         cellText.text = [NSString stringWithFormat:@"Add a Home"];
+                        cell.userInteractionEnabled = YES;
                         
                         if([kunanceUser getInstance].mUserProfileStatus ==
                            ProfileStatusUser1HomeInfoEntered)

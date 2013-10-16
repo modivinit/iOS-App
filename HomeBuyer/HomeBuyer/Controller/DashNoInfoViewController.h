@@ -14,5 +14,11 @@
 
 @interface DashNoInfoViewController : DashLeftMenuViewController //<AboutYouControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIView* mCompositeAboutYouButton;
+@property (nonatomic, strong) IBOutlet UIButton* mEnterProfileIcon;
+-(IBAction)enterProfileIconTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton* mHelpButton;
+-(IBAction)helpIconTapped:(id)sender;
+
 @property (nonatomic, strong) AboutYouViewController* mAboutYouViewController;
 @end

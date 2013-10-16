@@ -202,6 +202,7 @@
 #pragma mark Dash1HomeEnteredViewDelegate
 -(void) displayDash
 {
+    NSLog(@"ProfileStatus = %d", [kunanceUser getInstance].mUserProfileStatus);
     switch ([kunanceUser getInstance].mUserProfileStatus)
     {
         case ProfileStatusNoInfoEntered:
@@ -210,10 +211,10 @@
             break;
             
         case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
+        case ProfileStatusUser1HomeInfoEntered:
             self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
             break;
             
-        case ProfileStatusUser1HomeInfoEntered:
         case ProfileStatusUser1HomeAndLoanInfoEntered:
             self.mMainDashController = [[DashOneHomeEnteredViewController alloc] init];
             break;
@@ -333,15 +334,27 @@
         return;
     }
     
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    
     if((row == currentNumOfHomes) && currentNumOfHomes < MAX_NUMBER_OF_HOMES_PER_USER)
     {
-        HomeInfoEntryViewController* homeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
+        HomeInfoEntryViewController* homeInfoViewController =
+        [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
         [self setRootView:homeInfoViewController];
     }
     else if(row < currentNumOfHomes)
     {
-        HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc] init];
-        [self setRootView:homeDash];
+        if(status == ProfileStatusUser1HomeAndLoanInfoEntered || status == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+        {
+            HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc] init];
+            [self setRootView:homeDash];
+        }
+        else
+        {
+            HomeInfoEntryViewController* homeInfoViewController =
+            [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
+            [self setRootView:homeInfoViewController];
+        }
     }
     else if(row > currentNumOfHomes)
     {

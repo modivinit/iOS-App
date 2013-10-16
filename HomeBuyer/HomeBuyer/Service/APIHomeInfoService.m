@@ -16,8 +16,15 @@
     if(!aHomeInfo || !aHomeInfo.mIdentifiyingHomeFeature || !aHomeInfo.mHomeListPrice || !aHomeInfo.mHomeId)
         return NO;
 
+    if(self.mAPIHomeInfoDelegate && [self.mAPIHomeInfoDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
+    {
+        [self.mAPIHomeInfoDelegate finishedWritingHomeInfo];
+        return YES;
+    }
+    
     FatFractal *ff = [AppDelegate ff];
-    [ff createObj:aHomeInfo atUri:@"/HomeInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
+    [ff createObj:aHomeInfo atUri:@"/HomeInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
+    {
         // handle error, response
         if(obj)
         {

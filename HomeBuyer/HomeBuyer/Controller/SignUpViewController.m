@@ -40,6 +40,7 @@
     self.navigationController.navigationBar.topItem.title = titleText;
 
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 50)];
 
     self.mCreateAccountButton.enabled = NO;
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;
@@ -53,6 +54,7 @@
 
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
+    
     // Do any additional setup after loading the view from its nib.
 }
 

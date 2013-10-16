@@ -7,6 +7,7 @@
 //
 
 #import "DashNoInfoViewController.h"
+#import "HelpDashboardViewController.h"
 
 @interface DashNoInfoViewController ()
 
@@ -14,12 +15,14 @@
 
 @implementation DashNoInfoViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id) init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super init];
+    if(self)
+    {
+        self.mAboutYouViewController = nil;
     }
+    
     return self;
 }
 
@@ -42,11 +45,26 @@
      self.navigationController.navigationBar.topItem.title = titleText;
 }
 
+-(void) loadAboutYou
+{
+    self.mAboutYouViewController = [[AboutYouViewController alloc] init];
+    [self.navigationController pushViewController:self.mAboutYouViewController animated:YES];
+}
 #pragma mark target action functions geature recognizers
+-(IBAction)enterProfileIconTapped:(id)sender
+{
+    [self loadAboutYou];
+}
+
+-(IBAction)helpIconTapped:(id)sender
+{
+    HelpDashboardViewController* helpvc = [[HelpDashboardViewController alloc] init];
+    [self.navigationController pushViewController:helpvc animated:NO];
+}
+
 -(void) aboutYouTapped
 {
-     self.mAboutYouViewController = [[AboutYouViewController alloc] init];
-     [self.navigationController pushViewController:self.mAboutYouViewController animated:YES];
+    [self loadAboutYou];
 }
 
 - (void)didReceiveMemoryWarning

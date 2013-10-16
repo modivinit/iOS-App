@@ -88,10 +88,13 @@
     }
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+}
+
 - (void)viewDidLoad
 {
-    self.navigationController.navigationBar.topItem.title = @"Profile";
-
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mAnnualGrossIncomeField,
                         self.mAnnualRetirementContributionField, nil];
 
@@ -99,8 +102,11 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
+    
+    self.navigationController.navigationBar.topItem.title = @"Profile";
 }
 
 - (void)didReceiveMemoryWarning

@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // Custom initialization
-    CGRect rect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+20, self.view.bounds.size.width, self.view.bounds.size.height);
+    CGRect rect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+20, self.view.bounds.size.width, self.view.bounds.size.height-20);
     self.mMenuTableView = [[UITableView alloc] initWithFrame:rect
                                                        style:UITableViewStyleGrouped];
     self.mMenuTableView.dataSource = self;
@@ -111,42 +111,6 @@
         return 1.0;
 }
 
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString* header = nil;
-    switch ((int)section) {
-        case SECTION_USER_NAME:
-            break;
-            
-        case SECTION_DASH:
-            break;
-
-        case SECTION_REALTOR:
-            break;
-
-        case SECTION_HOMES:
-            header = @"Homes";
-            break;
-            
-        case SECTION_LOAN:
-            header = @"Loan";
-            break;
-            
-        case SECTION_USER_PROFILE:
-            header = @"Profile";
-            break;
-            
-        case SECTION_INFO:
-            header = @"Info";
-            break;
-            
-        default:
-            break;
-    }
-    
-    return header;
-}*/
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numOfRows = 0;
@@ -193,6 +157,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReuseIdentifier];
     }
     
+    NSLog(@"Cell value: %@", cell);
     CGRect rect = cell.frame;
     
     UIImageView* cellImage = [[UIImageView alloc]
@@ -214,7 +179,7 @@
             if(indexPath.row == ROW_DASHBOARD)
             {
                 cellText.text = @"Dashboard";
-                cellImage.image = [UIImage imageNamed:@"dashboard-help-menu.png"];
+                cellImage.image = [UIImage imageNamed:@"menu-dashboard.png"];
             }
             else if(indexPath.row == ROW_REALTOR)
             {
@@ -227,56 +192,90 @@
         {
             uint count = 0;
             homeInfo* home = nil;
-           
             if([kunanceUser getInstance].mKunanceUserHomes)
             {
                 count = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
                 home = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:indexPath.row];
             }
             homeType type = homeTypeNotDefined;
-           
+            
             if(home)
                 type = home.mHomeType;
             
-            if(indexPath.row == ROW_FIRST_HOME)
+            switch ([kunanceUser getInstance].mUserProfileStatus)
             {
-                if(count == 0)
+                case ProfileStatusNoInfoEntered:
+                case ProfileStatusUserPersonalFinanceInfoEntered:
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                    cellText.textColor = [UIColor grayColor];
+                    cellText.text = [NSString stringWithFormat:@"Add a Home"];
+                    cell.userInteractionEnabled = NO;
+                    break;
                 }
-                else if(count >= 1)
-                {
-                    if(type == homeTypeCondominium)
-                        cellImage.image = [UIImage imageNamed:@"menu-home-condo.png"];
-                    else if(type == homeTypeSingleFamily)
-                        cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
-                }
-                
-            }
-            else if(indexPath.row == ROW_SECOND_HOME)
-            {
-                if(count ==0)
-                {
-                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
-                }
-                else if(count == 1)
-                {
-                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
-                }
-                else if(count == 2)
-                {
-                    if(type == homeTypeCondominium)
-                        cellImage.image = [UIImage imageNamed:@"menu-home-condo.png"];
-                    else if(type == homeTypeSingleFamily)
-                        cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
-                }
-            }
-            
-            if(home && home.mIdentifiyingHomeFeature)
-                cellText.text = home.mIdentifiyingHomeFeature;
-            else
-                cellText.text = [NSString stringWithFormat:@"Add a Home"];
 
+                case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
+                {
+                    cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                    cellText.text = [NSString stringWithFormat:@"Add a Home"];
+
+                    if(indexPath.row == ROW_SECOND_HOME)
+                    {
+                        cellText.textColor = [UIColor grayColor];
+                        cell.userInteractionEnabled = NO;
+                    }
+                    break;
+                }
+                    
+                case ProfileStatusUser1HomeInfoEntered:
+                case ProfileStatusUser1HomeAndLoanInfoEntered:
+                {
+                    if(indexPath.row == ROW_FIRST_HOME)
+                    {
+                        if(type == homeTypeCondominium)
+                            cellImage.image = [UIImage imageNamed:@"menu-home-condo.png"];
+                        else if(type == homeTypeSingleFamily)
+                            cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+                        
+                        if(home && home.mIdentifiyingHomeFeature)
+                        {
+                            cellText.text = home.mIdentifiyingHomeFeature;
+                        }
+                    }
+                    else if(indexPath.row == ROW_SECOND_HOME)
+                    {
+                        cellImage.image = [UIImage imageNamed:@"menu-add-home.png"];
+                        cellText.text = [NSString stringWithFormat:@"Add a Home"];
+                        
+                        if([kunanceUser getInstance].mUserProfileStatus ==
+                           ProfileStatusUser1HomeInfoEntered)
+                        {
+                            cellText.textColor = [UIColor grayColor];
+                            cell.userInteractionEnabled = NO;
+                        }
+                    }
+                    
+                    break;
+                }
+                    
+                case ProfileStatusUserTwoHomesAndLoanInfoEntered:
+                {
+                    if(type == homeTypeCondominium)
+                        cellImage.image = [UIImage imageNamed:@"menu-home-condo.png"];
+                    else if(type == homeTypeSingleFamily)
+                        cellImage.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+                    
+                    if(home && home.mIdentifiyingHomeFeature)
+                    {
+                        cellText.text = home.mIdentifiyingHomeFeature;
+                    }
+
+                    break;
+                }
+                    
+                default:
+                    break;
+            }
         }
             break;
             
@@ -290,10 +289,13 @@
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-loan-info-gray.png"];
                     cellText.textColor = [UIColor grayColor];
+                    cell.userInteractionEnabled = NO;
                 }
                 else
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-loan-info.png"];
+                    cellText.textColor = [UIColor blackColor];
+                    cell.userInteractionEnabled = YES;
                 }
                 
             }
@@ -305,7 +307,6 @@
             
             if(indexPath.row == ROW_YOUR_PROFILE)
             {
-                
                 if(!user)
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-create-profile.png"];
@@ -330,11 +331,14 @@
                     cellImage.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
                     cellText.text = @"Fixed Costs";
                     cellText.textColor = [UIColor grayColor];
+                    cell.userInteractionEnabled = NO;
                 }
                 else
                 {
                     cellImage.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
                     cellText.text = @"Fixed Costs";
+                    cellText.textColor = [UIColor blackColor];
+                    cell.userInteractionEnabled = YES;
                 }
             }
         }

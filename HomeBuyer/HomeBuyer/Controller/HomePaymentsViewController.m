@@ -23,6 +23,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    homeInfo* home = [[kunanceUser getInstance].mKunanceUserHomes
+                      getHomeAtIndex:[self.mHomeNumber intValue]];
+    
+    if(home)
+    {
+        self.mHomeTitle.text = home.mIdentifiyingHomeFeature;
+        
+        if(home.mHomeType == homeTypeCondominium)
+        {
+            self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-condo.png"];
+        }
+        else if(home.mHomeType == homeTypeSingleFamily)
+        {
+            self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        }
+        
+        self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
+    }
 }
 
 - (void)didReceiveMemoryWarning

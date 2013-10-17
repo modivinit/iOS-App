@@ -15,4 +15,15 @@
 
 @interface HomePaymentsViewController : UIViewController
 @property (nonatomic, weak) id <HomePaymentsDelegate> mHomePaymentsDelegate;
+
+@property (nonatomic, strong) NSNumber* mHomeNumber;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHomeTitle;
+@property (nonatomic, strong) IBOutlet UIImageView* mCondoSFHIndicator;
+@property (nonatomic, strong) IBOutlet UILabel*  mHomeListPrice;
+@property (nonatomic, strong) IBOutlet UILabel* mTotalMonthlyPayments;
+@property (nonatomic, strong) IBOutlet UILabel* mLoanPayment;
+@property (nonatomic, strong) IBOutlet UILabel* mHOA;
+@property (nonatomic, strong) IBOutlet UILabel* mPropertyTax;
+@property (nonatomic, strong) IBOutlet UILabel* mInsurance;
 @end

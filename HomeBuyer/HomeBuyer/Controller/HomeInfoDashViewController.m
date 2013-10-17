@@ -36,6 +36,7 @@
     
     HomePaymentsViewController* viewController1 = [[HomePaymentsViewController alloc] init];
     viewController1.mHomePaymentsDelegate = self;
+    viewController1.mHomeNumber = self.mHomeNumber;
     [self.mPageViewControllers addObject:viewController1];
     
     HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
@@ -55,12 +56,15 @@
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];
     
-    self.mCompareButton = [[UIButton alloc] initWithFrame:CGRectMake(150, 430, 170, 40)];
+    self.mCompareButton = [[UIButton alloc] initWithFrame:CGRectMake(150, 470, 170, 40)];
     CGPoint buttonCenter = self.mCompareButton.center;
     self.mCompareButton.center = CGPointMake(self.view.center.x, buttonCenter.y);
     [self.mCompareButton setTitle:@"Compare" forState:UIControlStateNormal];
     self.mCompareButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
-    self.mCompareButton.titleLabel.textColor = [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    
+    self.mCompareButton.titleLabel.textColor =
+    [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    
     [self.mCompareButton addTarget:self action:@selector(compareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mCompareButton];
     

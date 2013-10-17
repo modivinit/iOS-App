@@ -16,4 +16,13 @@
 
 @interface HomeLifeStyleViewController : UIViewController
 @property (nonatomic, weak) id <HomeLifeStyleDelegate> mHomeLifeStyleDelegate;
+@property (nonatomic, strong) NSNumber* mHomeNumber;
+
+@property (nonatomic, strong) IBOutlet UIImageView* mCondoSFHIndicator;
+@property (nonatomic, strong) IBOutlet UILabel* mCondoSFHLabel;
+@property (nonatomic, strong) IBOutlet UILabel* mHomeListPrice;
+@property (nonatomic, strong) IBOutlet UILabel* mHomeLifeStyleIncome;
+@property (nonatomic, strong) IBOutlet UILabel* mEstIncomeTaxes;
+@property (nonatomic, strong) IBOutlet UILabel* mFixedCosts;
+
 @end

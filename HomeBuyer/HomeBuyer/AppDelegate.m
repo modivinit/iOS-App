@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <FFEF/FatFractal.h>
+#import <ShinobiCharts/ShinobiChart.h>
 
 @interface AppDelegate ()
 @end

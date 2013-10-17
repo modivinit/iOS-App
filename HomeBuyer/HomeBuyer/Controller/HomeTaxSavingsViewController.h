@@ -14,4 +14,7 @@
 
 @interface HomeTaxSavingsViewController : UIViewController
 @property (nonatomic, weak) id <HomeTaxSavingsViewDelegate> mHomeTaxSavingsDelegate;
+@property (nonatomic, strong) IBOutlet UILabel* mEstTaxSavings;
+@property (nonatomic, strong) IBOutlet UILabel* mEstTaxesPaidWithHome;
+@property (nonatomic, strong) IBOutlet UILabel* mEstTaxPaidWithRental;
 @end

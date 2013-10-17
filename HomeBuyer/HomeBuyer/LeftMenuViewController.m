@@ -168,7 +168,7 @@
         case ProfileStatusNoInfoEntered:
         case ProfileStatusUserPersonalFinanceInfoEntered:
         {
-            cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
+            cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
             cell.textLabel.textColor = [UIColor grayColor];
             cell.textLabel.text = [NSString stringWithFormat:@"Add a Home"];
             cell.userInteractionEnabled = NO;
@@ -179,10 +179,12 @@
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
             cell.textLabel.text = [NSString stringWithFormat:@"Add a Home"];
-            
+            cell.userInteractionEnabled = YES;
+
             if(indexPath.row == ROW_SECOND_HOME)
             {
                 cell.textLabel.textColor = [UIColor grayColor];
+                cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                 cell.userInteractionEnabled = NO;
             }
             break;
@@ -203,22 +205,25 @@
                     cell.textLabel.text = home.mIdentifiyingHomeFeature;
                 }
             }
+
             else if(indexPath.row == ROW_SECOND_HOME)
             {
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add a Home"];
-                
+                cell.userInteractionEnabled = YES;
+
                 if([kunanceUser getInstance].mUserProfileStatus ==
                    ProfileStatusUser1HomeInfoEntered)
                 {
                     cell.textLabel.textColor = [UIColor grayColor];
+                    cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                     cell.userInteractionEnabled = NO;
                 }
             }
             
             break;
         }
-            
+
         case ProfileStatusUserTwoHomesAndLoanInfoEntered:
         {
             if(type == homeTypeCondominium)

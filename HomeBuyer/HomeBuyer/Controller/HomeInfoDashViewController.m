@@ -102,8 +102,9 @@
 
 -(void) editHome
 {
-    HomeInfoEntryViewController* homeEntry = [[HomeInfoEntryViewController alloc] init];
-    [self.navigationController presentViewController:homeEntry animated:NO completion:nil];
+    HomeInfoEntryViewController* homeEntry = [[HomeInfoEntryViewController alloc]
+                                              initAsHomeNumber:[self.mHomeNumber intValue]];
+    [self.navigationController pushViewController:homeEntry animated:NO];
 }
 
 -(void) compareButtonTapped

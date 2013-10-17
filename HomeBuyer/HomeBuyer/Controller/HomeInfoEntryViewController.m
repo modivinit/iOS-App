@@ -40,7 +40,8 @@
             [self selectCondominuim];
         
         if(self.mCorrespondingHomeInfo.mHomeListPrice)
-            self.mAskingPriceField.text = [NSString stringWithFormat:@"%llu", self.mCorrespondingHomeInfo.mHomeListPrice];
+            self.mAskingPriceField.text =
+            [NSString stringWithFormat:@"%llu", self.mCorrespondingHomeInfo.mHomeListPrice];
         
         if(self.mCorrespondingHomeInfo.mIdentifiyingHomeFeature)
             self.mBestHomeFeatureField.text = self.mCorrespondingHomeInfo.mIdentifiyingHomeFeature;
@@ -117,11 +118,7 @@
     [self setupButtons];
     [self addExistingHomeInfo];
     
-    if(self.mHomeNumber == FIRST_HOME)
-        self.navigationController.navigationBar.topItem.title = @"First Home Info";
-    else if(self.mHomeNumber == SECOND_HOME)
-        self.navigationController.navigationBar.topItem.title = @"Second Home Info";
-
+    self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
 }
 
 -(void) uploadHomeInfo

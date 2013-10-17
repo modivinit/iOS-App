@@ -149,12 +149,10 @@
 		9EE693FB1805EBD000B541DF /* aboutyou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EE693F91805EBD000B541DF /* aboutyou@2x.png */; };
 		9EEDBA66180719DD00C92976 /* currentlifestyleincome.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEDBA64180719DD00C92976 /* currentlifestyleincome.png */; };
 		9EEDBA67180719DD00C92976 /* currentlifestyleincome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEDBA65180719DD00C92976 /* currentlifestyleincome@2x.png */; };
-		9EFBA048180DB0FA00F78749 /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		9EFBA04B180DBB5300F78749 /* menu-fixedcosts-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFBA049180DBB5300F78749 /* menu-fixedcosts-gray.png */; };
 		9EFBA04C180DBB5300F78749 /* menu-fixedcosts-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFBA04A180DBB5300F78749 /* menu-fixedcosts-gray@2x.png */; };
 		9EFBA04F180DBCD400F78749 /* menu-loan-info-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFBA04D180DBCD400F78749 /* menu-loan-info-gray.png */; };
 		9EFBA050180DBCD400F78749 /* menu-loan-info-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFBA04E180DBCD400F78749 /* menu-loan-info-gray@2x.png */; };
-
 		D607A20917F8FB6D008E093C /* DashNoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607A20717F8FB6D008E093C /* DashNoInfoViewController.m */; };
 		D607A20A17F8FB6D008E093C /* DashNoInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607A20817F8FB6D008E093C /* DashNoInfoViewController.xib */; };
 		D607A21117F902EA008E093C /* DashUserPFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607A20F17F902EA008E093C /* DashUserPFInfoViewController.m */; };
@@ -162,6 +160,7 @@
 		D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D618859E17FB572300ABEA3E /* APIHomeInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = D618859D17FB572300ABEA3E /* APIHomeInfoService.m */; };
+		D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981C180F5D900067EC2C /* MenuOptionCell.m */; };
 		D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F317FCB47D00E50E44 /* APILoanInfoService.m */; };
 		D63EA1FA17FCF42900E50E44 /* RentVsBuyDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* RentVsBuyDashViewController.m */; };
 		D63EA1FB17FCF42900E50E44 /* RentVsBuyDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1F917FCF42900E50E44 /* RentVsBuyDashViewController.xib */; };
@@ -441,6 +440,8 @@
 		D610B4FD17D15E5500C6EE4A /* kunanceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kunanceUser.m; path = Model/kunanceUser.m; sourceTree = "<group>"; };
 		D618859C17FB572300ABEA3E /* APIHomeInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIHomeInfoService.h; path = Service/APIHomeInfoService.h; sourceTree = "<group>"; };
 		D618859D17FB572300ABEA3E /* APIHomeInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIHomeInfoService.m; path = Service/APIHomeInfoService.m; sourceTree = "<group>"; };
+		D639981B180F5D900067EC2C /* MenuOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuOptionCell.h; path = View/MenuOptionCell.h; sourceTree = "<group>"; };
+		D639981C180F5D900067EC2C /* MenuOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuOptionCell.m; path = View/MenuOptionCell.m; sourceTree = "<group>"; };
 		D63EA1F217FCB47D00E50E44 /* APILoanInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APILoanInfoService.h; path = Service/APILoanInfoService.h; sourceTree = "<group>"; };
 		D63EA1F317FCB47D00E50E44 /* APILoanInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APILoanInfoService.m; path = Service/APILoanInfoService.m; sourceTree = "<group>"; };
 		D63EA1F717FCF42900E50E44 /* RentVsBuyDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RentVsBuyDashViewController.h; path = Controller/RentVsBuyDashViewController.h; sourceTree = "<group>"; };
@@ -1267,6 +1268,8 @@
 				9ECDB7F617FF55AB004E5F25 /* menu-terms-and-policies.png */,
 				9ECDB7F717FF55AB004E5F25 /* menu-terms-and-policies@2x.png */,
 				D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */,
+				D639981B180F5D900067EC2C /* MenuOptionCell.h */,
+				D639981C180F5D900067EC2C /* MenuOptionCell.m */,
 			);
 			name = LeftMenu;
 			sourceTree = "<group>";
@@ -1817,6 +1820,7 @@
 				D6C88B3017DA7B1600DEA25D /* LoginViewController.m in Sources */,
 				D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
+				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeRentVsBuyViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,

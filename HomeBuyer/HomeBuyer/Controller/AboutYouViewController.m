@@ -106,7 +106,7 @@
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
     
-    self.navigationController.navigationBar.topItem.title = @"Profile";
+    self.navigationItem.title = @"Profile";
 }
 
 - (void)didReceiveMemoryWarning

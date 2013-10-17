@@ -346,7 +346,8 @@
     {
         if(status == ProfileStatusUser1HomeAndLoanInfoEntered || status == ProfileStatusUserTwoHomesAndLoanInfoEntered)
         {
-            HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc] init];
+            HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc]
+                                                    initWithHomeNumber:[NSNumber numberWithInt:row]];
             [self setRootView:homeDash];
         }
         else

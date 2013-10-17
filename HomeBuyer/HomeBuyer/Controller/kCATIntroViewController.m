@@ -47,7 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     CGRect pageBound = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
-                                  self.view.bounds.size.width, self.view.bounds.size.height - 50);
+                                  self.view.bounds.size.width, self.view.bounds.size.height);
     self.pageController.view.frame = pageBound;
     self.pageController.view.backgroundColor = [UIColor clearColor];
 

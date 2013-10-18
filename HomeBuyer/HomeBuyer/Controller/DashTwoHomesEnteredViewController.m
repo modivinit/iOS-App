@@ -40,7 +40,7 @@
     
     HomesComparisionViewController* viewController2 = [[HomesComparisionViewController alloc] init];
     viewController2.mHomesComparisionDelegate = self;
-    [self.mPageViewControllers addObject: viewController2];
+    //[self.mPageViewControllers addObject: viewController2];
     
     TwoHomeRentVsBuyViewController* viewController3 = [[TwoHomeRentVsBuyViewController alloc] init];
     viewController3.mTwoHomeRentVsBuyDelegate = self;

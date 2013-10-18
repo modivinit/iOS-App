@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwoHomeRentVsBuyViewController">
             <connections>
+                <outlet property="mHome1LifeStyleIncome" destination="1Mw-SU-ai5" id="kI3-qZ-XHs"/>
+                <outlet property="mHome2LifeStyleIncome" destination="sU2-3F-CCv" id="lmP-g1-2fe"/>
+                <outlet property="mRentalLifeStyleIncome" destination="y0B-DO-bN4" id="Xqn-BK-lYV"/>
                 <outlet property="view" destination="ljL-pQ-g8F" id="nJO-uU-f6s"/>
             </connections>
         </placeholder>
@@ -15,10 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-aE-cWp">
-                    <rect key="frame" x="60" y="80" width="200" height="160"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu-home-condo.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIN-Df-Hfd">
                     <rect key="frame" x="46" y="307" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,7 +85,6 @@
         </view>
     </objects>
     <resources>
-        <image name="download.jpeg" width="259" height="194"/>
         <image name="menu-home-condo.png" width="25" height="25"/>
         <image name="menu-home-sfh.png" width="25" height="25"/>
         <image name="rent.png" width="29" height="29"/>

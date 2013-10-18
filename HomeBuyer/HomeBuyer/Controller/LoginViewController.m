@@ -29,7 +29,7 @@
     NSString* titleText = [NSString stringWithFormat:@"Sign In"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
-//    self.mFormFields = [[NSArray alloc] initWithObjects:self.mLoginEmail, self.mPassword, nil];
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mLoginEmail, self.mPassword, nil];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

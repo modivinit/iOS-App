@@ -31,10 +31,10 @@
 -(void) setupChart
 {
     // create the data
-    homeTaxPayments[0] = @{@"Rental" : @1800};
-    homeTaxPayments[1] = @{@"1st home" : @1400};
-    homeTaxPayments[2] =  @{@"2nd home" : @1275};
-    
+    homeTaxPayments[0] = @{@"Tax Savings" : @1234};
+    homeTaxPayments[1] = @{@"Tax Savings" : @5678};
+    homeTaxPayments[2] = @{@"Tax Savings" : @3453};
+
     self.mTaxesPaidChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
     
     self.mTaxesPaidChart.autoresizingMask =  ~UIViewAutoresizingNone;

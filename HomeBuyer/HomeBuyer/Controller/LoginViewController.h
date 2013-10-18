@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FormViewController.h"
+#import "FormNoScrollViewViewController.h"
 
 @protocol LoginDelegate <NSObject>
 -(void) loggedInUserSuccessfully;
@@ -15,7 +15,7 @@
 -(void) cancelLoginScreen;
 @end
 
-@interface LoginViewController : UIViewController<UITextFieldDelegate>
+@interface LoginViewController : FormNoScrollViewViewController<UITextFieldDelegate>
 @property (nonatomic, weak) id <LoginDelegate> mLoginDelegate;
 
 @property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;

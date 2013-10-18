@@ -62,8 +62,7 @@
     [self.mCompareButton setTitle:@"Compare" forState:UIControlStateNormal];
     self.mCompareButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
     
-    self.mCompareButton.titleLabel.textColor =
-    [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    self.mCompareButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
     
     [self.mCompareButton addTarget:self action:@selector(compareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mCompareButton];

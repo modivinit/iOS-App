@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad
 {
-//    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
     
     [super viewDidLoad];
     
@@ -42,11 +42,17 @@
     self.navigationItem.leftBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
-//    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-//    [self.mFormScrollView setContentOffset:CGPointMake(0, 50)];
-
     self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
     self.mCreateAccountButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    
+    UIButton* joinButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    [joinButton setTitle:@"Join" forState:UIControlStateNormal];
+    [joinButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchDown];
+    joinButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    joinButton.titleLabel.textColor = [UIColor whiteColor];
+    joinButton.backgroundColor = [Utilities getKunanceBlueColor];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:joinButton];
     
     self.mCreateAccountButton.enabled = NO;
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;

@@ -19,6 +19,11 @@
     [alert show];
 }
 
++(UIColor*) getKunanceBlueColor
+{
+    return [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+}
+
 +(BOOL) isUITextFieldEmpty:(UITextField*) aTextField
 {
     if(aTextField && ![aTextField.text isEqualToString:@""])

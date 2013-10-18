@@ -37,7 +37,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.text = @"Compare income tax savings across homes before you buy.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
-    label.textColor = [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];
 
 }

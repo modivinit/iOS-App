@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FormViewController.h"
+#import "FormNoScrollViewViewController.h"
 
 @protocol SignUpDelegate <NSObject>
 -(void) userSignedUpSuccessfully;
@@ -15,6 +15,6 @@
 -(void) cancelSignUpScreen;
 @end
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+@interface SignUpViewController : FormNoScrollViewViewController <UITextFieldDelegate>
 @property (nonatomic, weak) id <SignUpDelegate> mSignUpDelegate;
 @end

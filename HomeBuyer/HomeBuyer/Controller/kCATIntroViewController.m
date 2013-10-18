@@ -34,8 +34,7 @@
     [self.mSignInButton addTarget:self action:@selector(signInButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignInButton setTitle:@"Sign In" forState:UIControlStateNormal];
     self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    self.mSignInButton.titleLabel.textColor =
-    [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    self.mSignInButton.titleLabel.textColor = [Utilities getKunanceBlueColor];;
     [self.pageController.view addSubview:self.mSignInButton];
     
     self.mSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 520, 100, 44)];
@@ -43,8 +42,7 @@
     [self.mSignUpButton addTarget:self action:@selector(signUpButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignUpButton setTitle:@"Create Account" forState:UIControlStateNormal];
     self.mSignUpButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    self.mSignUpButton.titleLabel.textColor =
-    [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    self.mSignUpButton.titleLabel.textColor = [Utilities getKunanceBlueColor];;
     [self.pageController.view addSubview:self.mSignInButton];
 
     [self.pageController.view addSubview:self.mSignUpButton];
@@ -87,7 +85,6 @@
 willTransitionToViewControllers:(NSArray *)pendingViewControllers
 {
     NSString* imageName = [NSString stringWithFormat:@"home-interior_0%d.jpg", ((UIViewController*)pendingViewControllers[0]).view.tag+1];
-    NSLog(@"willTransitionToViewControllers %@", imageName);
     self.mBackground.image = [UIImage imageNamed:imageName];
 }
 #pragma end

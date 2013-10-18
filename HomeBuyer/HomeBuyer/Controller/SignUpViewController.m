@@ -64,9 +64,6 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
 
-//    self.navigationItem.leftBarButtonItem = nil;
-//    self.navigationItem.hidesBackButton = YES;
-    
     // Do any additional setup after loading the view from its nib.
 }
 

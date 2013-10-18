@@ -47,6 +47,15 @@
     self.navigationItem.leftBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
+    UIButton* joinButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    [joinButton setTitle:@"Login" forState:UIControlStateNormal];
+    [joinButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];
+    joinButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    joinButton.titleLabel.textColor = [UIColor whiteColor];
+    joinButton.backgroundColor = [Utilities getKunanceBlueColor];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:joinButton];
+
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
     self.mSignInFooterBUtton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
     self.mSignUpFooterButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
@@ -54,9 +63,6 @@
 
     [self disableLoginButton];
     
-//    self.navigationController.navigationItem.leftBarButtonItem = nil;
-//    self.navigationItem.hidesBackButton = YES;
-
     // Do any additional setup after loading the view from its nib.
 }
 

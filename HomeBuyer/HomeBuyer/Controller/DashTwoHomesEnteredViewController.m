@@ -10,6 +10,7 @@
 #import "HelpDashboardViewController.h"
 #import "ContactRealtorViewController.h"
 
+
 @interface DashTwoHomesEnteredViewController ()
 
 @end
@@ -44,6 +45,10 @@
     TwoHomeRentVsBuyViewController* viewController3 = [[TwoHomeRentVsBuyViewController alloc] init];
     viewController3.mTwoHomeRentVsBuyDelegate = self;
     [self.mPageViewControllers addObject:viewController3];
+    
+    TwoHomeTaxSavingsViewController* viewController4 = [[TwoHomeTaxSavingsViewController alloc] init];
+    viewController4.mTwoHomeTaxSavingsDelegate = self;
+    [self.mPageViewControllers addObject:viewController4];
 }
 
 - (void)viewDidLoad

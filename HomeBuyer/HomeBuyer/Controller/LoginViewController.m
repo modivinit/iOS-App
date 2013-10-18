@@ -47,6 +47,7 @@
     self.navigationItem.leftBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
+    [self.mLoginEmail becomeFirstResponder];
     UIButton* joinButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [joinButton setTitle:@"Login" forState:UIControlStateNormal];
     [joinButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];

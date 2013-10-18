@@ -48,14 +48,14 @@
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
     [self.mLoginEmail becomeFirstResponder];
-    UIButton* joinButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    [joinButton setTitle:@"Login" forState:UIControlStateNormal];
-    [joinButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];
-    joinButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    joinButton.titleLabel.textColor = [UIColor whiteColor];
-    joinButton.backgroundColor = [Utilities getKunanceBlueColor];
+    self.mLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    [self.mLoginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [self.mLoginButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];
+    self.mLoginButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.mLoginButton.titleLabel.textColor = [UIColor whiteColor];
+    self.mLoginButton.backgroundColor = [Utilities getKunanceBlueColor];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:joinButton];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mLoginButton];
 
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
     self.mSignInFooterBUtton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
@@ -149,17 +149,26 @@
 #pragma mark - UITextField
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    //if(textField == self.mPassword)
+    int futurePasswordLength = 0;
+    if(textField == self.mPassword)
     {
-        NSLog(@"Password lenght: %d, email length: %d", self.mPassword.text.length, self.mLoginEmail.text.length);
-        if(self.mPassword.text.length >= 5 && self.mLoginEmail.text.length > 0)
+        if([string isEqualToString:@""])
         {
-            [self enableLoginButton];
+            futurePasswordLength = self.mPassword.text.length -1;
         }
         else
         {
-            [self disableLoginButton];
+            futurePasswordLength = self.mPassword.text.length +1;
         }
+    }
+    
+    if(futurePasswordLength >= 6 && self.mLoginEmail.text.length > 0)
+    {
+        [self enableLoginButton];
+    }
+    else
+    {
+        [self disableLoginButton];
     }
     
     return YES;

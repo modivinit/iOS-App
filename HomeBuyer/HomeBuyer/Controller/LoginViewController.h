@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;
 @property (nonatomic, strong) IBOutlet UITextField* mPassword;
-@property (nonatomic, strong) IBOutlet UIButton*    mLoginButton;
+@property (nonatomic, strong) UIButton*    mLoginButton;
 @property (nonatomic, strong) IBOutlet UIButton*    mSignInFooterBUtton;
 @property (nonatomic, strong) IBOutlet UIButton*    mSignUpFooterButton;
 

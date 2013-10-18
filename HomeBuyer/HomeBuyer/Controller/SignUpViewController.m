@@ -158,17 +158,27 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    int futurePasswordLength = 0;
     if(textField == self.mPasswordField)
     {
-        if(self.mPasswordField.text.length == 5 && self.mNameField.text.length > 0 &&
-           self.mEmailField.text.length > 0)
+        if([string isEqualToString:@""])
         {
-            [self enableRegisterButton];
+            futurePasswordLength = self.mPasswordField.text.length -1;
         }
         else
         {
-            [self disableRegisterButton];
+            futurePasswordLength = self.mPasswordField.text.length +1;
         }
+    }
+    
+    if(futurePasswordLength >= 6 && self.mNameField.text.length > 0 &&
+       self.mEmailField.text.length > 0)
+    {
+        [self enableRegisterButton];
+    }
+    else
+    {
+        [self disableRegisterButton];
     }
     
     return YES;

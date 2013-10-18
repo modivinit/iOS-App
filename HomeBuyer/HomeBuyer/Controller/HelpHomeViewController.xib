@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpHomeViewController">
             <connections>
                 <outlet property="mDashButton" destination="ESt-cW-ofW" id="X1K-G0-3mW"/>
-                <outlet property="mHelpButton" destination="y6M-Ar-aCg" id="axU-vO-2fO"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -61,16 +60,6 @@ Loan term: Years of the mortgage. Note: if adjustable, please insert the entire 
                         <action selector="dashButtonPressed:" destination="-1" eventType="touchDown" id="8pl-p5-ftv"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6M-Ar-aCg" userLabel="Button - help">
-                    <rect key="frame" x="280" y="523" width="20" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="help.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="helpButtonTapped:" destination="-1" eventType="touchDown" id="LZC-w0-ArD"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -79,7 +68,6 @@ Loan term: Years of the mortgage. Note: if adjustable, please insert the entire 
     </objects>
     <resources>
         <image name="dashboard-home.png" width="30" height="30"/>
-        <image name="help.png" width="20" height="20"/>
         <image name="helpbox.png" width="278" height="417"/>
     </resources>
 </document>

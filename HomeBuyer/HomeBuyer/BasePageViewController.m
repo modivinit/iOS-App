@@ -50,10 +50,9 @@
 {
     [super viewDidLoad];
     
-//    UIPageControl *pageControl = [UIPageControl appearance];
-//    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-//    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    //pageControl.backgroundColor = [UIColor blueColor];
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     
 //    if(self.mPageNibNames && self.mPageNibNames.count > 0)
 //    {

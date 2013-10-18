@@ -29,6 +29,8 @@
 		9E237BE41811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
 		9E4872611811EB2300B417F9 /* sign-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E48725F1811EB2300B417F9 /* sign-up.png */; };
 		9E4872621811EB2300B417F9 /* sign-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872601811EB2300B417F9 /* sign-up@2x.png */; };
+		9E4872651811EC0B00B417F9 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872631811EC0B00B417F9 /* login.png */; };
+		9E4872661811EC0B00B417F9 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872641811EC0B00B417F9 /* login@2x.png */; };
 		9E4B1D131805FE1B00D3D39C /* loaninfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D111805FE1B00D3D39C /* loaninfo.png */; };
 		9E4B1D141805FE1B00D3D39C /* loaninfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */; };
 		9E4B1D17180600EC00D3D39C /* homeinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D15180600EC00D3D39C /* homeinfo.png */; };
@@ -329,6 +331,8 @@
 		9E237BE21811A7CB0095B66B /* cocon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cocon.ttf; sourceTree = "<group>"; };
 		9E48725F1811EB2300B417F9 /* sign-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up.png"; sourceTree = "<group>"; };
 		9E4872601811EB2300B417F9 /* sign-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up@2x.png"; sourceTree = "<group>"; };
+		9E4872631811EC0B00B417F9 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		9E4872641811EC0B00B417F9 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
 		9E4B1D111805FE1B00D3D39C /* loaninfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loaninfo.png; sourceTree = "<group>"; };
 		9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loaninfo@2x.png"; sourceTree = "<group>"; };
 		9E4B1D15180600EC00D3D39C /* homeinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeinfo.png; sourceTree = "<group>"; };
@@ -1264,6 +1268,8 @@
 		D6C88B2517DA6D7900DEA25D /* Login/SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				9E4872631811EC0B00B417F9 /* login.png */,
+				9E4872641811EC0B00B417F9 /* login@2x.png */,
 				9E48725F1811EB2300B417F9 /* sign-up.png */,
 				9E4872601811EB2300B417F9 /* sign-up@2x.png */,
 				D6C88B3217DA7B3000DEA25D /* SignUpViewController.xib */,
@@ -1730,6 +1736,7 @@
 				9E53443817F555B8006BA12D /* lifestyle-sports.png in Resources */,
 				D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */,
 				9EA5D3FB17F1627300CE7BD8 /* location.png in Resources */,
+				9E4872651811EC0B00B417F9 /* login.png in Resources */,
 				9E53443417F555B8006BA12D /* lifestyle-music.png in Resources */,
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
@@ -1820,6 +1827,7 @@
 				9ECCAD9E17F0E724001EAF4C /* sfh-dash.png in Resources */,
 				D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */,
 				9ECDB7FE17FF55AB004E5F25 /* menu-empty.png in Resources */,
+				9E4872661811EC0B00B417F9 /* login@2x.png in Resources */,
 				9EA5D40D17F162DE00CE7BD8 /* downpayment@2x.png in Resources */,
 				9ECDED7C1803B34100F2449E /* appname.png in Resources */,
 				9EA5D3E617F15DC500CE7BD8 /* homeprice.png in Resources */,

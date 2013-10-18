@@ -24,6 +24,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" id="HyT-oA-EIg">
+                    <rect key="frame" x="0.0" y="429" width="320" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0bh-L2-Dwl">
                     <rect key="frame" x="0.0" y="80" width="320" height="350"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
@@ -74,7 +78,7 @@
                             </segments>
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </segmentedControl>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Combine all income sources." minimumFontSize="17" id="Yhf-IU-clI">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Combine all income sources." minimumFontSize="17" clearButtonMode="always" id="Yhf-IU-clI">
                             <rect key="frame" x="60" y="210" width="226" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -98,7 +102,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Combine across all contributions." minimumFontSize="17" id="ciF-Ca-Yh5">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Combine across all contributions." minimumFontSize="17" clearButtonMode="always" id="ciF-Ca-Yh5">
                             <rect key="frame" x="60" y="290" width="229" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -106,6 +110,14 @@
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="savings.png" id="n69-af-RKE">
                             <rect key="frame" x="20" y="290" width="34" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" id="LgQ-Wb-yU7">
+                            <rect key="frame" x="20" y="175" width="300" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" id="JHc-k8-RVR">
+                            <rect key="frame" x="20" y="255" width="300" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -154,6 +166,9 @@
         <image name="dashboard-profile.png" width="30" height="30"/>
         <image name="fixedcosts.png" width="94" height="22"/>
         <image name="help.png" width="20" height="20"/>
+        <image name="line.png" width="320" height="1"/>
+        <image name="line.png" width="320" height="1"/>
+        <image name="line.png" width="320" height="1"/>
         <image name="salary.png" width="29" height="29"/>
         <image name="savings.png" width="29" height="29"/>
         <image name="single.png" width="40" height="40"/>

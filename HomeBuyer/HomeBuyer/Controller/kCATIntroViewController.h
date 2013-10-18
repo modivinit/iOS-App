@@ -14,9 +14,10 @@
 -(void) signupFromIntro;
 @end
 
-@interface kCATIntroViewController : BasePageViewController
+@interface kCATIntroViewController : BasePageViewController <UIPageViewControllerDelegate>
 @property (nonatomic, strong) UIButton* mSignInButton;
 @property (nonatomic, strong) UIButton* mSignUpButton;
+@property (nonatomic, strong) UIImageView* mBackground;
 
 @property (nonatomic, weak) id <kCATIntroViewDelegate> mkCATIntroDelegate;
 -(void)signInButtonTapped:(id)sender;

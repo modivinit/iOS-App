@@ -27,6 +27,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImage.image = [UIImage imageNamed:@"home-interior_01.jpg"];
+    [self.view addSubview:backImage];
+    
+    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 46, 150, 31)];
+    appName.center = CGPointMake(self.view.center.x, appName.center.y);
+    appName.image = [UIImage imageNamed:@"appname.png"];
+    [self.view addSubview:appName];
+    
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 121, 237, 40)];
+    label.center = CGPointMake(self.view.center.x, label.center.y);
+    label.numberOfLines = 2;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"Discover a home that matches your lifestyle.";
+    label.font = [UIFont fontWithName:@"cocon" size:16];
+    label.textColor = [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning

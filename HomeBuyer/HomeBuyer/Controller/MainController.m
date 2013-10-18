@@ -166,15 +166,27 @@
 -(void) presentLoginViewController
 {
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     loginViewController.mLoginDelegate = self;
-    [self setRootView:loginViewController];
+    
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:navController];
+    }
 }
 
 -(void) presentSignupViewController
 {
     self.mSignUpViewController = [[SignUpViewController alloc] init];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:self.mSignUpViewController];
+
     self.mSignUpViewController.mSignUpDelegate = self;
-    [self setRootView:self.mSignUpViewController];
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:navController];
+    }
 }
 
 #pragma mark kCATIntroDelegate

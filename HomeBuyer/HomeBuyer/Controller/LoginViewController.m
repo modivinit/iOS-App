@@ -29,7 +29,7 @@
     NSString* titleText = [NSString stringWithFormat:@"Sign In"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
-    self.mFormFields = [[NSArray alloc] initWithObjects:self.mLoginEmail, self.mPassword, nil];
+//    self.mFormFields = [[NSArray alloc] initWithObjects:self.mLoginEmail, self.mPassword, nil];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -44,16 +44,18 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
-    self.navigationItem.rightBarButtonItem =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                  target:self
-                                                  action:@selector(cancelScreen)];
+    self.navigationItem.leftBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
+    self.mSignInFooterBUtton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    self.mSignUpFooterButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    
+
     [self disableLoginButton];
     
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
+//    self.navigationController.navigationItem.leftBarButtonItem = nil;
+//    self.navigationItem.hidesBackButton = YES;
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -133,7 +135,7 @@
 
 -(void)dismissKeyboard
 {
-    [self.mActiveField resignFirstResponder];
+    //[self.mActiveField resignFirstResponder];
 }
 #pragma end
 

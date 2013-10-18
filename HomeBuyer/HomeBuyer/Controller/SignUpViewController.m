@@ -32,21 +32,22 @@
 
 - (void)viewDidLoad
 {
-    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+//    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
     
     [super viewDidLoad];
     
     NSString* titleText = [NSString stringWithFormat:@"Create Account"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
-    self.navigationItem.rightBarButtonItem =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                  target:self
-                                                  action:@selector(cancelScreen)];
+    self.navigationItem.leftBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 50)];
+//    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+//    [self.mFormScrollView setContentOffset:CGPointMake(0, 50)];
 
+    self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    self.mCreateAccountButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    
     self.mCreateAccountButton.enabled = NO;
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;
     
@@ -57,8 +58,8 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
 
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
+//    self.navigationItem.leftBarButtonItem = nil;
+//    self.navigationItem.hidesBackButton = YES;
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -89,7 +90,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-    [self deregisterForKeyboardNotifications];
+    //[self deregisterForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning

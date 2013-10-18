@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="mCreateAccountButton" destination="7qE-Pv-CSk" id="Mcg-dM-wZa"/>
                 <outlet property="mEmailField" destination="sZZ-rB-cNZ" id="bYW-AB-VxV"/>
-                <outlet property="mFormScrollView" destination="vmg-8p-RrU" id="rph-Z3-1EM"/>
                 <outlet property="mNameField" destination="u18-4Q-11r" id="rg5-nJ-uxE"/>
                 <outlet property="mPasswordField" destination="hwm-NM-GRx" id="krm-6u-Hbx"/>
                 <outlet property="mRealtorCodeField" destination="3gb-gm-4n2" id="kpS-6v-gSV"/>

@@ -15,6 +15,6 @@
 -(void) cancelSignUpScreen;
 @end
 
-@interface SignUpViewController : FormViewController <UITextFieldDelegate>
+@interface SignUpViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic, weak) id <SignUpDelegate> mSignUpDelegate;
 @end

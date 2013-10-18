@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BasePageViewDelegate <NSObject>
+-(void) changedToPage:(uint) index;
+@end
+
 @interface BasePageViewController : UIViewController <UIPageViewControllerDataSource>
 @property (nonatomic, strong) NSArray* mPageNibNames;
 @property (nonatomic, strong) UIPageViewController* pageController;
 @property (nonatomic, strong) NSMutableArray* mPageViewControllers;
+@property (nonatomic, strong) UIImageView* mbackground;
+@property (nonatomic, weak) id <BasePageViewDelegate> mBasePageViewDelegate;
 @end

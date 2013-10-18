@@ -33,7 +33,7 @@
     [self.mSignInButton setBackgroundColor:[UIColor clearColor]];
     [self.mSignInButton addTarget:self action:@selector(signInButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignInButton setTitle:@"Sign In" forState:UIControlStateNormal];
-    self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
     self.mSignInButton.titleLabel.textColor =
     [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
     [self.pageController.view addSubview:self.mSignInButton];
@@ -42,7 +42,7 @@
     [self.mSignUpButton setBackgroundColor:[UIColor clearColor]];
     [self.mSignUpButton addTarget:self action:@selector(signUpButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignUpButton setTitle:@"Create Account" forState:UIControlStateNormal];
-    self.mSignUpButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.mSignUpButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
     self.mSignUpButton.titleLabel.textColor =
     [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
     [self.pageController.view addSubview:self.mSignInButton];
@@ -56,9 +56,6 @@
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
     UIViewController* viewController1 = [[kCATIntroAffordViewController alloc] init];
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 580)];
-    imageView.image = [UIImage imageNamed:@"home-interior_01.jpg"];
-   // [viewController1.view addSubview:imageView];
     [self.mPageViewControllers addObject:viewController1];
     
     viewController1 = [[kCATIntroLifestyleViewController alloc] init];
@@ -69,21 +66,31 @@
     
     viewController1 = [[kCATIntroRVBViewController alloc] init];
     [self.mPageViewControllers addObject:viewController1];
-    
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor clearColor];
-    
+
+    self.mBackground = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    self.mBackground.image = [UIImage imageNamed:@"home-interior_01.jpg"];
+    [self.view addSubview:self.mBackground];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    CGRect pageBound = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
-                                  self.view.bounds.size.width, self.view.bounds.size.height);
-    self.pageController.view.frame = pageBound;
+    self.pageController.delegate = self;
+    
+    [[self.pageController view] setFrame:[[self view] bounds]];
     self.pageController.view.backgroundColor = [UIColor clearColor];
 
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [self addButtons];
+    
 }
+
+#pragma mark UIPageViewControllerDelegate
+- (void)pageViewController:(UIPageViewController *)pageViewController
+willTransitionToViewControllers:(NSArray *)pendingViewControllers
+{
+    NSString* imageName = [NSString stringWithFormat:@"home-interior_0%d.jpg", ((UIViewController*)pendingViewControllers[0]).view.tag+1];
+    NSLog(@"willTransitionToViewControllers %@", imageName);
+    self.mBackground.image = [UIImage imageNamed:imageName];
+}
+#pragma end
 
 -(void)signInButtonTapped:(id)sender
 {

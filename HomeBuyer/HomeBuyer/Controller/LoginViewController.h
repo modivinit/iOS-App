@@ -15,7 +15,7 @@
 -(void) cancelLoginScreen;
 @end
 
-@interface LoginViewController : FormViewController<UITextFieldDelegate>
+@interface LoginViewController : UIViewController<UITextFieldDelegate>
 @property (nonatomic, weak) id <LoginDelegate> mLoginDelegate;
 
 @property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;

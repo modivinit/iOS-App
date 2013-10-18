@@ -39,6 +39,11 @@
     NSString* titleText = [NSString stringWithFormat:@"Create Account"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                  target:self
+                                                  action:@selector(cancelScreen)];
+
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
     [self.mFormScrollView setContentOffset:CGPointMake(0, 50)];
 
@@ -56,6 +61,14 @@
     self.navigationItem.hidesBackButton = YES;
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void) cancelScreen
+{
+    if(self.mSignUpDelegate && [self.mSignUpDelegate respondsToSelector:@selector(cancelSignUpScreen)])
+    {
+        [self.mSignUpDelegate cancelSignUpScreen];
+    }
 }
 
 -(void)dismissKeyboard{

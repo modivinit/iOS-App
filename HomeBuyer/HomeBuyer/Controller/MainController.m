@@ -71,19 +71,6 @@
     }
 }
 
--(void) showIntroScreens
-{
-    self.mIntroView = [[kCATIntroViewController alloc] init];
-    self.mIntroView.mkCATIntroDelegate = self;
-
-    if(self.mMainControllerDelegate &&
-       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
-    {
-        [self.mMainControllerDelegate resetRootView:self.mIntroView];
-    }
-
-}
-
 -(void) loginSavedUser
 {
     __block NSString* email = nil;
@@ -113,6 +100,23 @@
     }
 }
 
+-(void) readUserPFInfo
+{
+    if(self.mAPIUserInfoService)
+        [self.mAPIUserInfoService readUserPFInfo];
+}
+
+-(void) savedUserLoggedInSuccessfully
+{
+    [self readUserPFInfo];
+}
+
+-(void) failedToLoginSavedUser
+{
+    //show login screen here
+    [self presentLoginViewController];
+}
+
 -(void) logUserOut
 {
     [[kunanceUser getInstance] logoutUser];
@@ -126,6 +130,18 @@
         NSNumber* homeNumber = (NSNumber*) notice.object;
         HomeInfoDashViewController* homeInfoDash = [[HomeInfoDashViewController alloc] initWithHomeNumber:homeNumber];
         [self setRootView:homeInfoDash];
+    }
+}
+
+-(void) showIntroScreens
+{
+    self.mIntroView = [[kCATIntroViewController alloc] init];
+    self.mIntroView.mkCATIntroDelegate = self;
+    
+    if(self.mMainControllerDelegate &&
+      [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+       [self.mMainControllerDelegate resetRootView:self.mIntroView];
     }
 }
 
@@ -146,22 +162,6 @@
     }
 }
 
--(void) readUserPFInfo
-{
-    if(self.mAPIUserInfoService)
-        [self.mAPIUserInfoService readUserPFInfo];
-}
-
--(void) savedUserLoggedInSuccessfully
-{
-    [self readUserPFInfo];
-}
-
--(void) failedToLoginSavedUser
-{
-    //show login screen here
-    [self presentLoginViewController];
-}
 
 -(void) presentLoginViewController
 {
@@ -237,6 +237,11 @@
     [self readUserPFInfo];
 }
 
+-(void) cancelLoginScreen
+{
+    [self showIntroScreens];
+}
+
 -(void) signupButtonPressed
 {
     if(self.mLoginViewController)
@@ -254,6 +259,11 @@
 {
     //Display the dashboard
     [self displayDash];
+}
+
+-(void) cancelSignUpScreen
+{
+    [self showIntroScreens];
 }
 
 -(void) loadSignInClicked

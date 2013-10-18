@@ -12,6 +12,7 @@
 @protocol LoginDelegate <NSObject>
 -(void) loggedInUserSuccessfully;
 -(void) signupButtonPressed;
+-(void) cancelLoginScreen;
 @end
 
 @interface LoginViewController : FormViewController<UITextFieldDelegate>

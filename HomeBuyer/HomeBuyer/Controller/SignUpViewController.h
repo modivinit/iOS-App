@@ -12,6 +12,7 @@
 @protocol SignUpDelegate <NSObject>
 -(void) userSignedUpSuccessfully;
 -(void) loadSignInClicked;
+-(void) cancelSignUpScreen;
 @end
 
 @interface SignUpViewController : FormViewController <UITextFieldDelegate>

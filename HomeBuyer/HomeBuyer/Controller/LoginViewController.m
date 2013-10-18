@@ -44,6 +44,11 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                  target:self
+                                                  action:@selector(cancelScreen)];
+
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
     [self disableLoginButton];
     
@@ -105,6 +110,14 @@
 
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
+-(void) cancelScreen
+{
+    if(self.mLoginDelegate && [self.mLoginDelegate respondsToSelector:@selector(cancelLoginScreen)])
+    {
+        [self.mLoginDelegate cancelLoginScreen];
+    }
+}
+
 -(IBAction) loginButtonPressed:(id)sender
 {
     [self loginUser];

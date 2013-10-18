@@ -15,10 +15,10 @@
 @end
 
 @interface kCATIntroViewController : BasePageViewController
-@property (nonatomic, strong) IBOutlet UIButton* mSignInButton;
-@property (nonatomic, strong) IBOutlet UIButton* mSignUpButton;
+@property (nonatomic, strong) UIButton* mSignInButton;
+@property (nonatomic, strong) UIButton* mSignUpButton;
 
 @property (nonatomic, weak) id <kCATIntroViewDelegate> mkCATIntroDelegate;
--(IBAction)signInButtonTapped:(id)sender;
--(IBAction)signUpButtonTapped:(id)sender;
+-(void)signInButtonTapped:(id)sender;
+-(void)signUpButtonTapped:(id)sender;
 @end

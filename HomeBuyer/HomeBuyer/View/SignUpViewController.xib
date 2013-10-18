@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-up.png" id="Yws-L2-fws">
-                    <rect key="frame" x="0.0" y="80" width="320" height="160"/>
+                    <rect key="frame" x="0.0" y="97" width="320" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JEL-Sr-Ynd">
@@ -42,52 +42,52 @@
                     <state key="normal" title="Create Account"/>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="For your profile." minimumFontSize="17" id="hsL-1G-0fQ">
-                    <rect key="frame" x="100" y="84" width="200" height="30"/>
+                    <rect key="frame" x="100" y="104" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HJS-qv-77r">
-                    <rect key="frame" x="20" y="90" width="64" height="17"/>
+                    <rect key="frame" x="20" y="110" width="64" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="We don't spam." minimumFontSize="17" id="jKA-3h-3vH">
-                    <rect key="frame" x="100" y="124" width="200" height="30"/>
+                    <rect key="frame" x="100" y="149" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress" returnKeyType="next"/>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZHY-JT-Xwk">
-                    <rect key="frame" x="20" y="130" width="35" height="17"/>
+                    <rect key="frame" x="20" y="155" width="35" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="At least 6 characters." minimumFontSize="17" id="hhi-Fl-KnA">
-                    <rect key="frame" x="100" y="164" width="200" height="30"/>
+                    <rect key="frame" x="100" y="194" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="join"/>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hd1-yq-FRD">
-                    <rect key="frame" x="20" y="170" width="62" height="17"/>
+                    <rect key="frame" x="20" y="200" width="62" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Optional. Shared by Realtor." minimumFontSize="17" id="i2x-9n-aIP">
-                    <rect key="frame" x="100" y="204" width="200" height="30"/>
+                    <rect key="frame" x="100" y="239" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="join"/>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realtor ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gdf-4Q-M9U">
-                    <rect key="frame" x="20" y="210" width="63" height="17"/>
+                    <rect key="frame" x="20" y="245" width="63" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -101,7 +101,7 @@
                     </items>
                 </navigationBar>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking Join I agree to the Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dYr-8p-KLC">
-                    <rect key="frame" x="42" y="248" width="237" height="10"/>
+                    <rect key="frame" x="42" y="298" width="237" height="10"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -191,6 +191,6 @@
         </scrollView>
     </objects>
     <resources>
-        <image name="sign-up.png" width="320" height="160"/>
+        <image name="sign-up.png" width="320" height="185"/>
     </resources>
 </document>

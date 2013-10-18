@@ -27,8 +27,8 @@
 		9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */; };
 		9E237BE31811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
 		9E237BE41811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
-		9E4872351811DE1C00B417F9 /* sign-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872331811DE1C00B417F9 /* sign-up.png */; };
-		9E4872361811DE1C00B417F9 /* sign-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872341811DE1C00B417F9 /* sign-up@2x.png */; };
+		9E4872511811E7A900B417F9 /* sign-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E48724F1811E7A900B417F9 /* sign-up.png */; };
+		9E4872521811E7A900B417F9 /* sign-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872501811E7A900B417F9 /* sign-up@2x.png */; };
 		9E4B1D131805FE1B00D3D39C /* loaninfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D111805FE1B00D3D39C /* loaninfo.png */; };
 		9E4B1D141805FE1B00D3D39C /* loaninfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */; };
 		9E4B1D17180600EC00D3D39C /* homeinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B1D15180600EC00D3D39C /* homeinfo.png */; };
@@ -326,8 +326,8 @@
 		9E237BDE1811A0910095B66B /* home-interior_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01.jpg"; sourceTree = "<group>"; };
 		9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01@2x.jpg"; sourceTree = "<group>"; };
 		9E237BE21811A7CB0095B66B /* cocon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cocon.ttf; sourceTree = "<group>"; };
-		9E4872331811DE1C00B417F9 /* sign-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up.png"; sourceTree = "<group>"; };
-		9E4872341811DE1C00B417F9 /* sign-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up@2x.png"; sourceTree = "<group>"; };
+		9E48724F1811E7A900B417F9 /* sign-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up.png"; sourceTree = "<group>"; };
+		9E4872501811E7A900B417F9 /* sign-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up@2x.png"; sourceTree = "<group>"; };
 		9E4B1D111805FE1B00D3D39C /* loaninfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loaninfo.png; sourceTree = "<group>"; };
 		9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loaninfo@2x.png"; sourceTree = "<group>"; };
 		9E4B1D15180600EC00D3D39C /* homeinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeinfo.png; sourceTree = "<group>"; };
@@ -1261,8 +1261,8 @@
 		D6C88B2517DA6D7900DEA25D /* Login/SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				9E4872331811DE1C00B417F9 /* sign-up.png */,
-				9E4872341811DE1C00B417F9 /* sign-up@2x.png */,
+				9E48724F1811E7A900B417F9 /* sign-up.png */,
+				9E4872501811E7A900B417F9 /* sign-up@2x.png */,
 				D6C88B3217DA7B3000DEA25D /* SignUpViewController.xib */,
 				D6C88B3317DA7B3000DEA25D /* LoginViewController.xib */,
 			);
@@ -1686,7 +1686,7 @@
 				9E4B1D131805FE1B00D3D39C /* loaninfo.png in Resources */,
 				9E0DB87618075BCC00B5184E /* logo-svl.gif in Resources */,
 				9ECDB80A17FF55AB004E5F25 /* menu-logout.png in Resources */,
-				9E4872361811DE1C00B417F9 /* sign-up@2x.png in Resources */,
+				9E4872521811E7A900B417F9 /* sign-up@2x.png in Resources */,
 				9ECCAD5A17F0CBFC001EAF4C /* forward-icon@2x.png in Resources */,
 				9E4B1D141805FE1B00D3D39C /* loaninfo@2x.png in Resources */,
 				9E0DB87718075BCC00B5184E /* logo-svl@2x.gif in Resources */,
@@ -1716,7 +1716,7 @@
 				D6C3AAF418036FB200123260 /* DashOneHomeEnteredViewController.xib in Resources */,
 				D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */,
 				9ECDB80017FF55AB004E5F25 /* menu-fixedcosts.png in Resources */,
-				9E4872351811DE1C00B417F9 /* sign-up.png in Resources */,
+				9E4872511811E7A900B417F9 /* sign-up.png in Resources */,
 				9EA5D3CE17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib in Resources */,
 				9EA5D3E717F15DC500CE7BD8 /* homeprice@2x.png in Resources */,
 				9EFBA050180DBCD400F78749 /* menu-loan-info-gray@2x.png in Resources */,

@@ -48,10 +48,11 @@ typedef enum {
 
 typedef enum{
     ProfileStatusNoInfoEntered = 0,
-    ProfileStatusUserPersonalFinanceInfoEntered,
-    ProfileStatusUser1HomeInfoEntered,
-    ProfileStatusUser1HomeAndLoanInfoEntered,
-    ProfileStatusUser2HomesButNoLoanEntered, //This can only be an intermidiate state
-    ProfileStatusUserTwoHomesAndLoanInfoEntered,
+    ProfileStatusUserPersonalFinanceInfoEntered,  //1
+    ProfileStatusPersonalFinanceAndFixedCostsInfoEntered, //2
+    ProfileStatusUser1HomeInfoEntered,  //3
+    ProfileStatusUser1HomeAndLoanInfoEntered, //4
+    ProfileStatusUser2HomesButNoLoanEntered, //5 This can only be an intermidiate state
+    ProfileStatusUserTwoHomesAndLoanInfoEntered, //6
 }kunanceUserProfileStatus;
 #endif

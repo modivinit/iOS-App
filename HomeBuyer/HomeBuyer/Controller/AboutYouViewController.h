@@ -10,13 +10,12 @@
 #import "userPFInfo.h"
 #import "FormViewController.h"
 #import "APIUserInfoService.h"
+#import "FixedCostsViewController.h"
 
-@protocol AboutYouControllerDelegate <NSObject>
--(void) userExpensesButtonTapped;
-@end
-
-@interface AboutYouViewController : FormViewController <APIUserInfoServiceDelegate>
+@interface AboutYouViewController : FormViewController
+<APIUserInfoServiceDelegate, FixedCostsControllerDelegate>
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
+@property (nonatomic, strong) FixedCostsViewController* mFixedCostsController;
 
 @property (nonatomic) IBOutlet UIImageView*  mMarriedImageAsButton;
 @property (nonatomic) IBOutlet UIImageView*  mSingleImageAsButton;
@@ -24,9 +23,12 @@
 @property (nonatomic) IBOutlet UITextField*   mAnnualRetirementContributionField;
 @property (nonatomic) IBOutlet UISegmentedControl* mNumberOfChildrenControl;
 
-@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
+@property (nonatomic, strong) IBOutlet UIButton*  mDashboardButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mHelpButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mFixedCostsButton;
 
-@property (nonatomic) IBOutlet UIView*  mUserExpensesViewAsButton;
+-(IBAction)fixedCostsButtonTapped:(id)sender;
+-(IBAction)dashButtonTapped:(id)sender;
+-(IBAction)helpButtonTapped:(id)sender;
 
-@property (nonatomic, weak) id <AboutYouControllerDelegate> mAboutYouControllerDelegate;
 @end

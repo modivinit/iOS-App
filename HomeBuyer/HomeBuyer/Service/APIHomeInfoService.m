@@ -17,7 +17,8 @@
         return NO;
 
     FatFractal *ff = [AppDelegate ff];
-    [ff createObj:aHomeInfo atUri:@"/HomeInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
+    [ff createObj:aHomeInfo atUri:@"/HomeInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
+    {
         // handle error, response
         if(obj)
         {

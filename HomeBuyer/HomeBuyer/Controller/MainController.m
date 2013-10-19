@@ -71,19 +71,6 @@
     }
 }
 
--(void) showIntroScreens
-{
-    self.mIntroView = [[kCATIntroViewController alloc] init];
-    self.mIntroView.mkCATIntroDelegate = self;
-
-    if(self.mMainControllerDelegate &&
-       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
-    {
-        [self.mMainControllerDelegate resetRootView:self.mIntroView];
-    }
-
-}
-
 -(void) loginSavedUser
 {
     __block NSString* email = nil;
@@ -91,6 +78,8 @@
     
     if([[kunanceUser getInstance] getUserEmail:&email andPassword:&password])
     {
+        __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
+        
         FatFractal *ff = [AppDelegate ff];
         [ff loginWithUserName:email andPassword:password
                    onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
@@ -108,85 +97,10 @@
             {
                 [self failedToLoginSavedUser];
             }
+            
+            [actIndicator stopAnimating];
 
         }];
-    }
-}
-
--(void) logUserOut
-{
-    [[kunanceUser getInstance] logoutUser];
-    [self showIntroScreens];
-}
-
--(void)displayHomeDash:(NSNotification*) notice
-{
-    if(notice)
-    {
-        NSNumber* homeNumber = (NSNumber*) notice.object;
-        HomeInfoDashViewController* homeInfoDash = [[HomeInfoDashViewController alloc] initWithHomeNumber:homeNumber];
-        [self setRootView:homeInfoDash];
-    }
-}
-
-#pragma mark kCATIntroDelegate
--(void) signInFromIntro
-{
-    [self presentLoginViewController];
-}
-
--(void) signupFromIntro
-{
-    [self presentSignupViewController];
-}
-#pragma end
-
-#pragma mark DashNoInfoViewDelegate
-#pragma mark DashUserPFInfoDelegate
-#pragma mark Dash1HomeEnteredViewDelegate
--(void) displayDash
-{
-    switch ([kunanceUser getInstance].mUserProfileStatus)
-    {
-        case ProfileStatusNoInfoEntered:
-            self.mMainDashController = [[DashNoInfoViewController alloc] init];
-            break;
-            
-        case ProfileStatusUserPersonalFinanceInfoEntered:
-            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
-            break;
-            
-        case ProfileStatusUser1HomeInfoEntered:
-        case ProfileStatusUser1HomeAndLoanInfoEntered:
-            self.mMainDashController = [[DashOneHomeEnteredViewController alloc] init];
-            break;
-            
-        case ProfileStatusUserTwoHomesAndLoanInfoEntered:
-            self.mMainDashController = [[DashTwoHomesEnteredViewController alloc] init];
-            break;
-            
-        default:
-            break;
-    }
-    
-    [self setRootView:self.mMainDashController];
-}
-#pragma end
-
--(void) setRootView:(UIViewController*) viewController
-{
-    self.mFrontViewController = [[UINavigationController alloc]
-                                 initWithRootViewController:viewController];
-    
-    //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
-    self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
-                                                                     leftViewController:self.mLeftMenuViewController
-                                                                    rightViewController:nil
-                                                                                options:nil];
-    if(self.mMainControllerDelegate &&
-       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
-    {
-        [self.mMainControllerDelegate resetRootView:self.revealController];
     }
 }
 
@@ -207,24 +121,141 @@
     [self presentLoginViewController];
 }
 
+-(void) logUserOut
+{
+    [[kunanceUser getInstance] logoutUser];
+    [self showIntroScreens];
+}
+
+-(void)displayHomeDash:(NSNotification*) notice
+{
+    if(notice)
+    {
+        NSNumber* homeNumber = (NSNumber*) notice.object;
+        HomeInfoDashViewController* homeInfoDash = [[HomeInfoDashViewController alloc] initWithHomeNumber:homeNumber];
+        [self setRootView:homeInfoDash];
+    }
+}
+
+-(void) showIntroScreens
+{
+    self.mIntroView = [[kCATIntroViewController alloc] init];
+    self.mIntroView.mkCATIntroDelegate = self;
+    
+    if(self.mMainControllerDelegate &&
+      [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+       [self.mMainControllerDelegate resetRootView:self.mIntroView];
+    }
+}
+
+-(void) setRootView:(UIViewController*) viewController
+{
+    self.mFrontViewController = [[UINavigationController alloc]
+                                 initWithRootViewController:viewController];
+    
+    //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
+                                                                     leftViewController:self.mLeftMenuViewController
+                                                                    rightViewController:nil
+                                                                                options:nil];
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:self.revealController];
+    }
+}
+
+
 -(void) presentLoginViewController
 {
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     loginViewController.mLoginDelegate = self;
-    [self setRootView:loginViewController];
+    
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:navController];
+    }
 }
 
 -(void) presentSignupViewController
 {
     self.mSignUpViewController = [[SignUpViewController alloc] init];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:self.mSignUpViewController];
+
     self.mSignUpViewController.mSignUpDelegate = self;
-    [self setRootView:self.mSignUpViewController];
+    if(self.mMainControllerDelegate &&
+       [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
+    {
+        [self.mMainControllerDelegate resetRootView:navController];
+    }
 }
+
+#pragma mark kCATIntroDelegate
+-(void) signInFromIntro
+{
+    [self presentLoginViewController];
+}
+
+-(void) signupFromIntro
+{
+    [self presentSignupViewController];
+}
+#pragma end
+
+#pragma mark FixedCostsControllerDelegate
+-(void) aboutYouFromFixedCosts
+{
+    AboutYouViewController* aboutYouViewController = [[AboutYouViewController alloc] init];
+    [self setRootView:aboutYouViewController];
+}
+#pragma end
+
+#pragma mark DashNoInfoViewDelegate
+#pragma mark DashUserPFInfoDelegate
+#pragma mark Dash1HomeEnteredViewDelegate
+-(void) displayDash
+{
+    NSLog(@"ProfileStatus = %d", [kunanceUser getInstance].mUserProfileStatus);
+    switch ([kunanceUser getInstance].mUserProfileStatus)
+    {
+        case ProfileStatusNoInfoEntered:
+        case ProfileStatusUserPersonalFinanceInfoEntered:
+            self.mMainDashController = [[DashNoInfoViewController alloc] init];
+            break;
+            
+        case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
+        case ProfileStatusUser1HomeInfoEntered:
+            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
+            break;
+            
+        case ProfileStatusUser1HomeAndLoanInfoEntered:
+            self.mMainDashController = [[DashOneHomeEnteredViewController alloc] init];
+            break;
+            
+        case ProfileStatusUserTwoHomesAndLoanInfoEntered:
+            self.mMainDashController = [[DashTwoHomesEnteredViewController alloc] init];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self setRootView:self.mMainDashController];
+}
+#pragma end
 
 #pragma mark LoginDelegate
 -(void) loggedInUserSuccessfully
 {
     [self readUserPFInfo];
+}
+
+-(void) cancelLoginScreen
+{
+    [self showIntroScreens];
 }
 
 -(void) signupButtonPressed
@@ -244,6 +275,11 @@
 {
     //Display the dashboard
     [self displayDash];
+}
+
+-(void) cancelSignUpScreen
+{
+    [self showIntroScreens];
 }
 
 -(void) loadSignInClicked
@@ -294,14 +330,6 @@
 }
 #pragma end
 
-#pragma mark AboutYouDelegate
--(void) userExpensesButtonTapped
-{
-    FixedCostsViewController* fixedCostsViewController = [[FixedCostsViewController alloc] init];
-    [self setRootView:fixedCostsViewController];
-}
-#pragma end
-
 -(void) handleUserMenu:(NSInteger) row
 {
     switch (row) {
@@ -332,15 +360,28 @@
         return;
     }
     
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    
     if((row == currentNumOfHomes) && currentNumOfHomes < MAX_NUMBER_OF_HOMES_PER_USER)
     {
-        HomeInfoEntryViewController* homeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
+        HomeInfoEntryViewController* homeInfoViewController =
+        [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
         [self setRootView:homeInfoViewController];
     }
     else if(row < currentNumOfHomes)
     {
-        HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc] init];
-        [self setRootView:homeDash];
+        if(status == ProfileStatusUser1HomeAndLoanInfoEntered || status == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+        {
+            HomeInfoDashViewController* homeDash = [[HomeInfoDashViewController alloc]
+                                                    initWithHomeNumber:[NSNumber numberWithInt:row]];
+            [self setRootView:homeDash];
+        }
+        else
+        {
+            HomeInfoEntryViewController* homeInfoViewController =
+            [[HomeInfoEntryViewController alloc] initAsHomeNumber:row];
+            [self setRootView:homeInfoViewController];
+        }
     }
     else if(row > currentNumOfHomes)
     {
@@ -365,7 +406,6 @@
         case ROW_YOUR_PROFILE:
         {
             AboutYouViewController* aboutYouViewController = [[AboutYouViewController alloc] init];
-            aboutYouViewController.mAboutYouControllerDelegate = self;
             [self setRootView:aboutYouViewController];
         }
             break;
@@ -373,6 +413,7 @@
         case ROW_FIXED_COSTS:
         {
             FixedCostsViewController* fixedCostsViewController = [[FixedCostsViewController alloc] init];
+            fixedCostsViewController.mFixedCostsControllerDelegate = self;
             [self setRootView:fixedCostsViewController];
         }
             break;

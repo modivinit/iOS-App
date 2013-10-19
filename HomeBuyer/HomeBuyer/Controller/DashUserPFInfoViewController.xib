@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashUserPFInfoViewController">
             <connections>
-                <outlet property="mAddAHomeViewAsButton" destination="t5z-ww-ulW" id="hef-xN-gGe"/>
-                <outlet property="mDashImageAsButton" destination="k16-De-liG" id="hG9-gT-cLf"/>
-                <outlet property="mHelpImageAsButton" destination="9nc-Ti-OSg" id="D05-rq-Sth"/>
+                <outlet property="mAddAHomeButton" destination="IsJ-fQ-wST" id="mHV-Di-SX1"/>
+                <outlet property="mAddAHomeIconButton" destination="2Na-1v-1Ro" id="A1u-Yt-Vad"/>
+                <outlet property="mHelpButton" destination="cdN-m2-0Sf" id="dWr-WN-JgG"/>
                 <outlet property="view" destination="3Jn-H6-qR6" id="LNn-Ad-q1k"/>
             </connections>
         </placeholder>
@@ -18,38 +18,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5z-ww-ulW">
-                    <rect key="frame" x="105" y="490" width="120" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="forward-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bih-ft-T63">
-                            <rect key="frame" x="106" y="5" width="10" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add A Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8a-Nt-mMw">
-                            <rect key="frame" x="8" y="5" width="92" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-food.png" translatesAutoresizingMaskIntoConstraints="NO" id="sR7-zy-OWf">
-                    <rect key="frame" x="43" y="149" width="29" height="25"/>
+                    <rect key="frame" x="43" y="155" width="29" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="surfing.png" translatesAutoresizingMaskIntoConstraints="NO" id="dUE-pJ-SGb">
-                    <rect key="frame" x="93" y="146" width="29" height="28"/>
+                    <rect key="frame" x="93" y="152" width="29" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-shopping.png" translatesAutoresizingMaskIntoConstraints="NO" id="E35-SS-CEL">
-                    <rect key="frame" x="146" y="149" width="29" height="25"/>
+                    <rect key="frame" x="146" y="155" width="29" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-music.png" translatesAutoresizingMaskIntoConstraints="NO" id="NTu-EB-cjg">
-                    <rect key="frame" x="196" y="146" width="29" height="28"/>
+                    <rect key="frame" x="196" y="152" width="29" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-sports.png" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-ZW-sOz">
@@ -57,25 +39,31 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monthly money for food, travel, shopping, entertainment, sports, etc. Includes Rent." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="266" translatesAutoresizingMaskIntoConstraints="NO" id="42r-rI-Tyc">
-                    <rect key="frame" x="27" y="182" width="266" height="33"/>
+                    <rect key="frame" x="27" y="188" width="266" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-nd-2XE" userLabel="Dash No Info">
-                    <rect key="frame" x="0.0" y="260" width="320" height="200"/>
+                    <rect key="frame" x="0.0" y="252" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfh-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-FN-lFQ">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Na-1v-1Ro">
                             <rect key="frame" x="140" y="10" width="36" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-beach-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="qBh-qv-Dtx">
+                            <state key="normal" image="sfh-dash.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addHomeIcon:" destination="-1" eventType="touchDown" id="7WN-2B-gEB"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifestyle-beach-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="qBh-qv-Dtx">
                             <rect key="frame" x="92" y="129" width="40" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="compare-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-ZR-CPp">
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="compare-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-ZR-CPp">
                             <rect key="frame" x="180" y="127" width="40" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -91,38 +79,44 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doubledownarrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="OHD-S4-eaL">
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doubledownarrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="OHD-S4-eaL">
                             <rect key="frame" x="144" y="86" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="9nc-Ti-OSg">
-                    <rect key="frame" x="265" y="518" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <view alpha="0.15000000596046448" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw6-XL-ilK">
-                    <rect key="frame" x="94" y="70" width="132" height="45"/>
+                    <rect key="frame" x="94" y="76" width="132" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$3,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-hb-7SB">
-                    <rect key="frame" x="123" y="79" width="74" height="28"/>
+                    <rect key="frame" x="123" y="85" width="74" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                     <color key="textColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k16-De-liG">
-                    <rect key="frame" x="20" y="518" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsJ-fQ-wST" userLabel="Button - add a home">
+                    <rect key="frame" x="117" y="468" width="87" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="dashboard-dashboard.png">
+                    <state key="normal" image="addahome.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="dashButtonTapped:" destination="-1" eventType="touchDown" id="PfM-7J-fjl"/>
+                        <action selector="addHomeInfo:" destination="-1" eventType="touchDown" id="Pld-EZ-osD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-m2-0Sf" userLabel="Button - help">
+                    <rect key="frame" x="280" y="523" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="help.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="helpButtonTapped:" destination="-1" eventType="touchDown" id="ZZl-8F-PID"/>
                     </connections>
                 </button>
             </subviews>
@@ -132,10 +126,9 @@
         </view>
     </objects>
     <resources>
+        <image name="addahome.png" width="87" height="22"/>
         <image name="compare-dash.png" width="40" height="36"/>
-        <image name="dashboard-dashboard.png" width="30" height="30"/>
         <image name="doubledownarrow.png" width="30" height="30"/>
-        <image name="forward-icon.png" width="10" height="20"/>
         <image name="help.png" width="20" height="20"/>
         <image name="lifestyle-beach-dash.png" width="40" height="34"/>
         <image name="lifestyle-food.png" width="29" height="25"/>

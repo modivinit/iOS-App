@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -16,10 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-o0-ttV">
-                    <rect key="frame" x="280" y="523" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1n8-Qn-aFx">
                     <rect key="frame" x="20" y="75" width="280" height="420"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,7 +28,7 @@
                             <rect key="frame" x="15" y="15" width="250" height="390"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <mutableString key="text">Current Lifestyle Income:
+                            <string key="text">Current Lifestyle Income:
 Monthly money for food, entertainment, travel, gas, savings, etc. after your fixed expenses (including taxes and rent) are factored in.
 
 Future Home Lifestyle Income: 
@@ -48,7 +44,7 @@ Property Taxes:  This amount only includes your deductible property taxes, which
 
 Insurance:  Home owners insurance the specific property. 
 
-Rent vs. Buy:  This screen compares your lifestyle income of your current renting lifestyle versus what it would be if you were to purchase a home.</mutableString>
+Rent vs. Buy:  This screen compares your lifestyle income of your current renting lifestyle versus what it would be if you were to purchase a home.</string>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -74,7 +70,6 @@ Rent vs. Buy:  This screen compares your lifestyle income of your current rentin
     </objects>
     <resources>
         <image name="dashboard-dashboard.png" width="30" height="30"/>
-        <image name="help.png" width="20" height="20"/>
         <image name="helpbox.png" width="278" height="417"/>
     </resources>
 </document>

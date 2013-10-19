@@ -7,6 +7,7 @@
 //
 
 #import "HomeInfoEntryViewController.h"
+#import "HelpHomeViewController.h"
 
 @interface HomeInfoEntryViewController ()
 
@@ -22,6 +23,7 @@
         // Custom initialization
         self.mSelectedHomeType = homeTypeNotDefined;
         self.mHomeNumber = homeNumber;
+        self.mLoanInfoController = nil;
     }
 
     return self;
@@ -38,7 +40,8 @@
             [self selectCondominuim];
         
         if(self.mCorrespondingHomeInfo.mHomeListPrice)
-            self.mAskingPriceField.text = [NSString stringWithFormat:@"%llu", self.mCorrespondingHomeInfo.mHomeListPrice];
+            self.mAskingPriceField.text =
+            [NSString stringWithFormat:@"%llu", self.mCorrespondingHomeInfo.mHomeListPrice];
         
         if(self.mCorrespondingHomeInfo.mIdentifiyingHomeFeature)
             self.mBestHomeFeatureField.text = self.mCorrespondingHomeInfo.mIdentifiyingHomeFeature;
@@ -77,36 +80,23 @@
                                                         action:@selector(condoButtonTapped:)];
     [self.mCondoImageAsButton addGestureRecognizer:condoButtonTappedGesture];
     
-    UITapGestureRecognizer* loanInfoTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                     action:@selector(loanInfoButtonTapped:)];
-    [self.mLoanInfoViewAsButton addGestureRecognizer:loanInfoTappedGesture];
-    
-    UITapGestureRecognizer* compareHomesGesture = [[UITapGestureRecognizer alloc]
-                                                   initWithTarget:self
-                                                   action:@selector(compareHomesButtonTapped:)];
-    [self.mCompareHomesViewAsButton addGestureRecognizer:compareHomesGesture];
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
-    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
-    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) setupButtons
 {
     if([kunanceUser getInstance].mKunanceUserLoan)
     {
-        self.mCompareHomesViewAsButton.hidden = NO;
+        self.mShowHomePayments.hidden = NO;
         self.mLoanInfoViewAsButton.hidden = YES;
     }
     else
     {
-        self.mCompareHomesViewAsButton.hidden = YES;
+        self.mShowHomePayments.hidden = YES;
         self.mLoanInfoViewAsButton.hidden = NO;
     }
 }
@@ -128,11 +118,7 @@
     [self setupButtons];
     [self addExistingHomeInfo];
     
-    if(self.mHomeNumber == FIRST_HOME)
-        self.navigationController.navigationBar.topItem.title = @"First Home Info";
-    else if(self.mHomeNumber == SECOND_HOME)
-        self.navigationController.navigationBar.topItem.title = @"Second Home Info";
-
+    self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
 }
 
 -(void) uploadHomeInfo
@@ -142,6 +128,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];
         return;
     }
+    
     
     uint currentNumberOfHomes = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
     
@@ -178,16 +165,15 @@
                 [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update home info"];
         }
     }
-
 }
 
 #pragma mark actions gestures
--(void) dashButtonTapped
+-(IBAction)dashButtonTapped:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
--(void) compareHomesButtonTapped:(UITapGestureRecognizer*)recognizer
+-(IBAction)showHomePaymentsButtonTapped:(id)sender
 {
     [self uploadHomeInfo];
 }
@@ -206,10 +192,17 @@
     [self selectCondominuim];
 }
 
--(void) loanInfoButtonTapped:(UITapGestureRecognizer*)recognizer
+-(IBAction)loanInfoButtonTapped:(id)sender
 {
     [self uploadHomeInfo];
 }
+
+-(IBAction)helpButtonTapped:(id)sender
+{
+    HelpHomeViewController* hPV = [[HelpHomeViewController alloc] init];
+    [self.navigationController pushViewController:hPV animated:NO];
+}
+
 #pragma mark end
 
 #pragma mark APIHomeInfoServiceDelegate
@@ -217,16 +210,27 @@
 {
     if(!self.mLoanInfoViewAsButton.hidden)
     {
-        if(self.mHomeInfoEntryViewDelegate && [self.mHomeInfoEntryViewDelegate respondsToSelector:@selector(loanInfoButtonTapped)])
-        {
-            [self.mHomeInfoEntryViewDelegate loanInfoButtonTapped];
-        }
+        if(!self.mLoanInfoController)
+            self.mLoanInfoController = [[LoanInfoViewController alloc]
+                                        initFromHomeInfoEntry:[NSNumber numberWithInt:self.mHomeNumber]];
+        self.mLoanInfoController.mLoanInfoViewDelegate = self;
+        
+        [self.navigationController pushViewController:self.mLoanInfoController animated:NO];
     }
-    else if(!self.mCompareHomesViewAsButton.hidden)
+    else if(!self.mHomeAddressButton.hidden)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayHomeDashNotification object:[NSNumber numberWithInt:self.mHomeNumber]];
     }
 }
+#pragma end
+
+#pragma mark LoanInfoDelegate
+-(void) backToHomeInfo
+{
+    if(self.mLoanInfoController)
+        [self.navigationController popViewControllerAnimated:NO];
+}
+
 #pragma end
 
 - (void)didReceiveMemoryWarning

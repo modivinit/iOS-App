@@ -30,6 +30,9 @@
     if(index == 0)
         return nil;
     
+    if(self.mBasePageViewDelegate && [self.mBasePageViewDelegate respondsToSelector:@selector(changedToPage:)])
+        [self.mBasePageViewDelegate changedToPage:index];
+    
     return self.mPageViewControllers[index-1];
 }
 
@@ -50,7 +53,6 @@
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    //pageControl.backgroundColor = [UIColor blueColor];
     
 //    if(self.mPageNibNames && self.mPageNibNames.count > 0)
 //    {

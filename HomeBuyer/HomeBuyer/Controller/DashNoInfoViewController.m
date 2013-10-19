@@ -7,6 +7,7 @@
 //
 
 #import "DashNoInfoViewController.h"
+#import "HelpDashboardViewController.h"
 
 @interface DashNoInfoViewController ()
 
@@ -14,12 +15,14 @@
 
 @implementation DashNoInfoViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id) init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super init];
+    if(self)
+    {
+        self.mAboutYouViewController = nil;
     }
+    
     return self;
 }
 
@@ -42,21 +45,27 @@
      self.navigationController.navigationBar.topItem.title = titleText;
 }
 
-#pragma mark target action functions geature recognizers
--(void) aboutYouTapped
+-(void) loadAboutYou
 {
-     self.mAboutYouViewController = [[AboutYouViewController alloc] init];
-     self.mAboutYouViewController.mAboutYouControllerDelegate = self;
-     [self.navigationController pushViewController:self.mAboutYouViewController animated:YES];
+    self.mAboutYouViewController = [[AboutYouViewController alloc] init];
+    [self.navigationController pushViewController:self.mAboutYouViewController animated:YES];
+}
+#pragma mark target action functions geature recognizers
+-(IBAction)enterProfileIconTapped:(id)sender
+{
+    [self loadAboutYou];
 }
 
-#pragma AboutYouControllerDelegate
--(void) userExpensesButtonTapped
+-(IBAction)helpIconTapped:(id)sender
 {
-    self.mFixedCostsViewController = [[FixedCostsViewController alloc] init];
-    [self.navigationController pushViewController:self.mFixedCostsViewController animated:YES];
+    HelpDashboardViewController* helpvc = [[HelpDashboardViewController alloc] init];
+    [self.navigationController pushViewController:helpvc animated:NO];
 }
-#pragma end
+
+-(void) aboutYouTapped
+{
+    [self loadAboutYou];
+}
 
 - (void)didReceiveMemoryWarning
 {

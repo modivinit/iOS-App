@@ -19,6 +19,11 @@
     [alert show];
 }
 
++(UIColor*) getKunanceBlueColor
+{
+    return [UIColor colorWithRed:15/255.0 green:125/255.0 blue:255/255.0 alpha:1.0];
+}
+
 +(BOOL) isUITextFieldEmpty:(UITextField*) aTextField
 {
     if(aTextField && ![aTextField.text isEqualToString:@""])
@@ -34,6 +39,25 @@
 +(CGFloat) getDeviceHeight
 {
     return [UIScreen mainScreen].bounds.size.height;
+}
+
++ (UIActivityIndicatorView*) getAndStartBusyIndicator
+{
+    CGFloat width = 40;
+    CGFloat height = 40;
+    
+    CGFloat navBarHeight = 40;
+    
+    CGFloat x = [[UIScreen mainScreen] bounds].size.width/2-(width/2);
+    CGFloat y = [[UIScreen mainScreen] bounds].size.height/2-navBarHeight-(height/2);
+    
+    UIActivityIndicatorView* busyIndicator = [[UIActivityIndicatorView alloc]
+                                              initWithFrame:CGRectMake(x, y, width, height)];
+    
+    [busyIndicator setColor:[UIColor blackColor]];
+    [busyIndicator startAnimating];
+    
+    return busyIndicator;
 }
 
 @end

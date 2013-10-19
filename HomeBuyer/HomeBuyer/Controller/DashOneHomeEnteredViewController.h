@@ -13,7 +13,7 @@
 #import "HomeInfoEntryViewController.h"
 
 @interface DashOneHomeEnteredViewController : BasePageViewController
-<RentVsBuyDashViewDelegate,HomeInfoEntryViewDelegate, HomeTaxSavingsViewDelegate>
+<RentVsBuyDashViewDelegate, HomeTaxSavingsViewDelegate>
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
 @property (nonatomic, strong) UIButton* mContactRealtorButton;

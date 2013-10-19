@@ -13,20 +13,36 @@
 
 @protocol LoanInfoViewDelegate <NSObject>
 @optional
--(void) displayDash;
+-(void) backToHomeInfo;
 @end
 
 @interface LoanInfoViewController : FormViewController <APILoanInfoServiceDelegate>
 
 @property (nonatomic, strong) loan* mCorrespondingLoan;
-
+@property (nonatomic, strong) NSNumber* mHomeNumber;
+@property (nonatomic) BOOL mIsFromHomeEntry;
 @property (nonatomic, strong) IBOutlet UISegmentedControl* mPercentDollarValueChoice;
 @property (nonatomic, strong) IBOutlet UITextField*        mDownPaymentField;
 @property (nonatomic, strong) IBOutlet UITextField*        mInterestRateField;
 @property (nonatomic, strong) IBOutlet UISegmentedControl* mLoanDurationField;
 
-@property (nonatomic, strong) IBOutlet UIView*             mCompareHomesViewAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView* mDashboardIcon;
+@property (nonatomic, strong) IBOutlet UIButton*             mCompareHomesButton;
+-(IBAction)compareHomeButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*             mDashboardIcon;
+-(IBAction)dashButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*             mShowHomePaymentsButton;
+-(IBAction)showHomePaymentButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*             mHelpButton;
+-(IBAction)helpButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*             mHomeInfoButton;
+-(IBAction) homeInfoButtonTapped:(id)sender;
+
+-(id) initFromHomeInfoEntry:(NSNumber*) homeNumber;
+-(id) initFromMenu;
 
 @property (nonatomic, weak) id <LoanInfoViewDelegate> mLoanInfoViewDelegate;
 @end

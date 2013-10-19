@@ -44,12 +44,26 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    self.navigationItem.leftBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
+
+    [self.mLoginEmail becomeFirstResponder];
+    self.mLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    [self.mLoginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [self.mLoginButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];
+    self.mLoginButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.mLoginButton.titleLabel.textColor = [UIColor whiteColor];
+    self.mLoginButton.backgroundColor = [Utilities getKunanceBlueColor];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mLoginButton];
+
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
+    self.mSignInFooterBUtton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    self.mSignUpFooterButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
+    
+
     [self disableLoginButton];
     
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
-
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -78,6 +92,9 @@
     self.view.userInteractionEnabled = NO;
     [self disableLoginButton];
     
+    __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
+    [self.view addSubview:actIndicator];
+    
     FatFractal *ff = [AppDelegate ff];
     [ff loginWithUserName:email andPassword:password
                onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
@@ -95,14 +112,26 @@
          }
          else
          {
-             [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed"];
+             [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
+             self.view.userInteractionEnabled = YES;
+             [self enableLoginButton];
          }
          
+         [actIndicator stopAnimating];
+         [actIndicator removeFromSuperview];
      }];
 }
 
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
+-(void) cancelScreen
+{
+    if(self.mLoginDelegate && [self.mLoginDelegate respondsToSelector:@selector(cancelLoginScreen)])
+    {
+        [self.mLoginDelegate cancelLoginScreen];
+    }
+}
+
 -(IBAction) loginButtonPressed:(id)sender
 {
     [self loginUser];
@@ -118,23 +147,33 @@
 
 -(void)dismissKeyboard
 {
-    [self.mActiveField resignFirstResponder];
+    //[self.mActiveField resignFirstResponder];
 }
 #pragma end
 
 #pragma mark - UITextField
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    int futurePasswordLength = 0;
     if(textField == self.mPassword)
     {
-        if(self.mPassword.text.length == 5 && self.mLoginEmail.text.length > 0)
+        if([string isEqualToString:@""])
         {
-            [self enableLoginButton];
+            futurePasswordLength = self.mPassword.text.length -1;
         }
         else
         {
-            [self disableLoginButton];
+            futurePasswordLength = self.mPassword.text.length +1;
         }
+    }
+    
+    if(futurePasswordLength >= 6 && self.mLoginEmail.text.length > 0)
+    {
+        [self enableLoginButton];
+    }
+    else
+    {
+        [self disableLoginButton];
     }
     
     return YES;

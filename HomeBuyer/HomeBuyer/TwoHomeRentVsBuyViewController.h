@@ -16,4 +16,7 @@
 @property (nonatomic, strong) UINavigationItem* navItem;
 
 @property (nonatomic, weak) id <TwoHomeRentVsBuyDelegate> mTwoHomeRentVsBuyDelegate;
+@property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
+@property (nonatomic, strong) IBOutlet UILabel* mHome1LifeStyleIncome;
+@property (nonatomic, strong) IBOutlet UILabel* mHome2LifeStyleIncome;
 @end

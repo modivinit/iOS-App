@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ShinobiCharts/ShinobiChart.h>
 
 @protocol RentVsBuyDashViewDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
 @end
 
 @interface RentVsBuyDashViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UIView* mAddAHomeButtonAsView;
 
 @property (nonatomic, weak) id <RentVsBuyDashViewDelegate> mRentVsBuyDashViewDelegate;
+@property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
+@property (nonatomic, strong) IBOutlet UILabel* mHomeLifeStyleIncome;
+@property (nonatomic, strong) IBOutlet UILabel* mRentalMonthlyPayment;
+@property (nonatomic, strong) IBOutlet UILabel* mHomeMonthlyPayment;
 @end

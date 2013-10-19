@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HelpHomeViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton* mDashButton;
+-(IBAction)dashButtonPressed:(id)sender;
 
+@property (nonatomic, strong) IBOutlet UIButton* mHelpButton;
+-(IBAction)helpButtonTapped:(id)sender;
 @end

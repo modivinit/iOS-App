@@ -28,6 +28,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+-(IBAction)dashButtonPressed:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+}
+
+-(IBAction)helpButtonTapped:(id)sender
+{
+    [self removeFromParentViewController];
+}
 
 - (void)didReceiveMemoryWarning
 {

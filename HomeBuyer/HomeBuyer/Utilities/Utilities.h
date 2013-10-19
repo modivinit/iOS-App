@@ -13,4 +13,6 @@
 +(BOOL) isUITextFieldEmpty:(UITextField*) aTextField;
 +(CGFloat) getDeviceWidth;
 +(CGFloat) getDeviceHeight;
++(UIColor*) getKunanceBlueColor;
++ (UIActivityIndicatorView*) getAndStartBusyIndicator;
 @end

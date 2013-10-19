@@ -27,6 +27,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImage.image = [UIImage imageNamed:@"home-interior_04.jpg"];
+    [self.view addSubview:backImage];
+    
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 70, 250, 70)];
+    label.center = CGPointMake(self.view.center.x, label.center.y);
+    label.numberOfLines = 3;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"Share with family.\nConnect with realtors.";
+    label.font = [UIFont fontWithName:@"cocon" size:16];
+    label.textColor = [Utilities getKunanceBlueColor];
+    [self.view addSubview:label];
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,6 +9,7 @@
 #import "AboutYouViewController.h"
 #import "userPFInfo.h"
 #import "kunanceUser.h"
+#import "HelpProfileViewController.h"
 
 @interface AboutYouViewController ()
 
@@ -22,7 +23,9 @@
     if (self) {
         // Custom initialization
         self.mSelectedMaritalStatus = StatusNotDefined;
+        self.mFixedCostsController = nil;
     }
+    
     return self;
 }
 
@@ -53,19 +56,11 @@
                                                                  action:@selector(singleButtonTapped)];
     [self.mSingleImageAsButton addGestureRecognizer:singleButtonTappedGesture];
     
-    UITapGestureRecognizer* userExpensesTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                         action:@selector(fixedCostsButtonTapped)];
-    [self.mUserExpensesViewAsButton addGestureRecognizer:userExpensesTappedGesture];
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
-    UITapGestureRecognizer* dboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dashButtonTapped)];
-    [self.mDashboardIcon addGestureRecognizer:dboardTap];
 }
 
 -(void) initWithCurrentUserPFInfo
@@ -93,10 +88,13 @@
     }
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+}
+
 - (void)viewDidLoad
 {
-    self.navigationController.navigationBar.topItem.title = @"Profile";
-
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mAnnualGrossIncomeField,
                         self.mAnnualRetirementContributionField, nil];
 
@@ -104,8 +102,11 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
+    
+    self.navigationItem.title = @"Profile";
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,7 +119,13 @@
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
 
--(void) dashButtonTapped
+-(IBAction)helpButtonTapped:(id)sender
+{
+    HelpProfileViewController* hPV = [[HelpProfileViewController alloc] init];
+    [self.navigationController pushViewController:hPV animated:NO];
+}
+
+-(IBAction)dashButtonTapped:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
@@ -133,14 +140,16 @@
     [self selectSingle];
 }
 
--(void) fixedCostsButtonTapped
+-(IBAction)fixedCostsButtonTapped:(id)sender
 {
     if(self.mSelectedMaritalStatus == StatusNotDefined)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
-    else if(!self.mAnnualGrossIncomeField.text || ![self.mAnnualGrossIncomeField.text intValue])
+    else if(!self.mAnnualGrossIncomeField.text ||
+            !self.mAnnualGrossIncomeField.text.length ||
+            ![self.mAnnualGrossIncomeField.text intValue])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
         return;
@@ -165,20 +174,26 @@
 {
     if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
     {
-        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu", [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
-
-        //let the dashcontroller know that this form is done
-        if(self.mAboutYouControllerDelegate &&
-           [self.mAboutYouControllerDelegate respondsToSelector:@selector(userExpensesButtonTapped)])
-        {
-            [self.mAboutYouControllerDelegate userExpensesButtonTapped];
-        }
+        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu",
+              [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
+        if(!self.mFixedCostsController)
+            self.mFixedCostsController = [[FixedCostsViewController alloc] init];
+        self.mFixedCostsController.mFixedCostsControllerDelegate = self;
+        [self.navigationController pushViewController:self.mFixedCostsController animated:NO];
+        
     }
     else
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry, unable to update you info"];
     }
 }
+#pragma end
 
+#pragma mark FixedCostsControllerDelegate
+-(void) aboutYouFromFixedCosts
+{
+    if(self.mFixedCostsController)
+        [self.navigationController popViewControllerAnimated:NO];
+}
 #pragma end
 @end

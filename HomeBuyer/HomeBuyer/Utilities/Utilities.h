@@ -14,4 +14,5 @@
 +(CGFloat) getDeviceWidth;
 +(CGFloat) getDeviceHeight;
 +(UIColor*) getKunanceBlueColor;
++ (UIActivityIndicatorView*) getAndStartBusyIndicator;
 @end

@@ -126,6 +126,10 @@
     
     self.mSignInButton.enabled = NO;
     self.view.userInteractionEnabled = NO;
+    
+    __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
+    [self.view addSubview:actIndicator];
+    
     [ff registerUser:newUser
             password:password
           onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
@@ -150,6 +154,8 @@
         }
         
         // if no error, your application is now in a logged-in state
+        [actIndicator stopAnimating];
+        [actIndicator removeFromSuperview];
     }];
 }
 

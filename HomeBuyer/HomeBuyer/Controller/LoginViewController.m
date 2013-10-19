@@ -92,6 +92,9 @@
     self.view.userInteractionEnabled = NO;
     [self disableLoginButton];
     
+    __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
+    [self.view addSubview:actIndicator];
+    
     FatFractal *ff = [AppDelegate ff];
     [ff loginWithUserName:email andPassword:password
                onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
@@ -114,6 +117,8 @@
              [self enableLoginButton];
          }
          
+         [actIndicator stopAnimating];
+         [actIndicator removeFromSuperview];
      }];
 }
 

@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSArray*      mFormFields;
 @property (nonatomic, strong) UIToolbar*    mKeyBoardToolbar;
 
+@property (nonatomic) BOOL mShowDoneButton;
 @end

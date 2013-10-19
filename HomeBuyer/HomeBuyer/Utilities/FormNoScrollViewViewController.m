@@ -24,6 +24,7 @@
     {
         self.mFormFields = nil;
         self.mActiveField = nil;
+        self.mShowDoneButton = NO;
     }
     
     return self;
@@ -49,10 +50,11 @@
                                                                                target:nil
                                                                                action:nil];
     
-    self.mDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                        style:UIBarButtonItemStyleDone
-                                                       target:self
-                                                       action:@selector(dismissKeyboard)];
+    if(self.mShowDoneButton)
+        self.mDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                            style:UIBarButtonItemStyleDone
+                                                           target:self
+                                                           action:@selector(dismissKeyboard)];
     
     self.mKeyBoardToolbar.items = [NSArray arrayWithObjects:
                                    self.mPrevButton,

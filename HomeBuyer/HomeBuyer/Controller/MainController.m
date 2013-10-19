@@ -78,6 +78,8 @@
     
     if([[kunanceUser getInstance] getUserEmail:&email andPassword:&password])
     {
+        __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
+        
         FatFractal *ff = [AppDelegate ff];
         [ff loginWithUserName:email andPassword:password
                    onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
@@ -95,6 +97,8 @@
             {
                 [self failedToLoginSavedUser];
             }
+            
+            [actIndicator stopAnimating];
 
         }];
     }

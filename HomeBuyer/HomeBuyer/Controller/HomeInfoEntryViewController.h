@@ -11,12 +11,15 @@
 #import "homeInfo.h"
 #import "APIHomeInfoService.h"
 #import "LoanInfoViewController.h"
+#import "HomeAddressViewController.h"
 
-@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate, LoanInfoViewDelegate>
+@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
 @property (nonatomic) uint mHomeNumber;
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoController;
+@property (nonatomic, strong) HomeAddressViewController* mHomeAddressView;
+
 -(id) initAsHomeNumber:(uint) homeNumber;
 
 @property (nonatomic, strong) IBOutlet UIImageView*  mSingleFamilyImageAsButton;

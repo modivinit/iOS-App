@@ -7,26 +7,48 @@
 //
 
 #import "HomeAddressViewController.h"
+#import "HTAutocompleteManager.h"
+#import "Cities.h"
+#import "States.h"
 
 @interface HomeAddressViewController ()
-
+@property (nonatomic, strong) NSDictionary* mStatesList;
+@property (nonatomic, strong) NSDictionary* mCitiesList;
 @end
 
 @implementation HomeAddressViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(IBAction)homeInfoButtonTapped:(id)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if(self.mHomeAddressViewDelegate && [self.mHomeAddressViewDelegate respondsToSelector:@selector(popHomeAddressFromHomeInfo)])
+    {
+        [self.mHomeAddressViewDelegate popHomeAddressFromHomeInfo];
     }
-    return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    //TODO: We will need to move htis to a centralized location in the future
 }
 
 - (void)viewDidLoad
 {
+    self.mShowDoneButton = YES;
+    self.mFormFields = [[NSArray alloc] initWithObjects:self.mStreetAddress, self.mCity, nil];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.mCity.autocompleteDataSource = [HTAutocompleteManager sharedManager];
+    
+    if(self.mCorrespondingHomeInfo)
+    {
+        if(self.mCorrespondingHomeInfo.mStreetAddress)
+            self.mStreetAddress.text = self.mCorrespondingHomeInfo.mStreetAddress;
+        
+        self.mState.text = [States getStateNameForStateCode:self.mCorrespondingHomeInfo.mStateCode];
+        
+        Cities* cities = [[Cities alloc] initForState:self.mCorrespondingHomeInfo.mStateCode];
+        self.mCity.text = [cities getCityNameForCityCode:self.mCorrespondingHomeInfo.mCityCode];
+    }
 }
 
 - (void)didReceiveMemoryWarning

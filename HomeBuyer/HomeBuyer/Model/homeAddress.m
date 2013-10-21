@@ -7,6 +7,8 @@
 //
 
 #import "homeAddress.h"
+#import "Cities.h"
+#import "States.h"
 
 @implementation homeAddress
 
@@ -17,7 +19,8 @@
     if(self)
     {
         self.mStreetAddress = nil;
-        self.mCity = nil;
+        self.mCityCode = OTHER_CITY_CODE;
+        self.mStateCode = UNDEFINED_STATE_CODE;
         self.mZipCode = nil;
     }
     

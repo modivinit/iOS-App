@@ -8,9 +8,13 @@
 
 #import "HomeInfoEntryViewController.h"
 #import "HelpHomeViewController.h"
+#import "Cities.h"
+#import "States.h"
 
 @interface HomeInfoEntryViewController ()
-
+@property (nonatomic, copy) NSString* mHomeStreetAddress;
+@property (nonatomic, copy) NSString* mHomeCity;
+@property (nonatomic, copy) NSString* mHomeState;
 @end
 
 @implementation HomeInfoEntryViewController
@@ -148,6 +152,25 @@
         aHomeInfo.mHOAFees = [self.mMontylyHOAField.text intValue];
     else if(self.mCorrespondingHomeInfo && self.mCorrespondingHomeInfo.mHOAFees)
         aHomeInfo.mHOAFees = self.mCorrespondingHomeInfo.mHOAFees;
+
+    aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
+    if(self.mHomeStreetAddress)
+        aHomeInfo.mHomeAddress.mStreetAddress = self.mHomeStreetAddress;
+    
+    if(self.mHomeState)
+    {
+        aHomeInfo.mHomeAddress.mStateCode = [States getStateCodeForStateName:self.mHomeState];
+    }
+    else
+        aHomeInfo.mHomeAddress.mStateCode = UNDEFINED_STATE_CODE;
+    
+    if(self.mHomeCity && aHomeInfo.mHomeAddress.mStateCode)
+    {
+        Cities* citiesList = [[Cities alloc] initForState:aHomeInfo.mHomeAddress.mStateCode];
+        aHomeInfo.mHomeAddress.mCityCode = [citiesList getCityCodeForCityName:self.mHomeCity];
+    }
+    else
+        aHomeInfo.mHomeAddress.mCityCode = OTHER_CITY_CODE;
     
     if(homeInfoService)
     {
@@ -180,6 +203,15 @@
 
 -(IBAction) enterHomeAddressButtonTapped
 {
+    self.mHomeAddressView = [[HomeAddressViewController alloc] init];
+    self.mHomeAddressView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    self.mHomeAddressView.mHomeAddressViewDelegate = self;
+    if(self.mCorrespondingHomeInfo.mHomeAddress)
+    {
+        self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
+    }
+
+    [self.navigationController presentViewController:self.mHomeAddressView animated:YES completion:nil];
 }
 
 -(void) sfhButtonTapped:(UITapGestureRecognizer*)recognizer
@@ -202,8 +234,29 @@
     HelpHomeViewController* hPV = [[HelpHomeViewController alloc] init];
     [self.navigationController pushViewController:hPV animated:NO];
 }
-
 #pragma mark end
+
+#pragma mark HomeAddressViewDelegate
+-(void) popHomeAddressFromHomeInfo
+{
+    if(self.mHomeAddressView.mStreetAddress.text && (self.mHomeAddressView.mStreetAddress.text.length > 0))
+    {
+        self.mHomeStreetAddress = self.mHomeAddressView.mStreetAddress.text;
+    }
+    
+    if(self.mHomeAddressView.mCity.text && (self.mHomeAddressView.mCity.text.length > 0))
+    {
+        self.mHomeCity = [self.mHomeAddressView.mCity.text uppercaseString];
+    }
+
+    if(self.mHomeAddressView.mState.text && (self.mHomeAddressView.mState.text.length > 0))
+    {
+        self.mHomeState = self.mHomeAddressView.mState.text;
+    }
+
+    [self.mHomeAddressView dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma end
 
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedWritingHomeInfo

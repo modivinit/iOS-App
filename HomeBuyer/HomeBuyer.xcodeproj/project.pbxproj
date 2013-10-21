@@ -290,6 +290,12 @@
 		D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC117E79DA8005D7526 /* back-icon.png */; };
 		D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */; };
 		D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E7CC7817F74DF10099C0B8 /* FormViewController.m */; };
+		D6EBEBB91815A899004B3CBF /* Cities_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EBEBB81815A899004B3CBF /* Cities_1.plist */; };
+		D6EBEBC01815B878004B3CBF /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBBD1815B878004B3CBF /* HTAutocompleteTextField.m */; };
+		D6EBEBC11815B878004B3CBF /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBBF1815B878004B3CBF /* HTEmailAutocompleteTextField.m */; };
+		D6EBEBC41815B997004B3CBF /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC21815B997004B3CBF /* HTAutocompleteManager.m */; };
+		D6EBEBC71815C064004B3CBF /* Cities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC61815C064004B3CBF /* Cities.m */; };
+		D6EBEBCA1815C16C004B3CBF /* States.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC91815C16C004B3CBF /* States.m */; };
 		D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F68A5D1804CD1400BE5960 /* QuartzCore.framework */; };
 		D6F68A601804CD1D00BE5960 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F68A5F1804CD1D00BE5960 /* OpenGLES.framework */; };
 		D6F68A621804CD2600BE5960 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F68A611804CD2600BE5960 /* CoreText.framework */; };
@@ -618,6 +624,17 @@
 		D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@2x.png"; sourceTree = "<group>"; };
 		D6E7CC7717F74DF10099C0B8 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = Controller/FormViewController.h; sourceTree = "<group>"; };
 		D6E7CC7817F74DF10099C0B8 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = Controller/FormViewController.m; sourceTree = "<group>"; };
+		D6EBEBB81815A899004B3CBF /* Cities_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cities_1.plist; path = Resource/Cities_1.plist; sourceTree = "<group>"; };
+		D6EBEBBC1815B878004B3CBF /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
+		D6EBEBBD1815B878004B3CBF /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
+		D6EBEBBE1815B878004B3CBF /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
+		D6EBEBBF1815B878004B3CBF /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
+		D6EBEBC21815B997004B3CBF /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteManager.m; sourceTree = "<group>"; };
+		D6EBEBC31815B997004B3CBF /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteManager.h; sourceTree = "<group>"; };
+		D6EBEBC51815C064004B3CBF /* Cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cities.h; path = Model/Cities.h; sourceTree = "<group>"; };
+		D6EBEBC61815C064004B3CBF /* Cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cities.m; path = Model/Cities.m; sourceTree = "<group>"; };
+		D6EBEBC81815C16C004B3CBF /* States.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = States.h; path = Model/States.h; sourceTree = "<group>"; };
+		D6EBEBC91815C16C004B3CBF /* States.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = States.m; path = Model/States.m; sourceTree = "<group>"; };
 		D6F68A5D1804CD1400BE5960 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D6F68A5F1804CD1D00BE5960 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D6F68A611804CD2600BE5960 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -787,6 +804,7 @@
 		9EA5D3C917F15C1C00CE7BD8 /* HomeInfoEntry */ = {
 			isa = PBXGroup;
 			children = (
+				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
 				9E5D1CF217FF380800F443AC /* dashboard-home.png */,
 				9E5D1CF317FF380800F443AC /* dashboard-home@2x.png */,
 				9EA5D3D017F15DC500CE7BD8 /* besthomefeature.png */,
@@ -811,6 +829,7 @@
 		9EA5D3CF17F15D0200CE7BD8 /* HomeInfoEntry */ = {
 			isa = PBXGroup;
 			children = (
+				9EA5D3F217F1624E00CE7BD8 /* HomeAddress */,
 				9EA5D3CA17F15C8100CE7BD8 /* HomeInfoEntryViewController.h */,
 				9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */,
 			);
@@ -949,6 +968,7 @@
 		D6468ADD17DAA6670056EF57 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				D6EBEBBB1815B85F004B3CBF /* HTAutoComplete */,
 				D6468B0917DAF8B50056EF57 /* PKRevealController */,
 			);
 			name = External;
@@ -1442,6 +1462,27 @@
 			name = FormController;
 			sourceTree = "<group>";
 		};
+		D6EBEBB71815A86C004B3CBF /* pLists */ = {
+			isa = PBXGroup;
+			children = (
+				D6EBEBB81815A899004B3CBF /* Cities_1.plist */,
+			);
+			name = pLists;
+			sourceTree = "<group>";
+		};
+		D6EBEBBB1815B85F004B3CBF /* HTAutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				D6EBEBC21815B997004B3CBF /* HTAutocompleteManager.m */,
+				D6EBEBC31815B997004B3CBF /* HTAutocompleteManager.h */,
+				D6EBEBBC1815B878004B3CBF /* HTAutocompleteTextField.h */,
+				D6EBEBBD1815B878004B3CBF /* HTAutocompleteTextField.m */,
+				D6EBEBBE1815B878004B3CBF /* HTEmailAutocompleteTextField.h */,
+				D6EBEBBF1815B878004B3CBF /* HTEmailAutocompleteTextField.m */,
+			);
+			name = HTAutoComplete;
+			sourceTree = "<group>";
+		};
 		D6EEFFC417CDBDCD00EB28C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1459,6 +1500,10 @@
 				D6842E6D17DDA8720028AF00 /* UsersHomesList.m */,
 				D6842E5C17DD32510028AF00 /* usersLoansList.h */,
 				D6842E5D17DD32510028AF00 /* usersLoansList.m */,
+				D6EBEBC51815C064004B3CBF /* Cities.h */,
+				D6EBEBC61815C064004B3CBF /* Cities.m */,
+				D6EBEBC81815C16C004B3CBF /* States.h */,
+				D6EBEBC91815C16C004B3CBF /* States.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1479,7 +1524,6 @@
 				9E00FA9F17F34D9F00380997 /* HelpDashboard */,
 				9E00FA9E17F34D9900380997 /* HelpHome */,
 				9E00FA9D17F34D9100380997 /* HelpProfile */,
-				9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */,
 				9EA5D3C917F15C1C00CE7BD8 /* HomeInfoEntry */,
 				D6C88B2617DA6EEF00DEA25D /* LeftMenu */,
 				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
@@ -1501,7 +1545,6 @@
 				9E00FAA717F34DC400380997 /* HelpDashboard */,
 				9E00FAA617F34DBE00380997 /* HelpHome */,
 				9E00FAA517F34DB800380997 /* HelpProfile */,
-				9EA5D3F217F1624E00CE7BD8 /* HomeAddress */,
 				D6DEE54D180878B500548955 /* HomeInfoDash */,
 				9EA5D3CF17F15D0200CE7BD8 /* HomeInfoEntry */,
 				D6C3AB24180388DC00123260 /* kCATIntro */,
@@ -1527,6 +1570,7 @@
 		D6EEFFC817CDBDFA00EB28C7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6EBEBB71815A86C004B3CBF /* pLists */,
 				D6EEFFCB17CDC13F00EB28C7 /* PhoneContent */,
 			);
 			name = Resources;
@@ -1707,6 +1751,7 @@
 				9ECDED881803B63B00F2449E /* menu-add-home.png in Resources */,
 				D6C3AB461803CA7300123260 /* kCATIntroTaxViewController.xib in Resources */,
 				9ECCADAC17F0E809001EAF4C /* couple-dash@2x.png in Resources */,
+				D6EBEBB91815A899004B3CBF /* Cities_1.plist in Resources */,
 				9ECDB80F17FF55AB004E5F25 /* menu-profile-single@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
 				9E53443D17F555C7006BA12D /* surfing@2x.png in Resources */,
@@ -1867,6 +1912,7 @@
 				D6842E6617DD97090028AF00 /* homeInfo.m in Sources */,
 				9E4DBF651805CE2900F095F1 /* TermsAndPoliciesViewController.m in Sources */,
 				9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */,
+				D6EBEBC11815B878004B3CBF /* HTEmailAutocompleteTextField.m in Sources */,
 				9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */,
 				9E00FAB017F34E0100380997 /* HelpDashboardViewController.m in Sources */,
 				D6842E6217DD95E30028AF00 /* loan.m in Sources */,
@@ -1880,6 +1926,7 @@
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
+				D6EBEBC71815C064004B3CBF /* Cities.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,
 				9E4DBF711805D08900F095F1 /* ContactRealtorViewController.m in Sources */,
@@ -1891,11 +1938,13 @@
 				9E0BCA7E18048EF300863FB7 /* HomeTaxSavingsViewController.m in Sources */,
 				9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */,
 				D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */,
+				D6EBEBC01815B878004B3CBF /* HTAutocompleteTextField.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */,
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */,
 				D618859E17FB572300ABEA3E /* APIHomeInfoService.m in Sources */,
+				D6EBEBCA1815C16C004B3CBF /* States.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				D63EA1FA17FCF42900E50E44 /* RentVsBuyDashViewController.m in Sources */,
 				D6C3AAF9180372F800123260 /* DashTwoHomesEnteredViewController.m in Sources */,
@@ -1909,6 +1958,7 @@
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,
 				D6C3AB1E180384E600123260 /* HomeLifeStyleViewController.m in Sources */,
 				D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */,
+				D6EBEBC41815B997004B3CBF /* HTAutocompleteManager.m in Sources */,
 				D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */,
 				D6C3AB281803892700123260 /* kCATIntroViewController.m in Sources */,
 				D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */,

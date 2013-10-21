@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol TwoHomeRentVsBuyDelegate <NSObject>
+@protocol TwoHomeLifestyleDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
 @end
 
-@interface TwoHomeRentVsBuyViewController : UIViewController
+@interface TwoHomeLifestyleIncomeViewController : UIViewController
 @property (nonatomic, strong) UINavigationItem* navItem;
 
-@property (nonatomic, weak) id <TwoHomeRentVsBuyDelegate> mTwoHomeRentVsBuyDelegate;
+@property (nonatomic, weak) id <TwoHomeLifestyleDelegate> mTwoHomeLifestyleDelegate;
 @property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHome1LifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHome2LifeStyleIncome;

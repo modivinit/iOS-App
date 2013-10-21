@@ -12,7 +12,6 @@
 @end
 
 @interface TwoHomeTaxSavingsViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UILabel* mEstTaxSavingsSecondHome;
 @property (nonatomic, strong) IBOutlet UILabel* mEstFirstHomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mEstSecondHomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mEstRentalUnitTaxes;

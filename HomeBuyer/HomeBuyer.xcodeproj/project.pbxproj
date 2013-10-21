@@ -191,8 +191,8 @@
 		D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */; };
 		D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */; };
 		D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */; };
-		D65A217D17FDFDE900884291 /* Home1VsHome2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* Home1VsHome2ViewController.m */; };
-		D65A217E17FDFDE900884291 /* Home1VsHome2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* Home1VsHome2ViewController.xib */; };
+		D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */; };
+		D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */; };
 		D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */; };
 		D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE217CCE1280082F6C7 /* Foundation.framework */; };
 		D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */; };
@@ -230,10 +230,8 @@
 		D6C3AAF418036FB200123260 /* DashOneHomeEnteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AAF218036FB200123260 /* DashOneHomeEnteredViewController.xib */; };
 		D6C3AAF9180372F800123260 /* DashTwoHomesEnteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AAF7180372F800123260 /* DashTwoHomesEnteredViewController.m */; };
 		D6C3AAFA180372F800123260 /* DashTwoHomesEnteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AAF8180372F800123260 /* DashTwoHomesEnteredViewController.xib */; };
-		D6C3AB0D18037B9D00123260 /* HomesComparisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB0B18037B9D00123260 /* HomesComparisionViewController.m */; };
-		D6C3AB0E18037B9D00123260 /* HomesComparisionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB0C18037B9D00123260 /* HomesComparisionViewController.xib */; };
-		D6C3AB1218037C1900123260 /* TwoHomeRentVsBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB1018037C1900123260 /* TwoHomeRentVsBuyViewController.m */; };
-		D6C3AB1318037C1900123260 /* TwoHomeRentVsBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB1118037C1900123260 /* TwoHomeRentVsBuyViewController.xib */; };
+		D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB1018037C1900123260 /* TwoHomeLifestyleIncomeViewController.m */; };
+		D6C3AB1318037C1900123260 /* TwoHomeLifestyleIncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB1118037C1900123260 /* TwoHomeLifestyleIncomeViewController.xib */; };
 		D6C3AB19180384D100123260 /* HomePaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB17180384D100123260 /* HomePaymentsViewController.m */; };
 		D6C3AB1A180384D100123260 /* HomePaymentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB18180384D100123260 /* HomePaymentsViewController.xib */; };
 		D6C3AB1E180384E600123260 /* HomeLifeStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB1C180384E600123260 /* HomeLifeStyleViewController.m */; };
@@ -498,9 +496,9 @@
 		D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRevealControllerContainerView.m; sourceTree = "<group>"; };
 		D6468B0E17DAF8CD0056EF57 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
-		D65A217A17FDFDE900884291 /* Home1VsHome2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Home1VsHome2ViewController.h; path = Controller/Home1VsHome2ViewController.h; sourceTree = "<group>"; };
-		D65A217B17FDFDE900884291 /* Home1VsHome2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Home1VsHome2ViewController.m; path = Controller/Home1VsHome2ViewController.m; sourceTree = "<group>"; };
-		D65A217C17FDFDE900884291 /* Home1VsHome2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Home1VsHome2ViewController.xib; path = Controller/Home1VsHome2ViewController.xib; sourceTree = "<group>"; };
+		D65A217A17FDFDE900884291 /* TwoHomePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomePaymentViewController.h; path = Controller/TwoHomePaymentViewController.h; sourceTree = "<group>"; };
+		D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomePaymentViewController.m; path = Controller/TwoHomePaymentViewController.m; sourceTree = "<group>"; };
+		D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomePaymentViewController.xib; path = Controller/TwoHomePaymentViewController.xib; sourceTree = "<group>"; };
 		D65A217F17FE0E9D00884291 /* DashLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashLeftMenuViewController.h; path = Controller/DashLeftMenuViewController.h; sourceTree = "<group>"; };
 		D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashLeftMenuViewController.m; path = Controller/DashLeftMenuViewController.m; sourceTree = "<group>"; };
 		D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -546,12 +544,9 @@
 		D6C3AAF6180372F800123260 /* DashTwoHomesEnteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashTwoHomesEnteredViewController.h; path = Controller/DashTwoHomesEnteredViewController.h; sourceTree = "<group>"; };
 		D6C3AAF7180372F800123260 /* DashTwoHomesEnteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashTwoHomesEnteredViewController.m; path = Controller/DashTwoHomesEnteredViewController.m; sourceTree = "<group>"; };
 		D6C3AAF8180372F800123260 /* DashTwoHomesEnteredViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashTwoHomesEnteredViewController.xib; path = Controller/DashTwoHomesEnteredViewController.xib; sourceTree = "<group>"; };
-		D6C3AB0A18037B9D00123260 /* HomesComparisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomesComparisionViewController.h; path = Controller/HomesComparisionViewController.h; sourceTree = "<group>"; };
-		D6C3AB0B18037B9D00123260 /* HomesComparisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomesComparisionViewController.m; path = Controller/HomesComparisionViewController.m; sourceTree = "<group>"; };
-		D6C3AB0C18037B9D00123260 /* HomesComparisionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomesComparisionViewController.xib; path = Controller/HomesComparisionViewController.xib; sourceTree = "<group>"; };
-		D6C3AB0F18037C1900123260 /* TwoHomeRentVsBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoHomeRentVsBuyViewController.h; sourceTree = "<group>"; };
-		D6C3AB1018037C1900123260 /* TwoHomeRentVsBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoHomeRentVsBuyViewController.m; sourceTree = "<group>"; };
-		D6C3AB1118037C1900123260 /* TwoHomeRentVsBuyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoHomeRentVsBuyViewController.xib; sourceTree = "<group>"; };
+		D6C3AB0F18037C1900123260 /* TwoHomeLifestyleIncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoHomeLifestyleIncomeViewController.h; sourceTree = "<group>"; };
+		D6C3AB1018037C1900123260 /* TwoHomeLifestyleIncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoHomeLifestyleIncomeViewController.m; sourceTree = "<group>"; };
+		D6C3AB1118037C1900123260 /* TwoHomeLifestyleIncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoHomeLifestyleIncomeViewController.xib; sourceTree = "<group>"; };
 		D6C3AB16180384D100123260 /* HomePaymentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePaymentsViewController.h; path = Controller/HomePaymentsViewController.h; sourceTree = "<group>"; };
 		D6C3AB17180384D100123260 /* HomePaymentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePaymentsViewController.m; path = Controller/HomePaymentsViewController.m; sourceTree = "<group>"; };
 		D6C3AB18180384D100123260 /* HomePaymentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomePaymentsViewController.xib; path = Controller/HomePaymentsViewController.xib; sourceTree = "<group>"; };
@@ -989,9 +984,8 @@
 				9EEEAA3218156C1400B97A7A /* line-vertical.png */,
 				9EEEAA3318156C1400B97A7A /* line-vertical@2x.png */,
 				9E0BCA811804A5DA00863FB7 /* Dash2EstimatedTaxSavings */,
-				D6C3AB091803775800123260 /* Dash2HomeRentVsBuy */,
-				D6C3AAFC1803751E00123260 /* HomeComparision */,
-				D6C3AAFB1803730800123260 /* Home1VsHome2 */,
+				D6C3AB091803775800123260 /* Dash2HomeLifestyle */,
+				D6C3AAFB1803730800123260 /* Dash2HomePayment */,
 				D6C3AAF8180372F800123260 /* DashTwoHomesEnteredViewController.xib */,
 			);
 			name = Dash2HomesEntered;
@@ -1001,9 +995,8 @@
 			isa = PBXGroup;
 			children = (
 				9E0BCA871804A61500863FB7 /* Dash2EstimatedTaxSavings */,
-				D6C3AB031803773200123260 /* Dash2HomesRentVsBuy */,
-				D6C3AB021803759100123260 /* HomeComparision */,
-				D6C3AAF51803729100123260 /* Home1VsHome2 */,
+				D6C3AB031803773200123260 /* Dash2HomesLifestyle */,
+				D6C3AAF51803729100123260 /* Dash2HomePayment */,
 				D6C3AAF6180372F800123260 /* DashTwoHomesEnteredViewController.h */,
 				D6C3AAF7180372F800123260 /* DashTwoHomesEnteredViewController.m */,
 			);
@@ -1156,55 +1149,38 @@
 			name = RentVsBuy;
 			sourceTree = "<group>";
 		};
-		D6C3AAF51803729100123260 /* Home1VsHome2 */ = {
+		D6C3AAF51803729100123260 /* Dash2HomePayment */ = {
 			isa = PBXGroup;
 			children = (
-				D65A217A17FDFDE900884291 /* Home1VsHome2ViewController.h */,
-				D65A217B17FDFDE900884291 /* Home1VsHome2ViewController.m */,
+				D65A217A17FDFDE900884291 /* TwoHomePaymentViewController.h */,
+				D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */,
 			);
-			name = Home1VsHome2;
+			name = Dash2HomePayment;
 			sourceTree = "<group>";
 		};
-		D6C3AAFB1803730800123260 /* Home1VsHome2 */ = {
+		D6C3AAFB1803730800123260 /* Dash2HomePayment */ = {
 			isa = PBXGroup;
 			children = (
-				D65A217C17FDFDE900884291 /* Home1VsHome2ViewController.xib */,
+				D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */,
 			);
-			name = Home1VsHome2;
+			name = Dash2HomePayment;
 			sourceTree = "<group>";
 		};
-		D6C3AAFC1803751E00123260 /* HomeComparision */ = {
+		D6C3AB031803773200123260 /* Dash2HomesLifestyle */ = {
 			isa = PBXGroup;
 			children = (
-				D6C3AB0C18037B9D00123260 /* HomesComparisionViewController.xib */,
+				D6C3AB0F18037C1900123260 /* TwoHomeLifestyleIncomeViewController.h */,
+				D6C3AB1018037C1900123260 /* TwoHomeLifestyleIncomeViewController.m */,
 			);
-			name = HomeComparision;
+			name = Dash2HomesLifestyle;
 			sourceTree = "<group>";
 		};
-		D6C3AB021803759100123260 /* HomeComparision */ = {
+		D6C3AB091803775800123260 /* Dash2HomeLifestyle */ = {
 			isa = PBXGroup;
 			children = (
-				D6C3AB0A18037B9D00123260 /* HomesComparisionViewController.h */,
-				D6C3AB0B18037B9D00123260 /* HomesComparisionViewController.m */,
+				D6C3AB1118037C1900123260 /* TwoHomeLifestyleIncomeViewController.xib */,
 			);
-			name = HomeComparision;
-			sourceTree = "<group>";
-		};
-		D6C3AB031803773200123260 /* Dash2HomesRentVsBuy */ = {
-			isa = PBXGroup;
-			children = (
-				D6C3AB0F18037C1900123260 /* TwoHomeRentVsBuyViewController.h */,
-				D6C3AB1018037C1900123260 /* TwoHomeRentVsBuyViewController.m */,
-			);
-			name = Dash2HomesRentVsBuy;
-			sourceTree = "<group>";
-		};
-		D6C3AB091803775800123260 /* Dash2HomeRentVsBuy */ = {
-			isa = PBXGroup;
-			children = (
-				D6C3AB1118037C1900123260 /* TwoHomeRentVsBuyViewController.xib */,
-			);
-			name = Dash2HomeRentVsBuy;
+			name = Dash2HomeLifestyle;
 			sourceTree = "<group>";
 		};
 		D6C3AB24180388DC00123260 /* kCATIntro */ = {
@@ -1746,7 +1722,7 @@
 				9EA5D3E717F15DC500CE7BD8 /* homeprice@2x.png in Resources */,
 				9EFBA050180DBCD400F78749 /* menu-loan-info-gray@2x.png in Resources */,
 				9EA5D3E917F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png in Resources */,
-				D65A217E17FDFDE900884291 /* Home1VsHome2ViewController.xib in Resources */,
+				D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */,
 				9E53443817F555B8006BA12D /* lifestyle-sports.png in Resources */,
 				D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */,
 				9EEEAA3518156C1400B97A7A /* line-vertical@2x.png in Resources */,
@@ -1782,7 +1758,6 @@
 				9EE693F71805EB1C00B541DF /* fixedcosts@2x.png in Resources */,
 				9ECDB7FA17FF55AB004E5F25 /* menu-create-profile.png in Resources */,
 				9EEDBA66180719DD00C92976 /* currentlifestyleincome.png in Resources */,
-				D6C3AB0E18037B9D00123260 /* HomesComparisionViewController.xib in Resources */,
 				9E4DBF661805CE2900F095F1 /* TermsAndPoliciesViewController.xib in Resources */,
 				D6E6EE6117E65AC0005D7526 /* savings@2x.png in Resources */,
 				D6E6EE6417E65AD1005D7526 /* children.png in Resources */,
@@ -1793,7 +1768,7 @@
 				D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */,
 				D6C3AB1A180384D100123260 /* HomePaymentsViewController.xib in Resources */,
 				9ECDB80E17FF55AB004E5F25 /* menu-profile-single.png in Resources */,
-				D6C3AB1318037C1900123260 /* TwoHomeRentVsBuyViewController.xib in Resources */,
+				D6C3AB1318037C1900123260 /* TwoHomeLifestyleIncomeViewController.xib in Resources */,
 				9EA5D3EA17F15DC500CE7BD8 /* sfh-homeinfo.png in Resources */,
 				9E96EEEC18107367001E8FF7 /* home-interior_03.jpg in Resources */,
 				D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */,
@@ -1898,14 +1873,14 @@
 				D6842E6E17DDA8720028AF00 /* UsersHomesList.m in Sources */,
 				D6C3AB361803C93300123260 /* kCATIntroAffordViewController.m in Sources */,
 				D6842E5E17DD32510028AF00 /* usersLoansList.m in Sources */,
-				D65A217D17FDFDE900884291 /* Home1VsHome2ViewController.m in Sources */,
+				D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */,
 				D67EFDF517CCE1280082F6C7 /* AppDelegate.m in Sources */,
 				D6C88B3017DA7B1600DEA25D /* LoginViewController.m in Sources */,
 				D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
 				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
-				D6C3AB1218037C1900123260 /* TwoHomeRentVsBuyViewController.m in Sources */,
+				D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,
 				9E4DBF711805D08900F095F1 /* ContactRealtorViewController.m in Sources */,
 				D6E6EEB117E79D05005D7526 /* FixedCostsViewController.m in Sources */,
@@ -1917,7 +1892,6 @@
 				9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */,
 				D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */,
-				D6C3AB0D18037B9D00123260 /* HomesComparisionViewController.m in Sources */,
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */,

@@ -10,12 +10,12 @@
 #import <ShinobiCharts/ShinobiChart.h>
 
 @interface TwoHomeTaxSavingsViewController () <SChartDatasource, SChartDelegate>
-@property (nonatomic, strong) ShinobiChart* mTaxesPaidChart;
+@property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
 @end
 
 @implementation TwoHomeTaxSavingsViewController
 {
-    NSDictionary* homeTaxPayments[3];
+    NSDictionary* homeTaxSavings[3];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -31,36 +31,36 @@
 -(void) setupChart
 {
     // create the data
-    homeTaxPayments[0] = @{@"Tax Savings" : @1234};
-    homeTaxPayments[1] = @{@"Tax Savings" : @5678};
-    homeTaxPayments[2] = @{@"Tax Savings" : @3453};
+    homeTaxSavings[0] = @{@"Tax Savings" : @1234};
+    homeTaxSavings[1] = @{@"Tax Savings" : @5678};
+    homeTaxSavings[2] = @{@"Tax Savings" : @3453};
 
-    self.mTaxesPaidChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
     
-    self.mTaxesPaidChart.autoresizingMask =  ~UIViewAutoresizingNone;
+    self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
-    self.mTaxesPaidChart.licenseKey = SHINOBI_LICENSE_KEY;
+    self.mTaxSavingsChart.licenseKey = SHINOBI_LICENSE_KEY;
     SChartCategoryAxis *xAxis = [[SChartCategoryAxis alloc] init];
     xAxis.style.interSeriesPadding = @0;
-    self.mTaxesPaidChart.xAxis = xAxis;
-    self.mTaxesPaidChart.backgroundColor = [UIColor clearColor];
+    self.mTaxSavingsChart.xAxis = xAxis;
+    self.mTaxSavingsChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
     yAxis.rangePaddingHigh = @5.0;
-    self.mTaxesPaidChart.yAxis = yAxis;
-    self.mTaxesPaidChart.legend.hidden = NO;
-    self.mTaxesPaidChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+    self.mTaxSavingsChart.yAxis = yAxis;
+    self.mTaxSavingsChart.legend.hidden = NO;
+    self.mTaxSavingsChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
     
-    self.mTaxesPaidChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    self.mTaxesPaidChart.legend.style.symbolCornerRadius = @0;
-    self.mTaxesPaidChart.legend.style.borderColor = [UIColor darkGrayColor];
-    self.mTaxesPaidChart.legend.style.cornerRadius = @0;
-    self.mTaxesPaidChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mTaxSavingsChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    self.mTaxSavingsChart.legend.style.symbolCornerRadius = @0;
+    self.mTaxSavingsChart.legend.style.borderColor = [UIColor darkGrayColor];
+    self.mTaxSavingsChart.legend.style.cornerRadius = @0;
+    self.mTaxSavingsChart.legend.position = SChartLegendPositionMiddleRight;
     
     // add to the view
-    [self.view addSubview:self.mTaxesPaidChart];
+    [self.view addSubview:self.mTaxSavingsChart];
     
-    self.mTaxesPaidChart.datasource = self;
-    self.mTaxesPaidChart.delegate = self;
+    self.mTaxSavingsChart.datasource = self;
+    self.mTaxSavingsChart.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -102,9 +102,9 @@
 
 - (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex {
     SChartDataPoint *datapoint = [[SChartDataPoint alloc] init];
-    NSString* key = homeTaxPayments[seriesIndex].allKeys[dataIndex];
+    NSString* key = homeTaxSavings[seriesIndex].allKeys[dataIndex];
     datapoint.xValue = key;
-    datapoint.yValue = homeTaxPayments[seriesIndex][key];
+    datapoint.yValue = homeTaxSavings[seriesIndex][key];
     return datapoint;
 }
 

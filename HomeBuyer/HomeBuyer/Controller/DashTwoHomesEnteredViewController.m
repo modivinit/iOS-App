@@ -34,16 +34,12 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
-    Home1VsHome2ViewController* viewController1 = [[Home1VsHome2ViewController alloc] init];
-    viewController1.mHomes1VsHome2Delegate = self;
+    TwoHomePaymentViewController* viewController1 = [[TwoHomePaymentViewController alloc] init];
+    viewController1.mTwoHomePaymentDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
     
-    HomesComparisionViewController* viewController2 = [[HomesComparisionViewController alloc] init];
-    viewController2.mHomesComparisionDelegate = self;
-    //[self.mPageViewControllers addObject: viewController2];
-    
-    TwoHomeRentVsBuyViewController* viewController3 = [[TwoHomeRentVsBuyViewController alloc] init];
-    viewController3.mTwoHomeRentVsBuyDelegate = self;
+    TwoHomeLifestyleIncomeViewController* viewController3 = [[TwoHomeLifestyleIncomeViewController alloc] init];
+    viewController3.mTwoHomeLifestyleDelegate = self;
     [self.mPageViewControllers addObject:viewController3];
     
     TwoHomeTaxSavingsViewController* viewController4 = [[TwoHomeTaxSavingsViewController alloc] init];

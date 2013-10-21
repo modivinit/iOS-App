@@ -60,7 +60,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeRentVsBuyDelegate setNavTitle:@"Rent Vs Buy"];
+    [self.mTwoHomeRentVsBuyDelegate setNavTitle:@"Lifestyle Income"];
 }
 
 - (void)viewDidLoad

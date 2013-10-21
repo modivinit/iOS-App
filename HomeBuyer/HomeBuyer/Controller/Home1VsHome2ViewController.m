@@ -51,7 +51,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomes1VsHome2Delegate setNavTitle:@"First Home Vs Second Home"];
+    [self.mHomes1VsHome2Delegate setNavTitle:@"Monthly Payment"];
 }
 
 - (void)viewDidLoad

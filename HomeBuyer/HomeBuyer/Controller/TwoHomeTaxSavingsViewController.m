@@ -20,7 +20,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeTaxSavingsDelegate setNavTitle:@"Tax Savings"];
+    [self.mTwoHomeTaxSavingsDelegate setNavTitle:@"Est. Tax Savings"];
 }
 
 -(void) setupOtherLabels

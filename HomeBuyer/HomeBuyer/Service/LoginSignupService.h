@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LoginSignupService.h"
 
 @protocol LoginSignupServiceDelegate <NSObject>
 @optional
@@ -20,6 +21,9 @@
               password:(NSString*) password
                  email:(NSString*) email
            realtorCode:(NSString*) code;
+
+-(BOOL) loginWithEmail:(NSString*) email
+              password:(NSString*) password;
 
 @property (nonatomic, weak) id <LoginSignupServiceDelegate> mLoginSignupServiceDelegate;
 @end

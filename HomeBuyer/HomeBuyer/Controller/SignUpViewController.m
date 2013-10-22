@@ -60,13 +60,6 @@
     
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(void) cancelScreen
@@ -115,6 +108,12 @@
        [Utilities isUITextFieldEmpty:self.mPasswordField])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];
+        return;
+    }
+    
+    if(![Utilities isValidEmail:self.mEmailField.text])
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid email"];
         return;
     }
     

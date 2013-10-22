@@ -24,9 +24,8 @@
 
 + (kunanceUser*) getInstance;
 -(BOOL) isUserLoggedIn;
--(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd;
--(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password;
 -(BOOL) userAccountFoundOnDevice;
+-(BOOL) loginSavedUser;
 
 -(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo;
 -(void) addNewHomeInfo:(homeInfo*)newHomeInfo;

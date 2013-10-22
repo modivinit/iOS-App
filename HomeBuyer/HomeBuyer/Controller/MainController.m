@@ -73,34 +73,13 @@
 
 -(void) loginSavedUser
 {
-    __block NSString* email = nil;
-    __block NSString* password = nil;
-    
-    if([[kunanceUser getInstance] getUserEmail:&email andPassword:&password])
+    if([[kunanceUser getInstance] loginSavedUser])
     {
-        __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
-        
-        FatFractal *ff = [AppDelegate ff];
-        [ff loginWithUserName:email andPassword:password
-                   onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
-        {
-            FFUser *loggedInUser = (FFUser *)obj;
-            if(loggedInUser)
-            {
-                [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
-                                                               passowrd:password];
-                
-                [self savedUserLoggedInSuccessfully];
-                //[Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
-            }
-            else
-            {
-                [self failedToLoginSavedUser];
-            }
-            
-            [actIndicator stopAnimating];
-
-        }];
+        [self displayDash];
+    }
+    else
+    {
+        [self presentLoginViewController];
     }
 }
 
@@ -108,17 +87,6 @@
 {
     if(self.mAPIUserInfoService)
         [self.mAPIUserInfoService readUserPFInfo];
-}
-
--(void) savedUserLoggedInSuccessfully
-{
-    [self readUserPFInfo];
-}
-
--(void) failedToLoginSavedUser
-{
-    //show login screen here
-    [self presentLoginViewController];
 }
 
 -(void) logUserOut
@@ -250,7 +218,7 @@
 #pragma mark LoginDelegate
 -(void) loggedInUserSuccessfully
 {
-    [self readUserPFInfo];
+    [self displayDash];
 }
 
 -(void) cancelLoginScreen

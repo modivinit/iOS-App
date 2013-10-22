@@ -47,4 +47,23 @@
     return YES;
 }
 
+-(BOOL) loginWithEmail:(NSString*) email
+              password:(NSString*) password
+{
+    if(!email || !password)
+    {
+        return NO;
+    }
+    
+    [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *user, NSError *error)
+    {
+        if(self.mLoginSignupServiceDelegate &&
+           [self.mLoginSignupServiceDelegate respondsToSelector:@selector(loginCompletedWithError:)])
+        {
+            [self.mLoginSignupServiceDelegate loginCompletedWithError:error];
+        }
+    }];
+    
+    return YES;
+}
 @end

@@ -36,4 +36,5 @@
 
 -(void) logoutUser;
 
+-(NSString*) getFirstName;
 @end

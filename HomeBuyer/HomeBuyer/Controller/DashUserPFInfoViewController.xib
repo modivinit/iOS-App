@@ -144,7 +144,6 @@ Taxes</string>
         <image name="menu-add-home.png" width="25" height="25"/>
         <image name="otherexpenses.png" width="29" height="29"/>
         <image name="rent.png" width="29" height="29"/>
-        <image name="rent.png" width="29" height="29"/>
         <image name="surfing.png" width="29" height="28"/>
     </resources>
 </document>

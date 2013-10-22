@@ -415,6 +415,7 @@
 		9EA5D40917F162DE00CE7BD8 /* interestrate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interestrate@2x.png"; sourceTree = "<group>"; };
 		9EA5D40A17F162DE00CE7BD8 /* loantime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loantime.png; sourceTree = "<group>"; };
 		9EA5D40B17F162DE00CE7BD8 /* loantime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loantime@2x.png"; sourceTree = "<group>"; };
+		9EA7733C181713870026D0CE /* MuseoSans_500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.ttf; sourceTree = "<group>"; };
 		9EB0EF25180338B500857763 /* menu-contact-realtor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-contact-realtor.png"; sourceTree = "<group>"; };
 		9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-contact-realtor@2x.png"; sourceTree = "<group>"; };
 		9ECCAD5417F0CBFC001EAF4C /* forward-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-icon.png"; sourceTree = "<group>"; };
@@ -1082,6 +1083,7 @@
 		D67EFDEB17CCE1280082F6C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9EA7733C181713870026D0CE /* MuseoSans_500.ttf */,
 				9E237BE21811A7CB0095B66B /* cocon.ttf */,
 				D67EFDEC17CCE1280082F6C7 /* HomeBuyer-Info.plist */,
 				D67EFDED17CCE1280082F6C7 /* InfoPlist.strings */,

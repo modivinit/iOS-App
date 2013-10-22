@@ -33,6 +33,7 @@
 static NSString* kDisplayMainDashNotification=@"DisplayMainDash";
 static NSString* kDisplayHomeDashNotification=@"DisplayHomeDash";
 
+#define USE_PARSE 1
 
 // Typedefs just to make it a little easier to read in code.
 typedef enum {

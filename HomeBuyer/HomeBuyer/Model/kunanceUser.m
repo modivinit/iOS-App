@@ -9,8 +9,13 @@
 #import "kunanceUser.h"
 #import "KeychainWrapper.h"
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 static kunanceUser *kunanceUserSingleton;
+
+@interface kunanceUser()
+@property (nonatomic, strong) PFUser* mPFUser;
+@end
 
 @implementation kunanceUser
 
@@ -57,6 +62,12 @@ static kunanceUser *kunanceUserSingleton;
         self.mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
     else if(self.mUserProfileStatus == ProfileStatusUserPersonalFinanceInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
         self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
+}
+
+-(NSString*) getFirstName
+{
+    NSLog(@"PFUser %@", [PFUser currentUser]);
+    return [PFUser currentUser][@"FirstName"];
 }
 
 -(BOOL) isUserLoggedIn

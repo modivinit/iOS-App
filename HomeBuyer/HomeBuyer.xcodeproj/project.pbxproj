@@ -193,6 +193,14 @@
 		D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */; };
 		D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */; };
 		D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */; };
+		D64703881817090A003810B4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64703871817090A003810B4 /* Parse.framework */; };
+		D647038A18170947003810B4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038918170947003810B4 /* AudioToolbox.framework */; };
+		D647038C1817094F003810B4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038B1817094F003810B4 /* CFNetwork.framework */; };
+		D647038E18170962003810B4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038D18170962003810B4 /* CoreLocation.framework */; };
+		D647039018170970003810B4 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038F18170970003810B4 /* libz.1.1.3.dylib */; };
+		D6470392181709AB003810B4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6470391181709AB003810B4 /* StoreKit.framework */; };
+		D6470394181709BA003810B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6470393181709BA003810B4 /* SystemConfiguration.framework */; };
+		D647039818170E7F003810B4 /* LoginSignupService.m in Sources */ = {isa = PBXBuildFile; fileRef = D647039718170E7F003810B4 /* LoginSignupService.m */; };
 		D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */; };
 		D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */; };
 		D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */; };
@@ -512,6 +520,15 @@
 		D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRevealControllerContainerView.m; sourceTree = "<group>"; };
 		D6468B0E17DAF8CD0056EF57 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
+		D64703871817090A003810B4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D647038918170947003810B4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D647038B1817094F003810B4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D647038D18170962003810B4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D647038F18170970003810B4 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		D6470391181709AB003810B4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D6470393181709BA003810B4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D647039618170E7F003810B4 /* LoginSignupService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSignupService.h; path = Service/LoginSignupService.h; sourceTree = "<group>"; };
+		D647039718170E7F003810B4 /* LoginSignupService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSignupService.m; path = Service/LoginSignupService.m; sourceTree = "<group>"; };
 		D65A217A17FDFDE900884291 /* TwoHomePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomePaymentViewController.h; path = Controller/TwoHomePaymentViewController.h; sourceTree = "<group>"; };
 		D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomePaymentViewController.m; path = Controller/TwoHomePaymentViewController.m; sourceTree = "<group>"; };
 		D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomePaymentViewController.xib; path = Controller/TwoHomePaymentViewController.xib; sourceTree = "<group>"; };
@@ -655,14 +672,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6470394181709BA003810B4 /* SystemConfiguration.framework in Frameworks */,
+				D6470392181709AB003810B4 /* StoreKit.framework in Frameworks */,
+				D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */,
+				D696EB1817D50ABA00F475F3 /* MobileCoreServices.framework in Frameworks */,
+				D647039018170970003810B4 /* libz.1.1.3.dylib in Frameworks */,
+				D647038E18170962003810B4 /* CoreLocation.framework in Frameworks */,
+				D647038C1817094F003810B4 /* CFNetwork.framework in Frameworks */,
+				D647038A18170947003810B4 /* AudioToolbox.framework in Frameworks */,
 				D6DE9C82180DB28500BAECAB /* FFEF.framework in Frameworks */,
 				D6AE028B18055D9000797058 /* ShinobiCharts.framework in Frameworks */,
 				D6F68A641804CD3000BE5960 /* libstdc++.6.0.9.dylib in Frameworks */,
 				D6F68A621804CD2600BE5960 /* CoreText.framework in Frameworks */,
 				D6F68A601804CD1D00BE5960 /* OpenGLES.framework in Frameworks */,
-				D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */,
+				D64703881817090A003810B4 /* Parse.framework in Frameworks */,
 				D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */,
-				D696EB1817D50ABA00F475F3 /* MobileCoreServices.framework in Frameworks */,
 				D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */,
 				D67EFDE917CCE1280082F6C7 /* CoreData.framework in Frameworks */,
 				D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */,
@@ -1015,6 +1039,15 @@
 			name = PKRevealController;
 			sourceTree = "<group>";
 		};
+		D647039518170D9E003810B4 /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				D647039618170E7F003810B4 /* LoginSignupService.h */,
+				D647039718170E7F003810B4 /* LoginSignupService.m */,
+			);
+			name = Login/Signup;
+			sourceTree = "<group>";
+		};
 		D64AAF3217D916FC006CA7E4 /* Login/Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1108,13 @@
 		D67EFDE117CCE1280082F6C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6470393181709BA003810B4 /* SystemConfiguration.framework */,
+				D6470391181709AB003810B4 /* StoreKit.framework */,
+				D647038F18170970003810B4 /* libz.1.1.3.dylib */,
+				D647038D18170962003810B4 /* CoreLocation.framework */,
+				D647038B1817094F003810B4 /* CFNetwork.framework */,
+				D647038918170947003810B4 /* AudioToolbox.framework */,
+				D64703871817090A003810B4 /* Parse.framework */,
 				D6AE028A18055D9000797058 /* ShinobiCharts.framework */,
 				D6F68A631804CD3000BE5960 /* libstdc++.6.0.9.dylib */,
 				D6F68A611804CD2600BE5960 /* CoreText.framework */,
@@ -1591,6 +1631,7 @@
 		D6EEFFC717CDBDF100EB28C7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D647039518170D9E003810B4 /* Login/Signup */,
 				D63EA1F117FCB45B00E50E44 /* APILoanInfoService */,
 				D618859B17FB56F800ABEA3E /* HomeInfoService */,
 				D618859A17FB56E600ABEA3E /* UserInfoService */,
@@ -1943,6 +1984,7 @@
 				D607A20917F8FB6D008E093C /* DashNoInfoViewController.m in Sources */,
 				D6842E6617DD97090028AF00 /* homeInfo.m in Sources */,
 				9E4DBF651805CE2900F095F1 /* TermsAndPoliciesViewController.m in Sources */,
+				D647039818170E7F003810B4 /* LoginSignupService.m in Sources */,
 				9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */,
 				D6EBEBC11815B878004B3CBF /* HTEmailAutocompleteTextField.m in Sources */,
 				9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */,

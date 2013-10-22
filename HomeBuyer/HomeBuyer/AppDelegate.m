@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <FFEF/FatFractal.h>
 #import <ShinobiCharts/ShinobiChart.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 @end
@@ -33,12 +34,18 @@ static FatFractal *_ff;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+#if USE_PARSE
+    [Parse setApplicationId:@"RphK94N4u63vCoDcsydM6aY1g0z2crnTswmXpV34"
+                  clientKey:@"t4UbQbinGiRZR5Vgt0LQ7HVFONIh3XiYq7Ufvjhf"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//#else
     NSString *baseUrl = @"https://kunance.fatfractal.com/kCAT";
     _ff = [[FatFractal alloc]
            initWithBaseUrl:@"http://kunance.fatfractal.com/kCAT"
            sslUrl:baseUrl];
     [FFHttpDelegate addTrustedHost:@"kunance.fatfractal.com"];
-
+#endif
+    
     UINavigationController* navController = [[UINavigationController alloc] init];
     self.window.rootViewController = navController;
     

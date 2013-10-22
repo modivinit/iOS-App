@@ -23,6 +23,8 @@
 		9E0DB87318075AD700B5184E /* addahome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E0DB87118075AD700B5184E /* addahome@2x.png */; };
 		9E0DB87618075BCC00B5184E /* logo-svl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9E0DB87418075BCC00B5184E /* logo-svl.gif */; };
 		9E0DB87718075BCC00B5184E /* logo-svl@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9E0DB87518075BCC00B5184E /* logo-svl@2x.gif */; };
+		9E13E3B01817343700875BD2 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E13E3AE1817343700875BD2 /* ResetPasswordViewController.m */; };
+		9E13E3B11817343700875BD2 /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E13E3AF1817343700875BD2 /* ResetPasswordViewController.xib */; };
 		9E237BE01811A0910095B66B /* home-interior_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BDE1811A0910095B66B /* home-interior_01.jpg */; };
 		9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */; };
 		9E237BE31811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
@@ -334,6 +336,9 @@
 		9E0DB87118075AD700B5184E /* addahome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addahome@2x.png"; sourceTree = "<group>"; };
 		9E0DB87418075BCC00B5184E /* logo-svl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "logo-svl.gif"; sourceTree = "<group>"; };
 		9E0DB87518075BCC00B5184E /* logo-svl@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "logo-svl@2x.gif"; sourceTree = "<group>"; };
+		9E13E3AD1817343700875BD2 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResetPasswordViewController.h; path = Controller/ResetPasswordViewController.h; sourceTree = "<group>"; };
+		9E13E3AE1817343700875BD2 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResetPasswordViewController.m; path = Controller/ResetPasswordViewController.m; sourceTree = "<group>"; };
+		9E13E3AF1817343700875BD2 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResetPasswordViewController.xib; path = Controller/ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		9E237BDE1811A0910095B66B /* home-interior_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01.jpg"; sourceTree = "<group>"; };
 		9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01@2x.jpg"; sourceTree = "<group>"; };
 		9E237BE21811A7CB0095B66B /* cocon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cocon.ttf; sourceTree = "<group>"; };
@@ -991,6 +996,8 @@
 		D64AAF3217D916FC006CA7E4 /* Login/Signup */ = {
 			isa = PBXGroup;
 			children = (
+				9E13E3AD1817343700875BD2 /* ResetPasswordViewController.h */,
+				9E13E3AE1817343700875BD2 /* ResetPasswordViewController.m */,
 				D6C88B2A17DA7B1600DEA25D /* SignUpViewController.h */,
 				D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */,
 				D6C88B2C17DA7B1600DEA25D /* LoginViewController.h */,
@@ -1282,6 +1289,7 @@
 				9E4872601811EB2300B417F9 /* sign-up@2x.png */,
 				D6C88B3217DA7B3000DEA25D /* SignUpViewController.xib */,
 				D6C88B3317DA7B3000DEA25D /* LoginViewController.xib */,
+				9E13E3AF1817343700875BD2 /* ResetPasswordViewController.xib */,
 			);
 			name = Login/SignUp;
 			sourceTree = "<group>";
@@ -1726,6 +1734,7 @@
 				9ECDB81117FF55AB004E5F25 /* menu-terms-and-policies@2x.png in Resources */,
 				D6E6EE5C17E65AAF005D7526 /* salary.png in Resources */,
 				D6E6EEBC17E79D7D005D7526 /* car@2x.png in Resources */,
+				9E13E3B11817343700875BD2 /* ResetPasswordViewController.xib in Resources */,
 				9E48726A1811F08100B417F9 /* line@2x.png in Resources */,
 				9EA5D3EB17F15DC500CE7BD8 /* sfh-homeinfo@2x.png in Resources */,
 				9ECDB7FD17FF55AB004E5F25 /* menu-dashboard@2x.png in Resources */,
@@ -1957,6 +1966,7 @@
 				9E00FAA317F34DB100380997 /* HelpProfileViewController.m in Sources */,
 				D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */,
 				D6B93F6217E96F9F0049B5D5 /* APIUserInfoService.m in Sources */,
+				9E13E3B01817343700875BD2 /* ResetPasswordViewController.m in Sources */,
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,
 				D6C3AB1E180384E600123260 /* HomeLifeStyleViewController.m in Sources */,
 				D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */,

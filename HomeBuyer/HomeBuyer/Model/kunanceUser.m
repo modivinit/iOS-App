@@ -32,6 +32,7 @@ static kunanceUser *kunanceUserSingleton;
     self = [super init];
     if (self) {
         // Initialization
+        self.mPFUser = nil;
         self.mLoggedInKunanceUser = nil;
         self.mLoggedInKunanceUser = nil;
         self.mkunanceUserPFInfo = nil;
@@ -44,6 +45,25 @@ static kunanceUser *kunanceUserSingleton;
     }
     
     return self;
+}
+
+
+-(BOOL)userAccountFoundOnDevice
+{
+    if([PFUser currentUser])
+        return YES;
+    else
+        return NO;
+}
+
+-(BOOL) loginSavedUser
+{
+    self.mPFUser = [PFUser currentUser];
+    
+    if(self.mPFUser)
+        return YES;
+    else
+        return NO;
 }
 
 -(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
@@ -93,8 +113,8 @@ static kunanceUser *kunanceUserSingleton;
 
 -(void) logoutUser
 {
-    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"pswd"];
-    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"email"];
+    [PFUser logOut];
+    self.mPFUser = [PFUser currentUser];
     
     self.mLoggedInKunanceUser = nil;
     self.mLoggedInKunanceUser = nil;
@@ -103,20 +123,6 @@ static kunanceUser *kunanceUserSingleton;
     self.mKunanceUserLoan = nil;
     self.mUserProfileStatus = ProfileStatusNoInfoEntered;
     self.mUserPFInfoGUID = nil;
-}
-
--(BOOL)userAccountFoundOnDevice
-{
-    NSData* theData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"email"];
-    if(!theData)
-        return NO;
-    
-    NSString* emailStr = [[NSString alloc] initWithData:theData
-                                              encoding:NSUTF8StringEncoding];
-    if(emailStr)
-        return YES;
-    
-    return NO;
 }
 
 -(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password

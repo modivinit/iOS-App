@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FormNoScrollViewViewController.h"
+#import "LoginSignupService.h"
 
 @protocol LoginDelegate <NSObject>
 -(void) loggedInUserSuccessfully;
@@ -15,16 +16,18 @@
 -(void) cancelLoginScreen;
 @end
 
-@interface LoginViewController : FormNoScrollViewViewController<UITextFieldDelegate>
+@interface LoginViewController : FormNoScrollViewViewController<UITextFieldDelegate, LoginSignupServiceDelegate>
 @property (nonatomic, weak) id <LoginDelegate> mLoginDelegate;
 
 @property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;
 @property (nonatomic, strong) IBOutlet UITextField* mPassword;
+@property (nonatomic, strong) IBOutlet UIButton*    mForgetPasswordButton;
+-(IBAction)forgotPassword:(id)sender;
+
 @property (nonatomic, strong) UIButton*    mLoginButton;
 @property (nonatomic, strong) IBOutlet UIButton*    mSignInFooterBUtton;
 @property (nonatomic, strong) IBOutlet UIButton*    mSignUpFooterButton;
 
--(IBAction) loginButtonPressed:(id)sender;
 -(IBAction) signupButtonPressedAction:(id)sender;
 
 @property (nonatomic, strong) UIColor* mLoginButtonColor;

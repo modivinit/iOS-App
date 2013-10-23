@@ -49,13 +49,13 @@
 {
     homeInfo* home = [[kunanceUser getInstance].mKunanceUserHomes
                       getHomeAtIndex:[self.mHomeNumber intValue]];
-    userPFInfo* user = [kunanceUser getInstance].mkunanceUserPFInfo;
+    userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;
     
     if(home && user)
     {
         // create the data
         homePayments = @{@"LifeStyle Income" : @1800,
-                         @"Fixed Costs" : [NSNumber numberWithInt:user.mOtherMonthlyExpenses],
+                         @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
                          @"Tax" : @600};
         
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];

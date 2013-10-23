@@ -71,7 +71,9 @@
     
     switch ((int)section) {
         case SECTION_USER_NAME_DASH_REALTOR:
-            textLabel.text = [[NSString stringWithFormat:@"%@",[kunanceUser getInstance].mLoggedInKunanceUser.firstName] uppercaseString];
+//            NSString* firstName = [kunanceUser ge]
+//            textLabel.text = [NSString stringWithFormat:@"%@",
+//                               [[[kunanceUser getInstance] getFirstName] uppercaseString];
             textLabel.textAlignment = NSTextAlignmentCenter;
             break;
             
@@ -246,21 +248,21 @@
 
 -(void) updateRowForUserProfile:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell
 {
-    userPFInfo* user = [kunanceUser getInstance].mkunanceUserPFInfo;
+    userProfileInfo* userProfile = [kunanceUser getInstance].mkunanceUserProfileInfo;
     
     if(indexPath.row == ROW_YOUR_PROFILE)
     {
-        if(!user)
+        if(!userProfile)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-create-profile.png"];
             cell.textLabel.text = @"Enter Profile to Start";
         }
-        else if(user.mMaritalStatus == StatusSingle)
+        else if([userProfile getMaritalStatus] == StatusSingle)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-profile-single.png"];
             cell.textLabel.text = @"Profile & Income";
         }
-        else if (user.mMaritalStatus == StatusMarried)
+        else if ([userProfile getMaritalStatus] == StatusMarried)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-profile-couple.png"];
             cell.textLabel.text = @"Profile & Income";
@@ -269,7 +271,7 @@
     else if(indexPath.row == ROW_FIXED_COSTS)
     {
         
-        if(!user)
+        if(!userProfile)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
             cell.textLabel.text = @"Fixed Costs";
@@ -384,6 +386,6 @@
 {
     UILabel* label = [[UILabel alloc] initWithFrame:cell.bounds];
     [cell addSubview:label];
-    label.text = [NSString stringWithFormat:@"%@",[kunanceUser getInstance].mLoggedInKunanceUser.firstName];
+    label.text = [NSString stringWithFormat:@"%@",[[kunanceUser getInstance] getFirstName]];
 }
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AboutYouViewController.h"
-#import "UIViewController+PKRevealController.h"
+#import <PKRevealController/PKRevealController.h>
 #import "DashLeftMenuViewController.h"
 
 

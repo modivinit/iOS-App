@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "userPFInfo.h"
+#import "userProfileInfo.h"
 #import "FormViewController.h"
-#import "APIUserInfoService.h"
 #import "FixedCostsViewController.h"
+#import "userProfileInfo.h"
 
 @interface AboutYouViewController : FormViewController
-<APIUserInfoServiceDelegate, FixedCostsControllerDelegate>
+<userProfileInfoDelegate, FixedCostsControllerDelegate>
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
 @property (nonatomic, strong) FixedCostsViewController* mFixedCostsController;
 

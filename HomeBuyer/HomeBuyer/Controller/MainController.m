@@ -9,8 +9,7 @@
 #import "MainController.h"
 #import "LoginViewController.h"
 #import "LeftMenuViewController.h"
-#import "PKRevealController.h"
-#import "APIUserInfoService.h"
+#import <PKRevealController/PKRevealController.h>
 #import "DashNoInfoViewController.h"
 #import "AppDelegate.h"
 #import "HomeInfoDashViewController.h"
@@ -29,8 +28,6 @@
     if(self)
     {
         self.mMainNavController = navController;
-        self.mAPIUserInfoService = [[APIUserInfoService alloc] init];
-        self.mAPIUserInfoService.mAPIUserInfoServiceDelegate = self;
         self.mLeftMenuViewController = [[LeftMenuViewController alloc] init];
         self.mLeftMenuViewController.mLeftMenuDelegate = self;
     }
@@ -75,7 +72,7 @@
 {
     if([[kunanceUser getInstance] loginSavedUser])
     {
-        [self displayDash];
+        [self readUserPFInfo];
     }
     else
     {
@@ -85,8 +82,14 @@
 
 -(void) readUserPFInfo
 {
-    if(self.mAPIUserInfoService)
-        [self.mAPIUserInfoService readUserPFInfo];
+    if(![kunanceUser getInstance].mkunanceUserProfileInfo)
+        [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
+   
+    if([kunanceUser getInstance].mkunanceUserProfileInfo)
+    {
+        [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
+        [[kunanceUser getInstance].mkunanceUserProfileInfo readUserPFInfo];
+    }
 }
 
 -(void) logUserOut
@@ -124,15 +127,13 @@
     
     //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
     self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
-                                                                     leftViewController:self.mLeftMenuViewController
-                                                                    rightViewController:nil];
+                                                                     leftViewController:self.mLeftMenuViewController];
     if(self.mMainControllerDelegate &&
        [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
     {
         [self.mMainControllerDelegate resetRootView:self.revealController];
     }
 }
-
 
 -(void) presentLoginViewController
 {
@@ -285,7 +286,9 @@
 #pragma mark APIServiceDelegate
 -(void) finishedReadingUserPFInfo
 {
-    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
+    [[kunanceUser getInstance] updateUserPFInfo];
+    [self displayDash];
+ /*   APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
     if(homeInfoService)
     {
         homeInfoService.mAPIHomeInfoDelegate = self;
@@ -293,7 +296,7 @@
         {
             NSLog(@"Error: reading homes info for user");
         }
-    }
+    }*/
 }
 #pragma end
 

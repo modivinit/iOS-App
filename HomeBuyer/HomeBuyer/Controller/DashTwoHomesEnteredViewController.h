@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
-#import "PKRevealController.h"
+#import <PKRevealController/PKRevealController.h>
 #import "TwoHomePaymentViewController.h"
 #import "TwoHomeLifestyleIncomeViewController.h"
 #import "TwoHomeTaxSavingsViewController.h"

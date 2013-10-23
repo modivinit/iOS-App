@@ -10,7 +10,7 @@
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
 #import "DashNoInfoViewController.h"
-#import "APIUserInfoService.h"
+#import "userProfileInfo.h"
 #import "DashUserPFInfoViewController.h"
 #import "DashOneHomeEnteredViewController.h"
 #import "DashTwoHomesEnteredViewController.h"
@@ -26,7 +26,7 @@
 @interface MainController : NSObject
 
 <SignUpDelegate,
-APIUserInfoServiceDelegate,
+userProfileInfoDelegate,
 LoginDelegate,
 LeftMenuDelegate,
 APIHomeInfoServiceDelegate,
@@ -37,7 +37,6 @@ kCATIntroViewDelegate
 
 @property (nonatomic, strong) UINavigationController* mMainNavController;
 @property (nonatomic, weak) id <MainControllerDelegate> mMainControllerDelegate;
-@property (nonatomic, strong) APIUserInfoService* mAPIUserInfoService;
 @property (nonatomic, strong) SignUpViewController* mSignUpViewController;
 @property (nonatomic, strong) LoginViewController* mLoginViewController;
 @property (nonatomic, strong) UIViewController*    mMainDashController;

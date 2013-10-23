@@ -20,7 +20,6 @@
 @property (nonatomic, strong) loan* mKunanceUserLoan;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
 @property (nonatomic, copy) NSString*        mKunanceUserGUID;
-@property (nonatomic, copy) NSString*        mUserPFInfoGUID;
 
 + (kunanceUser*) getInstance;
 -(BOOL) isUserLoggedIn;

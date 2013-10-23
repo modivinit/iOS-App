@@ -172,7 +172,7 @@
 #pragma mark APIUserInfoServiceDelegate
 -(void) finishedWritingUserPFInfo
 {
-    if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
+    if([kunanceUser getInstance].mkunanceUserPFInfo)
     {
         NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu",
               [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);

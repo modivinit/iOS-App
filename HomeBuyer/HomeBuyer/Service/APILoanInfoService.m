@@ -85,7 +85,7 @@
         return NO;
     }
     
-    FatFractal *ff = [AppDelegate ff];    
+ /*   FatFractal *ff = [AppDelegate ff];
     NSError *err;
     NSString* userGUID = [kunanceUser getInstance].mKunanceUserGUID;
     
@@ -116,7 +116,7 @@
              [self.mAPILoanInfoDelegate finishedReadingLoanInfo];
          }
 
-     }];
+     }];*/
     
     return YES;
 }

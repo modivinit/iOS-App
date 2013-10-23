@@ -7,32 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "userPFInfo.h"
+#import "userProfileInfo.h"
 #import "UsersHomesList.h"
 #import "loan.h"
 #import "homeInfo.h"
 #import "UsersHomesList.h"
+#import <Parse/Parse.h>
 
 @interface kunanceUser : NSObject
-@property (nonatomic, strong) FFUser* mLoggedInKunanceUser;
-@property (nonatomic, strong) userPFInfo* mkunanceUserPFInfo;
+@property (nonatomic, strong) userProfileInfo* mkunanceUserProfileInfo;
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
 @property (nonatomic, strong) loan* mKunanceUserLoan;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
-@property (nonatomic, copy) NSString*        mKunanceUserGUID;
+@property (nonatomic, strong, readonly) PFUser* mLoggedInKunanceUser;
 
 + (kunanceUser*) getInstance;
 -(BOOL) isUserLoggedIn;
 -(BOOL) userAccountFoundOnDevice;
 -(BOOL) loginSavedUser;
 
--(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo;
+-(void) updateUserPFInfo;
 -(void) addNewHomeInfo:(homeInfo*)newHomeInfo;
 -(void) updateExistingHome:(homeInfo*)homeInfo;
 
 -(void) updateLoanInfo:(loan*) aLoan;
 
 -(void) logoutUser;
-
+-(NSString*) getUserID;
 -(NSString*) getFirstName;
 @end

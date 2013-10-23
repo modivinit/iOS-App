@@ -4,3 +4,4 @@ xcodeproj '/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer/Home
 
 pod 'PKRevealController'
 pod 'HTAutocompleteTextField'
+pod 'Facebook-iOS-SDK'

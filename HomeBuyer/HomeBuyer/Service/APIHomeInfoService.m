@@ -83,7 +83,7 @@
         return NO;
     }
     
-    FatFractal *ff = [AppDelegate ff];    
+  /*  FatFractal *ff = [AppDelegate ff];
     NSString* userGUID = [kunanceUser getInstance].mKunanceUserGUID;
     
     if(!userGUID)
@@ -113,7 +113,7 @@
             }
 
         }
-     }];
+     }];*/
     
     return YES;
 }

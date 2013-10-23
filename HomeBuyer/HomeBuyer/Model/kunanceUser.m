@@ -9,12 +9,11 @@
 #import "kunanceUser.h"
 #import "KeychainWrapper.h"
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 
 static kunanceUser *kunanceUserSingleton;
 
 @interface kunanceUser()
-@property (nonatomic, strong) PFUser* mPFUser;
+@property (nonatomic, strong, readwrite) PFUser* mLoggedInKunanceUser;
 @end
 
 @implementation kunanceUser
@@ -32,10 +31,8 @@ static kunanceUser *kunanceUserSingleton;
     self = [super init];
     if (self) {
         // Initialization
-        self.mPFUser = nil;
         self.mLoggedInKunanceUser = nil;
-        self.mLoggedInKunanceUser = nil;
-        self.mkunanceUserPFInfo = nil;
+        self.mkunanceUserProfileInfo = nil;
         self.mKunanceUserHomes = nil;
         self.mKunanceUserLoan = nil;
         self.mUserProfileStatus = ProfileStatusNoInfoEntered;
@@ -45,6 +42,13 @@ static kunanceUser *kunanceUserSingleton;
     return self;
 }
 
+-(NSString*) getUserID
+{
+    if(self.mLoggedInKunanceUser)
+        return self.mLoggedInKunanceUser.objectId;
+    else
+        return nil;
+}
 
 -(BOOL)userAccountFoundOnDevice
 {
@@ -56,28 +60,31 @@ static kunanceUser *kunanceUserSingleton;
 
 -(BOOL) loginSavedUser
 {
-    self.mPFUser = [PFUser currentUser];
+    self.mLoggedInKunanceUser = [PFUser currentUser];
     
-    if(self.mPFUser)
+    if(self.mLoggedInKunanceUser)
         return YES;
     else
         return NO;
 }
 
--(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
+-(void) updateUserPFInfo
 {
-    self.mkunanceUserPFInfo = newUserPFInfo;
-    
-    NSLog(@"updateUserPFInfo: %llu", self.mkunanceUserPFInfo.mGrossAnnualIncome);
+//    NSLog(@"updateUserPFInfo: %llu", self.mkunanceUserPFInfo.mGrossAnnualIncome);
     
    // if(newUserPFInfo)
      //   self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
     
-    if(self.mUserProfileStatus == ProfileStatusNoInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
+    if(!self.mkunanceUserProfileInfo)
+        return;
+    
+    if(self.mUserProfileStatus == ProfileStatusNoInfoEntered &&
+       [self.mkunanceUserProfileInfo isFixedCostsInfoEntered])
         self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
     else if(self.mUserProfileStatus == ProfileStatusNoInfoEntered)
         self.mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
-    else if(self.mUserProfileStatus == ProfileStatusUserPersonalFinanceInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
+    else if(self.mUserProfileStatus == ProfileStatusUserPersonalFinanceInfoEntered &&
+            [self.mkunanceUserProfileInfo isFixedCostsInfoEntered])
         self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
 }
 
@@ -93,29 +100,12 @@ static kunanceUser *kunanceUserSingleton;
             [kunanceUser getInstance].mLoggedInKunanceUser);
 }
 
--(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd
-{
-    if(!newUser || !pswd)
-        return;
-    
-    [KeychainWrapper createKeychainValue:pswd forIdentifier:@"pswd"];
-    [KeychainWrapper createKeychainValue:newUser.email forIdentifier:@"email"];
-    
-    self.mLoggedInKunanceUser = newUser;
-    
-    FatFractal *ff = [AppDelegate ff];
-    if(ff)
-        self.mKunanceUserGUID = [[ff metaDataForObj:newUser] guid];
-}
-
 -(void) logoutUser
 {
     [PFUser logOut];
-    self.mPFUser = [PFUser currentUser];
+    self.mLoggedInKunanceUser = [PFUser currentUser];
     
-    self.mLoggedInKunanceUser = nil;
-    self.mLoggedInKunanceUser = nil;
-    self.mkunanceUserPFInfo = nil;
+    self.mkunanceUserProfileInfo = nil;
     self.mKunanceUserHomes = nil;
     self.mKunanceUserLoan = nil;
     self.mUserProfileStatus = ProfileStatusNoInfoEntered;

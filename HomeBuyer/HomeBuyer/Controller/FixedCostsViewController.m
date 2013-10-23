@@ -26,15 +26,15 @@
 
 -(void) initWithExisitingFixedCosts
 {
-    userPFInfo* userInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
-    if(userInfo)
+    userProfileInfo* userInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    if(userInfo && [userInfo isFixedCostsInfoEntered])
     {
-        if(userInfo.mCurrentMonthlyRent)
-            self.mMonthlyRent.text = [NSString stringWithFormat:@"%d", userInfo.mCurrentMonthlyRent];
-        if(userInfo.mCurrentCarPayment)
-            self.mMonthlyCarPayments.text = [NSString stringWithFormat:@"%d", userInfo.mCurrentCarPayment];
-        if(userInfo.mOtherMonthlyExpenses)
-            self.mOtherMonthlyPayments.text = [NSString stringWithFormat:@"%d", userInfo.mOtherMonthlyExpenses];
+        if([userInfo getMonthlyRentInfo])
+            self.mMonthlyRent.text = [NSString stringWithFormat:@"%d", [userInfo getMonthlyRentInfo]];
+        if([userInfo getCarPaymentsInfo])
+            self.mMonthlyCarPayments.text = [NSString stringWithFormat:@"%d", [userInfo getCarPaymentsInfo]];
+        if([userInfo getOtherFixedCostsInfo])
+            self.mOtherMonthlyPayments.text = [NSString stringWithFormat:@"%d", [userInfo getOtherFixedCostsInfo]];
     }
 }
 
@@ -67,11 +67,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark APIUserInfoServiceDelegate
+#pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
-    if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
+    if([[kunanceUser getInstance].mkunanceUserProfileInfo isFixedCostsInfoEntered])
     {
+        [[kunanceUser getInstance] updateUserPFInfo];
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
     }
     else
@@ -117,17 +118,21 @@
         [alert show];
         return;
     }
-    
-    APIUserInfoService* service = [[APIUserInfoService alloc] init];
-    if(service)
+
+    userProfileInfo* userProfileInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    if(userProfileInfo)
     {
-        service.mAPIUserInfoServiceDelegate = self;
-        if(![service writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
+        userProfileInfo.mUserProfileInfoDelegate =self;
+        if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
                      otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]])
         {
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];
         }
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];
     }
 }
 @end

@@ -21,7 +21,10 @@ typedef enum
 @property (nonatomic) UInt64                       mGrossAnnualIncome;
 @property (nonatomic) UInt8                        mNumberOfChildren;
 @property (nonatomic) UInt64                       mAnnualRetirementSavingsContributions;
-@property (nonatomic) UInt16                       mCurrentMonthlyIncomeTax;
+
+//BaaS related property. Technically this needs to an abstraction level higher.
+//But will save that for later.
+@property (nonatomic, copy) NSString*              mObjectID;
 
 @property (nonatomic) BOOL   mFixedCostsInfoEntered;
 @property (nonatomic) UInt16 mCurrentMonthlyRent;

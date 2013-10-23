@@ -125,8 +125,7 @@
     //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
     self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
                                                                      leftViewController:self.mLeftMenuViewController
-                                                                    rightViewController:nil
-                                                                                options:nil];
+                                                                    rightViewController:nil];
     if(self.mMainControllerDelegate &&
        [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
     {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00D477EF589949109DB9DF4D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8039C215F5384933A0499308 /* libPods.a */; };
 		9E00FAA317F34DB100380997 /* HelpProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E00FAA117F34DB100380997 /* HelpProfileViewController.m */; };
 		9E00FAA417F34DB100380997 /* HelpProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAA217F34DB100380997 /* HelpProfileViewController.xib */; };
 		9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E00FAA917F34DEC00380997 /* HelpHomeViewController.m */; };
@@ -188,9 +189,6 @@
 		D63EA1FD17FCF47900E50E44 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FC17FCF47900E50E44 /* chart.png */; };
 		D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */; };
 		D63EA20117FCF48F00E50E44 /* logo_svl@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */; };
-		D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */; };
-		D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */; };
-		D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */; };
 		D64703881817090A003810B4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64703871817090A003810B4 /* Parse.framework */; };
 		D647038A18170947003810B4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038918170947003810B4 /* AudioToolbox.framework */; };
 		D647038C1817094F003810B4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038B1817094F003810B4 /* CFNetwork.framework */; };
@@ -202,6 +200,7 @@
 		D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */; };
 		D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */; };
 		D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */; };
+		D666C43D181833C0000092A6 /* HTAutoCompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D666C43C181833C0000092A6 /* HTAutoCompleteManager.m */; };
 		D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE217CCE1280082F6C7 /* Foundation.framework */; };
 		D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */; };
 		D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE617CCE1280082F6C7 /* UIKit.framework */; };
@@ -299,9 +298,6 @@
 		D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */; };
 		D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E7CC7817F74DF10099C0B8 /* FormViewController.m */; };
 		D6EBEBB91815A899004B3CBF /* Cities_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EBEBB81815A899004B3CBF /* Cities_1.plist */; };
-		D6EBEBC01815B878004B3CBF /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBBD1815B878004B3CBF /* HTAutocompleteTextField.m */; };
-		D6EBEBC11815B878004B3CBF /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBBF1815B878004B3CBF /* HTEmailAutocompleteTextField.m */; };
-		D6EBEBC41815B997004B3CBF /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC21815B997004B3CBF /* HTAutocompleteManager.m */; };
 		D6EBEBC71815C064004B3CBF /* Cities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC61815C064004B3CBF /* Cities.m */; };
 		D6EBEBCA1815C16C004B3CBF /* States.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC91815C16C004B3CBF /* States.m */; };
 		D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F68A5D1804CD1400BE5960 /* QuartzCore.framework */; };
@@ -321,6 +317,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8039C215F5384933A0499308 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E00FAA017F34DB100380997 /* HelpProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpProfileViewController.h; path = Controller/HelpProfileViewController.h; sourceTree = "<group>"; };
 		9E00FAA117F34DB100380997 /* HelpProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpProfileViewController.m; path = Controller/HelpProfileViewController.m; sourceTree = "<group>"; };
 		9E00FAA217F34DB100380997 /* HelpProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpProfileViewController.xib; path = Controller/HelpProfileViewController.xib; sourceTree = "<group>"; };
@@ -482,6 +479,7 @@
 		9EFBA04A180DBB5300F78749 /* menu-fixedcosts-gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-fixedcosts-gray@2x.png"; sourceTree = "<group>"; };
 		9EFBA04D180DBCD400F78749 /* menu-loan-info-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info-gray.png"; sourceTree = "<group>"; };
 		9EFBA04E180DBCD400F78749 /* menu-loan-info-gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info-gray@2x.png"; sourceTree = "<group>"; };
+		AB06EC2492E647E6A262CA63 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D607A20617F8FB6D008E093C /* DashNoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashNoInfoViewController.h; path = Controller/DashNoInfoViewController.h; sourceTree = "<group>"; };
 		D607A20717F8FB6D008E093C /* DashNoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashNoInfoViewController.m; path = Controller/DashNoInfoViewController.m; sourceTree = "<group>"; };
 		D607A20817F8FB6D008E093C /* DashNoInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashNoInfoViewController.xib; path = Controller/DashNoInfoViewController.xib; sourceTree = "<group>"; };
@@ -504,12 +502,6 @@
 		D63EA1FC17FCF47900E50E44 /* chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart.png; sourceTree = "<group>"; };
 		D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_svl.gif; sourceTree = "<group>"; };
 		D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "logo_svl@2x.gif"; sourceTree = "<group>"; };
-		D6468B0A17DAF8CD0056EF57 /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
-		D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRevealController.m; sourceTree = "<group>"; };
-		D6468B0C17DAF8CD0056EF57 /* PKRevealControllerContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealControllerContainerView.h; sourceTree = "<group>"; };
-		D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRevealControllerContainerView.m; sourceTree = "<group>"; };
-		D6468B0E17DAF8CD0056EF57 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
-		D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
 		D64703871817090A003810B4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D647038918170947003810B4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D647038B1817094F003810B4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -524,6 +516,8 @@
 		D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomePaymentViewController.xib; path = Controller/TwoHomePaymentViewController.xib; sourceTree = "<group>"; };
 		D65A217F17FE0E9D00884291 /* DashLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashLeftMenuViewController.h; path = Controller/DashLeftMenuViewController.h; sourceTree = "<group>"; };
 		D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashLeftMenuViewController.m; path = Controller/DashLeftMenuViewController.m; sourceTree = "<group>"; };
+		D666C43B181833C0000092A6 /* HTAutoCompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutoCompleteManager.h; path = Model/HTAutoCompleteManager.h; sourceTree = "<group>"; };
+		D666C43C181833C0000092A6 /* HTAutoCompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutoCompleteManager.m; path = Model/HTAutoCompleteManager.m; sourceTree = "<group>"; };
 		D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67EFDE217CCE1280082F6C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -642,12 +636,6 @@
 		D6E7CC7717F74DF10099C0B8 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = Controller/FormViewController.h; sourceTree = "<group>"; };
 		D6E7CC7817F74DF10099C0B8 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = Controller/FormViewController.m; sourceTree = "<group>"; };
 		D6EBEBB81815A899004B3CBF /* Cities_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cities_1.plist; path = Resource/Cities_1.plist; sourceTree = "<group>"; };
-		D6EBEBBC1815B878004B3CBF /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
-		D6EBEBBD1815B878004B3CBF /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
-		D6EBEBBE1815B878004B3CBF /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
-		D6EBEBBF1815B878004B3CBF /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
-		D6EBEBC21815B997004B3CBF /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteManager.m; sourceTree = "<group>"; };
-		D6EBEBC31815B997004B3CBF /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteManager.h; sourceTree = "<group>"; };
 		D6EBEBC51815C064004B3CBF /* Cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cities.h; path = Model/Cities.h; sourceTree = "<group>"; };
 		D6EBEBC61815C064004B3CBF /* Cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cities.m; path = Model/Cities.m; sourceTree = "<group>"; };
 		D6EBEBC81815C16C004B3CBF /* States.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = States.h; path = Model/States.h; sourceTree = "<group>"; };
@@ -682,6 +670,7 @@
 				D67EFDE917CCE1280082F6C7 /* CoreData.framework in Frameworks */,
 				D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */,
 				D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */,
+				00D477EF589949109DB9DF4D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,23 +981,8 @@
 		D6468ADD17DAA6670056EF57 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				D6EBEBBB1815B85F004B3CBF /* HTAutoComplete */,
-				D6468B0917DAF8B50056EF57 /* PKRevealController */,
 			);
 			name = External;
-			sourceTree = "<group>";
-		};
-		D6468B0917DAF8B50056EF57 /* PKRevealController */ = {
-			isa = PBXGroup;
-			children = (
-				D6468B0A17DAF8CD0056EF57 /* PKRevealController.h */,
-				D6468B0B17DAF8CD0056EF57 /* PKRevealController.m */,
-				D6468B0C17DAF8CD0056EF57 /* PKRevealControllerContainerView.h */,
-				D6468B0D17DAF8CD0056EF57 /* PKRevealControllerContainerView.m */,
-				D6468B0E17DAF8CD0056EF57 /* UIViewController+PKRevealController.h */,
-				D6468B0F17DAF8CD0056EF57 /* UIViewController+PKRevealController.m */,
-			);
-			name = PKRevealController;
 			sourceTree = "<group>";
 		};
 		D647039518170D9E003810B4 /* Login/Signup */ = {
@@ -1063,6 +1037,7 @@
 				D67EFE0717CCE1290082F6C7 /* HomeBuyerTests */,
 				D67EFDE117CCE1280082F6C7 /* Frameworks */,
 				D67EFDE017CCE1280082F6C7 /* Products */,
+				AB06EC2492E647E6A262CA63 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1098,6 +1073,7 @@
 				D67EFDE617CCE1280082F6C7 /* UIKit.framework */,
 				D67EFDE817CCE1280082F6C7 /* CoreData.framework */,
 				D67EFE0017CCE1290082F6C7 /* XCTest.framework */,
+				8039C215F5384933A0499308 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1510,19 +1486,6 @@
 			name = pLists;
 			sourceTree = "<group>";
 		};
-		D6EBEBBB1815B85F004B3CBF /* HTAutoComplete */ = {
-			isa = PBXGroup;
-			children = (
-				D6EBEBC21815B997004B3CBF /* HTAutocompleteManager.m */,
-				D6EBEBC31815B997004B3CBF /* HTAutocompleteManager.h */,
-				D6EBEBBC1815B878004B3CBF /* HTAutocompleteTextField.h */,
-				D6EBEBBD1815B878004B3CBF /* HTAutocompleteTextField.m */,
-				D6EBEBBE1815B878004B3CBF /* HTEmailAutocompleteTextField.h */,
-				D6EBEBBF1815B878004B3CBF /* HTEmailAutocompleteTextField.m */,
-			);
-			name = HTAutoComplete;
-			sourceTree = "<group>";
-		};
 		D6EEFFC417CDBDCD00EB28C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1544,6 +1507,8 @@
 				D6EBEBC61815C064004B3CBF /* Cities.m */,
 				D6EBEBC81815C16C004B3CBF /* States.h */,
 				D6EBEBC91815C16C004B3CBF /* States.m */,
+				D666C43B181833C0000092A6 /* HTAutoCompleteManager.h */,
+				D666C43C181833C0000092A6 /* HTAutoCompleteManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1656,9 +1621,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D67EFE1117CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "HomeBuyer" */;
 			buildPhases = (
+				2C6C39E2D66E4D1B846A7E6B /* Check Pods Manifest.lock */,
 				D67EFDDB17CCE1280082F6C7 /* Sources */,
 				D67EFDDC17CCE1280082F6C7 /* Frameworks */,
 				D67EFDDD17CCE1280082F6C7 /* Resources */,
+				BC8383A45E2C4E2985748F65 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1941,6 +1908,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C6C39E2D66E4D1B846A7E6B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC8383A45E2C4E2985748F65 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D67EFDDB17CCE1280082F6C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1954,7 +1954,6 @@
 				9E4DBF651805CE2900F095F1 /* TermsAndPoliciesViewController.m in Sources */,
 				D647039818170E7F003810B4 /* LoginSignupService.m in Sources */,
 				9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */,
-				D6EBEBC11815B878004B3CBF /* HTEmailAutocompleteTextField.m in Sources */,
 				9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */,
 				9E00FAB017F34E0100380997 /* HelpDashboardViewController.m in Sources */,
 				D6842E6217DD95E30028AF00 /* loan.m in Sources */,
@@ -1967,7 +1966,6 @@
 				D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userPFInfo.m in Sources */,
 				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
-				D6468B1117DAF8CD0056EF57 /* PKRevealControllerContainerView.m in Sources */,
 				D6EBEBC71815C064004B3CBF /* Cities.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,
@@ -1980,7 +1978,6 @@
 				9E0BCA7E18048EF300863FB7 /* HomeTaxSavingsViewController.m in Sources */,
 				9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */,
 				D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */,
-				D6EBEBC01815B878004B3CBF /* HTAutocompleteTextField.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */,
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
@@ -1998,12 +1995,10 @@
 				D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */,
 				D6B93F6217E96F9F0049B5D5 /* APIUserInfoService.m in Sources */,
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,
+				D666C43D181833C0000092A6 /* HTAutoCompleteManager.m in Sources */,
 				D6C3AB1E180384E600123260 /* HomeLifeStyleViewController.m in Sources */,
 				D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */,
-				D6EBEBC41815B997004B3CBF /* HTAutocompleteManager.m in Sources */,
-				D6468B1217DAF8CD0056EF57 /* UIViewController+PKRevealController.m in Sources */,
 				D6C3AB281803892700123260 /* kCATIntroViewController.m in Sources */,
-				D6468B1017DAF8CD0056EF57 /* PKRevealController.m in Sources */,
 				D6DEE54B180878AE00548955 /* HomeInfoDashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2089,7 +2084,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2121,7 +2116,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2130,6 +2125,7 @@
 		};
 		D67EFE1217CCE1290082F6C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB06EC2492E647E6A262CA63 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2142,6 +2138,14 @@
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
 				INFOPLIST_FILE = "HomeBuyer/HomeBuyer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					UIKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -2150,6 +2154,7 @@
 		};
 		D67EFE1317CCE1290082F6C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB06EC2492E647E6A262CA63 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2162,6 +2167,14 @@
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
 				INFOPLIST_FILE = "HomeBuyer/HomeBuyer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					UIKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;

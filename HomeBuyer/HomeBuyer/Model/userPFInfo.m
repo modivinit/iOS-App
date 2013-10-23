@@ -18,7 +18,6 @@
         self.mGrossAnnualIncome = 0;
         self.mNumberOfChildren = 0;
         self.mAnnualRetirementSavingsContributions = 0;
-        self.mCurrentMonthlyIncomeTax = 0;
 
         self.mFixedCostsInfoEntered = NO;
         self.mCurrentMonthlyRent = 0;

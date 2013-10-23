@@ -40,8 +40,6 @@ static kunanceUser *kunanceUserSingleton;
         self.mKunanceUserLoan = nil;
         self.mUserProfileStatus = ProfileStatusNoInfoEntered;
         NSLog(@"User profile status = ProfileStatusNoInfoEntered");
-
-        self.mUserPFInfoGUID = nil;
     }
     
     return self;
@@ -68,13 +66,12 @@ static kunanceUser *kunanceUserSingleton;
 
 -(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
 {
-    FatFractal *ff = [AppDelegate ff];
     self.mkunanceUserPFInfo = newUserPFInfo;
     
     NSLog(@"updateUserPFInfo: %llu", self.mkunanceUserPFInfo.mGrossAnnualIncome);
     
-    if(newUserPFInfo)
-        self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
+   // if(newUserPFInfo)
+     //   self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
     
     if(self.mUserProfileStatus == ProfileStatusNoInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
         self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
@@ -122,7 +119,6 @@ static kunanceUser *kunanceUserSingleton;
     self.mKunanceUserHomes = nil;
     self.mKunanceUserLoan = nil;
     self.mUserProfileStatus = ProfileStatusNoInfoEntered;
-    self.mUserPFInfoGUID = nil;
 }
 
 -(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password

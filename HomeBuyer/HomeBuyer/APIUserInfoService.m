@@ -8,8 +8,34 @@
 
 #import "APIUserInfoService.h"
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation APIUserInfoService
+
+-(PFObject*) getParseObjectForUserPFInfo:(userPFInfo*) userPfInfo
+{
+    if(!userPfInfo)
+        return nil;
+    
+    PFObject* parseUserPFInfo = [PFObject objectWithClassName:@"UserProfile"];
+    parseUserPFInfo[@"MaritalStatus"] = [NSNumber numberWithInt:userPfInfo.mMaritalStatus];
+    parseUserPFInfo[@"AnnualGrossIncome"] = [NSNumber numberWithInt:userPfInfo.mGrossAnnualIncome];
+    parseUserPFInfo[@"AnnualRetirementSavings"] = [NSNumber numberWithInt:userPfInfo.mAnnualRetirementSavingsContributions];
+    
+    if(userPfInfo.mFixedCostsInfoEntered)
+    {
+        parseUserPFInfo[@"MonthlyRent"] = [NSNumber numberWithInt:userPfInfo.mCurrentMonthlyRent];
+        parseUserPFInfo[@"CarPayments"] = [NSNumber numberWithInt:userPfInfo.mCurrentCarPayment];
+        parseUserPFInfo[@"OtherMonthlyExpenses"] = [NSNumber numberWithInt:userPfInfo.mOtherMonthlyExpenses];
+    }
+    
+    return parseUserPFInfo;
+}
+
+-(userPFInfo*) getUserPFInfoFromParseObject:(PFObject*) paarseObj
+{
+    return nil;
+}
 
 -(BOOL) writeFixedCostsInfo:(UInt64)enteredMonthlyRent
           monthlyCarPaments:(UInt64)enteredCarPayments
@@ -17,7 +43,7 @@
 {
     userPFInfo* currentPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
     
-    if(!currentPFInfo || ![kunanceUser getInstance].mUserPFInfoGUID)
+    if(!currentPFInfo)
     {
         NSLog(@"We should not be here. Cannot write fixed costs without user PF info");
         return NO;
@@ -53,7 +79,7 @@
     currentPFInfo.mNumberOfChildren = numberOfChildren;
     currentPFInfo.mMaritalStatus = status;
     
-    if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
+    if([kunanceUser getInstance].mkunanceUserPFInfo)
     {
         [self updateUserPfObj:currentPFInfo];
     }
@@ -73,14 +99,9 @@
         if(!err && obj)
         {
             [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
-            if([kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered)
-            {
-                NSLog(@"User profile status = ProfileStatusUserExpensesInfoEntered");
-            }
         }
         else
         {
-            [kunanceUser getInstance].mkunanceUserPFInfo.mFixedCostsInfoEntered = NO;
             NSLog(@"Error updating User PF Info %@", err);
         }
         
@@ -94,16 +115,18 @@
 
 -(void) createUserPFObj:(userPFInfo*) currentPFInfo
 {
-    FatFractal *ff = [AppDelegate ff];
-    [ff createObj:currentPFInfo atUri:@"/UserPFInfo" onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse) {
-        // handle error, response
-        if(obj)
+    PFObject* userProfile = nil; //[self getPFObjectForUserPFInfo:currentPFInfo];
+    
+    [userProfile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+       // handle error, response
+        if(succeeded)
         {
-            [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)obj];
+            [[kunanceUser getInstance] updateUserPFInfo:(userPFInfo*)nil];
         }
         else
         {
-            NSLog(@"Error creating User PF Info: %@", err);
+            NSLog(@"Error creating User PF Info:");
         }
         
         if(self.mAPIUserInfoServiceDelegate && [self.mAPIUserInfoServiceDelegate respondsToSelector:@selector(finishedWritingUserPFInfo)])
@@ -131,11 +154,8 @@
     {
         if(theObj)
         {
-            aUserPFInfp = (userPFInfo*) theObj;
-            [kunanceUser getInstance].mUserPFInfoGUID = [[ff metaDataForObj:aUserPFInfp] guid];
-            
+            aUserPFInfp = (userPFInfo*) theObj;            
             NSLog(@"readUserPFInfo: user annul gross = %llu", aUserPFInfp.mGrossAnnualIncome);
-            if(aUserPFInfp && [kunanceUser getInstance].mUserPFInfoGUID)
             {
                 [[kunanceUser getInstance] updateUserPFInfo:aUserPFInfp];
             }

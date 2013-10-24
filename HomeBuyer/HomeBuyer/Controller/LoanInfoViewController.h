@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "FormViewController.h"
-#import "loan.h"
-#import "APILoanInfoService.h"
+#import "usersLoansList.h"
 
 @protocol LoanInfoViewDelegate <NSObject>
 @optional
 -(void) backToHomeInfo;
 @end
 
-@interface LoanInfoViewController : FormViewController <APILoanInfoServiceDelegate>
+@interface LoanInfoViewController : FormViewController <usersLoansListDelegate>
 
 @property (nonatomic, strong) loan* mCorrespondingLoan;
 @property (nonatomic, strong) NSNumber* mHomeNumber;

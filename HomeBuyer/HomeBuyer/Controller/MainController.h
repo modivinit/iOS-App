@@ -30,7 +30,7 @@ userProfileInfoDelegate,
 LoginDelegate,
 LeftMenuDelegate,
 UsersHomesListDelegate,
-APILoanInfoServiceDelegate,
+usersLoansListDelegate,
 FixedCostsControllerDelegate,
 kCATIntroViewDelegate
 >

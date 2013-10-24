@@ -265,6 +265,7 @@
 #pragma mark APILoanInfoDelegate
 -(void) finishedReadingLoanInfo
 {
+    [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
     [self displayDash];
 }
 #pragma end
@@ -272,17 +273,16 @@
 -(void) finishedReadingHomeInfo
 {
     [[kunanceUser getInstance] updateStatusWithHomeInfoStatus];
-    [self displayDash];
+
+    if(![kunanceUser getInstance].mKunanceUserLoans)
+        [kunanceUser getInstance].mKunanceUserLoans = [[usersLoansList alloc] init];
     
-    /*APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
-    loanInfoService.mAPILoanInfoDelegate = self;
-    if(loanInfoService)
+    [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
+    if(![[kunanceUser getInstance].mKunanceUserLoans readLoanInfo])
     {
-        if(![loanInfoService readLoanInfo])
-        {
-            NSLog(@"Error: Unable to read user laons Info");
-        }
-    }*/
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to read loan info"];
+        return;
+    }
 }
 #pragma end
 

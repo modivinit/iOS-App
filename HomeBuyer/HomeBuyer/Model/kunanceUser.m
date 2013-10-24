@@ -34,7 +34,7 @@ static kunanceUser *kunanceUserSingleton;
         self.mLoggedInKunanceUser = nil;
         self.mkunanceUserProfileInfo = nil;
         self.mKunanceUserHomes = nil;
-        self.mKunanceUserLoan = nil;
+        self.mKunanceUserLoans = nil;
         self.mUserProfileStatus = ProfileStatusUndefined;
         NSLog(@"User profile status = ProfileStatusNoInfoEntered");
     }
@@ -114,16 +114,39 @@ static kunanceUser *kunanceUserSingleton;
             self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
             NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
         }
-    }
-    else if( ([self.mKunanceUserHomes getCurrentHomesCount] == 2) &&
-            (self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered))
-    {
-        self.mUserProfileStatus = ProfileStatusUser2HomesButNoLoanEntered;
-        NSLog(@"Intermidiate User profile status = ProfileStatusUser2HomesButNoLoanEntered");
+        else if(self.mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
+        {
+            self.mUserProfileStatus = ProfileStatusUserTwoHomesButNoLoanInfoEntered;
+        }
+        else
+            self.mUserProfileStatus = ProfileStatusUndefined;
     }
     else
         self.mUserProfileStatus = ProfileStatusUndefined;
 }
+
+-(void) updateStatusWithLoanInfoStatus
+{
+    if(!self.mKunanceUserLoans || ![self.mKunanceUserLoans getCurrentLoanCount])
+        return;
+    
+    if(self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered)
+        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+    else if(self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered)
+        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+    else if (self.mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
+    }
+    else if(self.mUserProfileStatus == ProfileStatusUserTwoHomesButNoLoanInfoEntered)
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+    }
+    else
+        self.mUserProfileStatus = ProfileStatusUndefined;
+}
+
 
 -(NSString*) getFirstName
 {
@@ -144,7 +167,7 @@ static kunanceUser *kunanceUserSingleton;
     
     self.mkunanceUserProfileInfo = nil;
     self.mKunanceUserHomes = nil;
-    self.mKunanceUserLoan = nil;
+    self.mKunanceUserLoans = nil;
     self.mUserProfileStatus = ProfileStatusUndefined;
 }
 
@@ -181,35 +204,6 @@ static kunanceUser *kunanceUserSingleton;
     
     return NO;
 
-}
-
--(void) updateLoanInfo:(loan*) aLoan
-{
-    if(!aLoan)
-        return;
-    if(self.mKunanceUserLoan)
-    {
-        NSLog(@"Overwriting current loan info");
-    }
-    
-    self.mKunanceUserLoan = aLoan;
-    if([self.mKunanceUserHomes getCurrentHomesCount] == 1)
-    {
-        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
-                NSLog(@"User profile status = ProfileStatusUser1HomeAndLoanInfoEntered");
-    }
-    else if ((self.mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered) &&
-             ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
-    {
-        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-                NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
-    }
-    else if ((self.mUserProfileStatus == ProfileStatusUser2HomesButNoLoanEntered) &&
-             ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
-    {
-        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
-    }
 }
 
 + (kunanceUser*) getInstance

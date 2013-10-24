@@ -7,8 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "loan.h"
+
+@protocol usersLoansListDelegate <NSObject>
+@optional
+-(void) finishedWritingLoanInfo;
+-(void) finishedReadingLoanInfo;
+@end
+
 
 @interface usersLoansList : NSObject
-//For now each user will only have a single loan object
-@property (nonatomic, strong) NSArray* mUsersLoans;
+-(BOOL) writeLoanInfo:(loan*) aLoan;
+-(BOOL) readLoanInfo;
+
+@property (nonatomic, weak) id <usersLoansListDelegate> mLoansListDelegate;
+
+-(uint) getCurrentLoanCount;
+-(loan*) getLoanInfo;
 @end

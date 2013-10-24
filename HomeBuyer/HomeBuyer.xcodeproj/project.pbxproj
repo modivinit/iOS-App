@@ -182,7 +182,6 @@
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981C180F5D900067EC2C /* MenuOptionCell.m */; };
 		D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */; };
-		D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F317FCB47D00E50E44 /* APILoanInfoService.m */; };
 		D63EA1FA17FCF42900E50E44 /* RentVsBuyDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* RentVsBuyDashViewController.m */; };
 		D63EA1FB17FCF42900E50E44 /* RentVsBuyDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1F917FCF42900E50E44 /* RentVsBuyDashViewController.xib */; };
 		D63EA1FD17FCF47900E50E44 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FC17FCF47900E50E44 /* chart.png */; };
@@ -489,8 +488,6 @@
 		D639981C180F5D900067EC2C /* MenuOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuOptionCell.m; path = View/MenuOptionCell.m; sourceTree = "<group>"; };
 		D639981E1811E0B40067EC2C /* FormNoScrollViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormNoScrollViewViewController.h; path = Utilities/FormNoScrollViewViewController.h; sourceTree = "<group>"; };
 		D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormNoScrollViewViewController.m; path = Utilities/FormNoScrollViewViewController.m; sourceTree = "<group>"; };
-		D63EA1F217FCB47D00E50E44 /* APILoanInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APILoanInfoService.h; path = Service/APILoanInfoService.h; sourceTree = "<group>"; };
-		D63EA1F317FCB47D00E50E44 /* APILoanInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APILoanInfoService.m; path = Service/APILoanInfoService.m; sourceTree = "<group>"; };
 		D63EA1F717FCF42900E50E44 /* RentVsBuyDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RentVsBuyDashViewController.h; path = Controller/RentVsBuyDashViewController.h; sourceTree = "<group>"; };
 		D63EA1F817FCF42900E50E44 /* RentVsBuyDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RentVsBuyDashViewController.m; path = Controller/RentVsBuyDashViewController.m; sourceTree = "<group>"; };
 		D63EA1F917FCF42900E50E44 /* RentVsBuyDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RentVsBuyDashViewController.xib; path = Controller/RentVsBuyDashViewController.xib; sourceTree = "<group>"; };
@@ -917,29 +914,6 @@
 				D607A20F17F902EA008E093C /* DashUserPFInfoViewController.m */,
 			);
 			name = DashUserPFInfo;
-			sourceTree = "<group>";
-		};
-		D618859A17FB56E600ABEA3E /* UserInfoService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = UserInfoService;
-			sourceTree = "<group>";
-		};
-		D618859B17FB56F800ABEA3E /* HomeInfoService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = HomeInfoService;
-			sourceTree = "<group>";
-		};
-		D63EA1F117FCB45B00E50E44 /* APILoanInfoService */ = {
-			isa = PBXGroup;
-			children = (
-				D63EA1F217FCB47D00E50E44 /* APILoanInfoService.h */,
-				D63EA1F317FCB47D00E50E44 /* APILoanInfoService.m */,
-			);
-			name = APILoanInfoService;
 			sourceTree = "<group>";
 		};
 		D63EA1F517FCF3B400E50E44 /* Dash1HomeEntered */ = {
@@ -1539,9 +1513,6 @@
 			isa = PBXGroup;
 			children = (
 				D647039518170D9E003810B4 /* Login/Signup */,
-				D63EA1F117FCB45B00E50E44 /* APILoanInfoService */,
-				D618859B17FB56F800ABEA3E /* HomeInfoService */,
-				D618859A17FB56E600ABEA3E /* UserInfoService */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1968,7 +1939,6 @@
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,
 				D666C43D181833C0000092A6 /* HTAutoCompleteManager.m in Sources */,
 				D6C3AB1E180384E600123260 /* HomeLifeStyleViewController.m in Sources */,
-				D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */,
 				D6C3AB281803892700123260 /* kCATIntroViewController.m in Sources */,
 				D6DEE54B180878AE00548955 /* HomeInfoDashViewController.m in Sources */,
 			);

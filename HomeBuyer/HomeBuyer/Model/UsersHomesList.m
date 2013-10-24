@@ -17,15 +17,10 @@ static NSString* const kNumberOfHomesKey = @"NumberOfHomes";
 
 static NSString* const kHomeInfoClassKey = @"HomeInfo";
 
-static NSString* const kHomeTypeKey = @"HomeType";
-static NSString* const kIdentifyingFeatureKey = @"IdentifiyingHomeFeature";
-static NSString* const kHomeListProceKey = @"HomeListPrice";
-static NSString* const kHOAFeesKey = @"HOAFees";
-static NSString* const kHomeAddressKey = @"HomeAddress";
-static NSString* const kHomeIDKey = @"mHomeId";
 
 @interface UsersHomesList ()
 @property (nonatomic, strong) PFObject* mParseHomesListObject;
+@property (nonatomic, strong) NSMutableArray* mHomesList;
 @end
 
 @implementation UsersHomesList
@@ -37,6 +32,7 @@ static NSString* const kHomeIDKey = @"mHomeId";
     if(self)
     {
         self.mParseHomesListObject = nil;
+        self.mHomesList = nil;
     }
     
     return self;
@@ -47,11 +43,12 @@ static NSString* const kHomeIDKey = @"mHomeId";
     PFQuery* query = [PFQuery queryWithClassName:kHomesListClassKey];
     [query whereKey:kUserKey equalTo:[[kunanceUser getInstance] getUserID]];
     
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *userObject, NSError *error)
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *homesList, NSError *error)
      {
-         if(!error && userObject)
+         if(!error && homesList)
          {
-             self.mParseHomesListObject = userObject;
+             self.mParseHomesListObject = homesList;
+             [self processHomesList];
          }
          
          if(self.mUsersHomesListDelegate && [self.mUsersHomesListDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
@@ -61,23 +58,6 @@ static NSString* const kHomeIDKey = @"mHomeId";
      }];
     
     return YES;
-}
-
--(PFObject*) getParseHomeObjectFromHomeInfo:(homeInfo*) aHomeInfo
-{
-    if(!aHomeInfo)
-        return nil;
-    
-    PFObject* parseHomeInfo = [PFObject objectWithClassName:kHomeInfoClassKey];
-    
-    parseHomeInfo[kHomeTypeKey] = [NSNumber numberWithInt:aHomeInfo.mHomeType];
-    parseHomeInfo[kIdentifyingFeatureKey] = aHomeInfo.mIdentifiyingHomeFeature;
-    parseHomeInfo[kHomeListProceKey] = [NSNumber numberWithLong:aHomeInfo.mHomeListPrice];
-    parseHomeInfo[kHOAFeesKey] = [NSNumber numberWithLong:aHomeInfo.mHOAFees];
-//    parseHomeInfo[kHomeAddressKey] = [aHomeInfo.mHomeAddress getparseObject];
-    parseHomeInfo[kHomeIDKey] = [NSNumber numberWithInteger:aHomeInfo.mHomeId];
-    
-    return parseHomeInfo;
 }
 
 -(BOOL) createNewHomeInfo:(homeInfo*) aHomeInfo
@@ -99,13 +79,19 @@ static NSString* const kHomeIDKey = @"mHomeId";
         parseHomesListObj = self.mParseHomesListObject;
     }
     
-    PFObject* ahome = [self getParseHomeObjectFromHomeInfo:aHomeInfo];
-    NSArray* homesArry = [[NSArray alloc] initWithObjects:ahome, nil];
+    if(!self.mHomesList)
+        self.mHomesList = [[NSMutableArray alloc] init];
+    [self.mHomesList insertObject:aHomeInfo atIndex:self.mHomesList.count];
     
-    parseHomesListObj[kHomesArrayKey] = homesArry;
+    NSMutableArray* homesDictArray = [[NSMutableArray alloc] init];
     
-    //[parseHomesListObj addUniqueObject:aHomeInfo forKey:kHomesArrayKey];
-    parseHomesListObj[kNumberOfHomesKey] = @([self getCurrentHomesCount] + 1);
+    for (homeInfo* aHome in self.mHomesList)
+    {
+        NSDictionary* ahomeDict = [aHome getDictionaryHomeObjectFromHomeInfo];
+        [homesDictArray addObject:ahomeDict];
+    }
+    
+    parseHomesListObj[kHomesArrayKey] = homesDictArray;
     
     if(!parseHomesListObj[kUserKey])
         parseHomesListObj[kUserKey] = [[kunanceUser getInstance] getUserID];
@@ -116,13 +102,35 @@ static NSString* const kHomeIDKey = @"mHomeId";
         parseHomesListObj.ACL = homesListACL;
     }
     
+    NSLog(@"Uploading: %@", parseHomesListObj);
+    
     [self uploadObject:parseHomesListObj];
     return YES;
 }
 
 -(BOOL) updateExistingHomeInfo:(homeInfo*) aHomeInfo
 {
-    return NO;
+    if(!aHomeInfo)
+        return NO;
+    
+    uint homeIndex = aHomeInfo.mHomeId;
+    //home ID starts from 1 not 0. THis is bad, need to change this to 0 later
+    homeIndex--;
+    
+    [self.mHomesList replaceObjectAtIndex:homeIndex withObject:aHomeInfo];
+    
+    NSMutableArray* homesDictArray = [[NSMutableArray alloc] init];
+    
+    for (homeInfo* aHome in self.mHomesList)
+    {
+        NSDictionary* ahomeDict = [aHome getDictionaryHomeObjectFromHomeInfo];
+        [homesDictArray addObject:ahomeDict];
+    }
+    
+    self.mParseHomesListObject[kHomesArrayKey] = homesDictArray;
+    [self uploadObject:self.mParseHomesListObject];
+    
+    return YES;
 }
 
 -(void) uploadObject:(PFObject*) parseHomesListObject
@@ -134,6 +142,9 @@ static NSString* const kHomeIDKey = @"mHomeId";
      {
          if(succeeded && !error)
          {
+             self.mParseHomesListObject = parseHomesListObject;
+             [self processHomesList];
+
              if(self.mUsersHomesListDelegate &&
                 [self.mUsersHomesListDelegate respondsToSelector:@selector(finishedWritingHomeInfo)])
              {
@@ -144,11 +155,27 @@ static NSString* const kHomeIDKey = @"mHomeId";
      }];
 }
 
+-(void) processHomesList
+{
+    NSArray* homes = self.mParseHomesListObject[kHomesArrayKey];
+    if(homes && homes.count > 0)
+    {
+        self.mHomesList = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary* aHome in homes)
+        {
+            homeInfo* aHomeInfo = [[homeInfo alloc] initWithDictionary:aHome];
+            [self.mHomesList addObject:aHomeInfo];
+        }
+    }
+    else
+        self.mHomesList = nil;
+}
 
 -(uint) getCurrentHomesCount
 {
-    if(self.mParseHomesListObject && self.mParseHomesListObject[kNumberOfHomesKey])
-        return [self.mParseHomesListObject[kNumberOfHomesKey] integerValue];
+    if(self.mHomesList)
+        return self.mHomesList.count;
     else
         return 0;
 }
@@ -159,11 +186,7 @@ static NSString* const kHomeIDKey = @"mHomeId";
         return nil;
     else
     {
-        NSArray* homes = self.mParseHomesListObject[kHomesArrayKey];
-        if(homes && homes.count > 0 && index < homes.count )
-        {
-            return (homeInfo*) homes[index];
-        }
+        return (homeInfo*) self.mHomesList[index];
     }
 
     return nil;
@@ -174,7 +197,7 @@ static NSString* const kHomeIDKey = @"mHomeId";
     homeInfo* home = [self getHomeAtIndex:index];
     if(home)
         return home.mHomeType;
-    
-    return homeTypeNotDefined;
+    else
+        return homeTypeNotDefined;
 }
 @end

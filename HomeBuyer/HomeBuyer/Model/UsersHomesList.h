@@ -11,10 +11,21 @@
 
 #define MAX_NUMBER_OF_HOMES_PER_USER 2
 
+@protocol UsersHomesListDelegate <NSObject>
+@optional
+-(void) finishedWritingHomeInfo;
+-(void) finishedReadingHomeInfo;
+@end
+
+
 @interface UsersHomesList : NSObject
+@property (nonatomic, weak) id <UsersHomesListDelegate> mUsersHomesListDelegate;
+
+-(BOOL) createNewHomeInfo:(homeInfo*) aHomeInfo;
+-(BOOL) updateExistingHomeInfo:(homeInfo*) aHomeInfo;
+-(BOOL) readHomesInfo;
+
 -(uint) getCurrentHomesCount;
--(void) addNewHome:(homeInfo*) newHomeInfo;
--(void) updateHomeInfo:(homeInfo*) aHomeInfo;
 -(homeInfo*) getHomeAtIndex:(uint) index;
 -(homeType) getTypeForHomeAtIndex:(uint) index;
 @end

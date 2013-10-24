@@ -136,7 +136,6 @@
     
     uint currentNumberOfHomes = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
     
-    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
     
     homeInfo* aHomeInfo = nil;
     if(self.mCorrespondingHomeInfo)
@@ -172,21 +171,22 @@
     else
         aHomeInfo.mHomeAddress.mCityCode = OTHER_CITY_CODE;
     
-    if(homeInfoService)
+    if(![kunanceUser getInstance].mKunanceUserHomes)
+        [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
+
+    [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
+    
+    if(!self.mCorrespondingHomeInfo)
     {
-        homeInfoService.mAPIHomeInfoDelegate = self;
-        if(!self.mCorrespondingHomeInfo)
-        {
-            aHomeInfo.mHomeId = currentNumberOfHomes+1;
-            
-            if(![homeInfoService createNewHomeInfo:aHomeInfo])
-                [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to create home info"];
-        }
-        else
-        {
-            if(![homeInfoService updateExistingHomeInfo:aHomeInfo])
-                [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update home info"];
-        }
+        aHomeInfo.mHomeId = currentNumberOfHomes+1;
+        
+        if(![[kunanceUser getInstance].mKunanceUserHomes createNewHomeInfo:aHomeInfo])
+            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to create home info"];
+    }
+    else
+    {
+        if(![[kunanceUser getInstance].mKunanceUserHomes updateExistingHomeInfo:aHomeInfo])
+            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update home info"];
     }
 }
 
@@ -261,6 +261,7 @@
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedWritingHomeInfo
 {
+    [[kunanceUser getInstance] updateStatusWithHomeInfoStatus];
     if(!self.mLoanInfoViewAsButton.hidden)
     {
         if(!self.mLoanInfoController)

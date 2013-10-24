@@ -48,7 +48,7 @@ typedef enum {
 } TextFieldTypes;
 
 typedef enum{
-    ProfileStatusNoInfoEntered = 0,
+    ProfileStatusUndefined = 0,
     ProfileStatusUserPersonalFinanceInfoEntered,  //1
     ProfileStatusPersonalFinanceAndFixedCostsInfoEntered, //2
     ProfileStatusUser1HomeInfoEntered,  //3

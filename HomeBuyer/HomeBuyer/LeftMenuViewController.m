@@ -167,7 +167,7 @@
     
     switch ([kunanceUser getInstance].mUserProfileStatus)
     {
-        case ProfileStatusNoInfoEntered:
+        case ProfileStatusUndefined:
         case ProfileStatusUserPersonalFinanceInfoEntered:
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
@@ -295,7 +295,7 @@
         kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
         
         cell.textLabel.text = @"Loan Info";
-        if(status == ProfileStatusNoInfoEntered || status == ProfileStatusUserPersonalFinanceInfoEntered
+        if(status == ProfileStatusUndefined || status == ProfileStatusUserPersonalFinanceInfoEntered
            || status == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-loan-info-gray.png"];

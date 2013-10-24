@@ -17,13 +17,9 @@ typedef enum
 
 @interface homeInfo : NSObject
 @property (nonatomic) homeType          mHomeType;
-@property (nonatomic, copy) NSString* mIdentifiyingHomeFeature;
+@property (nonatomic, copy) NSString*   mIdentifiyingHomeFeature;
 @property (nonatomic) UInt64            mHomeListPrice;
 @property (nonatomic) uint              mHOAFees;
-@property (nonatomic) uint              mMonthlyLoanPayment;
 @property (nonatomic) homeAddress*      mHomeAddress;
-@property (nonatomic) uint              mMonthlyPropertyTaxOnHome;
-@property (nonatomic) uint              mMonthlyInsurance;
-@property (nonatomic) uint              mPMIForHome;
 @property (nonatomic) uint              mHomeId;
 @end

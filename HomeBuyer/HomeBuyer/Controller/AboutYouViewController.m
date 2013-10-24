@@ -173,7 +173,7 @@
 {
     if([kunanceUser getInstance].mkunanceUserProfileInfo)
     {
-        [[kunanceUser getInstance] updateUserPFInfo];
+        [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
         if(!self.mFixedCostsController)
             self.mFixedCostsController = [[FixedCostsViewController alloc] init];
         self.mFixedCostsController.mFixedCostsControllerDelegate = self;

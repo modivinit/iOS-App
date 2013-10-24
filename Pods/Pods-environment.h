@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_HTAutocompleteTextField 2
 #define COCOAPODS_VERSION_PATCH_HTAutocompleteTextField 6
 
+// MBProgressHUD
+#define COCOAPODS_POD_AVAILABLE_MBProgressHUD
+#define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
+#define COCOAPODS_VERSION_MINOR_MBProgressHUD 8
+#define COCOAPODS_VERSION_PATCH_MBProgressHUD 0
+
 // PKRevealController
 #define COCOAPODS_POD_AVAILABLE_PKRevealController
 #define COCOAPODS_VERSION_MAJOR_PKRevealController 2

@@ -122,11 +122,10 @@
     
     self.mActIndicator = [Utilities getAndStartBusyIndicator];
     [self.view addSubview:self.mActIndicator];
-    
-    LoginSignupService* signupService = [[LoginSignupService alloc] init];
-    signupService.mLoginSignupServiceDelegate = self;
-    
-    if(![signupService signupWithName:self.mNameField.text
+
+    [kunanceUser getInstance].mKunanceUserDelegate = self;
+
+    if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
                              password:self.mPasswordField.text
                                 email:self.mEmailField.text
                           realtorCode:self.mRealtorCodeField.text])

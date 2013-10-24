@@ -196,7 +196,6 @@
 		D647039018170970003810B4 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038F18170970003810B4 /* libz.1.1.3.dylib */; };
 		D6470392181709AB003810B4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6470391181709AB003810B4 /* StoreKit.framework */; };
 		D6470394181709BA003810B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6470393181709BA003810B4 /* SystemConfiguration.framework */; };
-		D647039818170E7F003810B4 /* LoginSignupService.m in Sources */ = {isa = PBXBuildFile; fileRef = D647039718170E7F003810B4 /* LoginSignupService.m */; };
 		D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */; };
 		D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */; };
 		D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */; };
@@ -511,8 +510,6 @@
 		D647038F18170970003810B4 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		D6470391181709AB003810B4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D6470393181709BA003810B4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D647039618170E7F003810B4 /* LoginSignupService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSignupService.h; path = Service/LoginSignupService.h; sourceTree = "<group>"; };
-		D647039718170E7F003810B4 /* LoginSignupService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSignupService.m; path = Service/LoginSignupService.m; sourceTree = "<group>"; };
 		D65A217A17FDFDE900884291 /* TwoHomePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomePaymentViewController.h; path = Controller/TwoHomePaymentViewController.h; sourceTree = "<group>"; };
 		D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomePaymentViewController.m; path = Controller/TwoHomePaymentViewController.m; sourceTree = "<group>"; };
 		D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomePaymentViewController.xib; path = Controller/TwoHomePaymentViewController.xib; sourceTree = "<group>"; };
@@ -969,15 +966,6 @@
 			name = Dash1HomeEntered;
 			sourceTree = "<group>";
 		};
-		D647039518170D9E003810B4 /* Login/Signup */ = {
-			isa = PBXGroup;
-			children = (
-				D647039618170E7F003810B4 /* LoginSignupService.h */,
-				D647039718170E7F003810B4 /* LoginSignupService.m */,
-			);
-			name = Login/Signup;
-			sourceTree = "<group>";
-		};
 		D64AAF3217D916FC006CA7E4 /* Login/Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,7 +1060,6 @@
 				D67EFDF917CCE1280082F6C7 /* Images.xcassets */,
 				D6EEFFC417CDBDCD00EB28C7 /* Model */,
 				D6EEFFC817CDBDFA00EB28C7 /* Resources */,
-				D6EEFFC717CDBDF100EB28C7 /* Service */,
 				D67EFDEB17CCE1280082F6C7 /* Supporting Files */,
 				D68462C917D0751F00EF769B /* Utilities */,
 				D6EEFFC517CDBDE500EB28C7 /* View */,
@@ -1540,14 +1527,6 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		D6EEFFC717CDBDF100EB28C7 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				D647039518170D9E003810B4 /* Login/Signup */,
-			);
-			name = Service;
-			sourceTree = "<group>";
-		};
 		D6EEFFC817CDBDFA00EB28C7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1928,7 +1907,6 @@
 				D607A20917F8FB6D008E093C /* DashNoInfoViewController.m in Sources */,
 				D6842E6617DD97090028AF00 /* homeInfo.m in Sources */,
 				9E4DBF651805CE2900F095F1 /* TermsAndPoliciesViewController.m in Sources */,
-				D647039818170E7F003810B4 /* LoginSignupService.m in Sources */,
 				9E00FAAB17F34DEC00380997 /* HelpHomeViewController.m in Sources */,
 				9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */,
 				9E00FAB017F34E0100380997 /* HelpDashboardViewController.m in Sources */,

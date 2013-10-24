@@ -10,6 +10,7 @@
 #import "userProfileInfo.h"
 #import "kunanceUser.h"
 #import "HelpProfileViewController.h"
+#import <MBProgressHUD.h>
 
 @interface AboutYouViewController ()
 
@@ -159,11 +160,16 @@
         [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
     
     [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Uploading";
+
     if(![[kunanceUser getInstance].mkunanceUserProfileInfo writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
                annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
                numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
                   maritalStatus:self.mSelectedMaritalStatus])
     {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
     }
 }
@@ -171,6 +177,8 @@
 #pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
     if([kunanceUser getInstance].mkunanceUserProfileInfo)
     {
         [[kunanceUser getInstance] updateStatusWithUserProfileInfo];

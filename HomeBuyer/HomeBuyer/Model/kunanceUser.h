@@ -14,12 +14,29 @@
 #import "UsersHomesList.h"
 #import <Parse/Parse.h>
 
+@protocol kunanceUserDelegate <NSObject>
+@optional
+-(void) signupCompletedWithError:(NSError*) error;
+-(void) loginCompletedWithError:(NSError*) error;
+@end
+
+
 @interface kunanceUser : NSObject
 @property (nonatomic, strong) userProfileInfo* mkunanceUserProfileInfo;
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
 @property (nonatomic, strong) usersLoansList* mKunanceUserLoans;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
+@property (nonatomic, weak) id <kunanceUserDelegate> mKunanceUserDelegate;
 @property (nonatomic, strong, readonly) PFUser* mLoggedInKunanceUser;
+
+-(BOOL) signupWithName:(NSString*) name
+              password:(NSString*) password
+                 email:(NSString*) email
+           realtorCode:(NSString*) code;
+
+-(BOOL) loginWithEmail:(NSString*) email
+              password:(NSString*) password;
+
 
 + (kunanceUser*) getInstance;
 -(BOOL) isUserLoggedIn;

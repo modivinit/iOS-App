@@ -8,6 +8,7 @@
 
 #import "LoanInfoViewController.h"
 #import "HelpHomeViewController.h"
+#import <MBProgressHUD.h>
 
 @interface LoanInfoViewController ()
 
@@ -164,8 +165,13 @@
         [kunanceUser getInstance].mKunanceUserLoans = [[usersLoansList alloc] init];
 
     [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loggin in..";
+
     if(![[kunanceUser getInstance].mKunanceUserLoans writeLoanInfo:newLoanInfo])
     {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
         return;
     }
@@ -211,6 +217,8 @@
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
     [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
     if(self.mCompareHomesButton.enabled)
     {

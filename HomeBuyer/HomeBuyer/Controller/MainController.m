@@ -218,7 +218,7 @@
 #pragma mark LoginDelegate
 -(void) loggedInUserSuccessfully
 {
-    [self displayDash];
+    [self readUserPFInfo];
 }
 
 -(void) cancelLoginScreen

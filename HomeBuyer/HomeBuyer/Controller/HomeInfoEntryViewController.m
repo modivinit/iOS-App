@@ -10,6 +10,7 @@
 #import "HelpHomeViewController.h"
 #import "Cities.h"
 #import "States.h"
+#import <MBProgressHUD.h>
 
 @interface HomeInfoEntryViewController ()
 @property (nonatomic, copy) NSString* mHomeStreetAddress;
@@ -176,17 +177,27 @@
 
     [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Uploading";
+
     if(!self.mCorrespondingHomeInfo)
     {
         aHomeInfo.mHomeId = currentNumberOfHomes+1;
         
         if(![[kunanceUser getInstance].mKunanceUserHomes createNewHomeInfo:aHomeInfo])
+        {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to create home info"];
+        }
+
     }
     else
     {
         if(![[kunanceUser getInstance].mKunanceUserHomes updateExistingHomeInfo:aHomeInfo])
+        {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update home info"];
+        }
     }
 }
 
@@ -261,6 +272,8 @@
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedWritingHomeInfo
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
     [[kunanceUser getInstance] updateStatusWithHomeInfoStatus];
     if(!self.mLoanInfoViewAsButton.hidden)
     {

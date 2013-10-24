@@ -91,7 +91,7 @@ static NSString* const kUserKey = @"user";
     
     if(!self.mLoanListParseObject.ACL)
     {
-        PFACL* loansListACL = [PFACL ACLWithUser:[kunanceUser getInstance].mLoggedInKunanceUser];
+        PFACL* loansListACL = [PFACL ACLWithUser:[kunanceUser getInstance].mLoggedInKunanceUser ];
         self.mLoanListParseObject.ACL = loansListACL;
     }
     

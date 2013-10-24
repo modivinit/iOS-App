@@ -42,6 +42,70 @@ static kunanceUser *kunanceUserSingleton;
     return self;
 }
 
+-(BOOL) signupWithName:(NSString*) name
+              password:(NSString*) password
+                 email:(NSString*) email
+           realtorCode:(NSString*) code
+{
+    if(!password || !email)
+    {
+        return NO;
+    }
+    
+    PFUser* user = [PFUser user];
+    user.username = email;
+    user.password = password;
+    user.email = email;
+    
+    NSArray* names = [name componentsSeparatedByString:@" "];
+    if(names && names.count > 0)
+    {
+        user[@"FirstName"] = names[0];
+        if(names.count > 1)
+            user[@"LastName"] = names[1];
+    }
+    
+    if(code)
+        user[@"RealtorCode"] = code;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+        if(succeeded && !error)
+            self.mLoggedInKunanceUser = user;
+        
+        if(self.mKunanceUserDelegate &&
+           [self.mKunanceUserDelegate respondsToSelector:@selector(signupCompletedWithError:)])
+        {
+            [self.mKunanceUserDelegate signupCompletedWithError:error];
+        }
+    }];
+    
+    return YES;
+}
+
+-(BOOL) loginWithEmail:(NSString*) email
+              password:(NSString*) password
+{
+    if(!email || !password)
+    {
+        return NO;
+    }
+    
+    [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *user, NSError *error)
+     {
+         if(user)
+             self.mLoggedInKunanceUser = user;
+         
+         if(self.mKunanceUserDelegate &&
+            [self.mKunanceUserDelegate respondsToSelector:@selector(loginCompletedWithError:)])
+         {
+             [self.mKunanceUserDelegate loginCompletedWithError:error];
+         }
+     }];
+    
+    return YES;
+}
+
 -(NSString*) getUserID
 {
     if(self.mLoggedInKunanceUser)

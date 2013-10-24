@@ -26,9 +26,8 @@
 -(BOOL) userAccountFoundOnDevice;
 -(BOOL) loginSavedUser;
 
--(void) updateUserPFInfo;
--(void) addNewHomeInfo:(homeInfo*)newHomeInfo;
--(void) updateExistingHome:(homeInfo*)homeInfo;
+-(void) updateStatusWithUserProfileInfo;
+-(void) updateStatusWithHomeInfoStatus;
 
 -(void) updateLoanInfo:(loan*) aLoan;
 

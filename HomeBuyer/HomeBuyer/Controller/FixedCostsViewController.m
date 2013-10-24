@@ -72,7 +72,7 @@
 {
     if([[kunanceUser getInstance].mkunanceUserProfileInfo isFixedCostsInfoEntered])
     {
-        [[kunanceUser getInstance] updateUserPFInfo];
+        [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
     }
     else

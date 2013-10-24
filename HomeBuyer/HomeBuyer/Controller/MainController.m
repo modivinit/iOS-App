@@ -189,7 +189,7 @@
     NSLog(@"ProfileStatus = %d", [kunanceUser getInstance].mUserProfileStatus);
     switch ([kunanceUser getInstance].mUserProfileStatus)
     {
-        case ProfileStatusNoInfoEntered:
+        case ProfileStatusUndefined:
         case ProfileStatusUserPersonalFinanceInfoEntered:
             self.mMainDashController = [[DashNoInfoViewController alloc] init];
             break;
@@ -271,7 +271,10 @@
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedReadingHomeInfo
 {
-    APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
+    [[kunanceUser getInstance] updateStatusWithHomeInfoStatus];
+    [self displayDash];
+    
+    /*APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
     loanInfoService.mAPILoanInfoDelegate = self;
     if(loanInfoService)
     {
@@ -279,24 +282,23 @@
         {
             NSLog(@"Error: Unable to read user laons Info");
         }
-    }
+    }*/
 }
 #pragma end
 
 #pragma mark APIServiceDelegate
 -(void) finishedReadingUserPFInfo
 {
-    [[kunanceUser getInstance] updateUserPFInfo];
-    [self displayDash];
- /*   APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
-    if(homeInfoService)
+    [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
+    
+    if(![kunanceUser getInstance].mKunanceUserHomes)
+        [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
+    
+    [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
+    if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
     {
-        homeInfoService.mAPIHomeInfoDelegate = self;
-        if(![homeInfoService readHomesInfo])
-        {
-            NSLog(@"Error: reading homes info for user");
-        }
-    }*/
+        NSLog(@"Error: reading homes info for user");
+    }
 }
 #pragma end
 

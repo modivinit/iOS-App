@@ -147,6 +147,9 @@ static NSString* const kUserKey          = @"User";
 
 -(void) uploadObject:(PFObject*) parseUserPFInfo
 {
+    if(!parseUserPFInfo)
+        return;
+    
     [parseUserPFInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
      {
          if(succeeded && !error)

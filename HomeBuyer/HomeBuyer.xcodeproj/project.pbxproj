@@ -180,7 +180,6 @@
 		D607A21217F902EA008E093C /* DashUserPFInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */; };
 		D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
-		D618859E17FB572300ABEA3E /* APIHomeInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = D618859D17FB572300ABEA3E /* APIHomeInfoService.m */; };
 		D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981C180F5D900067EC2C /* MenuOptionCell.m */; };
 		D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */; };
 		D63EA1F417FCB47D00E50E44 /* APILoanInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F317FCB47D00E50E44 /* APILoanInfoService.m */; };
@@ -486,8 +485,6 @@
 		D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashUserPFInfoViewController.xib; path = Controller/DashUserPFInfoViewController.xib; sourceTree = "<group>"; };
 		D610B4FC17D15E5500C6EE4A /* kunanceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kunanceUser.h; path = Model/kunanceUser.h; sourceTree = "<group>"; };
 		D610B4FD17D15E5500C6EE4A /* kunanceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kunanceUser.m; path = Model/kunanceUser.m; sourceTree = "<group>"; };
-		D618859C17FB572300ABEA3E /* APIHomeInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIHomeInfoService.h; path = Service/APIHomeInfoService.h; sourceTree = "<group>"; };
-		D618859D17FB572300ABEA3E /* APIHomeInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIHomeInfoService.m; path = Service/APIHomeInfoService.m; sourceTree = "<group>"; };
 		D639981B180F5D900067EC2C /* MenuOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuOptionCell.h; path = View/MenuOptionCell.h; sourceTree = "<group>"; };
 		D639981C180F5D900067EC2C /* MenuOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuOptionCell.m; path = View/MenuOptionCell.m; sourceTree = "<group>"; };
 		D639981E1811E0B40067EC2C /* FormNoScrollViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormNoScrollViewViewController.h; path = Utilities/FormNoScrollViewViewController.h; sourceTree = "<group>"; };
@@ -932,8 +929,6 @@
 		D618859B17FB56F800ABEA3E /* HomeInfoService */ = {
 			isa = PBXGroup;
 			children = (
-				D618859C17FB572300ABEA3E /* APIHomeInfoService.h */,
-				D618859D17FB572300ABEA3E /* APIHomeInfoService.m */,
 			);
 			name = HomeInfoService;
 			sourceTree = "<group>";
@@ -1960,7 +1955,6 @@
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
 				D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */,
-				D618859E17FB572300ABEA3E /* APIHomeInfoService.m in Sources */,
 				D6EBEBCA1815C16C004B3CBF /* States.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				D63EA1FA17FCF42900E50E44 /* RentVsBuyDashViewController.m in Sources */,

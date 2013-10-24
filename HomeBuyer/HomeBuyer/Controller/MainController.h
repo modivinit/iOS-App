@@ -16,8 +16,8 @@
 #import "DashTwoHomesEnteredViewController.h"
 #import "LeftMenuViewController.h"
 #import "DashLeftMenuViewController.h"
-#import "APIHomeInfoService.h"
 #import "kCATIntroViewController.h"
+#import "UsersHomesList.h"
 
 @protocol MainControllerDelegate <NSObject>
 -(void) resetRootView:(UIViewController*) viewController;
@@ -29,7 +29,7 @@
 userProfileInfoDelegate,
 LoginDelegate,
 LeftMenuDelegate,
-APIHomeInfoServiceDelegate,
+UsersHomesListDelegate,
 APILoanInfoServiceDelegate,
 FixedCostsControllerDelegate,
 kCATIntroViewDelegate

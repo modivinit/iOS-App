@@ -51,7 +51,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomePaymentDelegate setNavTitle:@"Monthly Payment"];
+    [self.mTwoHomePaymentDelegate setNavTitle:@"Compare Payments"];
 }
 
 - (void)viewDidLoad

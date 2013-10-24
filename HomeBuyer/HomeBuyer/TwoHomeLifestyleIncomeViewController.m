@@ -51,7 +51,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeLifestyleDelegate setNavTitle:@"Lifestyle Income"];
+    [self.mTwoHomeLifestyleDelegate setNavTitle:@"Compare Lifestyle"];
 }
 
 - (void)viewDidLoad

@@ -55,7 +55,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomeTaxSavingsDelegate setNavTitle:@"Estimated Tax Savings"];
+    [self.mHomeTaxSavingsDelegate setNavTitle:@"Est. Tax Savings"];
 }
 
 - (void)viewDidLoad

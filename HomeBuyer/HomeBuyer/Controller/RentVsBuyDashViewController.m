@@ -30,7 +30,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mRentVsBuyDashViewDelegate setNavTitle:@"Rent vs Buy"];
+    [self.mRentVsBuyDashViewDelegate setNavTitle:@"Compare Lifestyle"];
 }
 
 -(void) setupChart

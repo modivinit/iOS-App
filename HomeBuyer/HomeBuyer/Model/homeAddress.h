@@ -13,4 +13,7 @@
 @property (nonatomic) uint mCityCode;
 @property (nonatomic) uint mStateCode;
 @property (nonatomic, copy) NSString* mZipCode;
+
+-(id) initWithDictionary:(NSDictionary*) addressDict;
+-(NSDictionary*) getDictionaryForAddressObject;
 @end

@@ -22,4 +22,8 @@ typedef enum
 @property (nonatomic) uint              mHOAFees;
 @property (nonatomic) homeAddress*      mHomeAddress;
 @property (nonatomic) uint              mHomeId;
+
+-(NSDictionary*) getDictionaryHomeObjectFromHomeInfo;
+-(id) initWithDictionary:(NSDictionary*) homeDict;
+
 @end

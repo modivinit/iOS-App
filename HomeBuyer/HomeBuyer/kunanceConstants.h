@@ -33,6 +33,7 @@
 static NSString* kDisplayMainDashNotification=@"DisplayMainDash";
 static NSString* kDisplayHomeDashNotification=@"DisplayHomeDash";
 
+#define USE_PARSE 1
 
 // Typedefs just to make it a little easier to read in code.
 typedef enum {
@@ -47,12 +48,12 @@ typedef enum {
 } TextFieldTypes;
 
 typedef enum{
-    ProfileStatusNoInfoEntered = 0,
+    ProfileStatusUndefined = 0,
     ProfileStatusUserPersonalFinanceInfoEntered,  //1
     ProfileStatusPersonalFinanceAndFixedCostsInfoEntered, //2
     ProfileStatusUser1HomeInfoEntered,  //3
     ProfileStatusUser1HomeAndLoanInfoEntered, //4
-    ProfileStatusUser2HomesButNoLoanEntered, //5 This can only be an intermidiate state
+    ProfileStatusUserTwoHomesButNoLoanInfoEntered, //5
     ProfileStatusUserTwoHomesAndLoanInfoEntered, //6
 }kunanceUserProfileStatus;
 #endif

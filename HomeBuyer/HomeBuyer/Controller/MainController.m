@@ -9,8 +9,7 @@
 #import "MainController.h"
 #import "LoginViewController.h"
 #import "LeftMenuViewController.h"
-#import "PKRevealController.h"
-#import "APIUserInfoService.h"
+#import <PKRevealController/PKRevealController.h>
 #import "DashNoInfoViewController.h"
 #import "AppDelegate.h"
 #import "HomeInfoDashViewController.h"
@@ -29,8 +28,6 @@
     if(self)
     {
         self.mMainNavController = navController;
-        self.mAPIUserInfoService = [[APIUserInfoService alloc] init];
-        self.mAPIUserInfoService.mAPIUserInfoServiceDelegate = self;
         self.mLeftMenuViewController = [[LeftMenuViewController alloc] init];
         self.mLeftMenuViewController.mLeftMenuDelegate = self;
     }
@@ -73,52 +70,26 @@
 
 -(void) loginSavedUser
 {
-    __block NSString* email = nil;
-    __block NSString* password = nil;
-    
-    if([[kunanceUser getInstance] getUserEmail:&email andPassword:&password])
+    if([[kunanceUser getInstance] loginSavedUser])
     {
-        __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
-        
-        FatFractal *ff = [AppDelegate ff];
-        [ff loginWithUserName:email andPassword:password
-                   onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
-        {
-            FFUser *loggedInUser = (FFUser *)obj;
-            if(loggedInUser)
-            {
-                [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
-                                                               passowrd:password];
-                
-                [self savedUserLoggedInSuccessfully];
-                //[Utilities showAlertWithTitle:@"Success" andMessage:@"Sign Up Successful"];
-            }
-            else
-            {
-                [self failedToLoginSavedUser];
-            }
-            
-            [actIndicator stopAnimating];
-
-        }];
+        [self readUserPFInfo];
+    }
+    else
+    {
+        [self presentLoginViewController];
     }
 }
 
 -(void) readUserPFInfo
 {
-    if(self.mAPIUserInfoService)
-        [self.mAPIUserInfoService readUserPFInfo];
-}
-
--(void) savedUserLoggedInSuccessfully
-{
-    [self readUserPFInfo];
-}
-
--(void) failedToLoginSavedUser
-{
-    //show login screen here
-    [self presentLoginViewController];
+    if(![kunanceUser getInstance].mkunanceUserProfileInfo)
+        [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
+   
+    if([kunanceUser getInstance].mkunanceUserProfileInfo)
+    {
+        [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
+        [[kunanceUser getInstance].mkunanceUserProfileInfo readUserPFInfo];
+    }
 }
 
 -(void) logUserOut
@@ -156,16 +127,13 @@
     
     //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
     self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
-                                                                     leftViewController:self.mLeftMenuViewController
-                                                                    rightViewController:nil
-                                                                                options:nil];
+                                                                     leftViewController:self.mLeftMenuViewController];
     if(self.mMainControllerDelegate &&
        [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
     {
         [self.mMainControllerDelegate resetRootView:self.revealController];
     }
 }
-
 
 -(void) presentLoginViewController
 {
@@ -221,7 +189,7 @@
     NSLog(@"ProfileStatus = %d", [kunanceUser getInstance].mUserProfileStatus);
     switch ([kunanceUser getInstance].mUserProfileStatus)
     {
-        case ProfileStatusNoInfoEntered:
+        case ProfileStatusUndefined:
         case ProfileStatusUserPersonalFinanceInfoEntered:
             self.mMainDashController = [[DashNoInfoViewController alloc] init];
             break;
@@ -250,7 +218,7 @@
 #pragma mark LoginDelegate
 -(void) loggedInUserSuccessfully
 {
-    [self readUserPFInfo];
+    [self displayDash];
 }
 
 -(void) cancelLoginScreen
@@ -297,20 +265,23 @@
 #pragma mark APILoanInfoDelegate
 -(void) finishedReadingLoanInfo
 {
+    [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
     [self displayDash];
 }
 #pragma end
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedReadingHomeInfo
 {
-    APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
-    loanInfoService.mAPILoanInfoDelegate = self;
-    if(loanInfoService)
+    [[kunanceUser getInstance] updateStatusWithHomeInfoStatus];
+
+    if(![kunanceUser getInstance].mKunanceUserLoans)
+        [kunanceUser getInstance].mKunanceUserLoans = [[usersLoansList alloc] init];
+    
+    [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
+    if(![[kunanceUser getInstance].mKunanceUserLoans readLoanInfo])
     {
-        if(![loanInfoService readLoanInfo])
-        {
-            NSLog(@"Error: Unable to read user laons Info");
-        }
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to read loan info"];
+        return;
     }
 }
 #pragma end
@@ -318,14 +289,15 @@
 #pragma mark APIServiceDelegate
 -(void) finishedReadingUserPFInfo
 {
-    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
-    if(homeInfoService)
+    [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
+    
+    if(![kunanceUser getInstance].mKunanceUserHomes)
+        [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
+    
+    [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
+    if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
     {
-        homeInfoService.mAPIHomeInfoDelegate = self;
-        if(![homeInfoService readHomesInfo])
-        {
-            NSLog(@"Error: reading homes info for user");
-        }
+        NSLog(@"Error: reading homes info for user");
     }
 }
 #pragma end

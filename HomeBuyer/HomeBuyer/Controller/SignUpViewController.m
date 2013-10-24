@@ -24,7 +24,8 @@
 @property (nonatomic, strong) UIToolbar *mKeyBoardToolbar;
 
 @property (nonatomic, strong) UITextField* mActiveField;
--(IBAction) registerUser:(id)sender;
+
+@property (nonatomic, strong) UIActivityIndicatorView* mActIndicator;
 -(IBAction) showSignInView :(id)sender;
 @end
 
@@ -59,13 +60,6 @@
     
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(void) cancelScreen
@@ -117,54 +111,70 @@
         return;
     }
     
-    FatFractal *ff = [AppDelegate ff];
-    FFUser *newUser = [[FFUser alloc] initWithFF:ff];
-    newUser.firstName = self.mNameField.text;
-    newUser.userName = self.mEmailField.text;
-    newUser.email = self.mEmailField.text;
-    __block NSString *password = self.mPasswordField.text;
+    if(![Utilities isValidEmail:self.mEmailField.text])
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid email"];
+        return;
+    }
     
     self.mSignInButton.enabled = NO;
     self.view.userInteractionEnabled = NO;
     
-    __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
-    [self.view addSubview:actIndicator];
+    self.mActIndicator = [Utilities getAndStartBusyIndicator];
+    [self.view addSubview:self.mActIndicator];
     
-    [ff registerUser:newUser
-            password:password
-          onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
+    LoginSignupService* signupService = [[LoginSignupService alloc] init];
+    signupService.mLoginSignupServiceDelegate = self;
+    
+    if(![signupService signupWithName:self.mNameField.text
+                             password:self.mPasswordField.text
+                                email:self.mEmailField.text
+                          realtorCode:self.mRealtorCodeField.text])
     {
-        FFUser *loggedInUser = (FFUser *)obj;
-        if(loggedInUser)
-        {
-            [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
-                                                           passowrd:password];
-            
-            if(self.mSignUpDelegate &&
-               [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
-            {
-                [self.mSignUpDelegate userSignedUpSuccessfully];
-            }
-        }
-        else
-        {
-            self.mSignInButton.enabled = YES;
-            self.view.userInteractionEnabled = YES;
-            [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
-        }
+        self.mSignInButton.enabled = YES;
+        self.view.userInteractionEnabled = YES;
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
         
-        // if no error, your application is now in a logged-in state
-        [actIndicator stopAnimating];
-        [actIndicator removeFromSuperview];
-    }];
+        [self.mActIndicator stopAnimating];
+        [self.mActIndicator removeFromSuperview];
+    }
 }
 
+
+#pragma LoginSignupServiceDelegate
+-(void) signupCompletedWithError:(NSError *)error
+{
+    if(self.mActIndicator)
+    {
+        [self.mActIndicator stopAnimating];
+        [self.mActIndicator removeFromSuperview];
+    }
+
+    if(error)
+    {
+        self.mSignInButton.enabled = YES;
+        self.view.userInteractionEnabled = YES;
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
+    }
+    else
+    {
+        if(self.mSignUpDelegate &&
+           [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
+        {
+            [self.mSignUpDelegate userSignedUpSuccessfully];
+        }
+    }
+}
+#pragma end
 
 ///////Keyboard Animation Related
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     int futurePasswordLength = 0;
+    int futureEmailLength = 0;
+    int futureNameLength = 0;
+    
     if(textField == self.mPasswordField)
     {
         if([string isEqualToString:@""])
@@ -175,10 +185,46 @@
         {
             futurePasswordLength = self.mPasswordField.text.length +1;
         }
+        
+        futureEmailLength = self.mEmailField.text.length;
+        futureNameLength = self.mNameField.text.length;
+    }
+    else if(textField == self.mNameField)
+    {
+        if([string isEqualToString:@""])
+        {
+            futureNameLength = self.mNameField.text.length -1;
+        }
+        else
+        {
+            futureNameLength = self.mNameField.text.length +1;
+        }
+        
+        futureEmailLength = self.mEmailField.text.length;
+        futurePasswordLength = self.mPasswordField.text.length;
+    }
+    else if(textField == self.mEmailField)
+    {
+        if([string isEqualToString:@""])
+        {
+            futureEmailLength = self.mEmailField.text.length -1;
+        }
+        else
+        {
+            futureEmailLength = self.mEmailField.text.length +1;
+        }
+        
+        futurePasswordLength = self.mPasswordField.text.length;
+        futureNameLength = self.mNameField.text.length;
+    }
+    else
+    {
+        futureEmailLength = self.mEmailField.text.length;
+        futureNameLength = self.mNameField.text.length;
+        futurePasswordLength = self.mPasswordField.text.length;
     }
     
-    if(futurePasswordLength >= 6 && self.mNameField.text.length > 0 &&
-       self.mEmailField.text.length > 0)
+    if(futurePasswordLength >= 6 && futureNameLength > 0 && futureEmailLength > 0)
     {
         [self enableRegisterButton];
     }

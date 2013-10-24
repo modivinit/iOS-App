@@ -55,7 +55,7 @@
 
 -(void) setupWithExisitingLoan
 {
-    self.mCorrespondingLoan = [kunanceUser getInstance].mKunanceUserLoan;
+    self.mCorrespondingLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     if(self.mCorrespondingLoan)
     {
         self.mPercentDollarValueChoice.selectedSegmentIndex = self.mCorrespondingLoan.mDownPaymentType;
@@ -160,31 +160,15 @@
     
     newLoanInfo.mLoanDuration = [loan getLoanDurationForIndex:self.mLoanDurationField.selectedSegmentIndex];
     
-    
-    APILoanInfoService* loanInfoService = [[APILoanInfoService alloc] init];
-    if(loanInfoService)
+    if(![kunanceUser getInstance].mKunanceUserLoans)
+        [kunanceUser getInstance].mKunanceUserLoans = [[usersLoansList alloc] init];
+
+    [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
+    if(![[kunanceUser getInstance].mKunanceUserLoans writeLoanInfo:newLoanInfo])
     {
-        loanInfoService.mAPILoanInfoDelegate = self;
-        
-        if(!self.mCorrespondingLoan)
-        {
-            if(![loanInfoService createLoanInfo:newLoanInfo])
-            {
-                [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
-                return;
-            }
-        }
-        else
-        {
-            if(![loanInfoService updateLoanInfo:newLoanInfo])
-            {
-                [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to update loan info"];
-                return;
-            }
-            
-        }
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
+        return;
     }
-    
 }
 
 #pragma mark actions. gestures
@@ -227,6 +211,7 @@
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
+    [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
     if(self.mCompareHomesButton.enabled)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];

@@ -36,10 +36,8 @@
    
      [self.mCompositeAboutYouButton addGestureRecognizer:tapAboutYou];
    
-     NSString* userName = (([kunanceUser getInstance].mLoggedInKunanceUser.firstName)?
-                                                 [NSString stringWithFormat:@" %@!",
-                                                  [kunanceUser getInstance].mLoggedInKunanceUser.firstName] :
-                                                 [NSString stringWithFormat:@"!"]);
+    NSString* firstName = [[kunanceUser getInstance] getFirstName];
+     NSString* userName = (firstName ? [NSString stringWithFormat:@" %@!", firstName]:[NSString stringWithFormat:@"!"]);
      
      NSString* titleText = [NSString stringWithFormat:@"Welcome %@", userName];
      self.navigationController.navigationBar.topItem.title = titleText;

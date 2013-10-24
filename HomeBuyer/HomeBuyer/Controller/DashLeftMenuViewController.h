@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PKRevealController.h"
+#import <PKRevealController/PKRevealController.h>
 
 @interface DashLeftMenuViewController : UIViewController
 -(void) hideLeftView;

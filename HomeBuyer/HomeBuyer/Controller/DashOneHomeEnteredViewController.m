@@ -59,7 +59,7 @@
     
     UIImage *revealImagePortrait = [UIImage imageNamed:@"MenuIcon.png"];
     
-    if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
+    if ([self.navigationController.revealController hasLeftViewController])
     {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait
                                                                    landscapeImagePhone:nil

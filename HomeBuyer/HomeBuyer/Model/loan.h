@@ -38,4 +38,7 @@ typedef enum
 
 +(uint) getLoanDurationForIndex:(uint) index;
 +(uint) getIndexForLoanDuration:(uint) loanDuration;
+
+-(id) initWithDictionary:(NSDictionary*) dict;
+-(NSDictionary*) getDictionaryObjectWithLoan;
 @end

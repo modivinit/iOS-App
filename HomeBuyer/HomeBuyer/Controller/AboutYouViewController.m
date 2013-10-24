@@ -7,7 +7,7 @@
 //
 
 #import "AboutYouViewController.h"
-#import "userPFInfo.h"
+#import "userProfileInfo.h"
 #import "kunanceUser.h"
 #import "HelpProfileViewController.h"
 
@@ -65,26 +65,26 @@
 
 -(void) initWithCurrentUserPFInfo
 {
-    userPFInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
+    userProfileInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
     if(theUserPFInfo)
     {
-        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %llu", theUserPFInfo.mGrossAnnualIncome);
+        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld", [theUserPFInfo getAnnualGrossIncome]);
 
-        if(theUserPFInfo.mMaritalStatus == StatusMarried)
+        if([theUserPFInfo getMaritalStatus] == StatusMarried)
             [self selectMarried];
         
-        else if(theUserPFInfo.mMaritalStatus == StatusSingle)
+        else if([theUserPFInfo getMaritalStatus] == StatusSingle)
             [self selectSingle];
         
-        if(theUserPFInfo.mGrossAnnualIncome)
+        if([theUserPFInfo getAnnualGrossIncome])
             self.mAnnualGrossIncomeField.text =
-            [NSString stringWithFormat:@"%llu", theUserPFInfo.mGrossAnnualIncome];
+            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
         
-        if(theUserPFInfo.mAnnualRetirementSavingsContributions)
+        if([theUserPFInfo getAnnualRetirementSavings])
             self.mAnnualRetirementContributionField.text =
-            [NSString stringWithFormat:@"%llu", theUserPFInfo.mAnnualRetirementSavingsContributions];
+            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
         
-        self.mNumberOfChildrenControl.selectedSegmentIndex = theUserPFInfo.mNumberOfChildren;
+        self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
     }
 }
 
@@ -155,27 +155,25 @@
         return;
     }
     
-    APIUserInfoService* apiUserInfoService = [[APIUserInfoService alloc] init];
-    if(apiUserInfoService)
+    if(![kunanceUser getInstance].mkunanceUserProfileInfo)
+        [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
+    
+    [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
+    if(![[kunanceUser getInstance].mkunanceUserProfileInfo writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
+               annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
+               numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
+                  maritalStatus:self.mSelectedMaritalStatus])
     {
-        apiUserInfoService.mAPIUserInfoServiceDelegate = self;
-        if(![apiUserInfoService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
-                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
-                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
-                      maritalStatus:self.mSelectedMaritalStatus])
-        {
-            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
-        }
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
     }
 }
 
-#pragma mark APIUserInfoServiceDelegate
+#pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
-    if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
+    if([kunanceUser getInstance].mkunanceUserProfileInfo)
     {
-        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu",
-              [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
+        [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
         if(!self.mFixedCostsController)
             self.mFixedCostsController = [[FixedCostsViewController alloc] init];
         self.mFixedCostsController.mFixedCostsControllerDelegate = self;

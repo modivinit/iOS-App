@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 @interface LoginViewController ()
-
+@property (nonatomic, strong) UIActivityIndicatorView* mActIndicator;
 @end
 
 @implementation LoginViewController
@@ -38,11 +38,6 @@
     
     self.mSignInFooterBUtton.enabled = NO;
     self.mLoginButton.enabled = NO;
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
     
     self.navigationItem.leftBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
@@ -81,49 +76,68 @@
 
 -(void) loginUser
 {
-    __block NSString* email = self.mLoginEmail.text;
-    __block NSString* password = self.mPassword.text;
+    NSString* email = self.mLoginEmail.text;
+    NSString* password = self.mPassword.text;
     
     if(!email || !password)
         return;
     
-    [self dismissKeyboard];
+    if(![Utilities isValidEmail:email])
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid email"];
+        return;
+    }
     
     self.view.userInteractionEnabled = NO;
     [self disableLoginButton];
     
-    __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
-    [self.view addSubview:actIndicator];
+    self.mActIndicator = [Utilities getAndStartBusyIndicator];
+    [self.view addSubview:self.mActIndicator];
     
-    FatFractal *ff = [AppDelegate ff];
-    [ff loginWithUserName:email andPassword:password
-               onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
-     {
-         FFUser *loggedInUser = (FFUser *)obj;
-         if(loggedInUser)
-         {
-             [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
-                                                            passowrd:password];
-             
-             if(self.mLoginDelegate && [self.mLoginDelegate respondsToSelector:@selector(loggedInUserSuccessfully)])
-             {
-                 [self.mLoginDelegate loggedInUserSuccessfully];
-             }
-         }
-         else
-         {
-             [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
-             self.view.userInteractionEnabled = YES;
-             [self enableLoginButton];
-         }
-         
-         [actIndicator stopAnimating];
-         [actIndicator removeFromSuperview];
-     }];
+    LoginSignupService* loginService = [[LoginSignupService alloc] init];
+    loginService.mLoginSignupServiceDelegate = self;
+    
+    if(![loginService loginWithEmail:email password:password])
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
+        self.view.userInteractionEnabled = YES;
+        [self enableLoginButton];
+
+        [self.mActIndicator stopAnimating];
+        [self.mActIndicator removeFromSuperview];
+    }
 }
+
+#pragma mark LoginSignupServiceDelegate
+-(void) loginCompletedWithError:(NSError *)error
+{
+    [self.mActIndicator stopAnimating];
+    [self.mActIndicator removeFromSuperview];
+
+    if(error)
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
+        self.view.userInteractionEnabled = YES;
+        [self enableLoginButton];
+    }
+    else
+    {
+        if(self.mLoginDelegate && [self.mLoginDelegate respondsToSelector:@selector(loggedInUserSuccessfully)])
+        {
+            [self.mLoginDelegate loggedInUserSuccessfully];
+        }
+
+    }
+}
+#pragma end
 
 #pragma mark action functions
 //IBActions, action target methods, gesture targets
+-(IBAction)forgotPassword:(id)sender
+{
+    
+}
+
 -(void) cancelScreen
 {
     if(self.mLoginDelegate && [self.mLoginDelegate respondsToSelector:@selector(cancelLoginScreen)])
@@ -144,17 +158,14 @@
         [self.mLoginDelegate signupButtonPressed];
     }
 }
-
--(void)dismissKeyboard
-{
-    //[self.mActiveField resignFirstResponder];
-}
 #pragma end
 
 #pragma mark - UITextField
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     int futurePasswordLength = 0;
+    int futureEmailLength = 0;
+    
     if(textField == self.mPassword)
     {
         if([string isEqualToString:@""])
@@ -165,9 +176,24 @@
         {
             futurePasswordLength = self.mPassword.text.length +1;
         }
+        
+        futureEmailLength = self.mLoginEmail.text.length;
     }
-    
-    if(futurePasswordLength >= 6 && self.mLoginEmail.text.length > 0)
+    else if(textField == self.mLoginEmail)
+    {
+        if([string isEqualToString:@""])
+        {
+            futureEmailLength = self.mLoginEmail.text.length -1;
+        }
+        else
+        {
+            futureEmailLength = self.mLoginEmail.text.length +1;
+        }
+        
+        futurePasswordLength = self.mPassword.text.length;
+    }
+
+    if(futurePasswordLength >= 6 && futureEmailLength > 0)
     {
         [self enableLoginButton];
     }

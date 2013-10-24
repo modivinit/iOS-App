@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "FormViewController.h"
 #import "homeInfo.h"
-#import "APIHomeInfoService.h"
 #import "LoanInfoViewController.h"
 #import "HomeAddressViewController.h"
+#import "UsersHomesList.h"
 
-@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate>
+@interface HomeInfoEntryViewController : FormViewController <UsersHomesListDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
 @property (nonatomic) uint mHomeNumber;
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;

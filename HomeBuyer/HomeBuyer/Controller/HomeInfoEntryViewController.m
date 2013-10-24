@@ -93,7 +93,7 @@
 
 -(void) setupButtons
 {
-    if([kunanceUser getInstance].mKunanceUserLoan)
+    if([[kunanceUser getInstance].mKunanceUserLoans getCurrentLoanCount])
     {
         self.mShowHomePayments.hidden = NO;
         self.mLoanInfoViewAsButton.hidden = YES;

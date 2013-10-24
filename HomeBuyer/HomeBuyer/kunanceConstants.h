@@ -53,7 +53,7 @@ typedef enum{
     ProfileStatusPersonalFinanceAndFixedCostsInfoEntered, //2
     ProfileStatusUser1HomeInfoEntered,  //3
     ProfileStatusUser1HomeAndLoanInfoEntered, //4
-    ProfileStatusUser2HomesButNoLoanEntered, //5 This can only be an intermidiate state
+    ProfileStatusUserTwoHomesButNoLoanInfoEntered, //5
     ProfileStatusUserTwoHomesAndLoanInfoEntered, //6
 }kunanceUserProfileStatus;
 #endif

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "userProfileInfo.h"
 #import "UsersHomesList.h"
-#import "loan.h"
+#import "usersLoansList.h"
 #import "homeInfo.h"
 #import "UsersHomesList.h"
 #import <Parse/Parse.h>
@@ -17,7 +17,7 @@
 @interface kunanceUser : NSObject
 @property (nonatomic, strong) userProfileInfo* mkunanceUserProfileInfo;
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
-@property (nonatomic, strong) loan* mKunanceUserLoan;
+@property (nonatomic, strong) usersLoansList* mKunanceUserLoans;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
 @property (nonatomic, strong, readonly) PFUser* mLoggedInKunanceUser;
 
@@ -29,7 +29,7 @@
 -(void) updateStatusWithUserProfileInfo;
 -(void) updateStatusWithHomeInfoStatus;
 
--(void) updateLoanInfo:(loan*) aLoan;
+-(void) updateStatusWithLoanInfoStatus;
 
 -(void) logoutUser;
 -(NSString*) getUserID;

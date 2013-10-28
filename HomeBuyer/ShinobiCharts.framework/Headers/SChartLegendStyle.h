@@ -25,7 +25,7 @@
 @property (nonatomic, retain)   UIColor *fontColor;
 
 /** The alignment of the series titles. */
-@property (nonatomic)           UITextAlignment textAlignment;
+@property (nonatomic)           NSTextAlignment textAlignment;
 
 /** The font for the legend title. */
 @property (nonatomic, retain)   UIFont *titleFont;

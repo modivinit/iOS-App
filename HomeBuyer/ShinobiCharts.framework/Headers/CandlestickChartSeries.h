@@ -12,7 +12,6 @@
 - (void)drawCandlesticks:(float *)series
                forSeries:(SChartSeries *)s
            forLinesIndex:(int *)linesIndex
-     forOffsetLinesIndex:(int *)offsetLinesIndex
        forTrianglesIndex:(int *)trianglesIndex
                 withSize:(NSInteger)size
               withColors:(NSMutableArray *)colors

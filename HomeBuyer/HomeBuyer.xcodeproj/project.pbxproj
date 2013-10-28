@@ -228,7 +228,7 @@
 		D6842E6F17DDA8720028AF00 /* UsersHomesList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E6D17DDA8720028AF00 /* UsersHomesList.m */; };
 		D696EB1817D50ABA00F475F3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB1717D50ABA00F475F3 /* MobileCoreServices.framework */; };
 		D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696EB1917D50AEE00F475F3 /* Security.framework */; };
-		D6AE028B18055D9000797058 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6AE028A18055D9000797058 /* ShinobiCharts.framework */; };
+		D6A2CB6A181ED1E700CD0BF0 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A2CB69181ED1E700CD0BF0 /* ShinobiCharts.framework */; };
 		D6C3AAED18036DB800123260 /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AAEC18036DB800123260 /* BasePageViewController.m */; };
 		D6C3AAF318036FB200123260 /* DashOneHomeEnteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AAF118036FB200123260 /* DashOneHomeEnteredViewController.m */; };
 		D6C3AAF418036FB200123260 /* DashOneHomeEnteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AAF218036FB200123260 /* DashOneHomeEnteredViewController.xib */; };
@@ -549,7 +549,7 @@
 		D696EB1717D50ABA00F475F3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D696EB1917D50AEE00F475F3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D696EB1F17D5127400F475F3 /* kunanceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kunanceConstants.h; sourceTree = "<group>"; };
-		D6AE028A18055D9000797058 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		D6A2CB69181ED1E700CD0BF0 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
 		D6C3AAEB18036DB800123260 /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
 		D6C3AAEC18036DB800123260 /* BasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageViewController.m; sourceTree = "<group>"; };
 		D6C3AAF018036FB200123260 /* DashOneHomeEnteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashOneHomeEnteredViewController.h; path = Controller/DashOneHomeEnteredViewController.h; sourceTree = "<group>"; };
@@ -656,7 +656,6 @@
 				D647038C1817094F003810B4 /* CFNetwork.framework in Frameworks */,
 				D647038A18170947003810B4 /* AudioToolbox.framework in Frameworks */,
 				D6DE9C82180DB28500BAECAB /* FFEF.framework in Frameworks */,
-				D6AE028B18055D9000797058 /* ShinobiCharts.framework in Frameworks */,
 				D6F68A641804CD3000BE5960 /* libstdc++.6.0.9.dylib in Frameworks */,
 				D6F68A621804CD2600BE5960 /* CoreText.framework in Frameworks */,
 				D6F68A601804CD1D00BE5960 /* OpenGLES.framework in Frameworks */,
@@ -664,6 +663,7 @@
 				D696EB1A17D50AEE00F475F3 /* Security.framework in Frameworks */,
 				D67EFDE517CCE1280082F6C7 /* CoreGraphics.framework in Frameworks */,
 				D67EFDE917CCE1280082F6C7 /* CoreData.framework in Frameworks */,
+				D6A2CB6A181ED1E700CD0BF0 /* ShinobiCharts.framework in Frameworks */,
 				D67EFDE717CCE1280082F6C7 /* UIKit.framework in Frameworks */,
 				D67EFDE317CCE1280082F6C7 /* Foundation.framework in Frameworks */,
 				00D477EF589949109DB9DF4D /* libPods.a in Frameworks */,
@@ -1027,6 +1027,7 @@
 		D67EFDE117CCE1280082F6C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6A2CB69181ED1E700CD0BF0 /* ShinobiCharts.framework */,
 				D6470393181709BA003810B4 /* SystemConfiguration.framework */,
 				D6470391181709AB003810B4 /* StoreKit.framework */,
 				D647038F18170970003810B4 /* libz.1.1.3.dylib */,
@@ -1034,7 +1035,6 @@
 				D647038B1817094F003810B4 /* CFNetwork.framework */,
 				D647038918170947003810B4 /* AudioToolbox.framework */,
 				D64703871817090A003810B4 /* Parse.framework */,
-				D6AE028A18055D9000797058 /* ShinobiCharts.framework */,
 				D6F68A631804CD3000BE5960 /* libstdc++.6.0.9.dylib */,
 				D6F68A611804CD2600BE5960 /* CoreText.framework */,
 				D6F68A5F1804CD1D00BE5960 /* OpenGLES.framework */,

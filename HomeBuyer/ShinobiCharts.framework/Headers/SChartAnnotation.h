@@ -128,7 +128,6 @@ typedef enum {
  
  This kind of annotation is useful for highlighting areas of data, etc. As we zoom in on a range of data, the zooming annotation will also zoom so that it covers the same range of data on the chart axes.  Due to this, it will not maintain its aspect ratio as the chart is zoomed.
  
- @available Standard
  @available Premium
  @sa ChartsUserGuide
  */

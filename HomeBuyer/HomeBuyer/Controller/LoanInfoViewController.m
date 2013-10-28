@@ -10,6 +10,14 @@
 #import "HelpHomeViewController.h"
 #import <MBProgressHUD.h>
 
+#define LOAN_DURATION_10_YEARS 10
+#define LOAN_DURATION_15_YEARS 15
+#define LOAN_DURATION_20_YEARS 20
+#define LOAN_DURATION_30_YEARS 30
+
+#define MAX_POSSIBLE_INTEREST_RATE 30
+
+
 @interface LoanInfoViewController ()
 
 @end
@@ -40,6 +48,50 @@
     return self;
 }
 
+-(uint) getLoanDurationForIndex:(uint) index
+{
+    switch (index) {
+        case loanDurationTenYears:
+            return LOAN_DURATION_10_YEARS;
+            break;
+            
+        case loanDurationFifteenYears:
+            return LOAN_DURATION_15_YEARS;
+            break;
+            
+        case loanDurationTwentyYears:
+            return LOAN_DURATION_20_YEARS;
+            break;
+            
+        case loanDurationThirtyYears:
+            return LOAN_DURATION_30_YEARS;
+            break;
+            
+        default:
+            return LOAN_DURATION_30_YEARS;
+    }
+}
+
+-(uint) getIndexForLoanDuration:(uint) loanDuration
+{
+    switch (loanDuration) {
+        case LOAN_DURATION_10_YEARS:
+            return loanDurationTenYears;
+            
+        case LOAN_DURATION_15_YEARS:
+            return loanDurationFifteenYears;
+            
+        case LOAN_DURATION_20_YEARS:
+            return loanDurationTwentyYears;
+            
+        case LOAN_DURATION_30_YEARS:
+            return loanDurationThirtyYears;
+            
+        default:
+            return loanDurationThirtyYears;
+    }
+}
+
 -(void) updateDownPaymentFields
 {
     if(self.mPercentDollarValueChoice.selectedSegmentIndex == PERCENT_VALUE_DOWN_PAYMENT)
@@ -64,7 +116,7 @@
         
         self.mInterestRateField.text = [NSString stringWithFormat:@"%.2f", self.mCorrespondingLoan.mLoanInterestRate];
         
-        self.mLoanDurationField.selectedSegmentIndex = [loan getIndexForLoanDuration:self.mCorrespondingLoan.mLoanDuration];
+        self.mLoanDurationField.selectedSegmentIndex = [self getIndexForLoanDuration:self.mCorrespondingLoan.mLoanDuration];
     }
 }
 
@@ -159,7 +211,7 @@
         return;
     }
     
-    newLoanInfo.mLoanDuration = [loan getLoanDurationForIndex:self.mLoanDurationField.selectedSegmentIndex];
+    newLoanInfo.mLoanDuration = [self getLoanDurationForIndex:self.mLoanDurationField.selectedSegmentIndex];
     
     if(![kunanceUser getInstance].mKunanceUserLoans)
         [kunanceUser getInstance].mKunanceUserLoans = [[usersLoansList alloc] init];

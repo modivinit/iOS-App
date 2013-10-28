@@ -60,47 +60,4 @@ static NSString* const kLoanDurationKey = @"LoanDurationKey";
     return dict;
 }
 
-+(uint) getLoanDurationForIndex:(uint) index
-{
-    switch (index) {
-        case loanDurationTenYears:
-            return LOAN_DURATION_10_YEARS;
-            break;
-
-        case loanDurationFifteenYears:
-            return LOAN_DURATION_15_YEARS;
-            break;
-
-        case loanDurationTwentyYears:
-            return LOAN_DURATION_20_YEARS;
-            break;
-
-        case loanDurationThirtyYears:
-            return LOAN_DURATION_30_YEARS;
-            break;
-
-        default:
-            return LOAN_DURATION_30_YEARS;
-    }
-}
-
-+(uint) getIndexForLoanDuration:(uint) loanDuration
-{
-    switch (loanDuration) {
-        case LOAN_DURATION_10_YEARS:
-            return loanDurationTenYears;
-            
-        case LOAN_DURATION_15_YEARS:
-            return loanDurationFifteenYears;
-            
-        case LOAN_DURATION_20_YEARS:
-            return loanDurationTwentyYears;
-            
-        case LOAN_DURATION_30_YEARS:
-            return loanDurationThirtyYears;
-            
-        default:
-            return loanDurationThirtyYears;
-    }
-}
 @end

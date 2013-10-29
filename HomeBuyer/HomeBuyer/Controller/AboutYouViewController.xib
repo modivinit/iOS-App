@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -13,9 +13,9 @@
                 <outlet property="mFixedCostsButton" destination="z6K-tW-1wY" id="qcQ-m7-kdM"/>
                 <outlet property="mFormScrollView" destination="0bh-L2-Dwl" id="NFu-rL-FlB"/>
                 <outlet property="mHelpButton" destination="OIx-0A-DPH" id="Fed-ZH-MOc"/>
-                <outlet property="mMarriedImageAsButton" destination="QiK-Q9-drf" id="J2Q-ok-RYc"/>
+                <outlet property="mMarriedButton" destination="h9c-Ke-iBq" id="qaL-2w-srg"/>
                 <outlet property="mNumberOfChildrenControl" destination="qYC-6V-4Ch" id="l7v-Kt-zem"/>
-                <outlet property="mSingleImageAsButton" destination="uBq-EB-gXD" id="Xns-iI-NvI"/>
+                <outlet property="mSingleButton" destination="gR9-C7-As8" id="G2J-3g-Zk5"/>
                 <outlet property="view" destination="vpL-bZ-4vl" id="UKX-e8-QkF"/>
             </connections>
         </placeholder>
@@ -28,10 +28,6 @@
                     <rect key="frame" x="0.0" y="80" width="320" height="350"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <subviews>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="single.png" id="uBq-EB-gXD">
-                            <rect key="frame" x="70" y="20" width="40" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAL-uj-RTV">
                             <rect key="frame" x="71" y="68" width="39" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,10 +35,6 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="couple.png" id="QiK-Q9-drf">
-                            <rect key="frame" x="210" y="20" width="40" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Married" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3G2-Bt-nFG">
                             <rect key="frame" x="206" y="68" width="48" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,6 +42,28 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gR9-C7-As8" userLabel="Button - Single">
+                            <rect key="frame" x="70" y="20" width="40" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Button" image="single.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="singleButtonTapped:" destination="-1" eventType="touchDown" id="Plr-pc-C37"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h9c-Ke-iBq" userLabel="Button - married">
+                            <rect key="frame" x="210" y="20" width="40" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Button" image="couple.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="marriedButtonTapped:" destination="-1" eventType="touchDown" id="rpW-IY-zng"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IDP-82-rzD">
                             <rect key="frame" x="60" y="110" width="53" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -32,31 +32,24 @@
 
 -(void) selectMarried
 {
-    self.mMarriedImageAsButton.image = [UIImage imageNamed:@"couple-selected.png"];
-    self.mSingleImageAsButton.image = [UIImage imageNamed:@"single.png"];
+    [self.mMarriedButton setImage:[UIImage imageNamed:@"couple-selected.png"]
+                                forState:UIControlStateNormal];
+    [self.mSingleButton setImage:[UIImage imageNamed:@"single.png"]
+                               forState:UIControlStateNormal];
     
     self.mSelectedMaritalStatus = StatusMarried;
 }
 
 -(void) selectSingle
 {
-    self.mSingleImageAsButton.image = [UIImage imageNamed:@"single-selected.png"];
-    self.mMarriedImageAsButton.image = [UIImage imageNamed:@"couple.png"];
+    [self.mSingleButton setImage:[UIImage imageNamed:@"single-selected.png"] forState:UIControlStateNormal] ;
+    [self.mMarriedButton setImage:[UIImage imageNamed:@"couple.png"] forState:UIControlStateNormal];
 
     self.mSelectedMaritalStatus = StatusSingle;
 }
 
 -(void) setupGestureRecognizers
 {
-    UITapGestureRecognizer* marriedButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                   initWithTarget:self action:@selector(marriedButtonTapped)];
-    [self.mMarriedImageAsButton addGestureRecognizer:marriedButtonTappedGesture];
-
-    UITapGestureRecognizer* singleButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                                 action:@selector(singleButtonTapped)];
-    [self.mSingleImageAsButton addGestureRecognizer:singleButtonTappedGesture];
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -131,12 +124,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
--(void) marriedButtonTapped
+-(IBAction)marriedButtonTapped:(id)sender
 {
     [self selectMarried];
 }
 
--(void) singleButtonTapped
+-(IBAction)singleButtonTapped:(id)sender
 {
     [self selectSingle];
 }

@@ -58,16 +58,16 @@
 
 -(void) selectSingleFamilyHome
 {
-    self.mSingleFamilyImageAsButton.image = [UIImage imageNamed:@"sfh-homeinfo-selected.png"];
-    self.mCondoImageAsButton.image = [UIImage imageNamed:@"condo.png"];
+    [self.mSingleFamilyButton setImage:[UIImage imageNamed:@"sfh-homeinfo-selected.png"] forState:UIControlStateNormal];
+    [self.mCondoButton setImage:[UIImage imageNamed:@"condo.png"] forState:UIControlStateNormal];
     
     self.mSelectedHomeType = homeTypeSingleFamily;
 }
 
 -(void) selectCondominuim
 {
-    self.mSingleFamilyImageAsButton.image = [UIImage imageNamed:@"sfh-homeinfo.png"];
-    self.mCondoImageAsButton.image = [UIImage imageNamed:@"condo-selected.png"];
+    [self.mSingleFamilyButton setImage:[UIImage imageNamed:@"sfh-homeinfo.png"] forState:UIControlStateNormal];
+    [self.mCondoButton setImage:[UIImage imageNamed:@"condo-selected.png"] forState:UIControlStateNormal];;
     
     self.mSelectedHomeType = homeTypeCondominium;
 }
@@ -75,15 +75,6 @@
 -(void) setupGestureRecognizers
 {
     [self.mFormScrollView setCanCancelContentTouches:YES];
-
-    UITapGestureRecognizer* sfhButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                      initWithTarget:self action:@selector(sfhButtonTapped:)];
-    [self.mSingleFamilyImageAsButton addGestureRecognizer:sfhButtonTappedGesture];
-    
-    UITapGestureRecognizer* condoButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                        action:@selector(condoButtonTapped:)];
-    [self.mCondoImageAsButton addGestureRecognizer:condoButtonTappedGesture];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -225,12 +216,12 @@
     [self.navigationController presentViewController:self.mHomeAddressView animated:YES completion:nil];
 }
 
--(void) sfhButtonTapped:(UITapGestureRecognizer*)recognizer
+-(IBAction)sfhButtonTapped:(id)sender
 {
     [self selectSingleFamilyHome];
 }
 
--(void) condoButtonTapped:(UITapGestureRecognizer*)recognizer
+-(IBAction) condoButtonTapped:(id)sender
 {
     [self selectCondominuim];
 }

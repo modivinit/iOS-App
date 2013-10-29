@@ -22,8 +22,12 @@
 
 -(id) initAsHomeNumber:(uint) homeNumber;
 
-@property (nonatomic, strong) IBOutlet UIImageView*  mSingleFamilyImageAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView*  mCondoImageAsButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mSingleFamilyButton;
+-(IBAction)sfhButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*  mCondoButton;
+-(IBAction) condoButtonTapped:(id)sender;
+
 @property (nonatomic, strong) IBOutlet UITextField*   mBestHomeFeatureField;
 @property (nonatomic, strong) IBOutlet UITextField*   mAskingPriceField;
 @property (nonatomic, strong) IBOutlet UITextField*   mMontylyHOAField;

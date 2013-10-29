@@ -1482,11 +1482,8 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6DEE5471808782600548955 /* HomeInfoDash */,
-				9E4DBF6C1805D06F00F095F1 /* ContactRealtor */,
-				9E4DBF611805CE0C00F095F1 /* TermsAndPolicies */,
-				D6C3AB2A1803893400123260 /* kCATIntro */,
 				D6E6EE4B17E659A7005D7526 /* AboutYou */,
+				9E4DBF6C1805D06F00F095F1 /* ContactRealtor */,
 				D63EA1F617FCF3F400E50E44 /* Dash1HomeEntered */,
 				D65A217817FDFDAD00884291 /* Dash2HomesEntered */,
 				D6F9D3EF17DE66AA001DE8D1 /* DashNoInfo */,
@@ -1495,10 +1492,13 @@
 				9E00FA9F17F34D9F00380997 /* HelpDashboard */,
 				9E00FA9E17F34D9900380997 /* HelpHome */,
 				9E00FA9D17F34D9100380997 /* HelpProfile */,
+				D6DEE5471808782600548955 /* HomeInfoDash */,
 				9EA5D3C917F15C1C00CE7BD8 /* HomeInfoEntry */,
+				D6C3AB2A1803893400123260 /* kCATIntro */,
 				D6C88B2617DA6EEF00DEA25D /* LeftMenu */,
 				9EA5D3FF17F162A100CE7BD8 /* LoanInfo */,
 				D6C88B2517DA6D7900DEA25D /* Login/SignUp */,
+				9E4DBF611805CE0C00F095F1 /* TermsAndPolicies */,
 			);
 			name = View;
 			sourceTree = "<group>";

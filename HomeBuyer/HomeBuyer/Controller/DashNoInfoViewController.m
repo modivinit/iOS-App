@@ -34,7 +34,7 @@
                                            initWithTarget:self
                                            action:@selector(aboutYouTapped)];
    
-     [self.mCompositeAboutYouButton addGestureRecognizer:tapAboutYou];
+     [self.mEnterProfileButton addGestureRecognizer:tapAboutYou];
    
     NSString* firstName = [[kunanceUser getInstance] getFirstName];
      NSString* userName = (firstName ? [NSString stringWithFormat:@" %@!", firstName]:[NSString stringWithFormat:@"!"]);

@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="mAskingPriceField" destination="iKP-gr-hUk" id="IdF-6d-Jkf"/>
                 <outlet property="mBestHomeFeatureField" destination="78p-Dd-Eox" id="2nd-sC-Cdx"/>
-                <outlet property="mCondoImageAsButton" destination="zJk-ZI-AGX" id="74J-vK-Mxr"/>
+                <outlet property="mCondoButton" destination="eU6-Me-PZu" id="UYH-8t-6GE"/>
                 <outlet property="mDashboardIcon" destination="L0v-88-1pZ" id="Teu-a6-HXv"/>
                 <outlet property="mFormScrollView" destination="3ey-ie-M8m" id="ZgU-nd-Vo2"/>
                 <outlet property="mHelpButton" destination="1OW-FQ-8cy" id="NQj-Xp-a8E"/>
@@ -17,7 +17,7 @@
                 <outlet property="mLoanInfoViewAsButton" destination="VGx-Q6-CjB" id="HVP-lV-xda"/>
                 <outlet property="mMontylyHOAField" destination="bmu-pZ-zaj" id="69t-Y3-VXD"/>
                 <outlet property="mShowHomePayments" destination="t7t-eR-fWu" id="kgF-SW-JP1"/>
-                <outlet property="mSingleFamilyImageAsButton" destination="iea-NE-bGN" id="Gh9-gK-eeh"/>
+                <outlet property="mSingleFamilyButton" destination="LCl-lc-iVb" id="pMA-dn-mlZ"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -39,10 +39,17 @@
                     <rect key="frame" x="0.0" y="86" width="320" height="342"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <subviews>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sfh-homeinfo.png" id="iea-NE-bGN">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LCl-lc-iVb" userLabel="Button - sfh">
                             <rect key="frame" x="70" y="6" width="40" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Button" image="sfh-homeinfo.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="sfhButtonTapped:" destination="-1" eventType="touchDown" id="wmD-rC-kZu"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Family" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R31-FL-7wb">
                             <rect key="frame" x="48" y="54" width="84" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,10 +57,17 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="condo.png" id="zJk-ZI-AGX">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eU6-Me-PZu" userLabel="Button - condo">
                             <rect key="frame" x="210" y="6" width="40" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Button" image="condo.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="condoButtonTapped:" destination="-1" eventType="touchDown" id="mg8-Lu-jVP"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condo/Townhouse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5h8-dN-bMk">
                             <rect key="frame" x="171" y="53" width="118" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

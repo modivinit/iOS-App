@@ -13,6 +13,7 @@
 #import "DashNoInfoViewController.h"
 #import "AppDelegate.h"
 #import "HomeInfoDashViewController.h"
+#import "TermsAndPoliciesViewController.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
@@ -404,7 +405,8 @@
             
         case ROW_TERMS_AND_POLICIES:
         {
-            
+            TermsAndPoliciesViewController* termsAndPolicies = [[TermsAndPoliciesViewController alloc] init];
+            [self setRootView:termsAndPolicies];
         }
             break;
             

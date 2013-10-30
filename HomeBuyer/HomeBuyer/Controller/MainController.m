@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "HomeInfoDashViewController.h"
 #import "TermsAndPoliciesViewController.h"
+#import "ContactRealtorViewController.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
@@ -314,7 +315,8 @@
             
         case ROW_REALTOR:
         {
-            
+            ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+            [self setRootView:contactRealtor];
         }
             break;
             

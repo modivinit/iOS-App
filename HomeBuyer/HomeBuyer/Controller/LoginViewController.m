@@ -11,7 +11,6 @@
 #import <MBProgressHUD.h>
 
 @interface LoginViewController ()
-@property (nonatomic, strong) UIActivityIndicatorView* mActIndicator;
 @end
 
 @implementation LoginViewController
@@ -92,20 +91,16 @@
     self.view.userInteractionEnabled = NO;
     [self disableLoginButton];
     
-    self.mActIndicator = [Utilities getAndStartBusyIndicator];
-    [self.view addSubview:self.mActIndicator];
-    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loggin in..";
+    hud.labelText = @"Logging in";
+    
     [kunanceUser getInstance].mKunanceUserDelegate = self;
     if(![[kunanceUser getInstance] loginWithEmail:email password:password])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
+        self.mPassword.text = @"";
         self.view.userInteractionEnabled = YES;
         [self enableLoginButton];
-
-        [self.mActIndicator stopAnimating];
-        [self.mActIndicator removeFromSuperview];
     }
 }
 
@@ -113,12 +108,11 @@
 -(void) loginCompletedWithError:(NSError *)error
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.mActIndicator stopAnimating];
-    [self.mActIndicator removeFromSuperview];
 
     if(error)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
+        self.mPassword.text = @"";
         self.view.userInteractionEnabled = YES;
         [self enableLoginButton];
     }

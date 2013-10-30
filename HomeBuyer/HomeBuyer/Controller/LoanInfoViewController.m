@@ -219,7 +219,7 @@
     [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loggin in..";
+    hud.labelText = @"Calculating";
 
     if(![[kunanceUser getInstance].mKunanceUserLoans writeLoanInfo:newLoanInfo])
     {

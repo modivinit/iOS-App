@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DashLeftMenuViewController.h"
 
-@interface ContactRealtorViewController : UIViewController
+@interface ContactRealtorViewController : DashLeftMenuViewController
 
 @end

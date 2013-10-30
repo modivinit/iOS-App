@@ -127,7 +127,7 @@
     {
         userProfileInfo.mUserProfileInfoDelegate =self;
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Uploading";
+        hud.labelText = @"Calculating";
 
         if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]

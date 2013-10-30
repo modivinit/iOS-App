@@ -38,9 +38,9 @@
         homePayments = @{@"LifeStyle Income" : @2300,
                          @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
                          @"Rent" : @1200,
-                         @"Estimated Income Taxes": @2000};
+                         @"Est. Income Tax": @2000};
         
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 50, 310, 200)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         

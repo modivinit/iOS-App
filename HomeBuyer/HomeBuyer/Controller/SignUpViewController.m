@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "kunanceUser.h"
 #import "AppDelegate.h"
+#import <MBProgressHUD.h>
 
 @interface SignUpViewController ()
 @property (nonatomic, strong) IBOutlet UIButton* mCreateAccountButton;
@@ -24,8 +25,6 @@
 @property (nonatomic, strong) UIToolbar *mKeyBoardToolbar;
 
 @property (nonatomic, strong) UITextField* mActiveField;
-
-@property (nonatomic, strong) UIActivityIndicatorView* mActIndicator;
 -(IBAction) showSignInView :(id)sender;
 @end
 
@@ -119,23 +118,19 @@
     
     self.mSignInButton.enabled = NO;
     self.view.userInteractionEnabled = NO;
-    
-    self.mActIndicator = [Utilities getAndStartBusyIndicator];
-    [self.view addSubview:self.mActIndicator];
-
     [kunanceUser getInstance].mKunanceUserDelegate = self;
 
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Signing Up";
     if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
                              password:self.mPasswordField.text
                                 email:self.mEmailField.text
                           realtorCode:self.mRealtorCodeField.text])
     {
         self.mSignInButton.enabled = YES;
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.view.userInteractionEnabled = YES;
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
-        
-        [self.mActIndicator stopAnimating];
-        [self.mActIndicator removeFromSuperview];
     }
 }
 
@@ -143,11 +138,7 @@
 #pragma LoginSignupServiceDelegate
 -(void) signupCompletedWithError:(NSError *)error
 {
-    if(self.mActIndicator)
-    {
-        [self.mActIndicator stopAnimating];
-        [self.mActIndicator removeFromSuperview];
-    }
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 
     if(error)
     {

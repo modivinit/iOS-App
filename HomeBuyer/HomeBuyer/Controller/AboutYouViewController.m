@@ -155,7 +155,7 @@
     [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Uploading";
+    hud.labelText = @"Updating";
 
     if(![[kunanceUser getInstance].mkunanceUserProfileInfo writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
                annualRetirement:[self.mAnnualRetirementContributionField.text intValue]

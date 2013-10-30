@@ -71,9 +71,8 @@
     
     switch ((int)section) {
         case SECTION_USER_NAME_DASH_REALTOR:
-//            NSString* firstName = [kunanceUser ge]
-//            textLabel.text = [NSString stringWithFormat:@"%@",
-//                               [[[kunanceUser getInstance] getFirstName] uppercaseString];
+            textLabel.text = [NSString stringWithFormat:@"%@",
+                               [[[kunanceUser getInstance] getFirstName] uppercaseString]];
             textLabel.textAlignment = NSTextAlignmentCenter;
             break;
             

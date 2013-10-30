@@ -169,7 +169,7 @@
     [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Updating...";
+    hud.labelText = @"Updating";
 
     if(!self.mCorrespondingHomeInfo)
     {

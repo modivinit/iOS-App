@@ -15,14 +15,14 @@
 #define LIFESTYLE_DATAPOINT_INDEX 0
 #define MONTHLY_PAYMENT_DATAPOINT_INDEX 1
 
-#import "RentVsBuyDashViewController.h"
+#import "OneHomeLifestyleViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 
-@interface RentVsBuyDashViewController () <SChartDatasource, SChartDelegate>
+@interface OneHomeLifestyleViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mRentVsBuyBarChart;
 @end
 
-@implementation RentVsBuyDashViewController
+@implementation OneHomeLifestyleViewController
 {
     NSDictionary* mRentVsBuyData[2];
 }
@@ -30,7 +30,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mRentVsBuyDashViewDelegate setNavTitle:@"Compare Lifestyle"];
+    [self.mOneHomeLifestyleViewDelegate setNavTitle:@"Compare Lifestyle"];
 }
 
 -(void) setupChart
@@ -69,8 +69,8 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view from its nib.
-    mRentVsBuyData[0] = @{@"Monthly Payment" : @1234, @"Lifestyle" : @1234};
-    mRentVsBuyData[1] = @{@"Monthly Payment" : @3456, @"Lifestyle" : @5678};
+    mRentVsBuyData[0] = @{@"Lifestyle" : @1234};
+    mRentVsBuyData[1] = @{@"Lifestyle" : @5678};
     
     [self setupChart];
 }
@@ -87,7 +87,7 @@
 }
 
 - (NSInteger)numberOfSeriesInSChart:(ShinobiChart *)chart {
-    return NUMBER_OF_SERIES;
+    return 2;
 }
 
 -(SChartSeries *)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index {
@@ -110,7 +110,7 @@
 }
 
 - (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex {
-    return NUMBER_OF_DATAPOINTS;
+    return 1;
 }
 
 - (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex {

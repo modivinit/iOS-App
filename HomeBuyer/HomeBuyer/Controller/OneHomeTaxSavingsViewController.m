@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#import "HomeTaxSavingsViewController.h"
+#import "OneHomeTaxSavingsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 
-@interface HomeTaxSavingsViewController() <SChartDatasource, SChartDelegate>
+@interface OneHomeTaxSavingsViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mEstTaxesChart;
 @end
 
-@implementation HomeTaxSavingsViewController
+@implementation OneHomeTaxSavingsViewController
 {
     NSDictionary* mTaxesData[2];
 }
@@ -55,7 +55,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomeTaxSavingsDelegate setNavTitle:@"Est. Tax Savings"];
+    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Est. Tax Savings"];
 }
 
 - (void)viewDidLoad

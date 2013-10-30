@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OneHomePaymentViewController : UIViewController
+@protocol OneHomePaymentViewDelegate <NSObject>
+-(void) setNavTitle:(NSString*) title;
+@end
 
+
+@interface OneHomePaymentViewController : UIViewController
+@property (nonatomic, weak) id <OneHomePaymentViewDelegate> mOneHomePaymentViewDelegate;
 @end

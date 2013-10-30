@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol HomeTaxSavingsViewDelegate <NSObject>
+@protocol OneHomeTaxSavingsViewDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
 @end
 
-@interface HomeTaxSavingsViewController : UIViewController
-@property (nonatomic, weak) id <HomeTaxSavingsViewDelegate> mHomeTaxSavingsDelegate;
+@interface OneHomeTaxSavingsViewController : UIViewController
+@property (nonatomic, weak) id <OneHomeTaxSavingsViewDelegate> mOneHomeTaxSavingsDelegate;
 @property (nonatomic, strong) IBOutlet UILabel* mEstTaxSavings;
 @property (nonatomic, strong) IBOutlet UILabel* mEstTaxesPaidWithHome;
 @property (nonatomic, strong) IBOutlet UILabel* mEstTaxPaidWithRental;

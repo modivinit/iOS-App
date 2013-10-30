@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol RentVsBuyDashViewDelegate <NSObject>
+@protocol OneHomeLifestyleViewDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
 @end
 
-@interface RentVsBuyDashViewController : UIViewController
+@interface OneHomeLifestyleViewController : UIViewController
 
-@property (nonatomic, weak) id <RentVsBuyDashViewDelegate> mRentVsBuyDashViewDelegate;
+@property (nonatomic, weak) id <OneHomeLifestyleViewDelegate> mOneHomeLifestyleViewDelegate;
 @property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHomeLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mRentalMonthlyPayment;

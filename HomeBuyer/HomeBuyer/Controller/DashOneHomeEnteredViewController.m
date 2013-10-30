@@ -20,13 +20,17 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
-    RentVsBuyDashViewController* viewController1 = [[RentVsBuyDashViewController alloc] init];
-    viewController1.mRentVsBuyDashViewDelegate = self;
+    OneHomeLifestyleViewController* viewController1 = [[OneHomeLifestyleViewController alloc] init];
+    viewController1.mOneHomeLifestyleViewDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
     
-    HomeTaxSavingsViewController* viewController2 = [[HomeTaxSavingsViewController alloc] init];
-    viewController2.mHomeTaxSavingsDelegate = self;
-    [self.mPageViewControllers addObject: viewController2];
+    OneHomePaymentViewController* viewController2 = [[OneHomePaymentViewController alloc] init];
+    viewController2.mOneHomePaymentViewDelegate = self;
+    [self.mPageViewControllers addObject:viewController2];
+    
+    OneHomeTaxSavingsViewController* viewController3 = [[OneHomeTaxSavingsViewController alloc] init];
+    viewController3.mOneHomeTaxSavingsDelegate = self;
+    [self.mPageViewControllers addObject: viewController3];
 }
 
 -(void) addButtons

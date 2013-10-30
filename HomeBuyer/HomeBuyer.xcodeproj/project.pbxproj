@@ -16,8 +16,8 @@
 		9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */; };
 		9E00FABE17F356EB00380997 /* helpbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FABC17F356EB00380997 /* helpbox.png */; };
 		9E00FABF17F356EB00380997 /* helpbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E00FABD17F356EB00380997 /* helpbox@2x.png */; };
-		9E0BCA7E18048EF300863FB7 /* HomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7C18048EF300863FB7 /* HomeTaxSavingsViewController.m */; };
-		9E0BCA7F18048EF300863FB7 /* HomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7D18048EF300863FB7 /* HomeTaxSavingsViewController.xib */; };
+		9E0BCA7E18048EF300863FB7 /* OneHomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7C18048EF300863FB7 /* OneHomeTaxSavingsViewController.m */; };
+		9E0BCA7F18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */; };
 		9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BCA831804A60900863FB7 /* TwoHomeTaxSavingsViewController.m */; };
 		9E0BCA861804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BCA841804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib */; };
 		9E0DB87218075AD700B5184E /* addahome.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E0DB87018075AD700B5184E /* addahome.png */; };
@@ -184,8 +184,8 @@
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981C180F5D900067EC2C /* MenuOptionCell.m */; };
 		D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */; };
-		D63EA1FA17FCF42900E50E44 /* RentVsBuyDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* RentVsBuyDashViewController.m */; };
-		D63EA1FB17FCF42900E50E44 /* RentVsBuyDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1F917FCF42900E50E44 /* RentVsBuyDashViewController.xib */; };
+		D63EA1FA17FCF42900E50E44 /* OneHomeLifestyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */; };
+		D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */; };
 		D63EA1FD17FCF47900E50E44 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FC17FCF47900E50E44 /* chart.png */; };
 		D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */; };
 		D63EA20117FCF48F00E50E44 /* logo_svl@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */; };
@@ -325,9 +325,9 @@
 		9E00FAAF17F34E0100380997 /* HelpDashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpDashboardViewController.xib; path = Controller/HelpDashboardViewController.xib; sourceTree = "<group>"; };
 		9E00FABC17F356EB00380997 /* helpbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpbox.png; sourceTree = "<group>"; };
 		9E00FABD17F356EB00380997 /* helpbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpbox@2x.png"; sourceTree = "<group>"; };
-		9E0BCA7B18048EF300863FB7 /* HomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTaxSavingsViewController.h; path = Controller/HomeTaxSavingsViewController.h; sourceTree = "<group>"; };
-		9E0BCA7C18048EF300863FB7 /* HomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTaxSavingsViewController.m; path = Controller/HomeTaxSavingsViewController.m; sourceTree = "<group>"; };
-		9E0BCA7D18048EF300863FB7 /* HomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTaxSavingsViewController.xib; path = Controller/HomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
+		9E0BCA7B18048EF300863FB7 /* OneHomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneHomeTaxSavingsViewController.h; path = Controller/OneHomeTaxSavingsViewController.h; sourceTree = "<group>"; };
+		9E0BCA7C18048EF300863FB7 /* OneHomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneHomeTaxSavingsViewController.m; path = Controller/OneHomeTaxSavingsViewController.m; sourceTree = "<group>"; };
+		9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneHomeTaxSavingsViewController.xib; path = Controller/OneHomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
 		9E0BCA821804A60900863FB7 /* TwoHomeTaxSavingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomeTaxSavingsViewController.h; path = Controller/TwoHomeTaxSavingsViewController.h; sourceTree = "<group>"; };
 		9E0BCA831804A60900863FB7 /* TwoHomeTaxSavingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomeTaxSavingsViewController.m; path = Controller/TwoHomeTaxSavingsViewController.m; sourceTree = "<group>"; };
 		9E0BCA841804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomeTaxSavingsViewController.xib; path = Controller/TwoHomeTaxSavingsViewController.xib; sourceTree = "<group>"; };
@@ -497,9 +497,9 @@
 		D639981C180F5D900067EC2C /* MenuOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuOptionCell.m; path = View/MenuOptionCell.m; sourceTree = "<group>"; };
 		D639981E1811E0B40067EC2C /* FormNoScrollViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormNoScrollViewViewController.h; path = Utilities/FormNoScrollViewViewController.h; sourceTree = "<group>"; };
 		D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormNoScrollViewViewController.m; path = Utilities/FormNoScrollViewViewController.m; sourceTree = "<group>"; };
-		D63EA1F717FCF42900E50E44 /* RentVsBuyDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RentVsBuyDashViewController.h; path = Controller/RentVsBuyDashViewController.h; sourceTree = "<group>"; };
-		D63EA1F817FCF42900E50E44 /* RentVsBuyDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RentVsBuyDashViewController.m; path = Controller/RentVsBuyDashViewController.m; sourceTree = "<group>"; };
-		D63EA1F917FCF42900E50E44 /* RentVsBuyDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RentVsBuyDashViewController.xib; path = Controller/RentVsBuyDashViewController.xib; sourceTree = "<group>"; };
+		D63EA1F717FCF42900E50E44 /* OneHomeLifestyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneHomeLifestyleViewController.h; path = Controller/OneHomeLifestyleViewController.h; sourceTree = "<group>"; };
+		D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneHomeLifestyleViewController.m; path = Controller/OneHomeLifestyleViewController.m; sourceTree = "<group>"; };
+		D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneHomeLifestyleViewController.xib; path = Controller/OneHomeLifestyleViewController.xib; sourceTree = "<group>"; };
 		D63EA1FC17FCF47900E50E44 /* chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart.png; sourceTree = "<group>"; };
 		D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_svl.gif; sourceTree = "<group>"; };
 		D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "logo_svl@2x.gif"; sourceTree = "<group>"; };
@@ -743,7 +743,7 @@
 		9E0BCA7A18048E6700863FB7 /* Dash1EstimatedTaxSavings */ = {
 			isa = PBXGroup;
 			children = (
-				9E0BCA7D18048EF300863FB7 /* HomeTaxSavingsViewController.xib */,
+				9E0BCA7D18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib */,
 			);
 			name = Dash1EstimatedTaxSavings;
 			sourceTree = "<group>";
@@ -751,8 +751,8 @@
 		9E0BCA8018048EFD00863FB7 /* Dash1EstimatedTaxSavings */ = {
 			isa = PBXGroup;
 			children = (
-				9E0BCA7B18048EF300863FB7 /* HomeTaxSavingsViewController.h */,
-				9E0BCA7C18048EF300863FB7 /* HomeTaxSavingsViewController.m */,
+				9E0BCA7B18048EF300863FB7 /* OneHomeTaxSavingsViewController.h */,
+				9E0BCA7C18048EF300863FB7 /* OneHomeTaxSavingsViewController.m */,
 			);
 			name = Dash1EstimatedTaxSavings;
 			sourceTree = "<group>";
@@ -1141,8 +1141,8 @@
 		D6C3AAEE18036F5B00123260 /* Dash1HomeLifestyle */ = {
 			isa = PBXGroup;
 			children = (
-				D63EA1F717FCF42900E50E44 /* RentVsBuyDashViewController.h */,
-				D63EA1F817FCF42900E50E44 /* RentVsBuyDashViewController.m */,
+				D63EA1F717FCF42900E50E44 /* OneHomeLifestyleViewController.h */,
+				D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */,
 			);
 			name = Dash1HomeLifestyle;
 			sourceTree = "<group>";
@@ -1153,7 +1153,7 @@
 				D63EA1FC17FCF47900E50E44 /* chart.png */,
 				D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */,
 				D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */,
-				D63EA1F917FCF42900E50E44 /* RentVsBuyDashViewController.xib */,
+				D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */,
 			);
 			name = Dash1HomeLifestyle;
 			sourceTree = "<group>";
@@ -1745,7 +1745,7 @@
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
 				9EB0EF28180338B500857763 /* menu-contact-realtor@2x.png in Resources */,
-				9E0BCA7F18048EF300863FB7 /* HomeTaxSavingsViewController.xib in Resources */,
+				9E0BCA7F18048EF300863FB7 /* OneHomeTaxSavingsViewController.xib in Resources */,
 				9ECDB80117FF55AB004E5F25 /* menu-fixedcosts@2x.png in Resources */,
 				9EE693FA1805EBD000B541DF /* aboutyou.png in Resources */,
 				9E4DBF6A1805D04200F095F1 /* termsbox.png in Resources */,
@@ -1788,7 +1788,7 @@
 				9E96EEEC18107367001E8FF7 /* home-interior_03.jpg in Resources */,
 				D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */,
 				9E237BE01811A0910095B66B /* home-interior_01.jpg in Resources */,
-				D63EA1FB17FCF42900E50E44 /* RentVsBuyDashViewController.xib in Resources */,
+				D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */,
 				D63EA1FD17FCF47900E50E44 /* chart.png in Resources */,
 				9ECDED7D1803B34100F2449E /* appname@2x.png in Resources */,
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,
@@ -1929,7 +1929,7 @@
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
-				9E0BCA7E18048EF300863FB7 /* HomeTaxSavingsViewController.m in Sources */,
+				9E0BCA7E18048EF300863FB7 /* OneHomeTaxSavingsViewController.m in Sources */,
 				9E0BCA851804A60900863FB7 /* TwoHomeTaxSavingsViewController.m in Sources */,
 				D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */,
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */,
@@ -1938,7 +1938,7 @@
 				D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */,
 				D6EBEBCA1815C16C004B3CBF /* States.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
-				D63EA1FA17FCF42900E50E44 /* RentVsBuyDashViewController.m in Sources */,
+				D63EA1FA17FCF42900E50E44 /* OneHomeLifestyleViewController.m in Sources */,
 				D6C3AAF9180372F800123260 /* DashTwoHomesEnteredViewController.m in Sources */,
 				D607A21117F902EA008E093C /* DashUserPFInfoViewController.m in Sources */,
 				D6C3AB19180384D100123260 /* HomePaymentsViewController.m in Sources */,

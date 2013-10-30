@@ -169,7 +169,7 @@
     [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Uploading";
+    hud.labelText = @"Updating...";
 
     if(!self.mCorrespondingHomeInfo)
     {
@@ -181,6 +181,7 @@
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to create home info"];
         }
 
+        self.mCorrespondingHomeInfo = aHomeInfo;
     }
     else
     {

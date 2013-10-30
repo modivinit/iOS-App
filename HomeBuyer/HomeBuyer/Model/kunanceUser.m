@@ -220,8 +220,12 @@ static kunanceUser *kunanceUserSingleton;
 
 -(BOOL) isUserLoggedIn
 {
-    return ([[AppDelegate ff] loggedIn] &&
-            [kunanceUser getInstance].mLoggedInKunanceUser);
+    if ([kunanceUser getInstance].mLoggedInKunanceUser)
+    {
+        return YES;
+    }
+    else
+        return NO;
 }
 
 -(void) logoutUser

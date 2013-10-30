@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="mEnterProfileButton" destination="cgg-32-G7z" id="Q4c-gI-FeN"/>
                 <outlet property="mEnterProfileIcon" destination="DOS-T7-PMN" id="RhY-34-w0t"/>
-                <outlet property="mHelpButton" destination="U4q-Gk-InC" id="YFP-fW-Jjo"/>
                 <outlet property="view" destination="4aC-ma-cBR" id="QOu-TJ-Rst"/>
             </connections>
         </placeholder>
@@ -27,7 +26,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOS-T7-PMN" userLabel="Button - enter profile">
-                            <rect key="frame" x="138" y="90" width="40" height="40"/>
+                            <rect key="frame" x="104" y="74" width="109" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="dash-create-profile.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,18 +84,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-Gk-InC" userLabel="Button - help">
-                    <rect key="frame" x="280" y="523" width="20" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="help.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="helpIconTapped:" destination="-1" eventType="touchDown" id="XcV-3s-0Z0"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgg-32-G7z">
-                    <rect key="frame" x="112" y="490" width="96" height="35"/>
+                    <rect key="frame" x="88" y="481" width="145" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="enterprofile.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,7 +127,6 @@
         <image name="downarrow.png" width="15" height="30"/>
         <image name="enterprofile.png" width="96" height="22"/>
         <image name="forward-icon.png" width="10" height="20"/>
-        <image name="help.png" width="20" height="20"/>
         <image name="lifestyle-beach-dash.png" width="40" height="34"/>
     </resources>
 </document>

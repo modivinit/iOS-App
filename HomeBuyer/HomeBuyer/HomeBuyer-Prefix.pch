@@ -15,7 +15,6 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
 
-#import <FFEF/FatFractal.h>
 #import "Utilities.h"
 #import "kunanceConstants.h"
 #import "kunanceUser.h"

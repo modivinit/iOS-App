@@ -46,7 +46,6 @@
 		9E4DBF6B1805D04200F095F1 /* termsbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF691805D04200F095F1 /* termsbox@2x.png */; };
 		9E4DBF711805D08900F095F1 /* ContactRealtorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DBF6F1805D08900F095F1 /* ContactRealtorViewController.m */; };
 		9E4DBF721805D08900F095F1 /* ContactRealtorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF701805D08900F095F1 /* ContactRealtorViewController.xib */; };
-		9E53442117F54C48006BA12D /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442A17F555B8006BA12D /* lifestyle-food.png */; };
 		9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */; };
 		9E53443417F555B8006BA12D /* lifestyle-music.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442C17F555B8006BA12D /* lifestyle-music.png */; };
@@ -263,7 +262,6 @@
 		D6C88B3E17DA7B7D00DEA25D /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B3917DA7B7D00DEA25D /* KeychainWrapper.m */; };
 		D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C890B617DC4426007CB46F /* LeftMenuViewController.m */; };
 		D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */; };
-		D6DE9C82180DB28500BAECAB /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		D6DEE54B180878AE00548955 /* HomeInfoDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DEE549180878AE00548955 /* HomeInfoDashViewController.m */; };
 		D6DEE54C180878AE00548955 /* HomeInfoDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6DEE54A180878AE00548955 /* HomeInfoDashViewController.xib */; };
 		D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */; };
@@ -359,7 +357,6 @@
 		9E4DBF6E1805D08900F095F1 /* ContactRealtorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactRealtorViewController.h; path = Controller/ContactRealtorViewController.h; sourceTree = "<group>"; };
 		9E4DBF6F1805D08900F095F1 /* ContactRealtorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactRealtorViewController.m; path = Controller/ContactRealtorViewController.m; sourceTree = "<group>"; };
 		9E4DBF701805D08900F095F1 /* ContactRealtorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactRealtorViewController.xib; path = Controller/ContactRealtorViewController.xib; sourceTree = "<group>"; };
-		9E53441F17F54C48006BA12D /* FFEF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFEF.framework; sourceTree = "<group>"; };
 		9E53442A17F555B8006BA12D /* lifestyle-food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-food.png"; sourceTree = "<group>"; };
 		9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-food@2x.png"; sourceTree = "<group>"; };
 		9E53442C17F555B8006BA12D /* lifestyle-music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-music.png"; sourceTree = "<group>"; };
@@ -655,7 +652,6 @@
 				D647038E18170962003810B4 /* CoreLocation.framework in Frameworks */,
 				D647038C1817094F003810B4 /* CFNetwork.framework in Frameworks */,
 				D647038A18170947003810B4 /* AudioToolbox.framework in Frameworks */,
-				D6DE9C82180DB28500BAECAB /* FFEF.framework in Frameworks */,
 				D6F68A641804CD3000BE5960 /* libstdc++.6.0.9.dylib in Frameworks */,
 				D6F68A621804CD2600BE5960 /* CoreText.framework in Frameworks */,
 				D6F68A601804CD1D00BE5960 /* OpenGLES.framework in Frameworks */,
@@ -676,7 +672,6 @@
 			files = (
 				D67EFE0117CCE1290082F6C7 /* XCTest.framework in Frameworks */,
 				D67EFE0417CCE1290082F6C7 /* CoreData.framework in Frameworks */,
-				9E53442117F54C48006BA12D /* FFEF.framework in Frameworks */,
 				D67EFE0317CCE1290082F6C7 /* UIKit.framework in Frameworks */,
 				D67EFE0217CCE1290082F6C7 /* Foundation.framework in Frameworks */,
 			);
@@ -1039,7 +1034,6 @@
 				D6F68A611804CD2600BE5960 /* CoreText.framework */,
 				D6F68A5F1804CD1D00BE5960 /* OpenGLES.framework */,
 				D6F68A5D1804CD1400BE5960 /* QuartzCore.framework */,
-				9E53441F17F54C48006BA12D /* FFEF.framework */,
 				D696EB1917D50AEE00F475F3 /* Security.framework */,
 				D696EB1717D50ABA00F475F3 /* MobileCoreServices.framework */,
 				D67EFDE217CCE1280082F6C7 /* Foundation.framework */,

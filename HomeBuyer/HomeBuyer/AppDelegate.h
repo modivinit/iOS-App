@@ -19,6 +19,4 @@
 @property (nonatomic, strong) MainController* mMainController;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
-+ (FatFractal *) ff;
 @end

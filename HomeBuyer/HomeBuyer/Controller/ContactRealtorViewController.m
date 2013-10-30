@@ -29,6 +29,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(IBAction)showDash:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

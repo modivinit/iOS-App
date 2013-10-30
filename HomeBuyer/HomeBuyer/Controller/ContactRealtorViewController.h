@@ -10,5 +10,7 @@
 #import "DashLeftMenuViewController.h"
 
 @interface ContactRealtorViewController : DashLeftMenuViewController
+@property (nonatomic, strong) IBOutlet UIButton* mDashboard;
 
+-(IBAction)showDash:(id)sender;
 @end

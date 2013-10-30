@@ -49,6 +49,8 @@
         Cities* cities = [[Cities alloc] initForState:self.mCorrespondingHomeInfo.mStateCode];
         self.mCity.text = [cities getCityNameForCityCode:self.mCorrespondingHomeInfo.mCityCode];
     }
+    
+    self.navigationItem.title = @"Home Address";
 }
 
 - (void)didReceiveMemoryWarning

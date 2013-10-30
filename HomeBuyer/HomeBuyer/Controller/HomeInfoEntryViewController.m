@@ -214,7 +214,7 @@
         self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
     }
 
-    [self.navigationController presentViewController:self.mHomeAddressView animated:YES completion:nil];
+    [self.navigationController pushViewController:self.mHomeAddressView animated:YES];
 }
 
 -(IBAction)sfhButtonTapped:(id)sender

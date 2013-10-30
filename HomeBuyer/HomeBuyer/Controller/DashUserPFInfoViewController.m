@@ -68,6 +68,9 @@
     self.navigationController.navigationBar.topItem.title = titleText;
     // Do any additional setup after loading the view from its nib.
     [self setupChart];
+    
+    if([kunanceUser getInstance].mUserProfileStatus != ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
+        self.mAddAHomeButton.hidden = YES;
 }
 
 #pragma mark - SChartDelegate methods

@@ -392,6 +392,12 @@
             [self setRootView:fixedCostsViewController];
         }
             break;
+            
+        case ROW_CURRENT_LIFESTYLE:
+        {
+            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
+            [self setRootView:self.mMainDashController];
+        }
     }
 }
 

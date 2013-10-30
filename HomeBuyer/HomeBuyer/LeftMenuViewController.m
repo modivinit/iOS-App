@@ -132,7 +132,7 @@
             break;
             
         case SECTION_USER_PROFILE:
-            numOfRows = 2;
+            numOfRows = 3;
             break;
             
         case SECTION_INFO:
@@ -285,6 +285,23 @@
             cell.userInteractionEnabled = YES;
         }
     }
+    else if(indexPath.row == ROW_CURRENT_LIFESTYLE)
+    {
+        cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+        cell.textLabel.text = @"Current Lifestyle";
+
+        if(!userProfile)
+        {
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.userInteractionEnabled = NO;
+        }
+        else
+        {
+            cell.textLabel.textColor = [UIColor blackColor];
+            cell.userInteractionEnabled = YES;
+        }
+    }
+
 }
 
 -(void) updateRowForLoanInfo:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell

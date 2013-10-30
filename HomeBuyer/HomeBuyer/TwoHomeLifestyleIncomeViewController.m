@@ -78,14 +78,22 @@
     SChartColumnSeries *lineSeries = [[SChartColumnSeries alloc] init];
     lineSeries.style.lineColor = [UIColor darkGrayColor];
     lineSeries.style.showArea = YES;
-    //    lineSeries.style.showAreaWithGradient = YES;
-    //    lineSeries.style.areaColorGradient = [UIColor whiteColor];
-    if(index == 0)
+    lineSeries.style.showAreaWithGradient = YES;
+    if(index == 0) {
         lineSeries.title = @"Rental";
-    if(index == 1)
+        lineSeries.style.areaColor = [UIColor colorWithRed:243.0/255.0 green:156.0/255.0 blue:18.0/255.0 alpha:0.8];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:230.0/255.0 green:126.0/255.0 blue:34.0/255.0 alpha:0.9];
+    }
+    if(index == 1) {
         lineSeries.title = @"Home 1";
-    if(index == 2)
+        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.8];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.9];
+    }
+    if(index == 2) {
         lineSeries.title = @"Home 2";
+        lineSeries.style.areaColor = [UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:0.8];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:0.9];
+    }
     return lineSeries;
 }
 

@@ -173,7 +173,7 @@
 
 -(void) uploadLoanInfo
 {
-    if(!self.mDownPaymentField.text || !self.mInterestRateField.text)
+    if(!self.mDownPaymentField.text.length || !self.mInterestRateField.text.length)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all the fields"];
         return;

@@ -46,6 +46,8 @@
 		9E4DBF6B1805D04200F095F1 /* termsbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF691805D04200F095F1 /* termsbox@2x.png */; };
 		9E4DBF711805D08900F095F1 /* ContactRealtorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DBF6F1805D08900F095F1 /* ContactRealtorViewController.m */; };
 		9E4DBF721805D08900F095F1 /* ContactRealtorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DBF701805D08900F095F1 /* ContactRealtorViewController.xib */; };
+		9E4DC4061821C0560089E94F /* state.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DC4041821C0560089E94F /* state.png */; };
+		9E4DC4071821C0560089E94F /* state@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4DC4051821C0560089E94F /* state@2x.png */; };
 		9E53442117F54C48006BA12D /* FFEF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E53441F17F54C48006BA12D /* FFEF.framework */; };
 		9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442A17F555B8006BA12D /* lifestyle-food.png */; };
 		9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */; };
@@ -359,6 +361,8 @@
 		9E4DBF6E1805D08900F095F1 /* ContactRealtorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactRealtorViewController.h; path = Controller/ContactRealtorViewController.h; sourceTree = "<group>"; };
 		9E4DBF6F1805D08900F095F1 /* ContactRealtorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactRealtorViewController.m; path = Controller/ContactRealtorViewController.m; sourceTree = "<group>"; };
 		9E4DBF701805D08900F095F1 /* ContactRealtorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactRealtorViewController.xib; path = Controller/ContactRealtorViewController.xib; sourceTree = "<group>"; };
+		9E4DC4041821C0560089E94F /* state.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = state.png; sourceTree = "<group>"; };
+		9E4DC4051821C0560089E94F /* state@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state@2x.png"; sourceTree = "<group>"; };
 		9E53441F17F54C48006BA12D /* FFEF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFEF.framework; sourceTree = "<group>"; };
 		9E53442A17F555B8006BA12D /* lifestyle-food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-food.png"; sourceTree = "<group>"; };
 		9E53442B17F555B8006BA12D /* lifestyle-food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifestyle-food@2x.png"; sourceTree = "<group>"; };
@@ -865,6 +869,8 @@
 		9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */ = {
 			isa = PBXGroup;
 			children = (
+				9E4DC4041821C0560089E94F /* state.png */,
+				9E4DC4051821C0560089E94F /* state@2x.png */,
 				9E4B1D111805FE1B00D3D39C /* loaninfo.png */,
 				9E4B1D121805FE1B00D3D39C /* loaninfo@2x.png */,
 				9EA5D3F317F1627300CE7BD8 /* city.png */,
@@ -1777,6 +1783,7 @@
 				D6E6EE6417E65AD1005D7526 /* children.png in Resources */,
 				9E587B3F1818FDCB00E65DBA /* enterprofile@2x.png in Resources */,
 				D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */,
+				9E4DC4061821C0560089E94F /* state.png in Resources */,
 				D6C3AB291803892700123260 /* kCATIntroViewController.xib in Resources */,
 				D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */,
 				9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */,
@@ -1800,6 +1807,7 @@
 				9E0DB87218075AD700B5184E /* addahome.png in Resources */,
 				9E5D592817F23738000CA229 /* help@2x.png in Resources */,
 				9E4DBF6B1805D04200F095F1 /* termsbox@2x.png in Resources */,
+				9E4DC4071821C0560089E94F /* state@2x.png in Resources */,
 				9ECCAD8C17F0E556001EAF4C /* downarrow.png in Resources */,
 				D6E6EE6017E65AC0005D7526 /* savings.png in Resources */,
 				9EA5D40C17F162DE00CE7BD8 /* downpayment.png in Resources */,

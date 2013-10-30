@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZAE-Ld-lbX">
-                    <rect key="frame" x="0.0" y="143" width="320" height="309"/>
+                    <rect key="frame" x="0.0" y="75" width="320" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rent.png" id="eU3-PE-26f">
@@ -81,7 +81,7 @@
                     </subviews>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q2A-g7-w3i" userLabel="Button- about you">
-                    <rect key="frame" x="20" y="460" width="85" height="35"/>
+                    <rect key="frame" x="20" y="453" width="85" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="aboutyou.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,10 +91,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oUv-T7-xI1">
-                    <rect key="frame" x="73" y="414" width="175" height="35"/>
+                    <rect key="frame" x="183" y="452" width="117" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Show Lifestyle Income">
+                    <state key="normal" title="Lifestyle Income">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -102,7 +102,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FlP-2P-ra7" userLabel="Button -dash">
-                    <rect key="frame" x="20" y="518" width="30" height="30"/>
+                    <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="dashboard-profile.png">
@@ -113,7 +113,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bFE-Rh-E22" userLabel="Button - help">
-                    <rect key="frame" x="280" y="523" width="20" height="20"/>
+                    <rect key="frame" x="270" y="511" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="help.png">

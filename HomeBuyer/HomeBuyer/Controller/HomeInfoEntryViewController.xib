@@ -153,7 +153,7 @@
                     <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="dashboard-home.png">
+                    <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -192,7 +192,7 @@
         <image name="besthomefeature.png" width="29" height="29"/>
         <image name="city.png" width="29" height="29"/>
         <image name="condo.png" width="40" height="40"/>
-        <image name="dashboard-home.png" width="30" height="30"/>
+        <image name="dashboard.png" width="30" height="30"/>
         <image name="help.png" width="20" height="20"/>
         <image name="hoa.png" width="29" height="29"/>
         <image name="homeprice.png" width="29" height="29"/>

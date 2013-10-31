@@ -145,7 +145,7 @@
                     <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="dashboard-profile.png">
+                    <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -172,7 +172,7 @@
     <resources>
         <image name="children.png" width="29" height="29"/>
         <image name="couple.png" width="40" height="40"/>
-        <image name="dashboard-profile.png" width="30" height="30"/>
+        <image name="dashboard.png" width="30" height="30"/>
         <image name="fixedcosts.png" width="94" height="22"/>
         <image name="help.png" width="20" height="20"/>
         <image name="salary.png" width="29" height="29"/>

@@ -1007,7 +1007,7 @@ Cg
                     <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="dashboard-dashboard.png">
+                    <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -1021,7 +1021,7 @@ Cg
         </view>
     </objects>
     <resources>
-        <image name="dashboard-dashboard.png" width="30" height="30"/>
+        <image name="dashboard.png" width="30" height="30"/>
         <image name="termsbox.png" width="278" height="360"/>
     </resources>
 </document>

@@ -249,7 +249,23 @@
 {
     userProfileInfo* userProfile = [kunanceUser getInstance].mkunanceUserProfileInfo;
     
-    if(indexPath.row == ROW_YOUR_PROFILE)
+    if(indexPath.row == ROW_CURRENT_LIFESTYLE)
+    {
+        cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+        cell.textLabel.text = @"Current Lifestyle";
+        
+        if(!userProfile)
+        {
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.userInteractionEnabled = NO;
+        }
+        else
+        {
+            cell.textLabel.textColor = [UIColor blackColor];
+            cell.userInteractionEnabled = YES;
+        }
+    }
+    else if(indexPath.row == ROW_YOUR_PROFILE)
     {
         if(!userProfile)
         {
@@ -285,23 +301,6 @@
             cell.userInteractionEnabled = YES;
         }
     }
-    else if(indexPath.row == ROW_CURRENT_LIFESTYLE)
-    {
-        cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
-        cell.textLabel.text = @"Current Lifestyle";
-
-        if(!userProfile)
-        {
-            cell.textLabel.textColor = [UIColor grayColor];
-            cell.userInteractionEnabled = NO;
-        }
-        else
-        {
-            cell.textLabel.textColor = [UIColor blackColor];
-            cell.userInteractionEnabled = YES;
-        }
-    }
-
 }
 
 -(void) updateRowForLoanInfo:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell

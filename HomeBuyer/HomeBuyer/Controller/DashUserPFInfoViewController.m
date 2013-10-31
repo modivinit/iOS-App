@@ -9,6 +9,7 @@
 #import "DashUserPFInfoViewController.h"
 #import "HelpDashboardViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "AboutYouViewController.h"
 
 @interface DashUserPFInfoViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomeLifeStyleChart;
@@ -24,6 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.mWasLoadedFromMenu = NO;
     }
     return self;
 }
@@ -69,8 +71,15 @@
     // Do any additional setup after loading the view from its nib.
     [self setupChart];
     
-    if([kunanceUser getInstance].mUserProfileStatus != ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
+    if([kunanceUser getInstance].mkunanceUserProfileInfo && self.mWasLoadedFromMenu)
+    {
         self.mAddAHomeButton.hidden = YES;
+        self.navigationItem.rightBarButtonItem =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                      target:self
+                                                      action:@selector(editUserProfile)];
+        
+    }
 }
 
 #pragma mark - SChartDelegate methods
@@ -113,6 +122,13 @@ atPixelCoordinate:(CGPoint)pixelPoint
 
 
 #pragma mark actions, gestures
+
+-(void) editUserProfile
+{
+    AboutYouViewController* viewController = [[AboutYouViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 -(IBAction)helpButtonTapped:(id)sender
 {
     HelpDashboardViewController* dashHelp = [[HelpDashboardViewController alloc] init];

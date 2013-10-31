@@ -395,7 +395,10 @@
             
         case ROW_CURRENT_LIFESTYLE:
         {
-            self.mMainDashController = [[DashUserPFInfoViewController alloc] init];
+            DashUserPFInfoViewController* vc = [[DashUserPFInfoViewController alloc] init];
+            vc.mWasLoadedFromMenu = YES;
+            self.mMainDashController = vc;
+            
             [self setRootView:self.mMainDashController];
         }
     }

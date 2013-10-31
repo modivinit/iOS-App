@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoViewController;
-
+@property (nonatomic) BOOL mWasLoadedFromMenu;
 
 -(IBAction)helpButtonTapped:(id)sender;
 -(IBAction)addHomeInfo:(id)sender;

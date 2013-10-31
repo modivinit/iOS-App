@@ -60,25 +60,7 @@ Cg
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">1. INTRODUCTION. Kunance (“us,” “we,” or “Company”) is committed to respecting the privacy rights of its customers, visitors, and other users of the Company Website </string>
-                                    <attributes>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="or App">
-                                    <attributes>
-                                        <color key="NSBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment>
-                                    <string key="content"> (“the Site”). We created this Website Privacy Policy (“Privacy Policy”) to give you confidence as you visit and use the Site, and to demonstrate our commitment to fair information practices and the protection of privacy. This Privacy Policy is only applicable to the Site, and not to any other websites that you may be able to access from the Site, each of which may have data collection, storage, and use practices and policies that differ materially from this Privacy Policy.</string>
+                                    <string key="content">1. INTRODUCTION. Kunance (“us,” “we,” or “Company”) is committed to respecting the privacy rights of its customers, visitors, and other users of the Company Website or Mobile Application (“the Site”). We created this Website Privacy Policy (“Privacy Policy”) to give you confidence as you visit and use the Site, and to demonstrate our commitment to fair information practices and the protection of privacy. This Privacy Policy is only applicable to the Site, and not to any other websites that you may be able to access from the Site, each of which may have data collection, storage, and use practices and policies that differ materially from this Privacy Policy.</string>
                                     <attributes>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
@@ -138,16 +120,6 @@ Cg
                                 <fragment>
                                     <string key="content">(a) TRAFFIC DATA COLLECTED. We do not track personally identifying information (except where noted below), but we do automatically track and collect the following categories of information when you visit our Site: (1) IP addresses; (2) domain servers; (3) types of computers accessing the Site; and (4) types of web browsers used to access the Site (collectively “Traffic Data”). Traffic Data is anonymous information that does not personally identify you but is helpful for marketing purposes or for improving your experience on the Site. </string>
                                     <attributes>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment>
-                                    <string key="content">We also use “cookies” to customize content specific to your interests, to ensure that you do not see the same advertisement repeatedly, and to store your password so you do not have to re-enter it each time you visit the Site.</string>
-                                    <attributes>
-                                        <color key="NSBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
                                             <tabStops/>
@@ -250,17 +222,19 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content="…">
+                                <fragment content="legal@kunance.com">
                                     <attributes>
-                                        <color key="NSBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="NSColor" red="0.066666666666666666" green="0.33333333333333331" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
+                                        <url key="NSLink" string="mailto:legal@kunance.com"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
                                             <tabStops/>
                                         </paragraphStyle>
+                                        <integer key="NSUnderline" value="1"/>
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">or select the “opt out” box on our online forms, but please understand that such a request will likely limit your ability to take advantage of all of the features and services we offer on the Site. In addition, we maintain a procedure for you to review and request changes to your Personal Information; this procedure is described in Section 3.1, below.</string>
+                                    <string key="content"> or select the “opt out” box on our online forms, but please understand that such a request will likely limit your ability to take advantage of all of the features and services we offer on the Site. In addition, we maintain a procedure for you to review and request changes to your Personal Information; this procedure is described in Section 3.1, below.</string>
                                     <attributes>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
@@ -399,17 +373,6 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment>
-                                    <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                    <attributes>
-                                        <font key="NSFont" size="12" name="Times-Roman"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
                             </attributedString>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -448,25 +411,8 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content="1. BINDING EFFECT. This is a binding agreement. By using the Internet site located at Kunance.com or ">
-                                    <attributes>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="the app">
-                                    <attributes>
-                                        <color key="NSBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
                                 <fragment>
-                                    <string key="content"> (the “Site”) or any services provided in connection with the Site (the “Service”), you agree to abide by these Terms of Use, as they may be amended by Kunance (“Company”) from time to time in its sole discretion. Company will post a notice on the Site any time these Terms of Use have been changed or otherwise updated. It is your responsibility to review these Terms of Use periodically, and if at any time you find these Terms of Use unacceptable, you must immediately leave the Site and cease all use of the Service and the Site. YOU AGREE THAT BY USING THE SERVICE YOU REPRESENT THAT YOU ARE AT LEAST 18 YEARS OLD AND THAT YOU ARE LEGALLY ABLE TO ENTER INTO THIS AGREEMENT.</string>
+                                    <string key="content">1. BINDING EFFECT. This is a binding agreement. By using the Internet site located at Kunance.com or the Mobile Application (the “Site”) or any services provided in connection with the Site (the “Service”), you agree to abide by these Terms of Use, as they may be amended by Kunance (“Company”) from time to time in its sole discretion. Company will post a notice on the Site any time these Terms of Use have been changed or otherwise updated. It is your responsibility to review these Terms of Use periodically, and if at any time you find these Terms of Use unacceptable, you must immediately leave the Site and cease all use of the Service and the Site. YOU AGREE THAT BY USING THE SERVICE YOU REPRESENT THAT YOU ARE AT LEAST 18 YEARS OLD AND THAT YOU ARE LEGALLY ABLE TO ENTER INTO THIS AGREEMENT.</string>
                                     <attributes>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
@@ -486,24 +432,7 @@ Cg
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">2. PRIVACY POLICY. Company respects your privacy and permits you to control the treatment of your personal information. When you are required to open an account to use or access the Site or Service, you must complete the registration process by providing the complete and accurate information requested on the registration form. You will also be asked to provide a user name and password. You are entirely responsible for maintaining the confidentiality of your password. You may not use the account, username, or password of someone else at any time. You agree to notify Company immediately on any unauthorized use of your account, user name, or password. Company shall not be liable for any loss that you incur as a result of someone else using your password, either with or without your knowledge. You may be held liable for any losses incurred by Company, its affiliates, officers, directors, employees, consultants, agents, and representatives due to someone else’s use of your account or password. A complete statement of Company’s current privacy policy can be found </string>
-                                    <attributes>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="by clicking here.">
-                                    <attributes>
-                                        <color key="NSBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=" Company’s privacy policy is expressly incorporated into this Agreement by this reference.">
+                                    <string key="content">2. PRIVACY POLICY. Company respects your privacy and permits you to control the treatment of your personal information. When you are required to open an account to use or access the Site or Service, you must complete the registration process by providing the complete and accurate information requested on the registration form. You will also be asked to provide a user name and password. You are entirely responsible for maintaining the confidentiality of your password. You may not use the account, username, or password of someone else at any time. You agree to notify Company immediately on any unauthorized use of your account, user name, or password. Company shall not be liable for any loss that you incur as a result of someone else using your password, either with or without your knowledge. You may be held liable for any losses incurred by Company, its affiliates, officers, directors, employees, consultants, agents, and representatives due to someone else’s use of your account or password. A complete statement of Company’s current privacy policy can be found under Terms and Policies from the main menu of the site. Company’s privacy policy is expressly incorporated into this Agreement by this reference.</string>
                                     <attributes>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
@@ -642,6 +571,25 @@ Cg
                                     </attributes>
                                 </fragment>
                                 <fragment content="Kunance">
+                                    <attributes>
+                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="12" name="Times-Roman"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="6161 Ocho Rios Drive">
                                     <attributes>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
@@ -886,24 +834,7 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content=" 2013 Company, San Jose CA 95123">
-                                    <attributes>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=".">
-                                    <attributes>
-                                        <color key="NSBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=" All rights reserved.">
+                                <fragment content=" 2013 Kunance, 6161 Ocho Rios Drive, San Jose CA 95123. All rights reserved.">
                                     <attributes>
                                         <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="16" defaultTabInterval="36">
@@ -1058,17 +989,6 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment>
-                                    <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                    <attributes>
-                                        <font key="NSFont" size="12" name="Times-Roman"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
-                                            <tabStops/>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
                             </attributedString>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -1084,7 +1004,7 @@ Cg
                     </segments>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYh-MR-w3E" userLabel="Button -dash">
-                    <rect key="frame" x="20" y="518" width="30" height="30"/>
+                    <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="dashboard-dashboard.png">

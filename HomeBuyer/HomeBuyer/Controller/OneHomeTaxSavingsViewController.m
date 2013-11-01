@@ -70,7 +70,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Est. Tax Savings"];
+    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Income Tax Savings"];
 }
 
 - (void)viewDidLoad

@@ -65,7 +65,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomePaymentViewDelegate setNavTitle:@"Home Payments"];
+    [self.mOneHomePaymentViewDelegate setNavTitle:@"Compare Payments"];
 }
 
 - (void)viewDidLoad

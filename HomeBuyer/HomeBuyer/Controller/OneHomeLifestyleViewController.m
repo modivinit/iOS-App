@@ -81,14 +81,21 @@
         kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
         
-        float homeLifeStyleIncome = ceilf([calculatorHome getMonthlyLifeStyleIncomeForRental]);
-        float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncomeForRental]);
+        float homeLifeStyleIncome = ceilf([calculatorHome getMonthlyLifeStyleIncome]);
+        float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncome]);
         
         mLifestyleIncomeData[0] = @{@"Lifestyle" : [NSNumber numberWithFloat:rentLifestyleIncome]};
         self.mRentalLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", rentLifestyleIncome];
         
         mLifestyleIncomeData[1] = @{@"Lifestyle" : [NSNumber numberWithFloat:homeLifeStyleIncome]};
         self.mHomeLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifeStyleIncome];
+        
+        self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
+        if(aHome.mHomeType == homeTypeCondominium)
+            self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
+            
     }
     
     [self setupChart];

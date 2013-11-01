@@ -19,4 +19,5 @@
 
 -(float) getInterestAveragedOverYears:(uint)numOfYears;
 -(float) getAnnualPropertyTaxes;
+-(float) getMonthlyLoanPaymentForHome;
 @end

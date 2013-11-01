@@ -8,6 +8,7 @@
 
 #import "HomeLifeStyleViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface HomeLifeStyleViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomeLifeStyleChart;
@@ -33,30 +34,35 @@
         if(home.mHomeType == homeTypeCondominium)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-condo.png"];
-            self.mCondoSFHLabel.text = @"Condo/Townhome";
         }
         else if(home.mHomeType == homeTypeSingleFamily)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-sfh.png"];
-            self.mCondoSFHLabel.text = @"Single Family";
         }
         
+        self.mCondoSFHLabel.text = home.mIdentifiyingHomeFeature;
         self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
     }
 }
 
 -(void) setupChart
 {
-    homeInfo* home = [[kunanceUser getInstance].mKunanceUserHomes
-                      getHomeAtIndex:[self.mHomeNumber intValue]];
-    userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:0];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
-    if(home && user)
+    if(aHome && aLoan && userProfile)
     {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
+
+        float lifestyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
+        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxableIncome] +
+                                        [calculatorHome getAnnualStateTaxesPaid])/12);
         // create the data
-        homePayments = @{@"LifeStyle Income" : @1800,
-                         @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
-                         @"Est. Income Tax" : @600};
+        homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:lifestyleIncome],
+                         @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
+                         @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
         
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;

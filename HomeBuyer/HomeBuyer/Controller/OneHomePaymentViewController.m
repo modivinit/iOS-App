@@ -8,6 +8,7 @@
 
 #import "OneHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface OneHomePaymentViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mPaymentsChart;
@@ -58,9 +59,27 @@
     self.mPaymentsChart.delegate = self;
     // show the legend
     
-    mPaymentData[0] = @{@"Payment" : @1234};
-    mPaymentData[1] = @{@"Payment" : @3456};
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:0];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
+    if(aHome && aLoan && userProfile)
+    {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+
+        float homeMortgage = ceilf([homeAndLoan getMonthlyLoanPaymentForHome]);
+        mPaymentData[0] = @{@"Payment" : [NSNumber numberWithFloat:homeMortgage]};
+        mPaymentData[1] = @{@"Payment" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
+        
+        self.mHomePaymentLabel.text = [NSString stringWithFormat:@"$%.0f", homeMortgage];
+        self.mRentalPaymentLabel.text = [NSString stringWithFormat:@"$%d", userProfile.mMonthlyRent];
+        
+        self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
+        if(aHome.mHomeType == homeTypeCondominium)
+            self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated

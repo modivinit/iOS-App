@@ -15,4 +15,10 @@
 
 @interface OneHomePaymentViewController : UIViewController
 @property (nonatomic, weak) id <OneHomePaymentViewDelegate> mOneHomePaymentViewDelegate;
+@property (nonatomic, strong) IBOutlet UILabel* mHomePaymentLabel;
+@property (nonatomic, strong) IBOutlet UILabel* mRentalPaymentLabel;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
+@property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
+
 @end

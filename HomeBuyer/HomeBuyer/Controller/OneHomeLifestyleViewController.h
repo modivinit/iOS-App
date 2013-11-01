@@ -17,4 +17,7 @@
 @property (nonatomic, weak) id <OneHomeLifestyleViewDelegate> mOneHomeLifestyleViewDelegate;
 @property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHomeLifeStyleIncome;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
+@property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 @end

@@ -17,4 +17,8 @@
 @property (nonatomic, strong) IBOutlet UILabel* mEstTaxSavings;
 @property (nonatomic, strong) IBOutlet UILabel* mEstTaxesPaidWithHome;
 @property (nonatomic, strong) IBOutlet UILabel* mEstTaxPaidWithRental;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
+@property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
+
 @end

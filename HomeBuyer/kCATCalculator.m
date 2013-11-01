@@ -44,7 +44,7 @@
     return self;
 }
 
--(float) getMonthlyLifeStyleIncomeForRental
+-(float) getMonthlyLifeStyleIncome
 {
     if(!self.mUserProfile)
         return 0;

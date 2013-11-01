@@ -15,7 +15,7 @@
 
 - (id) initWithUserProfile:(UserProfileObject*) userProfile andHome:(homeAndLoanInfo*) home;
 
--(float) getMonthlyLifeStyleIncomeForRental;
+-(float) getMonthlyLifeStyleIncome;
 -(float) getAnnualStateTaxesPaid;
 -(float) getAnnualFederalTaxesPaid;
 

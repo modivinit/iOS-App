@@ -12,8 +12,6 @@
 #import <MBProgressHUD.h>
 
 @interface SignUpViewController ()
-@property (nonatomic, strong) IBOutlet UIButton* mCreateAccountButton;
-@property (nonatomic, strong) IBOutlet UIButton* mSignInButton;
 @property (nonatomic, strong) UIButton* mRegisterButton;
 
 @property (nonatomic, strong) IBOutlet UITextField* mNameField;
@@ -42,9 +40,6 @@
     self.navigationItem.leftBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
-    self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    self.mCreateAccountButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    
      self.mRegisterButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [self.mRegisterButton setTitle:@"Join" forState:UIControlStateNormal];
     [self.mRegisterButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchDown];
@@ -54,7 +49,6 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mRegisterButton];
     
-    self.mCreateAccountButton.enabled = NO;
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;
     
     [self.mNameField becomeFirstResponder];
@@ -116,7 +110,6 @@
         return;
     }
     
-    self.mSignInButton.enabled = NO;
     self.view.userInteractionEnabled = NO;
     [kunanceUser getInstance].mKunanceUserDelegate = self;
 
@@ -127,7 +120,8 @@
                                 email:self.mEmailField.text
                           realtorCode:self.mRealtorCodeField.text])
     {
-        self.mSignInButton.enabled = YES;
+        [self disableRegisterButton];
+        self.mPasswordField.text = @"";
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.view.userInteractionEnabled = YES;
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
@@ -142,9 +136,14 @@
 
     if(error)
     {
-        self.mSignInButton.enabled = YES;
+        NSDictionary* userInfo = error.userInfo;
+        NSString* message = userInfo[@"error"];
         self.view.userInteractionEnabled = YES;
-        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
+        self.mPasswordField.text = @"";
+        [self disableRegisterButton];
+        if(!message)
+            message = @"Signup Failed";
+        [Utilities showAlertWithTitle:@"Error" andMessage:message];
     }
     else
     {

@@ -7,12 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
             <connections>
-                <outlet property="mCreateAccountButton" destination="7qE-Pv-CSk" id="Mcg-dM-wZa"/>
                 <outlet property="mEmailField" destination="jKA-3h-3vH" id="mDL-K6-zh8"/>
                 <outlet property="mNameField" destination="hsL-1G-0fQ" id="gca-aI-OiB"/>
                 <outlet property="mPasswordField" destination="hhi-Fl-KnA" id="vgo-4W-hYk"/>
                 <outlet property="mRealtorCodeField" destination="i2x-9n-aIP" id="eNv-Uc-sHW"/>
-                <outlet property="mSignInButton" destination="JEL-Sr-Ynd" id="c0D-Zz-k1Q"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

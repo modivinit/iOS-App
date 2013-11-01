@@ -100,7 +100,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
         self.mPassword.text = @"";
         self.view.userInteractionEnabled = YES;
-        [self enableLoginButton];
+        [self disableLoginButton];
     }
 }
 
@@ -114,7 +114,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
         self.mPassword.text = @"";
         self.view.userInteractionEnabled = YES;
-        [self enableLoginButton];
+        [self disableLoginButton];
     }
     else
     {

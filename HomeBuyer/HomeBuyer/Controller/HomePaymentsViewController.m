@@ -8,6 +8,7 @@
 
 #import "HomePaymentsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface HomePaymentsViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomePaymentsChart;
@@ -30,19 +31,15 @@
 
     if(home)
     {
-        self.mHOA.text = [NSString stringWithFormat:@"%d", home.mHOAFees];
-        
         self.mHomeTitle.text = home.mIdentifiyingHomeFeature;
         
         if(home.mHomeType == homeTypeCondominium)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-condo.png"];
-            self.mCondoSFHLabel.text = @"Condo/Townhome";
         }
         else if(home.mHomeType == homeTypeSingleFamily)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-sfh.png"];
-            self.mCondoSFHLabel.text = @"Single Family";
         }
         
         self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
@@ -51,16 +48,32 @@
 
 -(void) setupChart
 {
-    homeInfo* home = [[kunanceUser getInstance].mKunanceUserHomes
-                      getHomeAtIndex:[self.mHomeNumber intValue]];
-
-    if(home)
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:[self.mHomeNumber intValue]];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    if(aHome && aLoan && userProfile)
     {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+        
+        float mortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
+        self.mLoanPayment.text = [NSString stringWithFormat:@"$%.0f", mortgage];
+        
+        float propertyTaxes = [homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR;
+        self.mPropertyTax.text = [NSString stringWithFormat:@"$%.0f", propertyTaxes];
+        
+        float hoa = homeAndLoan.mHOAFees;
+        self.mHOA.text = [NSString stringWithFormat:@"$%.0f", hoa];
+        
+        float insurance = 150;
+        self.mInsurance.text = [NSString stringWithFormat:@"$%.0f", insurance];
+        
+        self.mTotalMonthlyPayments.text = [NSString stringWithFormat:@"$%.0f", mortgage+propertyTaxes+hoa+insurance];
         // create the data
-        homePayments = @{@"Mortgage" : @1800,
-                         @"HOA" : [NSNumber numberWithInt:home.mHOAFees],
-                         @"Property Tax" : @600,
-                         @"Insurance" : @150};
+        homePayments = @{@"Mortgage" : [NSNumber numberWithFloat:mortgage],
+                         @"HOA" : [NSNumber numberWithFloat:hoa],
+                         @"Property Tax" : [NSNumber numberWithFloat:propertyTaxes],
+                         @"Insurance" : [NSNumber numberWithFloat:insurance]};
 
         self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
         self.mHomePaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;

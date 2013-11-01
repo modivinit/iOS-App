@@ -75,7 +75,7 @@
         self.mRentalPaymentLabel.text = [NSString stringWithFormat:@"$%d", userProfile.mMonthlyRent];
         
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
-        if(aHome.mHomeType == homeTypeCondominium)
+        if(aHome.mHomeType == homeTypeSingleFamily)
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
         else
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];

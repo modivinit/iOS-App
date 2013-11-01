@@ -91,7 +91,7 @@
         self.mHomeLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifeStyleIncome];
         
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
-        if(aHome.mHomeType == homeTypeCondominium)
+        if(aHome.mHomeType == homeTypeSingleFamily)
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
         else
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];

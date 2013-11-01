@@ -58,16 +58,17 @@
         kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
         
-        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxableIncome] + [calculatorHome getAnnualStateTaxesPaid])/12);
-        float rentEstTaxesPaid = ceilf(([calculatorRent getAnnualFederalTaxableIncome] + [calculatorRent getAnnualStateTaxesPaid])/12);
+        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid])/12);
+        float rentEstTaxesPaid = ceilf(([calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid])/12);
         
         mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:homeEstTaxesPaid]};
         mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:rentEstTaxesPaid]};
         self.mEstTaxPaidWithRental.text = [NSString stringWithFormat:@"$%.0f", rentEstTaxesPaid];
         self.mEstTaxesPaidWithHome.text = [NSString stringWithFormat:@"$%.0f", homeEstTaxesPaid];
         
+        self.mEstTaxSavings.text = [NSString stringWithFormat:@"$%.0f", rentEstTaxesPaid-homeEstTaxesPaid];
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
-        if(aHome.mHomeType == homeTypeCondominium)
+        if(aHome.mHomeType == homeTypeSingleFamily)
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
         else
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];

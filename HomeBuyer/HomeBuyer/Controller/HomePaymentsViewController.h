@@ -20,7 +20,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* mHomeTitle;
 @property (nonatomic, strong) IBOutlet UIImageView* mCondoSFHIndicator;
-@property (nonatomic, strong) IBOutlet UILabel* mCondoSFHLabel;
 @property (nonatomic, strong) IBOutlet UILabel*  mHomeListPrice;
 @property (nonatomic, strong) IBOutlet UILabel* mTotalMonthlyPayments;
 @property (nonatomic, strong) IBOutlet UILabel* mLoanPayment;

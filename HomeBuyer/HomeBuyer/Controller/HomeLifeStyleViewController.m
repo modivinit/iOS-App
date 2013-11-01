@@ -47,7 +47,7 @@
 
 -(void) setupChart
 {
-    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:0];
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:[self.mHomeNumber intValue]];
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
@@ -57,8 +57,12 @@
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
 
         float lifestyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
-        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxableIncome] +
+        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] +
                                         [calculatorHome getAnnualStateTaxesPaid])/12);
+        
+        self.mHomeLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", lifestyleIncome];
+        self.mFixedCosts.text = [NSString stringWithFormat:@"$%d", userProfile.mMonthlyOtherFixedCosts];
+        self.mEstIncomeTaxes.text = [NSString stringWithFormat:@"$%.0f", homeEstTaxesPaid];
         // create the data
         homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:lifestyleIncome],
                          @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],

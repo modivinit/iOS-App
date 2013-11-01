@@ -8,6 +8,7 @@
 
 #import "OneHomeTaxSavingsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface OneHomeTaxSavingsViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mEstTaxesChart;
@@ -47,10 +48,24 @@
     self.mEstTaxesChart.datasource = self;
     self.mEstTaxesChart.delegate = self;
     // show the legend
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:0];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
-    mTaxesData[0] = @{@"Est. Taxes" : @1234};
-    mTaxesData[1] = @{@"Est. Taxes" : @3456};
-
+    if(aHome && aLoan && userProfile)
+    {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+        kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
+        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
+        
+        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxableIncome] + [calculatorHome getAnnualStateTaxesPaid])/12);
+        float rentEstTaxesPaid = ceilf(([calculatorRent getAnnualFederalTaxableIncome] + [calculatorRent getAnnualStateTaxesPaid])/12);
+        
+        mTaxesData[0] = @{@"Est. Taxes" :[NSNumber numberWithFloat:homeEstTaxesPaid]};
+        mTaxesData[1] = @{@"Est. Taxes" : [NSNumber numberWithFloat:rentEstTaxesPaid]};
+        self.mEstTaxPaidWithRental.text = [NSString stringWithFormat:@"$%.0f", homeEstTaxesPaid];
+        self.mEstTaxesPaidWithHome.text = [NSString stringWithFormat:@"$%.0f", rentEstTaxesPaid];
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated

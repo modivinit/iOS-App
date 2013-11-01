@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserProfileObject.h"
 
-typedef enum
-{
-    StatusMarried = 0,
-    StatusSingle = 1,
-    StatusNotDefined = 3
-}userMaritalStatus;
+//static typedef enum
+//{
+//    StatusMarried = 0,
+//    StatusSingle = 1,
+//    StatusNotDefined = 3
+//}userMaritalStatus;
 
 @protocol userProfileInfoDelegate <NSObject>
 @optional
@@ -44,5 +45,6 @@ typedef enum
 -(int) getCarPaymentsInfo;
 -(int) getOtherFixedCostsInfo;
 
+-(UserProfileObject*) getCalculatorObject;
 @property (nonatomic, weak) id <userProfileInfoDelegate> mUserProfileInfoDelegate;
 @end

@@ -10,6 +10,7 @@
 #import "HelpDashboardViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "AboutYouViewController.h"
+#import "kCATCalculator.h"
 
 @interface DashUserPFInfoViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomeLifeStyleChart;
@@ -32,16 +33,6 @@
 
 -(void) setupChart
 {
-    userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;
-    
-    if(user)
-    {
-        // create the data
-        homePayments = @{@"LifeStyle Income" : @2300,
-                         @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
-                         @"Rent" : @1200,
-                         @"Est. Income Tax": @2000};
-        
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 50, 310, 200)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
@@ -60,7 +51,6 @@
         self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
         
         [self.view addSubview:self.mHomeLifeStyleChart];
-    }
 }
 
 - (void)viewDidLoad
@@ -69,6 +59,24 @@
     NSString* titleText = [NSString stringWithFormat:@"Current Lifestyle Income"];
     self.navigationController.navigationBar.topItem.title = titleText;
     // Do any additional setup after loading the view from its nib.
+    userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    // create the data
+    UserProfileObject* userCalculatorObject = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userCalculatorObject andHome:nil];
+    float monthlylifestyle = ceilf([calculator getMonthlyLifeStyleIncomeForRental]);
+    float estimatedIncomeTax = ceilf([calculator getAnnualFederalTaxesPaid] + [calculator getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+    
+    self.mLifestyleIncomeLabel.text = [NSString stringWithFormat:@"$%.0f", monthlylifestyle];
+    self.mRentLabel.text = [NSString stringWithFormat:@"%d", [user getMonthlyRentInfo]];
+    self.mFixedCosts.text = [NSString stringWithFormat:@"%d", [user getOtherFixedCostsInfo]];
+    self.mEstimatedIncomeTaxesLabel.text = [NSString stringWithFormat:@"%.0f", estimatedIncomeTax];
+    
+    homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:monthlylifestyle],
+                     @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
+                     @"Rent" : [NSNumber numberWithInt:[user getMonthlyRentInfo]],
+                     @"Est. Income Tax": [NSNumber numberWithFloat:estimatedIncomeTax]};
+
     [self setupChart];
     
     if([kunanceUser getInstance].mkunanceUserProfileInfo && self.mWasLoadedFromMenu)

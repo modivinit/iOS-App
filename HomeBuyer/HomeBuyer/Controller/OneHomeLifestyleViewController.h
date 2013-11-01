@@ -17,6 +17,4 @@
 @property (nonatomic, weak) id <OneHomeLifestyleViewDelegate> mOneHomeLifestyleViewDelegate;
 @property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHomeLifeStyleIncome;
-@property (nonatomic, strong) IBOutlet UILabel* mRentalMonthlyPayment;
-@property (nonatomic, strong) IBOutlet UILabel* mHomeMonthlyPayment;
 @end

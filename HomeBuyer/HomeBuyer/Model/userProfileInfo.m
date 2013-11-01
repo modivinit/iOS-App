@@ -38,6 +38,20 @@ static NSString* const kUserKey          = @"User";
     return self;
 }
 
+-(UserProfileObject*) getCalculatorObject
+{
+    UserProfileObject* userProfile = [[UserProfileObject alloc] init];
+    userProfile.mAnnualGrossIncome = [self getAnnualGrossIncome];
+    userProfile.mAnnualRetirementSavings = [self getAnnualRetirementSavings];
+    userProfile.mMaritalStatus = [self getMaritalStatus];
+    userProfile.mNumberOfChildren = [self getNumberOfChildren];
+    userProfile.mMonthlyCarPayments = [self getCarPaymentsInfo];
+    userProfile.mMonthlyOtherFixedCosts = [self getOtherFixedCostsInfo];
+    userProfile.mMonthlyRent = [self getMonthlyRentInfo];
+    
+    return userProfile;
+}
+
 -(userMaritalStatus) getMaritalStatus
 {
     if(self.mParseUserProfileObject && self.mParseUserProfileObject[kMaritalStatusKey])

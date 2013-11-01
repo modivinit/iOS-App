@@ -211,6 +211,16 @@
 		D67EFE0417CCE1290082F6C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67EFDE817CCE1280082F6C7 /* CoreData.framework */; };
 		D67EFE0C17CCE1290082F6C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D67EFE0A17CCE1290082F6C7 /* InfoPlist.strings */; };
 		D67EFE0E17CCE1290082F6C7 /* HomeBuyerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D67EFE0D17CCE1290082F6C7 /* HomeBuyerTests.m */; };
+		D6841DE61824457D00BA5F48 /* CalculatorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6841DD81824457D00BA5F48 /* CalculatorUtilities.m */; };
+		D6841DE71824457D00BA5F48 /* ExemptionsAndStandardDeductions2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6841DD91824457D00BA5F48 /* ExemptionsAndStandardDeductions2013.plist */; };
+		D6841DE81824457D00BA5F48 /* homeAndLoanInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6841DDB1824457D00BA5F48 /* homeAndLoanInfo.m */; };
+		D6841DE91824457D00BA5F48 /* kCATCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6841DDD1824457D00BA5F48 /* kCATCalculator.m */; };
+		D6841DEA1824457D00BA5F48 /* TaxBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = D6841DDF1824457D00BA5F48 /* TaxBlock.m */; };
+		D6841DEB1824457D00BA5F48 /* TaxTableFederalMFJ2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6841DE01824457D00BA5F48 /* TaxTableFederalMFJ2013.plist */; };
+		D6841DEC1824457D00BA5F48 /* TaxTableFederalSingle2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6841DE11824457D00BA5F48 /* TaxTableFederalSingle2013.plist */; };
+		D6841DED1824457D00BA5F48 /* TaxTableStateMFJ2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6841DE21824457D00BA5F48 /* TaxTableStateMFJ2013.plist */; };
+		D6841DEE1824457D00BA5F48 /* TaxTableStateSingle2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6841DE31824457D00BA5F48 /* TaxTableStateSingle2013.plist */; };
+		D6841DEF1824457D00BA5F48 /* UserProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D6841DE51824457D00BA5F48 /* UserProfileObject.m */; };
 		D6842E5617DD2FD80028AF00 /* userProfileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E5517DD2FD80028AF00 /* userProfileInfo.m */; };
 		D6842E5717DD2FD80028AF00 /* userProfileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E5517DD2FD80028AF00 /* userProfileInfo.m */; };
 		D6842E5E17DD32510028AF00 /* usersLoansList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6842E5D17DD32510028AF00 /* usersLoansList.m */; };
@@ -527,6 +537,21 @@
 		D67EFE0917CCE1290082F6C7 /* HomeBuyerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HomeBuyerTests-Info.plist"; sourceTree = "<group>"; };
 		D67EFE0B17CCE1290082F6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D67EFE0D17CCE1290082F6C7 /* HomeBuyerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeBuyerTests.m; sourceTree = "<group>"; };
+		D6841DD71824457D00BA5F48 /* CalculatorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorUtilities.h; sourceTree = "<group>"; };
+		D6841DD81824457D00BA5F48 /* CalculatorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorUtilities.m; sourceTree = "<group>"; };
+		D6841DD91824457D00BA5F48 /* ExemptionsAndStandardDeductions2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExemptionsAndStandardDeductions2013.plist; sourceTree = "<group>"; };
+		D6841DDA1824457D00BA5F48 /* homeAndLoanInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeAndLoanInfo.h; sourceTree = "<group>"; };
+		D6841DDB1824457D00BA5F48 /* homeAndLoanInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeAndLoanInfo.m; sourceTree = "<group>"; };
+		D6841DDC1824457D00BA5F48 /* kCATCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kCATCalculator.h; sourceTree = "<group>"; };
+		D6841DDD1824457D00BA5F48 /* kCATCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kCATCalculator.m; sourceTree = "<group>"; };
+		D6841DDE1824457D00BA5F48 /* TaxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxBlock.h; sourceTree = "<group>"; };
+		D6841DDF1824457D00BA5F48 /* TaxBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaxBlock.m; sourceTree = "<group>"; };
+		D6841DE01824457D00BA5F48 /* TaxTableFederalMFJ2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalMFJ2013.plist; sourceTree = "<group>"; };
+		D6841DE11824457D00BA5F48 /* TaxTableFederalSingle2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalSingle2013.plist; sourceTree = "<group>"; };
+		D6841DE21824457D00BA5F48 /* TaxTableStateMFJ2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableStateMFJ2013.plist; sourceTree = "<group>"; };
+		D6841DE31824457D00BA5F48 /* TaxTableStateSingle2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableStateSingle2013.plist; sourceTree = "<group>"; };
+		D6841DE41824457D00BA5F48 /* UserProfileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileObject.h; sourceTree = "<group>"; };
+		D6841DE51824457D00BA5F48 /* UserProfileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileObject.m; sourceTree = "<group>"; };
 		D6842E5417DD2FD80028AF00 /* userProfileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = userProfileInfo.h; path = Model/userProfileInfo.h; sourceTree = "<group>"; };
 		D6842E5517DD2FD80028AF00 /* userProfileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = userProfileInfo.m; path = Model/userProfileInfo.m; sourceTree = "<group>"; };
 		D6842E5C17DD32510028AF00 /* usersLoansList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usersLoansList.h; path = Model/usersLoansList.h; sourceTree = "<group>"; };
@@ -996,6 +1021,7 @@
 		D67EFDD617CCE1280082F6C7 = {
 			isa = PBXGroup;
 			children = (
+				D6841DD61824452100BA5F48 /* Calculator */,
 				D67EFDEA17CCE1280082F6C7 /* HomeBuyer */,
 				D67EFE0717CCE1290082F6C7 /* HomeBuyerTests */,
 				D67EFDE117CCE1280082F6C7 /* Frameworks */,
@@ -1084,6 +1110,28 @@
 				D67EFE0A17CCE1290082F6C7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6841DD61824452100BA5F48 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				D6841DD71824457D00BA5F48 /* CalculatorUtilities.h */,
+				D6841DD81824457D00BA5F48 /* CalculatorUtilities.m */,
+				D6841DD91824457D00BA5F48 /* ExemptionsAndStandardDeductions2013.plist */,
+				D6841DDA1824457D00BA5F48 /* homeAndLoanInfo.h */,
+				D6841DDB1824457D00BA5F48 /* homeAndLoanInfo.m */,
+				D6841DDC1824457D00BA5F48 /* kCATCalculator.h */,
+				D6841DDD1824457D00BA5F48 /* kCATCalculator.m */,
+				D6841DDE1824457D00BA5F48 /* TaxBlock.h */,
+				D6841DDF1824457D00BA5F48 /* TaxBlock.m */,
+				D6841DE01824457D00BA5F48 /* TaxTableFederalMFJ2013.plist */,
+				D6841DE11824457D00BA5F48 /* TaxTableFederalSingle2013.plist */,
+				D6841DE21824457D00BA5F48 /* TaxTableStateMFJ2013.plist */,
+				D6841DE31824457D00BA5F48 /* TaxTableStateSingle2013.plist */,
+				D6841DE41824457D00BA5F48 /* UserProfileObject.h */,
+				D6841DE51824457D00BA5F48 /* UserProfileObject.m */,
+			);
+			name = Calculator;
 			sourceTree = "<group>";
 		};
 		D6842E4F17DD21F90028AF00 /* Dashboard */ = {
@@ -1702,6 +1750,7 @@
 				D6EBEBB91815A899004B3CBF /* Cities_1.plist in Resources */,
 				9ECDB80F17FF55AB004E5F25 /* menu-profile-single@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
+				D6841DED1824457D00BA5F48 /* TaxTableStateMFJ2013.plist in Resources */,
 				9E53443D17F555C7006BA12D /* surfing@2x.png in Resources */,
 				9E0BCA861804A60900863FB7 /* TwoHomeTaxSavingsViewController.xib in Resources */,
 				9ECCAD9417F0E696001EAF4C /* compare-dash.png in Resources */,
@@ -1752,6 +1801,7 @@
 				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
 				D6C3AAFA180372F800123260 /* DashTwoHomesEnteredViewController.xib in Resources */,
 				9EE693FB1805EBD000B541DF /* aboutyou@2x.png in Resources */,
+				D6841DE71824457D00BA5F48 /* ExemptionsAndStandardDeductions2013.plist in Resources */,
 				D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */,
 				9EE693F71805EB1C00B541DF /* fixedcosts@2x.png in Resources */,
 				9ECDB7FA17FF55AB004E5F25 /* menu-create-profile.png in Resources */,
@@ -1775,6 +1825,7 @@
 				9E237BE01811A0910095B66B /* home-interior_01.jpg in Resources */,
 				D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */,
 				D63EA1FD17FCF47900E50E44 /* chart.png in Resources */,
+				D6841DEC1824457D00BA5F48 /* TaxTableFederalSingle2013.plist in Resources */,
 				9ECDED7D1803B34100F2449E /* appname@2x.png in Resources */,
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,
 				9ECDB80917FF55AB004E5F25 /* menu-loan-info@2x.png in Resources */,
@@ -1790,11 +1841,13 @@
 				9EA5D40C17F162DE00CE7BD8 /* downpayment.png in Resources */,
 				9E00FAAC17F34DEC00380997 /* HelpHomeViewController.xib in Resources */,
 				9EA5D3E017F15DC500CE7BD8 /* condo-selected.png in Resources */,
+				D6841DEE1824457D00BA5F48 /* TaxTableStateSingle2013.plist in Resources */,
 				9E53443517F555B8006BA12D /* lifestyle-music@2x.png in Resources */,
 				D6E6EE5817E65A9E005D7526 /* single.png in Resources */,
 				D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */,
 				9EA5D3DF17F15DC500CE7BD8 /* besthomefeature@2x.png in Resources */,
 				9E96EEEF18107367001E8FF7 /* home-interior_04@2x.jpg in Resources */,
+				D6841DEB1824457D00BA5F48 /* TaxTableFederalMFJ2013.plist in Resources */,
 				9ECDB80817FF55AB004E5F25 /* menu-loan-info.png in Resources */,
 				D67EFDFA17CCE1280082F6C7 /* Images.xcassets in Resources */,
 				9E57C7E4180F0E9500E6EE22 /* menu-add-home-gray.png in Resources */,
@@ -1900,17 +1953,20 @@
 				D6842E6E17DDA8720028AF00 /* UsersHomesList.m in Sources */,
 				D6C3AB361803C93300123260 /* kCATIntroAffordViewController.m in Sources */,
 				D6842E5E17DD32510028AF00 /* usersLoansList.m in Sources */,
+				D6841DEA1824457D00BA5F48 /* TaxBlock.m in Sources */,
 				D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */,
 				D67EFDF517CCE1280082F6C7 /* AppDelegate.m in Sources */,
 				D6C88B3017DA7B1600DEA25D /* LoginViewController.m in Sources */,
 				D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */,
 				D6842E5617DD2FD80028AF00 /* userProfileInfo.m in Sources */,
+				D6841DEF1824457D00BA5F48 /* UserProfileObject.m in Sources */,
 				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
 				D6EBEBC71815C064004B3CBF /* Cities.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,
 				9E4DBF711805D08900F095F1 /* ContactRealtorViewController.m in Sources */,
 				D6E6EEB117E79D05005D7526 /* FixedCostsViewController.m in Sources */,
+				D6841DE81824457D00BA5F48 /* homeAndLoanInfo.m in Sources */,
 				D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */,
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
@@ -1921,11 +1977,13 @@
 				9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */,
 				D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */,
 				D6C88B3B17DA7B7D00DEA25D /* Utilities.m in Sources */,
+				D6841DE61824457D00BA5F48 /* CalculatorUtilities.m in Sources */,
 				D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */,
 				D6EBEBCA1815C16C004B3CBF /* States.m in Sources */,
 				9EA5D40317F162B500CE7BD8 /* LoanInfoViewController.m in Sources */,
 				D63EA1FA17FCF42900E50E44 /* OneHomeLifestyleViewController.m in Sources */,
 				D6C3AAF9180372F800123260 /* DashTwoHomesEnteredViewController.m in Sources */,
+				D6841DE91824457D00BA5F48 /* kCATCalculator.m in Sources */,
 				D607A21117F902EA008E093C /* DashUserPFInfoViewController.m in Sources */,
 				D6C3AB19180384D100123260 /* HomePaymentsViewController.m in Sources */,
 				9E587B311818F9F700E65DBA /* OneHomePaymentViewController.m in Sources */,

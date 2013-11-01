@@ -228,6 +228,27 @@ static kunanceUser *kunanceUserSingleton;
         return NO;
 }
 
++(homeAndLoanInfo*) getCalculatorHomeAndLoanFrom:(homeInfo*)aHome andLoan:(loan*)aLoan
+{
+    if(!aHome || !aLoan)
+        return nil;
+    
+    homeAndLoanInfo* homeAndLoan = [[homeAndLoanInfo alloc] init];
+    homeAndLoan.mHomeListPrice = aHome.mHomeListPrice;
+
+    if(aLoan.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)
+        homeAndLoan.mDownPaymentAmount = aLoan.mDownPayment;
+    else if(aLoan.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
+        homeAndLoan.mDownPaymentAmount = aLoan.mDownPayment*aHome.mHomeListPrice/100;
+    
+    homeAndLoan.mHOAFees = aHome.mHOAFees;
+    homeAndLoan.mLoanInterestRate = aLoan.mLoanInterestRate;
+    homeAndLoan.mNumberOfMortgageMonths = aLoan.mLoanDuration * NUMBER_OF_MONTHS_IN_YEAR;
+    homeAndLoan.mPropertyTaxRate = 1.25;
+    
+    return homeAndLoan;
+}
+
 -(void) logoutUser
 {
     [PFUser logOut];

@@ -17,14 +17,15 @@
 
 #import "OneHomeLifestyleViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface OneHomeLifestyleViewController () <SChartDatasource, SChartDelegate>
-@property (nonatomic, strong) ShinobiChart* mRentVsBuyBarChart;
+@property (nonatomic, strong) ShinobiChart* mLifestyleIncomeChart;
 @end
 
 @implementation OneHomeLifestyleViewController
 {
-    NSDictionary* mRentVsBuyData[2];
+    NSDictionary* mLifestyleIncomeData[2];
 }
 
 
@@ -35,32 +36,32 @@
 
 -(void) setupChart
 {
-    self.mRentVsBuyBarChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
     
-    self.mRentVsBuyBarChart.autoresizingMask =  ~UIViewAutoresizingNone;
+    self.mLifestyleIncomeChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
-    self.mRentVsBuyBarChart.licenseKey = SHINOBI_LICENSE_KEY;
+    self.mLifestyleIncomeChart.licenseKey = SHINOBI_LICENSE_KEY;
     SChartCategoryAxis *xAxis = [[SChartCategoryAxis alloc] init];
     xAxis.style.interSeriesPadding = @0;
-    self.mRentVsBuyBarChart.xAxis = xAxis;
-    self.mRentVsBuyBarChart.backgroundColor = [UIColor clearColor];
+    self.mLifestyleIncomeChart.xAxis = xAxis;
+    self.mLifestyleIncomeChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
     yAxis.rangePaddingHigh = @5.0;
-    self.mRentVsBuyBarChart.yAxis = yAxis;
-    self.mRentVsBuyBarChart.legend.hidden = NO;
-    self.mRentVsBuyBarChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+    self.mLifestyleIncomeChart.yAxis = yAxis;
+    self.mLifestyleIncomeChart.legend.hidden = NO;
+    self.mLifestyleIncomeChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
     
-    self.mRentVsBuyBarChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    self.mRentVsBuyBarChart.legend.style.symbolCornerRadius = @0;
-    self.mRentVsBuyBarChart.legend.style.borderColor = [UIColor darkGrayColor];
-    self.mRentVsBuyBarChart.legend.style.cornerRadius = @0;
-    self.mRentVsBuyBarChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mLifestyleIncomeChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    self.mLifestyleIncomeChart.legend.style.symbolCornerRadius = @0;
+    self.mLifestyleIncomeChart.legend.style.borderColor = [UIColor darkGrayColor];
+    self.mLifestyleIncomeChart.legend.style.cornerRadius = @0;
+    self.mLifestyleIncomeChart.legend.position = SChartLegendPositionMiddleRight;
     
     // add to the view
-    [self.view addSubview:self.mRentVsBuyBarChart];
+    [self.view addSubview:self.mLifestyleIncomeChart];
     
-    self.mRentVsBuyBarChart.datasource = self;
-    self.mRentVsBuyBarChart.delegate = self;
+    self.mLifestyleIncomeChart.datasource = self;
+    self.mLifestyleIncomeChart.delegate = self;
     // show the legend
 }
 
@@ -69,8 +70,26 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view from its nib.
-    mRentVsBuyData[0] = @{@"Lifestyle" : @1234};
-    mRentVsBuyData[1] = @{@"Lifestyle" : @5678};
+    
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:0];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    if(aHome && aLoan && userProfile)
+    {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+        kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
+        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
+        
+        float homeLifeStyleIncome = ceilf([calculatorHome getMonthlyLifeStyleIncomeForRental]);
+        float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncomeForRental]);
+        
+        mLifestyleIncomeData[0] = @{@"Lifestyle" : [NSNumber numberWithFloat:rentLifestyleIncome]};
+        self.mRentalLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", rentLifestyleIncome];
+        
+        mLifestyleIncomeData[1] = @{@"Lifestyle" : [NSNumber numberWithFloat:homeLifeStyleIncome]};
+        self.mHomeLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifeStyleIncome];
+    }
     
     [self setupChart];
 }
@@ -115,9 +134,9 @@
 
 - (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex {
     SChartDataPoint *datapoint = [[SChartDataPoint alloc] init];
-    NSString* key = mRentVsBuyData[seriesIndex].allKeys[dataIndex];
+    NSString* key = mLifestyleIncomeData[seriesIndex].allKeys[dataIndex];
     datapoint.xValue = key;
-    datapoint.yValue = mRentVsBuyData[seriesIndex][key];
+    datapoint.yValue = mLifestyleIncomeData[seriesIndex][key];
     return datapoint;
 }
 

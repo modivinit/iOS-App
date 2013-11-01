@@ -13,6 +13,7 @@
 #import "homeInfo.h"
 #import "UsersHomesList.h"
 #import <Parse/Parse.h>
+#import "homeAndLoanInfo.h"
 
 @protocol kunanceUserDelegate <NSObject>
 @optional
@@ -51,4 +52,6 @@
 -(void) logoutUser;
 -(NSString*) getUserID;
 -(NSString*) getFirstName;
+
++(homeAndLoanInfo*) getCalculatorHomeAndLoanFrom:(homeInfo*)aHome andLoan:(loan*)aLoan;
 @end

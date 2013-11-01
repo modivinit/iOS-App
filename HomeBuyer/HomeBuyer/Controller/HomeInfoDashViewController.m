@@ -34,14 +34,14 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
+    HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
+    viewController2.mHomeLifeStyleDelegate = self;
+    [self.mPageViewControllers addObject: viewController2];
+    
     HomePaymentsViewController* viewController1 = [[HomePaymentsViewController alloc] init];
     viewController1.mHomePaymentsDelegate = self;
     viewController1.mHomeNumber = self.mHomeNumber;
     [self.mPageViewControllers addObject:viewController1];
-    
-    HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
-    viewController2.mHomeLifeStyleDelegate = self;
-    [self.mPageViewControllers addObject: viewController2];
 }
 
 -(void) addButtons

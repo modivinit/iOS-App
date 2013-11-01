@@ -30,6 +30,7 @@
 		9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */; };
 		9E237BE31811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
 		9E237BE41811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
+		9E266FFE18241817003AB179 /* sfh-homeinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E266FFD18241817003AB179 /* sfh-homeinfo@2x.png */; };
 		9E4872611811EB2300B417F9 /* sign-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E48725F1811EB2300B417F9 /* sign-up.png */; };
 		9E4872621811EB2300B417F9 /* sign-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872601811EB2300B417F9 /* sign-up@2x.png */; };
 		9E4872651811EC0B00B417F9 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872631811EC0B00B417F9 /* login.png */; };
@@ -91,7 +92,6 @@
 		9EA5D3E817F15DC500CE7BD8 /* sfh-homeinfo-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3DA17F15DC500CE7BD8 /* sfh-homeinfo-selected.png */; };
 		9EA5D3E917F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3DB17F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png */; };
 		9EA5D3EA17F15DC500CE7BD8 /* sfh-homeinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3DC17F15DC500CE7BD8 /* sfh-homeinfo.png */; };
-		9EA5D3EB17F15DC500CE7BD8 /* sfh-homeinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3DD17F15DC500CE7BD8 /* sfh-homeinfo@2x.png */; };
 		9EA5D3F017F1624300CE7BD8 /* HomeAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA5D3EE17F1624300CE7BD8 /* HomeAddressViewController.m */; };
 		9EA5D3F117F1624300CE7BD8 /* HomeAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3EF17F1624300CE7BD8 /* HomeAddressViewController.xib */; };
 		9EA5D3F917F1627300CE7BD8 /* city.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3F317F1627300CE7BD8 /* city.png */; };
@@ -337,6 +337,7 @@
 		9E237BDE1811A0910095B66B /* home-interior_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01.jpg"; sourceTree = "<group>"; };
 		9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01@2x.jpg"; sourceTree = "<group>"; };
 		9E237BE21811A7CB0095B66B /* cocon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cocon.ttf; sourceTree = "<group>"; };
+		9E266FFD18241817003AB179 /* sfh-homeinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sfh-homeinfo@2x.png"; sourceTree = "<group>"; };
 		9E48725F1811EB2300B417F9 /* sign-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up.png"; sourceTree = "<group>"; };
 		9E4872601811EB2300B417F9 /* sign-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up@2x.png"; sourceTree = "<group>"; };
 		9E4872631811EC0B00B417F9 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -402,7 +403,6 @@
 		9EA5D3DA17F15DC500CE7BD8 /* sfh-homeinfo-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sfh-homeinfo-selected.png"; sourceTree = "<group>"; };
 		9EA5D3DB17F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sfh-homeinfo-selected@2x.png"; sourceTree = "<group>"; };
 		9EA5D3DC17F15DC500CE7BD8 /* sfh-homeinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sfh-homeinfo.png"; sourceTree = "<group>"; };
-		9EA5D3DD17F15DC500CE7BD8 /* sfh-homeinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sfh-homeinfo@2x.png"; sourceTree = "<group>"; };
 		9EA5D3ED17F1624300CE7BD8 /* HomeAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeAddressViewController.h; path = Controller/HomeAddressViewController.h; sourceTree = "<group>"; };
 		9EA5D3EE17F1624300CE7BD8 /* HomeAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeAddressViewController.m; path = Controller/HomeAddressViewController.m; sourceTree = "<group>"; };
 		9EA5D3EF17F1624300CE7BD8 /* HomeAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeAddressViewController.xib; path = Controller/HomeAddressViewController.xib; sourceTree = "<group>"; };
@@ -833,7 +833,7 @@
 				9EA5D3DA17F15DC500CE7BD8 /* sfh-homeinfo-selected.png */,
 				9EA5D3DB17F15DC500CE7BD8 /* sfh-homeinfo-selected@2x.png */,
 				9EA5D3DC17F15DC500CE7BD8 /* sfh-homeinfo.png */,
-				9EA5D3DD17F15DC500CE7BD8 /* sfh-homeinfo@2x.png */,
+				9E266FFD18241817003AB179 /* sfh-homeinfo@2x.png */,
 				9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */,
 			);
 			name = HomeInfoEntry;
@@ -1666,6 +1666,7 @@
 				9EA5D3F117F1624300CE7BD8 /* HomeAddressViewController.xib in Resources */,
 				9EFBA04F180DBCD400F78749 /* menu-loan-info-gray.png in Resources */,
 				9E587B321818F9F700E65DBA /* OneHomePaymentViewController.xib in Resources */,
+				9E266FFE18241817003AB179 /* sfh-homeinfo@2x.png in Resources */,
 				9E4DBF721805D08900F095F1 /* ContactRealtorViewController.xib in Resources */,
 				9E53443C17F555C7006BA12D /* surfing.png in Resources */,
 				D6E6EE5917E65A9E005D7526 /* single@2x.png in Resources */,
@@ -1678,7 +1679,6 @@
 				D6E6EEBC17E79D7D005D7526 /* car@2x.png in Resources */,
 				9E13E3B11817343700875BD2 /* ResetPasswordViewController.xib in Resources */,
 				9E48726A1811F08100B417F9 /* line@2x.png in Resources */,
-				9EA5D3EB17F15DC500CE7BD8 /* sfh-homeinfo@2x.png in Resources */,
 				9E4B1D131805FE1B00D3D39C /* loaninfo.png in Resources */,
 				9E0DB87618075BCC00B5184E /* logo-svl.gif in Resources */,
 				9ECDB80A17FF55AB004E5F25 /* menu-logout.png in Resources */,

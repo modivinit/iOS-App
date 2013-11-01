@@ -56,7 +56,7 @@
         // create the data
         homePayments = @{@"LifeStyle Income" : @1800,
                          @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
-                         @"Tax" : @600};
+                         @"Est. Income Tax" : @600};
         
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;

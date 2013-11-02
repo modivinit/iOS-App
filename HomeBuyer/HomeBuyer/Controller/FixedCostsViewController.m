@@ -57,8 +57,8 @@
     // Do any additional setup after loading the view from its nib.
     
     [self addGestureRecognizers];
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 360)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 120)];
     [self initWithExisitingFixedCosts];
 }
 

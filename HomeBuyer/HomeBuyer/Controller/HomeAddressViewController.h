@@ -15,9 +15,6 @@
 @end
 
 @interface HomeAddressViewController : FormNoScrollViewViewController
-@property (nonatomic, strong) IBOutlet UIButton* mHomeInfoButton;
--(IBAction)homeInfoButtonTapped:(id)sender;
-
 @property (nonatomic, strong) homeAddress* mCorrespondingHomeInfo;
 
 @property (nonatomic, strong) IBOutlet UITextField* mStreetAddress;

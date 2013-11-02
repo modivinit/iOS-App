@@ -18,14 +18,6 @@
 
 @implementation HomeAddressViewController
 
--(IBAction)homeInfoButtonTapped:(id)sender
-{
-    if(self.mHomeAddressViewDelegate && [self.mHomeAddressViewDelegate respondsToSelector:@selector(popHomeAddressFromHomeInfo)])
-    {
-        [self.mHomeAddressViewDelegate popHomeAddressFromHomeInfo];
-    }
-}
-
 -(void) viewWillAppear:(BOOL)animated
 {
     //TODO: We will need to move htis to a centralized location in the future
@@ -53,6 +45,13 @@
     self.navigationItem.title = @"Home Address";
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    if(self.mHomeAddressViewDelegate && [self.mHomeAddressViewDelegate respondsToSelector:@selector(popHomeAddressFromHomeInfo)])
+    {
+        [self.mHomeAddressViewDelegate popHomeAddressFromHomeInfo];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

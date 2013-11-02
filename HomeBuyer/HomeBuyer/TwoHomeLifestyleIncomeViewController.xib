@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwoHomeLifestyleIncomeViewController">
             <connections>
-                <outlet property="mRentalLifeStyleIncome" destination="y0B-DO-bN4" id="Xqn-BK-lYV"/>
+                <outlet property="mHome1LifeStyleIncome" destination="4Ex-YC-UWs" id="M7d-U5-ifs"/>
+                <outlet property="mHome1Nickname" destination="QS6-TY-XGx" id="Twr-2k-PCc"/>
+                <outlet property="mHome1TypeIcon" destination="Pqr-yD-SNB" id="DON-ir-t2M"/>
+                <outlet property="mHome2LifeStyleIncome" destination="y0B-DO-bN4" id="EWA-Hc-Hts"/>
+                <outlet property="mHome2Nickname" destination="QlF-vQ-CO9" id="Aux-Tq-rR1"/>
+                <outlet property="mHome2TypeIcon" destination="TIN-Df-Hfd" id="jBu-bf-Gko"/>
+                <outlet property="mRentalLifeStyleIncome" destination="Vx1-cl-qz5" id="J6v-Tm-17R"/>
                 <outlet property="view" destination="ljL-pQ-g8F" id="nJO-uU-f6s"/>
             </connections>
         </placeholder>

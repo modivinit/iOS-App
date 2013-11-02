@@ -8,6 +8,7 @@
 
 #import "TwoHomeTaxSavingsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface TwoHomeTaxSavingsViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
@@ -31,10 +32,6 @@
 -(void) setupChart
 {
     // create the data
-    homeTaxSavings[0] = @{@"Tax Savings" : @1234};
-    homeTaxSavings[1] = @{@"Tax Savings" : @5678};
-    homeTaxSavings[2] = @{@"Tax Savings" : @3453};
-
     self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
     
     self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
@@ -67,6 +64,57 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
+    homeInfo* home2 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:SECOND_HOME];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    if(home1 && home2 && aLoan && userProfile)
+    {
+        homeAndLoanInfo* homeAndLoan1 = [kunanceUser getCalculatorHomeAndLoanFrom:home1 andLoan:aLoan];
+        homeAndLoanInfo* homeAndLoan2 = [kunanceUser getCalculatorHomeAndLoanFrom:home2 andLoan:aLoan];
+        
+        kCATCalculator* home1Calc = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                        andHome:homeAndLoan1];
+        
+        kCATCalculator* home2Calc = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                        andHome:homeAndLoan2];
+        
+        kCATCalculator* rentalCalc = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                         andHome:nil];
+        
+        float home1Taxes = ([home1Calc getAnnualFederalTaxesPaid]+
+                            [home1Calc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+        
+        float home2Taxes = ([home2Calc getAnnualFederalTaxesPaid]+
+                            [home2Calc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+        
+        float rentalTaxes = ([rentalCalc getAnnualFederalTaxesPaid]+
+                            [rentalCalc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+        
+        homeTaxSavings[0] = @{@"Tax Savings" : [NSNumber numberWithInteger:home1Taxes]};
+        homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home2Taxes]};
+        homeTaxSavings[2] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
+
+        NSString* rentStr = [NSString stringWithFormat:@"$%.0f", ceil(rentalTaxes)];
+        self.mEstRentalUnitTaxes.text = rentStr;
+        self.mEstFirstHomeTaxes.text = [NSString stringWithFormat:@"$%.0f", ceil(home1Taxes)];
+        self.mEstSecondHomeTaxes.text = [NSString stringWithFormat:@"$%.0f", ceil(home2Taxes)];
+        
+        self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
+        if(home1.mHomeType == homeTypeSingleFamily)
+            self.mFirstHomeType.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mFirstHomeType.image = [UIImage imageNamed:@"menu-home-condo.png"];
+        
+        self.mHome2Nickname.text = home2.mIdentifiyingHomeFeature;
+        if(home2.mHomeType == homeTypeSingleFamily)
+            self.mSecondHomeType.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mSecondHomeType.image = [UIImage imageNamed:@"menu-home-condo.png"];
+        
+    }
+
     [self setupChart];
     [self setupOtherLabels];
 }

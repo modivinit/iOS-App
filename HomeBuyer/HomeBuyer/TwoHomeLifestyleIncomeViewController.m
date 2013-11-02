@@ -8,6 +8,7 @@
 
 #import "TwoHomeLifestyleIncomeViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface TwoHomeLifestyleIncomeViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mLifestyleIncomeChart;
@@ -58,9 +59,52 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    mLifestyleIncomeData[0] = @{@"Lifestyle Income" : @1234};
-    mLifestyleIncomeData[1] = @{@"Lifestyle Income" : @5678};
-    mLifestyleIncomeData[2] = @{@"Lifestyle Income" : @3453};
+    homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
+    homeInfo* home2 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:SECOND_HOME];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+
+    if(home1 && home2 && aLoan && userProfile)
+    {
+        homeAndLoanInfo* homeAndLoan1 = [kunanceUser getCalculatorHomeAndLoanFrom:home1 andLoan:aLoan];
+        homeAndLoanInfo* homeAndLoan2 = [kunanceUser getCalculatorHomeAndLoanFrom:home2 andLoan:aLoan];
+
+        kCATCalculator* home1Calc = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                        andHome:homeAndLoan1];
+        
+        kCATCalculator* home2Calc = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                        andHome:homeAndLoan2];
+        
+        kCATCalculator* rentalCalc = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                         andHome:nil];
+        
+
+        float homeLifestyle1 = ceilf([home1Calc getMonthlyLifeStyleIncome]);
+        float homeLifestyle2 = ceilf([home2Calc getMonthlyLifeStyleIncome]);
+        float rentLifestyle  =  ceilf([rentalCalc getMonthlyLifeStyleIncome]);
+        
+        mLifestyleIncomeData[0] = @{@"Lifestyle Income" : [NSNumber numberWithInteger:rentLifestyle]};
+        mLifestyleIncomeData[1] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle1]};
+        mLifestyleIncomeData[2] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle2]};
+
+        NSString* rentStr = [NSString stringWithFormat:@"$%.0f", rentLifestyle];
+        self.mRentalLifeStyleIncome.text = rentStr;
+        self.mHome1LifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifestyle1];
+        self.mHome2LifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifestyle2];
+        
+        self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
+        if(home1.mHomeType == homeTypeSingleFamily)
+            self.mHome1TypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mHome1TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
+        
+        self.mHome2Nickname.text = home2.mIdentifiyingHomeFeature;
+        if(home2.mHomeType == homeTypeSingleFamily)
+            self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
+        
+    }
     
     [self setupChart];
 }

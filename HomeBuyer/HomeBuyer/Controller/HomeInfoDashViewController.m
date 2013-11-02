@@ -36,6 +36,7 @@
     
     HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
     viewController2.mHomeLifeStyleDelegate = self;
+    viewController2.mHomeNumber = self.mHomeNumber;
     [self.mPageViewControllers addObject: viewController2];
     
     HomePaymentsViewController* viewController1 = [[HomePaymentsViewController alloc] init];

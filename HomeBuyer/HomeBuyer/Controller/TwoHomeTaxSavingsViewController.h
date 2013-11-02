@@ -19,5 +19,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView* mFirstHomeType;
 @property (nonatomic, strong) IBOutlet UIImageView* mSecondHomeType;
 
+@property (nonatomic, strong) IBOutlet UILabel* mHome1Nickname;
+@property (nonatomic, strong) IBOutlet UILabel* mHome2Nickname;
+
 @property (nonatomic, weak) id <TwoHomeTaxSavingsDelegate> mTwoHomeTaxSavingsDelegate;
 @end

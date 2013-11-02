@@ -8,6 +8,7 @@
 
 #import "TwoHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface TwoHomePaymentViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mMontlyPaymentChart;
@@ -58,9 +59,44 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    mMonthlyPaymentData[0] = @{@"Monthly Payment" : @1234};
-    mMonthlyPaymentData[1] =  @{@"Monthly Payment" : @3456};
-    mMonthlyPaymentData[2] =  @{@"Monthly Payment" : @3421};
+    homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
+    homeInfo* home2 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:SECOND_HOME];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    userProfileInfo* userProfile = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    
+    if(home1 && home2 && aLoan && userProfile)
+    {
+        homeAndLoanInfo* homeAndLoan1 = [kunanceUser getCalculatorHomeAndLoanFrom:home1 andLoan:aLoan];
+        homeAndLoanInfo* homeAndLoan2 = [kunanceUser getCalculatorHomeAndLoanFrom:home2 andLoan:aLoan];
+        
+        float homeMortgage1 = ceilf([homeAndLoan1 getMonthlyLoanPaymentForHome]);
+        float homeMortgage2 = ceilf([homeAndLoan2 getMonthlyLoanPaymentForHome]);
+        uint rent = [userProfile getMonthlyRentInfo];
+        mMonthlyPaymentData[0] =  @{@"Monthly Payment" :
+                                        [NSNumber numberWithInteger:rent]};
+        mMonthlyPaymentData[1] =  @{@"Monthly Payment" :
+                                        [NSNumber numberWithFloat:homeMortgage1]};
+        mMonthlyPaymentData[2] =  @{@"Monthly Payment" :
+                                        [NSNumber numberWithFloat:homeMortgage2]};
+
+        NSString* rentStr = [NSString stringWithFormat:@"$%d", rent];
+        self.mRentalPayment.text = rentStr;
+        self.mHome1Payment.text = [NSString stringWithFormat:@"$%.0f", homeMortgage1];
+        self.mHome2Payment.text = [NSString stringWithFormat:@"$%.0f", homeMortgage2];
+        
+        self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
+        if(home1.mHomeType == homeTypeSingleFamily)
+            self.mHome1TypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mHome1TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
+        
+        self.mHome2Nickname.text = home2.mIdentifiyingHomeFeature;
+        if(home2.mHomeType == homeTypeSingleFamily)
+            self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
+        else
+            self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
+
+    }
     
     [self setupChart];
 }

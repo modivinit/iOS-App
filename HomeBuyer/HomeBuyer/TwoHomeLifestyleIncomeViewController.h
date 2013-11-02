@@ -19,4 +19,11 @@
 @property (nonatomic, strong) IBOutlet UILabel* mRentalLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHome1LifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mHome2LifeStyleIncome;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHome1Nickname;
+@property (nonatomic, strong) IBOutlet UILabel* mHome2Nickname;
+
+@property (nonatomic, strong) IBOutlet UIImageView* mHome1TypeIcon;
+@property (nonatomic, strong) IBOutlet UIImageView* mHome2TypeIcon;
+
 @end

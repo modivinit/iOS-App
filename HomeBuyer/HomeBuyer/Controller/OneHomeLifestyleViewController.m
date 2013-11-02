@@ -71,7 +71,7 @@
 
     // Do any additional setup after loading the view from its nib.
     
-    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:0];
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     

@@ -165,6 +165,10 @@ static kunanceUser *kunanceUserSingleton;
             self.mUserProfileStatus = ProfileStatusUser1HomeInfoEntered;
             NSLog(@"User profile status = ProfileStatusUser1HomeInfoEntered");
         }
+        else if(self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered)
+        {
+            self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+        }
         else
         {
             self.mUserProfileStatus = ProfileStatusUndefined;

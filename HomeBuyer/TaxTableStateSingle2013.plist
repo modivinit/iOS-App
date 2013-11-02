@@ -10,49 +10,49 @@
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>17976</integer>
+		<integer>10394</integer>
 		<key>percentage</key>
 		<integer>2</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>28371</integer>
+		<integer>10395</integer>
 		<key>percentage</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>39384</integer>
+		<integer>11013</integer>
 		<key>percentage</key>
 		<integer>6</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>49774</integer>
+		<integer>10390</integer>
 		<key>percentage</key>
 		<integer>8</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>254250</integer>
+		<integer>204476</integer>
 		<key>percentage</key>
 		<real>9.300000000000001</real>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>305100</integer>
+		<integer>50850</integer>
 		<key>percentage</key>
 		<real>10.3</real>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>508500</integer>
+		<integer>203400</integer>
 		<key>percentage</key>
 		<real>11.3</real>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<real>100000000</real>
+		<integer>508500</integer>
 		<key>percentage</key>
 		<real>12.3</real>
 	</dict>

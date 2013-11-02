@@ -4,49 +4,43 @@
 <array>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>2200</integer>
-		<key>percentage</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>limitsDifference</key>
-		<integer>11125</integer>
+		<integer>8925</integer>
 		<key>percentage</key>
 		<integer>10</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>38450</integer>
+		<integer>27325</integer>
 		<key>percentage</key>
 		<integer>15</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>90050</integer>
+		<integer>51600</integer>
 		<key>percentage</key>
 		<integer>25</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>185450</integer>
+		<integer>95400</integer>
 		<key>percentage</key>
 		<integer>28</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>400550</integer>
+		<integer>215100</integer>
 		<key>percentage</key>
 		<integer>33</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>402200</integer>
+		<integer>1650</integer>
 		<key>percentage</key>
 		<integer>35</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>100000000</integer>
+		<integer>450000</integer>
 		<key>percentage</key>
 		<real>39.6</real>
 	</dict>

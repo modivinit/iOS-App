@@ -6,8 +6,6 @@
 	<integer>7812</integer>
 	<key>SingleDeductionCaliforniaState</key>
 	<integer>3906</integer>
-	<key>ChildrenDeductionCaliforniaState</key>
-	<integer>1000</integer>
 	<key>MarriedDeductionFederal</key>
 	<integer>12200</integer>
 	<key>SingleDeductionFederal</key>

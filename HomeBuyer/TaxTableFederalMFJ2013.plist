@@ -42,7 +42,7 @@
 		<key>limitsDifference</key>
 		<integer>450000</integer>
 		<key>percentage</key>
-		<integer>40</integer>
+		<real>39.6</real>
 	</dict>
 </array>
 </plist>

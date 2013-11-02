@@ -7,14 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePaymentsViewController">
             <connections>
-                <outlet property="mCondoSFHIndicator" destination="etU-qA-OCV" id="Z3N-N9-06a"/>
-                <outlet property="mHOA" destination="c0H-ls-Sy7" id="vRk-w4-1pO"/>
-                <outlet property="mHomeListPrice" destination="Mam-KI-tmv" id="9zY-EL-hsA"/>
-                <outlet property="mHomeTitle" destination="ibh-WW-fqe" id="fz2-rl-pqM"/>
-                <outlet property="mInsurance" destination="Bm0-u2-2dR" id="OjE-Lc-siq"/>
-                <outlet property="mLoanPayment" destination="h5c-DD-Ze5" id="Tdd-Xm-4x5"/>
-                <outlet property="mPropertyTax" destination="8LK-I9-9qv" id="M9B-V4-Glj"/>
-                <outlet property="mTotalMonthlyPayments" destination="L4J-Sy-cFx" id="Mbr-cn-pAP"/>
+                <outlet property="mCondoSFHIndicator" destination="etU-qA-OCV" id="JC0-WR-XCv"/>
+                <outlet property="mHOA" destination="c0H-ls-Sy7" id="7vE-DI-1zy"/>
+                <outlet property="mHomeListPrice" destination="Mam-KI-tmv" id="dyl-QS-Xf2"/>
+                <outlet property="mHomeTitle" destination="ibh-WW-fqe" id="gKA-1W-rZh"/>
+                <outlet property="mInsurance" destination="Bm0-u2-2dR" id="Ycf-VG-14c"/>
+                <outlet property="mLoanPayment" destination="h5c-DD-Ze5" id="RzQ-dj-b68"/>
+                <outlet property="mPropertyTax" destination="8LK-I9-9qv" id="UkA-8u-JrV"/>
+                <outlet property="mTotalMonthlyPayments" destination="L4J-Sy-cFx" id="4lg-GH-fBY"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -42,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4J-Sy-cFx" userLabel="Label - total monthly payments">
-                    <rect key="frame" x="205" y="301" width="62" height="24"/>
+                    <rect key="frame" x="205" y="301" width="95" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                     <color key="textColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,28 +99,28 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-DD-Ze5">
-                    <rect key="frame" x="205" y="346" width="46" height="18"/>
+                    <rect key="frame" x="205" y="346" width="95" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LK-I9-9qv">
-                    <rect key="frame" x="205" y="388" width="46" height="18"/>
+                    <rect key="frame" x="205" y="388" width="95" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bm0-u2-2dR">
-                    <rect key="frame" x="207" y="472" width="46" height="18"/>
+                    <rect key="frame" x="207" y="472" width="93" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0H-ls-Sy7">
-                    <rect key="frame" x="207" y="430" width="55" height="18"/>
+                    <rect key="frame" x="207" y="430" width="93" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -155,8 +155,13 @@
     <resources>
         <image name="hoa.png" width="29" height="29"/>
         <image name="line.png" width="320" height="1"/>
+        <image name="line.png" width="320" height="1"/>
+        <image name="line.png" width="320" height="1"/>
+        <image name="line.png" width="320" height="1"/>
+        <image name="line.png" width="320" height="1"/>
         <image name="menu-home-condo.png" width="25" height="25"/>
         <image name="otherexpenses.png" width="29" height="29"/>
+        <image name="rent.png" width="29" height="29"/>
         <image name="rent.png" width="29" height="29"/>
     </resources>
 </document>

@@ -171,22 +171,33 @@
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
             cell.textLabel.textColor = [UIColor grayColor];
-            cell.textLabel.text = [NSString stringWithFormat:@"Add a Home"];
             cell.userInteractionEnabled = NO;
+            if (indexPath.row == ROW_FIRST_HOME)
+            {
+                cell.textLabel.text = [NSString stringWithFormat:@"Add First Home"];
+            }
+            else if(indexPath.row == ROW_SECOND_HOME)
+            {
+                cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
+            }
             break;
         }
             
         case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
-            cell.textLabel.text = [NSString stringWithFormat:@"Add a Home"];
             cell.userInteractionEnabled = YES;
 
             if(indexPath.row == ROW_SECOND_HOME)
             {
                 cell.textLabel.textColor = [UIColor grayColor];
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
+                cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
                 cell.userInteractionEnabled = NO;
+            }
+            else if(indexPath.row == ROW_FIRST_HOME)
+            {
+                cell.textLabel.text = [NSString stringWithFormat:@"Add First Home"];
             }
             break;
         }
@@ -210,7 +221,7 @@
             else if(indexPath.row == ROW_SECOND_HOME)
             {
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
-                cell.textLabel.text = [NSString stringWithFormat:@"Add a Home"];
+                cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
                 cell.userInteractionEnabled = YES;
 
                 if([kunanceUser getInstance].mUserProfileStatus ==
@@ -251,7 +262,7 @@
     
     if(indexPath.row == ROW_CURRENT_LIFESTYLE)
     {
-        cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts.png"];
+        cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle.png"];
         cell.textLabel.text = @"Current Lifestyle";
         
         if(!userProfile)

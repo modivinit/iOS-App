@@ -72,7 +72,7 @@
     self.mFixedCosts.text = [NSString stringWithFormat:@"%d", [user getOtherFixedCostsInfo]];
     self.mEstimatedIncomeTaxesLabel.text = [NSString stringWithFormat:@"%.0f", estimatedIncomeTax];
     
-    homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:monthlylifestyle],
+    homePayments = @{@"Lifestyle Income" : [NSNumber numberWithFloat:monthlylifestyle],
                      @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
                      @"Rent" : [NSNumber numberWithInt:[user getMonthlyRentInfo]],
                      @"Est. Income Tax": [NSNumber numberWithFloat:estimatedIncomeTax]};
@@ -108,11 +108,20 @@ atPixelCoordinate:(CGPoint)pixelPoint
 
 -(SChartSeries *)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index {
     SChartPieSeries* pieSeries = [[SChartPieSeries alloc] init];
+    pieSeries.style.chartEffect = SChartRadialChartEffectBevelledLight;
     pieSeries.selectedStyle.protrusion = 10.0f;
     pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:10];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
     pieSeries.selectionAnimation.duration = @0.4;
     pieSeries.selectedPosition = @0.0;
+    pieSeries.style.showCrust = NO;
+    pieSeries.animationEnabled = YES;
+    NSMutableArray* colors = [[NSMutableArray alloc] init];
+    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.9]];
+    pieSeries.style.flavourColors = colors;
     return pieSeries;
 }
 

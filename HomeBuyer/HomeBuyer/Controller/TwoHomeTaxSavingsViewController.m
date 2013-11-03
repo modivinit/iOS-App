@@ -133,6 +133,7 @@
     lineSeries.style.lineColor = [UIColor darkGrayColor];
     lineSeries.style.showArea = YES;
     lineSeries.style.showAreaWithGradient = YES;
+    lineSeries.animationEnabled = YES;
     if(index == 0) {
         lineSeries.title = @"Rental";
         lineSeries.style.areaColor = [UIColor colorWithRed:243.0/255.0 green:156.0/255.0 blue:18.0/255.0 alpha:0.85];

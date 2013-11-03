@@ -129,6 +129,7 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.selectionAnimation.duration = @0.4;
     pieSeries.selectedPosition = @0.0;
     pieSeries.style.showCrust = NO;
+    pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
     [colors addObject:[UIColor colorWithRed:127.0/255.0 green:140.0/255.0 blue:141.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];

@@ -53,11 +53,13 @@ static NSString* const kUserKey = @"user";
     PFQuery* query = [PFQuery queryWithClassName:kLoanListClassKey];
     [query whereKey:kUserKey equalTo:[[kunanceUser getInstance] getUserID]];
     
+    NSLog(@"Query: %@", [[kunanceUser getInstance] getUserID]);
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *loansList, NSError *error)
      {
          if(!error && loansList)
          {
              self.mUsersLoans = [[NSMutableArray alloc] init];
+             self.mLoanListParseObject = loansList;
              for (NSDictionary* dict in loansList[kLoanListArrayKey])
              {
                  loan* aLoan = [[loan alloc] initWithDictionary:dict];

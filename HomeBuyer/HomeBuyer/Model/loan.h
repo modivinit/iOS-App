@@ -13,10 +13,10 @@
 
 typedef enum
 {
-    loanDurationTenYears = 1,
-    loanDurationFifteenYears = 2,
-    loanDurationTwentyYears = 3,
-    loanDurationThirtyYears = 4
+    loanDurationTenYears = 0,
+    loanDurationFifteenYears = 1,
+    loanDurationTwentyYears = 2,
+    loanDurationThirtyYears = 3
 }loanDurationIndex;
 
 

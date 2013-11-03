@@ -117,7 +117,6 @@ atPixelCoordinate:(CGPoint)pixelPoint
     SChartPieSeries* pieSeries = [[SChartPieSeries alloc] init];
     pieSeries.style.chartEffect = SChartRadialChartEffectBevelledLight;
     pieSeries.selectedStyle.protrusion = 10.0f;
-  //  pieSeries.selectedStyle.protrusion = 0;
     pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:12];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
     pieSeries.selectionAnimation.duration = @0.4;
@@ -129,6 +128,7 @@ atPixelCoordinate:(CGPoint)pixelPoint
     [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
     pieSeries.style.flavourColors = colors;
+    pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;
 }
 

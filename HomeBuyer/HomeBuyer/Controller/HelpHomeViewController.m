@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Home Help Screen" properties:Nil];
+    
 }
 -(IBAction)dashButtonPressed:(id)sender
 {

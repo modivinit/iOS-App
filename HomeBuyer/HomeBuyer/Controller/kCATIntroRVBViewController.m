@@ -40,6 +40,8 @@
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];
 
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Looked at FTUE Screen 1 - Connect and Share" properties:Nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -96,6 +96,9 @@
     self.pageController.view.backgroundColor = [UIColor clearColor];
     
     [self addButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Home Info Dashboard" properties:Nil];
 }
 
 -(void) setNavTitle:(NSString *)title

@@ -169,6 +169,9 @@
     
     [self setupWithExisitingLoan];
     [self setupButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Loan Info Screen" properties:Nil];
 }
 
 -(void) uploadLoanInfo

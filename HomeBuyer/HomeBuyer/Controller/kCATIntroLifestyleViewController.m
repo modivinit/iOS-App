@@ -39,6 +39,9 @@
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Looked at FTUE Screen 1 - Lifestyle" properties:Nil];
 }
 
 - (void)didReceiveMemoryWarning

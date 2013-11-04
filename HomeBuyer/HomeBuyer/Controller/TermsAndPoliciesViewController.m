@@ -34,6 +34,9 @@
     self.navigationItem.title = @"Terms And Policies";
 
     [self switchView];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Terms and Policies Screen" properties:Nil];
 }
 
 -(void) switchView

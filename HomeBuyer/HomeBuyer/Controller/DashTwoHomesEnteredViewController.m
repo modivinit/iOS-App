@@ -65,6 +65,9 @@
     }
     
     [self addButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Viewed 2-home dashboard" properties:Nil];
 }
 
 -(void) helpButtonTapped

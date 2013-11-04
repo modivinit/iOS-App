@@ -43,6 +43,9 @@
     }
     
     self.navigationItem.title = @"Home Address";
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Home Address Screen" properties:Nil];
 }
 
 -(void) viewWillDisappear:(BOOL)animated

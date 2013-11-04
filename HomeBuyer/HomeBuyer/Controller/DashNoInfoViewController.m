@@ -41,6 +41,10 @@
      
      NSString* titleText = [NSString stringWithFormat:@"Welcome %@", userName];
      self.navigationController.navigationBar.topItem.title = titleText;
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Dashboard After Joining" properties:Nil];
+    
 }
 
 -(void) loadAboutYou

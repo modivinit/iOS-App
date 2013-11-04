@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FormViewController.h"
 #import "usersLoansList.h"
+#import <TSCurrencyTextField.h>
 
 @protocol LoanInfoViewDelegate <NSObject>
 @optional
@@ -21,8 +22,10 @@
 @property (nonatomic, strong) NSNumber* mHomeNumber;
 @property (nonatomic) BOOL mIsFromHomeEntry;
 @property (nonatomic, strong) IBOutlet UISegmentedControl* mPercentDollarValueChoice;
-@property (nonatomic, strong) IBOutlet UITextField*        mDownPaymentField;
-@property (nonatomic, strong) IBOutlet UITextField*        mInterestRateField;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*  mDownPaymentFixedAmountField;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*  mDownPaymentPercentageField;
+
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*        mInterestRateField;
 @property (nonatomic, strong) IBOutlet UISegmentedControl* mLoanDurationField;
 
 @property (nonatomic, strong) IBOutlet UIButton*             mCompareHomesButton;

@@ -17,6 +17,9 @@
 
 #define MAX_POSSIBLE_INTEREST_RATE 30
 
+#define MAX_DIGITS_DOWNPAYMENT_FIXED 12
+#define MAX_DIGITS_DOWNPAYMENT_PERCENTAGE 5
+#define MAX_DIGITS_INTEREST_RATE_FIELD 4
 
 @interface LoanInfoViewController ()
 
@@ -96,24 +99,35 @@
 {
     if(self.mPercentDollarValueChoice.selectedSegmentIndex == PERCENT_VALUE_DOWN_PAYMENT)
     {
-        self.mDownPaymentField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-        self.mDownPaymentField.placeholder = @"% of the home list price";
+        self.mDownPaymentPercentageField.hidden = NO;
+        self.mDownPaymentFixedAmountField.hidden = YES;
     }
     else if(self.mPercentDollarValueChoice.selectedSegmentIndex == DOLLAR_VALUE_DOWN_PAYMENT)
     {
-        self.mDownPaymentField.keyboardType = UIKeyboardTypeNumberPad;
-        self.mDownPaymentField.placeholder = @"Fixed $ amount";
+        self.mDownPaymentPercentageField.hidden = YES;
+        self.mDownPaymentFixedAmountField.hidden = NO;
     }
 }
 
 -(void) setupWithExisitingLoan
 {
-    self.mCorrespondingLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     if(self.mCorrespondingLoan)
     {
         self.mPercentDollarValueChoice.selectedSegmentIndex = self.mCorrespondingLoan.mDownPaymentType;
-        self.mDownPaymentField.text = [NSString  stringWithFormat:@"%.2f", self.mCorrespondingLoan.mDownPayment];
         
+        if(self.mCorrespondingLoan.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
+        {
+            self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.2f", self.mCorrespondingLoan.mDownPayment];
+            
+            self.mDownPaymentFixedAmountField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+        }
+        else if (self.mCorrespondingLoan.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)
+        {
+             self.mDownPaymentFixedAmountField.text = [NSString  stringWithFormat:@"%.0f", self.mCorrespondingLoan.mDownPayment];
+            self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+        }
+        
+        [self updateDownPaymentFields];
         self.mInterestRateField.text = [NSString stringWithFormat:@"%.2f", self.mCorrespondingLoan.mLoanInterestRate];
         
         self.mLoanDurationField.selectedSegmentIndex = [self getIndexForLoanDuration:self.mCorrespondingLoan.mLoanDuration];
@@ -152,7 +166,17 @@
     NSString* titleText = [NSString stringWithFormat:@"Home Loan Info"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
-    self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentField, self.mInterestRateField, nil];
+    self.mCorrespondingLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+
+    if(self.mCorrespondingLoan.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
+    {
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentFixedAmountField, self.mInterestRateField, nil];
+    }
+    else if (self.mCorrespondingLoan.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)
+    {
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentPercentageField, self.mInterestRateField, nil];
+    }
+
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
@@ -167,13 +191,30 @@
     
     self.mLoanDurationField.selectedSegmentIndex = DEFAULT_LOAN_DURATION_IN_YEARS;
     
-    [self setupWithExisitingLoan];
     [self setupButtons];
+    
+<<<<<<< HEAD
+    self.mDownPaymentFixedAmountField.maxLength =  MAX_DIGITS_DOWNPAYMENT_FIXED;
+    self.mInterestRateField.currencyNumberFormatter.maximumFractionDigits = 2;
+    self.mInterestRateField.currencyNumberFormatter.minimumFractionDigits = 2;
+    self.mInterestRateField.currencyNumberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    self.mInterestRateField.maxLength = MAX_DIGITS_INTEREST_RATE_FIELD;
+    
+    self.mDownPaymentPercentageField.currencyNumberFormatter.maximumFractionDigits = 2;
+    self.mDownPaymentPercentageField.currencyNumberFormatter.minimumFractionDigits = 2;
+    self.mDownPaymentPercentageField.currencyNumberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    self.mDownPaymentPercentageField.maxLength = MAX_DIGITS_INTEREST_RATE_FIELD;
+    
+    [self setupWithExisitingLoan];
+=======
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Loan Info Screen" properties:Nil];
+>>>>>>> 08f7999632dad637eaf3f0e5ce77d65b71b32265
 }
 
 -(void) uploadLoanInfo
 {
-    if(!self.mDownPaymentField.text.length || !self.mInterestRateField.text.length)
+    if(!self.mDownPaymentFixedAmountField.text.length || !self.mInterestRateField.text.length)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all the fields"];
         return;
@@ -190,24 +231,26 @@
     [numberFormatter setDecimalSeparator:@"."];
     [numberFormatter setGroupingSeparator:@","];
     
-    NSNumber *downPayment = [numberFormatter numberFromString:self.mDownPaymentField.text];
-    if(downPayment)
-        newLoanInfo.mDownPayment = [downPayment floatValue];
-    
-    if(self.mPercentDollarValueChoice.selectedSegmentIndex == PERCENT_VALUE_DOWN_PAYMENT && newLoanInfo.mDownPayment > 100)
-    {
-        [Utilities showAlertWithTitle:@"Error" andMessage:@"% value for downpayment cannot be > 100"];
-        return;
-    }
+//    NSNumber *downPayment = [numberFormatter numberFromString:self.mDownPaymentFixedAmountField.text];
+//    if(downPayment)
+//        newLoanInfo.mDownPayment = [downPayment floatValue];
     
     newLoanInfo.mDownPaymentType = self.mPercentDollarValueChoice.selectedSegmentIndex;
+    if(newLoanInfo.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)
+    {
+        newLoanInfo.mDownPayment = [self.mDownPaymentFixedAmountField.amount floatValue];
+    }
+    else if(newLoanInfo.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
+    {
+        newLoanInfo.mDownPayment = [self.mDownPaymentPercentageField.amount floatValue];
+    }
     
-    NSNumber *interestRate = [numberFormatter numberFromString:self.mInterestRateField.text];
+    NSNumber *interestRate = self.mInterestRateField.amount;//[numberFormatter numberFromString:self.mInterestRateField.text];
     if(interestRate)
         newLoanInfo.mLoanInterestRate = [interestRate floatValue];
     if(newLoanInfo.mLoanInterestRate < 0 || newLoanInfo.mLoanInterestRate > MAX_POSSIBLE_INTEREST_RATE)
     {
-        [Utilities showAlertWithTitle:@"Erro" andMessage:@"That does not appear to be a valid loan interest rate"];
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"That does not appear to be a valid loan interest rate"];
         return;
     }
     

@@ -98,6 +98,9 @@
 {
     [[kunanceUser getInstance] logoutUser];
     [self showIntroScreens];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"User Logged Out" properties:Nil];
 }
 
 -(void)displayHomeDash:(NSNotification*) notice

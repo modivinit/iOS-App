@@ -88,6 +88,9 @@
                                                       action:@selector(editUserProfile)];
         
     }
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Lifestyle Income Dash" properties:Nil];
 }
 
 #pragma mark - SChartDelegate methods

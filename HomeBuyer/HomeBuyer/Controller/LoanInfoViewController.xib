@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoanInfoViewController">
             <connections>
                 <outlet property="mCompareHomesButton" destination="66r-49-Rek" id="0iD-Y7-ufW"/>
                 <outlet property="mDashboardIcon" destination="n03-QE-UVj" id="VYg-Yh-9mB"/>
-                <outlet property="mDownPaymentField" destination="tNB-de-x9o" id="Zl5-OA-Jfa"/>
+                <outlet property="mDownPaymentFixedAmountField" destination="tNB-de-x9o" id="McC-WO-ngn"/>
+                <outlet property="mDownPaymentPercentageField" destination="giM-se-Flf" id="lb7-8F-waY"/>
                 <outlet property="mFormScrollView" destination="9iZ-cW-OPA" id="rgV-ah-B67"/>
                 <outlet property="mHelpButton" destination="MKR-c9-JqK" id="Ohv-Sn-Qv8"/>
                 <outlet property="mHomeInfoButton" destination="BZq-0X-5eH" id="NEr-WY-WuM"/>
@@ -47,13 +48,13 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fixed $ amount" minimumFontSize="17" clearButtonMode="whileEditing" id="tNB-de-x9o">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fixed $ amount" minimumFontSize="17" clearButtonMode="whileEditing" id="tNB-de-x9o" customClass="TSCurrencyTextField">
                             <rect key="frame" x="130" y="75" width="170" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="% of home price" minimumFontSize="17" clearButtonMode="whileEditing" id="giM-se-Flf">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="% of home price" minimumFontSize="17" clearButtonMode="whileEditing" id="giM-se-Flf" customClass="TSCurrencyTextField">
                             <rect key="frame" x="130" y="75" width="170" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,7 +71,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="% value such as 3.75" minimumFontSize="17" clearButtonMode="whileEditing" id="mFr-ni-Jnj">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="% value such as 3.75" minimumFontSize="17" clearButtonMode="whileEditing" id="mFr-ni-Jnj" customClass="TSCurrencyTextField">
                             <rect key="frame" x="60" y="155" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>

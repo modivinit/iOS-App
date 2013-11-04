@@ -107,6 +107,9 @@
     self.mAnnualRetirementContributionField.maxLength = MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH;
     
     self.navigationItem.title = @"Profile";
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"View About You Screen" properties:Nil];
 }
 
 - (void)didReceiveMemoryWarning

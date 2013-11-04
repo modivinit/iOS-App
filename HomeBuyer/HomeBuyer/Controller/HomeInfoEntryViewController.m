@@ -121,6 +121,9 @@
     self.mMontylyHOAField.maxLength = MAX_HOA_PRICE_LENGTH;
     
     self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Dashboard Help Screen" properties:Nil];
 }
 
 -(void) uploadHomeInfo

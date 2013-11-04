@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FormViewController.h"
+#import <TSCurrencyTextField.h>
 
 @protocol FixedCostsControllerDelegate <NSObject>
 -(void) aboutYouFromFixedCosts;
@@ -15,9 +16,9 @@
 
 @interface FixedCostsViewController : FormViewController <userProfileInfoDelegate>
 
-@property (nonatomic, strong) IBOutlet UITextField* mMonthlyRent;
-@property (nonatomic, strong) IBOutlet UITextField* mMonthlyCarPayments;
-@property (nonatomic, strong) IBOutlet UITextField* mOtherMonthlyPayments;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField* mMonthlyRent;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField* mMonthlyCarPayments;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField* mOtherMonthlyPayments;
 @property (nonatomic, strong) IBOutlet UIButton*  mCurrentLifestyleIncomeButton;
 @property (nonatomic, strong) IBOutlet UIButton*  mDashboardButton;
 @property (nonatomic, strong) IBOutlet UIButton*  mHelpButton;

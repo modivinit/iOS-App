@@ -11,9 +11,10 @@
 #import "FormViewController.h"
 #import "FixedCostsViewController.h"
 #import "userProfileInfo.h"
+#import "TSCurrencyTextField.h"
 
 @interface AboutYouViewController : FormViewController
-<userProfileInfoDelegate, FixedCostsControllerDelegate>
+<userProfileInfoDelegate, FixedCostsControllerDelegate, UITextFieldDelegate>
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
 @property (nonatomic, strong) FixedCostsViewController* mFixedCostsController;
 
@@ -23,8 +24,8 @@
 @property (nonatomic) IBOutlet UIButton*  mSingleButton;
 -(IBAction)singleButtonTapped:(id)sender;
 
-@property (nonatomic) IBOutlet UITextField*   mAnnualGrossIncomeField;
-@property (nonatomic) IBOutlet UITextField*   mAnnualRetirementContributionField;
+@property (nonatomic) IBOutlet TSCurrencyTextField*   mAnnualGrossIncomeField;
+@property (nonatomic) IBOutlet TSCurrencyTextField*   mAnnualRetirementContributionField;
 @property (nonatomic) IBOutlet UISegmentedControl* mNumberOfChildrenControl;
 
 @property (nonatomic, strong) IBOutlet UIButton*  mDashboardButton;

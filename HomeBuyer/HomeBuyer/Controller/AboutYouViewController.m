@@ -12,6 +12,9 @@
 #import "HelpProfileViewController.h"
 #import <MBProgressHUD.h>
 
+#define MAX_ANNUAL_GROSS_INCOME_LENGTH 11
+#define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 8
+
 @interface AboutYouViewController ()
 
 @end
@@ -100,6 +103,9 @@
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
     
+    self.mAnnualGrossIncomeField.maxLength = MAX_ANNUAL_GROSS_INCOME_LENGTH;
+    self.mAnnualRetirementContributionField.maxLength = MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH;
+    
     self.navigationItem.title = @"Profile";
 }
 
@@ -141,9 +147,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
-    else if(!self.mAnnualGrossIncomeField.text ||
-            !self.mAnnualGrossIncomeField.text.length ||
-            ![self.mAnnualGrossIncomeField.text intValue])
+    else if(self.mAnnualGrossIncomeField.amount <= 0)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
         return;
@@ -157,8 +161,9 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Updating";
 
-    if(![[kunanceUser getInstance].mkunanceUserProfileInfo writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
-               annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
+    if(![[kunanceUser getInstance].mkunanceUserProfileInfo
+                writeUserPFInfo:[self.mAnnualGrossIncomeField.amount intValue]
+               annualRetirement:[self.mAnnualRetirementContributionField.amount intValue]
                numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
                   maritalStatus:self.mSelectedMaritalStatus])
     {

@@ -11,6 +11,10 @@
 #import "HelpProfileViewController.h"
 #import <MBProgressHUD.h>
 
+#define MAX_RENT_LENGTH 6
+#define MAX_CAR_PAYMENTS_LENGTH 4
+#define MAX_FIXED_COSTS_LENGTH  5
+
 @interface FixedCostsViewController ()
 
 @end
@@ -55,6 +59,10 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.mMonthlyRent.maxLength = MAX_RENT_LENGTH;
+    self.mMonthlyCarPayments.maxLength = MAX_CAR_PAYMENTS_LENGTH;
+    self.mOtherMonthlyPayments.maxLength = MAX_FIXED_COSTS_LENGTH;
     
     [self addGestureRecognizers];
     [self.mFormScrollView setContentSize:CGSizeMake(320, 360)];
@@ -109,8 +117,8 @@
 
 -(IBAction)currentLifeStyleIncomeTapped:(id)sender
 {
-    if(!self.mMonthlyRent.text || !self.mMonthlyCarPayments.text || !self.mOtherMonthlyPayments.text ||
-       !self.mMonthlyRent.text.length || !self.mMonthlyCarPayments.text.length || !self.mOtherMonthlyPayments.text.length)
+    if(self.mMonthlyRent.amount <= 0 || self.mMonthlyCarPayments.amount <= 0 ||
+       self.mOtherMonthlyPayments.amount <= 0)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"Please enter all fields"
@@ -129,9 +137,9 @@
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Calculating";
 
-        if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.text intValue]
-                   monthlyCarPaments:[self.mMonthlyCarPayments.text intValue]
-                     otherFixedCosts:[self.mOtherMonthlyPayments.text intValue]])
+        if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.amount intValue]
+                   monthlyCarPaments:[self.mMonthlyCarPayments.amount intValue]
+                     otherFixedCosts:[self.mOtherMonthlyPayments.amount intValue]])
         {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];

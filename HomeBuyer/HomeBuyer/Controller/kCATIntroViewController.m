@@ -91,11 +91,17 @@ willTransitionToViewControllers:(NSArray *)pendingViewControllers
 
 -(void)signInButtonTapped:(id)sender
 {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Sign In Button Press" properties:Nil];
+    
     [self.mkCATIntroDelegate signInFromIntro];
 }
 
 -(void)signUpButtonTapped:(id)sender
 {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Get Started Button Press" properties:Nil];
+    
     [self.mkCATIntroDelegate signupFromIntro];
 }
 

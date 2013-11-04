@@ -68,6 +68,9 @@
     [self.mFormScrollView setContentSize:CGSizeMake(320, 360)];
     [self.mFormScrollView setContentOffset:CGPointMake(0, 120)];
     [self initWithExisitingFixedCosts];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"View Fixed Costs Screen" properties:Nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"Contact Realtor";
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Contact Realtor View Opened" properties:Nil];
 }
 
 -(IBAction)showDash:(id)sender

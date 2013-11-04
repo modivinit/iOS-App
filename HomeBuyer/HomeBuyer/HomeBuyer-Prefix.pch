@@ -18,4 +18,5 @@
 #import "Utilities.h"
 #import "kunanceConstants.h"
 #import "kunanceUser.h"
+#import <Mixpanel.h>
 #endif

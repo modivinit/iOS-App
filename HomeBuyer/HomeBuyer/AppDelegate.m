@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import <Parse/Parse.h>
+#define MIXPANEL_TOKEN @"b6b40a30a9dba6aa444eb1ff681d7ffa"
+#import <Mixpanel.h>
 
 @interface AppDelegate ()
 @end
@@ -40,6 +42,12 @@
     
     //TODO Shilpa, make sure we do OS check here
     [ShinobiCharts setTheme:[SChartiOS7Theme new]];
+    
+    // Initialize the library with your
+    // Mixpanel project token, MIXPANEL_TOKEN
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Account Created" properties:Nil];
     
     return YES;
 }

@@ -152,6 +152,8 @@
         {
             [self.mSignUpDelegate userSignedUpSuccessfully];
         }
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+        [mixpanel track:@"Created Account Successfully" properties:Nil];
     }
 }
 #pragma end

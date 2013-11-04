@@ -262,16 +262,17 @@
     
     if(indexPath.row == ROW_CURRENT_LIFESTYLE)
     {
-        cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle.png"];
         cell.textLabel.text = @"Current Lifestyle";
         
         if(!userProfile)
         {
+            cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle-gray.png"];
             cell.textLabel.textColor = [UIColor grayColor];
             cell.userInteractionEnabled = NO;
         }
         else
         {
+            cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle.png"];
             cell.textLabel.textColor = [UIColor blackColor];
             cell.userInteractionEnabled = YES;
         }

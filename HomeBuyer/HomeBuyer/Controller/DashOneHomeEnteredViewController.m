@@ -78,6 +78,9 @@
     self.pageController.view.backgroundColor = [UIColor clearColor];
     
     [self addButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Viewed 1-home dashboard" properties:Nil];
 }
 
 -(void) setNavTitle:(NSString *)title

@@ -194,6 +194,7 @@
     [self setupButtons];
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     self.mDownPaymentFixedAmountField.maxLength =  MAX_DIGITS_DOWNPAYMENT_FIXED;
     self.mInterestRateField.currencyNumberFormatter.maximumFractionDigits = 2;
     self.mInterestRateField.currencyNumberFormatter.minimumFractionDigits = 2;
@@ -206,10 +207,8 @@
     self.mDownPaymentPercentageField.maxLength = MAX_DIGITS_INTEREST_RATE_FIELD;
     
     [self setupWithExisitingLoan];
-=======
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Entered Loan Info Screen" properties:Nil];
->>>>>>> 08f7999632dad637eaf3f0e5ce77d65b71b32265
 }
 
 -(void) uploadLoanInfo

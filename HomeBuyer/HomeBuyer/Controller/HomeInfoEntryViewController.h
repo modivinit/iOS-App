@@ -9,21 +9,29 @@
 #import <UIKit/UIKit.h>
 #import "FormViewController.h"
 #import "homeInfo.h"
-#import "APIHomeInfoService.h"
 #import "LoanInfoViewController.h"
+#import "HomeAddressViewController.h"
+#import "UsersHomesList.h"
+#import <TSCurrencyTextField.h>
 
-@interface HomeInfoEntryViewController : FormViewController <APIHomeInfoServiceDelegate, LoanInfoViewDelegate>
+@interface HomeInfoEntryViewController : FormViewController <UsersHomesListDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
 @property (nonatomic) uint mHomeNumber;
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoController;
+@property (nonatomic, strong) HomeAddressViewController* mHomeAddressView;
+
 -(id) initAsHomeNumber:(uint) homeNumber;
 
-@property (nonatomic, strong) IBOutlet UIImageView*  mSingleFamilyImageAsButton;
-@property (nonatomic, strong) IBOutlet UIImageView*  mCondoImageAsButton;
+@property (nonatomic, strong) IBOutlet UIButton*  mSingleFamilyButton;
+-(IBAction)sfhButtonTapped:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIButton*  mCondoButton;
+-(IBAction) condoButtonTapped:(id)sender;
+
 @property (nonatomic, strong) IBOutlet UITextField*   mBestHomeFeatureField;
-@property (nonatomic, strong) IBOutlet UITextField*   mAskingPriceField;
-@property (nonatomic, strong) IBOutlet UITextField*   mMontylyHOAField;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*   mAskingPriceField;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*   mMontylyHOAField;
 
 @property (nonatomic, strong) IBOutlet UIButton*       mHomeAddressButton;
 -(IBAction) enterHomeAddressButtonTapped;

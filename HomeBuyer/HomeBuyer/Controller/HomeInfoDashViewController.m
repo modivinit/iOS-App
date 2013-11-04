@@ -34,14 +34,15 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
+    HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
+    viewController2.mHomeLifeStyleDelegate = self;
+    viewController2.mHomeNumber = self.mHomeNumber;
+    [self.mPageViewControllers addObject: viewController2];
+    
     HomePaymentsViewController* viewController1 = [[HomePaymentsViewController alloc] init];
     viewController1.mHomePaymentsDelegate = self;
     viewController1.mHomeNumber = self.mHomeNumber;
     [self.mPageViewControllers addObject:viewController1];
-    
-    HomeLifeStyleViewController* viewController2 = [[HomeLifeStyleViewController alloc] init];
-    viewController2.mHomeLifeStyleDelegate = self;
-    [self.mPageViewControllers addObject: viewController2];
 }
 
 -(void) addButtons
@@ -80,7 +81,7 @@
     // Do any additional setup after loading the view from its nib.
     UIImage *revealImagePortrait = [UIImage imageNamed:@"MenuIcon.png"];
     
-    if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
+    if ([self.navigationController.revealController hasLeftViewController])
     {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait
                                                                    landscapeImagePhone:nil
@@ -95,6 +96,9 @@
     self.pageController.view.backgroundColor = [UIColor clearColor];
     
     [self addButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Home Info Dashboard" properties:Nil];
 }
 
 -(void) setNavTitle:(NSString *)title

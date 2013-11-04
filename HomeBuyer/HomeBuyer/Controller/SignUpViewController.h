@@ -15,6 +15,6 @@
 -(void) cancelSignUpScreen;
 @end
 
-@interface SignUpViewController : FormNoScrollViewViewController <UITextFieldDelegate>
+@interface SignUpViewController : FormNoScrollViewViewController <UITextFieldDelegate, kunanceUserDelegate>
 @property (nonatomic, weak) id <SignUpDelegate> mSignUpDelegate;
 @end

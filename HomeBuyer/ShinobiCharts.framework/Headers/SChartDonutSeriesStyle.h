@@ -16,7 +16,8 @@ typedef enum SChartRadialChartEffect {
     SChartRadialChartEffectBevelledLight,
     SChartRadialChartEffectRounded, 
     SChartRadialChartEffectRoundedLight,
-    SChartRadialChartEffectDefault,
+    SChartRadialChartEffectChiselled,
+    SChartRadialChartEffectDefault = SChartRadialChartEffectChiselled
 } SChartRadialChartEffect;
 
 /** `SChartDonutSeriesStyle` manages the appearance of donut series on a `ShinobiChart`.  The API for donut series is defined in `SChartDonutSeries`.
@@ -58,12 +59,14 @@ typedef enum SChartRadialChartEffect {
         SChartRadialChartEffectBevelled,
         SChartRadialChartEffectBevelledLight,
         SChartRadialChartEffectRounded,
-        SChartRadialChartEffectRoundedLight
+        SChartRadialChartEffectRoundedLight,
+        SChartRadialChartEffectChiselled,
+        SChartRadialChartEffectDefault = SChartRadialChartEffectChiselled
     } SChartRadialChartEffect;
  
- The light options for the bevelled and rounded effects have the same shadowing applied, but the shadow color is lighter than with the normal effect.
+ The `SChartRadialChartEffectDefault` effect is provided for backwards compatibility. It will be removed in future releases, as the default effect applied to the chart now depends on the version of iOS which you are running. In iOS7, the flat effect is the default. In earlier versions of iOS, the chiselled effect is the default.
  
- This property defaults to a flat effect.
+ The light options for the bevelled and rounded effects have the same shadowing applied, but the shadow color is lighter than with the normal effect.
  */
 @property (nonatomic)                   SChartRadialChartEffect     chartEffect;
 

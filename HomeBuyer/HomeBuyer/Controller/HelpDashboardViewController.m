@@ -32,6 +32,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Dashboard Help Screen" properties:Nil];
+    
 }
 
 - (void)didReceiveMemoryWarning

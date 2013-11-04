@@ -18,7 +18,7 @@
 {
     uint index = viewController.view.tag;
     if((index+1) == self.mPageViewControllers.count)
-        return nil;
+        return self.mPageViewControllers[0];
     
     return self.mPageViewControllers[index+1];
 }
@@ -27,13 +27,13 @@
 {
     uint index = viewController.view.tag;
 
-    if(index == 0)
-        return nil;
-    
     if(self.mBasePageViewDelegate && [self.mBasePageViewDelegate respondsToSelector:@selector(changedToPage:)])
         [self.mBasePageViewDelegate changedToPage:index];
     
-    return self.mPageViewControllers[index-1];
+    if(index == 0)
+        return self.mPageViewControllers[self.mPageViewControllers.count-1];
+    else
+        return self.mPageViewControllers[index-1];
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController

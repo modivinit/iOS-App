@@ -10,6 +10,10 @@
 
 @interface homeAddress : NSObject
 @property (nonatomic, copy) NSString* mStreetAddress;
-@property (nonatomic, copy) NSString* mCity;
+@property (nonatomic) uint mCityCode;
+@property (nonatomic) uint mStateCode;
 @property (nonatomic, copy) NSString* mZipCode;
+
+-(id) initWithDictionary:(NSDictionary*) addressDict;
+-(NSDictionary*) getDictionaryForAddressObject;
 @end

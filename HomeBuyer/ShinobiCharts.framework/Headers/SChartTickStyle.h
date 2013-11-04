@@ -42,6 +42,8 @@
 @property (nonatomic, retain)     UIColor *labelColor;
 /** The font for the labels */
 @property (nonatomic, retain)     UIFont  *labelFont;
+/** The text alignment of the labels */
+@property (nonatomic, assign)     NSTextAlignment textAlignment;
 /** The shadow color for label text */
 @property (nonatomic, retain)     UIColor *labelTextShadowColor;
 /** The gap between a tick label and its corresponding tick mark */

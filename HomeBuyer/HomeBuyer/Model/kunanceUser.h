@@ -7,33 +7,51 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "userPFInfo.h"
+#import "userProfileInfo.h"
 #import "UsersHomesList.h"
-#import "loan.h"
+#import "usersLoansList.h"
 #import "homeInfo.h"
 #import "UsersHomesList.h"
+#import <Parse/Parse.h>
+#import "homeAndLoanInfo.h"
+
+@protocol kunanceUserDelegate <NSObject>
+@optional
+-(void) signupCompletedWithError:(NSError*) error;
+-(void) loginCompletedWithError:(NSError*) error;
+@end
+
 
 @interface kunanceUser : NSObject
-@property (nonatomic, strong) FFUser* mLoggedInKunanceUser;
-@property (nonatomic, strong) userPFInfo* mkunanceUserPFInfo;
+@property (nonatomic, strong) userProfileInfo* mkunanceUserProfileInfo;
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
-@property (nonatomic, strong) loan* mKunanceUserLoan;
+@property (nonatomic, strong) usersLoansList* mKunanceUserLoans;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
-@property (nonatomic, copy) NSString*        mKunanceUserGUID;
-@property (nonatomic, copy) NSString*        mUserPFInfoGUID;
+@property (nonatomic, weak) id <kunanceUserDelegate> mKunanceUserDelegate;
+@property (nonatomic, strong, readonly) PFUser* mLoggedInKunanceUser;
+
+-(BOOL) signupWithName:(NSString*) name
+              password:(NSString*) password
+                 email:(NSString*) email
+           realtorCode:(NSString*) code;
+
+-(BOOL) loginWithEmail:(NSString*) email
+              password:(NSString*) password;
+
 
 + (kunanceUser*) getInstance;
 -(BOOL) isUserLoggedIn;
--(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd;
--(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password;
 -(BOOL) userAccountFoundOnDevice;
+-(BOOL) loginSavedUser;
 
--(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo;
--(void) addNewHomeInfo:(homeInfo*)newHomeInfo;
--(void) updateExistingHome:(homeInfo*)homeInfo;
+-(void) updateStatusWithUserProfileInfo;
+-(void) updateStatusWithHomeInfoStatus;
 
--(void) updateLoanInfo:(loan*) aLoan;
+-(void) updateStatusWithLoanInfoStatus;
 
 -(void) logoutUser;
+-(NSString*) getUserID;
+-(NSString*) getFirstName;
 
++(homeAndLoanInfo*) getCalculatorHomeAndLoanFrom:(homeInfo*)aHome andLoan:(loan*)aLoan;
 @end

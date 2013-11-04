@@ -7,19 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import <FFEF/FatFractal.h>
 #import <ShinobiCharts/ShinobiChart.h>
+#import <Parse/Parse.h>
+#define MIXPANEL_TOKEN @"b6b40a30a9dba6aa444eb1ff681d7ffa"
+#import <Mixpanel.h>
 
 @interface AppDelegate ()
 @end
 
 @implementation AppDelegate
-
-static FatFractal *_ff;
-
-+ (FatFractal *) ff {
-    return _ff;
-}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -33,12 +29,10 @@ static FatFractal *_ff;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-    NSString *baseUrl = @"https://kunance.fatfractal.com/kCAT";
-    _ff = [[FatFractal alloc]
-           initWithBaseUrl:@"http://kunance.fatfractal.com/kCAT"
-           sslUrl:baseUrl];
-    [FFHttpDelegate addTrustedHost:@"kunance.fatfractal.com"];
-
+    [Parse setApplicationId:@"RphK94N4u63vCoDcsydM6aY1g0z2crnTswmXpV34"
+                  clientKey:@"t4UbQbinGiRZR5Vgt0LQ7HVFONIh3XiYq7Ufvjhf"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     UINavigationController* navController = [[UINavigationController alloc] init];
     self.window.rootViewController = navController;
     
@@ -48,6 +42,12 @@ static FatFractal *_ff;
     
     //TODO Shilpa, make sure we do OS check here
     [ShinobiCharts setTheme:[SChartiOS7Theme new]];
+    
+    // Initialize the library with your
+    // Mixpanel project token, MIXPANEL_TOKEN
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Account Created" properties:Nil];
     
     return YES;
 }

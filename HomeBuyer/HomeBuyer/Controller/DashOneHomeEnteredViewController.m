@@ -20,13 +20,17 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
-    RentVsBuyDashViewController* viewController1 = [[RentVsBuyDashViewController alloc] init];
-    viewController1.mRentVsBuyDashViewDelegate = self;
+    OneHomeLifestyleViewController* viewController1 = [[OneHomeLifestyleViewController alloc] init];
+    viewController1.mOneHomeLifestyleViewDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
     
-    HomeTaxSavingsViewController* viewController2 = [[HomeTaxSavingsViewController alloc] init];
-    viewController2.mHomeTaxSavingsDelegate = self;
-    [self.mPageViewControllers addObject: viewController2];
+    OneHomePaymentViewController* viewController2 = [[OneHomePaymentViewController alloc] init];
+    viewController2.mOneHomePaymentViewDelegate = self;
+    [self.mPageViewControllers addObject:viewController2];
+    
+    OneHomeTaxSavingsViewController* viewController3 = [[OneHomeTaxSavingsViewController alloc] init];
+    viewController3.mOneHomeTaxSavingsDelegate = self;
+    [self.mPageViewControllers addObject: viewController3];
 }
 
 -(void) addButtons
@@ -59,7 +63,7 @@
     
     UIImage *revealImagePortrait = [UIImage imageNamed:@"MenuIcon.png"];
     
-    if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
+    if ([self.navigationController.revealController hasLeftViewController])
     {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait
                                                                    landscapeImagePhone:nil
@@ -74,6 +78,9 @@
     self.pageController.view.backgroundColor = [UIColor clearColor];
     
     [self addButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Viewed 1-home dashboard" properties:Nil];
 }
 
 -(void) setNavTitle:(NSString *)title

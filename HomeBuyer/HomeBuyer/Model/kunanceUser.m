@@ -12,6 +12,10 @@
 
 static kunanceUser *kunanceUserSingleton;
 
+@interface kunanceUser()
+@property (nonatomic, strong, readwrite) PFUser* mLoggedInKunanceUser;
+@end
+
 @implementation kunanceUser
 
 + (void) initialize
@@ -28,84 +32,236 @@ static kunanceUser *kunanceUserSingleton;
     if (self) {
         // Initialization
         self.mLoggedInKunanceUser = nil;
-        self.mLoggedInKunanceUser = nil;
-        self.mkunanceUserPFInfo = nil;
+        self.mkunanceUserProfileInfo = nil;
         self.mKunanceUserHomes = nil;
-        self.mKunanceUserLoan = nil;
-        self.mUserProfileStatus = ProfileStatusNoInfoEntered;
+        self.mKunanceUserLoans = nil;
+        self.mUserProfileStatus = ProfileStatusUndefined;
         NSLog(@"User profile status = ProfileStatusNoInfoEntered");
-
-        self.mUserPFInfoGUID = nil;
     }
     
     return self;
 }
 
--(void) updateUserPFInfo:(userPFInfo*) newUserPFInfo
+-(BOOL) signupWithName:(NSString*) name
+              password:(NSString*) password
+                 email:(NSString*) email
+           realtorCode:(NSString*) code
 {
-    FatFractal *ff = [AppDelegate ff];
-    self.mkunanceUserPFInfo = newUserPFInfo;
+    if(!password || !email)
+    {
+        return NO;
+    }
     
-    NSLog(@"updateUserPFInfo: %llu", self.mkunanceUserPFInfo.mGrossAnnualIncome);
+    PFUser* user = [PFUser user];
+    user.username = email;
+    user.password = password;
+    user.email = email;
     
-    if(newUserPFInfo)
-        self.mUserPFInfoGUID = [[ff metaDataForObj:newUserPFInfo] guid];
+    NSArray* names = [name componentsSeparatedByString:@" "];
+    if(names && names.count > 0)
+    {
+        user[@"FirstName"] = names[0];
+        if(names.count > 1)
+            user[@"LastName"] = names[1];
+    }
     
-    if(self.mUserProfileStatus == ProfileStatusNoInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
-        self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
-    else if(self.mUserProfileStatus == ProfileStatusNoInfoEntered)
-        self.mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
-    else if(self.mUserProfileStatus == ProfileStatusUserPersonalFinanceInfoEntered && self.mkunanceUserPFInfo.mFixedCostsInfoEntered)
-        self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
+    if(code)
+        user[@"RealtorCode"] = code;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+        if(succeeded && !error)
+            self.mLoggedInKunanceUser = user;
+        
+        if(self.mKunanceUserDelegate &&
+           [self.mKunanceUserDelegate respondsToSelector:@selector(signupCompletedWithError:)])
+        {
+            [self.mKunanceUserDelegate signupCompletedWithError:error];
+        }
+    }];
+    
+    return YES;
 }
 
--(BOOL) isUserLoggedIn
+-(BOOL) loginWithEmail:(NSString*) email
+              password:(NSString*) password
 {
-    return ([[AppDelegate ff] loggedIn] &&
-            [kunanceUser getInstance].mLoggedInKunanceUser);
+    if(!email || !password)
+    {
+        return NO;
+    }
+    
+    [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *user, NSError *error)
+     {
+         if(user)
+             self.mLoggedInKunanceUser = user;
+         
+         if(self.mKunanceUserDelegate &&
+            [self.mKunanceUserDelegate respondsToSelector:@selector(loginCompletedWithError:)])
+         {
+             [self.mKunanceUserDelegate loginCompletedWithError:error];
+         }
+     }];
+    
+    return YES;
 }
 
--(void) saveUserInfoAfterLoginSignUp:(FFUser*)newUser passowrd:(NSString*)pswd
+-(NSString*) getUserID
 {
-    if(!newUser || !pswd)
-        return;
-    
-    [KeychainWrapper createKeychainValue:pswd forIdentifier:@"pswd"];
-    [KeychainWrapper createKeychainValue:newUser.email forIdentifier:@"email"];
-    
-    self.mLoggedInKunanceUser = newUser;
-    
-    FatFractal *ff = [AppDelegate ff];
-    if(ff)
-        self.mKunanceUserGUID = [[ff metaDataForObj:newUser] guid];
-}
-
--(void) logoutUser
-{
-    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"pswd"];
-    [KeychainWrapper deleteItemFromKeychainWithIdentifier:@"email"];
-    
-    self.mLoggedInKunanceUser = nil;
-    self.mLoggedInKunanceUser = nil;
-    self.mkunanceUserPFInfo = nil;
-    self.mKunanceUserHomes = nil;
-    self.mKunanceUserLoan = nil;
-    self.mUserProfileStatus = ProfileStatusNoInfoEntered;
-    self.mUserPFInfoGUID = nil;
+    if(self.mLoggedInKunanceUser)
+        return self.mLoggedInKunanceUser.objectId;
+    else
+        return nil;
 }
 
 -(BOOL)userAccountFoundOnDevice
 {
-    NSData* theData = [KeychainWrapper searchKeychainCopyMatchingIdentifier:@"email"];
-    if(!theData)
-        return NO;
-    
-    NSString* emailStr = [[NSString alloc] initWithData:theData
-                                              encoding:NSUTF8StringEncoding];
-    if(emailStr)
+    if([PFUser currentUser])
         return YES;
+    else
+        return NO;
+}
+
+-(BOOL) loginSavedUser
+{
+    self.mLoggedInKunanceUser = [PFUser currentUser];
     
-    return NO;
+    if(self.mLoggedInKunanceUser)
+        return YES;
+    else
+        return NO;
+}
+
+-(void) updateStatusWithUserProfileInfo
+{
+    if(!self.mkunanceUserProfileInfo)
+        return;
+    
+    if((self.mUserProfileStatus == ProfileStatusUndefined) ||
+       (self.mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered))
+    {
+        if([self.mkunanceUserProfileInfo isFixedCostsInfoEntered])
+            self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
+        else
+            self.mUserProfileStatus = ProfileStatusUserPersonalFinanceInfoEntered;
+    }
+    else if(self.mUserProfileStatus == ProfileStatusUserPersonalFinanceInfoEntered &&
+            [self.mkunanceUserProfileInfo isFixedCostsInfoEntered])
+    {
+        self.mUserProfileStatus = ProfileStatusPersonalFinanceAndFixedCostsInfoEntered;
+    }
+}
+
+-(void) updateStatusWithHomeInfoStatus
+{
+    if(!self.mKunanceUserHomes || ![self.mKunanceUserHomes getCurrentHomesCount])
+        return;
+    
+    if([self.mKunanceUserHomes getCurrentHomesCount] == 1)
+    {
+        if(self.mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered ||
+           self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered)
+        {
+            self.mUserProfileStatus = ProfileStatusUser1HomeInfoEntered;
+            NSLog(@"User profile status = ProfileStatusUser1HomeInfoEntered");
+        }
+        else if(self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered)
+        {
+            self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+        }
+        else
+        {
+            self.mUserProfileStatus = ProfileStatusUndefined;
+        }
+    }
+    else if([self.mKunanceUserHomes getCurrentHomesCount] == 2)
+    {
+        if(self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered ||
+           self.mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+        {
+            self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+            NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
+        }
+        else if(self.mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
+        {
+            self.mUserProfileStatus = ProfileStatusUserTwoHomesButNoLoanInfoEntered;
+        }
+        else
+            self.mUserProfileStatus = ProfileStatusUndefined;
+    }
+    else
+        self.mUserProfileStatus = ProfileStatusUndefined;
+}
+
+-(void) updateStatusWithLoanInfoStatus
+{
+    if(!self.mKunanceUserLoans || ![self.mKunanceUserLoans getCurrentLoanCount])
+        return;
+    
+    if(self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered)
+        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+    else if(self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered)
+        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
+    else if (self.mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
+    }
+    else if(self.mUserProfileStatus == ProfileStatusUserTwoHomesButNoLoanInfoEntered)
+    {
+        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
+    }
+    else
+        self.mUserProfileStatus = ProfileStatusUndefined;
+}
+
+
+-(NSString*) getFirstName
+{
+    NSLog(@"PFUser %@", [PFUser currentUser]);
+    return [PFUser currentUser][@"FirstName"];
+}
+
+-(BOOL) isUserLoggedIn
+{
+    if ([kunanceUser getInstance].mLoggedInKunanceUser)
+    {
+        return YES;
+    }
+    else
+        return NO;
+}
+
++(homeAndLoanInfo*) getCalculatorHomeAndLoanFrom:(homeInfo*)aHome andLoan:(loan*)aLoan
+{
+    if(!aHome || !aLoan)
+        return nil;
+    
+    homeAndLoanInfo* homeAndLoan = [[homeAndLoanInfo alloc] init];
+    homeAndLoan.mHomeListPrice = aHome.mHomeListPrice;
+
+    if(aLoan.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)
+        homeAndLoan.mDownPaymentAmount = aLoan.mDownPayment;
+    else if(aLoan.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
+        homeAndLoan.mDownPaymentAmount = aLoan.mDownPayment*aHome.mHomeListPrice/100;
+    
+    homeAndLoan.mHOAFees = aHome.mHOAFees;
+    homeAndLoan.mLoanInterestRate = aLoan.mLoanInterestRate;
+    homeAndLoan.mNumberOfMortgageMonths = aLoan.mLoanDuration * NUMBER_OF_MONTHS_IN_YEAR;
+    homeAndLoan.mPropertyTaxRate = 1.25;
+    
+    return homeAndLoan;
+}
+
+-(void) logoutUser
+{
+    [PFUser logOut];
+    self.mLoggedInKunanceUser = [PFUser currentUser];
+    
+    self.mkunanceUserProfileInfo = nil;
+    self.mKunanceUserHomes = nil;
+    self.mKunanceUserLoans = nil;
+    self.mUserProfileStatus = ProfileStatusUndefined;
 }
 
 -(BOOL) getUserEmail:(NSString**)email andPassword:(NSString**)password
@@ -141,86 +297,6 @@ static kunanceUser *kunanceUserSingleton;
     
     return NO;
 
-}
-
--(void) addNewHomeInfo:(homeInfo*)newHomeInfo
-{
-    if(!newHomeInfo)
-        return;
-    
-    uint currentHomeCount = [self.mKunanceUserHomes getCurrentHomesCount];
-    
-    if([self.mKunanceUserHomes getCurrentHomesCount] == MAX_NUMBER_OF_HOMES_PER_USER)
-    {
-        NSLog(@"Error: Number of user homes maxed out at %d", currentHomeCount);
-        return;
-    }
-    
-    if(!self.mKunanceUserHomes)
-    {
-        self.mKunanceUserHomes = [[UsersHomesList alloc] init];
-    }
-    
-    [self.mKunanceUserHomes addNewHome:newHomeInfo];
-    
-    if([self.mKunanceUserHomes getCurrentHomesCount] == 1)
-    {
-        self.mUserProfileStatus = ProfileStatusUser1HomeInfoEntered;
-        NSLog(@"User profile status = ProfileStatusUser1HomeInfoEntered");
-    }
-    else if( ([self.mKunanceUserHomes getCurrentHomesCount] == 2) &&
-            (self.mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered))
-    {
-        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
-    }
-    else if( ([self.mKunanceUserHomes getCurrentHomesCount] == 2) &&
-            (self.mUserProfileStatus == ProfileStatusUser1HomeInfoEntered))
-    {
-        self.mUserProfileStatus = ProfileStatusUser2HomesButNoLoanEntered;
-        NSLog(@"Intermidiate User profile status = ProfileStatusUser2HomesButNoLoanEntered");
-    }
-
-}
-
--(void) updateExistingHome:(homeInfo*)homeInfo
-{
-    if(!homeInfo)
-        return;
-    
-    if(homeInfo.mHomeId >= [self.mKunanceUserHomes getCurrentHomesCount])
-        return;
-    
-    [self.mKunanceUserHomes updateHomeInfo:homeInfo];
-}
-
--(void) updateLoanInfo:(loan*) aLoan
-{
-    if(!aLoan)
-        return;
-    if(self.mKunanceUserLoan)
-    {
-        NSLog(@"Overwriting current loan info");
-    }
-    
-    self.mKunanceUserLoan = aLoan;
-    if([self.mKunanceUserHomes getCurrentHomesCount] == 1)
-    {
-        self.mUserProfileStatus = ProfileStatusUser1HomeAndLoanInfoEntered;
-                NSLog(@"User profile status = ProfileStatusUser1HomeAndLoanInfoEntered");
-    }
-    else if ((self.mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered) &&
-             ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
-    {
-        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-                NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
-    }
-    else if ((self.mUserProfileStatus == ProfileStatusUser2HomesButNoLoanEntered) &&
-             ([self.mKunanceUserHomes getCurrentHomesCount] == 2))
-    {
-        self.mUserProfileStatus = ProfileStatusUserTwoHomesAndLoanInfoEntered;
-        NSLog(@"User profile status = ProfileStatusUserTwoHomesAndLoanInfoEntered");
-    }
 }
 
 + (kunanceUser*) getInstance

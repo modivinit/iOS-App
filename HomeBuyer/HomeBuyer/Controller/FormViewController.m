@@ -78,6 +78,8 @@
     [super viewDidLoad];
     [self setupNavControl];
 	// Do any additional setup after loading the view.
+    self.view.restorationIdentifier = @"restore";
+    self.mFormScrollView.restorationIdentifier = @"restore";
 }
 
 -(void) viewDidAppear:(BOOL)animated

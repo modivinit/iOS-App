@@ -146,3 +146,6 @@
 
 // Activity indicators
 #import "SChartActivityIndicator.h"
+
+// Logger
+#import "ShinobiChartLog.h"

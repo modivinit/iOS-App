@@ -10,14 +10,14 @@
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
 #import "DashNoInfoViewController.h"
-#import "APIUserInfoService.h"
+#import "userProfileInfo.h"
 #import "DashUserPFInfoViewController.h"
 #import "DashOneHomeEnteredViewController.h"
 #import "DashTwoHomesEnteredViewController.h"
 #import "LeftMenuViewController.h"
 #import "DashLeftMenuViewController.h"
-#import "APIHomeInfoService.h"
 #import "kCATIntroViewController.h"
+#import "UsersHomesList.h"
 
 @protocol MainControllerDelegate <NSObject>
 -(void) resetRootView:(UIViewController*) viewController;
@@ -26,18 +26,17 @@
 @interface MainController : NSObject
 
 <SignUpDelegate,
-APIUserInfoServiceDelegate,
+userProfileInfoDelegate,
 LoginDelegate,
 LeftMenuDelegate,
-APIHomeInfoServiceDelegate,
-APILoanInfoServiceDelegate,
+UsersHomesListDelegate,
+usersLoansListDelegate,
 FixedCostsControllerDelegate,
 kCATIntroViewDelegate
 >
 
 @property (nonatomic, strong) UINavigationController* mMainNavController;
 @property (nonatomic, weak) id <MainControllerDelegate> mMainControllerDelegate;
-@property (nonatomic, strong) APIUserInfoService* mAPIUserInfoService;
 @property (nonatomic, strong) SignUpViewController* mSignUpViewController;
 @property (nonatomic, strong) LoginViewController* mLoginViewController;
 @property (nonatomic, strong) UIViewController*    mMainDashController;

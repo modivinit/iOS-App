@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AboutYouViewController.h"
-#import "UIViewController+PKRevealController.h"
+#import <PKRevealController/PKRevealController.h>
 #import "DashLeftMenuViewController.h"
 
 
 @interface DashNoInfoViewController : DashLeftMenuViewController //<AboutYouControllerDelegate>
-@property (nonatomic, strong) IBOutlet UIView* mCompositeAboutYouButton;
+@property (nonatomic, strong) IBOutlet UIButton* mEnterProfileButton;
 @property (nonatomic, strong) IBOutlet UIButton* mEnterProfileIcon;
 -(IBAction)enterProfileIconTapped:(id)sender;
 

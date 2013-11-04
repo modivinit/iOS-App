@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
-#import "PKRevealController.h"
-#import "Home1VsHome2ViewController.h"
-#import "HomesComparisionViewController.h"
-#import "TwoHomeRentVsBuyViewController.h"
+#import <PKRevealController/PKRevealController.h>
+#import "TwoHomePaymentViewController.h"
+#import "TwoHomeLifestyleIncomeViewController.h"
 #import "TwoHomeTaxSavingsViewController.h"
 
 @interface DashTwoHomesEnteredViewController : BasePageViewController
-<Homes1VsHome2Delegate, HomesComparisionDelegate, TwoHomeRentVsBuyDelegate, TwoHomeTaxSavingsDelegate>
+<TwoHomePaymentDelegate, TwoHomeLifestyleDelegate, TwoHomeTaxSavingsDelegate>
 @property (nonatomic, strong) UIButton* mContactRealtorButton;
 @property (nonatomic, strong) UIButton* mHelpButton;
 

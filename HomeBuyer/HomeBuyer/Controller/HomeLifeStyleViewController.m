@@ -8,6 +8,7 @@
 
 #import "HomeLifeStyleViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface HomeLifeStyleViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomeLifeStyleChart;
@@ -33,30 +34,44 @@
         if(home.mHomeType == homeTypeCondominium)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-condo.png"];
-            self.mCondoSFHLabel.text = @"Condo/Townhome";
         }
         else if(home.mHomeType == homeTypeSingleFamily)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-sfh.png"];
-            self.mCondoSFHLabel.text = @"Single Family";
         }
         
-        self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
+        self.mCondoSFHLabel.text = home.mIdentifiyingHomeFeature;
+        self.mHomeListPrice.text = [Utilities getCurrencyFormattedStringForNumber:
+                                                                       [NSNumber numberWithLong:home.mHomeListPrice]];
+
     }
 }
 
 -(void) setupChart
 {
-    homeInfo* home = [[kunanceUser getInstance].mKunanceUserHomes
-                      getHomeAtIndex:[self.mHomeNumber intValue]];
-    userPFInfo* user = [kunanceUser getInstance].mkunanceUserPFInfo;
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:[self.mHomeNumber intValue]];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
-    if(home && user)
+    if(aHome && aLoan && userProfile)
     {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
+
+        float lifestyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
+        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] +
+                                        [calculatorHome getAnnualStateTaxesPaid])/12);
+        
+        self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                          [NSNumber numberWithLong:lifestyleIncome]];
+        self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
+                                 [NSNumber numberWithLong:userProfile.mMonthlyOtherFixedCosts]];
+        self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
+                                     [NSNumber numberWithLong:homeEstTaxesPaid]];
         // create the data
-        homePayments = @{@"LifeStyle Income" : @1800,
-                         @"Fixed Costs" : [NSNumber numberWithInt:user.mOtherMonthlyExpenses],
-                         @"Tax" : @600};
+        homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:lifestyleIncome],
+                         @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
+                         @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
         
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
@@ -105,11 +120,20 @@ atPixelCoordinate:(CGPoint)pixelPoint
 
 -(SChartSeries *)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index {
     SChartPieSeries* pieSeries = [[SChartPieSeries alloc] init];
+    pieSeries.style.chartEffect = SChartRadialChartEffectBevelledLight;
     pieSeries.selectedStyle.protrusion = 10.0f;
-    pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:10];
+    pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:12];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
     pieSeries.selectionAnimation.duration = @0.4;
     pieSeries.selectedPosition = @0.0;
+    pieSeries.style.showCrust = NO;
+    pieSeries.animationEnabled = YES;
+    NSMutableArray* colors = [[NSMutableArray alloc] init];
+    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
+    pieSeries.style.flavourColors = colors;
+    pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;
 }
 
@@ -121,8 +145,18 @@ atPixelCoordinate:(CGPoint)pixelPoint
     SChartRadialDataPoint *datapoint = [[SChartRadialDataPoint alloc] init];
     NSString* key = homePayments.allKeys[dataIndex];
     datapoint.name = key;
-    datapoint.value = homePayments[key];
-    return datapoint;
+    
+    NSNumber* value =  homePayments[key];
+    if([value compare:@0] == NSOrderedAscending)
+    {
+        datapoint.value = @0;
+        return datapoint;
+    }
+    else
+    {
+        datapoint.value = homePayments[key];
+        return datapoint;
+    }
 }
 
 - (void)didReceiveMemoryWarning

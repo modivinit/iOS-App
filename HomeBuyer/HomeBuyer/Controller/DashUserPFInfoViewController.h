@@ -15,11 +15,14 @@
 @property (nonatomic, strong) IBOutlet UIButton* mAddAHomeButton;
 @property (nonatomic, strong) IBOutlet UIButton* mAddAHomeIconButton;
 @property (nonatomic, strong) IBOutlet UIButton* mHelpButton;
-
+@property (nonatomic, strong) IBOutlet UILabel*  mLifestyleIncomeLabel;
+@property (nonatomic, strong) IBOutlet UILabel*  mRentLabel;
+@property (nonatomic, strong) IBOutlet UILabel*  mFixedCosts;
+@property (nonatomic, strong) IBOutlet UILabel*  mEstimatedIncomeTaxesLabel;
 
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoViewController;
-
+@property (nonatomic) BOOL mWasLoadedFromMenu;
 
 -(IBAction)helpButtonTapped:(id)sender;
 -(IBAction)addHomeInfo:(id)sender;

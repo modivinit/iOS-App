@@ -7,9 +7,13 @@
 //
 
 #import "AboutYouViewController.h"
-#import "userPFInfo.h"
+#import "userProfileInfo.h"
 #import "kunanceUser.h"
 #import "HelpProfileViewController.h"
+#import <MBProgressHUD.h>
+
+#define MAX_ANNUAL_GROSS_INCOME_LENGTH 11
+#define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 8
 
 @interface AboutYouViewController ()
 
@@ -31,31 +35,24 @@
 
 -(void) selectMarried
 {
-    self.mMarriedImageAsButton.image = [UIImage imageNamed:@"couple-selected.png"];
-    self.mSingleImageAsButton.image = [UIImage imageNamed:@"single.png"];
+    [self.mMarriedButton setImage:[UIImage imageNamed:@"couple-selected.png"]
+                                forState:UIControlStateNormal];
+    [self.mSingleButton setImage:[UIImage imageNamed:@"single.png"]
+                               forState:UIControlStateNormal];
     
     self.mSelectedMaritalStatus = StatusMarried;
 }
 
 -(void) selectSingle
 {
-    self.mSingleImageAsButton.image = [UIImage imageNamed:@"single-selected.png"];
-    self.mMarriedImageAsButton.image = [UIImage imageNamed:@"couple.png"];
+    [self.mSingleButton setImage:[UIImage imageNamed:@"single-selected.png"] forState:UIControlStateNormal] ;
+    [self.mMarriedButton setImage:[UIImage imageNamed:@"couple.png"] forState:UIControlStateNormal];
 
     self.mSelectedMaritalStatus = StatusSingle;
 }
 
 -(void) setupGestureRecognizers
 {
-    UITapGestureRecognizer* marriedButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                   initWithTarget:self action:@selector(marriedButtonTapped)];
-    [self.mMarriedImageAsButton addGestureRecognizer:marriedButtonTappedGesture];
-
-    UITapGestureRecognizer* singleButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                                 action:@selector(singleButtonTapped)];
-    [self.mSingleImageAsButton addGestureRecognizer:singleButtonTappedGesture];
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -65,26 +62,26 @@
 
 -(void) initWithCurrentUserPFInfo
 {
-    userPFInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserPFInfo;
+    userProfileInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
     if(theUserPFInfo)
     {
-        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %llu", theUserPFInfo.mGrossAnnualIncome);
+        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld", [theUserPFInfo getAnnualGrossIncome]);
 
-        if(theUserPFInfo.mMaritalStatus == StatusMarried)
+        if([theUserPFInfo getMaritalStatus] == StatusMarried)
             [self selectMarried];
         
-        else if(theUserPFInfo.mMaritalStatus == StatusSingle)
+        else if([theUserPFInfo getMaritalStatus] == StatusSingle)
             [self selectSingle];
         
-        if(theUserPFInfo.mGrossAnnualIncome)
+        if([theUserPFInfo getAnnualGrossIncome])
             self.mAnnualGrossIncomeField.text =
-            [NSString stringWithFormat:@"%llu", theUserPFInfo.mGrossAnnualIncome];
+            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
         
-        if(theUserPFInfo.mAnnualRetirementSavingsContributions)
+        if([theUserPFInfo getAnnualRetirementSavings])
             self.mAnnualRetirementContributionField.text =
-            [NSString stringWithFormat:@"%llu", theUserPFInfo.mAnnualRetirementSavingsContributions];
+            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
         
-        self.mNumberOfChildrenControl.selectedSegmentIndex = theUserPFInfo.mNumberOfChildren;
+        self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
     }
 }
 
@@ -102,11 +99,17 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
+    [self.mFormScrollView setContentOffset:CGPointMake(0, 60)];
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
     
+    self.mAnnualGrossIncomeField.maxLength = MAX_ANNUAL_GROSS_INCOME_LENGTH;
+    self.mAnnualRetirementContributionField.maxLength = MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH;
+    
     self.navigationItem.title = @"Profile";
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"View About You Screen" properties:Nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,12 +133,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
--(void) marriedButtonTapped
+-(IBAction)marriedButtonTapped:(id)sender
 {
     [self selectMarried];
 }
 
--(void) singleButtonTapped
+-(IBAction)singleButtonTapped:(id)sender
 {
     [self selectSingle];
 }
@@ -147,35 +150,39 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
-    else if(!self.mAnnualGrossIncomeField.text ||
-            !self.mAnnualGrossIncomeField.text.length ||
-            ![self.mAnnualGrossIncomeField.text intValue])
+    else if(self.mAnnualGrossIncomeField.amount <= 0)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
         return;
     }
     
-    APIUserInfoService* apiUserInfoService = [[APIUserInfoService alloc] init];
-    if(apiUserInfoService)
+    if(![kunanceUser getInstance].mkunanceUserProfileInfo)
+        [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
+    
+    [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Updating";
+
+    if(![[kunanceUser getInstance].mkunanceUserProfileInfo
+                writeUserPFInfo:[self.mAnnualGrossIncomeField.amount intValue]
+               annualRetirement:[self.mAnnualRetirementContributionField.amount intValue]
+               numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
+                  maritalStatus:self.mSelectedMaritalStatus])
     {
-        apiUserInfoService.mAPIUserInfoServiceDelegate = self;
-        if(![apiUserInfoService writeUserPFInfo:[self.mAnnualGrossIncomeField.text intValue]
-                   annualRetirement:[self.mAnnualRetirementContributionField.text intValue]
-                   numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
-                      maritalStatus:self.mSelectedMaritalStatus])
-        {
-            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
-        }
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
     }
 }
 
-#pragma mark APIUserInfoServiceDelegate
+#pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
-    if([kunanceUser getInstance].mkunanceUserPFInfo && [kunanceUser getInstance].mUserPFInfoGUID)
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    if([kunanceUser getInstance].mkunanceUserProfileInfo)
     {
-        NSLog(@"finishedWritingUserPFInfo: user annul gross = %llu",
-              [kunanceUser getInstance].mkunanceUserPFInfo.mGrossAnnualIncome);
+        [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
         if(!self.mFixedCostsController)
             self.mFixedCostsController = [[FixedCostsViewController alloc] init];
         self.mFixedCostsController.mFixedCostsControllerDelegate = self;

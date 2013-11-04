@@ -9,10 +9,9 @@
 #import "SignUpViewController.h"
 #import "kunanceUser.h"
 #import "AppDelegate.h"
+#import <MBProgressHUD.h>
 
 @interface SignUpViewController ()
-@property (nonatomic, strong) IBOutlet UIButton* mCreateAccountButton;
-@property (nonatomic, strong) IBOutlet UIButton* mSignInButton;
 @property (nonatomic, strong) UIButton* mRegisterButton;
 
 @property (nonatomic, strong) IBOutlet UITextField* mNameField;
@@ -24,7 +23,6 @@
 @property (nonatomic, strong) UIToolbar *mKeyBoardToolbar;
 
 @property (nonatomic, strong) UITextField* mActiveField;
--(IBAction) registerUser:(id)sender;
 -(IBAction) showSignInView :(id)sender;
 @end
 
@@ -42,9 +40,6 @@
     self.navigationItem.leftBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemDone target:self action:@selector(cancelScreen)];
 
-    self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    self.mCreateAccountButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    
      self.mRegisterButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [self.mRegisterButton setTitle:@"Join" forState:UIControlStateNormal];
     [self.mRegisterButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchDown];
@@ -54,18 +49,10 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mRegisterButton];
     
-    self.mCreateAccountButton.enabled = NO;
     self.mRegisterButtonEnabledColor = self.mRegisterButton.backgroundColor;
     
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(void) cancelScreen
@@ -117,54 +104,68 @@
         return;
     }
     
-    FatFractal *ff = [AppDelegate ff];
-    FFUser *newUser = [[FFUser alloc] initWithFF:ff];
-    newUser.firstName = self.mNameField.text;
-    newUser.userName = self.mEmailField.text;
-    newUser.email = self.mEmailField.text;
-    __block NSString *password = self.mPasswordField.text;
-    
-    self.mSignInButton.enabled = NO;
-    self.view.userInteractionEnabled = NO;
-    
-    __block UIActivityIndicatorView* actIndicator = [Utilities getAndStartBusyIndicator];
-    [self.view addSubview:actIndicator];
-    
-    [ff registerUser:newUser
-            password:password
-          onComplete:^(NSError *err, id obj, NSHTTPURLResponse *httpResponse)
+    if(![Utilities isValidEmail:self.mEmailField.text])
     {
-        FFUser *loggedInUser = (FFUser *)obj;
-        if(loggedInUser)
-        {
-            [[kunanceUser getInstance] saveUserInfoAfterLoginSignUp:loggedInUser
-                                                           passowrd:password];
-            
-            if(self.mSignUpDelegate &&
-               [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
-            {
-                [self.mSignUpDelegate userSignedUpSuccessfully];
-            }
-        }
-        else
-        {
-            self.mSignInButton.enabled = YES;
-            self.view.userInteractionEnabled = YES;
-            [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
-        }
-        
-        // if no error, your application is now in a logged-in state
-        [actIndicator stopAnimating];
-        [actIndicator removeFromSuperview];
-    }];
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid email"];
+        return;
+    }
+    
+    self.view.userInteractionEnabled = NO;
+    [kunanceUser getInstance].mKunanceUserDelegate = self;
+
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Signing Up";
+    if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
+                             password:self.mPasswordField.text
+                                email:self.mEmailField.text
+                          realtorCode:self.mRealtorCodeField.text])
+    {
+        [self disableRegisterButton];
+        self.mPasswordField.text = @"";
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.view.userInteractionEnabled = YES;
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
+    }
 }
 
+
+#pragma LoginSignupServiceDelegate
+-(void) signupCompletedWithError:(NSError *)error
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    if(error)
+    {
+        NSDictionary* userInfo = error.userInfo;
+        NSString* message = userInfo[@"error"];
+        self.view.userInteractionEnabled = YES;
+        self.mPasswordField.text = @"";
+        [self disableRegisterButton];
+        if(!message)
+            message = @"Signup Failed";
+        [Utilities showAlertWithTitle:@"Error" andMessage:message];
+    }
+    else
+    {
+        if(self.mSignUpDelegate &&
+           [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
+        {
+            [self.mSignUpDelegate userSignedUpSuccessfully];
+        }
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+        [mixpanel track:@"Created Account Successfully" properties:Nil];
+    }
+}
+#pragma end
 
 ///////Keyboard Animation Related
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     int futurePasswordLength = 0;
+    int futureEmailLength = 0;
+    int futureNameLength = 0;
+    
     if(textField == self.mPasswordField)
     {
         if([string isEqualToString:@""])
@@ -175,10 +176,46 @@
         {
             futurePasswordLength = self.mPasswordField.text.length +1;
         }
+        
+        futureEmailLength = self.mEmailField.text.length;
+        futureNameLength = self.mNameField.text.length;
+    }
+    else if(textField == self.mNameField)
+    {
+        if([string isEqualToString:@""])
+        {
+            futureNameLength = self.mNameField.text.length -1;
+        }
+        else
+        {
+            futureNameLength = self.mNameField.text.length +1;
+        }
+        
+        futureEmailLength = self.mEmailField.text.length;
+        futurePasswordLength = self.mPasswordField.text.length;
+    }
+    else if(textField == self.mEmailField)
+    {
+        if([string isEqualToString:@""])
+        {
+            futureEmailLength = self.mEmailField.text.length -1;
+        }
+        else
+        {
+            futureEmailLength = self.mEmailField.text.length +1;
+        }
+        
+        futurePasswordLength = self.mPasswordField.text.length;
+        futureNameLength = self.mNameField.text.length;
+    }
+    else
+    {
+        futureEmailLength = self.mEmailField.text.length;
+        futureNameLength = self.mNameField.text.length;
+        futurePasswordLength = self.mPasswordField.text.length;
     }
     
-    if(futurePasswordLength >= 6 && self.mNameField.text.length > 0 &&
-       self.mEmailField.text.length > 0)
+    if(futurePasswordLength >= 6 && futureNameLength > 0 && futureEmailLength > 0)
     {
         [self enableRegisterButton];
     }

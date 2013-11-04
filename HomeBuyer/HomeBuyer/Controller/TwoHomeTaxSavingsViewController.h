@@ -12,13 +12,15 @@
 @end
 
 @interface TwoHomeTaxSavingsViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UILabel* mEstTaxSavingsSecondHome;
 @property (nonatomic, strong) IBOutlet UILabel* mEstFirstHomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mEstSecondHomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mEstRentalUnitTaxes;
 
 @property (nonatomic, strong) IBOutlet UIImageView* mFirstHomeType;
 @property (nonatomic, strong) IBOutlet UIImageView* mSecondHomeType;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHome1Nickname;
+@property (nonatomic, strong) IBOutlet UILabel* mHome2Nickname;
 
 @property (nonatomic, weak) id <TwoHomeTaxSavingsDelegate> mTwoHomeTaxSavingsDelegate;
 @end

@@ -8,9 +8,17 @@
 
 #import "HomeInfoEntryViewController.h"
 #import "HelpHomeViewController.h"
+#import "Cities.h"
+#import "States.h"
+#import <MBProgressHUD.h>
+
+#define MAX_HOME_PRICE_LENGTH 12
+#define MAX_HOA_PRICE_LENGTH 5
 
 @interface HomeInfoEntryViewController ()
-
+@property (nonatomic, copy) NSString* mHomeStreetAddress;
+@property (nonatomic, copy) NSString* mHomeCity;
+@property (nonatomic, copy) NSString* mHomeState;
 @end
 
 @implementation HomeInfoEntryViewController
@@ -53,16 +61,16 @@
 
 -(void) selectSingleFamilyHome
 {
-    self.mSingleFamilyImageAsButton.image = [UIImage imageNamed:@"sfh-homeinfo-selected.png"];
-    self.mCondoImageAsButton.image = [UIImage imageNamed:@"condo.png"];
+    [self.mSingleFamilyButton setImage:[UIImage imageNamed:@"sfh-homeinfo-selected.png"] forState:UIControlStateNormal];
+    [self.mCondoButton setImage:[UIImage imageNamed:@"condo.png"] forState:UIControlStateNormal];
     
     self.mSelectedHomeType = homeTypeSingleFamily;
 }
 
 -(void) selectCondominuim
 {
-    self.mSingleFamilyImageAsButton.image = [UIImage imageNamed:@"sfh-homeinfo.png"];
-    self.mCondoImageAsButton.image = [UIImage imageNamed:@"condo-selected.png"];
+    [self.mSingleFamilyButton setImage:[UIImage imageNamed:@"sfh-homeinfo.png"] forState:UIControlStateNormal];
+    [self.mCondoButton setImage:[UIImage imageNamed:@"condo-selected.png"] forState:UIControlStateNormal];;
     
     self.mSelectedHomeType = homeTypeCondominium;
 }
@@ -70,15 +78,6 @@
 -(void) setupGestureRecognizers
 {
     [self.mFormScrollView setCanCancelContentTouches:YES];
-
-    UITapGestureRecognizer* sfhButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                      initWithTarget:self action:@selector(sfhButtonTapped:)];
-    [self.mSingleFamilyImageAsButton addGestureRecognizer:sfhButtonTappedGesture];
-    
-    UITapGestureRecognizer* condoButtonTappedGesture = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self
-                                                        action:@selector(condoButtonTapped:)];
-    [self.mCondoImageAsButton addGestureRecognizer:condoButtonTappedGesture];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -89,7 +88,7 @@
 
 -(void) setupButtons
 {
-    if([kunanceUser getInstance].mKunanceUserLoan)
+    if([[kunanceUser getInstance].mKunanceUserLoans getCurrentLoanCount])
     {
         self.mShowHomePayments.hidden = NO;
         self.mLoanInfoViewAsButton.hidden = YES;
@@ -118,12 +117,19 @@
     [self setupButtons];
     [self addExistingHomeInfo];
     
+    self.mAskingPriceField.maxLength = MAX_HOME_PRICE_LENGTH;
+    self.mMontylyHOAField.maxLength = MAX_HOA_PRICE_LENGTH;
+    
     self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Dashboard Help Screen" properties:Nil];
 }
 
 -(void) uploadHomeInfo
 {
-    if(!self.mBestHomeFeatureField.text || !self.mAskingPriceField.text || (self.mSelectedHomeType == homeTypeNotDefined))
+    if(!self.mBestHomeFeatureField.text || self.mAskingPriceField.amount <= 0 ||
+       (self.mSelectedHomeType == homeTypeNotDefined))
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];
         return;
@@ -132,7 +138,6 @@
     
     uint currentNumberOfHomes = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
     
-    APIHomeInfoService* homeInfoService = [[APIHomeInfoService alloc] init];
     
     homeInfo* aHomeInfo = nil;
     if(self.mCorrespondingHomeInfo)
@@ -142,27 +147,58 @@
     
     aHomeInfo.mHomeType = self.mSelectedHomeType;
     aHomeInfo.mIdentifiyingHomeFeature = self.mBestHomeFeatureField.text;
-    aHomeInfo.mHomeListPrice = [self.mAskingPriceField.text intValue];
+    aHomeInfo.mHomeListPrice = [self.mAskingPriceField.amount longValue];
     
     if(self.mMontylyHOAField.text)
-        aHomeInfo.mHOAFees = [self.mMontylyHOAField.text intValue];
+        aHomeInfo.mHOAFees = [self.mMontylyHOAField.amount longValue];
     else if(self.mCorrespondingHomeInfo && self.mCorrespondingHomeInfo.mHOAFees)
         aHomeInfo.mHOAFees = self.mCorrespondingHomeInfo.mHOAFees;
+
+    aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
+    if(self.mHomeStreetAddress)
+        aHomeInfo.mHomeAddress.mStreetAddress = self.mHomeStreetAddress;
     
-    if(homeInfoService)
+    if(self.mHomeState)
     {
-        homeInfoService.mAPIHomeInfoDelegate = self;
-        if(!self.mCorrespondingHomeInfo)
+        aHomeInfo.mHomeAddress.mStateCode = [States getStateCodeForStateName:self.mHomeState];
+    }
+    else
+        aHomeInfo.mHomeAddress.mStateCode = UNDEFINED_STATE_CODE;
+    
+    if(self.mHomeCity && aHomeInfo.mHomeAddress.mStateCode)
+    {
+        Cities* citiesList = [[Cities alloc] initForState:aHomeInfo.mHomeAddress.mStateCode];
+        aHomeInfo.mHomeAddress.mCityCode = [citiesList getCityCodeForCityName:self.mHomeCity];
+    }
+    else
+        aHomeInfo.mHomeAddress.mCityCode = OTHER_CITY_CODE;
+    
+    if(![kunanceUser getInstance].mKunanceUserHomes)
+        [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
+
+    [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Updating";
+
+    if(!self.mCorrespondingHomeInfo)
+    {
+        aHomeInfo.mHomeId = currentNumberOfHomes+1;
+        
+        if(![[kunanceUser getInstance].mKunanceUserHomes createNewHomeInfo:aHomeInfo])
         {
-            aHomeInfo.mHomeId = currentNumberOfHomes+1;
-            
-            if(![homeInfoService createNewHomeInfo:aHomeInfo])
-                [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to create home info"];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to create home info"];
         }
-        else
+
+        self.mCorrespondingHomeInfo = aHomeInfo;
+    }
+    else
+    {
+        if(![[kunanceUser getInstance].mKunanceUserHomes updateExistingHomeInfo:aHomeInfo])
         {
-            if(![homeInfoService updateExistingHomeInfo:aHomeInfo])
-                [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update home info"];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update home info"];
         }
     }
 }
@@ -180,14 +216,23 @@
 
 -(IBAction) enterHomeAddressButtonTapped
 {
+    self.mHomeAddressView = [[HomeAddressViewController alloc] init];
+    self.mHomeAddressView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    self.mHomeAddressView.mHomeAddressViewDelegate = self;
+    if(self.mCorrespondingHomeInfo.mHomeAddress)
+    {
+        self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
+    }
+
+    [self.navigationController pushViewController:self.mHomeAddressView animated:YES];
 }
 
--(void) sfhButtonTapped:(UITapGestureRecognizer*)recognizer
+-(IBAction)sfhButtonTapped:(id)sender
 {
     [self selectSingleFamilyHome];
 }
 
--(void) condoButtonTapped:(UITapGestureRecognizer*)recognizer
+-(IBAction) condoButtonTapped:(id)sender
 {
     [self selectCondominuim];
 }
@@ -202,12 +247,36 @@
     HelpHomeViewController* hPV = [[HelpHomeViewController alloc] init];
     [self.navigationController pushViewController:hPV animated:NO];
 }
-
 #pragma mark end
+
+#pragma mark HomeAddressViewDelegate
+-(void) popHomeAddressFromHomeInfo
+{
+    if(self.mHomeAddressView.mStreetAddress.text && (self.mHomeAddressView.mStreetAddress.text.length > 0))
+    {
+        self.mHomeStreetAddress = self.mHomeAddressView.mStreetAddress.text;
+    }
+    
+    if(self.mHomeAddressView.mCity.text && (self.mHomeAddressView.mCity.text.length > 0))
+    {
+        self.mHomeCity = [self.mHomeAddressView.mCity.text uppercaseString];
+    }
+
+    if(self.mHomeAddressView.mState.text && (self.mHomeAddressView.mState.text.length > 0))
+    {
+        self.mHomeState = self.mHomeAddressView.mState.text;
+    }
+
+    [self.mHomeAddressView dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma end
 
 #pragma mark APIHomeInfoServiceDelegate
 -(void) finishedWritingHomeInfo
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    [[kunanceUser getInstance] updateStatusWithHomeInfoStatus];
     if(!self.mLoanInfoViewAsButton.hidden)
     {
         if(!self.mLoanInfoController)

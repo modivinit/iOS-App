@@ -27,6 +27,40 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.mSegmentedControl addTarget:self
+                         action:@selector(segmentedControlSelectionChanged)
+               forControlEvents:UIControlEventValueChanged];
+    
+    self.navigationItem.title = @"Terms And Policies";
+
+    [self switchView];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Entered Terms and Policies Screen" properties:Nil];
+}
+
+-(void) switchView
+{
+    if(self.mSegmentedControl.selectedSegmentIndex == 0)
+    {
+        self.mPrivacyPolicyView.hidden = YES;
+        self.mTermsOfUserView.hidden = NO;
+    }
+    else
+    {
+        self.mPrivacyPolicyView.hidden = NO;
+        self.mTermsOfUserView.hidden = YES;
+    }
+}
+
+-(IBAction)dashboardButtonTapped:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+}
+
+-(void) segmentedControlSelectionChanged
+{
+    [self switchView];
 }
 
 - (void)didReceiveMemoryWarning

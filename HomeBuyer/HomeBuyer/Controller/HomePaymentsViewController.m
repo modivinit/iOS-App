@@ -8,6 +8,7 @@
 
 #import "HomePaymentsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
+#import "kCATCalculator.h"
 
 @interface HomePaymentsViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomePaymentsChart;
@@ -30,37 +31,55 @@
 
     if(home)
     {
-        self.mHOA.text = [NSString stringWithFormat:@"%d", home.mHOAFees];
-        
         self.mHomeTitle.text = home.mIdentifiyingHomeFeature;
         
         if(home.mHomeType == homeTypeCondominium)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-condo.png"];
-            self.mCondoSFHLabel.text = @"Condo/Townhome";
         }
         else if(home.mHomeType == homeTypeSingleFamily)
         {
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-sfh.png"];
-            self.mCondoSFHLabel.text = @"Single Family";
         }
         
-        self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
+        self.mHomeListPrice.text = [Utilities getCurrencyFormattedStringForNumber:
+                                    [NSNumber numberWithLong:home.mHomeListPrice]];
     }
 }
 
 -(void) setupChart
 {
-    homeInfo* home = [[kunanceUser getInstance].mKunanceUserHomes
-                      getHomeAtIndex:[self.mHomeNumber intValue]];
-
-    if(home)
+    homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:[self.mHomeNumber intValue]];
+    loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
+    UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    if(aHome && aLoan && userProfile)
     {
+        homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
+        
+        float mortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
+        self.mLoanPayment.text = [Utilities getCurrencyFormattedStringForNumber:
+                                  [NSNumber numberWithLong:mortgage]];
+        
+        float propertyTaxes = [homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR;
+        self.mPropertyTax.text = [Utilities getCurrencyFormattedStringForNumber:
+                                  [NSNumber numberWithLong:propertyTaxes]];
+        
+        float hoa = homeAndLoan.mHOAFees;
+        self.mHOA.text = [Utilities getCurrencyFormattedStringForNumber:
+                          [NSNumber numberWithLong:hoa]];
+        
+        float insurance = 150;
+        self.mInsurance.text = [Utilities getCurrencyFormattedStringForNumber:
+                                [NSNumber numberWithLong:insurance]];
+        
+        self.mTotalMonthlyPayments.text = [Utilities getCurrencyFormattedStringForNumber:
+                                           [NSNumber numberWithLong:mortgage+propertyTaxes+hoa+insurance]];
         // create the data
-        homePayments = @{@"Mortgage" : @1800,
-                         @"HOA" : [NSNumber numberWithInt:home.mHOAFees],
-                         @"Property Tax" : @600,
-                         @"Insurance" : @150};
+        homePayments = @{@"Mortgage" : [NSNumber numberWithFloat:mortgage],
+                         @"HOA" : [NSNumber numberWithFloat:hoa],
+                         @"Property Tax" : [NSNumber numberWithFloat:propertyTaxes],
+                         @"Insurance" : [NSNumber numberWithFloat:insurance]};
 
         self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
         self.mHomePaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
@@ -109,11 +128,21 @@ atPixelCoordinate:(CGPoint)pixelPoint
 
 -(SChartSeries *)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index {
     SChartPieSeries* pieSeries = [[SChartPieSeries alloc] init];
+    pieSeries.style.chartEffect = SChartRadialChartEffectBevelledLight;
     pieSeries.selectedStyle.protrusion = 10.0f;
     pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:10];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
     pieSeries.selectionAnimation.duration = @0.4;
     pieSeries.selectedPosition = @0.0;
+    pieSeries.style.showCrust = NO;
+    pieSeries.animationEnabled = YES;
+    NSMutableArray* colors = [[NSMutableArray alloc] init];
+    [colors addObject:[UIColor colorWithRed:127.0/255.0 green:140.0/255.0 blue:141.0/255.0 alpha:0.8]];
+    [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];
+    [colors addObject:[UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:0.8]];
+    [colors addObject:[UIColor colorWithRed:230.0/255.0 green:126.0/255.0 blue:34.0/255.0 alpha:0.8]];
+    pieSeries.style.flavourColors = colors;
+    pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;
 }
 
@@ -125,8 +154,17 @@ atPixelCoordinate:(CGPoint)pixelPoint
     SChartRadialDataPoint *datapoint = [[SChartRadialDataPoint alloc] init];
     NSString* key = homePayments.allKeys[dataIndex];
     datapoint.name = key;
-    datapoint.value = homePayments[key];
-    return datapoint;
+    NSNumber* value =  homePayments[key];
+    if([value compare:@0] == NSOrderedAscending)
+    {
+        datapoint.value = @0;
+        return datapoint;
+    }
+    else
+    {
+        datapoint.value = homePayments[key];
+        return datapoint;
+    }
 }
 
 - (void)didReceiveMemoryWarning

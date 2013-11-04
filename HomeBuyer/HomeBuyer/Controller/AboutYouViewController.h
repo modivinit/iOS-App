@@ -7,20 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "userPFInfo.h"
+#import "userProfileInfo.h"
 #import "FormViewController.h"
-#import "APIUserInfoService.h"
 #import "FixedCostsViewController.h"
+#import "userProfileInfo.h"
+#import "TSCurrencyTextField.h"
 
 @interface AboutYouViewController : FormViewController
-<APIUserInfoServiceDelegate, FixedCostsControllerDelegate>
+<userProfileInfoDelegate, FixedCostsControllerDelegate, UITextFieldDelegate>
 @property (nonatomic) userMaritalStatus      mSelectedMaritalStatus;
 @property (nonatomic, strong) FixedCostsViewController* mFixedCostsController;
 
-@property (nonatomic) IBOutlet UIImageView*  mMarriedImageAsButton;
-@property (nonatomic) IBOutlet UIImageView*  mSingleImageAsButton;
-@property (nonatomic) IBOutlet UITextField*   mAnnualGrossIncomeField;
-@property (nonatomic) IBOutlet UITextField*   mAnnualRetirementContributionField;
+@property (nonatomic) IBOutlet UIButton*  mMarriedButton;
+-(IBAction)marriedButtonTapped:(id)sender;
+
+@property (nonatomic) IBOutlet UIButton*  mSingleButton;
+-(IBAction)singleButtonTapped:(id)sender;
+
+@property (nonatomic) IBOutlet TSCurrencyTextField*   mAnnualGrossIncomeField;
+@property (nonatomic) IBOutlet TSCurrencyTextField*   mAnnualRetirementContributionField;
 @property (nonatomic) IBOutlet UISegmentedControl* mNumberOfChildrenControl;
 
 @property (nonatomic, strong) IBOutlet UIButton*  mDashboardButton;

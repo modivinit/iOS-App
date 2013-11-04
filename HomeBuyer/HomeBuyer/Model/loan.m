@@ -8,6 +8,11 @@
 
 #import "loan.h"
 
+static NSString* const kLoanDownPaymentKey = @"DownPaymentKey";
+static NSString* const kDownPaymentTypeKey = @"DownPaymentTypeKey";
+static NSString* const kLoanInterestKey = @"LoanInterestKey";
+static NSString* const kLoanDurationKey = @"LoanDurationKey";
+
 @implementation loan
 -(id) init
 {
@@ -24,47 +29,35 @@
     return self;
 }
 
-+(uint) getLoanDurationForIndex:(uint) index
+-(id) initWithDictionary:(NSDictionary*) dict
 {
-    switch (index) {
-        case loanDurationTenYears:
-            return LOAN_DURATION_10_YEARS;
-            break;
-
-        case loanDurationFifteenYears:
-            return LOAN_DURATION_15_YEARS;
-            break;
-
-        case loanDurationTwentyYears:
-            return LOAN_DURATION_20_YEARS;
-            break;
-
-        case loanDurationThirtyYears:
-            return LOAN_DURATION_30_YEARS;
-            break;
-
-        default:
-            return LOAN_DURATION_30_YEARS;
+    self = [super init];
+    
+    if(self)
+    {
+        if(!dict)
+            return self;
+        
+        self.mDownPayment = [dict[kLoanDownPaymentKey] floatValue];
+        self.mDownPaymentType = [dict[kDownPaymentTypeKey] integerValue];
+        self.mLoanInterestRate = [dict[kLoanInterestKey] floatValue];
+        self.mLoanDuration = [dict[kLoanDurationKey] integerValue];
     }
+    
+    return self;
+
 }
 
-+(uint) getIndexForLoanDuration:(uint) loanDuration
+-(NSDictionary*) getDictionaryObjectWithLoan
 {
-    switch (loanDuration) {
-        case LOAN_DURATION_10_YEARS:
-            return loanDurationTenYears;
-            
-        case LOAN_DURATION_15_YEARS:
-            return loanDurationFifteenYears;
-            
-        case LOAN_DURATION_20_YEARS:
-            return loanDurationTwentyYears;
-            
-        case LOAN_DURATION_30_YEARS:
-            return loanDurationThirtyYears;
-            
-        default:
-            return loanDurationThirtyYears;
-    }
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    dict[kLoanDownPaymentKey] = [NSNumber numberWithFloat:self.mDownPayment];
+    dict[kDownPaymentTypeKey] = [NSNumber numberWithInt:self.mDownPaymentType];
+    dict[kLoanDurationKey] = [NSNumber numberWithInt:self.mLoanDuration];
+    dict[kLoanInterestKey] = [NSNumber numberWithFloat:self.mLoanInterestRate];
+    
+    return dict;
 }
+
 @end

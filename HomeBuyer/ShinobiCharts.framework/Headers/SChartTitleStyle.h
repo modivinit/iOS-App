@@ -37,11 +37,19 @@
 
 /** The minimum font size for the title text.
  
- Functions in the same way as the UILabel equivalent property.*/
-@property (nonatomic)             CGFloat           minimumFontSize;
+ Functions in the same way as the UILabel equivalent property.
+ 
+ DEPRECATED - Use `minimumScaleFactor` instead.*/
+@property (nonatomic)             CGFloat           minimumFontSize DEPRECATED_ATTRIBUTE;
+
+/** The minimum scale factor for the title text.
+ 
+ Functions in the same way as the UILabel equivalent property.
+ **/
+@property (nonatomic)             CGFloat           minimumScaleFactor;
 
 /** The text alignment of the title. */
-@property (nonatomic)             UITextAlignment   textAlign;
+@property (nonatomic)             NSTextAlignment   textAlign;
 
 /** The background color of the title label. */
 @property (nonatomic, retain)     UIColor           *backgroundColor;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

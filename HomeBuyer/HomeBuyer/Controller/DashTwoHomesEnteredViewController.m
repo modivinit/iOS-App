@@ -34,17 +34,13 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
-    Home1VsHome2ViewController* viewController1 = [[Home1VsHome2ViewController alloc] init];
-    viewController1.mHomes1VsHome2Delegate = self;
-    [self.mPageViewControllers addObject:viewController1];
-    
-    HomesComparisionViewController* viewController2 = [[HomesComparisionViewController alloc] init];
-    viewController2.mHomesComparisionDelegate = self;
-    //[self.mPageViewControllers addObject: viewController2];
-    
-    TwoHomeRentVsBuyViewController* viewController3 = [[TwoHomeRentVsBuyViewController alloc] init];
-    viewController3.mTwoHomeRentVsBuyDelegate = self;
+    TwoHomeLifestyleIncomeViewController* viewController3 = [[TwoHomeLifestyleIncomeViewController alloc] init];
+    viewController3.mTwoHomeLifestyleDelegate = self;
     [self.mPageViewControllers addObject:viewController3];
+    
+    TwoHomePaymentViewController* viewController1 = [[TwoHomePaymentViewController alloc] init];
+    viewController1.mTwoHomePaymentDelegate = self;
+    [self.mPageViewControllers addObject:viewController1];
     
     TwoHomeTaxSavingsViewController* viewController4 = [[TwoHomeTaxSavingsViewController alloc] init];
     viewController4.mTwoHomeTaxSavingsDelegate = self;
@@ -59,7 +55,7 @@
 	// Do any additional setup after loading the view.
     UIImage *revealImagePortrait = [UIImage imageNamed:@"MenuIcon.png"];
     
-    if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
+    if ([self.navigationController.revealController hasLeftViewController])
     {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait
                                                                    landscapeImagePhone:nil
@@ -69,6 +65,9 @@
     }
     
     [self addButtons];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Viewed 2-home dashboard" properties:Nil];
 }
 
 -(void) helpButtonTapped

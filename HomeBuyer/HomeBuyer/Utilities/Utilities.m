@@ -9,6 +9,26 @@
 #import "Utilities.h"
 
 @implementation Utilities
+
++ (BOOL)isValidEmail:(NSString*)emailString
+{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:emailString];
+}
+
++(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount
+{
+    NSNumberFormatter* currencyNumberFormatter = [[NSNumberFormatter alloc] init];
+    currencyNumberFormatter.locale = [NSLocale currentLocale];
+    currencyNumberFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
+    currencyNumberFormatter.maximumFractionDigits = 0;
+    currencyNumberFormatter.usesGroupingSeparator = YES;
+    [currencyNumberFormatter setNegativeFormat:@"-¤#,##0.00"];
+    
+    return [currencyNumberFormatter stringFromNumber:amount];
+}
+
 +(void) showAlertWithTitle:(NSString*)title andMessage:(NSString*) msg
 {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title

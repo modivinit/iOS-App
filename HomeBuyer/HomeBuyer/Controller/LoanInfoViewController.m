@@ -18,8 +18,8 @@
 #define MAX_POSSIBLE_INTEREST_RATE 30
 
 #define MAX_DIGITS_DOWNPAYMENT_FIXED 12
-#define MAX_DIGITS_DOWNPAYMENT_PERCENTAGE 5
-#define MAX_DIGITS_INTEREST_RATE_FIELD 4
+#define MAX_DIGITS_DOWNPAYMENT_PERCENTAGE 6
+#define MAX_DIGITS_INTEREST_RATE_FIELD 5
 
 @interface LoanInfoViewController ()
 
@@ -132,6 +132,12 @@
         
         self.mLoanDurationField.selectedSegmentIndex = [self getIndexForLoanDuration:self.mCorrespondingLoan.mLoanDuration];
     }
+    else
+    {
+        self.mDownPaymentFixedAmountField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+        self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+        self.mInterestRateField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+    }
 }
 
 -(void) setupButtons
@@ -166,13 +172,20 @@
     NSString* titleText = [NSString stringWithFormat:@"Home Loan Info"];
     self.navigationController.navigationBar.topItem.title = titleText;
 
+    self.mPercentDollarValueChoice.selectedSegmentIndex = PERCENT_VALUE_DOWN_PAYMENT;
+    uint selectedSegment = PERCENT_VALUE_DOWN_PAYMENT;
+    
     self.mCorrespondingLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
-
-    if(self.mCorrespondingLoan.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
+    if(self.mCorrespondingLoan)
+    {
+         selectedSegment = self.mCorrespondingLoan.mDownPaymentType;
+    }
+    
+    if(selectedSegment == PERCENT_VALUE_DOWN_PAYMENT)
     {
         self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentFixedAmountField, self.mInterestRateField, nil];
     }
-    else if (self.mCorrespondingLoan.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)
+    else if (selectedSegment == DOLLAR_VALUE_DOWN_PAYMENT)
     {
         self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentPercentageField, self.mInterestRateField, nil];
     }
@@ -183,7 +196,6 @@
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
     [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
 
-    self.mPercentDollarValueChoice.selectedSegmentIndex = PERCENT_VALUE_DOWN_PAYMENT;
     
     [self.mPercentDollarValueChoice addTarget:self
                                        action:@selector(percentDollarChoiceChanged)
@@ -202,7 +214,7 @@
     self.mDownPaymentPercentageField.currencyNumberFormatter.maximumFractionDigits = 2;
     self.mDownPaymentPercentageField.currencyNumberFormatter.minimumFractionDigits = 2;
     self.mDownPaymentPercentageField.currencyNumberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-    self.mDownPaymentPercentageField.maxLength = MAX_DIGITS_INTEREST_RATE_FIELD;
+    self.mDownPaymentPercentageField.maxLength = MAX_DIGITS_DOWNPAYMENT_PERCENTAGE;
     
     [self setupWithExisitingLoan];
     Mixpanel *mixpanel = [Mixpanel sharedInstance];

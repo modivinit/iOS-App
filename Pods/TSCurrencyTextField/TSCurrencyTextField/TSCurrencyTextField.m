@@ -54,7 +54,7 @@
     _currencyTextFieldDelegate = [TSCurrencyTextFieldDelegate new];
     [super setDelegate: _currencyTextFieldDelegate];
     
-    [self setText: @"0"];
+    //[self setText: @"0"];
 }
 
 - (void) setCaratPosition: (NSInteger) pos

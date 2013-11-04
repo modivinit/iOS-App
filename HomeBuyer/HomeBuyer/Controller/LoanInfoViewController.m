@@ -100,12 +100,18 @@
     if(self.mPercentDollarValueChoice.selectedSegmentIndex == PERCENT_VALUE_DOWN_PAYMENT)
     {
         self.mDownPaymentPercentageField.hidden = NO;
+        self.mDownPaymentPercentageField.userInteractionEnabled = YES;
+        
         self.mDownPaymentFixedAmountField.hidden = YES;
+        self.mDownPaymentFixedAmountField.userInteractionEnabled = NO;
     }
     else if(self.mPercentDollarValueChoice.selectedSegmentIndex == DOLLAR_VALUE_DOWN_PAYMENT)
     {
         self.mDownPaymentPercentageField.hidden = YES;
+        self.mDownPaymentPercentageField.userInteractionEnabled = NO;
+        
         self.mDownPaymentFixedAmountField.hidden = NO;
+        self.mDownPaymentFixedAmountField.userInteractionEnabled = YES;
     }
 }
 
@@ -134,9 +140,9 @@
     }
     else
     {
-        self.mDownPaymentFixedAmountField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
-        self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
-        self.mInterestRateField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+//        self.mDownPaymentFixedAmountField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+//        self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
+//        self.mInterestRateField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
     }
 }
 
@@ -183,11 +189,11 @@
     
     if(selectedSegment == PERCENT_VALUE_DOWN_PAYMENT)
     {
-        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentFixedAmountField, self.mInterestRateField, nil];
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentPercentageField, self.mInterestRateField, nil];
     }
     else if (selectedSegment == DOLLAR_VALUE_DOWN_PAYMENT)
     {
-        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentPercentageField, self.mInterestRateField, nil];
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentFixedAmountField, self.mInterestRateField, nil];
     }
 
     [super viewDidLoad];
@@ -223,7 +229,7 @@
 
 -(void) uploadLoanInfo
 {
-    if(!self.mDownPaymentFixedAmountField.text.length || !self.mInterestRateField.text.length)
+    if(!self.mInterestRateField.amount)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all the fields"];
         return;
@@ -235,14 +241,6 @@
         newLoanInfo = self.mCorrespondingLoan;
     else
         newLoanInfo = [[loan alloc] init];
-    
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setDecimalSeparator:@"."];
-    [numberFormatter setGroupingSeparator:@","];
-    
-//    NSNumber *downPayment = [numberFormatter numberFromString:self.mDownPaymentFixedAmountField.text];
-//    if(downPayment)
-//        newLoanInfo.mDownPayment = [downPayment floatValue];
     
     newLoanInfo.mDownPaymentType = self.mPercentDollarValueChoice.selectedSegmentIndex;
     if(newLoanInfo.mDownPaymentType == DOLLAR_VALUE_DOWN_PAYMENT)

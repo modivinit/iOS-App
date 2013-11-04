@@ -58,7 +58,7 @@
                             <rect key="frame" x="130" y="75" width="170" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interestrate.png" id="bur-mR-dDn">
                             <rect key="frame" x="20" y="155" width="29" height="29"/>
@@ -75,7 +75,7 @@
                             <rect key="frame" x="60" y="155" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loantime.png" id="NRd-RZ-FRa">
                             <rect key="frame" x="20" y="235" width="29" height="29"/>

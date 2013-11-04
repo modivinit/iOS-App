@@ -106,9 +106,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.mCompareButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 470, 170, 44)];
+    [self.mCompareButton setTitle:@"Compare" forState:UIControlStateNormal];
+    self.mCompareButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
+    
+    self.mCompareButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
+    
+    [self.mCompareButton addTarget:self action:@selector(compareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.mCompareButton];
+    
+
     [self setupChart];
     [self setupOtherLabels];
 }
+
+-(void) compareButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:Nil];
+}
+
 
 #pragma mark - SChartDelegate methods
 

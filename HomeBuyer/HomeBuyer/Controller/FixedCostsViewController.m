@@ -11,8 +11,8 @@
 #import "HelpProfileViewController.h"
 #import <MBProgressHUD.h>
 
-#define MAX_RENT_LENGTH 6
-#define MAX_CAR_PAYMENTS_LENGTH 4
+#define MAX_RENT_LENGTH 7
+#define MAX_CAR_PAYMENTS_LENGTH 5
 #define MAX_FIXED_COSTS_LENGTH  5
 
 @interface FixedCostsViewController ()

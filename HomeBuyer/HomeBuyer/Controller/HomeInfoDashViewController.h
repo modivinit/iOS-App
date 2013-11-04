@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIButton* mContactRealtorButton;
 @property (nonatomic, strong) UIButton* mHelpButton;
 @property (nonatomic, strong) NSNumber* mHomeNumber;
-@property (nonatomic, strong) UIButton* mCompareButton;
 
 -(id) initWithHomeNumber:(NSNumber*) homeNumber;
 

@@ -158,3 +158,10 @@ xcuserdata
 # ...none. Everything is now explained.
 
 Pods
+Podfile
+
+Pods/Pods-environment.h
+
+Pods/Pods-resources.sh
+
+Pods/Pods.xcodeproj/project.pbxproj

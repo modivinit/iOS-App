@@ -193,8 +193,6 @@
     
     [self setupButtons];
     
-<<<<<<< HEAD
-<<<<<<< HEAD
     self.mDownPaymentFixedAmountField.maxLength =  MAX_DIGITS_DOWNPAYMENT_FIXED;
     self.mInterestRateField.currencyNumberFormatter.maximumFractionDigits = 2;
     self.mInterestRateField.currencyNumberFormatter.minimumFractionDigits = 2;

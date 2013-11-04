@@ -114,7 +114,6 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.style.labelFontColor = [UIColor whiteColor];
     pieSeries.selectionAnimation.duration = @0.4;
     pieSeries.selectedPosition = @0.0;
-    pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
     [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
@@ -122,6 +121,7 @@ atPixelCoordinate:(CGPoint)pixelPoint
     [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.9]];
     pieSeries.style.flavourColors = colors;
+    pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;
 }
 

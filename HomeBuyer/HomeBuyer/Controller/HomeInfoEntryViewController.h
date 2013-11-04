@@ -12,6 +12,7 @@
 #import "LoanInfoViewController.h"
 #import "HomeAddressViewController.h"
 #import "UsersHomesList.h"
+#import <TSCurrencyTextField.h>
 
 @interface HomeInfoEntryViewController : FormViewController <UsersHomesListDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
@@ -29,8 +30,8 @@
 -(IBAction) condoButtonTapped:(id)sender;
 
 @property (nonatomic, strong) IBOutlet UITextField*   mBestHomeFeatureField;
-@property (nonatomic, strong) IBOutlet UITextField*   mAskingPriceField;
-@property (nonatomic, strong) IBOutlet UITextField*   mMontylyHOAField;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*   mAskingPriceField;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField*   mMontylyHOAField;
 
 @property (nonatomic, strong) IBOutlet UIButton*       mHomeAddressButton;
 -(IBAction) enterHomeAddressButtonTapped;

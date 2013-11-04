@@ -71,8 +71,9 @@
         mPaymentData[0] = @{@"Payment" : [NSNumber numberWithFloat:homeMortgage]};
         mPaymentData[1] = @{@"Payment" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
         
-        self.mHomePaymentLabel.text = [NSString stringWithFormat:@"$%.0f", homeMortgage];
-        self.mRentalPaymentLabel.text = [NSString stringWithFormat:@"$%d", userProfile.mMonthlyRent];
+        self.mHomePaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage]];
+        self.mRentalPaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:
+                                         [NSNumber numberWithLong:userProfile.mMonthlyRent]];
         
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)

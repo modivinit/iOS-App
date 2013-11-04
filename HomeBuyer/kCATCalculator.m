@@ -56,7 +56,17 @@
     float monthlyStateTaxesPaid = annualStatesTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
     float montlyFedralTaxesPaid = annualFederalTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
     
-    float totalMonthlyCosts = self.mUserProfile.mMonthlyRent + self.mUserProfile.mMonthlyCarPayments + self.mUserProfile.mMonthlyOtherFixedCosts;
+    float monthlyRentOrMortgage = 0;
+    if(self.mHome)
+    {
+        monthlyRentOrMortgage = [self.mHome getMonthlyLoanPaymentForHome];
+    }
+    else
+    {
+        monthlyRentOrMortgage = self.mUserProfile.mMonthlyRent;
+    }
+    
+    float totalMonthlyCosts = monthlyRentOrMortgage + self.mUserProfile.mMonthlyCarPayments + self.mUserProfile.mMonthlyOtherFixedCosts;
     float totalMonthlyTaxesPaid = monthlyStateTaxesPaid + montlyFedralTaxesPaid;
     
     float monthlyLifestyleIncome = montlyGrossIncome - (totalMonthlyCosts + totalMonthlyTaxesPaid);

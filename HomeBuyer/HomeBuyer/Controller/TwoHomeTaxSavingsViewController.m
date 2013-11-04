@@ -96,10 +96,9 @@
         homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home2Taxes]};
         homeTaxSavings[2] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
 
-        NSString* rentStr = [NSString stringWithFormat:@"$%.0f", ceil(rentalTaxes)];
-        self.mEstRentalUnitTaxes.text = rentStr;
-        self.mEstFirstHomeTaxes.text = [NSString stringWithFormat:@"$%.0f", ceil(home1Taxes)];
-        self.mEstSecondHomeTaxes.text = [NSString stringWithFormat:@"$%.0f", ceil(home2Taxes)];
+        self.mEstRentalUnitTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rentalTaxes]];
+        self.mEstFirstHomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1Taxes]];
+        self.mEstSecondHomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home2Taxes]];
         
         self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
         if(home1.mHomeType == homeTypeSingleFamily)

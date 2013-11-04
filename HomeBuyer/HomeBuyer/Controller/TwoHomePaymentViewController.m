@@ -79,10 +79,9 @@
         mMonthlyPaymentData[2] =  @{@"Monthly Payment" :
                                         [NSNumber numberWithFloat:homeMortgage2]};
 
-        NSString* rentStr = [NSString stringWithFormat:@"$%d", rent];
-        self.mRentalPayment.text = rentStr;
-        self.mHome1Payment.text = [NSString stringWithFormat:@"$%.0f", homeMortgage1];
-        self.mHome2Payment.text = [NSString stringWithFormat:@"$%.0f", homeMortgage2];
+        self.mRentalPayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rent]];
+        self.mHome1Payment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage1]];
+        self.mHome2Payment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage2]];
         
         self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
         if(home1.mHomeType == homeTypeSingleFamily)

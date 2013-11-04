@@ -87,10 +87,12 @@
         mLifestyleIncomeData[1] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle1]};
         mLifestyleIncomeData[2] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle2]};
 
-        NSString* rentStr = [NSString stringWithFormat:@"$%.0f", rentLifestyle];
-        self.mRentalLifeStyleIncome.text = rentStr;
-        self.mHome1LifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifestyle1];
-        self.mHome2LifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifestyle2];
+        self.mRentalLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                            [NSNumber numberWithFloat:rentLifestyle]];
+        self.mHome1LifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                           [NSNumber numberWithFloat:homeLifestyle1]];
+        self.mHome2LifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                           [NSNumber numberWithFloat:homeLifestyle2]];
         
         self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
         if(home1.mHomeType == homeTypeSingleFamily)

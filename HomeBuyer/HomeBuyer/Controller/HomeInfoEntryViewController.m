@@ -12,6 +12,9 @@
 #import "States.h"
 #import <MBProgressHUD.h>
 
+#define MAX_HOME_PRICE_LENGTH 12
+#define MAX_HOA_PRICE_LENGTH 5
+
 @interface HomeInfoEntryViewController ()
 @property (nonatomic, copy) NSString* mHomeStreetAddress;
 @property (nonatomic, copy) NSString* mHomeCity;
@@ -114,12 +117,16 @@
     [self setupButtons];
     [self addExistingHomeInfo];
     
+    self.mAskingPriceField.maxLength = MAX_HOME_PRICE_LENGTH;
+    self.mMontylyHOAField.maxLength = MAX_HOA_PRICE_LENGTH;
+    
     self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
 }
 
 -(void) uploadHomeInfo
 {
-    if(!self.mBestHomeFeatureField.text || !self.mAskingPriceField.text || (self.mSelectedHomeType == homeTypeNotDefined))
+    if(!self.mBestHomeFeatureField.text || self.mAskingPriceField.amount <= 0 ||
+       (self.mSelectedHomeType == homeTypeNotDefined))
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];
         return;
@@ -137,10 +144,10 @@
     
     aHomeInfo.mHomeType = self.mSelectedHomeType;
     aHomeInfo.mIdentifiyingHomeFeature = self.mBestHomeFeatureField.text;
-    aHomeInfo.mHomeListPrice = [self.mAskingPriceField.text intValue];
+    aHomeInfo.mHomeListPrice = [self.mAskingPriceField.amount longValue];
     
     if(self.mMontylyHOAField.text)
-        aHomeInfo.mHOAFees = [self.mMontylyHOAField.text intValue];
+        aHomeInfo.mHOAFees = [self.mMontylyHOAField.amount longValue];
     else if(self.mCorrespondingHomeInfo && self.mCorrespondingHomeInfo.mHOAFees)
         aHomeInfo.mHOAFees = self.mCorrespondingHomeInfo.mHOAFees;
 

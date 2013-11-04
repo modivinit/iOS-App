@@ -17,6 +17,18 @@
     return [emailTest evaluateWithObject:emailString];
 }
 
++(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount
+{
+    NSNumberFormatter* currencyNumberFormatter = [[NSNumberFormatter alloc] init];
+    currencyNumberFormatter.locale = [NSLocale currentLocale];
+    currencyNumberFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
+    currencyNumberFormatter.maximumFractionDigits = 0;
+    currencyNumberFormatter.usesGroupingSeparator = YES;
+    [currencyNumberFormatter setNegativeFormat:@"-¤#,##0.00"];
+    
+    return [currencyNumberFormatter stringFromNumber:amount];
+}
+
 +(void) showAlertWithTitle:(NSString*)title andMessage:(NSString*) msg
 {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title

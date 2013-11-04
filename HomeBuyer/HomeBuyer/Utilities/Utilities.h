@@ -16,4 +16,5 @@
 +(CGFloat) getDeviceHeight;
 +(UIColor*) getKunanceBlueColor;
 + (UIActivityIndicatorView*) getAndStartBusyIndicator;
++(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount;
 @end

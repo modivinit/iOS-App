@@ -63,10 +63,13 @@
         
         mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:homeEstTaxesPaid]};
         mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:rentEstTaxesPaid]};
-        self.mEstTaxPaidWithRental.text = [NSString stringWithFormat:@"$%.0f", rentEstTaxesPaid];
-        self.mEstTaxesPaidWithHome.text = [NSString stringWithFormat:@"$%.0f", homeEstTaxesPaid];
+        self.mEstTaxPaidWithRental.text = [Utilities getCurrencyFormattedStringForNumber:
+                                           [NSNumber numberWithLong:rentEstTaxesPaid]];
+        self.mEstTaxesPaidWithHome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                           [NSNumber numberWithLong:homeEstTaxesPaid]];
         
-        self.mEstTaxSavings.text = [NSString stringWithFormat:@"$%.0f", rentEstTaxesPaid-homeEstTaxesPaid];
+        self.mEstTaxSavings.text = [Utilities getCurrencyFormattedStringForNumber:
+                                    [NSNumber numberWithLong:rentEstTaxesPaid-homeEstTaxesPaid]];
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];

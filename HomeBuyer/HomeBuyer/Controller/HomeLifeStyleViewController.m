@@ -41,7 +41,9 @@
         }
         
         self.mCondoSFHLabel.text = home.mIdentifiyingHomeFeature;
-        self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
+        self.mHomeListPrice.text = [Utilities getCurrencyFormattedStringForNumber:
+                                                                       [NSNumber numberWithLong:home.mHomeListPrice]];
+
     }
 }
 
@@ -60,9 +62,12 @@
         float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] +
                                         [calculatorHome getAnnualStateTaxesPaid])/12);
         
-        self.mHomeLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", lifestyleIncome];
-        self.mFixedCosts.text = [NSString stringWithFormat:@"$%d", userProfile.mMonthlyOtherFixedCosts];
-        self.mEstIncomeTaxes.text = [NSString stringWithFormat:@"$%.0f", homeEstTaxesPaid];
+        self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                          [NSNumber numberWithLong:lifestyleIncome]];
+        self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
+                                 [NSNumber numberWithLong:userProfile.mMonthlyOtherFixedCosts]];
+        self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
+                                     [NSNumber numberWithLong:homeEstTaxesPaid]];
         // create the data
         homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:lifestyleIncome],
                          @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
@@ -140,8 +145,18 @@ atPixelCoordinate:(CGPoint)pixelPoint
     SChartRadialDataPoint *datapoint = [[SChartRadialDataPoint alloc] init];
     NSString* key = homePayments.allKeys[dataIndex];
     datapoint.name = key;
-    datapoint.value = homePayments[key];
-    return datapoint;
+    
+    NSNumber* value =  homePayments[key];
+    if([value compare:@0] == NSOrderedAscending)
+    {
+        datapoint.value = @0;
+        return datapoint;
+    }
+    else
+    {
+        datapoint.value = homePayments[key];
+        return datapoint;
+    }
 }
 
 - (void)didReceiveMemoryWarning

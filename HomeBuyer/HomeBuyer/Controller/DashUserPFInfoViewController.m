@@ -133,8 +133,17 @@ atPixelCoordinate:(CGPoint)pixelPoint
     SChartRadialDataPoint *datapoint = [[SChartRadialDataPoint alloc] init];
     NSString* key = homePayments.allKeys[dataIndex];
     datapoint.name = key;
-    datapoint.value = homePayments[key];
-    return datapoint;
+    NSNumber* value =  homePayments[key];
+    if([value compare:@0] == NSOrderedAscending)
+    {
+        datapoint.value = @0;
+        return datapoint;
+    }
+    else
+    {
+        datapoint.value = homePayments[key];
+        return datapoint;
+    }
 }
 
 

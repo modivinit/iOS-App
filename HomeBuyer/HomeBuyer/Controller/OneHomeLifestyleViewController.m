@@ -85,10 +85,12 @@
         float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncome]);
         
         mLifestyleIncomeData[0] = @{@"Lifestyle" : [NSNumber numberWithFloat:rentLifestyleIncome]};
-        self.mRentalLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", rentLifestyleIncome];
+        self.mRentalLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                            [NSNumber numberWithLong:rentLifestyleIncome]];
         
         mLifestyleIncomeData[1] = @{@"Lifestyle" : [NSNumber numberWithFloat:homeLifeStyleIncome]};
-        self.mHomeLifeStyleIncome.text = [NSString stringWithFormat:@"$%.0f", homeLifeStyleIncome];
+        self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
+                                          [NSNumber numberWithLong:homeLifeStyleIncome]];
         
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)

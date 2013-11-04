@@ -42,7 +42,8 @@
             self.mCondoSFHIndicator.image = [UIImage imageNamed:@"menu-home-sfh.png"];
         }
         
-        self.mHomeListPrice.text = [NSString stringWithFormat:@"%llu", home.mHomeListPrice];
+        self.mHomeListPrice.text = [Utilities getCurrencyFormattedStringForNumber:
+                                    [NSNumber numberWithLong:home.mHomeListPrice]];
     }
 }
 
@@ -57,18 +58,23 @@
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         
         float mortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
-        self.mLoanPayment.text = [NSString stringWithFormat:@"$%.0f", mortgage];
+        self.mLoanPayment.text = [Utilities getCurrencyFormattedStringForNumber:
+                                  [NSNumber numberWithLong:mortgage]];
         
         float propertyTaxes = [homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR;
-        self.mPropertyTax.text = [NSString stringWithFormat:@"$%.0f", propertyTaxes];
+        self.mPropertyTax.text = [Utilities getCurrencyFormattedStringForNumber:
+                                  [NSNumber numberWithLong:propertyTaxes]];
         
         float hoa = homeAndLoan.mHOAFees;
-        self.mHOA.text = [NSString stringWithFormat:@"$%.0f", hoa];
+        self.mHOA.text = [Utilities getCurrencyFormattedStringForNumber:
+                          [NSNumber numberWithLong:hoa]];
         
         float insurance = 150;
-        self.mInsurance.text = [NSString stringWithFormat:@"$%.0f", insurance];
+        self.mInsurance.text = [Utilities getCurrencyFormattedStringForNumber:
+                                [NSNumber numberWithLong:insurance]];
         
-        self.mTotalMonthlyPayments.text = [NSString stringWithFormat:@"$%.0f", mortgage+propertyTaxes+hoa+insurance];
+        self.mTotalMonthlyPayments.text = [Utilities getCurrencyFormattedStringForNumber:
+                                           [NSNumber numberWithLong:mortgage+propertyTaxes+hoa+insurance]];
         // create the data
         homePayments = @{@"Mortgage" : [NSNumber numberWithFloat:mortgage],
                          @"HOA" : [NSNumber numberWithFloat:hoa],
@@ -148,8 +154,17 @@ atPixelCoordinate:(CGPoint)pixelPoint
     SChartRadialDataPoint *datapoint = [[SChartRadialDataPoint alloc] init];
     NSString* key = homePayments.allKeys[dataIndex];
     datapoint.name = key;
-    datapoint.value = homePayments[key];
-    return datapoint;
+    NSNumber* value =  homePayments[key];
+    if([value compare:@0] == NSOrderedAscending)
+    {
+        datapoint.value = @0;
+        return datapoint;
+    }
+    else
+    {
+        datapoint.value = homePayments[key];
+        return datapoint;
+    }
 }
 
 - (void)didReceiveMemoryWarning

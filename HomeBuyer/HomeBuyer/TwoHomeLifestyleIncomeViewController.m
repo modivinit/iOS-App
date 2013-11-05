@@ -48,6 +48,8 @@
     self.mLifestyleIncomeChart.datasource = self;
     self.mLifestyleIncomeChart.delegate = self;
     // show the legend
+    
+    self.mLifestyleIncomeChart.clipsToBounds = NO;
 }
 
 -(void) viewWillAppear:(BOOL)animated

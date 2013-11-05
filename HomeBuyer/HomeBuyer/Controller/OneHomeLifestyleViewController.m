@@ -57,6 +57,8 @@
     self.mLifestyleIncomeChart.legend.style.cornerRadius = @0;
     self.mLifestyleIncomeChart.legend.position = SChartLegendPositionMiddleRight;
     
+    self.mLifestyleIncomeChart.clipsToBounds = NO;
+    
     // add to the view
     [self.view addSubview:self.mLifestyleIncomeChart];
     

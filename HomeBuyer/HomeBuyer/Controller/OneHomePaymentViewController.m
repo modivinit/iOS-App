@@ -59,6 +59,8 @@
     self.mPaymentsChart.delegate = self;
     // show the legend
     
+    self.mPaymentsChart.clipsToBounds = NO;
+    
     homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];

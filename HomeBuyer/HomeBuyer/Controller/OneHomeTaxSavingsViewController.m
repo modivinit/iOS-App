@@ -42,6 +42,8 @@
     self.mEstTaxesChart.legend.style.cornerRadius = @0;
     self.mEstTaxesChart.legend.position = SChartLegendPositionMiddleRight;
     
+    self.mEstTaxesChart.clipsToBounds = NO;
+    
     // add to the view
     [self.view addSubview:self.mEstTaxesChart];
     

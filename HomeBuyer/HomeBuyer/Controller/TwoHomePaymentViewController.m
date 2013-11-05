@@ -48,6 +48,8 @@
     self.mMontlyPaymentChart.datasource = self;
     self.mMontlyPaymentChart.delegate = self;
     // show the legend
+    
+    self.mMontlyPaymentChart.clipsToBounds = NO;
 }
 
 -(void) viewWillAppear:(BOOL)animated

@@ -58,6 +58,8 @@
     
     self.mTaxSavingsChart.datasource = self;
     self.mTaxSavingsChart.delegate = self;
+    
+    self.mTaxSavingsChart.clipsToBounds = NO;
 }
 
 - (void)viewDidLoad

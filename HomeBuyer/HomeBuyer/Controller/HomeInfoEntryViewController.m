@@ -12,7 +12,7 @@
 #import "States.h"
 #import <MBProgressHUD.h>
 
-#define MAX_HOME_PRICE_LENGTH 12
+#define MAX_HOME_PRICE_LENGTH 10
 #define MAX_HOA_PRICE_LENGTH 5
 
 @interface HomeInfoEntryViewController ()

@@ -27,5 +27,6 @@
 @property (nonatomic, strong) IBOutlet UILabel* mPropertyTax;
 @property (nonatomic, strong) IBOutlet UILabel* mInsurance;
 
-@property (nonatomic, strong) UIButton* mCompareButton;
+@property (nonatomic, strong) IBOutlet UIButton* mCompareButton;
+-(IBAction)compareButtonTapped:(id)sender;
 @end

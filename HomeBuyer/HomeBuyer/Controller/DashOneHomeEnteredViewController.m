@@ -45,13 +45,13 @@
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];
     
-    self.mAddHomeButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 462, 87, 35)];
-    CGPoint buttonCenter = self.mAddHomeButton.center;
-    self.mAddHomeButton.center = CGPointMake(self.view.center.x, buttonCenter.y);
-    
-    [self.mAddHomeButton setImage:[UIImage imageNamed:@"addahome.png"] forState:UIControlStateNormal];
-    [self.mAddHomeButton addTarget:self action:@selector(addHomeInfo) forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mAddHomeButton];
+//    self.mAddHomeButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 462, 87, 35)];
+//    CGPoint buttonCenter = self.mAddHomeButton.center;
+//    self.mAddHomeButton.center = CGPointMake(self.view.center.x, buttonCenter.y);
+//    
+//    [self.mAddHomeButton setImage:[UIImage imageNamed:@"addahome.png"] forState:UIControlStateNormal];
+//    [self.mAddHomeButton addTarget:self action:@selector(addHomeInfo) forControlEvents:UIControlEventTouchUpInside];
+//    [self.pageController.view addSubview:self.mAddHomeButton];
 }
 
 - (void)viewDidLoad
@@ -87,13 +87,6 @@
 {
     if(title)
         self.navigationItem.title = title;
-}
-
--(void) addHomeInfo
-{
-    uint currentCount = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
-    self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:currentCount];
-    [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
 }
 
 -(void) helpButtonTapped

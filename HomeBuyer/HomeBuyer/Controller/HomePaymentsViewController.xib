@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePaymentsViewController">
             <connections>
+                <outlet property="mCompareButton" destination="wKN-Qk-6Pj" id="DfB-lU-c7a"/>
                 <outlet property="mCondoSFHIndicator" destination="etU-qA-OCV" id="JC0-WR-XCv"/>
                 <outlet property="mHOA" destination="c0H-ls-Sy7" id="7vE-DI-1zy"/>
                 <outlet property="mHomeListPrice" destination="Mam-KI-tmv" id="dyl-QS-Xf2"/>
@@ -135,6 +136,9 @@
                     <state key="normal" title="Compare">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="compareButtonTapped:" destination="-1" eventType="touchDown" id="AWd-hI-uHV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

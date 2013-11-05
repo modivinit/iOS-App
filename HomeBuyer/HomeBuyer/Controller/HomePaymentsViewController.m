@@ -9,6 +9,7 @@
 #import "HomePaymentsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import <MBProgressHUD.h>
 
 @interface HomePaymentsViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomePaymentsChart;
@@ -114,26 +115,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.mCompareButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 470, 170, 44)];
-    [self.mCompareButton setTitle:@"Compare" forState:UIControlStateNormal];
-    self.mCompareButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
-    
-    self.mCompareButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
-    
-    [self.mCompareButton addTarget:self action:@selector(compareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.mCompareButton];
-    
-
     [self setupChart];
     [self setupOtherLabels];
 }
 
--(void) compareButtonTapped
+-(IBAction)compareButtonTapped:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:Nil];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Calculating";
+
+    [NSTimer scheduledTimerWithTimeInterval: 1.0
+                                     target: self
+                                   selector: @selector(handleTimer)
+                                   userInfo: nil
+                                    repeats: NO];
 }
 
+-(void) handleTimer
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:Nil];
+}
 
 #pragma mark - SChartDelegate methods
 

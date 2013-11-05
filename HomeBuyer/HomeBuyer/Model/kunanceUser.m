@@ -292,7 +292,7 @@ static kunanceUser *kunanceUserSingleton;
 {
     [PFUser logOut];
     self.mLoggedInKunanceUser = [PFUser currentUser];
-    
+    self.mRealtor = nil;
     self.mkunanceUserProfileInfo = nil;
     self.mKunanceUserHomes = nil;
     self.mKunanceUserLoans = nil;

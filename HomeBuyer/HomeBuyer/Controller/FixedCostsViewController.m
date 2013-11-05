@@ -32,6 +32,13 @@
 -(void) initWithExisitingFixedCosts
 {
     userProfileInfo* userInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    
+    if(!userInfo || status == ProfileStatusUndefined || status == ProfileStatusUserPersonalFinanceInfoEntered)
+    {
+        return;
+    }
+    
     if(userInfo && [userInfo isFixedCostsInfoEntered])
     {
         if([userInfo getMonthlyRentInfo])

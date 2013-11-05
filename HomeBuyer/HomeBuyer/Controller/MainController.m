@@ -292,17 +292,24 @@
 #pragma end
 
 #pragma mark APIServiceDelegate
--(void) finishedReadingUserPFInfo
+-(void) finishedReadingUserPFInfo:(NSError*) error
 {
-    [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
-    
-    if(![kunanceUser getInstance].mKunanceUserHomes)
-        [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
-    
-    [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
-    if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
+    if(!error)
     {
-        NSLog(@"Error: reading homes info for user");
+        [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
+        
+        if(![kunanceUser getInstance].mKunanceUserHomes)
+            [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
+        
+        [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
+        if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
+        {
+            NSLog(@"Error: reading homes info for user");
+        }
+    }
+    else
+    {
+        [self displayDash];
     }
 }
 #pragma end

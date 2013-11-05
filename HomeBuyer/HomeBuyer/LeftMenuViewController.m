@@ -259,12 +259,19 @@
 -(void) updateRowForUserProfile:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell
 {
     userProfileInfo* userProfile = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    
+    bool userProfileEntered = NO;
+    if(status == ProfileStatusUndefined || !userProfile)
+        userProfileEntered = NO;
+    else
+        userProfileEntered = YES;
     
     if(indexPath.row == ROW_CURRENT_LIFESTYLE)
     {
         cell.textLabel.text = @"Current Lifestyle";
         
-        if(!userProfile)
+        if(!userProfileEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle-gray.png"];
             cell.textLabel.textColor = [UIColor grayColor];
@@ -279,7 +286,7 @@
     }
     else if(indexPath.row == ROW_YOUR_PROFILE)
     {
-        if(!userProfile)
+        if(!userProfileEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-create-profile.png"];
             cell.textLabel.text = @"Enter Profile to Start";
@@ -298,7 +305,7 @@
     else if(indexPath.row == ROW_FIXED_COSTS)
     {
         
-        if(!userProfile)
+        if(!userProfileEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
             cell.textLabel.text = @"Fixed Costs";

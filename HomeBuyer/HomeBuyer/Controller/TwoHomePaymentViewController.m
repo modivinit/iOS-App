@@ -64,6 +64,14 @@
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     userProfileInfo* userProfile = [kunanceUser getInstance].mkunanceUserProfileInfo;
     
+    if([[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in Dash 2 home payment %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
+    
     if(home1 && home2 && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan1 = [kunanceUser getCalculatorHomeAndLoanFrom:home1 andLoan:aLoan];

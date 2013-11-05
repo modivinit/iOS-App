@@ -63,9 +63,14 @@
 -(void) initWithCurrentUserPFInfo
 {
     userProfileInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
-    if(theUserPFInfo)
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+   
+    if(theUserPFInfo &&
+       ( status == ProfileStatusUserPersonalFinanceInfoEntered ||
+        status == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered))
     {
-        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld", [theUserPFInfo getAnnualGrossIncome]);
+        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld",
+              [theUserPFInfo getAnnualGrossIncome]);
 
         if([theUserPFInfo getMaritalStatus] == StatusMarried)
             [self selectMarried];

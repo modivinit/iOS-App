@@ -60,6 +60,14 @@
     self.navigationController.navigationBar.topItem.title = titleText;
     // Do any additional setup after loading the view from its nib.
     userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    if(!user || status == ProfileStatusUndefined)
+    {
+        NSLog(@"Error: No user profile found in User Profile Dash");
+        return;
+    }
+    
     // create the data
     UserProfileObject* userCalculatorObject = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     

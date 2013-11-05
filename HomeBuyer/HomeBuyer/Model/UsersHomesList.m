@@ -51,7 +51,7 @@ static NSString* const kHomeInfoClassKey = @"HomeInfo";
              [self processHomesList];
          }
          
-         if(self.mUsersHomesListDelegate && [self.mUsersHomesListDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
+         if(self.mUsersHomesListDelegate && [self.mUsersHomesListDelegate respondsToSelector:@selector(finishedReadingHomeInfo)])
          {
              [self.mUsersHomesListDelegate finishedReadingHomeInfo];
          }

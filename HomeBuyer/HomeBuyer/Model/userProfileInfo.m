@@ -152,9 +152,10 @@ static NSString* const kUserKey          = @"User";
             self.mParseUserProfileObject = userObject;
         }
         
-        if(self.mUserProfileInfoDelegate && [self.mUserProfileInfoDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
+        if(self.mUserProfileInfoDelegate &&
+           [self.mUserProfileInfoDelegate respondsToSelector:@selector(finishedReadingUserPFInfo:)])
         {
-            [self.mUserProfileInfoDelegate finishedReadingUserPFInfo];
+            [self.mUserProfileInfoDelegate finishedReadingUserPFInfo:error];
         }
     }];
 }

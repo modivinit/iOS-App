@@ -18,7 +18,7 @@
 
 @protocol userProfileInfoDelegate <NSObject>
 @optional
--(void) finishedReadingUserPFInfo;
+-(void) finishedReadingUserPFInfo:(NSError*) error;
 -(void) finishedWritingUserPFInfo;
 @end
 

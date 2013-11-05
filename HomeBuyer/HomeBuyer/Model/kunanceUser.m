@@ -253,6 +253,23 @@ static kunanceUser *kunanceUserSingleton;
     return homeAndLoan;
 }
 
+-(BOOL) hasUsableHomeAndLoanInfo
+{
+    if(!self.mkunanceUserProfileInfo)
+        return NO;
+    
+    kunanceUserProfileStatus status = self.mUserProfileStatus;
+    
+    if(status == ProfileStatusUndefined ||
+    status == ProfileStatusUserPersonalFinanceInfoEntered ||
+    status == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered ||
+    status == ProfileStatusUser1HomeInfoEntered ||
+    status == ProfileStatusUserTwoHomesButNoLoanInfoEntered)
+        return NO;
+    else
+        return YES;
+}
+
 -(void) logoutUser
 {
     [PFUser logOut];

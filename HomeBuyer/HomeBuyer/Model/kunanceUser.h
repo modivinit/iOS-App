@@ -48,7 +48,7 @@
 -(void) updateStatusWithHomeInfoStatus;
 
 -(void) updateStatusWithLoanInfoStatus;
-
+-(BOOL) hasUsableHomeAndLoanInfo;
 -(void) logoutUser;
 -(NSString*) getUserID;
 -(NSString*) getFirstName;

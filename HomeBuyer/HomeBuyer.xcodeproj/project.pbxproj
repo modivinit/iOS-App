@@ -89,6 +89,7 @@
 		9E96EEEF18107367001E8FF7 /* home-interior_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */; };
 		9E9D798B1829A49E00DDC995 /* appname.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D79891829A49E00DDC995 /* appname.png */; };
 		9E9D798C1829A49E00DDC995 /* appname@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798A1829A49E00DDC995 /* appname@2x.png */; };
+		9E9D798E1829A82700DDC995 /* CityTaxRate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798D1829A82700DDC995 /* CityTaxRate.plist */; };
 		9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */; };
 		9EA5D3CE17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */; };
 		9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3D017F15DC500CE7BD8 /* besthomefeature.png */; };
@@ -415,6 +416,7 @@
 		9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_04@2x.jpg"; sourceTree = "<group>"; };
 		9E9D79891829A49E00DDC995 /* appname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appname.png; sourceTree = "<group>"; };
 		9E9D798A1829A49E00DDC995 /* appname@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appname@2x.png"; sourceTree = "<group>"; };
+		9E9D798D1829A82700DDC995 /* CityTaxRate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityTaxRate.plist; sourceTree = "<group>"; };
 		9EA5D3CA17F15C8100CE7BD8 /* HomeInfoEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeInfoEntryViewController.h; path = Controller/HomeInfoEntryViewController.h; sourceTree = "<group>"; };
 		9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeInfoEntryViewController.m; path = Controller/HomeInfoEntryViewController.m; sourceTree = "<group>"; };
 		9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeInfoEntryViewController.xib; path = Controller/HomeInfoEntryViewController.xib; sourceTree = "<group>"; };
@@ -1144,6 +1146,7 @@
 				9E35E9A01828D10F006A3B1A /* TaxTableFederalSingle2014.plist */,
 				D6841DE41824457D00BA5F48 /* UserProfileObject.h */,
 				D6841DE51824457D00BA5F48 /* UserProfileObject.m */,
+				9E9D798D1829A82700DDC995 /* CityTaxRate.plist */,
 			);
 			name = Calculator;
 			sourceTree = "<group>";
@@ -1866,6 +1869,7 @@
 				9E00FAAC17F34DEC00380997 /* HelpHomeViewController.xib in Resources */,
 				9EA5D3E017F15DC500CE7BD8 /* condo-selected.png in Resources */,
 				D6841DEE1824457D00BA5F48 /* TaxTableStateSingle2013.plist in Resources */,
+				9E9D798E1829A82700DDC995 /* CityTaxRate.plist in Resources */,
 				9E53443517F555B8006BA12D /* lifestyle-music@2x.png in Resources */,
 				D6E6EE5817E65A9E005D7526 /* single.png in Resources */,
 				D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */,

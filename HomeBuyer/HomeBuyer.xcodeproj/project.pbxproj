@@ -87,8 +87,8 @@
 		9E96EEED18107367001E8FF7 /* home-interior_03@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */; };
 		9E96EEEE18107367001E8FF7 /* home-interior_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE618107367001E8FF7 /* home-interior_04.jpg */; };
 		9E96EEEF18107367001E8FF7 /* home-interior_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */; };
-		9E9D79871829A2DD00DDC995 /* appname.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D79851829A2DD00DDC995 /* appname.png */; };
-		9E9D79881829A2DD00DDC995 /* appname@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D79861829A2DD00DDC995 /* appname@2x.png */; };
+		9E9D798B1829A49E00DDC995 /* appname.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D79891829A49E00DDC995 /* appname.png */; };
+		9E9D798C1829A49E00DDC995 /* appname@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798A1829A49E00DDC995 /* appname@2x.png */; };
 		9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */; };
 		9EA5D3CE17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */; };
 		9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3D017F15DC500CE7BD8 /* besthomefeature.png */; };
@@ -413,8 +413,8 @@
 		9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03@2x.jpg"; sourceTree = "<group>"; };
 		9E96EEE618107367001E8FF7 /* home-interior_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_04.jpg"; sourceTree = "<group>"; };
 		9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_04@2x.jpg"; sourceTree = "<group>"; };
-		9E9D79851829A2DD00DDC995 /* appname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appname.png; sourceTree = "<group>"; };
-		9E9D79861829A2DD00DDC995 /* appname@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appname@2x.png"; sourceTree = "<group>"; };
+		9E9D79891829A49E00DDC995 /* appname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appname.png; sourceTree = "<group>"; };
+		9E9D798A1829A49E00DDC995 /* appname@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appname@2x.png"; sourceTree = "<group>"; };
 		9EA5D3CA17F15C8100CE7BD8 /* HomeInfoEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeInfoEntryViewController.h; path = Controller/HomeInfoEntryViewController.h; sourceTree = "<group>"; };
 		9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeInfoEntryViewController.m; path = Controller/HomeInfoEntryViewController.m; sourceTree = "<group>"; };
 		9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeInfoEntryViewController.xib; path = Controller/HomeInfoEntryViewController.xib; sourceTree = "<group>"; };
@@ -1262,8 +1262,8 @@
 		D6C3AB2A1803893400123260 /* kCATIntro */ = {
 			isa = PBXGroup;
 			children = (
-				9E9D79851829A2DD00DDC995 /* appname.png */,
-				9E9D79861829A2DD00DDC995 /* appname@2x.png */,
+				9E9D79891829A49E00DDC995 /* appname.png */,
+				9E9D798A1829A49E00DDC995 /* appname@2x.png */,
 				9E237BDE1811A0910095B66B /* home-interior_01.jpg */,
 				9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */,
 				9E96EEE218107367001E8FF7 /* home-interior_02.jpg */,
@@ -1702,7 +1702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */,
-				9E9D79881829A2DD00DDC995 /* appname@2x.png in Resources */,
+				9E9D798C1829A49E00DDC995 /* appname@2x.png in Resources */,
 				9E53443717F555B8006BA12D /* lifestyle-shopping@2x.png in Resources */,
 				9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */,
 				9ECDB80D17FF55AB004E5F25 /* menu-profile-couple@2x.png in Resources */,
@@ -1822,7 +1822,7 @@
 				9EA5D3E317F15DC500CE7BD8 /* condo@2x.png in Resources */,
 				D6E6EEB217E79D05005D7526 /* FixedCostsViewController.xib in Resources */,
 				9ECCAD9617F0E696001EAF4C /* compare-dash@2x.png in Resources */,
-				9E9D79871829A2DD00DDC995 /* appname.png in Resources */,
+				9E9D798B1829A49E00DDC995 /* appname.png in Resources */,
 				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
 				D6C3AAFA180372F800123260 /* DashTwoHomesEnteredViewController.xib in Resources */,
 				9EE693FB1805EBD000B541DF /* aboutyou@2x.png in Resources */,

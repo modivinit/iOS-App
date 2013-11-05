@@ -42,6 +42,22 @@ static kunanceUser *kunanceUserSingleton;
     return self;
 }
 
+-(void) readRealtorInfo
+{
+    if(![kunanceUser getInstance].mRealtor)
+        [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+    
+    NSString* realtorid = self.mLoggedInKunanceUser[@"realtorID"];
+    if(realtorid)
+    {
+        if(![[kunanceUser getInstance].mRealtor getRealtorForID:realtorid])
+        {
+        //[Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+        }
+    }
+
+}
+
 -(BOOL) signupWithName:(NSString*) name
               password:(NSString*) password
                  email:(NSString*) email
@@ -56,6 +72,8 @@ static kunanceUser *kunanceUserSingleton;
     user.username = email;
     user.password = password;
     user.email = email;
+    if(code)
+        user[@"realtorID"] = code;
     
     NSArray* names = [name componentsSeparatedByString:@" "];
     if(names && names.count > 0)

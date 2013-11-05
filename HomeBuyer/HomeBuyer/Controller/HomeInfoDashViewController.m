@@ -46,13 +46,8 @@
 }
 
 -(void) addButtons
-{
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 520, 30, 30)];
-    [self.mContactRealtorButton setImage:[UIImage imageNamed:@"logo-svl.gif"] forState:UIControlStateNormal];
-    [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mContactRealtorButton];
-    
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
+{    
+    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];

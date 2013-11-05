@@ -278,6 +278,9 @@
 		D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */; };
 		D6DEE54B180878AE00548955 /* HomeInfoDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DEE549180878AE00548955 /* HomeInfoDashViewController.m */; };
 		D6DEE54C180878AE00548955 /* HomeInfoDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6DEE54A180878AE00548955 /* HomeInfoDashViewController.xib */; };
+		D6E4251F18297F0400F9DCE4 /* Realtor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4251E18297F0400F9DCE4 /* Realtor.m */; };
+		D6E4252018297F0400F9DCE4 /* Realtor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4251E18297F0400F9DCE4 /* Realtor.m */; };
+		D6E4252218299B2500F9DCE4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E4252118299B2500F9DCE4 /* MessageUI.framework */; };
 		D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */; };
 		D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */; };
 		D6E6EE5417E65A8A005D7526 /* couple.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5217E65A8A005D7526 /* couple.png */; };
@@ -631,6 +634,9 @@
 		D6DEE548180878AE00548955 /* HomeInfoDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeInfoDashViewController.h; path = Controller/HomeInfoDashViewController.h; sourceTree = "<group>"; };
 		D6DEE549180878AE00548955 /* HomeInfoDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeInfoDashViewController.m; path = Controller/HomeInfoDashViewController.m; sourceTree = "<group>"; };
 		D6DEE54A180878AE00548955 /* HomeInfoDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeInfoDashViewController.xib; path = Controller/HomeInfoDashViewController.xib; sourceTree = "<group>"; };
+		D6E4251D18297F0400F9DCE4 /* Realtor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Realtor.h; sourceTree = "<group>"; };
+		D6E4251E18297F0400F9DCE4 /* Realtor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Realtor.m; sourceTree = "<group>"; };
+		D6E4252118299B2500F9DCE4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D6E6EE4D17E659DD005D7526 /* AboutYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutYouViewController.h; path = Controller/AboutYouViewController.h; sourceTree = "<group>"; };
 		D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutYouViewController.m; path = Controller/AboutYouViewController.m; sourceTree = "<group>"; };
 		D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutYouViewController.xib; path = Controller/AboutYouViewController.xib; sourceTree = "<group>"; };
@@ -677,6 +683,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E4252218299B2500F9DCE4 /* MessageUI.framework in Frameworks */,
 				D6470394181709BA003810B4 /* SystemConfiguration.framework in Frameworks */,
 				D6470392181709AB003810B4 /* StoreKit.framework in Frameworks */,
 				D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */,
@@ -1054,6 +1061,7 @@
 		D67EFDE117CCE1280082F6C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6E4252118299B2500F9DCE4 /* MessageUI.framework */,
 				D6A2CB69181ED1E700CD0BF0 /* ShinobiCharts.framework */,
 				D6470393181709BA003810B4 /* SystemConfiguration.framework */,
 				D6470391181709AB003810B4 /* StoreKit.framework */,
@@ -1529,6 +1537,8 @@
 				D6EBEBC91815C16C004B3CBF /* States.m */,
 				D666C43B181833C0000092A6 /* HTAutoCompleteManager.h */,
 				D666C43C181833C0000092A6 /* HTAutoCompleteManager.m */,
+				D6E4251D18297F0400F9DCE4 /* Realtor.h */,
+				D6E4251E18297F0400F9DCE4 /* Realtor.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1977,6 +1987,7 @@
 				D6842E6E17DDA8720028AF00 /* UsersHomesList.m in Sources */,
 				D6C3AB361803C93300123260 /* kCATIntroAffordViewController.m in Sources */,
 				D6842E5E17DD32510028AF00 /* usersLoansList.m in Sources */,
+				D6E4251F18297F0400F9DCE4 /* Realtor.m in Sources */,
 				D6841DEA1824457D00BA5F48 /* TaxBlock.m in Sources */,
 				D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */,
 				D67EFDF517CCE1280082F6C7 /* AppDelegate.m in Sources */,
@@ -2040,6 +2051,7 @@
 				D6842E5F17DD32510028AF00 /* usersLoansList.m in Sources */,
 				D6C88B3117DA7B1600DEA25D /* LoginViewController.m in Sources */,
 				D6C88B3C17DA7B7D00DEA25D /* Utilities.m in Sources */,
+				D6E4252018297F0400F9DCE4 /* Realtor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

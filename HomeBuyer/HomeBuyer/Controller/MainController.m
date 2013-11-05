@@ -84,6 +84,9 @@
 
 -(void) readUserPFInfo
 {
+    //Piggy back realtor API here for now.
+    [[kunanceUser getInstance] readRealtorInfo];
+
     if(![kunanceUser getInstance].mkunanceUserProfileInfo)
         [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
    

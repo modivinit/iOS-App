@@ -15,7 +15,9 @@
 
 @interface DashTwoHomesEnteredViewController : BasePageViewController
 <TwoHomePaymentDelegate, TwoHomeLifestyleDelegate, TwoHomeTaxSavingsDelegate>
+@property (nonatomic, strong) UIButton* mContactRealtorIconButton;
 @property (nonatomic, strong) UIButton* mContactRealtorButton;
+
 @property (nonatomic, strong) UIButton* mHelpButton;
 
 -(void) hideLeftView;

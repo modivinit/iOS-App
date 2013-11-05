@@ -17,7 +17,9 @@
 <OneHomeLifestyleViewDelegate, OneHomeTaxSavingsViewDelegate, OneHomePaymentViewDelegate>
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
+@property (nonatomic, strong) UIButton* mContactRealtorIconButton;
 @property (nonatomic, strong) UIButton* mContactRealtorButton;
+
 @property (nonatomic, strong) UIButton* mHelpButton;
 @property (nonatomic, strong) UIButton* mAddHomeButton;
 

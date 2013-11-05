@@ -120,7 +120,10 @@
     switch (section)
     {
         case SECTION_USER_NAME_DASH_REALTOR:
-            numOfRows = 2;
+            if([kunanceUser getInstance].mRealtor.mIsValid)
+                numOfRows = 2;
+            else
+                numOfRows = 1;
             break;
             
         case SECTION_HOMES:
@@ -379,7 +382,7 @@
                 cell.textLabel.text = @"Dashboard";
                 cell.imageView.image = [UIImage imageNamed:@"menu-dashboard.png"];
             }
-            else if(indexPath.row == ROW_REALTOR)
+            else if(indexPath.row == ROW_REALTOR && [kunanceUser getInstance].mRealtor.mIsValid)
             {
                 cell.textLabel.text = @"Contact Realtor";
                 cell.imageView.image = [UIImage imageNamed:@"menu-contact-realtor.png"];

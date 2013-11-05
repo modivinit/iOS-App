@@ -27,9 +27,106 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"Contact Realtor";
+    Realtor* realtor = [kunanceUser getInstance].mRealtor;
+    
+    if(!realtor.mIsValid)
+        return;
+    
+    if(realtor.mFirstName)
+        self.navigationItem.title = [NSString stringWithFormat:@"Contact %@", realtor.mFirstName];
+    else
+        self.navigationItem.title = @"Contact Realtor";
+    
+    self.mContactName.text = [NSString stringWithFormat:@"%@ %@", realtor.mFirstName, realtor.mLastName];
+    
+    self.mAddress.text = realtor.mAddress;
+    self.mCompanyName.text = realtor.mCompanyName;
+    
+    if(realtor.mLargeLogo)
+        self.mLogoImage.image = realtor.mLargeLogo;
+    
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Contact Realtor View Opened" properties:Nil];
+    
+    if(![kunanceUser getInstance].mRealtor.mPhoneNumber)
+        self.mCallNumber.hidden = YES;
+    
+    if(![kunanceUser getInstance].mRealtor.mEmail)
+        self.mEmail.hidden = YES;
+}
+
+-(IBAction)callRealtor:(id)sender
+{
+    if(![kunanceUser getInstance].mRealtor.mPhoneNumber)
+        return;
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Call Realtor Button Tapped" properties:Nil];
+
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:[kunanceUser getInstance].mRealtor.mPhoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+}
+
+-(IBAction)emailRealtor:(id)sender
+{
+    Realtor* realtor = [kunanceUser getInstance].mRealtor;
+    
+    if(!realtor.mEmail)
+        return;
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Email Realtor Button Tapped" properties:Nil];
+
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+        [composeViewController setMailComposeDelegate:self];
+        [composeViewController setToRecipients:@[realtor.mEmail]];
+        
+        NSString* toName = nil;
+        if(realtor.mFirstName)
+            toName = realtor.mFirstName;
+        else if(realtor.mCompanyName)
+            toName = realtor.mCompanyName;
+        
+        NSString* hiString = nil;
+        if(toName)
+            hiString = [NSString stringWithFormat:@"Hi %@,\n\n", toName];
+
+        [composeViewController setMessageBody:hiString isHTML:NO];
+        [self presentViewController:composeViewController animated:YES completion:nil];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    //Add an alert in case of failure
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(IBAction)textRealtor:(id)sender
+{
+    if(![kunanceUser getInstance].mRealtor.mPhoneNumber)
+        return;
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Text Realtor Button Tapped" properties:Nil];
+    
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    if([MFMessageComposeViewController canSendText])
+    {
+        NSArray* receipient = [[NSArray alloc] initWithObjects:[kunanceUser getInstance].mRealtor.mPhoneNumber, nil];
+        
+        controller.recipients = receipient;
+        controller.messageComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)showDash:(id)sender

@@ -103,8 +103,6 @@ Savings</string>
     <resources>
         <image name="addahome.png" width="87" height="22"/>
         <image name="line.png" width="320" height="1"/>
-        <image name="line.png" width="320" height="1"/>
-        <image name="line.png" width="320" height="1"/>
         <image name="menu-home-sfh.png" width="25" height="25"/>
         <image name="rent.png" width="29" height="29"/>
     </resources>

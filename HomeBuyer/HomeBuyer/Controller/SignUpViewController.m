@@ -115,6 +115,8 @@
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Signing Up";
+    
+
     if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
                              password:self.mPasswordField.text
                                 email:self.mEmailField.text
@@ -128,6 +130,19 @@
     }
 }
 
+#pragma RealtorDelegate
+-(void) finishedReadingRealtorInfo:(NSError *)error
+{
+    if(!error)
+    {
+        NSLog(@"realtor = %@", [kunanceUser getInstance].mRealtor);
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+    }
+}
+#pragma end
 
 #pragma LoginSignupServiceDelegate
 -(void) signupCompletedWithError:(NSError *)error
@@ -150,6 +165,19 @@
         Mixpanel *mixpanel = [Mixpanel sharedInstance];
         [mixpanel track:@"Created Account Successfully" properties:Nil];
 
+        if(self.mRealtorCodeField && self.mRealtorCodeField.text.length)
+        {
+            if(![kunanceUser getInstance].mRealtor)
+                [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+            
+            [kunanceUser getInstance].mRealtor.mRealtorDelegate = self;
+            if(![[kunanceUser getInstance].mRealtor getRealtorForID:self.mRealtorCodeField.text])
+            {
+                [Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+            }
+            
+        }
+        
         if(self.mSignUpDelegate &&
            [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
         {

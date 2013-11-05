@@ -19,10 +19,35 @@
 
 -(void) addButtons
 {
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 520, 30, 30)];
-    [self.mContactRealtorButton setImage:[UIImage imageNamed:@"logo-svl.gif"] forState:UIControlStateNormal];
-    [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mContactRealtorButton];
+    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 480, 25, 25)];
+    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(28, 472, 160, 44)];
+
+    if([kunanceUser getInstance].mRealtor.mIsValid)
+    {
+        if([kunanceUser getInstance].mRealtor.mSmallLogo)
+            [self.mContactRealtorIconButton setImage:[kunanceUser getInstance].mRealtor.mSmallLogo
+                                            forState:UIControlStateNormal];
+        
+        if([kunanceUser getInstance].mRealtor.mFirstName)
+        {
+            [self.mContactRealtorButton setTitle:[NSString stringWithFormat:@"Contact %@", [kunanceUser getInstance].mRealtor.mFirstName]
+                                    forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
+        }
+        
+        [self.mContactRealtorIconButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
+        [self.pageController.view addSubview:self.mContactRealtorIconButton];
+        
+        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+        self.mContactRealtorButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
+        //self.mContactRealtorButton.backgroundColor = [UIColor lightGrayColor];
+        [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
+        [self.pageController.view addSubview:self.mContactRealtorButton];
+
+    }
     
     self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];

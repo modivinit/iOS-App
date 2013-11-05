@@ -14,6 +14,7 @@
 #import "UsersHomesList.h"
 #import <Parse/Parse.h>
 #import "homeAndLoanInfo.h"
+#import "Realtor.h"
 
 @protocol kunanceUserDelegate <NSObject>
 @optional
@@ -22,13 +23,14 @@
 @end
 
 
-@interface kunanceUser : NSObject
+@interface kunanceUser : NSObject<RealtorDelegate>
 @property (nonatomic, strong) userProfileInfo* mkunanceUserProfileInfo;
 @property (nonatomic, strong) UsersHomesList* mKunanceUserHomes;
 @property (nonatomic, strong) usersLoansList* mKunanceUserLoans;
 @property (nonatomic) kunanceUserProfileStatus mUserProfileStatus;
 @property (nonatomic, weak) id <kunanceUserDelegate> mKunanceUserDelegate;
 @property (nonatomic, strong, readonly) PFUser* mLoggedInKunanceUser;
+@property (nonatomic, strong) Realtor* mRealtor;
 
 -(BOOL) signupWithName:(NSString*) name
               password:(NSString*) password
@@ -43,6 +45,7 @@
 -(BOOL) isUserLoggedIn;
 -(BOOL) userAccountFoundOnDevice;
 -(BOOL) loginSavedUser;
+-(void) readRealtorInfo;
 
 -(void) updateStatusWithUserProfileInfo;
 -(void) updateStatusWithHomeInfoStatus;

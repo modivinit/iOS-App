@@ -39,6 +39,8 @@
 		9E2F720118260B3600D2B593 /* menu-loan-info-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F71FD18260B3600D2B593 /* menu-loan-info-gray@2x.png */; };
 		9E2F720218260B3600D2B593 /* menu-loan-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F71FE18260B3600D2B593 /* menu-loan-info.png */; };
 		9E2F720318260B3600D2B593 /* menu-loan-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F71FF18260B3600D2B593 /* menu-loan-info@2x.png */; };
+		9E35E9A11828D10F006A3B1A /* TaxTableFederalMFJ2014.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E35E99F1828D10F006A3B1A /* TaxTableFederalMFJ2014.plist */; };
+		9E35E9A21828D10F006A3B1A /* TaxTableFederalSingle2014.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E35E9A01828D10F006A3B1A /* TaxTableFederalSingle2014.plist */; };
 		9E4872611811EB2300B417F9 /* sign-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E48725F1811EB2300B417F9 /* sign-up.png */; };
 		9E4872621811EB2300B417F9 /* sign-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872601811EB2300B417F9 /* sign-up@2x.png */; };
 		9E4872651811EC0B00B417F9 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4872631811EC0B00B417F9 /* login.png */; };
@@ -360,6 +362,8 @@
 		9E2F71FD18260B3600D2B593 /* menu-loan-info-gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info-gray@2x.png"; sourceTree = "<group>"; };
 		9E2F71FE18260B3600D2B593 /* menu-loan-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info.png"; sourceTree = "<group>"; };
 		9E2F71FF18260B3600D2B593 /* menu-loan-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info@2x.png"; sourceTree = "<group>"; };
+		9E35E99F1828D10F006A3B1A /* TaxTableFederalMFJ2014.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalMFJ2014.plist; sourceTree = "<group>"; };
+		9E35E9A01828D10F006A3B1A /* TaxTableFederalSingle2014.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalSingle2014.plist; sourceTree = "<group>"; };
 		9E48725F1811EB2300B417F9 /* sign-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up.png"; sourceTree = "<group>"; };
 		9E4872601811EB2300B417F9 /* sign-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up@2x.png"; sourceTree = "<group>"; };
 		9E4872631811EC0B00B417F9 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -1136,6 +1140,8 @@
 				D6841DE11824457D00BA5F48 /* TaxTableFederalSingle2013.plist */,
 				D6841DE21824457D00BA5F48 /* TaxTableStateMFJ2013.plist */,
 				D6841DE31824457D00BA5F48 /* TaxTableStateSingle2013.plist */,
+				9E35E99F1828D10F006A3B1A /* TaxTableFederalMFJ2014.plist */,
+				9E35E9A01828D10F006A3B1A /* TaxTableFederalSingle2014.plist */,
 				D6841DE41824457D00BA5F48 /* UserProfileObject.h */,
 				D6841DE51824457D00BA5F48 /* UserProfileObject.m */,
 			);
@@ -1724,6 +1730,7 @@
 				9ECDED891803B63B00F2449E /* menu-add-home@2x.png in Resources */,
 				D6C3AB1F180384E600123260 /* HomeLifeStyleViewController.xib in Resources */,
 				9EA5D3F117F1624300CE7BD8 /* HomeAddressViewController.xib in Resources */,
+				9E35E9A21828D10F006A3B1A /* TaxTableFederalSingle2014.plist in Resources */,
 				9E587B321818F9F700E65DBA /* OneHomePaymentViewController.xib in Resources */,
 				9E266FFE18241817003AB179 /* sfh-homeinfo@2x.png in Resources */,
 				9E4DBF721805D08900F095F1 /* ContactRealtorViewController.xib in Resources */,
@@ -1881,6 +1888,7 @@
 				D607A20A17F8FB6D008E093C /* DashNoInfoViewController.xib in Resources */,
 				9EA5D41017F162DE00CE7BD8 /* loantime.png in Resources */,
 				9ECCAD9817F0E696001EAF4C /* doubledownarrow.png in Resources */,
+				9E35E9A11828D10F006A3B1A /* TaxTableFederalMFJ2014.plist in Resources */,
 				9E96EEEE18107367001E8FF7 /* home-interior_04.jpg in Resources */,
 				9EB34AE7182307CE009A3041 /* menu-dashboard.png in Resources */,
 				D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */,

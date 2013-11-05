@@ -132,8 +132,7 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.selectedStyle.protrusion = 10.0f;
     pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:12];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
-    pieSeries.selectionAnimation.duration = @0.4;
-    pieSeries.selectedPosition = @0.0;
+    pieSeries.labelFormatString = @"%.0f";
     pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];

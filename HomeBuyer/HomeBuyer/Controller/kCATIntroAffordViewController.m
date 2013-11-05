@@ -31,7 +31,7 @@
     backImage.image = [UIImage imageNamed:@"home-interior_01.jpg"];
     [self.view addSubview:backImage];
     
-    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 46, 150, 31)];
+    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 46, 150, 53)];
     appName.center = CGPointMake(self.view.center.x, appName.center.y);
     appName.image = [UIImage imageNamed:@"appname.png"];
     [self.view addSubview:appName];
@@ -40,7 +40,7 @@
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"Discover a home that matches your lifestyle.";
+    label.text = @"Invest in a home that matches your lifestyle.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

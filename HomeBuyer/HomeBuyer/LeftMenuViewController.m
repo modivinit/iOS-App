@@ -150,6 +150,19 @@
     return 5;
 }
 
+-(void) enableCell:(UITableViewCell*) cell
+{
+    cell.userInteractionEnabled = YES;
+    cell.textLabel.textColor = [UIColor blackColor];
+}
+
+-(void) disableCell:(UITableViewCell*) cell
+{
+    cell.textLabel.textColor = [UIColor grayColor];
+    cell.userInteractionEnabled = NO;
+}
+
+
 -(void) updateRowForHomes:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell
 {
     uint count = 0;
@@ -170,8 +183,7 @@
         case ProfileStatusUserPersonalFinanceInfoEntered:
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
-            cell.textLabel.textColor = [UIColor grayColor];
-            cell.userInteractionEnabled = NO;
+            [self disableCell:cell];
             if (indexPath.row == ROW_FIRST_HOME)
             {
                 cell.textLabel.text = [NSString stringWithFormat:@"Add First Home"];
@@ -186,17 +198,15 @@
         case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
-            cell.userInteractionEnabled = YES;
-
             if(indexPath.row == ROW_SECOND_HOME)
             {
-                cell.textLabel.textColor = [UIColor grayColor];
+                [self disableCell:cell];
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
-                cell.userInteractionEnabled = NO;
             }
             else if(indexPath.row == ROW_FIRST_HOME)
             {
+                [self enableCell:cell];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add First Home"];
             }
             break;
@@ -207,6 +217,8 @@
         {
             if(indexPath.row == ROW_FIRST_HOME)
             {
+                [self enableCell:cell];
+
                 if(type == homeTypeCondominium)
                     cell.imageView.image = [UIImage imageNamed:@"menu-home-condo.png"];
                 else if(type == homeTypeSingleFamily)
@@ -222,14 +234,13 @@
             {
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
-                cell.userInteractionEnabled = YES;
-
+                [self enableCell:cell];
+                
                 if([kunanceUser getInstance].mUserProfileStatus ==
                    ProfileStatusUser1HomeInfoEntered)
                 {
-                    cell.textLabel.textColor = [UIColor grayColor];
                     cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
-                    cell.userInteractionEnabled = NO;
+                    [self disableCell:cell];
                 }
             }
             
@@ -238,6 +249,7 @@
 
         case ProfileStatusUserTwoHomesAndLoanInfoEntered:
         {
+            [self enableCell:cell];
             if(type == homeTypeCondominium)
                 cell.imageView.image = [UIImage imageNamed:@"menu-home-condo.png"];
             else if(type == homeTypeSingleFamily)
@@ -271,7 +283,8 @@
     {
         cell.textLabel.text = @"Current Lifestyle";
         
-        if(!userProfileEntered)
+        if(!userProfileEntered || status == ProfileStatusUndefined ||
+           status == ProfileStatusUserPersonalFinanceInfoEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle-gray.png"];
             cell.textLabel.textColor = [UIColor grayColor];
@@ -305,7 +318,7 @@
     else if(indexPath.row == ROW_FIXED_COSTS)
     {
         
-        if(!userProfileEntered)
+        if(!userProfileEntered || status == ProfileStatusUndefined)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
             cell.textLabel.text = @"Fixed Costs";

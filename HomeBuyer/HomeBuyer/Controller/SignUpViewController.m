@@ -147,13 +147,14 @@
     }
     else
     {
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+        [mixpanel track:@"Created Account Successfully" properties:Nil];
+
         if(self.mSignUpDelegate &&
            [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
         {
             [self.mSignUpDelegate userSignedUpSuccessfully];
         }
-        Mixpanel *mixpanel = [Mixpanel sharedInstance];
-        [mixpanel track:@"Created Account Successfully" properties:Nil];
     }
 }
 #pragma end

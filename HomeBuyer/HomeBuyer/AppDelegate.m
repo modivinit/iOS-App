@@ -47,7 +47,7 @@
     // Mixpanel project token, MIXPANEL_TOKEN
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Account Created" properties:Nil];
+    [mixpanel track:@"App Started" properties:Nil];
     
     return YES;
 }

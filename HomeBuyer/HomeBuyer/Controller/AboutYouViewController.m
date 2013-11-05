@@ -65,29 +65,29 @@
     userProfileInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
     kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
    
-    if(theUserPFInfo &&
-       ( status == ProfileStatusUserPersonalFinanceInfoEntered ||
-        status == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered))
+    if(!theUserPFInfo || status == ProfileStatusUndefined)
     {
-        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld",
-              [theUserPFInfo getAnnualGrossIncome]);
-
-        if([theUserPFInfo getMaritalStatus] == StatusMarried)
-            [self selectMarried];
-        
-        else if([theUserPFInfo getMaritalStatus] == StatusSingle)
-            [self selectSingle];
-        
-        if([theUserPFInfo getAnnualGrossIncome])
-            self.mAnnualGrossIncomeField.text =
-            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
-        
-        if([theUserPFInfo getAnnualRetirementSavings])
-            self.mAnnualRetirementContributionField.text =
-            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
-        
-        self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
+        return;
     }
+    
+    NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld",
+          [theUserPFInfo getAnnualGrossIncome]);
+
+    if([theUserPFInfo getMaritalStatus] == StatusMarried)
+        [self selectMarried];
+    
+    else if([theUserPFInfo getMaritalStatus] == StatusSingle)
+        [self selectSingle];
+    
+    if([theUserPFInfo getAnnualGrossIncome])
+        self.mAnnualGrossIncomeField.text =
+        [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
+    
+    if([theUserPFInfo getAnnualRetirementSavings])
+        self.mAnnualRetirementContributionField.text =
+        [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
+    
+    self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
 }
 
 -(void) viewWillAppear:(BOOL)animated

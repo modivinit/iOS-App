@@ -76,7 +76,10 @@
 
 -(float) getInitialLoanBalance
 {
-    return self.mHomeListPrice - self.mDownPaymentAmount;
+    if(self.mDownPaymentAmount >= self.mHomeListPrice)
+        return 0;
+    else
+        return self.mHomeListPrice - self.mDownPaymentAmount;
 }
 
 -(float) getAnnualPropertyTaxes

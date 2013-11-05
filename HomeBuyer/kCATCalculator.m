@@ -12,6 +12,8 @@
 #import "CalculatorUtilities.h"
 #import "TaxBlock.h"
 
+static const long kMortgageInterestDeductionUpperLimit = 1000000l;
+
 @interface kCATCalculator()
 @property (nonatomic, strong) NSDictionary* mDeductionsAndExemptions;
 @property (nonatomic, strong) NSArray* mStateSingleTaxTable;
@@ -84,18 +86,27 @@
     float baseIncomeForBlock = taxableIncome;
     float finalTaxesPaid = 0;
 
+    uint count = 0;
+    
     float upperLimitForPreviousBlock = 0;
     for (TaxBlock* currentTaxBlock in taxBlockArray)
     {
         float limitForCurrentBlock = currentTaxBlock.mUpperLimit;
         float percentageForCurrentBlock = currentTaxBlock.mPercentage;
-        
-        differenceIncomeForBlock = baseIncomeForBlock - upperLimitForPreviousBlock;
-        
-        if(differenceIncomeForBlock < limitForCurrentBlock)
-            applicableIncomeForBlock = differenceIncomeForBlock;
+
+        if(count == (taxBlockArray.count-1))
+        {
+            applicableIncomeForBlock = taxableIncome - limitForCurrentBlock;
+        }
         else
-            applicableIncomeForBlock = limitForCurrentBlock;
+        {
+            differenceIncomeForBlock = baseIncomeForBlock - upperLimitForPreviousBlock;
+            
+            if(differenceIncomeForBlock < limitForCurrentBlock)
+                applicableIncomeForBlock = differenceIncomeForBlock;
+            else
+                applicableIncomeForBlock = limitForCurrentBlock;
+        }
         
         if(applicableIncomeForBlock < 0)
             break;
@@ -106,6 +117,8 @@
         
         upperLimitForPreviousBlock = limitForCurrentBlock;
         baseIncomeForBlock = differenceIncomeForBlock;
+        
+        count++;
     }
 
     return finalTaxesPaid;
@@ -177,10 +190,30 @@
     
     float interestOnHomeMortgage = 0;
     float propertyTaxesPaid = 0;
-
+    float initialLoanBalance = [self.mHome getInitialLoanBalance];
+    /*If mortgage owed =<$1M then all current equations exist
+     If mortgage owed>$1M then the following:
+     
+     i (p)=interest paid in year
+     i (d)=interest actually deductible in year
+     m=mortgage owed at initiation of loan
+     
+     i(d)=($1,000,000/m)*[i(p)]
+*/
     if(self.mHome)
     {
-        interestOnHomeMortgage = [self.mHome getInterestAveragedOverYears:NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST];
+        float averageInterestOverYears = [self.mHome getInterestAveragedOverYears:NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST];
+        
+        if(initialLoanBalance <= kMortgageInterestDeductionUpperLimit)
+        {
+            interestOnHomeMortgage = averageInterestOverYears;
+        }
+        else
+        {
+            interestOnHomeMortgage =
+            (kMortgageInterestDeductionUpperLimit/initialLoanBalance)* averageInterestOverYears;
+        }
+        
         propertyTaxesPaid = [self.mHome getAnnualPropertyTaxes];
     }
 

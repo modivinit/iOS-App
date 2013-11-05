@@ -306,7 +306,6 @@
 		D6E6EEC317E79DA8005D7526 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC117E79DA8005D7526 /* back-icon.png */; };
 		D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */; };
 		D6E7CC7917F74DF10099C0B8 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E7CC7817F74DF10099C0B8 /* FormViewController.m */; };
-		D6EBEBB91815A899004B3CBF /* Cities_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EBEBB81815A899004B3CBF /* Cities_1.plist */; };
 		D6EBEBC71815C064004B3CBF /* Cities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC61815C064004B3CBF /* Cities.m */; };
 		D6EBEBCA1815C16C004B3CBF /* States.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEBC91815C16C004B3CBF /* States.m */; };
 		D6F68A5E1804CD1400BE5960 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F68A5D1804CD1400BE5960 /* QuartzCore.framework */; };
@@ -663,7 +662,6 @@
 		D6E6EEC217E79DA8005D7526 /* back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@2x.png"; sourceTree = "<group>"; };
 		D6E7CC7717F74DF10099C0B8 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = Controller/FormViewController.h; sourceTree = "<group>"; };
 		D6E7CC7817F74DF10099C0B8 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = Controller/FormViewController.m; sourceTree = "<group>"; };
-		D6EBEBB81815A899004B3CBF /* Cities_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cities_1.plist; path = Resource/Cities_1.plist; sourceTree = "<group>"; };
 		D6EBEBC51815C064004B3CBF /* Cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cities.h; path = Model/Cities.h; sourceTree = "<group>"; };
 		D6EBEBC61815C064004B3CBF /* Cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cities.m; path = Model/Cities.m; sourceTree = "<group>"; };
 		D6EBEBC81815C16C004B3CBF /* States.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = States.h; path = Model/States.h; sourceTree = "<group>"; };
@@ -1504,7 +1502,6 @@
 		D6EBEBB71815A86C004B3CBF /* pLists */ = {
 			isa = PBXGroup;
 			children = (
-				D6EBEBB81815A899004B3CBF /* Cities_1.plist */,
 			);
 			name = pLists;
 			sourceTree = "<group>";
@@ -1771,7 +1768,6 @@
 				9EA5D3E817F15DC500CE7BD8 /* sfh-homeinfo-selected.png in Resources */,
 				9ECDED881803B63B00F2449E /* menu-add-home.png in Resources */,
 				D6C3AB461803CA7300123260 /* kCATIntroTaxViewController.xib in Resources */,
-				D6EBEBB91815A899004B3CBF /* Cities_1.plist in Resources */,
 				9ECDB80F17FF55AB004E5F25 /* menu-profile-single@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
 				D6841DED1824457D00BA5F48 /* TaxTableStateMFJ2013.plist in Resources */,

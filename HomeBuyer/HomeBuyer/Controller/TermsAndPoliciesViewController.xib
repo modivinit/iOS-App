@@ -638,7 +638,7 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content="Kunance">
+                                <fragment content="Incorp Services, Inc.">
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="11" defaultTabInterval="36">
@@ -657,7 +657,7 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content="6161 Ocho Rios Drive">
+                                <fragment content="5716 Corsa Ave.">
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="11" defaultTabInterval="36">
@@ -676,7 +676,26 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content="San Jose, CA 95123">
+                                <fragment content="Suite 110">
+                                    <attributes>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="12" name="Times-Roman"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Westlake Village, CA 91362-7354">
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="11" defaultTabInterval="36">
@@ -902,7 +921,8 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
-                                <fragment content=" 2013 Kunance, 6161 Ocho Rios Drive, San Jose CA 95123. All rights reserved.">
+                                <fragment>
+                                    <string key="content"> 2013 Kunance. All rights reserved. Registered agent for service: Incorp Services, Inc. 5716 Corsa Ave. Suite 110. Westlake Village, CA 91362-7354</string>
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="11" defaultTabInterval="36">

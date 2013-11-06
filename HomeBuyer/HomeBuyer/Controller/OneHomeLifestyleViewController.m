@@ -94,8 +94,8 @@
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile
                                                                              andHome:homeAndLoan];
         
-        float homeLifeStyleIncome = ceilf([calculatorHome getMonthlyLifeStyleIncome]);
-        float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncome]);
+        float homeLifeStyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
+        float rentLifestyleIncome = [calculatorRent getMonthlyLifeStyleIncome];
         
         mLifestyleIncomeData[0] = @{@"Lifestyle" : [NSNumber numberWithFloat:rentLifestyleIncome]};
         self.mRentalLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:

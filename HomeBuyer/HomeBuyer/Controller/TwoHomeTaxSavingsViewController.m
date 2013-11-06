@@ -94,13 +94,13 @@
                                                                          andHome:nil];
         
         float home1Taxes = ([home1Calc getAnnualFederalTaxesPaid]+
-                            [home1Calc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+                            [home1Calc getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
         
         float home2Taxes = ([home2Calc getAnnualFederalTaxesPaid]+
-                            [home2Calc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+                            [home2Calc getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
         
         float rentalTaxes = ([rentalCalc getAnnualFederalTaxesPaid]+
-                            [rentalCalc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+                            [rentalCalc getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
         
         homeTaxSavings[0] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
         homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home1Taxes]};

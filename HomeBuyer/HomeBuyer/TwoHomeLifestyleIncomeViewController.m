@@ -89,9 +89,9 @@
                                                                          andHome:nil];
         
 
-        float homeLifestyle1 = ceilf([home1Calc getMonthlyLifeStyleIncome]);
-        float homeLifestyle2 = ceilf([home2Calc getMonthlyLifeStyleIncome]);
-        float rentLifestyle  =  ceilf([rentalCalc getMonthlyLifeStyleIncome]);
+        float homeLifestyle1 = [home1Calc getMonthlyLifeStyleIncome];
+        float homeLifestyle2 = [home2Calc getMonthlyLifeStyleIncome];
+        float rentLifestyle  = [rentalCalc getMonthlyLifeStyleIncome];
         
         mLifestyleIncomeData[0] = @{@"Lifestyle Income" : [NSNumber numberWithInteger:rentLifestyle]};
         mLifestyleIncomeData[1] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle1]};

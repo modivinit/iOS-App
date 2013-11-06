@@ -68,8 +68,11 @@
         kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
         
-        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid])/12);
-        float rentEstTaxesPaid = ceilf(([calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid])/12);
+        float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
+        homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+        
+        float rentEstTaxesPaid = [calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid];
+        rentEstTaxesPaid = rentEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
         mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
         mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
@@ -81,6 +84,7 @@
         
         self.mEstTaxSavings.text = [Utilities getCurrencyFormattedStringForNumber:
                                     [NSNumber numberWithLong:rentEstTaxesPaid-homeEstTaxesPaid]];
+        
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];

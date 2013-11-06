@@ -136,8 +136,8 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     else
         taxBlockArray = self.mStateSingleTaxTable;
 
-    
-    return [self getTaxesForTable:taxBlockArray andTaxableIncome:stateTaxableIncome];
+    float annualStateTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:stateTaxableIncome];
+    return annualStateTaxes;
 }
 
 -(float) getAnnualFederalTaxesPaid
@@ -152,8 +152,8 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     else
         taxBlockArray = self.mFederalSingleTaxTable;
     
-    return [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
-    return 0;
+    float annualFederalTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
+    return annualFederalTaxes;
 }
 
 -(float) getAnnualAdjustedGrossIncome

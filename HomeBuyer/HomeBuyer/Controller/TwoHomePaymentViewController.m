@@ -79,9 +79,11 @@
         homeAndLoanInfo* homeAndLoan1 = [kunanceUser getCalculatorHomeAndLoanFrom:home1 andLoan:aLoan];
         homeAndLoanInfo* homeAndLoan2 = [kunanceUser getCalculatorHomeAndLoanFrom:home2 andLoan:aLoan];
         
-        float homeMortgage1 = ceilf([homeAndLoan1 getMonthlyLoanPaymentForHome]);
-        float homeMortgage2 = ceilf([homeAndLoan2 getMonthlyLoanPaymentForHome]);
+        float homeMortgage1 = [homeAndLoan1 getMonthlyLoanPaymentForHome];
+        float homeMortgage2 = [homeAndLoan2 getMonthlyLoanPaymentForHome];
+        
         uint rent = [userProfile getMonthlyRentInfo];
+        
         mMonthlyPaymentData[0] =  @{@"Monthly Payment" :
                                         [NSNumber numberWithInteger:rent]};
         mMonthlyPaymentData[1] =  @{@"Monthly Payment" :

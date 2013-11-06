@@ -72,13 +72,22 @@
     UserProfileObject* userCalculatorObject = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
     kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userCalculatorObject andHome:nil];
-    float monthlylifestyle = ceilf([calculator getMonthlyLifeStyleIncome]);
-    float estimatedIncomeTax = ceilf([calculator getAnnualFederalTaxesPaid] + [calculator getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+    float monthlylifestyle = [calculator getMonthlyLifeStyleIncome];
+   
+    float estimatedIncomeTax = [calculator getAnnualFederalTaxesPaid] + [calculator getAnnualStateTaxesPaid];
+    estimatedIncomeTax = estimatedIncomeTax/NUMBER_OF_MONTHS_IN_YEAR;
     
-    self.mLifestyleIncomeLabel.text = [NSString stringWithFormat:@"$%.0f", monthlylifestyle];
-    self.mRentLabel.text = [NSString stringWithFormat:@"%d", [user getMonthlyRentInfo]];
-    self.mFixedCosts.text = [NSString stringWithFormat:@"%d", [user getOtherFixedCostsInfo]];
-    self.mEstimatedIncomeTaxesLabel.text = [NSString stringWithFormat:@"%.0f", estimatedIncomeTax];
+    self.mLifestyleIncomeLabel.text = [Utilities getCurrencyFormattedStringForNumber:
+                                       [NSNumber numberWithFloat:monthlylifestyle]];
+    
+    self.mRentLabel.text = [Utilities getCurrencyFormattedStringForNumber:
+                             [NSNumber numberWithFloat:[user getMonthlyRentInfo]]];
+    
+    self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
+                             [NSNumber numberWithFloat:[user getOtherFixedCostsInfo]]];
+    
+    self.mEstimatedIncomeTaxesLabel.text = [Utilities getCurrencyFormattedStringForNumber:
+                                            [NSNumber numberWithFloat:estimatedIncomeTax]];
     
     homePayments = @{@"Lifestyle Income" : [NSNumber numberWithFloat:monthlylifestyle],
                      @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],

@@ -67,8 +67,9 @@
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
 
         float lifestyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
-        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] +
-                                        [calculatorHome getAnnualStateTaxesPaid])/12);
+        
+        float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
+        homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
         self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                           [NSNumber numberWithLong:lifestyleIncome]];

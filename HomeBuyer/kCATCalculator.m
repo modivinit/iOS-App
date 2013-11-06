@@ -154,7 +154,8 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     
     float annualFederalTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
     
-    annualFederalTaxes -= [self.mDeductionsAndExemptions[@"ChildTaxCreditFederal"] floatValue];
+    if(self.mUserProfile.mNumberOfChildren > 0)
+        annualFederalTaxes -= [self.mDeductionsAndExemptions[@"ChildTaxCreditFederal"] floatValue];
     
     return annualFederalTaxes;
 }

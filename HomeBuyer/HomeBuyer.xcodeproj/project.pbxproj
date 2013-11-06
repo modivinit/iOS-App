@@ -43,6 +43,8 @@
 		9E2F720118260B3600D2B593 /* menu-loan-info-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F71FD18260B3600D2B593 /* menu-loan-info-gray@2x.png */; };
 		9E2F720218260B3600D2B593 /* menu-loan-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F71FE18260B3600D2B593 /* menu-loan-info.png */; };
 		9E2F720318260B3600D2B593 /* menu-loan-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F71FF18260B3600D2B593 /* menu-loan-info@2x.png */; };
+		9E3240D6182AA55B00B3E9E2 /* home-interior_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E3240D5182AA55B00B3E9E2 /* home-interior_04@2x.jpg */; };
+		9E3240D8182AA64C00B3E9E2 /* home-interior_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3240D7182AA64C00B3E9E2 /* home-interior_04.png */; };
 		9E35E9A11828D10F006A3B1A /* TaxTableFederalMFJ2014.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E35E99F1828D10F006A3B1A /* TaxTableFederalMFJ2014.plist */; };
 		9E35E9A21828D10F006A3B1A /* TaxTableFederalSingle2014.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E35E9A01828D10F006A3B1A /* TaxTableFederalSingle2014.plist */; };
 		9E4872611811EB2300B417F9 /* sign-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E48725F1811EB2300B417F9 /* sign-up.png */; };
@@ -89,8 +91,6 @@
 		9E96EEEB18107367001E8FF7 /* home-interior_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE318107367001E8FF7 /* home-interior_02@2x.jpg */; };
 		9E96EEEC18107367001E8FF7 /* home-interior_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE418107367001E8FF7 /* home-interior_03.jpg */; };
 		9E96EEED18107367001E8FF7 /* home-interior_03@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */; };
-		9E96EEEE18107367001E8FF7 /* home-interior_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE618107367001E8FF7 /* home-interior_04.jpg */; };
-		9E96EEEF18107367001E8FF7 /* home-interior_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */; };
 		9E9D798B1829A49E00DDC995 /* appname.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D79891829A49E00DDC995 /* appname.png */; };
 		9E9D798C1829A49E00DDC995 /* appname@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798A1829A49E00DDC995 /* appname@2x.png */; };
 		9E9D798E1829A82700DDC995 /* CityTaxRate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798D1829A82700DDC995 /* CityTaxRate.plist */; };
@@ -376,6 +376,8 @@
 		9E2F71FD18260B3600D2B593 /* menu-loan-info-gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info-gray@2x.png"; sourceTree = "<group>"; };
 		9E2F71FE18260B3600D2B593 /* menu-loan-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info.png"; sourceTree = "<group>"; };
 		9E2F71FF18260B3600D2B593 /* menu-loan-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-loan-info@2x.png"; sourceTree = "<group>"; };
+		9E3240D5182AA55B00B3E9E2 /* home-interior_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_04@2x.jpg"; sourceTree = "<group>"; };
+		9E3240D7182AA64C00B3E9E2 /* home-interior_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-interior_04.png"; sourceTree = "<group>"; };
 		9E35E99F1828D10F006A3B1A /* TaxTableFederalMFJ2014.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalMFJ2014.plist; sourceTree = "<group>"; };
 		9E35E9A01828D10F006A3B1A /* TaxTableFederalSingle2014.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalSingle2014.plist; sourceTree = "<group>"; };
 		9E48725F1811EB2300B417F9 /* sign-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-up.png"; sourceTree = "<group>"; };
@@ -425,8 +427,6 @@
 		9E96EEE318107367001E8FF7 /* home-interior_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_02@2x.jpg"; sourceTree = "<group>"; };
 		9E96EEE418107367001E8FF7 /* home-interior_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03.jpg"; sourceTree = "<group>"; };
 		9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03@2x.jpg"; sourceTree = "<group>"; };
-		9E96EEE618107367001E8FF7 /* home-interior_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_04.jpg"; sourceTree = "<group>"; };
-		9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_04@2x.jpg"; sourceTree = "<group>"; };
 		9E9D79891829A49E00DDC995 /* appname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appname.png; sourceTree = "<group>"; };
 		9E9D798A1829A49E00DDC995 /* appname@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appname@2x.png"; sourceTree = "<group>"; };
 		9E9D798D1829A82700DDC995 /* CityTaxRate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityTaxRate.plist; sourceTree = "<group>"; };
@@ -1315,8 +1315,8 @@
 				9E96EEE318107367001E8FF7 /* home-interior_02@2x.jpg */,
 				9E96EEE418107367001E8FF7 /* home-interior_03.jpg */,
 				9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */,
-				9E96EEE618107367001E8FF7 /* home-interior_04.jpg */,
-				9E96EEE718107367001E8FF7 /* home-interior_04@2x.jpg */,
+				9E3240D7182AA64C00B3E9E2 /* home-interior_04.png */,
+				9E3240D5182AA55B00B3E9E2 /* home-interior_04@2x.jpg */,
 				D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */,
 				D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */,
 				D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */,
@@ -1902,7 +1902,9 @@
 				D63EA1FD17FCF47900E50E44 /* chart.png in Resources */,
 				D6841DEC1824457D00BA5F48 /* TaxTableFederalSingle2013.plist in Resources */,
 				9E2F71FB18260A3A00D2B593 /* menu-current-lifestyle@2x.png in Resources */,
+				9E3240D8182AA64C00B3E9E2 /* home-interior_04.png in Resources */,
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,
+				9E3240D6182AA55B00B3E9E2 /* home-interior_04@2x.jpg in Resources */,
 				D6E6EE7117E660F9005D7526 /* couple-selected@2x.png in Resources */,
 				9EA5D3E117F15DC500CE7BD8 /* condo-selected@2x.png in Resources */,
 				9E4B1D18180600EC00D3D39C /* homeinfo@2x.png in Resources */,
@@ -1921,7 +1923,6 @@
 				D6E6EE5817E65A9E005D7526 /* single.png in Resources */,
 				D6E6EE5D17E65AAF005D7526 /* salary@2x.png in Resources */,
 				9EA5D3DF17F15DC500CE7BD8 /* besthomefeature@2x.png in Resources */,
-				9E96EEEF18107367001E8FF7 /* home-interior_04@2x.jpg in Resources */,
 				D6841DEB1824457D00BA5F48 /* TaxTableFederalMFJ2013.plist in Resources */,
 				D67EFDFA17CCE1280082F6C7 /* Images.xcassets in Resources */,
 				9E57C7E4180F0E9500E6EE22 /* menu-add-home-gray.png in Resources */,
@@ -1942,7 +1943,6 @@
 				9EA5D41017F162DE00CE7BD8 /* loantime.png in Resources */,
 				9ECCAD9817F0E696001EAF4C /* doubledownarrow.png in Resources */,
 				9E35E9A11828D10F006A3B1A /* TaxTableFederalMFJ2014.plist in Resources */,
-				9E96EEEE18107367001E8FF7 /* home-interior_04.jpg in Resources */,
 				9EB34AE7182307CE009A3041 /* menu-dashboard.png in Resources */,
 				D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */,
 				9ECDB7FE17FF55AB004E5F25 /* menu-empty.png in Resources */,

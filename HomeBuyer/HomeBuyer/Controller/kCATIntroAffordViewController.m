@@ -31,12 +31,12 @@
     backImage.image = [UIImage imageNamed:@"home-interior_01.jpg"];
     [self.view addSubview:backImage];
     
-    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 46, 150, 53)];
+    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 50, 150, 53)];
     appName.center = CGPointMake(self.view.center.x, appName.center.y);
     appName.image = [UIImage imageNamed:@"appname.png"];
     [self.view addSubview:appName];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 151, 237, 40)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 130, 237, 40)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;

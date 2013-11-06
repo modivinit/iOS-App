@@ -31,7 +31,7 @@
     backImage.image = [UIImage imageNamed:@"home-interior_04.jpg"];
     [self.view addSubview:backImage];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 70, 250, 90)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 90)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 4;
     label.textAlignment = NSTextAlignmentCenter;

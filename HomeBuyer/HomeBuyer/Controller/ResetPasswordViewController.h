@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResetPasswordViewController : UIViewController
+@protocol ResetPasswordControllerDelegate <NSObject>
+-(void) resetRequestSent;
+@end
 
+@interface ResetPasswordViewController : UIViewController <UITextFieldDelegate>
+@property (nonatomic, strong) IBOutlet UITextField* mEmailField;
+@property (nonatomic, strong) UIColor* mButtonColor;
 @end

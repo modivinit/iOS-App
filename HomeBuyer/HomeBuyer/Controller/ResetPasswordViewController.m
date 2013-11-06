@@ -27,7 +27,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.mEmailField.delegate = self;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
+    
+        //self.mButtonColor = self.navigationItem.rightBarButtonItem.
 }
+
+-(void) doneButtonPressed
+{
+    
+}
+
+/*-(BOOL) textField:(UITextField *)textField
+shouldChangeCharactersInRange:(NSRange)range
+replacementString:(NSString *)string
+{
+    NSString* newStr = [NSString stringWithFormat:@"%@%@",self.mEmailField.text, string];
+    if([Utilities isValidEmail:newStr])
+    {
+        
+    }
+}*/
 
 - (void)didReceiveMemoryWarning
 {

@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import <MBProgressHUD.h>
+#import "ResetPasswordViewController.h"
 
 @interface LoginViewController ()
 @end
@@ -36,7 +37,6 @@
     self.mLoginEmail.delegate = self;
     self.mPassword.delegate = self;
     
-    self.mSignInFooterBUtton.enabled = NO;
     self.mLoginButton.enabled = NO;
     
     self.navigationItem.leftBarButtonItem =
@@ -53,8 +53,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mLoginButton];
 
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
-    self.mSignInFooterBUtton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    self.mSignUpFooterButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
     
 
     [self disableLoginButton];
@@ -131,7 +129,8 @@
 //IBActions, action target methods, gesture targets
 -(IBAction)forgotPassword:(id)sender
 {
-    
+    ResetPasswordViewController* resetController = [[ResetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:resetController animated:NO];
 }
 
 -(void) cancelScreen

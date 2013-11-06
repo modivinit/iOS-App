@@ -24,10 +24,5 @@
 -(IBAction)forgotPassword:(id)sender;
 
 @property (nonatomic, strong) UIButton*    mLoginButton;
-@property (nonatomic, strong) IBOutlet UIButton*    mSignInFooterBUtton;
-@property (nonatomic, strong) IBOutlet UIButton*    mSignUpFooterButton;
-
--(IBAction) signupButtonPressedAction:(id)sender;
-
 @property (nonatomic, strong) UIColor* mLoginButtonColor;
 @end

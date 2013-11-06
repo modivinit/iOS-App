@@ -22,5 +22,7 @@
 	<integer>3900</integer>
 	<key>ChildrenExemptionFederal</key>
 	<integer>3900</integer>
+	<key>ChildTaxCreditFederal</key>
+	<integer>1000</integer>
 </dict>
 </plist>

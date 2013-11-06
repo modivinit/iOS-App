@@ -31,11 +31,11 @@
     backImage.image = [UIImage imageNamed:@"home-interior_04.jpg"];
     [self.view addSubview:backImage];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 70, 250, 70)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 70, 250, 90)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
-    label.numberOfLines = 3;
+    label.numberOfLines = 4;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"Share with family.\nConnect with realtors.";
+    label.text = @"Share results with family.\n\nConnect with realtors when you are ready.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

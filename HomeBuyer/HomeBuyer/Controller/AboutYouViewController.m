@@ -103,11 +103,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 60)];
+//    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+//    [self.mFormScrollView setContentOffset:CGPointMake(0, 60)];
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     self.mAnnualGrossIncomeField.maxLength = MAX_ANNUAL_GROSS_INCOME_LENGTH;
     self.mAnnualRetirementContributionField.maxLength = MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH;
     

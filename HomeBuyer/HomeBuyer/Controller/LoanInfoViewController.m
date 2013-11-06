@@ -199,9 +199,8 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 80)];
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 296)];
     
     [self.mPercentDollarValueChoice addTarget:self
                                        action:@selector(percentDollarChoiceChanged)

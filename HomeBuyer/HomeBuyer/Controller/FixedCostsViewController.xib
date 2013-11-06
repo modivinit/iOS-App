@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FixedCostsViewController">
@@ -10,7 +10,7 @@
                 <outlet property="mAboutYouButton" destination="Q2A-g7-w3i" id="8TB-KH-ZUp"/>
                 <outlet property="mCurrentLifestyleIncomeButton" destination="oUv-T7-xI1" id="rfZ-FH-qt8"/>
                 <outlet property="mDashboardButton" destination="FlP-2P-ra7" id="uFR-J2-qwQ"/>
-                <outlet property="mFormScrollView" destination="ZAE-Ld-lbX" id="wQY-2J-oiU"/>
+                <outlet property="mFormScrollView" destination="ZAE-Ld-lbX" id="UeN-zW-X0E"/>
                 <outlet property="mHelpButton" destination="bFE-Rh-E22" id="5Xj-Sr-lrr"/>
                 <outlet property="mMonthlyCarPayments" destination="kVz-QE-aNR" id="szJ-WD-1HP"/>
                 <outlet property="mMonthlyRent" destination="K0A-au-c27" id="ox3-Ta-z6h"/>
@@ -24,55 +24,55 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZAE-Ld-lbX">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="332"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                    <rect key="frame" x="0.0" y="71" width="320" height="329"/>
+                    <autoresizingMask key="autoresizingMask"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rent.png" id="eU3-PE-26f">
-                            <rect key="frame" x="20" y="122" width="29" height="29"/>
+                            <rect key="frame" x="20" y="32" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Rent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NSh-kV-Yk6">
-                            <rect key="frame" x="60" y="102" width="84" height="17"/>
+                            <rect key="frame" x="60" y="12" width="84" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Helps compare rent vs. buy" minimumFontSize="17" clearButtonMode="whileEditing" id="K0A-au-c27" customClass="TSCurrencyTextField">
-                            <rect key="frame" x="60" y="122" width="238" height="30"/>
+                            <rect key="frame" x="60" y="32" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" id="v45-Tv-9jl">
-                            <rect key="frame" x="20" y="202" width="29" height="29"/>
+                            <rect key="frame" x="20" y="112" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Car Payments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3H9-eU-XDJ">
-                            <rect key="frame" x="60" y="182" width="143" height="17"/>
+                            <rect key="frame" x="60" y="92" width="143" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Total payments across all cars." minimumFontSize="17" clearButtonMode="whileEditing" id="kVz-QE-aNR" customClass="TSCurrencyTextField">
-                            <rect key="frame" x="60" y="202" width="238" height="30"/>
+                            <rect key="frame" x="60" y="112" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otherexpenses.png" id="Idl-Xg-YAV">
-                            <rect key="frame" x="20" y="282" width="29" height="29"/>
+                            <rect key="frame" x="20" y="192" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Utilities, phone bills, etc." minimumFontSize="17" clearButtonMode="whileEditing" id="sC3-Oz-C4M" customClass="TSCurrencyTextField">
-                            <rect key="frame" x="60" y="282" width="238" height="30"/>
+                            <rect key="frame" x="60" y="192" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Fixed Monthly Costs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQF-ug-X6T">
-                            <rect key="frame" x="60" y="262" width="168" height="17"/>
+                            <rect key="frame" x="60" y="172" width="168" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

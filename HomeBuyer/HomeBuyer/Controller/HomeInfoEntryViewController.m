@@ -117,8 +117,6 @@
     self.mAskingPriceField,
     self.mMontylyHOAField, nil];
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
@@ -127,6 +125,9 @@
     [self setupButtons];
     [self addExistingHomeInfo];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 400)];
+
     self.mAskingPriceField.maxLength = MAX_HOME_PRICE_LENGTH;
     self.mMontylyHOAField.maxLength = MAX_HOA_PRICE_LENGTH;
     

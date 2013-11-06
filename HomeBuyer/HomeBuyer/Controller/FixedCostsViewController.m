@@ -52,7 +52,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
+    //[self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
 }
 
 - (void)viewDidLoad
@@ -72,8 +72,10 @@
     self.mOtherMonthlyPayments.maxLength = MAX_FIXED_COSTS_LENGTH;
     
     [self addGestureRecognizers];
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 360)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 120)];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+   // self.mFormScrollView.backgroundColor = [UIColor lightGrayColor];
+   // [self.mFormScrollView setContentSize:CGSizeMake(320, 300)];
+   // [self.mFormScrollView setContentOffset:CGPointMake(0, 150)];
     [self initWithExisitingFixedCosts];
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];

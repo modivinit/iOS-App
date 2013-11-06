@@ -196,9 +196,22 @@
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(20.0, 0.0, kbSize.height, 0.0);
     self.mFormScrollView.contentInset = contentInsets;
     self.mFormScrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.mActiveField.frame.origin) )
+    {
+        [self.mFormScrollView scrollRectToVisible:self.mActiveField.frame animated:YES];
+    }
+
+    /*UIEdgeInsets contentInsets = UIEdgeInsetsMake(64.0, 0.0, kbSize.height, 0.0);
+    self.mFormScrollView.contentInset = contentInsets;
+//    self.mFormScrollView.scrollIndicatorInsets = contentInsets;
     
     // If active text field is hidden by keyboard, scroll it so it's visible
     // Your application might not need or want this behavior.
@@ -209,7 +222,7 @@
     if (!CGRectContainsPoint(aRect, origin) ) {
         CGPoint scrollPoint = CGPointMake(0.0, self.mActiveField.frame.origin.y-(aRect.size.height));
         [self.mFormScrollView setContentOffset:scrollPoint animated:YES];
-    }
+    }*/
 }
 
 // Called when the UIKeyboardWillHideNotification is sent

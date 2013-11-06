@@ -9,9 +9,9 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import <MBProgressHUD.h>
-#import "ResetPasswordViewController.h"
 
 @interface LoginViewController ()
+@property (nonatomic, strong) ResetPasswordViewController* mResetController;
 @end
 
 @implementation LoginViewController
@@ -102,6 +102,14 @@
     }
 }
 
+#pragma ResetPasswordDelegate
+-(void) resetRequestSent
+{
+    [self.navigationController popViewControllerAnimated:NO];    
+}
+#pragma end
+
+
 #pragma mark LoginSignupServiceDelegate
 -(void) loginCompletedWithError:(NSError *)error
 {
@@ -129,8 +137,9 @@
 //IBActions, action target methods, gesture targets
 -(IBAction)forgotPassword:(id)sender
 {
-    ResetPasswordViewController* resetController = [[ResetPasswordViewController alloc] init];
-    [self.navigationController pushViewController:resetController animated:NO];
+    self.mResetController = [[ResetPasswordViewController alloc] init];
+    self.mResetController.mResetPasswordDelegate = self;
+    [self.navigationController pushViewController:self.mResetController animated:NO];
 }
 
 -(void) cancelScreen

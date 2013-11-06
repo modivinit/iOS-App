@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MBProgressHUD.h>
 
 @interface Utilities : NSObject
 + (BOOL)isValidEmail:(NSString*)emailString;
@@ -17,4 +18,5 @@
 +(UIColor*) getKunanceBlueColor;
 + (UIActivityIndicatorView*) getAndStartBusyIndicator;
 +(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount;
++(MBProgressHUD*) getHUDViewWithText:(NSString*) text onView:(UIView*) view;
 @end

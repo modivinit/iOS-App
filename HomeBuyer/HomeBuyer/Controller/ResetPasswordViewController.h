@@ -15,4 +15,6 @@
 @interface ResetPasswordViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic, strong) IBOutlet UITextField* mEmailField;
 @property (nonatomic, strong) UIColor* mButtonColor;
+
+@property (nonatomic, weak) id <ResetPasswordControllerDelegate> mResetPasswordDelegate;
 @end

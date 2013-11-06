@@ -21,7 +21,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeTaxSavingsDelegate setNavTitle:@"Income Tax Savings"];
+    [self.mTwoHomeTaxSavingsDelegate setNavTitle:@"Annual Income Tax Savings"];
 }
 
 -(void) setupOtherLabels

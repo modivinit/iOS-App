@@ -24,13 +24,13 @@
     viewController1.mOneHomeLifestyleViewDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
     
-    OneHomePaymentViewController* viewController2 = [[OneHomePaymentViewController alloc] init];
-    viewController2.mOneHomePaymentViewDelegate = self;
-    [self.mPageViewControllers addObject:viewController2];
-    
     OneHomeTaxSavingsViewController* viewController3 = [[OneHomeTaxSavingsViewController alloc] init];
     viewController3.mOneHomeTaxSavingsDelegate = self;
     [self.mPageViewControllers addObject: viewController3];
+    
+    OneHomePaymentViewController* viewController2 = [[OneHomePaymentViewController alloc] init];
+    viewController2.mOneHomePaymentViewDelegate = self;
+    [self.mPageViewControllers addObject:viewController2];
 }
 
 -(void) addButtons

@@ -95,7 +95,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Income Tax Savings"];
+    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Annual Income Tax Savings"];
 }
 
 - (void)viewDidLoad

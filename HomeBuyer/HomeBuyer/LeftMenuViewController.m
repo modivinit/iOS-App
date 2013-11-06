@@ -120,10 +120,7 @@
     switch (section)
     {
         case SECTION_USER_NAME_DASH_REALTOR:
-            if([kunanceUser getInstance].mRealtor.mIsValid)
                 numOfRows = 2;
-            else
-                numOfRows = 1;
             break;
             
         case SECTION_HOMES:
@@ -384,7 +381,12 @@
             }
             else if(indexPath.row == ROW_REALTOR && [kunanceUser getInstance].mRealtor.mIsValid)
             {
-                cell.textLabel.text = @"Contact Realtor";
+                cell.textLabel.text = @"Contact Your Realtor";
+                cell.imageView.image = [UIImage imageNamed:@"menu-contact-realtor.png"];
+            }
+            else if(indexPath.row == ROW_REALTOR && ![kunanceUser getInstance].mRealtor.mIsValid)
+            {
+                cell.textLabel.text = @"Add A Realtor";
                 cell.imageView.image = [UIImage imageNamed:@"menu-contact-realtor.png"];
             }
             break;

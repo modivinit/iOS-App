@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -10,8 +10,6 @@
                 <outlet property="mForgetPasswordButton" destination="mAP-oI-NAj" id="EhF-w2-3ck"/>
                 <outlet property="mLoginEmail" destination="1cZ-kg-XqS" id="gxa-H7-vde"/>
                 <outlet property="mPassword" destination="nNm-Dc-LVL" id="fzZ-Vf-siQ"/>
-                <outlet property="mSignInFooterBUtton" destination="y8a-ta-KMj" id="7Wm-8f-1yp"/>
-                <outlet property="mSignUpFooterButton" destination="vY1-8S-ZLR" id="uO4-Gx-6bL"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -29,21 +27,6 @@
                     </state>
                     <connections>
                         <action selector="forgotPassword:" destination="-1" eventType="touchDown" id="Wak-ZG-J3R"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y8a-ta-KMj">
-                    <rect key="frame" x="20" y="520" width="50" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Sign In"/>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vY1-8S-ZLR">
-                    <rect key="frame" x="188" y="520" width="112" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Create Account"/>
-                    <connections>
-                        <action selector="signupButtonPressedAction:" destination="-1" eventType="touchDown" id="1qE-Ra-4OL"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" id="Fvo-QG-9J1">

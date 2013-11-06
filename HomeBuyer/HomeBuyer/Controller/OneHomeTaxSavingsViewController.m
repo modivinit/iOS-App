@@ -21,7 +21,7 @@
 
 -(void) setupChart
 {
-    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 140, 300, 160)];
     
     self.mEstTaxesChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -69,13 +69,13 @@
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
         
         float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
-        homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+   //     homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
         float rentEstTaxesPaid = [calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid];
-        rentEstTaxesPaid = rentEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+   //     rentEstTaxesPaid = rentEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
-        mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
-        mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
+        mTaxesData[0] = @{@"Est. Income Tax" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
+        mTaxesData[1] = @{@"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
         
         self.mEstTaxPaidWithRental.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithLong:rentEstTaxesPaid]];

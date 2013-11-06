@@ -32,7 +32,7 @@
 -(void) setupChart
 {
     // create the data
-    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 155, 300, 160)];
     
     self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -94,17 +94,17 @@
                                                                          andHome:nil];
         
         float home1Taxes = ([home1Calc getAnnualFederalTaxesPaid]+
-                            [home1Calc getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+                            [home1Calc getAnnualStateTaxesPaid]);
         
         float home2Taxes = ([home2Calc getAnnualFederalTaxesPaid]+
-                            [home2Calc getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+                            [home2Calc getAnnualStateTaxesPaid]);
         
         float rentalTaxes = ([rentalCalc getAnnualFederalTaxesPaid]+
-                            [rentalCalc getAnnualStateTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+                            [rentalCalc getAnnualStateTaxesPaid]);
         
-        homeTaxSavings[0] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
-        homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home1Taxes]};
-        homeTaxSavings[2] = @{@"Tax Savings" : [NSNumber numberWithInteger:home2Taxes]};
+        homeTaxSavings[0] = @{@"Est. Income Tax" : [NSNumber numberWithInteger:rentalTaxes]};
+        homeTaxSavings[1] = @{@"Est. Income Tax" : [NSNumber numberWithInteger:home1Taxes]};
+        homeTaxSavings[2] = @{@"Est. Income Tax" : [NSNumber numberWithInteger:home2Taxes]};
 
         self.mEstRentalUnitTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rentalTaxes]];
         self.mEstFirstHomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1Taxes]];

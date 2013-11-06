@@ -133,15 +133,6 @@
                                 <action selector="enterHomeAddressButtonTapped" destination="-1" eventType="touchDown" id="piD-Lo-vpn"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M1E-Ub-wFu">
-                            <rect key="frame" x="60" y="339" width="93" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                            <state key="normal" title="Edit Address"/>
-                            <connections>
-                                <action selector="enterHomeAddressButtonTapped" destination="-1" eventType="touchDown" id="QCv-st-zTR"/>
-                            </connections>
-                        </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city.png" id="No1-Zn-Lu0">
                             <rect key="frame" x="20" y="346" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

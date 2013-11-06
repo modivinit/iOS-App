@@ -12,8 +12,8 @@
 #import "HelpProfileViewController.h"
 #import <MBProgressHUD.h>
 
-#define MAX_ANNUAL_GROSS_INCOME_LENGTH 11
-#define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 8
+#define MAX_ANNUAL_GROSS_INCOME_LENGTH 10
+#define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 7
 
 @interface AboutYouViewController ()
 

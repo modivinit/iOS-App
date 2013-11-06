@@ -102,9 +102,9 @@
         float rentalTaxes = ([rentalCalc getAnnualFederalTaxesPaid]+
                             [rentalCalc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
         
-        homeTaxSavings[0] = @{@"Tax Savings" : [NSNumber numberWithInteger:home1Taxes]};
-        homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home2Taxes]};
-        homeTaxSavings[2] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
+        homeTaxSavings[0] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
+        homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home1Taxes]};
+        homeTaxSavings[2] = @{@"Tax Savings" : [NSNumber numberWithInteger:home2Taxes]};
 
         self.mEstRentalUnitTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rentalTaxes]];
         self.mEstFirstHomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1Taxes]];

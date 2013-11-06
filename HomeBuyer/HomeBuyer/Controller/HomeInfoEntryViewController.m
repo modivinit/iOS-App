@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString* mHomeStreetAddress;
 @property (nonatomic, copy) NSString* mHomeCity;
 @property (nonatomic, copy) NSString* mHomeState;
+@property (nonatomic, copy) NSString* mHomeZip;
 @end
 
 @implementation HomeInfoEntryViewController
@@ -56,6 +57,15 @@
         
         if(self.mCorrespondingHomeInfo.mHOAFees)
             self.mMontylyHOAField.text = [NSString stringWithFormat:@"%d", self.mCorrespondingHomeInfo.mHOAFees];
+        
+        if(self.mCorrespondingHomeInfo.mHomeAddress)
+        {
+            NSString* address = [NSString stringWithFormat:@"%@, %@, %@",
+                                 self.mCorrespondingHomeInfo.mHomeAddress.mStreetAddress,
+                                 self.mCorrespondingHomeInfo.mHomeAddress.mCity,
+                                 self.mCorrespondingHomeInfo.mHomeAddress.mState];
+            [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -124,6 +134,8 @@
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Entered Dashboard Help Screen" properties:Nil];
+    
+    self.mHomeAddressButton.titleLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 -(void) uploadHomeInfo
@@ -159,19 +171,13 @@
         aHomeInfo.mHomeAddress.mStreetAddress = self.mHomeStreetAddress;
     
     if(self.mHomeState)
-    {
-        aHomeInfo.mHomeAddress.mStateCode = [States getStateCodeForStateName:self.mHomeState];
-    }
-    else
-        aHomeInfo.mHomeAddress.mStateCode = UNDEFINED_STATE_CODE;
+        aHomeInfo.mHomeAddress.mState = self.mHomeState;
+        
+    if(self.mHomeCity)
+        aHomeInfo.mHomeAddress.mCity = self.mHomeCity;
     
-    if(self.mHomeCity && aHomeInfo.mHomeAddress.mStateCode)
-    {
-        Cities* citiesList = [[Cities alloc] initForState:aHomeInfo.mHomeAddress.mStateCode];
-        aHomeInfo.mHomeAddress.mCityCode = [citiesList getCityCodeForCityName:self.mHomeCity];
-    }
-    else
-        aHomeInfo.mHomeAddress.mCityCode = OTHER_CITY_CODE;
+    if(self.mHomeZip)
+        aHomeInfo.mHomeAddress.mZipCode = self.mHomeZip;
     
     if(![kunanceUser getInstance].mKunanceUserHomes)
         [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
@@ -216,15 +222,25 @@
 
 -(IBAction) enterHomeAddressButtonTapped
 {
-    self.mHomeAddressView = [[HomeAddressViewController alloc] init];
-    self.mHomeAddressView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    self.mHomeAddressView.mHomeAddressViewDelegate = self;
-    if(self.mCorrespondingHomeInfo.mHomeAddress)
-    {
-        self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
-    }
+//    self.mHomeAddressView = [[HomeAddressViewController alloc] init];
+//    self.mHomeAddressView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    self.mHomeAddressView.mHomeAddressViewDelegate = self;
+//    if(self.mCorrespondingHomeInfo.mHomeAddress)
+//    {
+//        self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
+//    }
 
-    [self.navigationController pushViewController:self.mHomeAddressView animated:YES];
+    self.googlePlacesViewController = [[SPGooglePlacesAutocompleteViewController alloc] init];
+    {
+        NSString* address = [NSString stringWithFormat:@"%@, %@, %@",
+                             self.mHomeStreetAddress,
+                             self.mHomeCity,
+                             self.mHomeState];
+        
+        self.googlePlacesViewController.searchDisplayController.searchBar.text = address;
+    }
+    self.googlePlacesViewController.placemarkDelegate = self;
+    [self.navigationController presentViewController:self.googlePlacesViewController animated:NO completion:nil];
 }
 
 -(IBAction)sfhButtonTapped:(id)sender
@@ -248,6 +264,41 @@
     [self.navigationController pushViewController:hPV animated:NO];
 }
 #pragma mark end
+
+#pragma mark GooglePlacesDelegate
+-(void) addressSelected:(CLPlacemark *)placemark
+{
+    if(placemark)
+    {
+        NSLog(@"address: %@", placemark.addressDictionary);
+        self.mHomeStreetAddress = placemark.addressDictionary[@"Street"];
+        if([self.mHomeStreetAddress isEqual:[NSNull null]])
+            self.mHomeStreetAddress = nil;
+        
+        self.mHomeCity = placemark.addressDictionary[@"City"];
+        if([self.mHomeCity isEqual:[NSNull null]])
+            self.mHomeCity = nil;
+        
+        self.mHomeState = placemark.addressDictionary[@"State"];
+        if([self.mHomeState isEqual:[NSNull null]])
+            self.mHomeState = nil;
+        
+        self.mHomeZip = placemark.addressDictionary[@"ZIP"];
+        if([self.mHomeZip isEqual:[NSNull null]])
+            self.mHomeZip = nil;
+        
+        
+        NSString* address = [NSString stringWithFormat:@"%@, %@, %@",
+                             self.mHomeStreetAddress,
+                             self.mHomeCity,
+                             self.mHomeState];
+        [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
+
+    }
+    
+    [self.googlePlacesViewController dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma end
 
 #pragma mark HomeAddressViewDelegate
 -(void) popHomeAddressFromHomeInfo

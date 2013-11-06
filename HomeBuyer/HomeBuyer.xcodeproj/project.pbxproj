@@ -286,6 +286,8 @@
 		D6E4251F18297F0400F9DCE4 /* Realtor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4251E18297F0400F9DCE4 /* Realtor.m */; };
 		D6E4252018297F0400F9DCE4 /* Realtor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4251E18297F0400F9DCE4 /* Realtor.m */; };
 		D6E4252218299B2500F9DCE4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E4252118299B2500F9DCE4 /* MessageUI.framework */; };
+		D6E425271829BDEE00F9DCE4 /* SPGooglePlacesAutocompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E425251829BDEE00F9DCE4 /* SPGooglePlacesAutocompleteViewController.xib */; };
+		D6E4252A1829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E425291829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */; };
 		D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */; };
 		D6E6EE5417E65A8A005D7526 /* couple.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E6EE5217E65A8A005D7526 /* couple.png */; };
@@ -647,6 +649,9 @@
 		D6E4251D18297F0400F9DCE4 /* Realtor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Realtor.h; sourceTree = "<group>"; };
 		D6E4251E18297F0400F9DCE4 /* Realtor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Realtor.m; sourceTree = "<group>"; };
 		D6E4252118299B2500F9DCE4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D6E425251829BDEE00F9DCE4 /* SPGooglePlacesAutocompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPGooglePlacesAutocompleteViewController.xib; sourceTree = "<group>"; };
+		D6E425281829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompleteViewController.h; sourceTree = "<group>"; };
+		D6E425291829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompleteViewController.m; sourceTree = "<group>"; };
 		D6E6EE4D17E659DD005D7526 /* AboutYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutYouViewController.h; path = Controller/AboutYouViewController.h; sourceTree = "<group>"; };
 		D6E6EE4E17E659DD005D7526 /* AboutYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutYouViewController.m; path = Controller/AboutYouViewController.m; sourceTree = "<group>"; };
 		D6E6EE4F17E659DD005D7526 /* AboutYouViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutYouViewController.xib; path = Controller/AboutYouViewController.xib; sourceTree = "<group>"; };
@@ -924,6 +929,7 @@
 		9EA5D3EC17F1621B00CE7BD8 /* HomeAddress */ = {
 			isa = PBXGroup;
 			children = (
+				D6E425251829BDEE00F9DCE4 /* SPGooglePlacesAutocompleteViewController.xib */,
 				9E4DC4041821C0560089E94F /* state.png */,
 				9E4DC4051821C0560089E94F /* state@2x.png */,
 				9E4B1D111805FE1B00D3D39C /* loaninfo.png */,
@@ -942,6 +948,8 @@
 		9EA5D3F217F1624E00CE7BD8 /* HomeAddress */ = {
 			isa = PBXGroup;
 			children = (
+				D6E425281829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.h */,
+				D6E425291829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.m */,
 				9EA5D3ED17F1624300CE7BD8 /* HomeAddressViewController.h */,
 				9EA5D3EE17F1624300CE7BD8 /* HomeAddressViewController.m */,
 			);
@@ -1856,6 +1864,7 @@
 				9E587B3A1818FCAC00E65DBA /* dash-add-home.png in Resources */,
 				9ED9559718032B7200846BB8 /* MenuIcon@2x.png in Resources */,
 				9EB34AE318230680009A3041 /* dashboard.png in Resources */,
+				D6E425271829BDEE00F9DCE4 /* SPGooglePlacesAutocompleteViewController.xib in Resources */,
 				D6E6EE5417E65A8A005D7526 /* couple.png in Resources */,
 				9EFBA04C180DBB5300F78749 /* menu-fixedcosts-gray@2x.png in Resources */,
 				9E2F720018260B3600D2B593 /* menu-loan-info-gray.png in Resources */,
@@ -2059,6 +2068,7 @@
 				D6C3AAF318036FB200123260 /* DashOneHomeEnteredViewController.m in Sources */,
 				D6C3AAED18036DB800123260 /* BasePageViewController.m in Sources */,
 				9E00FAA317F34DB100380997 /* HelpProfileViewController.m in Sources */,
+				D6E4252A1829BFC600F9DCE4 /* SPGooglePlacesAutocompleteViewController.m in Sources */,
 				D6E6EE5017E659DD005D7526 /* AboutYouViewController.m in Sources */,
 				9E13E3B01817343700875BD2 /* ResetPasswordViewController.m in Sources */,
 				D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */,

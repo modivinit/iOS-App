@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol RealtorDelegate <NSObject>
+@optional
 -(void) finishedReadingRealtorInfo:(NSError*) error;
 @end
 

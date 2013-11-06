@@ -11,8 +11,8 @@
 #import "States.h"
 
 static NSString* const kHomeAddressStreetAddressKey = @"HomeStreetAddress";
-static NSString* const kHomeAddressCityCodeKey = @"HomeAddressCityCode";
-static NSString* const kHomeAddressStateCodeKey = @"HomeAddressStateCode";
+static NSString* const kHomeAddressCityKey = @"HomeAddressCity";
+static NSString* const kHomeAddressStateKey = @"HomeAddressState";
 static NSString* const kHomeAddressZipCodeKey = @"HomeAddressZipCode";
 
 @implementation homeAddress
@@ -24,8 +24,8 @@ static NSString* const kHomeAddressZipCodeKey = @"HomeAddressZipCode";
     if(self)
     {
         self.mStreetAddress = nil;
-        self.mCityCode = OTHER_CITY_CODE;
-        self.mStateCode = UNDEFINED_STATE_CODE;
+        self.mCity = nil;
+        self.mState = nil;
         self.mZipCode = nil;
     }
     
@@ -46,15 +46,15 @@ static NSString* const kHomeAddressZipCodeKey = @"HomeAddressZipCode";
         else
             self.mStreetAddress = nil;
         
-        if(addressDict[kHomeAddressCityCodeKey])
-            self.mCityCode = [addressDict[kHomeAddressCityCodeKey] integerValue];
+        if(addressDict[kHomeAddressCityKey])
+            self.mCity = addressDict[kHomeAddressCityKey];
         else
-            self.mCityCode = 0;
+            self.mCity = nil;
         
-        if(addressDict[kHomeAddressStateCodeKey])
-            self.mStateCode = [addressDict[kHomeAddressStateCodeKey] integerValue];
+        if(addressDict[kHomeAddressStateKey])
+            self.mState = addressDict[kHomeAddressStateKey];
         else
-            self.mStateCode = 0;
+            self.mState = nil;
         
         if(addressDict[kHomeAddressZipCodeKey])
             self.mZipCode = addressDict[kHomeAddressZipCodeKey];
@@ -72,11 +72,11 @@ static NSString* const kHomeAddressZipCodeKey = @"HomeAddressZipCode";
     if(self.mStreetAddress)
         dict[kHomeAddressStreetAddressKey] = self.mStreetAddress;
     
-    if(self.mCityCode)
-        dict[kHomeAddressCityCodeKey] = [NSNumber numberWithInt:self.mCityCode];
+    if(self.mCity)
+        dict[kHomeAddressCityKey] = self.mCity;
     
-    if(self.mStateCode)
-        dict[kHomeAddressStateCodeKey] = [NSNumber numberWithInt:self.mStateCode];
+    if(self.mState)
+        dict[kHomeAddressStateKey] = self.mState;
     
     if(self.mZipCode)
         dict[kHomeAddressZipCodeKey] = self.mZipCode;

@@ -78,8 +78,8 @@
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
 
         float homeMortgage = ceilf([homeAndLoan getMonthlyLoanPaymentForHome]);
-        mPaymentData[0] = @{@"Payment" : [NSNumber numberWithFloat:homeMortgage]};
-        mPaymentData[1] = @{@"Payment" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
+        mPaymentData[0] = @{@"Payment" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
+        mPaymentData[1] = @{@"Payment" : [NSNumber numberWithFloat:homeMortgage]};
         
         self.mHomePaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage]];
         self.mRentalPaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:

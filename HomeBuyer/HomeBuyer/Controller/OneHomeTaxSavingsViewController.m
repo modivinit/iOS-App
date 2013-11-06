@@ -71,8 +71,9 @@
         float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid])/12);
         float rentEstTaxesPaid = ceilf(([calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid])/12);
         
-        mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:homeEstTaxesPaid]};
-        mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:rentEstTaxesPaid]};
+        mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
+        mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
+        
         self.mEstTaxPaidWithRental.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithLong:rentEstTaxesPaid]];
         self.mEstTaxesPaidWithHome.text = [Utilities getCurrencyFormattedStringForNumber:

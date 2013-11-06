@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPGooglePlacesAutocompleteViewController">
+            <connections>
+                <outlet property="mapView" destination="7" id="8"/>
+                <outlet property="searchDisplayController" destination="10" id="12"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="7">
+                    <rect key="frame" x="0.0" y="107" width="320" height="461"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="18"/>
+                    </connections>
+                </mapView>
+                <searchBar contentMode="redraw" id="9">
+                    <rect key="frame" x="0.0" y="63" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="17"/>
+                    </connections>
+                </searchBar>
+                <navigationBar contentMode="scaleToFill" id="K4J-Ob-Wc9">
+                    <rect key="frame" x="0.0" y="19" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Home Address" id="rSp-Gu-suc">
+                            <barButtonItem key="leftBarButtonItem" title="Cancel" id="crO-GA-BeG">
+                                <connections>
+                                    <action selector="cancelAddress:" destination="-1" id="neo-Lk-I7U"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Done" id="3pF-QJ-a2i">
+                                <connections>
+                                    <action selector="doneAddress:" destination="-1" id="Kkc-Gl-8Yg"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <searchDisplayController id="10">
+            <connections>
+                <outlet property="delegate" destination="-1" id="16"/>
+                <outlet property="searchBar" destination="9" id="11"/>
+                <outlet property="searchContentsController" destination="-1" id="13"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="14"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="15"/>
+            </connections>
+        </searchDisplayController>
+    </objects>
+</document>

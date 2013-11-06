@@ -88,8 +88,11 @@
     if(aHome && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
-        kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
-        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
+        kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                             andHome:nil];
+        
+        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                             andHome:homeAndLoan];
         
         float homeLifeStyleIncome = ceilf([calculatorHome getMonthlyLifeStyleIncome]);
         float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncome]);

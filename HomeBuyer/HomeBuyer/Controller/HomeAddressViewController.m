@@ -36,10 +36,8 @@
         if(self.mCorrespondingHomeInfo.mStreetAddress)
             self.mStreetAddress.text = self.mCorrespondingHomeInfo.mStreetAddress;
         
-        self.mState.text = [States getStateNameForStateCode:self.mCorrespondingHomeInfo.mStateCode];
-        
-        Cities* cities = [[Cities alloc] initForState:self.mCorrespondingHomeInfo.mStateCode];
-        self.mCity.text = [cities getCityNameForCityCode:self.mCorrespondingHomeInfo.mCityCode];
+        self.mState.text = self.mCorrespondingHomeInfo.mState;
+        self.mCity.text = self.mCorrespondingHomeInfo.mCity;
     }
     
     self.navigationItem.title = @"Home Address";

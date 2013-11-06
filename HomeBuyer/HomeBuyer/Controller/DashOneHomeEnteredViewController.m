@@ -67,16 +67,10 @@
 
     self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
-    [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.mHelpButton addTarget:self action:@selector(helpButtonTapped)
+               forControlEvents:UIControlEventTouchUpInside];
+
     [self.pageController.view addSubview:self.mHelpButton];
-    
-//    self.mAddHomeButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 462, 87, 35)];
-//    CGPoint buttonCenter = self.mAddHomeButton.center;
-//    self.mAddHomeButton.center = CGPointMake(self.view.center.x, buttonCenter.y);
-//    
-//    [self.mAddHomeButton setImage:[UIImage imageNamed:@"addahome.png"] forState:UIControlStateNormal];
-//    [self.mAddHomeButton addTarget:self action:@selector(addHomeInfo) forControlEvents:UIControlEventTouchUpInside];
-//    [self.pageController.view addSubview:self.mAddHomeButton];
 }
 
 - (void)viewDidLoad

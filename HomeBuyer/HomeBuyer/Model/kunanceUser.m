@@ -12,6 +12,8 @@
 
 static kunanceUser *kunanceUserSingleton;
 
+static NSString* const kRealtorCodeKey = @"RealtorCode";
+
 @interface kunanceUser()
 @property (nonatomic, strong, readwrite) PFUser* mLoggedInKunanceUser;
 @end
@@ -47,7 +49,7 @@ static kunanceUser *kunanceUserSingleton;
     if(![kunanceUser getInstance].mRealtor)
         [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
     
-    NSString* realtorid = self.mLoggedInKunanceUser[@"realtorID"];
+    NSString* realtorid = self.mLoggedInKunanceUser[kRealtorCodeKey];
     if(realtorid)
     {
         if(![[kunanceUser getInstance].mRealtor getRealtorForID:realtorid])
@@ -72,8 +74,9 @@ static kunanceUser *kunanceUserSingleton;
     user.username = email;
     user.password = password;
     user.email = email;
+   
     if(code)
-        user[@"realtorID"] = code;
+        user[kRealtorCodeKey] = code;
     
     NSArray* names = [name componentsSeparatedByString:@" "];
     if(names && names.count > 0)
@@ -82,9 +85,6 @@ static kunanceUser *kunanceUserSingleton;
         if(names.count > 1)
             user[@"LastName"] = names[1];
     }
-    
-    if(code)
-        user[@"RealtorCode"] = code;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
     {

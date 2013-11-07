@@ -60,11 +60,22 @@
         
         if(self.mCorrespondingHomeInfo.mHomeAddress)
         {
-            NSString* address = [NSString stringWithFormat:@"%@, %@, %@",
-                                 self.mCorrespondingHomeInfo.mHomeAddress.mStreetAddress,
-                                 self.mCorrespondingHomeInfo.mHomeAddress.mCity,
-                                 self.mCorrespondingHomeInfo.mHomeAddress.mState];
-            [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
+            homeAddress* address = self.mCorrespondingHomeInfo.mHomeAddress;
+            
+            [Utilities emptyIfNil:address.mStreetAddress];
+            [Utilities emptyIfNil:address.mCity];
+            [Utilities emptyIfNil:address.mState];
+            
+            NSString* addressStr = nil;
+            
+            if(address.mState || address.mCity || address.mStreetAddress)
+            {
+                addressStr = [NSString stringWithFormat:@"%@, %@, %@",
+                                     address.mStreetAddress,
+                                     address.mCity,
+                                     address.mState];
+                [self.mHomeAddressButton setTitle:addressStr forState:UIControlStateNormal];
+            }
         }
     }
 }

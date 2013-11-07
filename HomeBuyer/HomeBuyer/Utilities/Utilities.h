@@ -19,4 +19,5 @@
 + (UIActivityIndicatorView*) getAndStartBusyIndicator;
 +(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount;
 +(MBProgressHUD*) getHUDViewWithText:(NSString*) text onView:(UIView*) view;
++ (NSString *)emptyIfNil:(NSString *)string;
 @end

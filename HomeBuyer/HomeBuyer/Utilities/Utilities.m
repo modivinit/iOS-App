@@ -98,4 +98,26 @@
     return busyIndicator;
 }
 
++ (NSString *)emptyIfNil:(NSString *)string
+{
+    if( (id)string == [NSNull null] ) return @"";
+    if(!string)
+    {
+        return @"";
+    }
+    
+    if((id)string == [NSNull null])
+    {
+        return @"";
+    }
+    
+    if([string isEqualToString:@"null"] || [string isEqualToString:@"<null>"] || [string isEqualToString:@"(null)"])
+    {
+        return @"";
+    }
+    
+    return string;
+}
+
+
 @end

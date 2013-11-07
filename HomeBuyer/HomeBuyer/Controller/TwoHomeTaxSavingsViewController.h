@@ -22,5 +22,8 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHome1Nickname;
 @property (nonatomic, strong) IBOutlet UILabel* mHome2Nickname;
 
+@property (nonatomic, strong) IBOutlet UILabel* mHome1TaxSavings;
+@property (nonatomic, strong) IBOutlet UILabel* mHome2TaxSavings;
+
 @property (nonatomic, weak) id <TwoHomeTaxSavingsDelegate> mTwoHomeTaxSavingsDelegate;
 @end

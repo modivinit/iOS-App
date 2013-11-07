@@ -21,7 +21,7 @@
 
 -(void) setupChart
 {
-    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 155, 300, 160)];
+    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mLifestyleIncomeChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -31,7 +31,7 @@
     self.mLifestyleIncomeChart.xAxis = xAxis;
     self.mLifestyleIncomeChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @1000.0;
     self.mLifestyleIncomeChart.yAxis = yAxis;
     self.mLifestyleIncomeChart.legend.hidden = NO;
     self.mLifestyleIncomeChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
@@ -94,9 +94,33 @@
         float homeLifestyle2 = [home2Calc getMonthlyLifeStyleIncome];
         float rentLifestyle  = [rentalCalc getMonthlyLifeStyleIncome];
         
-        mLifestyleIncomeData[0] = @{@"Monthly Cash Flow" : [NSNumber numberWithInteger:rentLifestyle]};
-        mLifestyleIncomeData[1] = @{@"Monthly Cash Flow" : [NSNumber numberWithFloat:homeLifestyle1]};
-        mLifestyleIncomeData[2] = @{@"Monthly Cash Flow" : [NSNumber numberWithFloat:homeLifestyle2]};
+        float mHome1CashFlow = homeLifestyle1 - rentLifestyle;
+        float mHome2CashFlow = homeLifestyle2 - rentLifestyle;
+        
+        if (mHome1CashFlow < 0)
+        {
+            [self.mHome1CashFlow setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mHome1CashFlow setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+        
+        if (mHome2CashFlow < 0)
+        {
+            [self.mHome2CashFlow setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mHome2CashFlow setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+        
+        self.mHome1CashFlow.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:mHome1CashFlow]];
+        self.mHome2CashFlow.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:mHome2CashFlow]];
+        
+        mLifestyleIncomeData[0] = @{@"Monthly Cash Flow ($)" : [NSNumber numberWithInteger:rentLifestyle]};
+        mLifestyleIncomeData[1] = @{@"Monthly Cash Flow ($)" : [NSNumber numberWithFloat:homeLifestyle1]};
+        mLifestyleIncomeData[2] = @{@"Monthly Cash Flow ($)" : [NSNumber numberWithFloat:homeLifestyle2]};
 
         self.mRentalLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                             [NSNumber numberWithFloat:rentLifestyle]];
@@ -144,8 +168,8 @@
     }
     if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.8];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.9];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     if(index == 2) {
         lineSeries.title = @"Home 2";

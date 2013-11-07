@@ -108,6 +108,7 @@
         self.mHomePaymentsChart.legend.style.cornerRadius = @0;
         self.mHomePaymentsChart.legend.position = SChartLegendPositionMiddleRight;
         self.mHomePaymentsChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+        self.mHomePaymentsChart.plotAreaBackgroundColor = [UIColor clearColor];
         
         [self.view addSubview:self.mHomePaymentsChart];
     }

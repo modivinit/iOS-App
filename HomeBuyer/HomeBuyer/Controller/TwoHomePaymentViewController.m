@@ -21,7 +21,7 @@
 
 -(void) setupChart
 {
-    self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 120, 300, 160)];
+    self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 110, 300, 180)];
     
     self.mMontlyPaymentChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -31,7 +31,7 @@
     self.mMontlyPaymentChart.xAxis = xAxis;
     self.mMontlyPaymentChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @500.0;
     self.mMontlyPaymentChart.yAxis = yAxis;
     self.mMontlyPaymentChart.legend.hidden = NO;
     self.mMontlyPaymentChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
@@ -84,11 +84,11 @@
         
         uint rent = [userProfile getMonthlyRentInfo];
         
-        mMonthlyPaymentData[0] =  @{@"Monthly Payment" :
+        mMonthlyPaymentData[0] =  @{@"Total Monthly Payment ($)" :
                                         [NSNumber numberWithInteger:rent]};
-        mMonthlyPaymentData[1] =  @{@"Monthly Payment" :
+        mMonthlyPaymentData[1] =  @{@"Total Monthly Payment ($)" :
                                         [NSNumber numberWithFloat:homeMortgage1]};
-        mMonthlyPaymentData[2] =  @{@"Monthly Payment" :
+        mMonthlyPaymentData[2] =  @{@"Total Monthly Payment ($)" :
                                         [NSNumber numberWithFloat:homeMortgage2]};
 
         self.mRentalPayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rent]];
@@ -134,8 +134,8 @@
     }
     if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.9];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:1.0];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     if(index == 2) {
         lineSeries.title = @"Home 2";

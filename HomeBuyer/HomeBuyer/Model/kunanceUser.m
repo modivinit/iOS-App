@@ -57,7 +57,19 @@ static NSString* const kRealtorCodeKey = @"RealtorCode";
         //[Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
         }
     }
+}
 
+-(void) writeRealtorID
+{
+    if(self.mRealtor && self.mRealtor.mIsValid && self.mRealtor.mRealtorID)
+    {
+        PFUser* user = [PFUser  currentUser];
+        if(user)
+        {
+            user[kRealtorCodeKey] = self.mRealtor.mRealtorID;
+            [user saveInBackground];
+        }
+    }
 }
 
 -(BOOL) signupWithName:(NSString*) name

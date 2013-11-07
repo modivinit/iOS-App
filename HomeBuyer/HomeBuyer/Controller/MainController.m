@@ -19,6 +19,7 @@
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @property (nonatomic, strong) kCATIntroViewController* mIntroView;
+@property (nonatomic, strong) UIAlertView* mRealtorIDEntryView;
 @end
 
 @implementation MainController
@@ -32,6 +33,7 @@
         self.mMainNavController = navController;
         self.mLeftMenuViewController = [[LeftMenuViewController alloc] init];
         self.mLeftMenuViewController.mLeftMenuDelegate = self;
+        self.mRealtorIDEntryView = nil;
     }
     
     return self;
@@ -328,8 +330,23 @@
             
         case ROW_REALTOR:
         {
-            ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
-            [self setRootView:contactRealtor];
+            if([kunanceUser getInstance].mRealtor && [[kunanceUser getInstance].mRealtor mIsValid])
+            {
+                ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+                [self setRootView:contactRealtor];
+            }
+            else
+            {
+                [self displayDash];
+                self.mRealtorIDEntryView = [[UIAlertView alloc] initWithTitle:@"Enter realtor ID"
+                                                                      message:@"Shared by your realtor"
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil];
+                
+                self.mRealtorIDEntryView.alertViewStyle = UIAlertViewStylePlainTextInput;
+                [self.mRealtorIDEntryView show];
+            }
         }
             break;
             
@@ -337,6 +354,44 @@
             break;
     }
 }
+#pragma UI
+
+#pragma RealtorDelegate
+-(void) finishedReadingRealtorInfo:(NSError *)error
+{
+    [MBProgressHUD hideHUDForView:self.mFrontViewController.view animated:NO];
+    if(!error)
+    {
+        [self displayDash];
+        NSLog(@"realtor = %@", [kunanceUser getInstance].mRealtor);
+        [[kunanceUser getInstance] writeRealtorID];
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+    }
+}
+#pragma end
+
+
+#pragma UIAlertViewDelegate
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView == self.mRealtorIDEntryView)
+    {
+        NSString* realtorID = [self.mRealtorIDEntryView textFieldAtIndex:0].text;
+        if(realtorID)
+        {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.mFrontViewController.view animated:YES];
+            hud.labelText = @"Fetching realtor info";
+
+            [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+            [kunanceUser getInstance].mRealtor.mRealtorDelegate = self;
+            [[kunanceUser getInstance].mRealtor getRealtorForID:realtorID];
+        }
+    }
+}
+#pragma end
 
 -(void) handleHomeMenu:(NSInteger) row
 {

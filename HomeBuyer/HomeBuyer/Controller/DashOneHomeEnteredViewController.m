@@ -37,9 +37,12 @@
 {
     self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 455, 25, 25)];
     self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(28, 450, 160, 44)];
+    NSLog(@"One home hdas: add button");
     
     if([kunanceUser getInstance].mRealtor.mIsValid)
     {
+        NSLog(@"One home dash: realtor valid");
+
         if([kunanceUser getInstance].mRealtor.mSmallLogo)
             [self.mContactRealtorIconButton setImage:[kunanceUser getInstance].mRealtor.mSmallLogo
                                             forState:UIControlStateNormal];
@@ -53,6 +56,8 @@
         {
             [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
         }
+        
+        NSLog(@"one home dash adding realtor buttons");
         
         [self.mContactRealtorIconButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
         [self.pageController.view addSubview:self.mContactRealtorIconButton];

@@ -45,7 +45,9 @@
 -(BOOL) isUserLoggedIn;
 -(BOOL) userAccountFoundOnDevice;
 -(BOOL) loginSavedUser;
+
 -(void) readRealtorInfo;
+-(void) writeRealtorID;
 
 -(void) updateStatusWithUserProfileInfo;
 -(void) updateStatusWithHomeInfoStatus;

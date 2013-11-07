@@ -28,6 +28,7 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 
     [Parse setApplicationId:@"RphK94N4u63vCoDcsydM6aY1g0z2crnTswmXpV34"
                   clientKey:@"t4UbQbinGiRZR5Vgt0LQ7HVFONIh3XiYq7Ufvjhf"];
@@ -45,7 +46,6 @@
     
     // Initialize the library with your
     // Mixpanel project token, MIXPANEL_TOKEN
-    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"App Started" properties:Nil];
     

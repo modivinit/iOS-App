@@ -68,7 +68,10 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
         monthlyRentOrMortgage = self.mUserProfile.mMonthlyRent;
     }
     
-    float totalMonthlyCosts = monthlyRentOrMortgage + self.mUserProfile.mMonthlyCarPayments + self.mUserProfile.mMonthlyOtherFixedCosts;
+    float totalMonthlyCosts = monthlyRentOrMortgage +
+                            self.mUserProfile.mMonthlyCarPayments +
+                            self.mUserProfile.mMonthlyOtherFixedCosts +
+                            self.mUserProfile.mMonthlyHealthInsurancePayments;
     float totalMonthlyTaxesPaid = monthlyStateTaxesPaid + montlyFedralTaxesPaid;
     
     float monthlyLifestyleIncome = montlyGrossIncome - (totalMonthlyCosts + totalMonthlyTaxesPaid);

@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) IBOutlet TSCurrencyTextField* mMonthlyRent;
 @property (nonatomic, strong) IBOutlet TSCurrencyTextField* mMonthlyCarPayments;
+@property (nonatomic, strong) IBOutlet TSCurrencyTextField* mMonthlyHealthInsurancePayments;
 @property (nonatomic, strong) IBOutlet TSCurrencyTextField* mOtherMonthlyPayments;
 @property (nonatomic, strong) IBOutlet UIButton*  mCurrentLifestyleIncomeButton;
 @property (nonatomic, strong) IBOutlet UIButton*  mDashboardButton;

@@ -20,7 +20,9 @@
         self.mAnnualRetirementSavings = 0;
         self.mNumberOfChildren = 0;
         self.mMonthlyRent = 0;
+        self.mMonthlyHealthInsurancePayments = 0;
         self.mMonthlyCarPayments = 0;
+        self.mMonthlyHealthInsurancePayments = 0;
         self.mMonthlyOtherFixedCosts = 0;
     }
     

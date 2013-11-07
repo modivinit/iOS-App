@@ -13,6 +13,7 @@
 
 #define MAX_RENT_LENGTH 7
 #define MAX_CAR_PAYMENTS_LENGTH 5
+#define MAX_HEALTH_PAYMENTS_LENGTH 5
 #define MAX_FIXED_COSTS_LENGTH  5
 
 @interface FixedCostsViewController ()
@@ -45,6 +46,8 @@
             self.mMonthlyRent.text = [NSString stringWithFormat:@"%d", [userInfo getMonthlyRentInfo]];
         if([userInfo getCarPaymentsInfo])
             self.mMonthlyCarPayments.text = [NSString stringWithFormat:@"%d", [userInfo getCarPaymentsInfo]];
+        if([userInfo getHealthInsuranceInfo])
+            self.mMonthlyHealthInsurancePayments.text = [NSString stringWithFormat:@"%d", [userInfo getHealthInsuranceInfo]];
         if([userInfo getOtherFixedCostsInfo])
             self.mOtherMonthlyPayments.text = [NSString stringWithFormat:@"%d", [userInfo getOtherFixedCostsInfo]];
     }
@@ -52,7 +55,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    //[self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
 }
 
 - (void)viewDidLoad
@@ -62,20 +65,18 @@
 
     
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mMonthlyRent,
-                self.mMonthlyCarPayments, self.mOtherMonthlyPayments, nil];
+                self.mMonthlyCarPayments, self.mMonthlyHealthInsurancePayments, self.mOtherMonthlyPayments, nil];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.mMonthlyRent.maxLength = MAX_RENT_LENGTH;
     self.mMonthlyCarPayments.maxLength = MAX_CAR_PAYMENTS_LENGTH;
+    self.mMonthlyHealthInsurancePayments.maxLength = MAX_HEALTH_PAYMENTS_LENGTH;
     self.mOtherMonthlyPayments.maxLength = MAX_FIXED_COSTS_LENGTH;
     
     [self addGestureRecognizers];
     self.automaticallyAdjustsScrollViewInsets = NO;
-   // self.mFormScrollView.backgroundColor = [UIColor lightGrayColor];
-   // [self.mFormScrollView setContentSize:CGSizeMake(320, 300)];
-   // [self.mFormScrollView setContentOffset:CGPointMake(0, 150)];
     [self initWithExisitingFixedCosts];
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
@@ -129,11 +130,10 @@
 
 -(IBAction)currentLifeStyleIncomeTapped:(id)sender
 {
-    if(self.mMonthlyRent.amount <= 0 || self.mMonthlyCarPayments.amount <= 0 ||
-       self.mOtherMonthlyPayments.amount <= 0)
+    if(self.mMonthlyRent.amount <= 0)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Please enter all fields"
+                                                        message:@"Please enter you current rent"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -151,7 +151,8 @@
 
         if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.amount intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.amount intValue]
-                     otherFixedCosts:[self.mOtherMonthlyPayments.amount intValue]])
+                     otherFixedCosts:[self.mOtherMonthlyPayments.amount intValue]
+             monthlyHealthInsurance:[self.mMonthlyHealthInsurancePayments.amount intValue]])
         {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];

@@ -35,14 +35,11 @@
 
 -(void) addButtons
 {
-    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 455, 25, 25)];
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(28, 450, 160, 44)];
-    NSLog(@"One home hdas: add button");
-    
+    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 460, 25, 25)];
+    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 453, 160, 44)];
+
     if([kunanceUser getInstance].mRealtor.mIsValid)
     {
-        NSLog(@"One home dash: realtor valid");
-
         if([kunanceUser getInstance].mRealtor.mSmallLogo)
             [self.mContactRealtorIconButton setImage:[kunanceUser getInstance].mRealtor.mSmallLogo
                                             forState:UIControlStateNormal];
@@ -57,14 +54,13 @@
             [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
         }
         
-        NSLog(@"one home dash adding realtor buttons");
+        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+        [self.mContactRealtorButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal] ;
+        self.mContactRealtorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
         [self.mContactRealtorIconButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
         [self.pageController.view addSubview:self.mContactRealtorIconButton];
-        
-        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
-        self.mContactRealtorButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
-        //self.mContactRealtorButton.backgroundColor = [UIColor lightGrayColor];
+
         [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
         [self.pageController.view addSubview:self.mContactRealtorButton];
         

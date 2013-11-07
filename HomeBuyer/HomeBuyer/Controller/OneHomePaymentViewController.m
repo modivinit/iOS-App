@@ -98,6 +98,14 @@
     [self.mOneHomePaymentViewDelegate setNavTitle:@"Compare Payments"];
 }
 
+-(IBAction)addAHomeTapped:(id)sender
+{
+    uint currentCount = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
+    self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:currentCount];
+    [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

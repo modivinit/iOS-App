@@ -44,7 +44,7 @@
     [self.mRegisterButton setTitle:@"Join" forState:UIControlStateNormal];
     [self.mRegisterButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchDown];
     self.mRegisterButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.mRegisterButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.mRegisterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.mRegisterButton.backgroundColor = [Utilities getKunanceBlueColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mRegisterButton];

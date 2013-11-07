@@ -105,13 +105,6 @@
     [self setupChart];
 }
 
--(IBAction)addAHomeTapped:(id)sender
-{
-    uint currentCount = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
-    self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:currentCount];
-    [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
-}
-
 - (void)sChart:(ShinobiChart *)chart alterTickMark:(SChartTickMark *)tickMark beforeAddingToAxis:(SChartAxis *)axis
 {
     

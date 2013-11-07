@@ -47,7 +47,7 @@
     [self.mLoginButton setTitle:@"Login" forState:UIControlStateNormal];
     [self.mLoginButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];
     self.mLoginButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.mLoginButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.mLoginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.mLoginButton.backgroundColor = [Utilities getKunanceBlueColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mLoginButton];

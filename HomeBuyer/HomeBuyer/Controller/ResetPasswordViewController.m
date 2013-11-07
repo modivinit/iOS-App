@@ -34,7 +34,7 @@
     [self.mDoneButton setTitle:@"Send" forState:UIControlStateNormal];
     [self.mDoneButton addTarget:self action:@selector(doneButtonPressed) forControlEvents:UIControlEventTouchDown];
     self.mDoneButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.mDoneButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.mDoneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.mDoneButton.backgroundColor = [Utilities getKunanceBlueColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mDoneButton];

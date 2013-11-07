@@ -31,22 +31,24 @@
         if([kunanceUser getInstance].mRealtor.mFirstName)
         {
             [self.mContactRealtorButton setTitle:[NSString stringWithFormat:@"Contact %@", [kunanceUser getInstance].mRealtor.mFirstName]
-                                    forState:UIControlStateNormal];
+                                        forState:UIControlStateNormal];
         }
         else
         {
             [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
+
         }
+        
+        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+        [self.mContactRealtorButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal] ;
+        self.mContactRealtorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
         [self.mContactRealtorIconButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
         [self.pageController.view addSubview:self.mContactRealtorIconButton];
         
-        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
-        self.mContactRealtorButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
-        //self.mContactRealtorButton.backgroundColor = [UIColor lightGrayColor];
         [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
         [self.pageController.view addSubview:self.mContactRealtorButton];
-
+        
     }
     
     self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];

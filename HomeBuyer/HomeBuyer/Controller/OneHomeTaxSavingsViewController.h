@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeInfoEntryViewController.h"
 
 @protocol OneHomeTaxSavingsViewDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
@@ -22,8 +21,5 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 
-@property (nonatomic) IBOutlet UIButton* mAddAHomeButton;
--(IBAction)addAHomeTapped:(id)sender;
 
-@property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 @end

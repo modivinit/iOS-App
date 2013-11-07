@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneHomePaymentViewController">
             <connections>
+                <outlet property="mAddAHomeButton" destination="l4X-0C-SrU" id="1Lv-qv-Cle"/>
                 <outlet property="mHomeNickName" destination="m6v-jB-7MA" id="lwK-6r-Wvk"/>
                 <outlet property="mHomePaymentLabel" destination="Tub-Pa-DnA" id="LxY-uE-hfY"/>
                 <outlet property="mHomeTypeIcon" destination="hfM-AS-ice" id="Gqz-cH-9Zo"/>
@@ -79,6 +80,9 @@
                     <state key="normal" image="addahome.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="addAHomeTapped:" destination="-1" eventType="touchDown" id="cCE-Cw-CC9"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

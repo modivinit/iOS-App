@@ -100,11 +100,16 @@
     if([kunanceUser getInstance].mkunanceUserProfileInfo && self.mWasLoadedFromMenu)
     {
         self.mAddAHomeButton.hidden = YES;
+        self.mWasLoadedFromMenu = NO;
         self.navigationItem.rightBarButtonItem =
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
                                                       target:self
                                                       action:@selector(editUserProfile)];
         
+    }
+    else
+    {
+        self.mAddAHomeButton.hidden = NO;
     }
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];

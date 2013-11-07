@@ -66,24 +66,26 @@
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         
-        float mortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
+        float mortgage = ceilf([homeAndLoan getMonthlyLoanPaymentForHome]);
         self.mLoanPayment.text = [Utilities getCurrencyFormattedStringForNumber:
-                                  [NSNumber numberWithLong:mortgage]];
+                                  [NSNumber numberWithFloat:mortgage]];
         
-        float propertyTaxes = [homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR;
+        float propertyTaxes = ceil([homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR);
         self.mPropertyTax.text = [Utilities getCurrencyFormattedStringForNumber:
-                                  [NSNumber numberWithLong:propertyTaxes]];
+                                  [NSNumber numberWithFloat:propertyTaxes]];
         
-        float hoa = homeAndLoan.mHOAFees;
+        float hoa = ceil(homeAndLoan.mHOAFees);
         self.mHOA.text = [Utilities getCurrencyFormattedStringForNumber:
-                          [NSNumber numberWithLong:hoa]];
+                          [NSNumber numberWithFloat:hoa]];
         
-        float insurance = 150;
+        float insurance = ceil([homeAndLoan getMonthlyHomeOwnersInsuranceForHome]);
         self.mInsurance.text = [Utilities getCurrencyFormattedStringForNumber:
-                                [NSNumber numberWithLong:insurance]];
+                                [NSNumber numberWithFloat:insurance]];
+        
+        float totalPayments = mortgage+propertyTaxes+hoa+insurance;
         
         self.mTotalMonthlyPayments.text = [Utilities getCurrencyFormattedStringForNumber:
-                                           [NSNumber numberWithLong:mortgage+propertyTaxes+hoa+insurance]];
+                                           [NSNumber numberWithFloat:totalPayments]];
         // create the data
         homePayments = @{@"Mortgage" : [NSNumber numberWithFloat:mortgage],
                          @"HOA" : [NSNumber numberWithFloat:hoa],

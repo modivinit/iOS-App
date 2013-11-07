@@ -278,6 +278,7 @@ static NSString* const kRealtorCodeKey = @"RealtorCode";
     homeAndLoan.mHOAFees = aHome.mHOAFees;
     homeAndLoan.mLoanInterestRate = aLoan.mLoanInterestRate;
     homeAndLoan.mNumberOfMortgageMonths = aLoan.mLoanDuration * NUMBER_OF_MONTHS_IN_YEAR;
+    homeAndLoan.mHomeType = aHome.mHomeType;
     homeAndLoan.mPropertyTaxRate = 1.25;
     
     return homeAndLoan;

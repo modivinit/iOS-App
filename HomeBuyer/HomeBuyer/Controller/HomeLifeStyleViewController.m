@@ -77,6 +77,8 @@
                                  [NSNumber numberWithLong:userProfile.mMonthlyOtherFixedCosts]];
         self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
                                      [NSNumber numberWithLong:homeEstTaxesPaid]];
+        self.mTotalPayments.text = [Utilities getCurrencyFormattedStringForNumber:
+                                    [NSNumber numberWithFloat:[homeAndLoan getTotalMonthlyPayment]]];
         // create the data
         homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:lifestyleIncome],
                          @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],

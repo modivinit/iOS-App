@@ -8,6 +8,9 @@
 
 #import "homeAndLoanInfo.h"
 
+#define HOME_OWNERS_INSURANCE_FOR_SINGLE_FAMILY .25
+#define HOME_OWNERS_INSURANCE_FOR_CONDOMINIUM .1
+
 @implementation homeAndLoanInfo
 
 -(id) init
@@ -59,6 +62,21 @@
     return averageInterestOverYears;
 }
 
+-(float) getTotalMonthlyPayment
+{
+    float mortgage = ceilf([self getMonthlyLoanPaymentForHome]);
+    
+    float propertyTaxes = ceilf([self getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR);
+    
+    float hoa = ceilf(self.mHOAFees);
+    
+    float insurance = ceilf([self getMonthlyHomeOwnersInsuranceForHome]);
+    
+    float totalPayments = mortgage+propertyTaxes+hoa+insurance;
+    
+    return totalPayments;
+}
+
 -(float) getMonthlyLoanPaymentForHome
 {
     float monthlyInterestRate = self.mLoanInterestRate/NUMBER_OF_MONTHS_IN_YEAR/100;
@@ -72,6 +90,21 @@
     double monthlyLoanPayment = numerator/denominator;
     
     return monthlyLoanPayment;
+}
+
+-(float) getMonthlyHomeOwnersInsuranceForHome
+{
+    float insurance = 0;
+    if(self.mHomeType == homeTypeCondominium)
+    {
+        insurance = self.mHomeListPrice * HOME_OWNERS_INSURANCE_FOR_CONDOMINIUM /100;
+    }
+    else if(self.mHomeType == homeTypeSingleFamily)
+    {
+        insurance = self.mHomeListPrice * HOME_OWNERS_INSURANCE_FOR_SINGLE_FAMILY / 100;
+    }
+    
+    return insurance/NUMBER_OF_MONTHS_IN_YEAR;
 }
 
 -(float) getInitialLoanBalance

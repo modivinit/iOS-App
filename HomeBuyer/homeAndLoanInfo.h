@@ -16,9 +16,12 @@
 @property (nonatomic) float mLoanInterestRate;
 @property (nonatomic) float mDownPaymentAmount;
 @property (nonatomic) float mPropertyTaxRate;
+@property (nonatomic) uint mHomeType;
 
 -(float) getInterestAveragedOverYears:(uint)numOfYears;
 -(float) getAnnualPropertyTaxes;
 -(float) getMonthlyLoanPaymentForHome;
 -(float) getInitialLoanBalance;
+-(float) getMonthlyHomeOwnersInsuranceForHome;
+-(float) getTotalMonthlyPayment;
 @end

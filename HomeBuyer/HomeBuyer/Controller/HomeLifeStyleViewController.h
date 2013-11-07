@@ -24,5 +24,5 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHomeLifeStyleIncome;
 @property (nonatomic, strong) IBOutlet UILabel* mEstIncomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mFixedCosts;
-
+@property (nonatomic, strong) IBOutlet UILabel* mTotalPayments;
 @end

@@ -31,7 +31,7 @@
 
 -(void) setupChart
 {
-    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 120, 300, 160)];
     
     self.mPaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     

@@ -21,7 +21,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomeLifeStyleDelegate setNavTitle:@"Home Lifestyle"];
+    [self.mHomeLifeStyleDelegate setNavTitle:@"Home Cash Flow"];
 }
 
 -(void) setupOtherLabels
@@ -78,11 +78,11 @@
         self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
                                      [NSNumber numberWithLong:homeEstTaxesPaid]];
         // create the data
-        homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:lifestyleIncome],
+        homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:lifestyleIncome],
                          @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
                          @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
         
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 95, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -98,6 +98,7 @@
         self.mHomeLifeStyleChart.legend.style.cornerRadius = @0;
         self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleRight;
         self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+        self.mHomeLifeStyleChart.plotAreaBackgroundColor = [UIColor clearColor];
         
         [self.view addSubview:self.mHomeLifeStyleChart];
     }
@@ -137,9 +138,9 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
-    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
     pieSeries.style.flavourColors = colors;
     pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;

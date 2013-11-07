@@ -31,11 +31,11 @@
     backImage.image = [UIImage imageNamed:@"home-interior_02.jpg"];
     [self.view addSubview:backImage];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 70, 250, 70)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 70)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 3;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"See your current and future lifestyle income - money for food, shopping, travel and so on.";
+    label.text = @"See how a home purchase affects your cash flow.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

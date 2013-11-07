@@ -21,7 +21,7 @@
 
 -(void) setupChart
 {
-    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 155, 300, 160)];
     
     self.mLifestyleIncomeChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -41,6 +41,7 @@
     self.mLifestyleIncomeChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mLifestyleIncomeChart.legend.style.cornerRadius = @0;
     self.mLifestyleIncomeChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mLifestyleIncomeChart.plotAreaBackgroundColor = [UIColor clearColor];
     
     // add to the view
     [self.view addSubview:self.mLifestyleIncomeChart];
@@ -54,7 +55,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeLifestyleDelegate setNavTitle:@"Compare Lifestyle"];
+    [self.mTwoHomeLifestyleDelegate setNavTitle:@"Compare Cash Flow"];
 }
 
 - (void)viewDidLoad
@@ -93,9 +94,9 @@
         float homeLifestyle2 = [home2Calc getMonthlyLifeStyleIncome];
         float rentLifestyle  = [rentalCalc getMonthlyLifeStyleIncome];
         
-        mLifestyleIncomeData[0] = @{@"Lifestyle Income" : [NSNumber numberWithInteger:rentLifestyle]};
-        mLifestyleIncomeData[1] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle1]};
-        mLifestyleIncomeData[2] = @{@"Lifestyle Income" : [NSNumber numberWithFloat:homeLifestyle2]};
+        mLifestyleIncomeData[0] = @{@"Monthly Cash Flow" : [NSNumber numberWithInteger:rentLifestyle]};
+        mLifestyleIncomeData[1] = @{@"Monthly Cash Flow" : [NSNumber numberWithFloat:homeLifestyle1]};
+        mLifestyleIncomeData[2] = @{@"Monthly Cash Flow" : [NSNumber numberWithFloat:homeLifestyle2]};
 
         self.mRentalLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                             [NSNumber numberWithFloat:rentLifestyle]];

@@ -281,7 +281,7 @@
     
     if(indexPath.row == ROW_CURRENT_LIFESTYLE)
     {
-        cell.textLabel.text = @"Current Lifestyle";
+        cell.textLabel.text = @"Rental Cash Flow";
         
         if(!userProfileEntered || status == ProfileStatusUndefined ||
            status == ProfileStatusUserPersonalFinanceInfoEntered)

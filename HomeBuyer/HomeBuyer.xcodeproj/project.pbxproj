@@ -32,6 +32,8 @@
 		9E22FCD8182AFD3700AA2234 /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E22FCD4182AFD3700AA2234 /* car@2x.png */; };
 		9E22FCD9182AFD3700AA2234 /* healthcare.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E22FCD5182AFD3700AA2234 /* healthcare.png */; };
 		9E22FCDA182AFD3700AA2234 /* healthcare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E22FCD6182AFD3700AA2234 /* healthcare@2x.png */; };
+		9E22FCDD182B188600AA2234 /* appname.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E22FCDB182B188600AA2234 /* appname.png */; };
+		9E22FCDE182B188600AA2234 /* appname@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E22FCDC182B188600AA2234 /* appname@2x.png */; };
 		9E237BE01811A0910095B66B /* home-interior_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BDE1811A0910095B66B /* home-interior_01.jpg */; };
 		9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */; };
 		9E237BE31811A7CB0095B66B /* cocon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E237BE21811A7CB0095B66B /* cocon.ttf */; };
@@ -95,8 +97,6 @@
 		9E96EEEB18107367001E8FF7 /* home-interior_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE318107367001E8FF7 /* home-interior_02@2x.jpg */; };
 		9E96EEEC18107367001E8FF7 /* home-interior_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE418107367001E8FF7 /* home-interior_03.jpg */; };
 		9E96EEED18107367001E8FF7 /* home-interior_03@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */; };
-		9E9D798B1829A49E00DDC995 /* appname.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D79891829A49E00DDC995 /* appname.png */; };
-		9E9D798C1829A49E00DDC995 /* appname@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798A1829A49E00DDC995 /* appname@2x.png */; };
 		9E9D798E1829A82700DDC995 /* CityTaxRate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E9D798D1829A82700DDC995 /* CityTaxRate.plist */; };
 		9EA5D3CD17F15C8200CE7BD8 /* HomeInfoEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */; };
 		9EA5D3CE17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5D3CC17F15C8200CE7BD8 /* HomeInfoEntryViewController.xib */; };
@@ -194,8 +194,6 @@
 		D607A21217F902EA008E093C /* DashUserPFInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */; };
 		D610B4FE17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
 		D610B4FF17D15E5500C6EE4A /* kunanceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D610B4FD17D15E5500C6EE4A /* kunanceUser.m */; };
-		D621630A182AE3F0005DF7A3 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D6216308182AE3F0005DF7A3 /* 37x-Checkmark.png */; };
-		D621630B182AE3F0005DF7A3 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6216309182AE3F0005DF7A3 /* 37x-Checkmark@2x.png */; };
 		D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981C180F5D900067EC2C /* MenuOptionCell.m */; };
 		D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */; };
 		D63EA1FA17FCF42900E50E44 /* OneHomeLifestyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */; };
@@ -369,6 +367,8 @@
 		9E22FCD4182AFD3700AA2234 /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
 		9E22FCD5182AFD3700AA2234 /* healthcare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthcare.png; sourceTree = "<group>"; };
 		9E22FCD6182AFD3700AA2234 /* healthcare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "healthcare@2x.png"; sourceTree = "<group>"; };
+		9E22FCDB182B188600AA2234 /* appname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appname.png; sourceTree = "<group>"; };
+		9E22FCDC182B188600AA2234 /* appname@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appname@2x.png"; sourceTree = "<group>"; };
 		9E237BDE1811A0910095B66B /* home-interior_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01.jpg"; sourceTree = "<group>"; };
 		9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_01@2x.jpg"; sourceTree = "<group>"; };
 		9E237BE21811A7CB0095B66B /* cocon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cocon.ttf; sourceTree = "<group>"; };
@@ -435,8 +435,6 @@
 		9E96EEE318107367001E8FF7 /* home-interior_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_02@2x.jpg"; sourceTree = "<group>"; };
 		9E96EEE418107367001E8FF7 /* home-interior_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03.jpg"; sourceTree = "<group>"; };
 		9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03@2x.jpg"; sourceTree = "<group>"; };
-		9E9D79891829A49E00DDC995 /* appname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appname.png; sourceTree = "<group>"; };
-		9E9D798A1829A49E00DDC995 /* appname@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appname@2x.png"; sourceTree = "<group>"; };
 		9E9D798D1829A82700DDC995 /* CityTaxRate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityTaxRate.plist; sourceTree = "<group>"; };
 		9EA5D3CA17F15C8100CE7BD8 /* HomeInfoEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeInfoEntryViewController.h; path = Controller/HomeInfoEntryViewController.h; sourceTree = "<group>"; };
 		9EA5D3CB17F15C8200CE7BD8 /* HomeInfoEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeInfoEntryViewController.m; path = Controller/HomeInfoEntryViewController.m; sourceTree = "<group>"; };
@@ -531,8 +529,6 @@
 		D607A21017F902EA008E093C /* DashUserPFInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashUserPFInfoViewController.xib; path = Controller/DashUserPFInfoViewController.xib; sourceTree = "<group>"; };
 		D610B4FC17D15E5500C6EE4A /* kunanceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kunanceUser.h; path = Model/kunanceUser.h; sourceTree = "<group>"; };
 		D610B4FD17D15E5500C6EE4A /* kunanceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kunanceUser.m; path = Model/kunanceUser.m; sourceTree = "<group>"; };
-		D6216308182AE3F0005DF7A3 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
-		D6216309182AE3F0005DF7A3 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		D639981B180F5D900067EC2C /* MenuOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuOptionCell.h; path = View/MenuOptionCell.h; sourceTree = "<group>"; };
 		D639981C180F5D900067EC2C /* MenuOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuOptionCell.m; path = View/MenuOptionCell.m; sourceTree = "<group>"; };
 		D639981E1811E0B40067EC2C /* FormNoScrollViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormNoScrollViewViewController.h; path = Utilities/FormNoScrollViewViewController.h; sourceTree = "<group>"; };
@@ -1315,8 +1311,8 @@
 		D6C3AB2A1803893400123260 /* kCATIntro */ = {
 			isa = PBXGroup;
 			children = (
-				9E9D79891829A49E00DDC995 /* appname.png */,
-				9E9D798A1829A49E00DDC995 /* appname@2x.png */,
+				9E22FCDB182B188600AA2234 /* appname.png */,
+				9E22FCDC182B188600AA2234 /* appname@2x.png */,
 				9E237BDE1811A0910095B66B /* home-interior_01.jpg */,
 				9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */,
 				9E96EEE218107367001E8FF7 /* home-interior_02.jpg */,
@@ -1592,8 +1588,6 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6216308182AE3F0005DF7A3 /* 37x-Checkmark.png */,
-				D6216309182AE3F0005DF7A3 /* 37x-Checkmark@2x.png */,
 				9E2E76251829B841002F948C /* AddRealtor */,
 				D6E6EE4B17E659A7005D7526 /* AboutYou */,
 				9E4DBF6C1805D06F00F095F1 /* ContactRealtor */,
@@ -1762,7 +1756,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E00FAB117F34E0100380997 /* HelpDashboardViewController.xib in Resources */,
-				9E9D798C1829A49E00DDC995 /* appname@2x.png in Resources */,
 				9E53443717F555B8006BA12D /* lifestyle-shopping@2x.png in Resources */,
 				9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */,
 				9ECDB80D17FF55AB004E5F25 /* menu-profile-couple@2x.png in Resources */,
@@ -1784,6 +1777,7 @@
 				9E237BE31811A7CB0095B66B /* cocon.ttf in Resources */,
 				9EB34AE418230680009A3041 /* dashboard@2x.png in Resources */,
 				9E53443217F555B8006BA12D /* lifestyle-food.png in Resources */,
+				9E22FCDD182B188600AA2234 /* appname.png in Resources */,
 				9EA5D40417F162B500CE7BD8 /* LoanInfoViewController.xib in Resources */,
 				D67EFDEF17CCE1280082F6C7 /* InfoPlist.strings in Resources */,
 				9E53443617F555B8006BA12D /* lifestyle-shopping.png in Resources */,
@@ -1820,7 +1814,6 @@
 				D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */,
 				D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */,
 				D6C3AB411803CA5A00123260 /* kCATIntroRVBViewController.xib in Resources */,
-				D621630A182AE3F0005DF7A3 /* 37x-Checkmark.png in Resources */,
 				9ECDB80617FF55AB004E5F25 /* menu-home-sfh.png in Resources */,
 				9ECDB7FF17FF55AB004E5F25 /* menu-empty@2x.png in Resources */,
 				D63EA20117FCF48F00E50E44 /* logo_svl@2x.gif in Resources */,
@@ -1868,6 +1861,7 @@
 				9ECDB81017FF55AB004E5F25 /* menu-terms-and-policies.png in Resources */,
 				9ECDB80C17FF55AB004E5F25 /* menu-profile-couple.png in Resources */,
 				9ECDB80217FF55AB004E5F25 /* menu-help.png in Resources */,
+				9E22FCDE182B188600AA2234 /* appname@2x.png in Resources */,
 				9EE693F61805EB1C00B541DF /* fixedcosts.png in Resources */,
 				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
 				D6C3AB371803C93300123260 /* kCATIntroAffordViewController.xib in Resources */,
@@ -1882,7 +1876,6 @@
 				9EA5D3E317F15DC500CE7BD8 /* condo@2x.png in Resources */,
 				D6E6EEB217E79D05005D7526 /* FixedCostsViewController.xib in Resources */,
 				9ECCAD9617F0E696001EAF4C /* compare-dash@2x.png in Resources */,
-				9E9D798B1829A49E00DDC995 /* appname.png in Resources */,
 				D6E6EEB817E79D6F005D7526 /* rent@2x.png in Resources */,
 				D6C3AAFA180372F800123260 /* DashTwoHomesEnteredViewController.xib in Resources */,
 				9EE693FB1805EBD000B541DF /* aboutyou@2x.png in Resources */,
@@ -1890,7 +1883,6 @@
 				D6E6EE6517E65AD1005D7526 /* children@2x.png in Resources */,
 				9EE693F71805EB1C00B541DF /* fixedcosts@2x.png in Resources */,
 				9ECDB7FA17FF55AB004E5F25 /* menu-create-profile.png in Resources */,
-				D621630B182AE3F0005DF7A3 /* 37x-Checkmark@2x.png in Resources */,
 				9E22FCD9182AFD3700AA2234 /* healthcare.png in Resources */,
 				9EEDBA66180719DD00C92976 /* currentlifestyleincome.png in Resources */,
 				9E4DBF661805CE2900F095F1 /* TermsAndPoliciesViewController.xib in Resources */,

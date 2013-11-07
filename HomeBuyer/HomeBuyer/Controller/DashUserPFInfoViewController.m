@@ -33,7 +33,7 @@
 
 -(void) setupChart
 {
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 50, 310, 200)];
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 100, 310, 200)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -49,14 +49,15 @@
         self.mHomeLifeStyleChart.legend.style.cornerRadius = @0;
         self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleRight;
         self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
-        
+        self.mHomeLifeStyleChart.plotAreaBackgroundColor = [UIColor clearColor];
+    
         [self.view addSubview:self.mHomeLifeStyleChart];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString* titleText = [NSString stringWithFormat:@"Current Lifestyle Income"];
+    NSString* titleText = [NSString stringWithFormat:@"Rental Cash Flow"];
     self.navigationController.navigationBar.topItem.title = titleText;
     // Do any additional setup after loading the view from its nib.
     userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;
@@ -89,7 +90,7 @@
     self.mEstimatedIncomeTaxesLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                                             [NSNumber numberWithFloat:estimatedIncomeTax]];
     
-    homePayments = @{@"Lifestyle Income" : [NSNumber numberWithFloat:monthlylifestyle],
+    homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:monthlylifestyle],
                      @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
                      @"Rent" : [NSNumber numberWithInt:[user getMonthlyRentInfo]],
                      @"Est. Income Tax": [NSNumber numberWithFloat:estimatedIncomeTax]};
@@ -107,7 +108,7 @@
     }
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Entered Lifestyle Income Dash" properties:Nil];
+    [mixpanel track:@"Viewed Rental Cash Flow Dashboard" properties:Nil];
 }
 
 #pragma mark - SChartDelegate methods
@@ -136,9 +137,9 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
     [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
-    [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
-    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
     pieSeries.style.flavourColors = colors;
     pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;

@@ -84,7 +84,7 @@
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="HOA Dues">
+                                <fragment content="HOA (Homeowner Association) Dues">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>

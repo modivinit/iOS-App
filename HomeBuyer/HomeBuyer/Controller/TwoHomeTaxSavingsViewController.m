@@ -9,6 +9,7 @@
 #import "TwoHomeTaxSavingsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+//#import <ShinobiCharts/SChartTitleStyle.h>
 
 @interface TwoHomeTaxSavingsViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
@@ -52,6 +53,8 @@
     self.mTaxSavingsChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mTaxSavingsChart.legend.style.cornerRadius = @0;
     self.mTaxSavingsChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mTaxSavingsChart.title = @"Income Tax Paid Per Year";
+    self.mTaxSavingsChart.titleCentresOn = SChartTitlePositionCenter;
     
     // add to the view
     [self.view addSubview:self.mTaxSavingsChart];

@@ -35,12 +35,12 @@
     self.mEstTaxesChart.yAxis = yAxis;
     self.mEstTaxesChart.legend.hidden = NO;
     self.mEstTaxesChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
-    
     self.mEstTaxesChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     self.mEstTaxesChart.legend.style.symbolCornerRadius = @0;
     self.mEstTaxesChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mEstTaxesChart.legend.style.cornerRadius = @0;
     self.mEstTaxesChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mEstTaxesChart.title = @"Income Tax Paid Per Year";
     
     self.mEstTaxesChart.clipsToBounds = NO;
     

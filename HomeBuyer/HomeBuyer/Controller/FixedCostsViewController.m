@@ -42,13 +42,13 @@
     
     if(userInfo && [userInfo isFixedCostsInfoEntered])
     {
-        if([userInfo getMonthlyRentInfo])
+        //if([userInfo getMonthlyRentInfo])
             self.mMonthlyRent.text = [NSString stringWithFormat:@"%d", [userInfo getMonthlyRentInfo]];
-        if([userInfo getCarPaymentsInfo])
+        //if([userInfo getCarPaymentsInfo])
             self.mMonthlyCarPayments.text = [NSString stringWithFormat:@"%d", [userInfo getCarPaymentsInfo]];
-        if([userInfo getHealthInsuranceInfo])
+        //if([userInfo getHealthInsuranceInfo])
             self.mMonthlyHealthInsurancePayments.text = [NSString stringWithFormat:@"%d", [userInfo getHealthInsuranceInfo]];
-        if([userInfo getOtherFixedCostsInfo])
+        //if([userInfo getOtherFixedCostsInfo])
             self.mOtherMonthlyPayments.text = [NSString stringWithFormat:@"%d", [userInfo getOtherFixedCostsInfo]];
     }
 }

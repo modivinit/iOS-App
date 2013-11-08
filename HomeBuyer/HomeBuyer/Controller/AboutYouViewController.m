@@ -79,11 +79,11 @@
     else if([theUserPFInfo getMaritalStatus] == StatusSingle)
         [self selectSingle];
     
-    if([theUserPFInfo getAnnualGrossIncome])
+    //if([theUserPFInfo getAnnualGrossIncome])
         self.mAnnualGrossIncomeField.text =
         [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
     
-    if([theUserPFInfo getAnnualRetirementSavings])
+    //if([theUserPFInfo getAnnualRetirementSavings])
         self.mAnnualRetirementContributionField.text =
         [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
     

@@ -19,7 +19,7 @@
 
 -(void) addButtons
 {
-    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 480, 25, 25)];
+    /*self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 480, 25, 25)];
     self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(28, 472, 160, 44)];
 
     if([kunanceUser getInstance].mRealtor.mIsValid)
@@ -49,7 +49,7 @@
         [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
         [self.pageController.view addSubview:self.mContactRealtorButton];
         
-    }
+    }*/
     
     self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
@@ -72,6 +72,13 @@
     TwoHomePaymentViewController* viewController1 = [[TwoHomePaymentViewController alloc] init];
     viewController1.mTwoHomePaymentDelegate = self;
     [self.mPageViewControllers addObject:viewController1];
+    
+    if([kunanceUser getInstance].mRealtor && [kunanceUser getInstance].mRealtor.mIsValid)
+    {
+        ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+        [self.mPageViewControllers addObject:contactRealtor];
+    }
+
 }
 
 - (void)viewDidLoad

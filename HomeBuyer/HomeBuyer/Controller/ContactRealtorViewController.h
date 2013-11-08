@@ -23,6 +23,7 @@ MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIButton* mCallNumber;
 @property (nonatomic, strong) IBOutlet UIButton* mTextNumber;
 @property (nonatomic, strong) IBOutlet UIImageView* mLogoImage;
+@property (nonatomic) bool showDashboardIcon;
 -(IBAction)showDash:(id)sender;
 
 -(IBAction)callRealtor:(id)sender;

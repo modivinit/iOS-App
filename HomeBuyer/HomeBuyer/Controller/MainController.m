@@ -333,6 +333,7 @@
             if([kunanceUser getInstance].mRealtor && [[kunanceUser getInstance].mRealtor mIsValid])
             {
                 ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+                contactRealtor.showDashboardIcon = YES;
                 [self setRootView:contactRealtor];
             }
             else

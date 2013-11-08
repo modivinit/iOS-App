@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.showDashboardIcon = NO;
     }
     return self;
 }
@@ -53,6 +54,11 @@
     
     if(![kunanceUser getInstance].mRealtor.mEmail)
         self.mEmail.hidden = YES;
+    
+    if(!self.showDashboardIcon)
+        self.mDashboard.hidden = YES;
+    else
+        self.mDashboard.hidden = NO;
 }
 
 -(IBAction)callRealtor:(id)sender

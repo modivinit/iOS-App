@@ -82,7 +82,10 @@
         self.mInsurance.text = [Utilities getCurrencyFormattedStringForNumber:
                                 [NSNumber numberWithFloat:insurance]];
         
-        float totalPayments = mortgage+propertyTaxes+hoa+insurance;
+        float PMI = ceilf([homeAndLoan getAnnualPMIForHome]) / NUMBER_OF_MONTHS_IN_YEAR;
+        self.mPMI.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithFloat:PMI]];
+        
+        float totalPayments = [homeAndLoan getTotalMonthlyPayment];
         
         self.mTotalMonthlyPayments.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithFloat:totalPayments]];
@@ -90,7 +93,8 @@
         homePayments = @{@"Mortgage" : [NSNumber numberWithFloat:mortgage],
                          @"HOA" : [NSNumber numberWithFloat:hoa],
                          @"Property Tax" : [NSNumber numberWithFloat:propertyTaxes],
-                         @"Insurance" : [NSNumber numberWithFloat:insurance]};
+                         @"Insurance" : [NSNumber numberWithFloat:insurance],
+                         @"PMI" : [NSNumber numberWithFloat:PMI]};
 
         self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 200)];
         self.mHomePaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;

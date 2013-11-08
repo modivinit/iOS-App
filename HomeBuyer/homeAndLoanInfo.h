@@ -23,5 +23,6 @@
 -(float) getMonthlyLoanPaymentForHome;
 -(float) getInitialLoanBalance;
 -(float) getMonthlyHomeOwnersInsuranceForHome;
+-(float) getAnnualPMIForHome;
 -(float) getTotalMonthlyPayment;
 @end

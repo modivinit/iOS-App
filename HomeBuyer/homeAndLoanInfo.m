@@ -12,6 +12,8 @@
 #define HOME_OWNERS_INSURANCE_FOR_SINGLE_FAMILY .25
 #define HOME_OWNERS_INSURANCE_FOR_CONDOMINIUM .1
 #define DEFAULT_PROPERTY_TAX_RATE 1.25
+#define MINIMUM_DOWN_PERCENT_FOR_NO_PMI 20
+#define PMI_RATE 0.75
 
 @interface homeAndLoanInfo()
 @property (nonatomic, strong) NSDictionary* mCityPropertyTaxRates;
@@ -81,7 +83,9 @@
     
     float insurance = ceilf([self getMonthlyHomeOwnersInsuranceForHome]);
     
-    float totalPayments = mortgage+propertyTaxes+hoa+insurance;
+    float PMI = ceilf([self getAnnualPMIForHome])/NUMBER_OF_MONTHS_IN_YEAR;
+    
+    float totalPayments = mortgage+propertyTaxes+hoa+insurance+PMI;
     
     return totalPayments;
 }
@@ -99,6 +103,19 @@
     double monthlyLoanPayment = numerator/denominator;
     
     return monthlyLoanPayment;
+}
+
+-(float) getAnnualPMIForHome
+{
+    float percentageDown = (self.mHomeListPrice - self.mDownPaymentAmount)/self.mHomeListPrice;
+    if(percentageDown >= MINIMUM_DOWN_PERCENT_FOR_NO_PMI)
+    {
+        return 0;
+    }
+    else
+    {
+        return PMI_RATE * [self getInitialLoanBalance] /100;
+    }
 }
 
 -(float) getPropertyTaxRateForHome

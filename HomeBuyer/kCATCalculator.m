@@ -205,7 +205,7 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     
     float interestOnHomeMortgage = 0;
     float propertyTaxesPaid = 0;
-    float initialLoanBalance = [self.mHome getInitialLoanBalance];
+    float PMIOnHome = 0;
     /*If mortgage owed =<$1M then all current equations exist
      If mortgage owed>$1M then the following:
      
@@ -217,6 +217,8 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
 */
     if(self.mHome)
     {
+        float initialLoanBalance = [self.mHome getInitialLoanBalance];
+
         float averageInterestOverYears = [self.mHome getInterestAveragedOverYears:NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST];
         
         if(initialLoanBalance <= kMortgageInterestDeductionUpperLimit)
@@ -230,9 +232,11 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
         }
         
         propertyTaxesPaid = [self.mHome getAnnualPropertyTaxes];
+        
+        PMIOnHome = [self.mHome getAnnualPMIForHome] / NUMBER_OF_MONTHS_IN_YEAR;
     }
 
-    return interestOnHomeMortgage + propertyTaxesPaid;
+    return interestOnHomeMortgage + propertyTaxesPaid + PMIOnHome;
 }
 
 -(float) getStateExemptions

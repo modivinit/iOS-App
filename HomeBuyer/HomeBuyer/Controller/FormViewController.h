@@ -17,7 +17,7 @@
 - (void)keyboardWasShown:(NSNotification*)aNotification;
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification;
 - (void)dismissKeyboard;
-
+-(void) setupNavControl;
 -(void) deregisterForKeyboardNotifications;
 -(void) registerForKeyboardNotifications;
 

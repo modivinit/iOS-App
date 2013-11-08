@@ -104,6 +104,8 @@
         
         self.mDownPaymentFixedAmountField.hidden = YES;
         self.mDownPaymentFixedAmountField.userInteractionEnabled = NO;
+        
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentPercentageField, self.mInterestRateField, nil];
     }
     else if(self.mPercentDollarValueChoice.selectedSegmentIndex == DOLLAR_VALUE_DOWN_PAYMENT)
     {
@@ -112,7 +114,11 @@
         
         self.mDownPaymentFixedAmountField.hidden = NO;
         self.mDownPaymentFixedAmountField.userInteractionEnabled = YES;
+        
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mDownPaymentFixedAmountField, self.mInterestRateField, nil];
     }
+    
+    [self setupNavControl];
 }
 
 -(void) setupWithExisitingLoan

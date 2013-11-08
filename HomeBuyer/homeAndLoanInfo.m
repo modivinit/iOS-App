@@ -125,7 +125,8 @@
     
     if(self.mHomeInCity)
     {
-        taxRate = [self.mCityPropertyTaxRates[self.mHomeInCity] floatValue];
+        if(self.mCityPropertyTaxRates[self.mHomeInCity])
+            taxRate = [self.mCityPropertyTaxRates[self.mHomeInCity] floatValue];
     }
     
     return taxRate;

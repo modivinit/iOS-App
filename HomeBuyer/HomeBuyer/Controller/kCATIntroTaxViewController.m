@@ -84,8 +84,8 @@
     
     //chart related
     
-    homeTaxSavings[0] = @{@"Income Tax Savings" : @30000};
-    homeTaxSavings[1] = @{@"Income Tax Savings" : @45000};
+    homeTaxSavings[0] = @{@"Income Tax ($)" : @30000};
+    homeTaxSavings[1] = @{@"Income Tax ($)" : @45000};
     
     [self setupChart];
     

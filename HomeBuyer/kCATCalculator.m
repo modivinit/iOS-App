@@ -166,7 +166,7 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     float annualFederalTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
     
     if(self.mUserProfile.mNumberOfChildren > 0)
-        annualFederalTaxes -= [self.mDeductionsAndExemptions[@"ChildTaxCreditFederal"] floatValue];
+        annualFederalTaxes -= ([self.mDeductionsAndExemptions[@"ChildTaxCreditFederal"] floatValue] * self.mUserProfile.mNumberOfChildren);
     
     return annualFederalTaxes;
 }
@@ -233,7 +233,7 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
         
         propertyTaxesPaid = [self.mHome getAnnualPropertyTaxes];
         
-        PMIOnHome = [self.mHome getAnnualPMIForHome] / NUMBER_OF_MONTHS_IN_YEAR;
+        PMIOnHome = [self.mHome getAnnualPMIForHome];
     }
 
     return interestOnHomeMortgage + propertyTaxesPaid + PMIOnHome;

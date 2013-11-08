@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashUserPFInfoViewController">
             <connections>
                 <outlet property="mAddAHomeButton" destination="IsJ-fQ-wST" id="mHV-Di-SX1"/>
+                <outlet property="mDashboardButton" destination="jCe-cB-nze" id="B6w-3N-fad"/>
                 <outlet property="mEstimatedIncomeTaxesLabel" destination="9OS-It-jhz" id="zei-Es-pjy"/>
                 <outlet property="mFixedCosts" destination="ecB-Qf-Q69" id="DBv-Vv-da4"/>
                 <outlet property="mLifestyleIncomeLabel" destination="0P4-qd-ZYm" id="SG6-sB-WT1"/>
@@ -102,6 +103,9 @@
                     <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="dasboardButtonTapped:" destination="-1" eventType="touchDown" id="xDA-Yg-bhb"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monthly Breakdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlR-iA-wwe">
                     <rect key="frame" x="165" y="305" width="135" height="18"/>

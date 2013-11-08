@@ -106,14 +106,21 @@
     {
         self.mAddAHomeButton.hidden = YES;
         self.mWasLoadedFromMenu = NO;
+        self.mDashboardButton.hidden = NO;
     }
     else
     {
         self.mAddAHomeButton.hidden = NO;
+        self.mDashboardButton.hidden = YES;
     }
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Viewed Rental Cash Flow Dashboard" properties:Nil];
+}
+
+-(IBAction)dasboardButtonTapped:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 #pragma mark - SChartDelegate methods

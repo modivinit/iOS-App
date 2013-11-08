@@ -136,7 +136,7 @@
             break;
             
         case SECTION_INFO:
-            numOfRows = 3;
+            numOfRows = 2;
             break;
             
         default:
@@ -404,12 +404,12 @@
             break;
 
         case SECTION_INFO:
-            if(indexPath.row == ROW_HELP_CENTER)
+            /*if(indexPath.row == ROW_HELP_CENTER)
             {
                 cell.textLabel.text = @"Help Center";
                 cell.imageView.image = [UIImage imageNamed:@"menu-help.png"];
             }
-            else if(indexPath.row == ROW_TERMS_AND_POLICIES)
+            else*/ if(indexPath.row == ROW_TERMS_AND_POLICIES)
             {
                 cell.textLabel.text = @"Terms & Policies";
                 cell.imageView.image = [UIImage imageNamed:@"menu-terms-and-policies.png"];

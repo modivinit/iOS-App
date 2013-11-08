@@ -482,11 +482,11 @@
 {
     switch (row)
     {
-        case ROW_HELP_CENTER:
-        {
-            
-        }
-            break;
+//        case ROW_HELP_CENTER:
+//        {
+//            
+//        }
+//            break;
             
         case ROW_TERMS_AND_POLICIES:
         {

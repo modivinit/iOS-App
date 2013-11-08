@@ -84,14 +84,16 @@
     self.mRentLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                              [NSNumber numberWithFloat:[user getMonthlyRentInfo]]];
     
+    float totalFixedCosts = [user getOtherFixedCostsInfo] + [user getCarPaymentsInfo] + [user getHealthInsuranceInfo];
+    
     self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
-                             [NSNumber numberWithFloat:[user getOtherFixedCostsInfo]]];
+                             [NSNumber numberWithFloat:totalFixedCosts]];
     
     self.mEstimatedIncomeTaxesLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                                             [NSNumber numberWithFloat:estimatedIncomeTax]];
     
     homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:monthlylifestyle],
-                     @"Fixed Costs" : [NSNumber numberWithInt:[user getOtherFixedCostsInfo]],
+                     @"Fixed Costs" : [NSNumber numberWithInt:totalFixedCosts],
                      @"Rent" : [NSNumber numberWithInt:[user getMonthlyRentInfo]],
                      @"Est. Income Tax": [NSNumber numberWithFloat:estimatedIncomeTax]};
 

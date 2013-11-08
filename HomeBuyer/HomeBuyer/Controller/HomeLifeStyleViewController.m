@@ -78,8 +78,12 @@
         self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                           [NSNumber numberWithLong:lifestyleIncome]];
         
+        float totalFixedCosts = [[kunanceUser getInstance].mkunanceUserProfileInfo getOtherFixedCostsInfo] +
+        [[kunanceUser getInstance].mkunanceUserProfileInfo getCarPaymentsInfo] +
+        [[kunanceUser getInstance].mkunanceUserProfileInfo getHealthInsuranceInfo];
+        
         self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
-                                 [NSNumber numberWithLong:userProfile.mMonthlyOtherFixedCosts]];
+                                 [NSNumber numberWithLong:totalFixedCosts]];
         
         self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
                                      [NSNumber numberWithLong:homeEstTaxesPaid]];
@@ -89,7 +93,7 @@
         
         // create the data
         homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:lifestyleIncome],
-                         @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
+                         @"Fixed Costs" : [NSNumber numberWithInt:totalFixedCosts],
                          @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
                          @"Monthly Payment" : [NSNumber numberWithFloat:rintf([homeAndLoan getTotalMonthlyPayment])]};
         

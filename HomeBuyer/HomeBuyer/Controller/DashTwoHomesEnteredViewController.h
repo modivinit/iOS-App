@@ -12,9 +12,10 @@
 #import "TwoHomePaymentViewController.h"
 #import "TwoHomeLifestyleIncomeViewController.h"
 #import "TwoHomeTaxSavingsViewController.h"
+#import "ContactRealtorViewController.h"
 
 @interface DashTwoHomesEnteredViewController : BasePageViewController
-<TwoHomePaymentDelegate, TwoHomeLifestyleDelegate, TwoHomeTaxSavingsDelegate>
+<TwoHomePaymentDelegate, TwoHomeLifestyleDelegate, TwoHomeTaxSavingsDelegate, ContactRealtorDelegate>
 @property (nonatomic, strong) UIButton* mContactRealtorIconButton;
 @property (nonatomic, strong) UIButton* mContactRealtorButton;
 

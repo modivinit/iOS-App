@@ -24,6 +24,20 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    Realtor* realtor = [kunanceUser getInstance].mRealtor;
+    NSString* title = nil;
+    
+    if(realtor && realtor.mIsValid && realtor.mFirstName)
+        title = [NSString stringWithFormat:@"Contact %@", realtor.mFirstName];
+    else
+        title = @"Contact Realtor";
+    
+    if(self.mContactRealtorDelegate)
+        [self.mContactRealtorDelegate setNavTitle:title];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

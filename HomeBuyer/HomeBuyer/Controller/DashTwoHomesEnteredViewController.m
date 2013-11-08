@@ -66,6 +66,7 @@
     if([kunanceUser getInstance].mRealtor && [kunanceUser getInstance].mRealtor.mIsValid)
     {
         ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+        contactRealtor.mContactRealtorDelegate = self;
         [self.mPageViewControllers addObject:contactRealtor];
     }
 

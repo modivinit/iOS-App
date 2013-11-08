@@ -11,10 +11,15 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 
+@protocol ContactRealtorDelegate <NSObject>
+-(void) setNavTitle:(NSString*) title;
+@end
+
 @interface ContactRealtorViewController : DashLeftMenuViewController<MFMailComposeViewControllerDelegate,
 MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIButton* mDashboard;
 
+@property (nonatomic, weak) id <ContactRealtorDelegate> mContactRealtorDelegate;
 
 @property (nonatomic, strong) IBOutlet UILabel* mCompanyName;
 @property (nonatomic, strong) IBOutlet UILabel* mAddress;

@@ -107,8 +107,9 @@
 
 -(float) getAnnualPMIForHome
 {
-    float percentageDown = (self.mHomeListPrice - self.mDownPaymentAmount)/self.mHomeListPrice;
-    if(percentageDown >= MINIMUM_DOWN_PERCENT_FOR_NO_PMI)
+    float percentageDown = 100*(self.mDownPaymentAmount/self.mHomeListPrice);
+ //   float percentageDown = 100-((self.mHomeListPrice - self.mDownPaymentAmount)/self.mHomeListPrice*100);
+    if(percentageDown < MINIMUM_DOWN_PERCENT_FOR_NO_PMI)
     {
         return PMI_RATE * [self getInitialLoanBalance] /100;
     }

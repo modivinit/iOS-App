@@ -21,7 +21,11 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomeLifeStyleDelegate setNavTitle:@"Home Cash Flow"];
+    if([self.mHomeNumber intValue] == FIRST_HOME)
+        [self.mHomeLifeStyleDelegate setNavTitle:@"First Home Cash Flow"];
+    else
+        [self.mHomeLifeStyleDelegate setNavTitle:@"Second Home Cash Flow"];
+
 }
 
 -(void) setupOtherLabels

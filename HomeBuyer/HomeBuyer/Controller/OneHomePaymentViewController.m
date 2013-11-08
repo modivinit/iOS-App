@@ -99,7 +99,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomePaymentViewDelegate setNavTitle:@"Compare Monthly Payments"];
+    [self.mOneHomePaymentViewDelegate setNavTitle:@"Monthly Payments"];
 }
 
 -(IBAction)addAHomeTapped:(id)sender

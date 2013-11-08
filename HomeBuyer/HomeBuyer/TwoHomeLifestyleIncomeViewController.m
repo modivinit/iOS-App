@@ -94,8 +94,8 @@
         float homeLifestyle2 = rintf([home2Calc getMonthlyLifeStyleIncome]);
         float rentLifestyle  = rintf([rentalCalc getMonthlyLifeStyleIncome]);
         
-        float mHome1CashFlow = homeLifestyle1 - rentLifestyle;
-        float mHome2CashFlow = homeLifestyle2 - rentLifestyle;
+        float mHome1CashFlow = homeLifestyle1;
+        float mHome2CashFlow = homeLifestyle2;
         
         if (mHome1CashFlow < 0)
         {

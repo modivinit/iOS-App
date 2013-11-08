@@ -15,8 +15,8 @@
 @property (nonatomic) uint  mNumberOfMortgageMonths;
 @property (nonatomic) float mLoanInterestRate;
 @property (nonatomic) float mDownPaymentAmount;
-@property (nonatomic) float mPropertyTaxRate;
 @property (nonatomic) uint mHomeType;
+@property (nonatomic, copy) NSString* mHomeInCity;
 
 -(float) getInterestAveragedOverYears:(uint)numOfYears;
 -(float) getAnnualPropertyTaxes;

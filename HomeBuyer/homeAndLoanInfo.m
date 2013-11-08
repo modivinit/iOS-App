@@ -7,9 +7,16 @@
 //
 
 #import "homeAndLoanInfo.h"
+#import "CalculatorUtilities.h"
 
 #define HOME_OWNERS_INSURANCE_FOR_SINGLE_FAMILY .25
 #define HOME_OWNERS_INSURANCE_FOR_CONDOMINIUM .1
+#define DEFAULT_PROPERTY_TAX_RATE 1.25
+
+@interface homeAndLoanInfo()
+@property (nonatomic, strong) NSDictionary* mCityPropertyTaxRates;
+@property (nonatomic) float mPropertyTaxRate;
+@end
 
 @implementation homeAndLoanInfo
 
@@ -24,7 +31,9 @@
         self.mNumberOfMortgageMonths = 0;
         self.mLoanInterestRate = 0;
         self.mDownPaymentAmount = 0;
-        self.mPropertyTaxRate = 1.25;
+        self.mPropertyTaxRate = DEFAULT_PROPERTY_TAX_RATE;
+        self.mHomeInCity = nil;
+        self.mCityPropertyTaxRates = [CalculatorUtilities getDictionaryFromPlistFile:@"CityTaxRate"];
     }
     
     return self;
@@ -92,6 +101,18 @@
     return monthlyLoanPayment;
 }
 
+-(float) getPropertyTaxRateForHome
+{
+    float taxRate = DEFAULT_PROPERTY_TAX_RATE;
+    
+    if(self.mHomeInCity)
+    {
+        taxRate = [self.mCityPropertyTaxRates[self.mHomeInCity] floatValue];
+    }
+    
+    return taxRate;
+}
+
 -(float) getMonthlyHomeOwnersInsuranceForHome
 {
     float insurance = 0;
@@ -117,6 +138,6 @@
 
 -(float) getAnnualPropertyTaxes
 {
-    return self.mHomeListPrice*self.mPropertyTaxRate/100;
+    return self.mHomeListPrice*[self getPropertyTaxRateForHome]/100;
 }
 @end

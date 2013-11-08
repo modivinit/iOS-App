@@ -280,6 +280,8 @@
 #pragma mark GooglePlacesDelegate
 -(void) addressSelected:(CLPlacemark *)placemark
 {
+    NSMutableString* address = [[NSMutableString alloc] init];
+
     if(placemark)
     {
         NSLog(@"address: %@", placemark.addressDictionary);
@@ -300,12 +302,32 @@
             self.mHomeZip = nil;
         
         
-        NSString* address = [NSString stringWithFormat:@"%@, %@, %@",
-                             self.mHomeStreetAddress,
-                             self.mHomeCity,
-                             self.mHomeState];
+        if(self.mHomeStreetAddress)
+            [address appendString:self.mHomeStreetAddress];
+        
+        if(self.mHomeCity)
+        {
+            if(address.length > 0)
+                [address appendString:[NSString stringWithFormat:@", %@",self.mHomeCity]];
+            else
+                [address appendString:self.mHomeCity];
+        }
+        
+        if(self.mHomeState)
+        {
+            if(address.length > 0)
+                [address appendString:[NSString stringWithFormat:@", %@",self.mHomeState]];
+            else
+                [address appendString:self.mHomeState];
+        }
+        
         [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
-
+    }
+    else if(self.googlePlacesViewController.searchDisplayController.searchBar.text.length > 0)
+    {
+        self.mHomeStreetAddress = self.googlePlacesViewController.searchDisplayController.searchBar.text;
+        [address appendString:self.mHomeStreetAddress];
+        [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
     }
     
     [self.googlePlacesViewController dismissViewControllerAnimated:YES completion:nil];

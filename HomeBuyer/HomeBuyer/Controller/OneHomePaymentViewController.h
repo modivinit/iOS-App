@@ -22,6 +22,8 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 
+@property (nonatomic, strong) IBOutlet UILabel* mHome1ComparePayment;
+
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
 @property (nonatomic) IBOutlet UIButton* mAddAHomeButton;

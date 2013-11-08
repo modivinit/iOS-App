@@ -339,11 +339,11 @@
             else
             {
                 [self displayDash];
-                self.mRealtorIDEntryView = [[UIAlertView alloc] initWithTitle:@"Enter realtor ID"
-                                                                      message:@"Shared by your realtor"
+                self.mRealtorIDEntryView = [[UIAlertView alloc] initWithTitle:@"Enter Realtor ID"
+                                                                      message:@"Shared by your realtor."
                                                                      delegate:self
-                                                            cancelButtonTitle:@"OK"
-                                                            otherButtonTitles:nil];
+                                                            cancelButtonTitle:@"Cancel"
+                                                            otherButtonTitles:@"OK", nil];
                 
                 self.mRealtorIDEntryView.alertViewStyle = UIAlertViewStylePlainTextInput;
                 [self.mRealtorIDEntryView show];
@@ -378,17 +378,22 @@
 #pragma UIAlertViewDelegate
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(alertView == self.mRealtorIDEntryView)
+    if(buttonIndex == 0)
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:NO];
+    else
     {
-        NSString* realtorID = [self.mRealtorIDEntryView textFieldAtIndex:0].text;
-        if(realtorID)
+        if(alertView == self.mRealtorIDEntryView)
         {
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.mFrontViewController.view animated:YES];
-            hud.labelText = @"Fetching realtor info";
+            NSString* realtorID = [self.mRealtorIDEntryView textFieldAtIndex:0].text;
+            if(realtorID)
+            {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.mFrontViewController.view animated:YES];
+                hud.labelText = @"Fetching Realtor info";
 
-            [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
-            [kunanceUser getInstance].mRealtor.mRealtorDelegate = self;
-            [[kunanceUser getInstance].mRealtor getRealtorForID:realtorID];
+                [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+                [kunanceUser getInstance].mRealtor.mRealtorDelegate = self;
+                [[kunanceUser getInstance].mRealtor getRealtorForID:realtorID];
+            }
         }
     }
 }

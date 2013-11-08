@@ -110,11 +110,11 @@
     float percentageDown = (self.mHomeListPrice - self.mDownPaymentAmount)/self.mHomeListPrice;
     if(percentageDown >= MINIMUM_DOWN_PERCENT_FOR_NO_PMI)
     {
-        return 0;
+        return PMI_RATE * [self getInitialLoanBalance] /100;
     }
     else
     {
-        return PMI_RATE * [self getInitialLoanBalance] /100;
+        return 0;
     }
 }
 

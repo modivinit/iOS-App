@@ -18,7 +18,7 @@
 #define MAX_POSSIBLE_INTEREST_RATE 30
 
 #define MAX_DIGITS_DOWNPAYMENT_FIXED 10
-#define MAX_DIGITS_DOWNPAYMENT_PERCENTAGE 5
+#define MAX_DIGITS_DOWNPAYMENT_PERCENTAGE 2
 #define MAX_DIGITS_INTEREST_RATE_FIELD 5
 
 @interface LoanInfoViewController ()
@@ -123,7 +123,7 @@
         
         if(self.mCorrespondingLoan.mDownPaymentType == PERCENT_VALUE_DOWN_PAYMENT)
         {
-            self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.2f", self.mCorrespondingLoan.mDownPayment];
+            self.mDownPaymentPercentageField.text = [NSString  stringWithFormat:@"%.0f", self.mCorrespondingLoan.mDownPayment];
             
             self.mDownPaymentFixedAmountField.text = [NSString  stringWithFormat:@"%.0f", 0.0];
         }
@@ -216,8 +216,8 @@
     self.mInterestRateField.currencyNumberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     self.mInterestRateField.maxLength = MAX_DIGITS_INTEREST_RATE_FIELD;
     
-    self.mDownPaymentPercentageField.currencyNumberFormatter.maximumFractionDigits = 2;
-    self.mDownPaymentPercentageField.currencyNumberFormatter.minimumFractionDigits = 2;
+    self.mDownPaymentPercentageField.currencyNumberFormatter.maximumFractionDigits = 0;
+    self.mDownPaymentPercentageField.currencyNumberFormatter.minimumFractionDigits = 0;
     self.mDownPaymentPercentageField.currencyNumberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     self.mDownPaymentPercentageField.maxLength = MAX_DIGITS_DOWNPAYMENT_PERCENTAGE;
     

@@ -56,7 +56,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(registerUser:)
-                                                 name:kReturnButtonClickedOnForm
+                                                 name:kReturnButtonClickedOnSignupForm
                                                object:nil];
 }
 

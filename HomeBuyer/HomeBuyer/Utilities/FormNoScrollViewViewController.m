@@ -123,7 +123,8 @@
 {
     if(textField.tag == self.mFormFields.count-1)
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kReturnButtonClickedOnForm object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReturnButtonClickedOnSignupForm object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReturnButtonClickedOnSigninForm object:nil];
     }
     else
         [self gotoNextTextField];

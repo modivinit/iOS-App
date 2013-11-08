@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#define NUMBER_OF_MONTHS_IN_YEAR 12
+#define NUMBER_OF_MONTHS_IN_YEAR 12.0
 
 #import <Foundation/Foundation.h>
 @interface homeAndLoanInfo : NSObject

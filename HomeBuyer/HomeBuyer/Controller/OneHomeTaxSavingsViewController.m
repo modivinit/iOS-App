@@ -68,10 +68,10 @@
         kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
         
-        float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
+        float homeEstTaxesPaid = rintf([calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid]);
    //     homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
-        float rentEstTaxesPaid = [calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid];
+        float rentEstTaxesPaid = rintf([calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid]);
    //     rentEstTaxesPaid = rentEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
         mTaxesData[0] = @{@"Est. Income Tax ($)" :[NSNumber numberWithFloat:rentEstTaxesPaid]};

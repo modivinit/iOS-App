@@ -90,9 +90,9 @@
                                                                          andHome:nil];
         
 
-        float homeLifestyle1 = [home1Calc getMonthlyLifeStyleIncome];
-        float homeLifestyle2 = [home2Calc getMonthlyLifeStyleIncome];
-        float rentLifestyle  = [rentalCalc getMonthlyLifeStyleIncome];
+        float homeLifestyle1 = rintf([home1Calc getMonthlyLifeStyleIncome]);
+        float homeLifestyle2 = rintf([home2Calc getMonthlyLifeStyleIncome]);
+        float rentLifestyle  = rintf([rentalCalc getMonthlyLifeStyleIncome]);
         
         float mHome1CashFlow = homeLifestyle1 - rentLifestyle;
         float mHome2CashFlow = homeLifestyle2 - rentLifestyle;

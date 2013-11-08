@@ -73,10 +73,10 @@
     UserProfileObject* userCalculatorObject = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
     kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userCalculatorObject andHome:nil];
-    float monthlylifestyle = [calculator getMonthlyLifeStyleIncome];
+    float monthlylifestyle = rintf([calculator getMonthlyLifeStyleIncome]);
    
     float estimatedIncomeTax = [calculator getAnnualFederalTaxesPaid] + [calculator getAnnualStateTaxesPaid];
-    estimatedIncomeTax = estimatedIncomeTax/NUMBER_OF_MONTHS_IN_YEAR;
+    estimatedIncomeTax = rintf(estimatedIncomeTax/NUMBER_OF_MONTHS_IN_YEAR);
     
     self.mLifestyleIncomeLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                                        [NSNumber numberWithFloat:monthlylifestyle]];

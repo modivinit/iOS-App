@@ -95,8 +95,8 @@
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile
                                                                              andHome:homeAndLoan];
         
-        float homeLifeStyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
-        float rentLifestyleIncome = [calculatorRent getMonthlyLifeStyleIncome];
+        float homeLifeStyleIncome = rintf([calculatorHome getMonthlyLifeStyleIncome]);
+        float rentLifestyleIncome = rintf([calculatorRent getMonthlyLifeStyleIncome]);
         
         float mHome1CashFlow = homeLifeStyleIncome - rentLifestyleIncome;
         

@@ -94,14 +94,14 @@
         kCATCalculator* rentalCalc = [[kCATCalculator alloc] initWithUserProfile:userProfile
                                                                          andHome:nil];
         
-        float home1Taxes = ([home1Calc getAnnualFederalTaxesPaid]+
-                            [home1Calc getAnnualStateTaxesPaid]);
+        float home1Taxes = rintf(([home1Calc getAnnualFederalTaxesPaid]+
+                            [home1Calc getAnnualStateTaxesPaid]));
         
-        float home2Taxes = ([home2Calc getAnnualFederalTaxesPaid]+
-                            [home2Calc getAnnualStateTaxesPaid]);
+        float home2Taxes = rintf(([home2Calc getAnnualFederalTaxesPaid]+
+                            [home2Calc getAnnualStateTaxesPaid]));
         
-        float rentalTaxes = ([rentalCalc getAnnualFederalTaxesPaid]+
-                            [rentalCalc getAnnualStateTaxesPaid]);
+        float rentalTaxes = rintf(([rentalCalc getAnnualFederalTaxesPaid]+
+                            [rentalCalc getAnnualStateTaxesPaid]));
         
         homeTaxSavings[0] = @{@"Est. Income Tax ($)" : [NSNumber numberWithInteger:rentalTaxes]};
         homeTaxSavings[1] = @{@"Est. Income Tax ($)" : [NSNumber numberWithInteger:home1Taxes]};

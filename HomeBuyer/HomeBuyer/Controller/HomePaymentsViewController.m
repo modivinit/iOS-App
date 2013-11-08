@@ -66,26 +66,26 @@
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         
-        float mortgage = ceilf([homeAndLoan getMonthlyLoanPaymentForHome]);
+        float mortgage = rintf([homeAndLoan getMonthlyLoanPaymentForHome]);
         self.mLoanPayment.text = [Utilities getCurrencyFormattedStringForNumber:
                                   [NSNumber numberWithFloat:mortgage]];
         
-        float propertyTaxes = ceil([homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR);
+        float propertyTaxes = rintf([homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR);
         self.mPropertyTax.text = [Utilities getCurrencyFormattedStringForNumber:
                                   [NSNumber numberWithFloat:propertyTaxes]];
         
-        float hoa = ceil(homeAndLoan.mHOAFees);
+        float hoa = rintf(homeAndLoan.mHOAFees);
         self.mHOA.text = [Utilities getCurrencyFormattedStringForNumber:
                           [NSNumber numberWithFloat:hoa]];
         
-        float insurance = ceil([homeAndLoan getMonthlyHomeOwnersInsuranceForHome]);
+        float insurance = rintf([homeAndLoan getMonthlyHomeOwnersInsuranceForHome]);
         self.mInsurance.text = [Utilities getCurrencyFormattedStringForNumber:
                                 [NSNumber numberWithFloat:insurance]];
         
-        float PMI = ceilf([homeAndLoan getAnnualPMIForHome]) / NUMBER_OF_MONTHS_IN_YEAR;
+        float PMI = rintf([homeAndLoan getAnnualPMIForHome]) / NUMBER_OF_MONTHS_IN_YEAR;
         self.mPMI.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithFloat:PMI]];
         
-        float totalPayments = [homeAndLoan getTotalMonthlyPayment];
+        float totalPayments = rintf([homeAndLoan getTotalMonthlyPayment]);
         
         self.mTotalMonthlyPayments.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithFloat:totalPayments]];

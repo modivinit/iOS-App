@@ -66,24 +66,28 @@
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
 
-        float lifestyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
+        float lifestyleIncome = rintf([calculatorHome getMonthlyLifeStyleIncome]);
         
         float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
-        homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+        homeEstTaxesPaid = rintf(homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR);
         
         self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                           [NSNumber numberWithLong:lifestyleIncome]];
+        
         self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
                                  [NSNumber numberWithLong:userProfile.mMonthlyOtherFixedCosts]];
+        
         self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
                                      [NSNumber numberWithLong:homeEstTaxesPaid]];
+        
         self.mTotalPayments.text = [Utilities getCurrencyFormattedStringForNumber:
-                                    [NSNumber numberWithFloat:[homeAndLoan getTotalMonthlyPayment]]];
+                                    [NSNumber numberWithFloat:rintf([homeAndLoan getTotalMonthlyPayment])]];
+        
         // create the data
         homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:lifestyleIncome],
                          @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
                          @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
-                         @"Monthly Payment" : [NSNumber numberWithFloat:[homeAndLoan getTotalMonthlyPayment]]};
+                         @"Monthly Payment" : [NSNumber numberWithFloat:rintf([homeAndLoan getTotalMonthlyPayment])]};
         
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 107, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;

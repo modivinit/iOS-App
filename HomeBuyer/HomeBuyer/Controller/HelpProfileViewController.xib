@@ -139,15 +139,7 @@
                                 </fragment>
                                 <fragment>
                                     <string key="content">:  Costs for health, dental, and vision insurance. Include anticipated costs per month for prescriptions, and known health expenses.
-</string>
-                                    <attributes>
-                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment>
-                                    <string key="content" base64-UTF8="YES">
-Cg
+
 </string>
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue"/>

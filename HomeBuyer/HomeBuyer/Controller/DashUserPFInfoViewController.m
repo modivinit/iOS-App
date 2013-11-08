@@ -33,7 +33,7 @@
 
 -(void) setupChart
 {
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 100, 310, 200)];
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 110, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -57,7 +57,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString* titleText = [NSString stringWithFormat:@"Rental Cash Flow"];
+    NSString* titleText = [NSString stringWithFormat:@"Current Cash Flow"];
     self.navigationController.navigationBar.topItem.title = titleText;
     // Do any additional setup after loading the view from its nib.
     userProfileInfo* user = [kunanceUser getInstance].mkunanceUserProfileInfo;

@@ -55,7 +55,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeLifestyleDelegate setNavTitle:@"Compare Cash Flow"];
+    [self.mTwoHomeLifestyleDelegate setNavTitle:@"Compare Monthly Cash Flow"];
 }
 
 - (void)viewDidLoad

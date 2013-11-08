@@ -31,7 +31,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomeLifestyleViewDelegate setNavTitle:@"Compare Cash Flow"];
+    [self.mOneHomeLifestyleViewDelegate setNavTitle:@"Compare Monthly Cash Flow"];
 }
 
 -(void) setupChart

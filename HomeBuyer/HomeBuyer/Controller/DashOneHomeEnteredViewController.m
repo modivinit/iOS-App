@@ -35,8 +35,8 @@
 
 -(void) addButtons
 {
-    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 460, 25, 25)];
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 453, 160, 44)];
+    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 470, 25, 25)];
+    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 463, 160, 44)];
 
     if([kunanceUser getInstance].mRealtor.mIsValid)
     {

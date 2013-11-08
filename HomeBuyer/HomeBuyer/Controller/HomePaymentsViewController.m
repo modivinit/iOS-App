@@ -22,7 +22,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomePaymentsDelegate setNavTitle:@"Home Payments"];
+    [self.mHomePaymentsDelegate setNavTitle:@"Home Monthly Payment"];
 }
 
 -(void) setupOtherLabels
@@ -92,7 +92,7 @@
                          @"Property Tax" : [NSNumber numberWithFloat:propertyTaxes],
                          @"Insurance" : [NSNumber numberWithFloat:insurance]};
 
-        self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
+        self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 200)];
         self.mHomePaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomePaymentsChart.licenseKey = SHINOBI_LICENSE_KEY;
         

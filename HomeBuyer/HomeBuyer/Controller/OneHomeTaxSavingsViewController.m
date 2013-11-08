@@ -21,7 +21,7 @@
 
 -(void) setupChart
 {
-    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 140, 300, 160)];
+    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mEstTaxesChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -31,7 +31,7 @@
     self.mEstTaxesChart.xAxis = xAxis;
     self.mEstTaxesChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @3000.0;
     self.mEstTaxesChart.yAxis = yAxis;
     self.mEstTaxesChart.legend.hidden = NO;
     self.mEstTaxesChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
@@ -40,7 +40,7 @@
     self.mEstTaxesChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mEstTaxesChart.legend.style.cornerRadius = @0;
     self.mEstTaxesChart.legend.position = SChartLegendPositionMiddleRight;
-    self.mEstTaxesChart.title = @"Income Tax Paid Per Year";
+    self.mEstTaxesChart.plotAreaBackgroundColor = [UIColor clearColor];
     
     self.mEstTaxesChart.clipsToBounds = NO;
     
@@ -74,13 +74,23 @@
         float rentEstTaxesPaid = [calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid];
    //     rentEstTaxesPaid = rentEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
-        mTaxesData[0] = @{@"Est. Income Tax" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
-        mTaxesData[1] = @{@"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
+        mTaxesData[0] = @{@"Est. Income Tax ($)" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
+        mTaxesData[1] = @{@"Est. Income Tax ($)" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
         
         self.mEstTaxPaidWithRental.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithLong:rentEstTaxesPaid]];
         self.mEstTaxesPaidWithHome.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithLong:homeEstTaxesPaid]];
+        
+        if (rentEstTaxesPaid-homeEstTaxesPaid < 0)
+        {
+            [self.mEstTaxSavings setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mEstTaxSavings setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+
         
         self.mEstTaxSavings.text = [Utilities getCurrencyFormattedStringForNumber:
                                     [NSNumber numberWithLong:rentEstTaxesPaid-homeEstTaxesPaid]];
@@ -127,8 +137,8 @@
     }
     else if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     return lineSeries;
 }

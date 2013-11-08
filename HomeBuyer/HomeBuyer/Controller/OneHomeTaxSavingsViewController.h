@@ -21,5 +21,4 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 
-
 @end

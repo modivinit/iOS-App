@@ -20,4 +20,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
+@property (nonatomic, strong) IBOutlet UILabel* mHome1CashFlow;
+
 @end

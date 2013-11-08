@@ -31,7 +31,7 @@
 
 -(void) setupChart
 {
-    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 120, 300, 160)];
+    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 110, 300, 180)];
     
     self.mPaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -41,16 +41,16 @@
     self.mPaymentsChart.xAxis = xAxis;
     self.mPaymentsChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @1000.0;
     self.mPaymentsChart.yAxis = yAxis;
     self.mPaymentsChart.legend.hidden = NO;
     self.mPaymentsChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
-    
     self.mPaymentsChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     self.mPaymentsChart.legend.style.symbolCornerRadius = @0;
     self.mPaymentsChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mPaymentsChart.legend.style.cornerRadius = @0;
     self.mPaymentsChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mPaymentsChart.plotAreaBackgroundColor = [UIColor clearColor];
     
     // add to the view
     [self.view addSubview:self.mPaymentsChart];
@@ -78,8 +78,8 @@
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
 
         float homeMortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
-        mPaymentData[0] = @{@"Payment" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
-        mPaymentData[1] = @{@"Payment" : [NSNumber numberWithFloat:homeMortgage]};
+        mPaymentData[0] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
+        mPaymentData[1] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:homeMortgage]};
         
         self.mHomePaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage]];
         self.mRentalPaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:
@@ -135,8 +135,8 @@
     }
     else if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     return lineSeries;
 }

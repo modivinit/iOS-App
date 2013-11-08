@@ -82,7 +82,8 @@
         // create the data
         homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:lifestyleIncome],
                          @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
-                         @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
+                         @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
+                         @"Monthly Payment" : [NSNumber numberWithFloat:[homeAndLoan getTotalMonthlyPayment]]};
         
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 107, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
@@ -140,13 +141,15 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
+    [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];
+    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
-    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
     pieSeries.style.flavourColors = colors;
     pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;
 }
+
 
 - (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex {
     return homePayments.allKeys.count;

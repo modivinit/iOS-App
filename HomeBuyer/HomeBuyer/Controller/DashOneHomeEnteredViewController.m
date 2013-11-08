@@ -66,7 +66,7 @@
         
     }
 
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
+    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped)
                forControlEvents:UIControlEventTouchUpInside];

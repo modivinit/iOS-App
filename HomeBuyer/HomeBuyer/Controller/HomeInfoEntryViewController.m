@@ -70,6 +70,11 @@
             
             if(address.mState || address.mCity || address.mStreetAddress)
             {
+                self.mHomeStreetAddress = address.mStreetAddress;
+                self.mHomeCity = address.mCity;
+                self.mHomeState = address.mState;
+                self.mHomeZip = address.mZipCode;
+                
                 addressStr = [NSString stringWithFormat:@"%@, %@, %@",
                                      address.mStreetAddress,
                                      address.mCity,
@@ -178,7 +183,9 @@
     else if(self.mCorrespondingHomeInfo && self.mCorrespondingHomeInfo.mHOAFees)
         aHomeInfo.mHOAFees = self.mCorrespondingHomeInfo.mHOAFees;
 
-    aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
+    if(!aHomeInfo.mHomeAddress)
+        aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
+    
     if(self.mHomeStreetAddress)
         aHomeInfo.mHomeAddress.mStreetAddress = self.mHomeStreetAddress;
     
@@ -286,21 +293,16 @@
     {
         NSLog(@"address: %@", placemark.addressDictionary);
         self.mHomeStreetAddress = placemark.addressDictionary[@"Street"];
-        if([self.mHomeStreetAddress isEqual:[NSNull null]])
-            self.mHomeStreetAddress = nil;
+        [Utilities emptyIfNil:self.mHomeStreetAddress];
         
         self.mHomeCity = placemark.addressDictionary[@"City"];
-        if([self.mHomeCity isEqual:[NSNull null]])
-            self.mHomeCity = nil;
+        [Utilities emptyIfNil:self.mHomeCity];
         
         self.mHomeState = placemark.addressDictionary[@"State"];
-        if([self.mHomeState isEqual:[NSNull null]])
-            self.mHomeState = nil;
+        [Utilities emptyIfNil:self.mHomeState];
         
         self.mHomeZip = placemark.addressDictionary[@"ZIP"];
-        if([self.mHomeZip isEqual:[NSNull null]])
-            self.mHomeZip = nil;
-        
+        [Utilities emptyIfNil:self.mHomeZip];
         
         if(self.mHomeStreetAddress)
             [address appendString:self.mHomeStreetAddress];
@@ -351,6 +353,7 @@
     {
         self.mHomeState = self.mHomeAddressView.mState.text;
     }
+    
 
     [self.mHomeAddressView dismissViewControllerAnimated:YES completion:nil];
 }

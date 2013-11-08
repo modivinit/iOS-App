@@ -30,9 +30,17 @@
     [self.window makeKeyAndVisible];
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 
+    //Staging URL
     [Parse setApplicationId:@"RphK94N4u63vCoDcsydM6aY1g0z2crnTswmXpV34"
                   clientKey:@"t4UbQbinGiRZR5Vgt0LQ7HVFONIh3XiYq7Ufvjhf"];
+    
+    //Production URL
+    //[Parse setApplicationId:@"JMKBnsCd6YyK4NdvC0aUvKhTbXImtLPnuYz45f8i"
+      //            clientKey:@"ci9eCoXSdd2AaVlcevjcNt90l3TZzH7n2x6YivR1"];
+
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+
     
     UINavigationController* navController = [[UINavigationController alloc] init];
     self.window.rootViewController = navController;

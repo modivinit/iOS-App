@@ -66,7 +66,7 @@
             [Utilities emptyIfNil:address.mCity];
             [Utilities emptyIfNil:address.mState];
             
-            NSString* addressStr = nil;
+            NSMutableString* addressStr = [[NSMutableString alloc] init];
             
             if(address.mState || address.mCity || address.mStreetAddress)
             {
@@ -75,10 +75,25 @@
                 self.mHomeState = address.mState;
                 self.mHomeZip = address.mZipCode;
                 
-                addressStr = [NSString stringWithFormat:@"%@, %@, %@",
-                                     address.mStreetAddress,
-                                     address.mCity,
-                                     address.mState];
+                if(self.mHomeStreetAddress)
+                    [addressStr appendString:self.mHomeStreetAddress];
+                
+                if(self.mHomeCity)
+                {
+                    if(addressStr.length > 0)
+                        [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeCity]];
+                    else
+                        [addressStr appendString:self.mHomeCity];
+                }
+                
+                if(self.mHomeState)
+                {
+                    if(addressStr.length > 0)
+                        [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeState]];
+                    else
+                        [addressStr appendString:self.mHomeState];
+                }
+
                 [self.mHomeAddressButton setTitle:addressStr forState:UIControlStateNormal];
             }
         }
@@ -147,7 +162,10 @@
     self.mAskingPriceField.maxLength = MAX_HOME_PRICE_LENGTH;
     self.mMontylyHOAField.maxLength = MAX_HOA_PRICE_LENGTH;
     
-    self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
+   if(self.mHomeNumber == FIRST_HOME)
+       self.navigationController.navigationBar.topItem.title = @"Enter First Home Info";
+    else
+        self.navigationController.navigationBar.topItem.title = @"Enter Second Home Info";
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Entered Dashboard Help Screen" properties:Nil];
@@ -157,7 +175,8 @@
 
 -(void) uploadHomeInfo
 {
-    if(!self.mBestHomeFeatureField.text || self.mAskingPriceField.amount <= 0 ||
+    if(!self.mBestHomeFeatureField.text || self.mBestHomeFeatureField.text.length <= 0 ||
+       self.mAskingPriceField.amount <= 0 ||
        (self.mSelectedHomeType == homeTypeNotDefined))
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];
@@ -186,17 +205,13 @@
     if(!aHomeInfo.mHomeAddress)
         aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
     
-    if(self.mHomeStreetAddress)
+    if(self.mHomeStreetAddress || self.mHomeState || self.mHomeCity || self.mHomeZip)
+    {
         aHomeInfo.mHomeAddress.mStreetAddress = self.mHomeStreetAddress;
-    
-    if(self.mHomeState)
         aHomeInfo.mHomeAddress.mState = self.mHomeState;
-        
-    if(self.mHomeCity)
         aHomeInfo.mHomeAddress.mCity = self.mHomeCity;
-    
-    if(self.mHomeZip)
         aHomeInfo.mHomeAddress.mZipCode = self.mHomeZip;
+    }
     
     if(![kunanceUser getInstance].mKunanceUserHomes)
         [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];

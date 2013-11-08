@@ -53,6 +53,11 @@
     
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registerUser:)
+                                                 name:kReturnButtonClickedOnForm
+                                               object:nil];
 }
 
 -(void) cancelScreen

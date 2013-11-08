@@ -57,6 +57,11 @@
 
     [self disableLoginButton];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginUser)
+                                                 name:kReturnButtonClickedOnForm
+                                               object:nil];
+
     // Do any additional setup after loading the view from its nib.
 }
 

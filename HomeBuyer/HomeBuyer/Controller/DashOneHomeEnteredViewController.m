@@ -35,6 +35,20 @@
 
 -(void) addButtons
 {
+    self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+    self.mRentalButton.backgroundColor = [UIColor clearColor];
+    [self.mRentalButton addTarget:self
+                           action:@selector(rentalButtonTapped:)
+                 forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mRentalButton];
+    
+    self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 405, 104, 30)];
+    self.mHome1Button.backgroundColor = [UIColor clearColor];
+    [self.mHome1Button addTarget:self
+                          action:@selector(home1ButtonTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mHome1Button];
+
     self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 470, 25, 25)];
     self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 463, 160, 44)];
 
@@ -72,6 +86,17 @@
                forControlEvents:UIControlEventTouchUpInside];
 
     [self.pageController.view addSubview:self.mHelpButton];
+}
+
+-(void) rentalButtonTapped:(id) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayUserDash object:Nil];
+}
+
+-(void) home1ButtonTapped:(id) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kHomeButtonTappedFromDash
+                                                        object:[NSNumber numberWithInt:FIRST_HOME]];
 }
 
 - (void)viewDidLoad

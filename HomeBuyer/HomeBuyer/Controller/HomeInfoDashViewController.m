@@ -46,7 +46,16 @@
 }
 
 -(void) addButtons
-{    
+{
+    if([kunanceUser getInstance].mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered ||
+       [kunanceUser getInstance].mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+    {
+        self.mDashButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 510, 44, 44)];
+        [self.mDashButton setImage:[UIImage imageNamed:@"dashboard.png"] forState:UIControlStateNormal];
+        [self.mDashButton addTarget:self action:@selector(dashButtonTapped) forControlEvents:UIControlEventTouchDown];
+        [self.pageController.view addSubview:self.mDashButton];
+    }
+    
     self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -56,6 +65,11 @@
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
                                                   target:self
                                                   action:@selector(editHome)];
+}
+
+-(void) dashButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 - (void)viewDidLoad

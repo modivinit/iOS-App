@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UIButton* mHelpButton;
 @property (nonatomic, strong) NSNumber* mHomeNumber;
 
+@property (nonatomic, strong) UIButton* mDashButton;
+
 -(id) initWithHomeNumber:(NSNumber*) homeNumber;
 
 -(void) hideLeftView;

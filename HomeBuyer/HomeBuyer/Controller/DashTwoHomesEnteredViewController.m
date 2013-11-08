@@ -19,37 +19,27 @@
 
 -(void) addButtons
 {
-    /*self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 480, 25, 25)];
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(28, 472, 160, 44)];
+    self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 360, 104, 30)];
+    self.mRentalButton.backgroundColor = [UIColor clearColor];
+    [self.mRentalButton addTarget:self
+                          action:@selector(rentalButtonTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mRentalButton];
 
-    if([kunanceUser getInstance].mRealtor.mIsValid)
-    {
-        if([kunanceUser getInstance].mRealtor.mSmallLogo)
-            [self.mContactRealtorIconButton setImage:[kunanceUser getInstance].mRealtor.mSmallLogo
-                                            forState:UIControlStateNormal];
-        
-        if([kunanceUser getInstance].mRealtor.mFirstName)
-        {
-            [self.mContactRealtorButton setTitle:[NSString stringWithFormat:@"Contact %@", [kunanceUser getInstance].mRealtor.mFirstName]
-                                        forState:UIControlStateNormal];
-        }
-        else
-        {
-            [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
+    self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 400, 104, 30)];
+    self.mHome1Button.backgroundColor = [UIColor clearColor];
+    [self.mHome1Button addTarget:self
+                          action:@selector(home1ButtonTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mHome1Button];
 
-        }
-        
-        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
-        [self.mContactRealtorButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal] ;
-        self.mContactRealtorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        
-        [self.mContactRealtorIconButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
-        [self.pageController.view addSubview:self.mContactRealtorIconButton];
-        
-        [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
-        [self.pageController.view addSubview:self.mContactRealtorButton];
-        
-    }*/
+    self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 447, 104, 30)];
+    self.mHome2Button.backgroundColor = [UIColor clearColor];
+    [self.mHome2Button addTarget:self
+                          action:@selector(home2ButtonTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mHome2Button];
+
     
     self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
@@ -102,6 +92,23 @@
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Viewed 2-home dashboard" properties:Nil];
+}
+
+-(void) rentalButtonTapped:(id) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayUserDash object:Nil];
+}
+
+-(void) home1ButtonTapped:(id) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kHomeButtonTappedFromDash
+                                                        object:[NSNumber numberWithInt:FIRST_HOME]];
+}
+
+-(void) home2ButtonTapped:(id) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kHomeButtonTappedFromDash
+                                                        object:[NSNumber numberWithInt:SECOND_HOME]];
 }
 
 -(void) helpButtonTapped

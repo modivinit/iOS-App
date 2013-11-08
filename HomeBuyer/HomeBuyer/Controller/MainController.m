@@ -50,6 +50,17 @@
                                              selector:@selector(displayHomeDash:)
                                                  name:kDisplayHomeDashNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleHomeBUttonFromDash:)
+                                                 name:kHomeButtonTappedFromDash
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showUserDash)
+                                                 name:kDisplayUserDash
+                                               object:nil];
+
 
     //if logged in,
     if([[kunanceUser getInstance] isUserLoggedIn])
@@ -138,6 +149,7 @@
     //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
     self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
                                                                      leftViewController:self.mLeftMenuViewController];
+    self.revealController.recognizesPanningOnFrontView = NO;
     if(self.mMainControllerDelegate &&
        [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
     {
@@ -169,6 +181,13 @@
     {
         [self.mMainControllerDelegate resetRootView:navController];
     }
+}
+
+-(void) handleHomeBUttonFromDash:(NSNotification*) notice
+{
+    NSNumber* number = [notice object];
+    if(number)
+        [self handleHomeMenu:[number intValue]];
 }
 
 #pragma mark kCATIntroDelegate
@@ -439,6 +458,15 @@
     }
 }
 
+-(void) showUserDash
+{
+    DashUserPFInfoViewController* vc = [[DashUserPFInfoViewController alloc] init];
+    vc.mWasLoadedFromMenu = YES;
+    self.mMainDashController = vc;
+    
+    [self setRootView:self.mMainDashController];
+}
+
 -(void) handleLoanMenu:(NSInteger) row
 {
    if(row != ROW_LOAN_INFO)
@@ -469,11 +497,7 @@
             
         case ROW_CURRENT_LIFESTYLE:
         {
-            DashUserPFInfoViewController* vc = [[DashUserPFInfoViewController alloc] init];
-            vc.mWasLoadedFromMenu = YES;
-            self.mMainDashController = vc;
-            
-            [self setRootView:self.mMainDashController];
+            [self showUserDash];
         }
     }
 }

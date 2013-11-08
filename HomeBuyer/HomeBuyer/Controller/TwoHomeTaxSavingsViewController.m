@@ -27,7 +27,6 @@
 
 -(void) setupOtherLabels
 {
- 
 }
 
 -(void) setupChart

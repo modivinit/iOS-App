@@ -20,6 +20,10 @@
 
 @property (nonatomic, strong) UIButton* mHelpButton;
 
+@property (nonatomic, strong) UIButton* mRentalButton;
+@property (nonatomic, strong) UIButton* mHome1Button;
+@property (nonatomic, strong) UIButton* mHome2Button;
+
 -(void) hideLeftView;
 -(void)showLeftView;
 @end

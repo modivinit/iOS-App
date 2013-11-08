@@ -34,6 +34,8 @@ static NSString* const kDisplayMainDashNotification=@"DisplayMainDash";
 static NSString* const kDisplayHomeDashNotification=@"DisplayHomeDash";
 static NSString* const kReturnButtonClickedOnSignupForm=@"ReturnButtonOnSingnupFOrm";
 static NSString* const kReturnButtonClickedOnSigninForm=@"ReturnButtonOnSigninFOrm";
+static NSString* const kHomeButtonTappedFromDash=@"HomeButtonTappedFromDash";
+static NSString* const kDisplayUserDash=@"ShowUserDash";
 
 
 #define USE_PARSE 1

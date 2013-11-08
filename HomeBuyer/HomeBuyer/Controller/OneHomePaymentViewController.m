@@ -77,7 +77,7 @@
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
 
-        float homeMortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
+        float homeMortgage = [homeAndLoan getTotalMonthlyPayment];
         mPaymentData[0] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
         mPaymentData[1] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:homeMortgage]};
         

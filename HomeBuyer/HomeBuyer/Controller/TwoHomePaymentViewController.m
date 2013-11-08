@@ -79,8 +79,8 @@
         homeAndLoanInfo* homeAndLoan1 = [kunanceUser getCalculatorHomeAndLoanFrom:home1 andLoan:aLoan];
         homeAndLoanInfo* homeAndLoan2 = [kunanceUser getCalculatorHomeAndLoanFrom:home2 andLoan:aLoan];
         
-        float homeMortgage1 = [homeAndLoan1 getMonthlyLoanPaymentForHome];
-        float homeMortgage2 = [homeAndLoan2 getMonthlyLoanPaymentForHome];
+        float homeMortgage1 = [homeAndLoan1 getTotalMonthlyPayment];
+        float homeMortgage2 = [homeAndLoan2 getTotalMonthlyPayment];
         
         uint rent = [userProfile getMonthlyRentInfo];
         

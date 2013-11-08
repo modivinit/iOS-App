@@ -160,23 +160,23 @@
                     <rect key="frame" x="20" y="460" width="280" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home1-pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="V6g-Y5-kpS">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mortgage-chart.png" translatesAutoresizingMaskIntoConstraints="NO" id="V6g-Y5-kpS">
                     <rect key="frame" x="25" y="314" width="14" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home1-pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="MM6-rP-T7g">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="propertytax-chart.png" translatesAutoresizingMaskIntoConstraints="NO" id="MM6-rP-T7g">
                     <rect key="frame" x="25" y="345" width="14" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home1-pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="3sz-ia-Zwh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hoa-chart.png" translatesAutoresizingMaskIntoConstraints="NO" id="3sz-ia-Zwh">
                     <rect key="frame" x="25" y="376" width="14" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home1-pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="sq5-qC-f3k">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="insurance-chart.png" translatesAutoresizingMaskIntoConstraints="NO" id="sq5-qC-f3k">
                     <rect key="frame" x="25" y="407" width="14" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home1-pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Lh-4p-l2w">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pmi-chart.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Lh-4p-l2w">
                     <rect key="frame" x="25" y="438" width="14" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -187,8 +187,12 @@
         </view>
     </objects>
     <resources>
-        <image name="home1-pink.png" width="20" height="20"/>
+        <image name="hoa-chart.png" width="14" height="14"/>
+        <image name="insurance-chart.png" width="14" height="14"/>
         <image name="line.png" width="320" height="1"/>
         <image name="menu-home-condo.png" width="25" height="25"/>
+        <image name="mortgage-chart.png" width="14" height="14"/>
+        <image name="pmi-chart.png" width="14" height="14"/>
+        <image name="propertytax-chart.png" width="14" height="14"/>
     </resources>
 </document>

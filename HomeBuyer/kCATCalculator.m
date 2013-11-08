@@ -69,7 +69,7 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     float monthlyRentOrMortgage = 0;
     if(self.mHome)
     {
-        monthlyRentOrMortgage = [self.mHome getMonthlyLoanPaymentForHome];
+        monthlyRentOrMortgage = [self.mHome getTotalMonthlyPayment];
     }
     else
     {

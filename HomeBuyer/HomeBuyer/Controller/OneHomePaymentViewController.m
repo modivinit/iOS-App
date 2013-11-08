@@ -31,7 +31,7 @@
 
 -(void) setupChart
 {
-    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 110, 300, 180)];
+    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mPaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -81,9 +81,13 @@
         mPaymentData[0] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
         mPaymentData[1] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:homeMortgage]};
         
+        float home1ComparePayment = homeMortgage;
+        
         self.mHomePaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage]];
         self.mRentalPaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                                          [NSNumber numberWithLong:userProfile.mMonthlyRent]];
+        
+        self.mHome1ComparePayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1ComparePayment]];
         
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)

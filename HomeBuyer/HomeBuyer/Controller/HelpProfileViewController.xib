@@ -43,7 +43,7 @@
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">: Enter married if in a marriage recognized by the state you live in.  Starting in 2013, this includes same-sex marriages.  Note:  This does not include domestic partnerships or an equivalent. 
+                                    <string key="content">: Enter married if in a marriage recognized by the state you live in.  Starting in 2013, this includes same-sex marriages.  Note: This does not include domestic partnerships or an equivalent. 
 
 </string>
                                     <attributes>
@@ -115,7 +115,7 @@
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="Monthly Car payments">
+                                <fragment content="Monthly Transportation">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -123,7 +123,22 @@
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">:  Amount of your monthly car payments across all cars.
+                                    <string key="content">:  Amount of your monthly car payments across all cars, car insurance, maintenance, and gas.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Monthly Healthcare">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  Costs for health, dental, and vision insurance. Include anticipated costs per month for prescriptions, and known health expenses.
 
 </string>
                                     <attributes>

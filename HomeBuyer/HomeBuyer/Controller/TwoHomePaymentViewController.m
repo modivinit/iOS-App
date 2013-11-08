@@ -21,7 +21,7 @@
 
 -(void) setupChart
 {
-    self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 110, 300, 180)];
+    self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mMontlyPaymentChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -41,6 +41,7 @@
     self.mMontlyPaymentChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mMontlyPaymentChart.legend.style.cornerRadius = @0;
     self.mMontlyPaymentChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mMontlyPaymentChart.plotAreaBackgroundColor = [UIColor clearColor];
     
     // add to the view
     [self.view addSubview:self.mMontlyPaymentChart];
@@ -82,6 +83,9 @@
         float homeMortgage1 = rintf([homeAndLoan1 getTotalMonthlyPayment]);
         float homeMortgage2 = rintf([homeAndLoan2 getTotalMonthlyPayment]);
         
+        float home1ComparePayment = homeMortgage1;
+        float home2ComparePayment = homeMortgage2;
+        
         uint rent = [userProfile getMonthlyRentInfo];
         
         mMonthlyPaymentData[0] =  @{@"Total Monthly Payment ($)" :
@@ -94,6 +98,9 @@
         self.mRentalPayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rent]];
         self.mHome1Payment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage1]];
         self.mHome2Payment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage2]];
+        
+        self.mHome1ComparePayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1ComparePayment]];
+        self.mHome2ComparePayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home2ComparePayment]];
         
         self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
         if(home1.mHomeType == homeTypeSingleFamily)

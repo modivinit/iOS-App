@@ -26,4 +26,8 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView* mHome1TypeIcon;
 @property (nonatomic, strong) IBOutlet UIImageView* mHome2TypeIcon;
+
+@property (nonatomic, strong) IBOutlet UILabel* mHome1ComparePayment;
+@property (nonatomic, strong) IBOutlet UILabel* mHome2ComparePayment;
+
 @end

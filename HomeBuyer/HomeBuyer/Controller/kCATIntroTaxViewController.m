@@ -42,7 +42,7 @@
     self.mTaxSavingsChart.xAxis = xAxis;
     self.mTaxSavingsChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @10000.0;
+    yAxis.rangePaddingHigh = @500.0;
     self.mTaxSavingsChart.yAxis = yAxis;
  //   yAxis.title = @"Dollars ($)";
     self.mTaxSavingsChart.legend.hidden = NO;
@@ -73,19 +73,19 @@
     backImage.image = [UIImage imageNamed:@"home-interior_03.jpg"];
     [self.view addSubview:backImage];
 
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 40, 250, 70)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 40, 280, 70)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
-    label.numberOfLines = 3;
+    label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"Compare income tax savings across homes before you buy.";
+    label.text = @"Compare annual income tax savings across homes before you buy.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];
     
     //chart related
     
-    homeTaxSavings[0] = @{@"Income Tax ($)" : @30000};
-    homeTaxSavings[1] = @{@"Income Tax ($)" : @45000};
+    homeTaxSavings[0] = @{@"Est. Annual Income Tax ($)" : @6000};
+    homeTaxSavings[1] = @{@"Est. Annual Income Tax ($)" : @7800};
     
     [self setupChart];
     
@@ -113,13 +113,13 @@
     lineSeries.animationEnabled = YES;
     if(index == 0) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:243.0/255.0 green:156.0/255.0 blue:18.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:230.0/255.0 green:126.0/255.0 blue:34.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     if(index == 1) {
         lineSeries.title = @"Home 2";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:0.95];
     }
     return lineSeries;
 }

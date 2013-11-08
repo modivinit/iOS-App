@@ -42,7 +42,7 @@
                      @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
                      @"Monthly Payment" : [NSNumber numberWithFloat:totalMonthlyPayment]};
         
-    self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 107, 310, 220)];
+    self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 117, 310, 220)];
     self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
     self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -56,7 +56,7 @@
     self.mHomeLifeStyleChart.legend.style.symbolCornerRadius = @0;
     self.mHomeLifeStyleChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mHomeLifeStyleChart.legend.style.cornerRadius = @0;
-    self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleLeft;
     self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
     self.mHomeLifeStyleChart.plotAreaBackgroundColor = [UIColor clearColor];
         
@@ -75,12 +75,14 @@
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 70)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
-    label.numberOfLines = 3;
+    label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"See how a home purchase affects your cash flow.";
+    label.text = @"See how a home purchase affects your monthly cash flow.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];
+    
+    [self setupChart];
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Looked at FTUE Screen 1 - Lifestyle" properties:Nil];
@@ -112,10 +114,10 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
-    [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];
-    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
-    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
-    [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
+    [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:1.0]];
+    [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:1.0]];
+    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:1.0]];
+    [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
     pieSeries.style.flavourColors = colors;
     pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;

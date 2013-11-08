@@ -173,6 +173,7 @@ atPixelCoordinate:(CGPoint)pixelPoint
     [colors addObject:[UIColor colorWithRed:127.0/255.0 green:140.0/255.0 blue:141.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:0.8]];
+    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:230.0/255.0 green:126.0/255.0 blue:34.0/255.0 alpha:0.8]];
     pieSeries.style.flavourColors = colors;
     pieSeries.selectedStyle.flavourColors = colors;

@@ -17,7 +17,6 @@
     if(self)
     {
         self.mUpperLimit = 0;
-        self.mFixedAmount = 0;
         self.mPercentage = 0;
     }
     

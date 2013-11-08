@@ -34,11 +34,19 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
         self.mUserProfile = userProfile;
         
         self.mDeductionsAndExemptions = [CalculatorUtilities getDictionaryFromPlistFile:@"ExemptionsAndStandardDeductions2013"];
-        
+
+        NSDateComponents *components = [[NSCalendar currentCalendar]
+                                        components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+        NSInteger year = [components year];
+
         self.mStateSingleTaxTable = [self importTableFromFile:@"TaxTableStateSingle2013"];
         self.mStateMFJTaxTable = [self importTableFromFile:@"TaxTableStateMFJ2013"];
-        self.mFederalSingleTaxTable = [self importTableFromFile:@"TaxTableFederalSingle2013"];
-        self.mFederalMFJTaxTable = [self importTableFromFile:@"TaxTableFederalMFJ2013"];
+        
+        NSString* federalSingleTableFile = [NSString stringWithFormat:@"TaxTableFederalSingle%d",year];
+        self.mFederalSingleTaxTable = [self importTableFromFile:federalSingleTableFile];
+        
+        NSString* federalMFJTableFile = [NSString stringWithFormat:@"TaxTableFederalMFJ%d",year];
+        self.mFederalMFJTaxTable = [self importTableFromFile:federalMFJTableFile];
         
         self.mHome = home;
     }
@@ -332,7 +340,6 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     {
         TaxBlock* block = [[TaxBlock alloc] init];
         block.mUpperLimit = [blockDict[@"limitsDifference"] floatValue];
-        block.mFixedAmount = [blockDict[@"fixedAmount"] floatValue];
         block.mPercentage = [blockDict[@"percentage"] floatValue];
         
         [array addObject:block];

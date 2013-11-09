@@ -18,6 +18,7 @@
 @implementation OneHomeTaxSavingsViewController
 {
     NSDictionary* mTaxesData[2];
+    NSDictionary* oldFont;
 }
 
 - (UIImage*)snapshotWithOpenGLViews
@@ -110,9 +111,20 @@
     }
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setTitleTextAttributes:oldFont];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Annual Income Tax Savings"];
+    oldFont = self.navigationController.navigationBar.titleTextAttributes;
+    
+    UIFont* font = [UIFont fontWithName:@"Helvetica-Bold" size:16.0f];
+    NSDictionary* dict = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:dict];
 }
 
 - (void)viewDidLoad

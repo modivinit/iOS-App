@@ -31,16 +31,16 @@
     backImage.image = [UIImage imageNamed:@"home-interior_01.jpg"];
     [self.view addSubview:backImage];
     
-    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 46, 150, 31)];
+    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 50, 150, 74)];
     appName.center = CGPointMake(self.view.center.x, appName.center.y);
     appName.image = [UIImage imageNamed:@"appname.png"];
     [self.view addSubview:appName];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 121, 237, 40)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 150, 237, 40)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"Discover a home that matches your lifestyle.";
+    label.text = @"Turning first-time homebuyers into pros.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

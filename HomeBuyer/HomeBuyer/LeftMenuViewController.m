@@ -120,7 +120,7 @@
     switch (section)
     {
         case SECTION_USER_NAME_DASH_REALTOR:
-            numOfRows = 2;
+                numOfRows = 2;
             break;
             
         case SECTION_HOMES:
@@ -136,7 +136,7 @@
             break;
             
         case SECTION_INFO:
-            numOfRows = 3;
+            numOfRows = 2;
             break;
             
         default:
@@ -149,6 +149,19 @@
 {
     return 5;
 }
+
+-(void) enableCell:(UITableViewCell*) cell
+{
+    cell.userInteractionEnabled = YES;
+    cell.textLabel.textColor = [UIColor blackColor];
+}
+
+-(void) disableCell:(UITableViewCell*) cell
+{
+    cell.textLabel.textColor = [UIColor grayColor];
+    cell.userInteractionEnabled = NO;
+}
+
 
 -(void) updateRowForHomes:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell
 {
@@ -170,8 +183,7 @@
         case ProfileStatusUserPersonalFinanceInfoEntered:
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
-            cell.textLabel.textColor = [UIColor grayColor];
-            cell.userInteractionEnabled = NO;
+            [self disableCell:cell];
             if (indexPath.row == ROW_FIRST_HOME)
             {
                 cell.textLabel.text = [NSString stringWithFormat:@"Add First Home"];
@@ -186,17 +198,15 @@
         case ProfileStatusPersonalFinanceAndFixedCostsInfoEntered:
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
-            cell.userInteractionEnabled = YES;
-
             if(indexPath.row == ROW_SECOND_HOME)
             {
-                cell.textLabel.textColor = [UIColor grayColor];
+                [self disableCell:cell];
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
-                cell.userInteractionEnabled = NO;
             }
             else if(indexPath.row == ROW_FIRST_HOME)
             {
+                [self enableCell:cell];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add First Home"];
             }
             break;
@@ -207,6 +217,8 @@
         {
             if(indexPath.row == ROW_FIRST_HOME)
             {
+                [self enableCell:cell];
+
                 if(type == homeTypeCondominium)
                     cell.imageView.image = [UIImage imageNamed:@"menu-home-condo.png"];
                 else if(type == homeTypeSingleFamily)
@@ -222,14 +234,13 @@
             {
                 cell.imageView.image = [UIImage imageNamed:@"menu-add-home.png"];
                 cell.textLabel.text = [NSString stringWithFormat:@"Add Second Home"];
-                cell.userInteractionEnabled = YES;
-
+                [self enableCell:cell];
+                
                 if([kunanceUser getInstance].mUserProfileStatus ==
                    ProfileStatusUser1HomeInfoEntered)
                 {
-                    cell.textLabel.textColor = [UIColor grayColor];
                     cell.imageView.image = [UIImage imageNamed:@"menu-add-home-gray.png"];
-                    cell.userInteractionEnabled = NO;
+                    [self disableCell:cell];
                 }
             }
             
@@ -238,6 +249,7 @@
 
         case ProfileStatusUserTwoHomesAndLoanInfoEntered:
         {
+            [self enableCell:cell];
             if(type == homeTypeCondominium)
                 cell.imageView.image = [UIImage imageNamed:@"menu-home-condo.png"];
             else if(type == homeTypeSingleFamily)
@@ -259,12 +271,20 @@
 -(void) updateRowForUserProfile:(NSIndexPath*) indexPath andCell:(UITableViewCell*) cell
 {
     userProfileInfo* userProfile = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    
+    bool userProfileEntered = NO;
+    if(status == ProfileStatusUndefined || !userProfile)
+        userProfileEntered = NO;
+    else
+        userProfileEntered = YES;
     
     if(indexPath.row == ROW_CURRENT_LIFESTYLE)
     {
-        cell.textLabel.text = @"Current Lifestyle";
+        cell.textLabel.text = @"Current Cash Flow";
         
-        if(!userProfile)
+        if(!userProfileEntered || status == ProfileStatusUndefined ||
+           status == ProfileStatusUserPersonalFinanceInfoEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-current-lifestyle-gray.png"];
             cell.textLabel.textColor = [UIColor grayColor];
@@ -279,7 +299,7 @@
     }
     else if(indexPath.row == ROW_YOUR_PROFILE)
     {
-        if(!userProfile)
+        if(!userProfileEntered)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-create-profile.png"];
             cell.textLabel.text = @"Enter Profile to Start";
@@ -298,7 +318,7 @@
     else if(indexPath.row == ROW_FIXED_COSTS)
     {
         
-        if(!userProfile)
+        if(!userProfileEntered || status == ProfileStatusUndefined)
         {
             cell.imageView.image = [UIImage imageNamed:@"menu-fixedcosts-gray.png"];
             cell.textLabel.text = @"Fixed Costs";
@@ -359,9 +379,14 @@
                 cell.textLabel.text = @"Dashboard";
                 cell.imageView.image = [UIImage imageNamed:@"menu-dashboard.png"];
             }
-            else if(indexPath.row == ROW_REALTOR)
+            else if(indexPath.row == ROW_REALTOR && [kunanceUser getInstance].mRealtor.mIsValid)
             {
-                cell.textLabel.text = @"Contact Realtor";
+                cell.textLabel.text = @"Contact Your Realtor";
+                cell.imageView.image = [UIImage imageNamed:@"menu-contact-realtor.png"];
+            }
+            else if(indexPath.row == ROW_REALTOR && ![kunanceUser getInstance].mRealtor.mIsValid)
+            {
+                cell.textLabel.text = @"Add A Realtor";
                 cell.imageView.image = [UIImage imageNamed:@"menu-contact-realtor.png"];
             }
             break;
@@ -379,12 +404,12 @@
             break;
 
         case SECTION_INFO:
-            if(indexPath.row == ROW_HELP_CENTER)
+            /*if(indexPath.row == ROW_HELP_CENTER)
             {
                 cell.textLabel.text = @"Help Center";
                 cell.imageView.image = [UIImage imageNamed:@"menu-help.png"];
             }
-            else if(indexPath.row == ROW_TERMS_AND_POLICIES)
+            else*/ if(indexPath.row == ROW_TERMS_AND_POLICIES)
             {
                 cell.textLabel.text = @"Terms & Policies";
                 cell.imageView.image = [UIImage imageNamed:@"menu-terms-and-policies.png"];

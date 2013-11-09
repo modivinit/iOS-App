@@ -18,7 +18,7 @@
 
 @protocol userProfileInfoDelegate <NSObject>
 @optional
--(void) finishedReadingUserPFInfo;
+-(void) finishedReadingUserPFInfo:(NSError*) error;
 -(void) finishedWritingUserPFInfo;
 @end
 
@@ -26,7 +26,8 @@
 
 -(BOOL) writeFixedCostsInfo:(UInt64)enteredMonthlyRent
           monthlyCarPaments:(UInt64)enteredCarPayments
-            otherFixedCosts:(UInt64)enteredOtherCosts;
+            otherFixedCosts:(UInt64)enteredOtherCosts
+     monthlyHealthInsurance:(UInt64)enteredHealthInsurancePayments;
 
 -(BOOL) writeUserPFInfo:(UInt64)annualGross
        annualRetirement:(UInt64)annualRetirement
@@ -42,6 +43,7 @@
 -(long) getAnnualRetirementSavings;
 -(int) getNumberOfChildren;
 -(int) getMonthlyRentInfo;
+-(int) getHealthInsuranceInfo;
 -(int) getCarPaymentsInfo;
 -(int) getOtherFixedCostsInfo;
 

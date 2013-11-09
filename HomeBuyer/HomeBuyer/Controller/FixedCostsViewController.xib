@@ -13,8 +13,9 @@
                 <outlet property="mFormScrollView" destination="ZAE-Ld-lbX" id="wQY-2J-oiU"/>
                 <outlet property="mHelpButton" destination="bFE-Rh-E22" id="5Xj-Sr-lrr"/>
                 <outlet property="mMonthlyCarPayments" destination="kVz-QE-aNR" id="szJ-WD-1HP"/>
+                <outlet property="mMonthlyHealthInsurancePayments" destination="sC3-Oz-C4M" id="gQZ-6q-fpt"/>
                 <outlet property="mMonthlyRent" destination="K0A-au-c27" id="ox3-Ta-z6h"/>
-                <outlet property="mOtherMonthlyPayments" destination="sC3-Oz-C4M" id="AFv-YP-YMn"/>
+                <outlet property="mOtherMonthlyPayments" destination="TbN-rU-OPw" id="7to-em-S7p"/>
                 <outlet property="view" destination="C6Q-Yb-CCX" id="2Ij-p5-SCH"/>
             </connections>
         </placeholder>
@@ -24,55 +25,72 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZAE-Ld-lbX">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="332"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="330"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rent.png" id="eU3-PE-26f">
-                            <rect key="frame" x="20" y="122" width="29" height="29"/>
+                            <rect key="frame" x="20" y="40" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Rent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NSh-kV-Yk6">
-                            <rect key="frame" x="60" y="102" width="84" height="17"/>
+                            <rect key="frame" x="60" y="20" width="84" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Helps compare rent vs. buy" minimumFontSize="17" clearButtonMode="whileEditing" id="K0A-au-c27" customClass="TSCurrencyTextField">
-                            <rect key="frame" x="60" y="122" width="238" height="30"/>
+                            <rect key="frame" x="60" y="40" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" id="v45-Tv-9jl">
-                            <rect key="frame" x="20" y="202" width="29" height="29"/>
+                            <rect key="frame" x="20" y="120" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Car Payments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3H9-eU-XDJ">
-                            <rect key="frame" x="60" y="182" width="143" height="17"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Transportation Costs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3H9-eU-XDJ">
+                            <rect key="frame" x="60" y="100" width="185" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Total payments across all cars." minimumFontSize="17" clearButtonMode="whileEditing" id="kVz-QE-aNR" customClass="TSCurrencyTextField">
-                            <rect key="frame" x="60" y="202" width="238" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car payments, insurance, gas." minimumFontSize="17" clearButtonMode="whileEditing" id="kVz-QE-aNR" customClass="TSCurrencyTextField">
+                            <rect key="frame" x="60" y="120" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otherexpenses.png" id="Idl-Xg-YAV">
-                            <rect key="frame" x="20" y="282" width="29" height="29"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthcare.png" id="Idl-Xg-YAV">
+                            <rect key="frame" x="20" y="200" width="29" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Utilities, phone bills, etc." minimumFontSize="17" clearButtonMode="whileEditing" id="sC3-Oz-C4M" customClass="TSCurrencyTextField">
-                            <rect key="frame" x="60" y="282" width="238" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insurance &amp; out of pocket costs." minimumFontSize="17" clearButtonMode="whileEditing" id="sC3-Oz-C4M" customClass="TSCurrencyTextField">
+                            <rect key="frame" x="60" y="200" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                         </textField>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Fixed Monthly Costs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQF-ug-X6T">
-                            <rect key="frame" x="60" y="262" width="168" height="17"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Healthcare Costs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQF-ug-X6T">
+                            <rect key="frame" x="60" y="180" width="163" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otherexpenses.png" id="zAV-7K-ZJX">
+                            <rect key="frame" x="20" y="280" width="29" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Utilities, phone bills, subscriptions." minimumFontSize="17" clearButtonMode="whileEditing" id="TbN-rU-OPw" customClass="TSCurrencyTextField">
+                            <rect key="frame" x="60" y="280" width="238" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                        </textField>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Fixed Monthly Costs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P2M-vC-pHl">
+                            <rect key="frame" x="60" y="260" width="168" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -91,10 +109,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oUv-T7-xI1">
-                    <rect key="frame" x="183" y="452" width="117" height="44"/>
+                    <rect key="frame" x="186" y="453" width="114" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Lifestyle Income">
+                    <state key="normal" title="View Cash Flow">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -133,6 +151,7 @@
         <image name="aboutyou.png" width="85" height="22"/>
         <image name="car.png" width="29" height="29"/>
         <image name="dashboard.png" width="30" height="30"/>
+        <image name="healthcare.png" width="29" height="29"/>
         <image name="help.png" width="20" height="20"/>
         <image name="otherexpenses.png" width="29" height="29"/>
         <image name="rent.png" width="29" height="29"/>

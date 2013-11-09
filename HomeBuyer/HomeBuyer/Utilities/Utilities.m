@@ -17,6 +17,24 @@
     return [emailTest evaluateWithObject:emailString];
 }
 
++(MBProgressHUD*) getHUDViewWithText:(NSString*) text onView:(UIView*) view
+{
+    MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:view];
+	[view addSubview:HUD];
+	
+	HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+	
+	// Set custom view mode
+	HUD.mode = MBProgressHUDModeCustomView;
+    if(!text)
+        HUD.labelText = @"Completed";
+    else
+        HUD.labelText = text;
+    
+    return HUD;
+}
+
+
 +(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount
 {
     NSNumberFormatter* currencyNumberFormatter = [[NSNumberFormatter alloc] init];
@@ -79,5 +97,27 @@
     
     return busyIndicator;
 }
+
++ (NSString *)emptyIfNil:(NSString *)string
+{
+    if( (id)string == [NSNull null] ) return @"";
+    if(!string)
+    {
+        return @"";
+    }
+    
+    if((id)string == [NSNull null])
+    {
+        return @"";
+    }
+    
+    if([string isEqualToString:@"null"] || [string isEqualToString:@"<null>"] || [string isEqualToString:@"(null)"])
+    {
+        return @"";
+    }
+    
+    return string;
+}
+
 
 @end

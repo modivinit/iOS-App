@@ -21,7 +21,11 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomeLifeStyleDelegate setNavTitle:@"Home Lifestyle"];
+    if([self.mHomeNumber intValue] == FIRST_HOME)
+        [self.mHomeLifeStyleDelegate setNavTitle:@"First Home Cash Flow"];
+    else
+        [self.mHomeLifeStyleDelegate setNavTitle:@"Second Home Cash Flow"];
+
 }
 
 -(void) setupOtherLabels
@@ -53,27 +57,56 @@
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
+    if(![[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in home dash lifestyle %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
+    
     if(aHome && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
 
-        float lifestyleIncome = [calculatorHome getMonthlyLifeStyleIncome];
-        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] +
-                                        [calculatorHome getAnnualStateTaxesPaid])/12);
+        float lifestyleIncome = rintf([calculatorHome getMonthlyLifeStyleIncome]);
+        
+        float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
+        homeEstTaxesPaid = rintf(homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR);
+        
+        if(lifestyleIncome < 0)
+        {
+            self.mHomeLifeStyleIncome.textColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:30.0/255.0 alpha:1.0];
+        }
+        else
+        {
+            self.mHomeLifeStyleIncome.textColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0];
+        }
         
         self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                           [NSNumber numberWithLong:lifestyleIncome]];
+        
+        float totalFixedCosts = [[kunanceUser getInstance].mkunanceUserProfileInfo getOtherFixedCostsInfo] +
+        [[kunanceUser getInstance].mkunanceUserProfileInfo getCarPaymentsInfo] +
+        [[kunanceUser getInstance].mkunanceUserProfileInfo getHealthInsuranceInfo];
+        
         self.mFixedCosts.text = [Utilities getCurrencyFormattedStringForNumber:
-                                 [NSNumber numberWithLong:userProfile.mMonthlyOtherFixedCosts]];
+                                 [NSNumber numberWithLong:totalFixedCosts]];
+        
         self.mEstIncomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:
                                      [NSNumber numberWithLong:homeEstTaxesPaid]];
-        // create the data
-        homePayments = @{@"LifeStyle Income" : [NSNumber numberWithFloat:lifestyleIncome],
-                         @"Fixed Costs" : [NSNumber numberWithInt:userProfile.mMonthlyOtherFixedCosts],
-                         @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
         
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
+        self.mTotalPayments.text = [Utilities getCurrencyFormattedStringForNumber:
+                                    [NSNumber numberWithFloat:rintf([homeAndLoan getTotalMonthlyPayment])]];
+        
+        // create the data
+        homePayments = @{@"Cash Flow" : [NSNumber numberWithFloat:lifestyleIncome],
+                         @"Fixed Costs" : [NSNumber numberWithInt:totalFixedCosts],
+                         @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
+                         @"Monthly Payment" : [NSNumber numberWithFloat:rintf([homeAndLoan getTotalMonthlyPayment])]};
+        
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 107, 310, 220)];
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -89,6 +122,7 @@
         self.mHomeLifeStyleChart.legend.style.cornerRadius = @0;
         self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleRight;
         self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+        self.mHomeLifeStyleChart.plotAreaBackgroundColor = [UIColor clearColor];
         
         [self.view addSubview:self.mHomeLifeStyleChart];
     }
@@ -124,11 +158,11 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.selectedStyle.protrusion = 10.0f;
     pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:12];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
-    pieSeries.selectionAnimation.duration = @0.4;
-    pieSeries.selectedPosition = @0.0;
+    pieSeries.labelFormatString = @"%.0f";
     pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
+    [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:211.0/255.0 green:84.0/255.0 blue:0.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.9]];
     [colors addObject:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:0.9]];
@@ -136,6 +170,7 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.selectedStyle.flavourColors = colors;
     return pieSeries;
 }
+
 
 - (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex {
     return homePayments.allKeys.count;

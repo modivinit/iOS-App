@@ -10,8 +10,6 @@
                 <outlet property="mForgetPasswordButton" destination="mAP-oI-NAj" id="EhF-w2-3ck"/>
                 <outlet property="mLoginEmail" destination="1cZ-kg-XqS" id="gxa-H7-vde"/>
                 <outlet property="mPassword" destination="nNm-Dc-LVL" id="fzZ-Vf-siQ"/>
-                <outlet property="mSignInFooterBUtton" destination="y8a-ta-KMj" id="7Wm-8f-1yp"/>
-                <outlet property="mSignUpFooterButton" destination="vY1-8S-ZLR" id="uO4-Gx-6bL"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -29,21 +27,6 @@
                     </state>
                     <connections>
                         <action selector="forgotPassword:" destination="-1" eventType="touchDown" id="Wak-ZG-J3R"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y8a-ta-KMj">
-                    <rect key="frame" x="20" y="520" width="50" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Sign In"/>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vY1-8S-ZLR">
-                    <rect key="frame" x="188" y="520" width="112" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Create Account"/>
-                    <connections>
-                        <action selector="signupButtonPressedAction:" destination="-1" eventType="touchDown" id="1qE-Ra-4OL"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" id="Fvo-QG-9J1">
@@ -67,7 +50,7 @@
                     <rect key="frame" x="100" y="116" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" secureTextEntry="YES"/>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TkC-2l-ped">
                     <rect key="frame" x="20" y="122" width="62" height="17"/>

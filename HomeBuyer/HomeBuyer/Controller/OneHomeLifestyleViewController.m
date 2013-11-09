@@ -18,6 +18,7 @@
 #import "OneHomeLifestyleViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomeLifestyleViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mLifestyleIncomeChart;
@@ -28,15 +29,19 @@
     NSDictionary* mLifestyleIncomeData[2];
 }
 
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mLifestyleIncomeChart snapshot];
+}
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomeLifestyleViewDelegate setNavTitle:@"Compare Lifestyle"];
+    [self.mOneHomeLifestyleViewDelegate setNavTitle:@"Monthly Cash Flow"];
 }
 
 -(void) setupChart
 {
-    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mLifestyleIncomeChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -46,7 +51,7 @@
     self.mLifestyleIncomeChart.xAxis = xAxis;
     self.mLifestyleIncomeChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @1000.0;
     self.mLifestyleIncomeChart.yAxis = yAxis;
     self.mLifestyleIncomeChart.legend.hidden = NO;
     self.mLifestyleIncomeChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
@@ -56,6 +61,10 @@
     self.mLifestyleIncomeChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mLifestyleIncomeChart.legend.style.cornerRadius = @0;
     self.mLifestyleIncomeChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mLifestyleIncomeChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mLifestyleIncomeChart.gesturePanType = SChartGesturePanTypeNone;
+    
+    self.mLifestyleIncomeChart.clipsToBounds = NO;
     
     // add to the view
     [self.view addSubview:self.mLifestyleIncomeChart];
@@ -74,21 +83,45 @@
     homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+   
+    if(![[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in Dash 1 home lifestyle %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
     
     if(aHome && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
-        kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
-        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
+        kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                             andHome:nil];
         
-        float homeLifeStyleIncome = ceilf([calculatorHome getMonthlyLifeStyleIncome]);
-        float rentLifestyleIncome = ceilf([calculatorRent getMonthlyLifeStyleIncome]);
+        kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile
+                                                                             andHome:homeAndLoan];
         
-        mLifestyleIncomeData[0] = @{@"Lifestyle" : [NSNumber numberWithFloat:rentLifestyleIncome]};
+        float homeLifeStyleIncome = rintf([calculatorHome getMonthlyLifeStyleIncome]);
+        float rentLifestyleIncome = rintf([calculatorRent getMonthlyLifeStyleIncome]);
+        
+        float mHome1CashFlow = homeLifeStyleIncome;
+        
+        if (mHome1CashFlow < 0)
+        {
+            [self.mHome1CashFlow setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mHome1CashFlow setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+
+        self.mHome1CashFlow.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:mHome1CashFlow]];
+        
+        mLifestyleIncomeData[0] = @{@"Monthly Cash Flow ($)" : [NSNumber numberWithFloat:rentLifestyleIncome]};
         self.mRentalLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                             [NSNumber numberWithLong:rentLifestyleIncome]];
         
-        mLifestyleIncomeData[1] = @{@"Lifestyle" : [NSNumber numberWithFloat:homeLifeStyleIncome]};
+        mLifestyleIncomeData[1] = @{@"Monthly Cash Flow ($)" : [NSNumber numberWithFloat:homeLifeStyleIncome]};
         self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                           [NSNumber numberWithLong:homeLifeStyleIncome]];
         
@@ -130,9 +163,9 @@
         lineSeries.style.areaColorGradient = [UIColor colorWithRed:230.0/255.0 green:126.0/255.0 blue:34.0/255.0 alpha:0.9];
     }
     else if(index == 1) {
-        lineSeries.title = @"Home";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.8];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.9];
+        lineSeries.title = @"Home 1";
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
 
     return lineSeries;

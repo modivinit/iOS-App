@@ -29,7 +29,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <attributedString key="attributedText">
-                                <fragment content="Current Lifestyle Income">
+                                <fragment content="Cash Flow">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -38,7 +38,7 @@
                                 </fragment>
                                 <fragment>
                                     <string key="content">:
-Monthly money for food, entertainment, travel, gas, savings, etc. after your fixed expenses (including taxes and rent) are factored in.
+Monthly money for food, entertainment, travel, savings, etc. after your fixed expenses (including taxes) are factored in. We factor in rental for rental cash flow and total mortgage payment for home cash flows.
 
 </string>
                                     <attributes>
@@ -46,7 +46,7 @@ Monthly money for food, entertainment, travel, gas, savings, etc. after your fix
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="Future Home Lifestyle Income">
+                                <fragment content="Annual Income Tax Savings">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -54,10 +54,9 @@ Monthly money for food, entertainment, travel, gas, savings, etc. after your fix
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">: 
-Monthly money for food, entertainment, travel, gas, savings, etc. after your fixed expenses (including taxes, mortgage, property taxes, etc.) are factored in.  
+                                    <string key="content">: Estimated tax savings per year after home purchase. The amount of income tax saved varies across different homes.
 
-Monthly Home Payment includes several components. It includes the following:
+Total Monthly Home Payment includes several components. It includes the following:
 
 </string>
                                     <attributes>
@@ -129,15 +128,14 @@ Monthly Home Payment includes several components. It includes the following:
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="Rent vs. Buy">
+                                <fragment content="PMI (Property Mortgage Insurance)">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment>
-                                    <string key="content">:  This screen compares your lifestyle income of your current renting lifestyle versus what it would be if you were to purchase a home.</string>
+                                <fragment content=": Insurance on a loan if the amount of down payment is typically less than 20% of the sale price of the home. ">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>

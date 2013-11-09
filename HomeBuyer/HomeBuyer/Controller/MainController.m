@@ -19,6 +19,7 @@
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @property (nonatomic, strong) kCATIntroViewController* mIntroView;
+@property (nonatomic, strong) UIAlertView* mRealtorIDEntryView;
 @end
 
 @implementation MainController
@@ -32,6 +33,7 @@
         self.mMainNavController = navController;
         self.mLeftMenuViewController = [[LeftMenuViewController alloc] init];
         self.mLeftMenuViewController.mLeftMenuDelegate = self;
+        self.mRealtorIDEntryView = nil;
     }
     
     return self;
@@ -48,6 +50,17 @@
                                              selector:@selector(displayHomeDash:)
                                                  name:kDisplayHomeDashNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleHomeBUttonFromDash:)
+                                                 name:kHomeButtonTappedFromDash
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showUserDash)
+                                                 name:kDisplayUserDash
+                                               object:nil];
+
 
     //if logged in,
     if([[kunanceUser getInstance] isUserLoggedIn])
@@ -84,6 +97,9 @@
 
 -(void) readUserPFInfo
 {
+    //Piggy back realtor API here for now.
+    [[kunanceUser getInstance] readRealtorInfo];
+
     if(![kunanceUser getInstance].mkunanceUserProfileInfo)
         [kunanceUser getInstance].mkunanceUserProfileInfo = [[userProfileInfo alloc] init];
    
@@ -133,6 +149,7 @@
     //self.mFrontViewController.navigationBar.tintColor = [UIColor grayColor];
     self.revealController = [PKRevealController revealControllerWithFrontViewController:self.mFrontViewController
                                                                      leftViewController:self.mLeftMenuViewController];
+    self.revealController.recognizesPanningOnFrontView = NO;
     if(self.mMainControllerDelegate &&
        [self.mMainControllerDelegate respondsToSelector:@selector(resetRootView:)])
     {
@@ -164,6 +181,13 @@
     {
         [self.mMainControllerDelegate resetRootView:navController];
     }
+}
+
+-(void) handleHomeBUttonFromDash:(NSNotification*) notice
+{
+    NSNumber* number = [notice object];
+    if(number)
+        [self handleHomeMenu:[number intValue]];
 }
 
 #pragma mark kCATIntroDelegate
@@ -292,17 +316,24 @@
 #pragma end
 
 #pragma mark APIServiceDelegate
--(void) finishedReadingUserPFInfo
+-(void) finishedReadingUserPFInfo:(NSError*) error
 {
-    [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
-    
-    if(![kunanceUser getInstance].mKunanceUserHomes)
-        [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
-    
-    [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
-    if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
+    if(!error)
     {
-        NSLog(@"Error: reading homes info for user");
+        [[kunanceUser getInstance] updateStatusWithUserProfileInfo];
+        
+        if(![kunanceUser getInstance].mKunanceUserHomes)
+            [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
+        
+        [kunanceUser getInstance].mKunanceUserHomes.mUsersHomesListDelegate = self;
+        if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
+        {
+            NSLog(@"Error: reading homes info for user");
+        }
+    }
+    else
+    {
+        [self displayDash];
     }
 }
 #pragma end
@@ -318,8 +349,24 @@
             
         case ROW_REALTOR:
         {
-            ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
-            [self setRootView:contactRealtor];
+            if([kunanceUser getInstance].mRealtor && [[kunanceUser getInstance].mRealtor mIsValid])
+            {
+                ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+                contactRealtor.showDashboardIcon = YES;
+                [self setRootView:contactRealtor];
+            }
+            else
+            {
+                [self displayDash];
+                self.mRealtorIDEntryView = [[UIAlertView alloc] initWithTitle:@"Enter Realtor ID"
+                                                                      message:@"Shared by your realtor."
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"Cancel"
+                                                            otherButtonTitles:@"OK", nil];
+                
+                self.mRealtorIDEntryView.alertViewStyle = UIAlertViewStylePlainTextInput;
+                [self.mRealtorIDEntryView show];
+            }
         }
             break;
             
@@ -327,6 +374,49 @@
             break;
     }
 }
+#pragma UI
+
+#pragma RealtorDelegate
+-(void) finishedReadingRealtorInfo:(NSError *)error
+{
+    [MBProgressHUD hideHUDForView:self.mFrontViewController.view animated:NO];
+    if(!error)
+    {
+        [self displayDash];
+        NSLog(@"realtor = %@", [kunanceUser getInstance].mRealtor);
+        [[kunanceUser getInstance] writeRealtorID];
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+    }
+}
+#pragma end
+
+
+#pragma UIAlertViewDelegate
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:NO];
+    else
+    {
+        if(alertView == self.mRealtorIDEntryView)
+        {
+            NSString* realtorID = [self.mRealtorIDEntryView textFieldAtIndex:0].text;
+            if(realtorID)
+            {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.mFrontViewController.view animated:YES];
+                hud.labelText = @"Fetching Realtor info";
+
+                [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+                [kunanceUser getInstance].mRealtor.mRealtorDelegate = self;
+                [[kunanceUser getInstance].mRealtor getRealtorForID:realtorID];
+            }
+        }
+    }
+}
+#pragma end
 
 -(void) handleHomeMenu:(NSInteger) row
 {
@@ -368,6 +458,15 @@
     }
 }
 
+-(void) showUserDash
+{
+    DashUserPFInfoViewController* vc = [[DashUserPFInfoViewController alloc] init];
+    vc.mWasLoadedFromMenu = YES;
+    self.mMainDashController = vc;
+    
+    [self setRootView:self.mMainDashController];
+}
+
 -(void) handleLoanMenu:(NSInteger) row
 {
    if(row != ROW_LOAN_INFO)
@@ -398,11 +497,7 @@
             
         case ROW_CURRENT_LIFESTYLE:
         {
-            DashUserPFInfoViewController* vc = [[DashUserPFInfoViewController alloc] init];
-            vc.mWasLoadedFromMenu = YES;
-            self.mMainDashController = vc;
-            
-            [self setRootView:self.mMainDashController];
+            [self showUserDash];
         }
     }
 }
@@ -411,11 +506,11 @@
 {
     switch (row)
     {
-        case ROW_HELP_CENTER:
-        {
-            
-        }
-            break;
+//        case ROW_HELP_CENTER:
+//        {
+//            
+//        }
+//            break;
             
         case ROW_TERMS_AND_POLICIES:
         {

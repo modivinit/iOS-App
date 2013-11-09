@@ -47,31 +47,29 @@
 
 -(void) addButtons
 {
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 520, 30, 30)];
-    [self.mContactRealtorButton setImage:[UIImage imageNamed:@"logo-svl.gif"] forState:UIControlStateNormal];
-    [self.mContactRealtorButton addTarget:self action:@selector(contactRealtor) forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mContactRealtorButton];
+    if([kunanceUser getInstance].mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered ||
+       [kunanceUser getInstance].mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered)
+    {
+        self.mDashButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 510, 44, 44)];
+        [self.mDashButton setImage:[UIImage imageNamed:@"dashboard.png"] forState:UIControlStateNormal];
+        [self.mDashButton addTarget:self action:@selector(dashButtonTapped) forControlEvents:UIControlEventTouchDown];
+        [self.pageController.view addSubview:self.mDashButton];
+    }
     
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(285, 530, 20, 20)];
+    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];
-    
-    self.mCompareButton = [[UIButton alloc] initWithFrame:CGRectMake(150, 470, 170, 40)];
-    CGPoint buttonCenter = self.mCompareButton.center;
-    self.mCompareButton.center = CGPointMake(self.view.center.x, buttonCenter.y);
-    [self.mCompareButton setTitle:@"Compare" forState:UIControlStateNormal];
-    self.mCompareButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
-    
-    self.mCompareButton.titleLabel.textColor = [Utilities getKunanceBlueColor];
-    
-    [self.mCompareButton addTarget:self action:@selector(compareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mCompareButton];
     
     self.navigationItem.rightBarButtonItem =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
                                                   target:self
                                                   action:@selector(editHome)];
+}
+
+-(void) dashButtonTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
 }
 
 - (void)viewDidLoad
@@ -112,11 +110,6 @@
     HomeInfoEntryViewController* homeEntry = [[HomeInfoEntryViewController alloc]
                                               initAsHomeNumber:[self.mHomeNumber intValue]];
     [self.navigationController pushViewController:homeEntry animated:NO];
-}
-
--(void) compareButtonTapped
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:Nil];
 }
 
 -(void) helpButtonTapped

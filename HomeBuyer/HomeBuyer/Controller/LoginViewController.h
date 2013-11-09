@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FormNoScrollViewViewController.h"
+#import "ResetPasswordViewController.h"
 
 @protocol LoginDelegate <NSObject>
 -(void) loggedInUserSuccessfully;
@@ -15,7 +16,8 @@
 -(void) cancelLoginScreen;
 @end
 
-@interface LoginViewController : FormNoScrollViewViewController<UITextFieldDelegate, kunanceUserDelegate>
+@interface LoginViewController : FormNoScrollViewViewController
+<UITextFieldDelegate, kunanceUserDelegate, ResetPasswordControllerDelegate>
 @property (nonatomic, weak) id <LoginDelegate> mLoginDelegate;
 
 @property (nonatomic, strong) IBOutlet UITextField* mLoginEmail;
@@ -24,10 +26,5 @@
 -(IBAction)forgotPassword:(id)sender;
 
 @property (nonatomic, strong) UIButton*    mLoginButton;
-@property (nonatomic, strong) IBOutlet UIButton*    mSignInFooterBUtton;
-@property (nonatomic, strong) IBOutlet UIButton*    mSignUpFooterButton;
-
--(IBAction) signupButtonPressedAction:(id)sender;
-
 @property (nonatomic, strong) UIColor* mLoginButtonColor;
 @end

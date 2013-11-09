@@ -7,33 +7,49 @@
 //
 
 #import "TwoHomeTaxSavingsViewController.h"
-#import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
+
 
 @interface TwoHomeTaxSavingsViewController () <SChartDatasource, SChartDelegate>
-@property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
 @end
 
 @implementation TwoHomeTaxSavingsViewController
 {
     NSDictionary* homeTaxSavings[3];
+    NSDictionary* oldFont;
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setTitleTextAttributes:oldFont];
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mTwoHomeTaxSavingsDelegate setNavTitle:@"Income Tax Savings"];
+    [self.mTwoHomeTaxSavingsDelegate setNavTitle:@"Annual Income Tax Savings"];
+    oldFont = self.navigationController.navigationBar.titleTextAttributes;
+    
+    UIFont* font = [UIFont fontWithName:@"Helvetica-Bold" size:16.0f];
+    NSDictionary* dict = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:dict];
 }
 
 -(void) setupOtherLabels
 {
- 
+}
+
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mTaxSavingsChart snapshot];
 }
 
 -(void) setupChart
 {
     // create the data
-    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
-    
+    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+    //self.mTaxSavingsChart.loadDataInBackground = YES;
     self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
     self.mTaxSavingsChart.licenseKey = SHINOBI_LICENSE_KEY;
@@ -42,7 +58,7 @@
     self.mTaxSavingsChart.xAxis = xAxis;
     self.mTaxSavingsChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @3000.0;
     self.mTaxSavingsChart.yAxis = yAxis;
     self.mTaxSavingsChart.legend.hidden = NO;
     self.mTaxSavingsChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
@@ -52,22 +68,35 @@
     self.mTaxSavingsChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mTaxSavingsChart.legend.style.cornerRadius = @0;
     self.mTaxSavingsChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mTaxSavingsChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mTaxSavingsChart.gesturePanType = SChartGesturePanTypeNone;
     
     // add to the view
     [self.view addSubview:self.mTaxSavingsChart];
     
     self.mTaxSavingsChart.datasource = self;
     self.mTaxSavingsChart.delegate = self;
+    
+    self.mTaxSavingsChart.clipsToBounds = NO;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
     homeInfo* home2 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:SECOND_HOME];
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    if(![[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in Dash 2 home taxes %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
     
     if(home1 && home2 && aLoan && userProfile)
     {
@@ -83,22 +112,46 @@
         kCATCalculator* rentalCalc = [[kCATCalculator alloc] initWithUserProfile:userProfile
                                                                          andHome:nil];
         
-        float home1Taxes = ([home1Calc getAnnualFederalTaxesPaid]+
-                            [home1Calc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+        float home1Taxes = rintf(([home1Calc getAnnualFederalTaxesPaid]+
+                            [home1Calc getAnnualStateTaxesPaid]));
         
-        float home2Taxes = ([home2Calc getAnnualFederalTaxesPaid]+
-                            [home2Calc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+        float home2Taxes = rintf(([home2Calc getAnnualFederalTaxesPaid]+
+                            [home2Calc getAnnualStateTaxesPaid]));
         
-        float rentalTaxes = ([rentalCalc getAnnualFederalTaxesPaid]+
-                            [rentalCalc getAnnualFederalTaxesPaid])/NUMBER_OF_MONTHS_IN_YEAR;
+        float rentalTaxes = rintf(([rentalCalc getAnnualFederalTaxesPaid]+
+                            [rentalCalc getAnnualStateTaxesPaid]));
         
-        homeTaxSavings[0] = @{@"Tax Savings" : [NSNumber numberWithInteger:home1Taxes]};
-        homeTaxSavings[1] = @{@"Tax Savings" : [NSNumber numberWithInteger:home2Taxes]};
-        homeTaxSavings[2] = @{@"Tax Savings" : [NSNumber numberWithInteger:rentalTaxes]};
+        homeTaxSavings[0] = @{@"Est. Income Tax ($)" : [NSNumber numberWithInteger:rentalTaxes]};
+        homeTaxSavings[1] = @{@"Est. Income Tax ($)" : [NSNumber numberWithInteger:home1Taxes]};
+        homeTaxSavings[2] = @{@"Est. Income Tax ($)" : [NSNumber numberWithInteger:home2Taxes]};
+        
+        float home1TaxSavings = rentalTaxes - home1Taxes;
+        float home2TaxSavings = rentalTaxes - home2Taxes;
 
         self.mEstRentalUnitTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:rentalTaxes]];
         self.mEstFirstHomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1Taxes]];
         self.mEstSecondHomeTaxes.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home2Taxes]];
+        
+        if (home1TaxSavings < 0)
+        {
+            [self.mHome1TaxSavings setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mHome1TaxSavings setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+        
+        if (home2TaxSavings < 0)
+        {
+            [self.mHome2TaxSavings setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mHome2TaxSavings setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+            
+        self.mHome1TaxSavings.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1TaxSavings]];
+        self.mHome2TaxSavings.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home2TaxSavings]];
         
         self.mHome1Nickname.text = home1.mIdentifiyingHomeFeature;
         if(home1.mHomeType == homeTypeSingleFamily)
@@ -140,8 +193,8 @@
     }
     if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     if(index == 2) {
         lineSeries.title = @"Home 2";

@@ -12,6 +12,8 @@
 #import "CalculatorUtilities.h"
 #import "TaxBlock.h"
 
+static const long kMortgageInterestDeductionUpperLimit = 1000000l;
+
 @interface kCATCalculator()
 @property (nonatomic, strong) NSDictionary* mDeductionsAndExemptions;
 @property (nonatomic, strong) NSArray* mStateSingleTaxTable;
@@ -32,11 +34,19 @@
         self.mUserProfile = userProfile;
         
         self.mDeductionsAndExemptions = [CalculatorUtilities getDictionaryFromPlistFile:@"ExemptionsAndStandardDeductions2013"];
-        
+
+        NSDateComponents *components = [[NSCalendar currentCalendar]
+                                        components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+        NSInteger year = [components year];
+
         self.mStateSingleTaxTable = [self importTableFromFile:@"TaxTableStateSingle2013"];
         self.mStateMFJTaxTable = [self importTableFromFile:@"TaxTableStateMFJ2013"];
-        self.mFederalSingleTaxTable = [self importTableFromFile:@"TaxTableFederalSingle2013"];
-        self.mFederalMFJTaxTable = [self importTableFromFile:@"TaxTableFederalMFJ2013"];
+        
+        NSString* federalSingleTableFile = [NSString stringWithFormat:@"TaxTableFederalSingle%d",year];
+        self.mFederalSingleTaxTable = [self importTableFromFile:federalSingleTableFile];
+        
+        NSString* federalMFJTableFile = [NSString stringWithFormat:@"TaxTableFederalMFJ%d",year];
+        self.mFederalMFJTaxTable = [self importTableFromFile:federalMFJTableFile];
         
         self.mHome = home;
     }
@@ -59,14 +69,17 @@
     float monthlyRentOrMortgage = 0;
     if(self.mHome)
     {
-        monthlyRentOrMortgage = [self.mHome getMonthlyLoanPaymentForHome];
+        monthlyRentOrMortgage = [self.mHome getTotalMonthlyPayment];
     }
     else
     {
         monthlyRentOrMortgage = self.mUserProfile.mMonthlyRent;
     }
     
-    float totalMonthlyCosts = monthlyRentOrMortgage + self.mUserProfile.mMonthlyCarPayments + self.mUserProfile.mMonthlyOtherFixedCosts;
+    float totalMonthlyCosts = monthlyRentOrMortgage +
+                            self.mUserProfile.mMonthlyCarPayments +
+                            self.mUserProfile.mMonthlyOtherFixedCosts +
+                            self.mUserProfile.mMonthlyHealthInsurancePayments;
     float totalMonthlyTaxesPaid = monthlyStateTaxesPaid + montlyFedralTaxesPaid;
     
     float monthlyLifestyleIncome = montlyGrossIncome - (totalMonthlyCosts + totalMonthlyTaxesPaid);
@@ -84,18 +97,27 @@
     float baseIncomeForBlock = taxableIncome;
     float finalTaxesPaid = 0;
 
+    uint count = 0;
+    
     float upperLimitForPreviousBlock = 0;
     for (TaxBlock* currentTaxBlock in taxBlockArray)
     {
         float limitForCurrentBlock = currentTaxBlock.mUpperLimit;
         float percentageForCurrentBlock = currentTaxBlock.mPercentage;
-        
-        differenceIncomeForBlock = baseIncomeForBlock - upperLimitForPreviousBlock;
-        
-        if(differenceIncomeForBlock < limitForCurrentBlock)
-            applicableIncomeForBlock = differenceIncomeForBlock;
+
+        if(count == (taxBlockArray.count-1))
+        {
+            applicableIncomeForBlock = taxableIncome - limitForCurrentBlock;
+        }
         else
-            applicableIncomeForBlock = limitForCurrentBlock;
+        {
+            differenceIncomeForBlock = baseIncomeForBlock - upperLimitForPreviousBlock;
+            
+            if(differenceIncomeForBlock < limitForCurrentBlock)
+                applicableIncomeForBlock = differenceIncomeForBlock;
+            else
+                applicableIncomeForBlock = limitForCurrentBlock;
+        }
         
         if(applicableIncomeForBlock < 0)
             break;
@@ -106,6 +128,8 @@
         
         upperLimitForPreviousBlock = limitForCurrentBlock;
         baseIncomeForBlock = differenceIncomeForBlock;
+        
+        count++;
     }
 
     return finalTaxesPaid;
@@ -123,8 +147,12 @@
     else
         taxBlockArray = self.mStateSingleTaxTable;
 
+    float annualStateTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:stateTaxableIncome];
     
-    return [self getTaxesForTable:taxBlockArray andTaxableIncome:stateTaxableIncome];
+    if(annualStateTaxes < 0)
+        annualStateTaxes = 0;
+    
+    return annualStateTaxes;
 }
 
 -(float) getAnnualFederalTaxesPaid
@@ -139,8 +167,15 @@
     else
         taxBlockArray = self.mFederalSingleTaxTable;
     
-    return [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
-    return 0;
+    float annualFederalTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
+    
+    if(self.mUserProfile.mNumberOfChildren > 0)
+        annualFederalTaxes -= ([self.mDeductionsAndExemptions[@"ChildTaxCreditFederal"] floatValue] * self.mUserProfile.mNumberOfChildren);
+    
+    if(annualFederalTaxes < 0)
+        annualFederalTaxes = 0;
+    
+    return annualFederalTaxes;
 }
 
 -(float) getAnnualAdjustedGrossIncome
@@ -177,14 +212,38 @@
     
     float interestOnHomeMortgage = 0;
     float propertyTaxesPaid = 0;
-
+    float PMIOnHome = 0;
+    /*If mortgage owed =<$1M then all current equations exist
+     If mortgage owed>$1M then the following:
+     
+     i (p)=interest paid in year
+     i (d)=interest actually deductible in year
+     m=mortgage owed at initiation of loan
+     
+     i(d)=($1,000,000/m)*[i(p)]
+*/
     if(self.mHome)
     {
-        interestOnHomeMortgage = [self.mHome getInterestAveragedOverYears:NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST];
+        float initialLoanBalance = [self.mHome getInitialLoanBalance];
+
+        float averageInterestOverYears = [self.mHome getInterestAveragedOverYears:NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST];
+        
+        if(initialLoanBalance <= kMortgageInterestDeductionUpperLimit)
+        {
+            interestOnHomeMortgage = averageInterestOverYears;
+        }
+        else
+        {
+            interestOnHomeMortgage =
+            (kMortgageInterestDeductionUpperLimit/initialLoanBalance)* averageInterestOverYears;
+        }
+        
         propertyTaxesPaid = [self.mHome getAnnualPropertyTaxes];
+        
+        PMIOnHome = [self.mHome getAnnualPMIForHome];
     }
 
-    return interestOnHomeMortgage + propertyTaxesPaid;
+    return interestOnHomeMortgage + propertyTaxesPaid + PMIOnHome;
 }
 
 -(float) getStateExemptions
@@ -292,7 +351,6 @@
     {
         TaxBlock* block = [[TaxBlock alloc] init];
         block.mUpperLimit = [blockDict[@"limitsDifference"] floatValue];
-        block.mFixedAmount = [blockDict[@"fixedAmount"] floatValue];
         block.mPercentage = [blockDict[@"percentage"] floatValue];
         
         [array addObject:block];

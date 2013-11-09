@@ -18,7 +18,7 @@
 {
     uint index = viewController.view.tag;
     if((index+1) == self.mPageViewControllers.count)
-        return self.mPageViewControllers[0];
+        return nil;
     
     return self.mPageViewControllers[index+1];
 }
@@ -31,7 +31,7 @@
         [self.mBasePageViewDelegate changedToPage:index];
     
     if(index == 0)
-        return self.mPageViewControllers[self.mPageViewControllers.count-1];
+        return Nil;
     else
         return self.mPageViewControllers[index-1];
 }

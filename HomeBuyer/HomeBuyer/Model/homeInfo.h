@@ -20,7 +20,7 @@ typedef enum
 @property (nonatomic, copy) NSString*   mIdentifiyingHomeFeature;
 @property (nonatomic) UInt64            mHomeListPrice;
 @property (nonatomic) uint              mHOAFees;
-@property (nonatomic) homeAddress*      mHomeAddress;
+@property (nonatomic, strong) homeAddress*      mHomeAddress;
 @property (nonatomic) uint              mHomeId;
 
 -(NSDictionary*) getDictionaryHomeObjectFromHomeInfo;

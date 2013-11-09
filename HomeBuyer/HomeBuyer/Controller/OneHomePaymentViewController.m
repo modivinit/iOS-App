@@ -9,6 +9,7 @@
 #import "OneHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomePaymentViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mPaymentsChart;
@@ -28,10 +29,14 @@
     return self;
 }
 
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mPaymentsChart snapshot];
+}
 
 -(void) setupChart
 {
-    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mPaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -41,16 +46,17 @@
     self.mPaymentsChart.xAxis = xAxis;
     self.mPaymentsChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @1000.0;
     self.mPaymentsChart.yAxis = yAxis;
     self.mPaymentsChart.legend.hidden = NO;
     self.mPaymentsChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
-    
     self.mPaymentsChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     self.mPaymentsChart.legend.style.symbolCornerRadius = @0;
     self.mPaymentsChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mPaymentsChart.legend.style.cornerRadius = @0;
     self.mPaymentsChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mPaymentsChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mPaymentsChart.gesturePanType = SChartGesturePanTypeNone;
     
     // add to the view
     [self.view addSubview:self.mPaymentsChart];
@@ -59,21 +65,35 @@
     self.mPaymentsChart.delegate = self;
     // show the legend
     
+    self.mPaymentsChart.clipsToBounds = NO;
+    
     homeInfo* aHome = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
+    
+    if(![[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in Dash 1 home payment %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
     
     if(aHome && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
 
-        float homeMortgage = ceilf([homeAndLoan getMonthlyLoanPaymentForHome]);
-        mPaymentData[0] = @{@"Payment" : [NSNumber numberWithFloat:homeMortgage]};
-        mPaymentData[1] = @{@"Payment" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
+        float homeMortgage = rintf([homeAndLoan getTotalMonthlyPayment]);
+        mPaymentData[0] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:userProfile.mMonthlyRent]};
+        mPaymentData[1] = @{@"Total Monthly Payment ($)" : [NSNumber numberWithFloat:homeMortgage]};
+        
+        float home1ComparePayment = homeMortgage;
         
         self.mHomePaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:homeMortgage]];
         self.mRentalPaymentLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                                          [NSNumber numberWithLong:userProfile.mMonthlyRent]];
+        
+        self.mHome1ComparePayment.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithLong:home1ComparePayment]];
         
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)
@@ -85,8 +105,16 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomePaymentViewDelegate setNavTitle:@"Compare Payments"];
+    [self.mOneHomePaymentViewDelegate setNavTitle:@"Monthly Payments"];
 }
+
+-(IBAction)addAHomeTapped:(id)sender
+{
+    uint currentCount = [[kunanceUser getInstance].mKunanceUserHomes getCurrentHomesCount];
+    self.mHomeInfoViewController = [[HomeInfoEntryViewController alloc] initAsHomeNumber:currentCount];
+    [self.navigationController pushViewController:self.mHomeInfoViewController animated:NO];
+}
+
 
 - (void)viewDidLoad
 {
@@ -117,8 +145,8 @@
     }
     else if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     return lineSeries;
 }

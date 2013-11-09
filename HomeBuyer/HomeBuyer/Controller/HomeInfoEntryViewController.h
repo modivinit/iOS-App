@@ -13,14 +13,16 @@
 #import "HomeAddressViewController.h"
 #import "UsersHomesList.h"
 #import <TSCurrencyTextField.h>
+#import "SPGooglePlacesAutocompleteViewController.h"
 
-@interface HomeInfoEntryViewController : FormViewController <UsersHomesListDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate>
+@interface HomeInfoEntryViewController : FormViewController
+<UsersHomesListDelegate, LoanInfoViewDelegate, HomeAddressViewDelegate, GooglePlacesDelegate>
 @property (nonatomic) homeType      mSelectedHomeType;
 @property (nonatomic) uint mHomeNumber;
 @property (nonatomic, strong) homeInfo*  mCorrespondingHomeInfo;
 @property (nonatomic, strong) LoanInfoViewController* mLoanInfoController;
 @property (nonatomic, strong) HomeAddressViewController* mHomeAddressView;
-
+@property (nonatomic, strong) SPGooglePlacesAutocompleteViewController* googlePlacesViewController;
 -(id) initAsHomeNumber:(uint) homeNumber;
 
 @property (nonatomic, strong) IBOutlet UIButton*  mSingleFamilyButton;

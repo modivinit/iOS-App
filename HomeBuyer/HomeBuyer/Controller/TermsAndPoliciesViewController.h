@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DashLeftMenuViewController.h"
 
-@interface TermsAndPoliciesViewController : UIViewController
+@interface TermsAndPoliciesViewController : DashLeftMenuViewController
 @property (nonatomic, strong) IBOutlet UIView* mPrivacyPolicyView;
 @property (nonatomic, strong) IBOutlet UIView* mTermsOfUserView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl* mSegmentedControl;

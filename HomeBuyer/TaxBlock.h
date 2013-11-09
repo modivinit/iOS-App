@@ -10,6 +10,5 @@
 
 @interface TaxBlock : NSObject
 @property (nonatomic) float mUpperLimit;
-@property (nonatomic) float mFixedAmount;
 @property (nonatomic) float mPercentage;
 @end

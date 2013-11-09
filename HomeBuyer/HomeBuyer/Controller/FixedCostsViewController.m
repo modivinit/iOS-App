@@ -11,8 +11,9 @@
 #import "HelpProfileViewController.h"
 #import <MBProgressHUD.h>
 
-#define MAX_RENT_LENGTH 6
-#define MAX_CAR_PAYMENTS_LENGTH 4
+#define MAX_RENT_LENGTH 7
+#define MAX_CAR_PAYMENTS_LENGTH 5
+#define MAX_HEALTH_PAYMENTS_LENGTH 5
 #define MAX_FIXED_COSTS_LENGTH  5
 
 @interface FixedCostsViewController ()
@@ -32,20 +33,29 @@
 -(void) initWithExisitingFixedCosts
 {
     userProfileInfo* userInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+    
+    if(!userInfo || status == ProfileStatusUndefined || status == ProfileStatusUserPersonalFinanceInfoEntered)
+    {
+        return;
+    }
+    
     if(userInfo && [userInfo isFixedCostsInfoEntered])
     {
-        if([userInfo getMonthlyRentInfo])
+        //if([userInfo getMonthlyRentInfo])
             self.mMonthlyRent.text = [NSString stringWithFormat:@"%d", [userInfo getMonthlyRentInfo]];
-        if([userInfo getCarPaymentsInfo])
+        //if([userInfo getCarPaymentsInfo])
             self.mMonthlyCarPayments.text = [NSString stringWithFormat:@"%d", [userInfo getCarPaymentsInfo]];
-        if([userInfo getOtherFixedCostsInfo])
+        //if([userInfo getHealthInsuranceInfo])
+            self.mMonthlyHealthInsurancePayments.text = [NSString stringWithFormat:@"%d", [userInfo getHealthInsuranceInfo]];
+        //if([userInfo getOtherFixedCostsInfo])
             self.mOtherMonthlyPayments.text = [NSString stringWithFormat:@"%d", [userInfo getOtherFixedCostsInfo]];
     }
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 260)];
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
 }
 
 - (void)viewDidLoad
@@ -55,18 +65,18 @@
 
     
     self.mFormFields = [[NSArray alloc] initWithObjects:self.mMonthlyRent,
-                self.mMonthlyCarPayments, self.mOtherMonthlyPayments, nil];
+                self.mMonthlyCarPayments, self.mMonthlyHealthInsurancePayments, self.mOtherMonthlyPayments, nil];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.mMonthlyRent.maxLength = MAX_RENT_LENGTH;
     self.mMonthlyCarPayments.maxLength = MAX_CAR_PAYMENTS_LENGTH;
+    self.mMonthlyHealthInsurancePayments.maxLength = MAX_HEALTH_PAYMENTS_LENGTH;
     self.mOtherMonthlyPayments.maxLength = MAX_FIXED_COSTS_LENGTH;
     
     [self addGestureRecognizers];
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 360)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 120)];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self initWithExisitingFixedCosts];
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
@@ -120,11 +130,10 @@
 
 -(IBAction)currentLifeStyleIncomeTapped:(id)sender
 {
-    if(self.mMonthlyRent.amount <= 0 || self.mMonthlyCarPayments.amount <= 0 ||
-       self.mOtherMonthlyPayments.amount <= 0)
+    if(!self.mMonthlyRent.text.length)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Please enter all fields"
+                                                        message:@"Please enter your current rent"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -142,7 +151,8 @@
 
         if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.amount intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.amount intValue]
-                     otherFixedCosts:[self.mOtherMonthlyPayments.amount intValue]])
+                     otherFixedCosts:[self.mOtherMonthlyPayments.amount intValue]
+             monthlyHealthInsurance:[self.mMonthlyHealthInsurancePayments.amount intValue]])
         {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];

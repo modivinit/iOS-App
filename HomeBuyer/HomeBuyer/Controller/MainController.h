@@ -32,7 +32,9 @@ LeftMenuDelegate,
 UsersHomesListDelegate,
 usersLoansListDelegate,
 FixedCostsControllerDelegate,
-kCATIntroViewDelegate
+kCATIntroViewDelegate,
+UIAlertViewDelegate,
+RealtorDelegate
 >
 
 @property (nonatomic, strong) UINavigationController* mMainNavController;

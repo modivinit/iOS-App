@@ -45,7 +45,7 @@
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="Best Home Feature">
+                                <fragment content="Nickname">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -60,7 +60,7 @@
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">  Insert a description of the property to help queue your memory as to which house you are comparing.
+                                    <string key="content"> Description of the property to help you remember which house you are comparing.
 
 </string>
                                     <attributes>
@@ -76,7 +76,7 @@
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">:  The amount of your anticipated sales price for the house. 
+                                    <string key="content">:  The amount of your anticipated sale price for the house. 
 
 </string>
                                     <attributes>
@@ -84,7 +84,7 @@
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="HOA Dues">
+                                <fragment content="HOA (Homeowner Association) Dues">
                                     <attributes>
                                         <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                         <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -141,7 +141,7 @@ Tip:  You should find out if your HOA includes certain items such as water, tras
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content">: Insert the interest rate for the mortgage.  Note:  If it is a variable rate mortage (such as an adjustable mortgage), it is impossible to know what the future interest rate will be with a certainty. The system will use the interest rate you provide as if it is fixed for the length of the loan.  We recommend you adjust the interest rate to see the effects.
+                                    <string key="content">: Insert the interest rate for the mortgage.  Note:  If it is a variable rate mortgage (such as an adjustable mortgage), it is impossible to know what the future interest rate will be with a certainty. The system will use the interest rate you provide as if it is fixed for the length of the loan.  We recommend you adjust the interest rate to see the effects.
 
 </string>
                                     <attributes>

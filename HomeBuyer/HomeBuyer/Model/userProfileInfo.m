@@ -15,6 +15,7 @@ static NSString* const kNumberOfChildren = @"NumberOfChildren";
 static NSString* const kFixedCostsInfoEntered = @"FixedCostsEntered";
 static NSString* const kMonthlyRentKey = @"MonthlyRent";
 static NSString* const kCarPaymentsKey = @"CarPaymentKey";
+static NSString* const kHealthInsurancePaymentsKey = @"HealthInsurance";
 static NSString* const kOtherFixedCostsKey = @"OtherFixedCostsKey";
 
 static NSString* const kUserKey          = @"User";
@@ -45,6 +46,7 @@ static NSString* const kUserKey          = @"User";
     userProfile.mAnnualRetirementSavings = [self getAnnualRetirementSavings];
     userProfile.mMaritalStatus = [self getMaritalStatus];
     userProfile.mNumberOfChildren = [self getNumberOfChildren];
+    userProfile.mMonthlyHealthInsurancePayments = [self getHealthInsuranceInfo];
     userProfile.mMonthlyCarPayments = [self getCarPaymentsInfo];
     userProfile.mMonthlyOtherFixedCosts = [self getOtherFixedCostsInfo];
     userProfile.mMonthlyRent = [self getMonthlyRentInfo];
@@ -105,6 +107,19 @@ static NSString* const kUserKey          = @"User";
         return 0;
 }
 
+-(int) getHealthInsuranceInfo
+{
+    if(![self isFixedCostsInfoEntered])
+        return 0;
+    
+    if(self.mParseUserProfileObject && self.mParseUserProfileObject[kHealthInsurancePaymentsKey])
+    {
+        return [self.mParseUserProfileObject[kHealthInsurancePaymentsKey] integerValue];
+    }
+    else
+        return 0;
+}
+
 -(int) getCarPaymentsInfo
 {
     if(![self isFixedCostsInfoEntered])
@@ -152,9 +167,10 @@ static NSString* const kUserKey          = @"User";
             self.mParseUserProfileObject = userObject;
         }
         
-        if(self.mUserProfileInfoDelegate && [self.mUserProfileInfoDelegate respondsToSelector:@selector(finishedReadingUserPFInfo)])
+        if(self.mUserProfileInfoDelegate &&
+           [self.mUserProfileInfoDelegate respondsToSelector:@selector(finishedReadingUserPFInfo:)])
         {
-            [self.mUserProfileInfoDelegate finishedReadingUserPFInfo];
+            [self.mUserProfileInfoDelegate finishedReadingUserPFInfo:error];
         }
     }];
 }
@@ -224,12 +240,14 @@ static NSString* const kUserKey          = @"User";
 -(BOOL) writeFixedCostsInfo:(UInt64)enteredMonthlyRent
           monthlyCarPaments:(UInt64)enteredCarPayments
             otherFixedCosts:(UInt64)enteredOtherCosts
+     monthlyHealthInsurance:(UInt64)enteredHealthInsurancePayments
 {
     if(!self.mParseUserProfileObject)
         return NO;
     
     self.mParseUserProfileObject[kMonthlyRentKey] = [NSNumber numberWithLong:enteredMonthlyRent];
     self.mParseUserProfileObject[kCarPaymentsKey] = [NSNumber numberWithLong:enteredCarPayments];
+    self.mParseUserProfileObject[kHealthInsurancePaymentsKey] = [NSNumber numberWithLong:enteredHealthInsurancePayments];
     self.mParseUserProfileObject[kOtherFixedCostsKey] = [NSNumber numberWithLong:enteredOtherCosts];
     self.mParseUserProfileObject[kFixedCostsInfoEntered] = [NSNumber numberWithBool:YES];
     [self uploadObject:self.mParseUserProfileObject];

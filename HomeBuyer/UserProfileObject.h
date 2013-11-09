@@ -21,6 +21,7 @@ typedef enum
 @property (nonatomic) long mAnnualRetirementSavings;
 @property (nonatomic) uint mNumberOfChildren;
 @property (nonatomic) uint mMonthlyRent;
+@property (nonatomic) uint mMonthlyHealthInsurancePayments;
 @property (nonatomic) uint mMonthlyCarPayments;
 @property (nonatomic) uint mMonthlyOtherFixedCosts;
 @property (nonatomic) userMaritalStatus mMaritalStatus;

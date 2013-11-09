@@ -7,6 +7,18 @@
 //
 
 #import "homeAndLoanInfo.h"
+#import "CalculatorUtilities.h"
+
+#define HOME_OWNERS_INSURANCE_FOR_SINGLE_FAMILY .25
+#define HOME_OWNERS_INSURANCE_FOR_CONDOMINIUM .1
+#define DEFAULT_PROPERTY_TAX_RATE 1.25
+#define MINIMUM_DOWN_PERCENT_FOR_NO_PMI 20
+#define PMI_RATE 0.75
+
+@interface homeAndLoanInfo()
+@property (nonatomic, strong) NSDictionary* mCityPropertyTaxRates;
+@property (nonatomic) float mPropertyTaxRate;
+@end
 
 @implementation homeAndLoanInfo
 
@@ -21,7 +33,9 @@
         self.mNumberOfMortgageMonths = 0;
         self.mLoanInterestRate = 0;
         self.mDownPaymentAmount = 0;
-        self.mPropertyTaxRate = 1.25;
+        self.mPropertyTaxRate = DEFAULT_PROPERTY_TAX_RATE;
+        self.mHomeInCity = nil;
+        self.mCityPropertyTaxRates = [CalculatorUtilities getDictionaryFromPlistFile:@"CityTaxRate"];
     }
     
     return self;
@@ -59,6 +73,23 @@
     return averageInterestOverYears;
 }
 
+-(float) getTotalMonthlyPayment
+{
+    float mortgage = ceilf([self getMonthlyLoanPaymentForHome]);
+    
+    float propertyTaxes = ceilf([self getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR);
+    
+    float hoa = ceilf(self.mHOAFees);
+    
+    float insurance = ceilf([self getMonthlyHomeOwnersInsuranceForHome]);
+    
+    float PMI = ceilf([self getAnnualPMIForHome])/NUMBER_OF_MONTHS_IN_YEAR;
+    
+    float totalPayments = mortgage+propertyTaxes+hoa+insurance+PMI;
+    
+    return totalPayments;
+}
+
 -(float) getMonthlyLoanPaymentForHome
 {
     float monthlyInterestRate = self.mLoanInterestRate/NUMBER_OF_MONTHS_IN_YEAR/100;
@@ -74,13 +105,58 @@
     return monthlyLoanPayment;
 }
 
+-(float) getAnnualPMIForHome
+{
+    float percentageDown = 100*(self.mDownPaymentAmount/self.mHomeListPrice);
+ //   float percentageDown = 100-((self.mHomeListPrice - self.mDownPaymentAmount)/self.mHomeListPrice*100);
+    if(percentageDown < MINIMUM_DOWN_PERCENT_FOR_NO_PMI)
+    {
+        return PMI_RATE * [self getInitialLoanBalance] /100;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+-(float) getPropertyTaxRateForHome
+{
+    float taxRate = DEFAULT_PROPERTY_TAX_RATE;
+    
+    if(self.mHomeInCity)
+    {
+        if(self.mCityPropertyTaxRates[self.mHomeInCity])
+            taxRate = [self.mCityPropertyTaxRates[self.mHomeInCity] floatValue];
+    }
+    
+    return taxRate;
+}
+
+-(float) getMonthlyHomeOwnersInsuranceForHome
+{
+    float insurance = 0;
+    if(self.mHomeType == homeTypeCondominium)
+    {
+        insurance = self.mHomeListPrice * HOME_OWNERS_INSURANCE_FOR_CONDOMINIUM /100;
+    }
+    else if(self.mHomeType == homeTypeSingleFamily)
+    {
+        insurance = self.mHomeListPrice * HOME_OWNERS_INSURANCE_FOR_SINGLE_FAMILY / 100;
+    }
+    
+    return insurance/NUMBER_OF_MONTHS_IN_YEAR;
+}
+
 -(float) getInitialLoanBalance
 {
-    return self.mHomeListPrice - self.mDownPaymentAmount;
+    if(self.mDownPaymentAmount >= self.mHomeListPrice)
+        return 0;
+    else
+        return self.mHomeListPrice - self.mDownPaymentAmount;
 }
 
 -(float) getAnnualPropertyTaxes
 {
-    return self.mHomeListPrice*self.mPropertyTaxRate/100;
+    return self.mHomeListPrice*[self getPropertyTaxRateForHome]/100;
 }
 @end

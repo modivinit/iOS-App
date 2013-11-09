@@ -12,6 +12,8 @@
 
 static kunanceUser *kunanceUserSingleton;
 
+static NSString* const kRealtorCodeKey = @"RealtorCode";
+
 @interface kunanceUser()
 @property (nonatomic, strong, readwrite) PFUser* mLoggedInKunanceUser;
 @end
@@ -42,6 +44,34 @@ static kunanceUser *kunanceUserSingleton;
     return self;
 }
 
+-(void) readRealtorInfo
+{
+    if(![kunanceUser getInstance].mRealtor)
+        [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+    
+    NSString* realtorid = self.mLoggedInKunanceUser[kRealtorCodeKey];
+    if(realtorid)
+    {
+        if(![[kunanceUser getInstance].mRealtor getRealtorForID:realtorid])
+        {
+        //[Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+        }
+    }
+}
+
+-(void) writeRealtorID
+{
+    if(self.mRealtor && self.mRealtor.mIsValid && self.mRealtor.mRealtorID)
+    {
+        PFUser* user = [PFUser  currentUser];
+        if(user)
+        {
+            user[kRealtorCodeKey] = self.mRealtor.mRealtorID;
+            [user saveInBackground];
+        }
+    }
+}
+
 -(BOOL) signupWithName:(NSString*) name
               password:(NSString*) password
                  email:(NSString*) email
@@ -56,6 +86,9 @@ static kunanceUser *kunanceUserSingleton;
     user.username = email;
     user.password = password;
     user.email = email;
+   
+    if(code)
+        user[kRealtorCodeKey] = code;
     
     NSArray* names = [name componentsSeparatedByString:@" "];
     if(names && names.count > 0)
@@ -64,9 +97,6 @@ static kunanceUser *kunanceUserSingleton;
         if(names.count > 1)
             user[@"LastName"] = names[1];
     }
-    
-    if(code)
-        user[@"RealtorCode"] = code;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
     {
@@ -248,16 +278,36 @@ static kunanceUser *kunanceUserSingleton;
     homeAndLoan.mHOAFees = aHome.mHOAFees;
     homeAndLoan.mLoanInterestRate = aLoan.mLoanInterestRate;
     homeAndLoan.mNumberOfMortgageMonths = aLoan.mLoanDuration * NUMBER_OF_MONTHS_IN_YEAR;
-    homeAndLoan.mPropertyTaxRate = 1.25;
+    homeAndLoan.mHomeType = aHome.mHomeType;
+
+    if(aHome.mHomeAddress && aHome.mHomeAddress.mCity)
+        homeAndLoan.mHomeInCity = aHome.mHomeAddress.mCity;
     
     return homeAndLoan;
+}
+
+-(BOOL) hasUsableHomeAndLoanInfo
+{
+    if(!self.mkunanceUserProfileInfo)
+        return NO;
+    
+    kunanceUserProfileStatus status = self.mUserProfileStatus;
+    
+    if(status == ProfileStatusUndefined ||
+    status == ProfileStatusUserPersonalFinanceInfoEntered ||
+    status == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered ||
+    status == ProfileStatusUser1HomeInfoEntered ||
+    status == ProfileStatusUserTwoHomesButNoLoanInfoEntered)
+        return NO;
+    else
+        return YES;
 }
 
 -(void) logoutUser
 {
     [PFUser logOut];
     self.mLoggedInKunanceUser = [PFUser currentUser];
-    
+    self.mRealtor = nil;
     self.mkunanceUserProfileInfo = nil;
     self.mKunanceUserHomes = nil;
     self.mKunanceUserLoans = nil;

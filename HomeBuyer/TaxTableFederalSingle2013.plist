@@ -40,7 +40,7 @@
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
-		<integer>450000</integer>
+		<real>400000</real>
 		<key>percentage</key>
 		<real>39.6</real>
 	</dict>

@@ -9,6 +9,7 @@
 #import "HomePaymentsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import <MBProgressHUD.h>
 
 @interface HomePaymentsViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mHomePaymentsChart;
@@ -21,7 +22,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mHomePaymentsDelegate setNavTitle:@"Home Payments"];
+    [self.mHomePaymentsDelegate setNavTitle:@"Home Monthly Payment"];
 }
 
 -(void) setupOtherLabels
@@ -53,35 +54,49 @@
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
+    if(![[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in home dash payment %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
+
     if(aHome && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         
-        float mortgage = [homeAndLoan getMonthlyLoanPaymentForHome];
+        float mortgage = rintf([homeAndLoan getMonthlyLoanPaymentForHome]);
         self.mLoanPayment.text = [Utilities getCurrencyFormattedStringForNumber:
-                                  [NSNumber numberWithLong:mortgage]];
+                                  [NSNumber numberWithFloat:mortgage]];
         
-        float propertyTaxes = [homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR;
+        float propertyTaxes = rintf([homeAndLoan getAnnualPropertyTaxes]/NUMBER_OF_MONTHS_IN_YEAR);
         self.mPropertyTax.text = [Utilities getCurrencyFormattedStringForNumber:
-                                  [NSNumber numberWithLong:propertyTaxes]];
+                                  [NSNumber numberWithFloat:propertyTaxes]];
         
-        float hoa = homeAndLoan.mHOAFees;
+        float hoa = rintf(homeAndLoan.mHOAFees);
         self.mHOA.text = [Utilities getCurrencyFormattedStringForNumber:
-                          [NSNumber numberWithLong:hoa]];
+                          [NSNumber numberWithFloat:hoa]];
         
-        float insurance = 150;
+        float insurance = rintf([homeAndLoan getMonthlyHomeOwnersInsuranceForHome]);
         self.mInsurance.text = [Utilities getCurrencyFormattedStringForNumber:
-                                [NSNumber numberWithLong:insurance]];
+                                [NSNumber numberWithFloat:insurance]];
+        
+        float PMI = rintf([homeAndLoan getAnnualPMIForHome]) / NUMBER_OF_MONTHS_IN_YEAR;
+        self.mPMI.text = [Utilities getCurrencyFormattedStringForNumber:[NSNumber numberWithFloat:PMI]];
+        
+        float totalPayments = rintf([homeAndLoan getTotalMonthlyPayment]);
         
         self.mTotalMonthlyPayments.text = [Utilities getCurrencyFormattedStringForNumber:
-                                           [NSNumber numberWithLong:mortgage+propertyTaxes+hoa+insurance]];
+                                           [NSNumber numberWithFloat:totalPayments]];
         // create the data
         homePayments = @{@"Mortgage" : [NSNumber numberWithFloat:mortgage],
                          @"HOA" : [NSNumber numberWithFloat:hoa],
                          @"Property Tax" : [NSNumber numberWithFloat:propertyTaxes],
-                         @"Insurance" : [NSNumber numberWithFloat:insurance]};
+                         @"Insurance" : [NSNumber numberWithFloat:insurance],
+                         @"PMI" : [NSNumber numberWithFloat:PMI]};
 
-        self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 220)];
+        self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 200)];
         self.mHomePaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomePaymentsChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -97,6 +112,7 @@
         self.mHomePaymentsChart.legend.style.cornerRadius = @0;
         self.mHomePaymentsChart.legend.position = SChartLegendPositionMiddleRight;
         self.mHomePaymentsChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+        self.mHomePaymentsChart.plotAreaBackgroundColor = [UIColor clearColor];
         
         [self.view addSubview:self.mHomePaymentsChart];
     }
@@ -108,6 +124,24 @@
     // Do any additional setup after loading the view from its nib.
     [self setupChart];
     [self setupOtherLabels];
+}
+
+-(IBAction)compareButtonTapped:(id)sender
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Calculating";
+
+    [NSTimer scheduledTimerWithTimeInterval: 1.0
+                                     target: self
+                                   selector: @selector(handleTimer)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+-(void) handleTimer
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:Nil];
 }
 
 #pragma mark - SChartDelegate methods
@@ -132,14 +166,14 @@ atPixelCoordinate:(CGPoint)pixelPoint
     pieSeries.selectedStyle.protrusion = 10.0f;
     pieSeries.style.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:10];
     pieSeries.style.labelFontColor = [UIColor whiteColor];
-    pieSeries.selectionAnimation.duration = @0.4;
-    pieSeries.selectedPosition = @0.0;
+    pieSeries.labelFormatString = @"%.0f";
     pieSeries.style.showCrust = NO;
     pieSeries.animationEnabled = YES;
     NSMutableArray* colors = [[NSMutableArray alloc] init];
     [colors addObject:[UIColor colorWithRed:127.0/255.0 green:140.0/255.0 blue:141.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:0.8]];
+    [colors addObject:[UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:0.8]];
     [colors addObject:[UIColor colorWithRed:230.0/255.0 green:126.0/255.0 blue:34.0/255.0 alpha:0.8]];
     pieSeries.style.flavourColors = colors;
     pieSeries.selectedStyle.flavourColors = colors;

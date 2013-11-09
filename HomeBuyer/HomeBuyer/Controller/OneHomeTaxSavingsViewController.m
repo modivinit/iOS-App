@@ -9,6 +9,7 @@
 #import "OneHomeTaxSavingsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomeTaxSavingsViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mEstTaxesChart;
@@ -17,11 +18,17 @@
 @implementation OneHomeTaxSavingsViewController
 {
     NSDictionary* mTaxesData[2];
+    NSDictionary* oldFont;
+}
+
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mEstTaxesChart snapshot];
 }
 
 -(void) setupChart
 {
-    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 100, 300, 160)];
+    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
     
     self.mEstTaxesChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -31,16 +38,19 @@
     self.mEstTaxesChart.xAxis = xAxis;
     self.mEstTaxesChart.backgroundColor = [UIColor clearColor];
     SChartAxis *yAxis = [[SChartNumberAxis alloc] init];
-    yAxis.rangePaddingHigh = @5.0;
+    yAxis.rangePaddingHigh = @3000.0;
     self.mEstTaxesChart.yAxis = yAxis;
     self.mEstTaxesChart.legend.hidden = NO;
     self.mEstTaxesChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
-    
     self.mEstTaxesChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     self.mEstTaxesChart.legend.style.symbolCornerRadius = @0;
     self.mEstTaxesChart.legend.style.borderColor = [UIColor darkGrayColor];
     self.mEstTaxesChart.legend.style.cornerRadius = @0;
     self.mEstTaxesChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mEstTaxesChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mEstTaxesChart.gesturePanType = SChartGesturePanTypeNone;
+    
+    self.mEstTaxesChart.clipsToBounds = NO;
     
     // add to the view
     [self.view addSubview:self.mEstTaxesChart];
@@ -52,24 +62,47 @@
     loan* aLoan = [[kunanceUser getInstance].mKunanceUserLoans getLoanInfo];
     UserProfileObject* userProfile = [[kunanceUser getInstance].mkunanceUserProfileInfo getCalculatorObject];
     
+    if(![[kunanceUser getInstance] hasUsableHomeAndLoanInfo])
+    {
+        NSLog(@"Invalid status to be in Dash 1 home taxes %d",
+              [kunanceUser getInstance].mUserProfileStatus);
+        
+        return;
+    }
+    
     if(aHome && aLoan && userProfile)
     {
         homeAndLoanInfo* homeAndLoan = [kunanceUser getCalculatorHomeAndLoanFrom:aHome andLoan:aLoan];
         kCATCalculator* calculatorRent = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:nil];
         kCATCalculator* calculatorHome = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
         
-        float homeEstTaxesPaid = ceilf(([calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid])/12);
-        float rentEstTaxesPaid = ceilf(([calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid])/12);
+        float homeEstTaxesPaid = rintf([calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid]);
+   //     homeEstTaxesPaid = homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
         
-        mTaxesData[1] = @{@"Est. Taxes" :[NSNumber numberWithFloat:homeEstTaxesPaid]};
-        mTaxesData[0] = @{@"Est. Taxes" : [NSNumber numberWithFloat:rentEstTaxesPaid]};
+        float rentEstTaxesPaid = rintf([calculatorRent getAnnualFederalTaxesPaid] + [calculatorRent getAnnualStateTaxesPaid]);
+   //     rentEstTaxesPaid = rentEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+        
+        mTaxesData[0] = @{@"Est. Income Tax ($)" :[NSNumber numberWithFloat:rentEstTaxesPaid]};
+        mTaxesData[1] = @{@"Est. Income Tax ($)" : [NSNumber numberWithFloat:homeEstTaxesPaid]};
+        
         self.mEstTaxPaidWithRental.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithLong:rentEstTaxesPaid]];
         self.mEstTaxesPaidWithHome.text = [Utilities getCurrencyFormattedStringForNumber:
                                            [NSNumber numberWithLong:homeEstTaxesPaid]];
         
+        if (rentEstTaxesPaid-homeEstTaxesPaid < 0)
+        {
+            [self.mEstTaxSavings setTextColor:[UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0]];
+        }
+        else
+        {
+            [self.mEstTaxSavings setTextColor:[UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0]];
+        }
+
+        
         self.mEstTaxSavings.text = [Utilities getCurrencyFormattedStringForNumber:
                                     [NSNumber numberWithLong:rentEstTaxesPaid-homeEstTaxesPaid]];
+        
         self.mHomeNickName.text = aHome.mIdentifiyingHomeFeature;
         if(aHome.mHomeType == homeTypeSingleFamily)
             self.mHomeTypeIcon.image = [UIImage imageNamed:@"menu-home-sfh.png"];
@@ -78,9 +111,20 @@
     }
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setTitleTextAttributes:oldFont];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Income Tax Savings"];
+    [self.mOneHomeTaxSavingsDelegate setNavTitle:@"Annual Income Tax Savings"];
+    oldFont = self.navigationController.navigationBar.titleTextAttributes;
+    
+    UIFont* font = [UIFont fontWithName:@"Helvetica-Bold" size:16.0f];
+    NSDictionary* dict = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:dict];
 }
 
 - (void)viewDidLoad
@@ -112,8 +156,8 @@
     }
     else if(index == 1) {
         lineSeries.title = @"Home 1";
-        lineSeries.style.areaColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:0.85];
-        lineSeries.style.areaColorGradient = [UIColor colorWithRed:39.0/255.0 green:174.0/255.0 blue:96.0/255.0 alpha:0.95];
+        lineSeries.style.areaColor = [UIColor colorWithRed:155.0/255.0 green:89.0/255.0 blue:182.0/255.0 alpha:0.85];
+        lineSeries.style.areaColorGradient = [UIColor colorWithRed:142.0/255.0 green:68.0/255.0 blue:173.0/255.0 alpha:0.95];
     }
     return lineSeries;
 }

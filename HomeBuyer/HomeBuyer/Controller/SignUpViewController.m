@@ -44,7 +44,7 @@
     [self.mRegisterButton setTitle:@"Join" forState:UIControlStateNormal];
     [self.mRegisterButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchDown];
     self.mRegisterButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.mRegisterButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.mRegisterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.mRegisterButton.backgroundColor = [Utilities getKunanceBlueColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mRegisterButton];
@@ -53,6 +53,11 @@
     
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registerUser:)
+                                                 name:kReturnButtonClickedOnSignupForm
+                                               object:nil];
 }
 
 -(void) cancelScreen
@@ -115,6 +120,8 @@
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Signing Up";
+    
+
     if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
                              password:self.mPasswordField.text
                                 email:self.mEmailField.text
@@ -128,6 +135,19 @@
     }
 }
 
+#pragma RealtorDelegate
+-(void) finishedReadingRealtorInfo:(NSError *)error
+{
+    if(!error)
+    {
+        NSLog(@"realtor = %@", [kunanceUser getInstance].mRealtor);
+    }
+    else
+    {
+        [Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+    }
+}
+#pragma end
 
 #pragma LoginSignupServiceDelegate
 -(void) signupCompletedWithError:(NSError *)error
@@ -147,13 +167,27 @@
     }
     else
     {
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+        [mixpanel track:@"Created Account Successfully" properties:Nil];
+
+        if(self.mRealtorCodeField && self.mRealtorCodeField.text.length)
+        {
+            if(![kunanceUser getInstance].mRealtor)
+                [kunanceUser getInstance].mRealtor = [[Realtor alloc] init];
+            
+            [kunanceUser getInstance].mRealtor.mRealtorDelegate = self;
+            if(![[kunanceUser getInstance].mRealtor getRealtorForID:self.mRealtorCodeField.text])
+            {
+                [Utilities showAlertWithTitle:@"Sorry" andMessage:@"We were unable to find a realtor with that ID"];
+            }
+            
+        }
+        
         if(self.mSignUpDelegate &&
            [self.mSignUpDelegate respondsToSelector:@selector(userSignedUpSuccessfully)])
         {
             [self.mSignUpDelegate userSignedUpSuccessfully];
         }
-        Mixpanel *mixpanel = [Mixpanel sharedInstance];
-        [mixpanel track:@"Created Account Successfully" properties:Nil];
     }
 }
 #pragma end

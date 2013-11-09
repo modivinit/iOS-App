@@ -34,7 +34,7 @@
     [self.mSignInButton addTarget:self action:@selector(signInButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignInButton setTitle:@"Sign In" forState:UIControlStateNormal];
     self.mSignInButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:16];
-    self.mSignInButton.titleLabel.textColor = [Utilities getKunanceBlueColor];;
+    [self.mSignInButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal];
     [self.pageController.view addSubview:self.mSignInButton];
     
     self.mSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 520, 100, 44)];
@@ -42,7 +42,7 @@
     [self.mSignUpButton addTarget:self action:@selector(signUpButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignUpButton setTitle:@"Get Started" forState:UIControlStateNormal];
     self.mSignUpButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:16];
-    self.mSignUpButton.titleLabel.textColor = [Utilities getKunanceBlueColor];;
+    [self.mSignUpButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal];
     [self.pageController.view addSubview:self.mSignInButton];
 
     [self.pageController.view addSubview:self.mSignUpButton];

@@ -11,6 +11,7 @@
 #import <MBProgressHUD.h>
 
 @interface LoginViewController ()
+@property (nonatomic, strong) ResetPasswordViewController* mResetController;
 @end
 
 @implementation LoginViewController
@@ -36,7 +37,6 @@
     self.mLoginEmail.delegate = self;
     self.mPassword.delegate = self;
     
-    self.mSignInFooterBUtton.enabled = NO;
     self.mLoginButton.enabled = NO;
     
     self.navigationItem.leftBarButtonItem =
@@ -47,18 +47,21 @@
     [self.mLoginButton setTitle:@"Login" forState:UIControlStateNormal];
     [self.mLoginButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchDown];
     self.mLoginButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.mLoginButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.mLoginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.mLoginButton.backgroundColor = [Utilities getKunanceBlueColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.mLoginButton];
 
     self.mLoginButtonColor = self.mLoginButton.backgroundColor;
-    self.mSignInFooterBUtton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
-    self.mSignUpFooterButton.titleLabel.font = [UIFont fontWithName:@"cocon" size:14];
     
 
     [self disableLoginButton];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginUser)
+                                                 name:kReturnButtonClickedOnSigninForm
+                                               object:nil];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -104,6 +107,14 @@
     }
 }
 
+#pragma ResetPasswordDelegate
+-(void) resetRequestSent
+{
+    [self.navigationController popViewControllerAnimated:NO];    
+}
+#pragma end
+
+
 #pragma mark LoginSignupServiceDelegate
 -(void) loginCompletedWithError:(NSError *)error
 {
@@ -131,7 +142,9 @@
 //IBActions, action target methods, gesture targets
 -(IBAction)forgotPassword:(id)sender
 {
-    
+    self.mResetController = [[ResetPasswordViewController alloc] init];
+    self.mResetController.mResetPasswordDelegate = self;
+    [self.navigationController pushViewController:self.mResetController animated:NO];
 }
 
 -(void) cancelScreen

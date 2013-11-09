@@ -121,7 +121,14 @@
 #pragma mark - UITextField
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self gotoNextTextField];
+    if(textField.tag == self.mFormFields.count-1)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReturnButtonClickedOnSignupForm object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReturnButtonClickedOnSigninForm object:nil];
+    }
+    else
+        [self gotoNextTextField];
+    
     [textField resignFirstResponder];
     
     return YES;

@@ -26,9 +26,9 @@
 
 
 #define SECTION_INFO 4
-#define ROW_HELP_CENTER 0
-#define ROW_TERMS_AND_POLICIES 1
-#define ROW_LOGOUT 2
+//#define ROW_HELP_CENTER 0
+#define ROW_TERMS_AND_POLICIES 0
+#define ROW_LOGOUT 1
 
 
 @protocol LeftMenuDelegate <NSObject>

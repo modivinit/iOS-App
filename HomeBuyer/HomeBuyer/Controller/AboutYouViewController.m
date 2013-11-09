@@ -12,8 +12,8 @@
 #import "HelpProfileViewController.h"
 #import <MBProgressHUD.h>
 
-#define MAX_ANNUAL_GROSS_INCOME_LENGTH 11
-#define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 8
+#define MAX_ANNUAL_GROSS_INCOME_LENGTH 10
+#define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 7
 
 @interface AboutYouViewController ()
 
@@ -63,26 +63,31 @@
 -(void) initWithCurrentUserPFInfo
 {
     userProfileInfo* theUserPFInfo = [kunanceUser getInstance].mkunanceUserProfileInfo;
-    if(theUserPFInfo)
+    kunanceUserProfileStatus status = [kunanceUser getInstance].mUserProfileStatus;
+   
+    if(!theUserPFInfo || status == ProfileStatusUndefined)
     {
-        NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld", [theUserPFInfo getAnnualGrossIncome]);
-
-        if([theUserPFInfo getMaritalStatus] == StatusMarried)
-            [self selectMarried];
-        
-        else if([theUserPFInfo getMaritalStatus] == StatusSingle)
-            [self selectSingle];
-        
-        if([theUserPFInfo getAnnualGrossIncome])
-            self.mAnnualGrossIncomeField.text =
-            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
-        
-        if([theUserPFInfo getAnnualRetirementSavings])
-            self.mAnnualRetirementContributionField.text =
-            [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
-        
-        self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
+        return;
     }
+    
+    NSLog(@"initWithCurrentUserPFInfo: user annul gross = %ld",
+          [theUserPFInfo getAnnualGrossIncome]);
+
+    if([theUserPFInfo getMaritalStatus] == StatusMarried)
+        [self selectMarried];
+    
+    else if([theUserPFInfo getMaritalStatus] == StatusSingle)
+        [self selectSingle];
+    
+    //if([theUserPFInfo getAnnualGrossIncome])
+        self.mAnnualGrossIncomeField.text =
+        [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualGrossIncome] ];
+    
+    //if([theUserPFInfo getAnnualRetirementSavings])
+        self.mAnnualRetirementContributionField.text =
+        [NSString stringWithFormat:@"%ld", [theUserPFInfo getAnnualRetirementSavings]];
+    
+    self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -98,11 +103,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-    [self.mFormScrollView setContentOffset:CGPointMake(0, 60)];
+//    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
+//    [self.mFormScrollView setContentOffset:CGPointMake(0, 60)];
     [self setupGestureRecognizers];
     [self initWithCurrentUserPFInfo];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     self.mAnnualGrossIncomeField.maxLength = MAX_ANNUAL_GROSS_INCOME_LENGTH;
     self.mAnnualRetirementContributionField.maxLength = MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH;
     
@@ -150,7 +156,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
-    else if(self.mAnnualGrossIncomeField.amount <= 0)
+    if([self.mAnnualGrossIncomeField.amount floatValue] <= 0)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
         return;

@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_PKRevealController 0
 #define COCOAPODS_VERSION_PATCH_PKRevealController 1
 
+// SPGooglePlacesAutocomplete
+#define COCOAPODS_POD_AVAILABLE_SPGooglePlacesAutocomplete
+#define COCOAPODS_VERSION_MAJOR_SPGooglePlacesAutocomplete 1
+#define COCOAPODS_VERSION_MINOR_SPGooglePlacesAutocomplete 0
+#define COCOAPODS_VERSION_PATCH_SPGooglePlacesAutocomplete 2
+
 // TSCurrencyTextField
 #define COCOAPODS_POD_AVAILABLE_TSCurrencyTextField
 #define COCOAPODS_VERSION_MAJOR_TSCurrencyTextField 0

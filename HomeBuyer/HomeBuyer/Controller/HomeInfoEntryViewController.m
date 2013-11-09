@@ -12,13 +12,14 @@
 #import "States.h"
 #import <MBProgressHUD.h>
 
-#define MAX_HOME_PRICE_LENGTH 12
+#define MAX_HOME_PRICE_LENGTH 10
 #define MAX_HOA_PRICE_LENGTH 5
 
 @interface HomeInfoEntryViewController ()
 @property (nonatomic, copy) NSString* mHomeStreetAddress;
 @property (nonatomic, copy) NSString* mHomeCity;
 @property (nonatomic, copy) NSString* mHomeState;
+@property (nonatomic, copy) NSString* mHomeZip;
 @end
 
 @implementation HomeInfoEntryViewController
@@ -56,6 +57,46 @@
         
         if(self.mCorrespondingHomeInfo.mHOAFees)
             self.mMontylyHOAField.text = [NSString stringWithFormat:@"%d", self.mCorrespondingHomeInfo.mHOAFees];
+        
+        if(self.mCorrespondingHomeInfo.mHomeAddress)
+        {
+            homeAddress* address = self.mCorrespondingHomeInfo.mHomeAddress;
+            
+            [Utilities emptyIfNil:address.mStreetAddress];
+            [Utilities emptyIfNil:address.mCity];
+            [Utilities emptyIfNil:address.mState];
+            
+            NSMutableString* addressStr = [[NSMutableString alloc] init];
+            
+            if(address.mState || address.mCity || address.mStreetAddress)
+            {
+                self.mHomeStreetAddress = address.mStreetAddress;
+                self.mHomeCity = address.mCity;
+                self.mHomeState = address.mState;
+                self.mHomeZip = address.mZipCode;
+                
+                if(self.mHomeStreetAddress)
+                    [addressStr appendString:self.mHomeStreetAddress];
+                
+                if(self.mHomeCity)
+                {
+                    if(addressStr.length > 0)
+                        [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeCity]];
+                    else
+                        [addressStr appendString:self.mHomeCity];
+                }
+                
+                if(self.mHomeState)
+                {
+                    if(addressStr.length > 0)
+                        [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeState]];
+                    else
+                        [addressStr appendString:self.mHomeState];
+                }
+
+                [self.mHomeAddressButton setTitle:addressStr forState:UIControlStateNormal];
+            }
+        }
     }
 }
 
@@ -107,8 +148,6 @@
     self.mAskingPriceField,
     self.mMontylyHOAField, nil];
     
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
@@ -117,18 +156,27 @@
     [self setupButtons];
     [self addExistingHomeInfo];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.mFormScrollView setContentSize:CGSizeMake(320, 400)];
+
     self.mAskingPriceField.maxLength = MAX_HOME_PRICE_LENGTH;
     self.mMontylyHOAField.maxLength = MAX_HOA_PRICE_LENGTH;
     
-    self.navigationController.navigationBar.topItem.title = @"Enter Home Info";
+   if(self.mHomeNumber == FIRST_HOME)
+       self.navigationController.navigationBar.topItem.title = @"Enter First Home Info";
+    else
+        self.navigationController.navigationBar.topItem.title = @"Enter Second Home Info";
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Entered Dashboard Help Screen" properties:Nil];
+    
+    self.mHomeAddressButton.titleLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 -(void) uploadHomeInfo
 {
-    if(!self.mBestHomeFeatureField.text || self.mAskingPriceField.amount <= 0 ||
+    if(!self.mBestHomeFeatureField.text || self.mBestHomeFeatureField.text.length <= 0 ||
+       [self.mAskingPriceField.amount floatValue]<= 0 ||
        (self.mSelectedHomeType == homeTypeNotDefined))
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];
@@ -154,24 +202,16 @@
     else if(self.mCorrespondingHomeInfo && self.mCorrespondingHomeInfo.mHOAFees)
         aHomeInfo.mHOAFees = self.mCorrespondingHomeInfo.mHOAFees;
 
-    aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
-    if(self.mHomeStreetAddress)
+    if(!aHomeInfo.mHomeAddress)
+        aHomeInfo.mHomeAddress = [[homeAddress alloc] init];
+    
+    if(self.mHomeStreetAddress || self.mHomeState || self.mHomeCity || self.mHomeZip)
+    {
         aHomeInfo.mHomeAddress.mStreetAddress = self.mHomeStreetAddress;
-    
-    if(self.mHomeState)
-    {
-        aHomeInfo.mHomeAddress.mStateCode = [States getStateCodeForStateName:self.mHomeState];
+        aHomeInfo.mHomeAddress.mState = self.mHomeState;
+        aHomeInfo.mHomeAddress.mCity = self.mHomeCity;
+        aHomeInfo.mHomeAddress.mZipCode = self.mHomeZip;
     }
-    else
-        aHomeInfo.mHomeAddress.mStateCode = UNDEFINED_STATE_CODE;
-    
-    if(self.mHomeCity && aHomeInfo.mHomeAddress.mStateCode)
-    {
-        Cities* citiesList = [[Cities alloc] initForState:aHomeInfo.mHomeAddress.mStateCode];
-        aHomeInfo.mHomeAddress.mCityCode = [citiesList getCityCodeForCityName:self.mHomeCity];
-    }
-    else
-        aHomeInfo.mHomeAddress.mCityCode = OTHER_CITY_CODE;
     
     if(![kunanceUser getInstance].mKunanceUserHomes)
         [kunanceUser getInstance].mKunanceUserHomes = [[UsersHomesList alloc] init];
@@ -216,15 +256,25 @@
 
 -(IBAction) enterHomeAddressButtonTapped
 {
-    self.mHomeAddressView = [[HomeAddressViewController alloc] init];
-    self.mHomeAddressView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    self.mHomeAddressView.mHomeAddressViewDelegate = self;
-    if(self.mCorrespondingHomeInfo.mHomeAddress)
-    {
-        self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
-    }
+//    self.mHomeAddressView = [[HomeAddressViewController alloc] init];
+//    self.mHomeAddressView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    self.mHomeAddressView.mHomeAddressViewDelegate = self;
+//    if(self.mCorrespondingHomeInfo.mHomeAddress)
+//    {
+//        self.mHomeAddressView.mCorrespondingHomeInfo = self.mCorrespondingHomeInfo.mHomeAddress;
+//    }
 
-    [self.navigationController pushViewController:self.mHomeAddressView animated:YES];
+    self.googlePlacesViewController = [[SPGooglePlacesAutocompleteViewController alloc] init];
+    {
+        NSString* address = [NSString stringWithFormat:@"%@, %@, %@",
+                             self.mHomeStreetAddress,
+                             self.mHomeCity,
+                             self.mHomeState];
+        
+        self.googlePlacesViewController.searchDisplayController.searchBar.text = address;
+    }
+    self.googlePlacesViewController.placemarkDelegate = self;
+    [self.navigationController presentViewController:self.googlePlacesViewController animated:NO completion:nil];
 }
 
 -(IBAction)sfhButtonTapped:(id)sender
@@ -249,6 +299,58 @@
 }
 #pragma mark end
 
+#pragma mark GooglePlacesDelegate
+-(void) addressSelected:(CLPlacemark *)placemark
+{
+    NSMutableString* address = [[NSMutableString alloc] init];
+
+    if(placemark)
+    {
+        NSLog(@"address: %@", placemark.addressDictionary);
+        self.mHomeStreetAddress = placemark.addressDictionary[@"Street"];
+        [Utilities emptyIfNil:self.mHomeStreetAddress];
+        
+        self.mHomeCity = placemark.addressDictionary[@"City"];
+        [Utilities emptyIfNil:self.mHomeCity];
+        
+        self.mHomeState = placemark.addressDictionary[@"State"];
+        [Utilities emptyIfNil:self.mHomeState];
+        
+        self.mHomeZip = placemark.addressDictionary[@"ZIP"];
+        [Utilities emptyIfNil:self.mHomeZip];
+        
+        if(self.mHomeStreetAddress)
+            [address appendString:self.mHomeStreetAddress];
+        
+        if(self.mHomeCity)
+        {
+            if(address.length > 0)
+                [address appendString:[NSString stringWithFormat:@", %@",self.mHomeCity]];
+            else
+                [address appendString:self.mHomeCity];
+        }
+        
+        if(self.mHomeState)
+        {
+            if(address.length > 0)
+                [address appendString:[NSString stringWithFormat:@", %@",self.mHomeState]];
+            else
+                [address appendString:self.mHomeState];
+        }
+        
+        [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
+    }
+    else if(self.googlePlacesViewController.searchDisplayController.searchBar.text.length > 0)
+    {
+        self.mHomeStreetAddress = self.googlePlacesViewController.searchDisplayController.searchBar.text;
+        [address appendString:self.mHomeStreetAddress];
+        [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
+    }
+    
+    [self.googlePlacesViewController dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma end
+
 #pragma mark HomeAddressViewDelegate
 -(void) popHomeAddressFromHomeInfo
 {
@@ -266,6 +368,7 @@
     {
         self.mHomeState = self.mHomeAddressView.mState.text;
     }
+    
 
     [self.mHomeAddressView dismissViewControllerAnimated:YES completion:nil];
 }

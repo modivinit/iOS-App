@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backImage.image = [UIImage imageNamed:@"home-interior_04.jpg"];
+    backImage.image = [UIImage imageNamed:@"home-interior_041.jpg"];
     [self.view addSubview:backImage];
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 90)];

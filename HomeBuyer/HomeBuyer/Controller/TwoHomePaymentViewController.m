@@ -9,6 +9,8 @@
 #import "TwoHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
+
 
 @interface TwoHomePaymentViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mMontlyPaymentChart;
@@ -52,6 +54,11 @@
     // show the legend
     
     self.mMontlyPaymentChart.clipsToBounds = NO;
+}
+
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mMontlyPaymentChart snapshot];
 }
 
 -(void) viewWillAppear:(BOOL)animated

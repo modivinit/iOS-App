@@ -29,4 +29,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView* mHome1TypeIcon;
 @property (nonatomic, strong) IBOutlet UIImageView* mHome2TypeIcon;
 
+- (UIImage*)snapshotWithOpenGLViews;
+
 @end

@@ -12,9 +12,13 @@
 #import "OneHomeTaxSavingsViewController.h"
 #import "HomeInfoEntryViewController.h"
 #import "OneHomePaymentViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
 @interface DashOneHomeEnteredViewController : BasePageViewController
-<OneHomeLifestyleViewDelegate, OneHomeTaxSavingsViewDelegate, OneHomePaymentViewDelegate>
+<OneHomeLifestyleViewDelegate, OneHomeTaxSavingsViewDelegate, OneHomePaymentViewDelegate,
+UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate>
+
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
 @property (nonatomic, strong) UIButton* mContactRealtorIconButton;

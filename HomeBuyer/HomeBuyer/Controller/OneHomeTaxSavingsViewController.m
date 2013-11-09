@@ -9,6 +9,7 @@
 #import "OneHomeTaxSavingsViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomeTaxSavingsViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mEstTaxesChart;
@@ -17,6 +18,11 @@
 @implementation OneHomeTaxSavingsViewController
 {
     NSDictionary* mTaxesData[2];
+}
+
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mEstTaxesChart snapshot];
 }
 
 -(void) setupChart

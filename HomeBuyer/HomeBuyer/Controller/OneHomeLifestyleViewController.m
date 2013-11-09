@@ -18,6 +18,7 @@
 #import "OneHomeLifestyleViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomeLifestyleViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mLifestyleIncomeChart;
@@ -28,6 +29,10 @@
     NSDictionary* mLifestyleIncomeData[2];
 }
 
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mLifestyleIncomeChart snapshot];
+}
 
 -(void) viewWillAppear:(BOOL)animated
 {

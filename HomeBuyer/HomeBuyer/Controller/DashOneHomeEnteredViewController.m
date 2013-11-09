@@ -11,7 +11,12 @@
 #import "ContactRealtorViewController.h"
 
 @interface DashOneHomeEnteredViewController ()
-
+{
+    OneHomeLifestyleViewController* lifestyleCOntroller;
+    OneHomeTaxSavingsViewController* taxsavingsController;
+    OneHomePaymentViewController* paymentController;
+    UIViewController* currentViewcontroller;
+}
 @end
 
 @implementation DashOneHomeEnteredViewController
@@ -20,17 +25,17 @@
 {
     self.mPageViewControllers = [[NSMutableArray alloc] init];
     
-    OneHomeLifestyleViewController* viewController1 = [[OneHomeLifestyleViewController alloc] init];
-    viewController1.mOneHomeLifestyleViewDelegate = self;
-    [self.mPageViewControllers addObject:viewController1];
+    lifestyleCOntroller = [[OneHomeLifestyleViewController alloc] init];
+    lifestyleCOntroller.mOneHomeLifestyleViewDelegate = self;
+    [self.mPageViewControllers addObject:lifestyleCOntroller];
     
-    OneHomeTaxSavingsViewController* viewController3 = [[OneHomeTaxSavingsViewController alloc] init];
-    viewController3.mOneHomeTaxSavingsDelegate = self;
-    [self.mPageViewControllers addObject: viewController3];
+    taxsavingsController = [[OneHomeTaxSavingsViewController alloc] init];
+    taxsavingsController.mOneHomeTaxSavingsDelegate = self;
+    [self.mPageViewControllers addObject: taxsavingsController];
     
-    OneHomePaymentViewController* viewController2 = [[OneHomePaymentViewController alloc] init];
-    viewController2.mOneHomePaymentViewDelegate = self;
-    [self.mPageViewControllers addObject:viewController2];
+     paymentController = [[OneHomePaymentViewController alloc] init];
+    paymentController.mOneHomePaymentViewDelegate = self;
+    [self.mPageViewControllers addObject:paymentController];
 }
 
 -(void) addButtons
@@ -86,7 +91,68 @@
                forControlEvents:UIControlEventTouchUpInside];
 
     [self.pageController.view addSubview:self.mHelpButton];
+    
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                  target:self
+                                                  action:@selector(shareGraph)];
+
 }
+
+-(void)shareGraph
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+        [emailDialog setMailComposeDelegate:self];
+        
+        NSMutableString *htmlMsg = [NSMutableString string];
+        [htmlMsg appendString:@"<html><body><p>"];
+        [htmlMsg appendString:@"I compared a home we were interested in using Kunance. Here are the results."];
+        [htmlMsg appendString:@"</p></body></html>"];
+        
+        if(currentViewcontroller == taxsavingsController)
+        {
+            UIImage *taxChartImage = [taxsavingsController snapshotWithOpenGLViews];
+            NSData *taxJpegData = UIImagePNGRepresentation(taxChartImage);
+            NSString *taxFileName = @"HomesTax";
+            taxFileName = [taxFileName stringByAppendingPathExtension:@"png"];
+            [emailDialog addAttachmentData:taxJpegData mimeType:@"image/png" fileName:taxFileName];
+        }
+        else if (currentViewcontroller == paymentController)
+        {
+            UIImage *paymentChartImage = [paymentController snapshotWithOpenGLViews];
+            NSData *paymentJpegData = UIImageJPEGRepresentation(paymentChartImage, 1);
+            NSString *paymentFileName = @"HomesPayment";
+            paymentFileName = [paymentFileName stringByAppendingPathExtension:@"jpeg"];
+            [emailDialog addAttachmentData:paymentJpegData
+                                  mimeType:@"image/jpeg" fileName:paymentFileName];
+        }
+        else if(currentViewcontroller == lifestyleCOntroller)
+        {
+            UIImage *lifestyleChartImage = [lifestyleCOntroller snapshotWithOpenGLViews];
+            NSData *lifestyleJpegData = UIImageJPEGRepresentation(lifestyleChartImage, 1);
+            NSString *lifestyleFileName = @"HomesLifestyle";
+            lifestyleFileName = [lifestyleFileName stringByAppendingPathExtension:@"jpeg"];
+            [emailDialog addAttachmentData:lifestyleJpegData
+                                  mimeType:@"image/jpeg" fileName:lifestyleFileName];
+        }
+        
+        [emailDialog setSubject:@"Home Comparision"];
+        [emailDialog setMessageBody:htmlMsg isHTML:YES];
+        [self.navigationController presentViewController:emailDialog animated:NO completion:nil];
+    }
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    //Add an alert in case of failure
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 -(void) rentalButtonTapped:(id) sender
 {
@@ -123,9 +189,23 @@
     self.pageController.view.backgroundColor = [UIColor clearColor];
     
     [self addButtons];
+    self.pageController.delegate = self;
+    
+    currentViewcontroller = lifestyleCOntroller;
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Viewed 1-home dashboard" properties:Nil];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray *)previousViewControllers
+       transitionCompleted:(BOOL)completed
+{
+    if(completed)
+    {
+        currentViewcontroller = [pageViewController.viewControllers lastObject];
+    }
 }
 
 -(void) setNavTitle:(NSString *)title

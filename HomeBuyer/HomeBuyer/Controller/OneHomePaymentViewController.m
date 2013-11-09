@@ -9,6 +9,7 @@
 #import "OneHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomePaymentViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mPaymentsChart;
@@ -28,6 +29,10 @@
     return self;
 }
 
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mPaymentsChart snapshot];
+}
 
 -(void) setupChart
 {

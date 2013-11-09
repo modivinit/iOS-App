@@ -686,6 +686,8 @@
 		D6C3AB421803CA7300123260 /* kCATIntroTaxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroTaxViewController.h; path = Controller/kCATIntroTaxViewController.h; sourceTree = "<group>"; };
 		D6C3AB431803CA7300123260 /* kCATIntroTaxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroTaxViewController.m; path = Controller/kCATIntroTaxViewController.m; sourceTree = "<group>"; };
 		D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroTaxViewController.xib; path = Controller/kCATIntroTaxViewController.xib; sourceTree = "<group>"; };
+		D6C4F344182D8F4300061F35 /* SChartGLView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SChartGLView+Screenshot.h"; sourceTree = "<group>"; };
+		D6C4F345182D8F4300061F35 /* ShinobiChart+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShinobiChart+Screenshot.h"; sourceTree = "<group>"; };
 		D6C88B2717DA79AA00DEA25D /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = Controller/MainController.m; sourceTree = "<group>"; };
 		D6C88B2817DA79AA00DEA25D /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = Controller/MainController.h; sourceTree = "<group>"; };
 		D6C88B2A17DA7B1600DEA25D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Controller/SignUpViewController.h; sourceTree = "<group>"; };
@@ -1297,6 +1299,8 @@
 		D68462C917D0751F00EF769B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D6C4F344182D8F4300061F35 /* SChartGLView+Screenshot.h */,
+				D6C4F345182D8F4300061F35 /* ShinobiChart+Screenshot.h */,
 				D6C3AAEA18036DAB00123260 /* BasePageController */,
 				D6E7CC7617F74DBD0099C0B8 /* FormController */,
 				D6C88B3617DA7B7D00DEA25D /* kunanceError.h */,
@@ -2278,7 +2282,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shilpa Rao (VJZSTB6V2X)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2338,7 +2342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shilpa Rao (FTX74R8QBQ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

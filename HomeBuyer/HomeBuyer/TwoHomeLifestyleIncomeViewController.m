@@ -9,6 +9,8 @@
 #import "TwoHomeLifestyleIncomeViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
+#import "ShinobiChart+Screenshot.h"
+
 
 @interface TwoHomeLifestyleIncomeViewController () <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mLifestyleIncomeChart;
@@ -57,6 +59,11 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mTwoHomeLifestyleDelegate setNavTitle:@"Monthly Cash Flow"];
+}
+
+- (UIImage*)snapshotWithOpenGLViews
+{    
+    return [self.mLifestyleIncomeChart snapshot];
 }
 
 - (void)viewDidLoad

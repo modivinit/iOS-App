@@ -7,12 +7,12 @@
 //
 
 #import "TwoHomeTaxSavingsViewController.h"
-#import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
 //#import <ShinobiCharts/SChartTitleStyle.h>
+#import "ShinobiChart+Screenshot.h"
+
 
 @interface TwoHomeTaxSavingsViewController () <SChartDatasource, SChartDelegate>
-@property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
 @end
 
 @implementation TwoHomeTaxSavingsViewController
@@ -29,11 +29,16 @@
 {
 }
 
+- (UIImage*)snapshotWithOpenGLViews
+{
+    return [self.mTaxSavingsChart snapshot];
+}
+
 -(void) setupChart
 {
     // create the data
     self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
-    
+    //self.mTaxSavingsChart.loadDataInBackground = YES;
     self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
     self.mTaxSavingsChart.licenseKey = SHINOBI_LICENSE_KEY;
@@ -67,6 +72,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
     homeInfo* home2 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:SECOND_HOME];

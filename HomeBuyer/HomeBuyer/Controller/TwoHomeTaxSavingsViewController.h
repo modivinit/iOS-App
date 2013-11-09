@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ShinobiCharts/ShinobiChart.h>
+
 @protocol TwoHomeTaxSavingsDelegate <NSObject>
 -(void) setNavTitle:(NSString*) title;
 @end
 
-@interface TwoHomeTaxSavingsViewController : UIViewController
+@interface TwoHomeTaxSavingsViewController : UIViewController 
 @property (nonatomic, strong) IBOutlet UILabel* mEstFirstHomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mEstSecondHomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mEstRentalUnitTaxes;
@@ -24,6 +26,9 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* mHome1TaxSavings;
 @property (nonatomic, strong) IBOutlet UILabel* mHome2TaxSavings;
+
+@property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
+- (UIImage*)snapshotWithOpenGLViews;
 
 @property (nonatomic, weak) id <TwoHomeTaxSavingsDelegate> mTwoHomeTaxSavingsDelegate;
 @end

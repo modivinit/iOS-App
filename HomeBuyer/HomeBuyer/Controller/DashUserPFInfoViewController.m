@@ -78,6 +78,15 @@
     float estimatedIncomeTax = [calculator getAnnualFederalTaxesPaid] + [calculator getAnnualStateTaxesPaid];
     estimatedIncomeTax = rintf(estimatedIncomeTax/NUMBER_OF_MONTHS_IN_YEAR);
     
+    if(monthlylifestyle < 0)
+    {
+        self.mLifestyleIncomeLabel.textColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:30.0/255.0 alpha:1.0];
+    }
+    else
+    {
+        self.mLifestyleIncomeLabel.textColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0];
+    }
+    
     self.mLifestyleIncomeLabel.text = [Utilities getCurrencyFormattedStringForNumber:
                                        [NSNumber numberWithFloat:monthlylifestyle]];
     

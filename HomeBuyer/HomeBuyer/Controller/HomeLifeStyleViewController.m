@@ -75,6 +75,15 @@
         float homeEstTaxesPaid = [calculatorHome getAnnualFederalTaxesPaid] + [calculatorHome getAnnualStateTaxesPaid];
         homeEstTaxesPaid = rintf(homeEstTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR);
         
+        if(lifestyleIncome < 0)
+        {
+            self.mHomeLifeStyleIncome.textColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:30.0/255.0 alpha:1.0];
+        }
+        else
+        {
+            self.mHomeLifeStyleIncome.textColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1.0];
+        }
+        
         self.mHomeLifeStyleIncome.text = [Utilities getCurrencyFormattedStringForNumber:
                                           [NSNumber numberWithLong:lifestyleIncome]];
         

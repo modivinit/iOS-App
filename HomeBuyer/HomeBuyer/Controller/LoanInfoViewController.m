@@ -234,7 +234,7 @@
 
 -(void) uploadLoanInfo
 {
-    if(!self.mInterestRateField.amount)
+    if(![self.mInterestRateField.amount floatValue])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all the fields"];
         return;

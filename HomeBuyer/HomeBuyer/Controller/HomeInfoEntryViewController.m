@@ -176,7 +176,7 @@
 -(void) uploadHomeInfo
 {
     if(!self.mBestHomeFeatureField.text || self.mBestHomeFeatureField.text.length <= 0 ||
-       self.mAskingPriceField.amount <= 0 ||
+       [self.mAskingPriceField.amount floatValue]<= 0 ||
        (self.mSelectedHomeType == homeTypeNotDefined))
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter all necessary fields"];

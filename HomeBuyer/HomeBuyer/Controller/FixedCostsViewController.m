@@ -130,10 +130,10 @@
 
 -(IBAction)currentLifeStyleIncomeTapped:(id)sender
 {
-    if(self.mMonthlyRent.amount <= 0)
+    if(!self.mMonthlyRent.text.length)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Please enter you current rent"
+                                                        message:@"Please enter your current rent"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

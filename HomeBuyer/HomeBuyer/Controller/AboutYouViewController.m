@@ -156,7 +156,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
-    else if(self.mAnnualGrossIncomeField.amount <= 0)
+    if([self.mAnnualGrossIncomeField.amount floatValue] <= 0)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
         return;

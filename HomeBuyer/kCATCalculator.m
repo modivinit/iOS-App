@@ -148,6 +148,10 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
         taxBlockArray = self.mStateSingleTaxTable;
 
     float annualStateTaxes = [self getTaxesForTable:taxBlockArray andTaxableIncome:stateTaxableIncome];
+    
+    if(annualStateTaxes < 0)
+        annualStateTaxes = 0;
+    
     return annualStateTaxes;
 }
 
@@ -167,6 +171,9 @@ static const long kMortgageInterestDeductionUpperLimit = 1000000l;
     
     if(self.mUserProfile.mNumberOfChildren > 0)
         annualFederalTaxes -= ([self.mDeductionsAndExemptions[@"ChildTaxCreditFederal"] floatValue] * self.mUserProfile.mNumberOfChildren);
+    
+    if(annualFederalTaxes < 0)
+        annualFederalTaxes = 0;
     
     return annualFederalTaxes;
 }

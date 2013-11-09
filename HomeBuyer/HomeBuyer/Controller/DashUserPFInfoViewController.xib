@@ -22,9 +22,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsJ-fQ-wST" userLabel="Button - add a home">
-                    <rect key="frame" x="210" y="480" width="90" height="44"/>
+                    <rect key="frame" x="187" y="480" width="113" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="addahome.png">
+                    <state key="normal" image="addfirsthome.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -140,7 +140,7 @@
         </view>
     </objects>
     <resources>
-        <image name="addahome.png" width="87" height="22"/>
+        <image name="addfirsthome.png" width="119" height="22"/>
         <image name="dashboard.png" width="30" height="30"/>
         <image name="home-fixedcosts.png" width="20" height="20"/>
         <image name="home-incometax.png" width="20" height="20"/>

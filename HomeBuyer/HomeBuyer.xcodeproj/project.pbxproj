@@ -606,7 +606,7 @@
 		D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashLeftMenuViewController.m; path = Controller/DashLeftMenuViewController.m; sourceTree = "<group>"; };
 		D666C43B181833C0000092A6 /* HTAutoCompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutoCompleteManager.h; path = Model/HTAutoCompleteManager.h; sourceTree = "<group>"; };
 		D666C43C181833C0000092A6 /* HTAutoCompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutoCompleteManager.m; path = Model/HTAutoCompleteManager.m; sourceTree = "<group>"; };
-		D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D67EFDDF17CCE1280082F6C7 /* kunance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kunance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67EFDE217CCE1280082F6C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D67EFDE617CCE1280082F6C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1174,7 +1174,7 @@
 		D67EFDE017CCE1280082F6C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */,
+				D67EFDDF17CCE1280082F6C7 /* kunance.app */,
 				D67EFDFF17CCE1290082F6C7 /* HomeBuyerTests.xctest */,
 			);
 			name = Products;
@@ -1797,7 +1797,7 @@
 			);
 			name = kunance;
 			productName = HomeBuyer;
-			productReference = D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */;
+			productReference = D67EFDDF17CCE1280082F6C7 /* kunance.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D67EFDFE17CCE1290082F6C7 /* HomeBuyerTests */ = {
@@ -2375,8 +2375,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/MacOS\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",

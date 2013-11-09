@@ -42,6 +42,7 @@
     self.mMontlyPaymentChart.legend.style.cornerRadius = @0;
     self.mMontlyPaymentChart.legend.position = SChartLegendPositionMiddleRight;
     self.mMontlyPaymentChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mMontlyPaymentChart.gesturePanType = SChartGesturePanTypeNone;
     
     // add to the view
     [self.view addSubview:self.mMontlyPaymentChart];

@@ -51,6 +51,7 @@
     self.mPaymentsChart.legend.style.cornerRadius = @0;
     self.mPaymentsChart.legend.position = SChartLegendPositionMiddleRight;
     self.mPaymentsChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mPaymentsChart.gesturePanType = SChartGesturePanTypeNone;
     
     // add to the view
     [self.view addSubview:self.mPaymentsChart];

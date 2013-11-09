@@ -57,6 +57,7 @@
     self.mLifestyleIncomeChart.legend.style.cornerRadius = @0;
     self.mLifestyleIncomeChart.legend.position = SChartLegendPositionMiddleRight;
     self.mLifestyleIncomeChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mLifestyleIncomeChart.gesturePanType = SChartGesturePanTypeNone;
     
     self.mLifestyleIncomeChart.clipsToBounds = NO;
     

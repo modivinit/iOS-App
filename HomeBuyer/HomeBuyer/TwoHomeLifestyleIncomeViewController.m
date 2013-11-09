@@ -42,6 +42,7 @@
     self.mLifestyleIncomeChart.legend.style.cornerRadius = @0;
     self.mLifestyleIncomeChart.legend.position = SChartLegendPositionMiddleRight;
     self.mLifestyleIncomeChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mLifestyleIncomeChart.gesturePanType = SChartGesturePanTypeNone;
     
     // add to the view
     [self.view addSubview:self.mLifestyleIncomeChart];

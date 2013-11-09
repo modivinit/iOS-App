@@ -53,6 +53,7 @@
     self.mTaxSavingsChart.legend.style.cornerRadius = @0;
     self.mTaxSavingsChart.legend.position = SChartLegendPositionMiddleRight;
     self.mTaxSavingsChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mTaxSavingsChart.gesturePanType = SChartGesturePanTypeNone;
     
     // add to the view
     [self.view addSubview:self.mTaxSavingsChart];

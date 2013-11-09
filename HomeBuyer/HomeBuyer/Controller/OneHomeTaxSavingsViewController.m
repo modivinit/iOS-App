@@ -41,6 +41,7 @@
     self.mEstTaxesChart.legend.style.cornerRadius = @0;
     self.mEstTaxesChart.legend.position = SChartLegendPositionMiddleRight;
     self.mEstTaxesChart.plotAreaBackgroundColor = [UIColor clearColor];
+    self.mEstTaxesChart.gesturePanType = SChartGesturePanTypeNone;
     
     self.mEstTaxesChart.clipsToBounds = NO;
     

@@ -106,14 +106,21 @@
 
     if([kunanceUser getInstance].mkunanceUserProfileInfo && self.mWasLoadedFromMenu)
     {
-        self.mAddAHomeButton.hidden = YES;
         self.mWasLoadedFromMenu = NO;
         self.mDashboardButton.hidden = NO;
     }
     else
     {
-        self.mAddAHomeButton.hidden = NO;
         self.mDashboardButton.hidden = YES;
+    }
+    
+    if([kunanceUser getInstance].mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
+    {
+        self.mAddAHomeButton.hidden = NO;
+    }
+    else
+    {
+        self.mAddAHomeButton.hidden = YES;
     }
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];

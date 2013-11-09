@@ -77,8 +77,6 @@
 
 -(IBAction)callRealtor:(id)sender
 {
-    if(![kunanceUser getInstance].mRealtor.mPhoneNumber)
-        return;
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Call Realtor Button Tapped" properties:Nil];
@@ -90,9 +88,6 @@
 -(IBAction)emailRealtor:(id)sender
 {
     Realtor* realtor = [kunanceUser getInstance].mRealtor;
-    
-    if(!realtor.mEmail)
-        return;
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Email Realtor Button Tapped" properties:Nil];
@@ -127,8 +122,6 @@
 
 -(IBAction)textRealtor:(id)sender
 {
-    if(![kunanceUser getInstance].mRealtor.mPhoneNumber)
-        return;
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Text Realtor Button Tapped" properties:Nil];

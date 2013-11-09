@@ -606,21 +606,21 @@
 		D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashLeftMenuViewController.m; path = Controller/DashLeftMenuViewController.m; sourceTree = "<group>"; };
 		D666C43B181833C0000092A6 /* HTAutoCompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutoCompleteManager.h; path = Model/HTAutoCompleteManager.h; sourceTree = "<group>"; };
 		D666C43C181833C0000092A6 /* HTAutoCompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutoCompleteManager.m; path = Model/HTAutoCompleteManager.m; sourceTree = "<group>"; };
-		D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D67EFDDF17CCE1280082F6C7 /* Kunance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kunance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67EFDE217CCE1280082F6C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D67EFDE417CCE1280082F6C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D67EFDE617CCE1280082F6C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D67EFDE817CCE1280082F6C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D67EFDEC17CCE1280082F6C7 /* HomeBuyer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HomeBuyer-Info.plist"; sourceTree = "<group>"; };
+		D67EFDEC17CCE1280082F6C7 /* Kunance-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kunance-Info.plist"; sourceTree = "<group>"; };
 		D67EFDEE17CCE1280082F6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D67EFDF017CCE1280082F6C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D67EFDF217CCE1280082F6C7 /* HomeBuyer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HomeBuyer-Prefix.pch"; sourceTree = "<group>"; };
+		D67EFDF217CCE1280082F6C7 /* Kunance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kunance-Prefix.pch"; sourceTree = "<group>"; };
 		D67EFDF317CCE1280082F6C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D67EFDF417CCE1280082F6C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D67EFDF917CCE1280082F6C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D67EFDFF17CCE1290082F6C7 /* HomeBuyerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeBuyerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D67EFDFF17CCE1290082F6C7 /* KunanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KunanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67EFE0017CCE1290082F6C7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D67EFE0917CCE1290082F6C7 /* HomeBuyerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HomeBuyerTests-Info.plist"; sourceTree = "<group>"; };
+		D67EFE0917CCE1290082F6C7 /* KunanceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KunanceTests-Info.plist"; sourceTree = "<group>"; };
 		D67EFE0B17CCE1290082F6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D67EFE0D17CCE1290082F6C7 /* HomeBuyerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeBuyerTests.m; sourceTree = "<group>"; };
 		D6841DD71824457D00BA5F48 /* CalculatorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorUtilities.h; sourceTree = "<group>"; };
@@ -1174,8 +1174,8 @@
 		D67EFDE017CCE1280082F6C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */,
-				D67EFDFF17CCE1290082F6C7 /* HomeBuyerTests.xctest */,
+				D67EFDDF17CCE1280082F6C7 /* Kunance.app */,
+				D67EFDFF17CCE1290082F6C7 /* KunanceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1228,10 +1228,10 @@
 			children = (
 				9EA7733C181713870026D0CE /* MuseoSans_500.ttf */,
 				9E237BE21811A7CB0095B66B /* cocon.ttf */,
-				D67EFDEC17CCE1280082F6C7 /* HomeBuyer-Info.plist */,
+				D67EFDEC17CCE1280082F6C7 /* Kunance-Info.plist */,
 				D67EFDED17CCE1280082F6C7 /* InfoPlist.strings */,
 				D67EFDF017CCE1280082F6C7 /* main.m */,
-				D67EFDF217CCE1280082F6C7 /* HomeBuyer-Prefix.pch */,
+				D67EFDF217CCE1280082F6C7 /* Kunance-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1248,7 +1248,7 @@
 		D67EFE0817CCE1290082F6C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D67EFE0917CCE1290082F6C7 /* HomeBuyerTests-Info.plist */,
+				D67EFE0917CCE1290082F6C7 /* KunanceTests-Info.plist */,
 				D67EFE0A17CCE1290082F6C7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -1781,9 +1781,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D67EFDDE17CCE1280082F6C7 /* kunance */ = {
+		D67EFDDE17CCE1280082F6C7 /* Kunance */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D67EFE1117CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "kunance" */;
+			buildConfigurationList = D67EFE1117CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "Kunance" */;
 			buildPhases = (
 				2C6C39E2D66E4D1B846A7E6B /* Check Pods Manifest.lock */,
 				D67EFDDB17CCE1280082F6C7 /* Sources */,
@@ -1795,14 +1795,14 @@
 			);
 			dependencies = (
 			);
-			name = kunance;
+			name = Kunance;
 			productName = HomeBuyer;
-			productReference = D67EFDDF17CCE1280082F6C7 /* HomeBuyer.app */;
+			productReference = D67EFDDF17CCE1280082F6C7 /* Kunance.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D67EFDFE17CCE1290082F6C7 /* HomeBuyerTests */ = {
+		D67EFDFE17CCE1290082F6C7 /* KunanceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D67EFE1417CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "HomeBuyerTests" */;
+			buildConfigurationList = D67EFE1417CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "KunanceTests" */;
 			buildPhases = (
 				D67EFDFB17CCE1290082F6C7 /* Sources */,
 				D67EFDFC17CCE1290082F6C7 /* Frameworks */,
@@ -1813,9 +1813,9 @@
 			dependencies = (
 				D67EFE0617CCE1290082F6C7 /* PBXTargetDependency */,
 			);
-			name = HomeBuyerTests;
+			name = KunanceTests;
 			productName = HomeBuyerTests;
-			productReference = D67EFDFF17CCE1290082F6C7 /* HomeBuyerTests.xctest */;
+			productReference = D67EFDFF17CCE1290082F6C7 /* KunanceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1835,7 +1835,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D67EFDDA17CCE1280082F6C7 /* Build configuration list for PBXProject "HomeBuyer" */;
+			buildConfigurationList = D67EFDDA17CCE1280082F6C7 /* Build configuration list for PBXProject "Kunance" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1847,8 +1847,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D67EFDDE17CCE1280082F6C7 /* kunance */,
-				D67EFDFE17CCE1290082F6C7 /* HomeBuyerTests */,
+				D67EFDDE17CCE1280082F6C7 /* Kunance */,
+				D67EFDFE17CCE1290082F6C7 /* KunanceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2241,7 +2241,7 @@
 /* Begin PBXTargetDependency section */
 		D67EFE0617CCE1290082F6C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D67EFDDE17CCE1280082F6C7 /* kunance */;
+			target = D67EFDDE17CCE1280082F6C7 /* Kunance */;
 			targetProxy = D67EFE0517CCE1290082F6C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2350,8 +2350,8 @@
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
-				INFOPLIST_FILE = "HomeBuyer/HomeBuyer-Info.plist";
+				GCC_PREFIX_HEADER = "HomeBuyer/Kunance-Prefix.pch";
+				INFOPLIST_FILE = "HomeBuyer/Kunance-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2362,7 +2362,7 @@
 					UIKit,
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kunance;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -2383,8 +2383,8 @@
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
-				INFOPLIST_FILE = "HomeBuyer/HomeBuyer-Info.plist";
+				GCC_PREFIX_HEADER = "HomeBuyer/Kunance-Prefix.pch";
+				INFOPLIST_FILE = "HomeBuyer/Kunance-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2395,7 +2395,7 @@
 					UIKit,
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kunance;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -2420,8 +2420,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "HomeBuyerTests/HomeBuyerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "HomeBuyerTests/KunanceTests-Info.plist";
+				PRODUCT_NAME = KunanceTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2441,8 +2441,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
-				INFOPLIST_FILE = "HomeBuyerTests/HomeBuyerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "HomeBuyerTests/KunanceTests-Info.plist";
+				PRODUCT_NAME = KunanceTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2451,7 +2451,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D67EFDDA17CCE1280082F6C7 /* Build configuration list for PBXProject "HomeBuyer" */ = {
+		D67EFDDA17CCE1280082F6C7 /* Build configuration list for PBXProject "Kunance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D67EFE0F17CCE1290082F6C7 /* Debug */,
@@ -2460,7 +2460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D67EFE1117CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "kunance" */ = {
+		D67EFE1117CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "Kunance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D67EFE1217CCE1290082F6C7 /* Debug */,
@@ -2469,7 +2469,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D67EFE1417CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "HomeBuyerTests" */ = {
+		D67EFE1417CCE1290082F6C7 /* Build configuration list for PBXNativeTarget "KunanceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D67EFE1517CCE1290082F6C7 /* Debug */,

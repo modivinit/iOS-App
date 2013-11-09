@@ -223,6 +223,7 @@
 -(void)contactRealtor
 {
     ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
+    contactRealtor.showDashboardIcon = YES;
     [self.navigationController pushViewController:contactRealtor animated:NO];
 }
 

@@ -158,7 +158,7 @@
                                   mimeType:@"image/jpeg" fileName:lifestyleFileName];
         }
 
-        [emailDialog setSubject:@"Homes Comparision"];
+        [emailDialog setSubject:@"Homes Comparison"];
         [emailDialog setMessageBody:htmlMsg isHTML:YES];
         [self.navigationController presentViewController:emailDialog animated:NO completion:nil];
     }

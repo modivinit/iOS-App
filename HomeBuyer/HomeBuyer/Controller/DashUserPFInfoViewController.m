@@ -123,7 +123,7 @@
         self.mDashboardButton.hidden = YES;
     }
     
-    if([kunanceUser getInstance].mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered)
+    if(([kunanceUser getInstance].mUserProfileStatus == ProfileStatusPersonalFinanceAndFixedCostsInfoEntered) || ([kunanceUser getInstance].mUserProfileStatus == ProfileStatusUser1HomeInfoEntered))
     {
         self.mAddAHomeButton.hidden = NO;
     }

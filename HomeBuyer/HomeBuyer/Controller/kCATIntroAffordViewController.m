@@ -31,7 +31,7 @@
     backImage.image = [UIImage imageNamed:@"home-interior_01.jpg"];
     [self.view addSubview:backImage];
     
-    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 50, 150, 74)];
+    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 65, 150, 52)];
     appName.center = CGPointMake(self.view.center.x, appName.center.y);
     appName.image = [UIImage imageNamed:@"appname.png"];
     [self.view addSubview:appName];

@@ -89,11 +89,11 @@
     
     self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
 }
-
+/*
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-}
+}*/
 
 - (void)viewDidLoad
 {

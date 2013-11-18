@@ -16,15 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-u8-oYz">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-u8-oYz">
                     <rect key="frame" x="20" y="75" width="280" height="420"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="MFT-Nh-UR5">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="MFT-Nh-UR5">
                             <rect key="frame" x="0.0" y="0.0" width="278" height="417"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKv-pD-b20">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" alwaysBounceVertical="YES" indicatorStyle="white" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKv-pD-b20">
                             <rect key="frame" x="15" y="15" width="250" height="390"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -168,10 +168,22 @@ Tip:  You should find out if your HOA includes certain items such as water, tras
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="MFT-Nh-UR5" firstAttribute="top" secondItem="aJt-u8-oYz" secondAttribute="top" id="1K9-rt-MzU"/>
+                        <constraint firstItem="uKv-pD-b20" firstAttribute="centerX" secondItem="aJt-u8-oYz" secondAttribute="centerX" id="EZV-8V-UdC"/>
+                        <constraint firstItem="uKv-pD-b20" firstAttribute="centerY" secondItem="aJt-u8-oYz" secondAttribute="centerY" id="HE2-im-ED8"/>
+                        <constraint firstItem="uKv-pD-b20" firstAttribute="top" secondItem="aJt-u8-oYz" secondAttribute="top" constant="15" id="Qia-vE-xeS"/>
+                        <constraint firstItem="MFT-Nh-UR5" firstAttribute="leading" secondItem="aJt-u8-oYz" secondAttribute="leading" id="ZR5-Qf-0fa"/>
+                        <constraint firstItem="uKv-pD-b20" firstAttribute="leading" secondItem="aJt-u8-oYz" secondAttribute="leading" constant="15" id="ezv-ra-u9q"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESt-cW-ofW" userLabel="Button - dash">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESt-cW-ofW" userLabel="Button - dash">
                     <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="M6q-PL-3gh"/>
+                        <constraint firstAttribute="height" constant="44" id="Sky-sy-2UU"/>
+                    </constraints>
                     <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -181,6 +193,14 @@ Tip:  You should find out if your HOA includes certain items such as water, tras
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aJt-u8-oYz" firstAttribute="top" secondItem="1" secondAttribute="top" constant="75" id="1Dc-kJ-rTC"/>
+                <constraint firstItem="aJt-u8-oYz" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="Ro6-pG-4kH"/>
+                <constraint firstAttribute="bottom" secondItem="ESt-cW-ofW" secondAttribute="bottom" constant="14" id="TSf-h6-OBZ"/>
+                <constraint firstItem="ESt-cW-ofW" firstAttribute="top" secondItem="aJt-u8-oYz" secondAttribute="bottom" constant="15" id="n7N-2P-XJg"/>
+                <constraint firstItem="ESt-cW-ofW" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="14" id="qxi-8D-ZMR"/>
+                <constraint firstAttribute="trailing" secondItem="aJt-u8-oYz" secondAttribute="trailing" constant="20" symbolic="YES" id="z3f-qs-AA0"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

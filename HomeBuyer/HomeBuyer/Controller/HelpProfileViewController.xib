@@ -16,9 +16,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZz-TY-FvR" userLabel="Button - dash">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZz-TY-FvR" userLabel="Button - dash">
                     <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="Jnz-as-UnA"/>
+                    </constraints>
                     <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -26,16 +29,199 @@
                         <action selector="dashButtonPressed:" destination="-1" eventType="touchDown" id="4Ob-Lz-g1G"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-8q-tCA">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-8q-tCA">
                     <rect key="frame" x="20" y="75" width="280" height="420"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="jz3-If-bNb">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="jz3-If-bNb">
                             <rect key="frame" x="0.0" y="0.0" width="278" height="417"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-fN-CET">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oy5-Ap-vyE" userLabel="imageview-iphone4">
+                            <rect key="frame" x="0.0" y="0.0" width="278" height="336"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" alwaysBounceVertical="YES" indicatorStyle="white" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-fN-CET">
                             <rect key="frame" x="15" y="15" width="250" height="390"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Marital status">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">: Enter married if in a marriage recognized by the state you live in.  Starting in 2013, this includes same-sex marriages.  Note: This does not include domestic partnerships or an equivalent. 
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Number of kids">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  list the number of your children who are minors, including officially adopted children.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Annual Household Gross Income">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  The estimated amount of income received from all sources for the relevant year for the household.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Annual retirement (401k, IRA, 403b etc.) Contribution">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  Your annual contribution to these accounts from all sources.  Note: Do not include if contributing to a Roth account.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Monthly Rent">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  Amount of your monthly rent payment.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Monthly Transportation">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  Amount of your monthly car payments across all cars, car insurance, maintenance, and gas.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Monthly Healthcare">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content">:  Costs for health, dental, and vision insurance. Include anticipated costs per month for prescriptions, and known health expenses.
+
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Other Monthly Fixed Costs">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=": Total amount of your other monthly fixed costs not previously listed. Fixed costs typically do not change month to month.">
+                                    <attributes>
+                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="jz3-If-bNb" firstAttribute="leading" secondItem="Fdv-8q-tCA" secondAttribute="leading" id="4Vk-Nc-Lmk"/>
+                        <constraint firstItem="qUG-fN-CET" firstAttribute="leading" secondItem="Fdv-8q-tCA" secondAttribute="leading" constant="15" id="DVP-Vk-E2C"/>
+                        <constraint firstItem="qUG-fN-CET" firstAttribute="centerY" secondItem="Fdv-8q-tCA" secondAttribute="centerY" id="Pwe-yM-rcy"/>
+                        <constraint firstItem="qUG-fN-CET" firstAttribute="centerX" secondItem="Fdv-8q-tCA" secondAttribute="centerX" id="mAo-Wy-znl"/>
+                        <constraint firstItem="jz3-If-bNb" firstAttribute="top" secondItem="Fdv-8q-tCA" secondAttribute="top" id="rQ5-GQ-0Wd"/>
+                        <constraint firstItem="qUG-fN-CET" firstAttribute="top" secondItem="Fdv-8q-tCA" secondAttribute="top" constant="15" id="tzt-gO-AJy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Fdv-8q-tCA" secondAttribute="trailing" constant="20" symbolic="YES" id="2um-Kf-iL9"/>
+                <constraint firstAttribute="bottom" secondItem="RZz-TY-FvR" secondAttribute="bottom" constant="14" id="Day-9W-9tw"/>
+                <constraint firstAttribute="bottom" secondItem="Fdv-8q-tCA" secondAttribute="bottom" constant="73" id="SD8-gy-5e0"/>
+                <constraint firstItem="RZz-TY-FvR" firstAttribute="top" secondItem="Fdv-8q-tCA" secondAttribute="bottom" constant="15" id="UD9-Wp-dKx"/>
+                <constraint firstItem="Fdv-8q-tCA" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="gvs-pW-QAy"/>
+                <constraint firstItem="RZz-TY-FvR" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="14" id="sfm-iX-r7L"/>
+                <constraint firstItem="Fdv-8q-tCA" firstAttribute="top" secondItem="1" secondAttribute="top" constant="75" id="vLG-5P-fr9"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <view contentMode="scaleToFill" id="ET4-HG-9ds">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwx-oT-52y" userLabel="Button - dash">
+                    <rect key="frame" x="20" y="422" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="dashboard.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dashButtonPressed:" destination="-1" eventType="touchDown" id="4Pw-ed-8MP"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-F1-vyK">
+                    <rect key="frame" x="20" y="75" width="280" height="339"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="07f-uB-3xi">
+                            <rect key="frame" x="0.0" y="0.0" width="278" height="336"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oC-b3-cfR">
+                            <rect key="frame" x="15" y="15" width="250" height="304"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <attributedString key="attributedText">
@@ -172,7 +358,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>

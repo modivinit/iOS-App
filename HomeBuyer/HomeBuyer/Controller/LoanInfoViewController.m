@@ -174,11 +174,6 @@
     }
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-}
-
 - (void)viewDidLoad
 {
     NSString* titleText = [NSString stringWithFormat:@"Home Loan Info"];
@@ -206,7 +201,12 @@
     
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 296)];
+//    [self.mFormScrollView setContentSize:CGSizeMake(320, 205)];
+    self.mFormScrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mDownPaymentFixedAmountField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mDownPaymentPercentageField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mInterestRateField.translatesAutoresizingMaskIntoConstraints = NO;
+ //   [self.mFormScrollView setContentOffset:CGPointMake(0, 0)];
     
     [self.mPercentDollarValueChoice addTarget:self
                                        action:@selector(percentDollarChoiceChanged)

@@ -33,6 +33,11 @@
     [mixpanel track:@"Entered Profile Help Screen" properties:Nil];
 }
 
+-(IBAction)dashButtonPressed:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayMainDashNotification object:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

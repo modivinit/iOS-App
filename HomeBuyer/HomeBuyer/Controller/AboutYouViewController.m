@@ -116,6 +116,13 @@
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"View About You Screen" properties:Nil];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animate
+{
+    [super viewDidAppear:animate];
+    [self.mFormScrollView flashScrollIndicators];
 }
 
 - (void)didReceiveMemoryWarning

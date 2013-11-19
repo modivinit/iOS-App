@@ -33,25 +33,33 @@
 
 -(void) setupChart
 {
+    if (IS_WIDESCREEN)
+    {
         self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 110, 310, 220)];
-        self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
-        self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
-        
-        // this view controller acts as the datasource
-        self.mHomeLifeStyleChart.datasource = self;
-        self.mHomeLifeStyleChart.delegate = self;
-        self.mHomeLifeStyleChart.legend.hidden = NO;
-        self.mHomeLifeStyleChart.backgroundColor = [UIColor clearColor];
-        self.mHomeLifeStyleChart.legend.backgroundColor = [UIColor clearColor];
-        self.mHomeLifeStyleChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-        self.mHomeLifeStyleChart.legend.style.symbolCornerRadius = @0;
-        self.mHomeLifeStyleChart.legend.style.borderColor = [UIColor darkGrayColor];
-        self.mHomeLifeStyleChart.legend.style.cornerRadius = @0;
-        self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleRight;
-        self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
-        self.mHomeLifeStyleChart.plotAreaBackgroundColor = [UIColor clearColor];
+    }
+    else
+    {
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 140, 310, 200)];
+    }
     
-        [self.view addSubview:self.mHomeLifeStyleChart];
+    self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
+    self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
+    
+    // this view controller acts as the datasource
+    self.mHomeLifeStyleChart.datasource = self;
+    self.mHomeLifeStyleChart.delegate = self;
+    self.mHomeLifeStyleChart.legend.hidden = NO;
+    self.mHomeLifeStyleChart.backgroundColor = [UIColor clearColor];
+    self.mHomeLifeStyleChart.legend.backgroundColor = [UIColor clearColor];
+    self.mHomeLifeStyleChart.legend.style.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    self.mHomeLifeStyleChart.legend.style.symbolCornerRadius = @0;
+    self.mHomeLifeStyleChart.legend.style.borderColor = [UIColor darkGrayColor];
+    self.mHomeLifeStyleChart.legend.style.cornerRadius = @0;
+    self.mHomeLifeStyleChart.legend.position = SChartLegendPositionMiddleRight;
+    self.mHomeLifeStyleChart.legend.placement = SChartLegendPlacementOutsidePlotArea;
+    self.mHomeLifeStyleChart.plotAreaBackgroundColor = [UIColor clearColor];
+    
+    [self.view addSubview:self.mHomeLifeStyleChart];
 }
 
 - (void)viewDidLoad

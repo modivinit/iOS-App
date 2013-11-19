@@ -85,7 +85,7 @@
     if (IS_WIDESCREEN)
     {
         backImage = [UIImage imageNamed:@"home-interior_03.jpg"];
-        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 150, 237, 40)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 65, 280, 40)];
     }
     else
     {
@@ -98,7 +98,6 @@
     backImageView.image = backImage;
     [self.view addSubview:backImageView];
 
-//    label = [[UILabel alloc] initWithFrame:CGRectMake(160, 40, 280, 70)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;

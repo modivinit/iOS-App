@@ -97,7 +97,6 @@
     backImageView.image = backImage;
     [self.view addSubview:backImageView];
     
-  //  label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 70)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;

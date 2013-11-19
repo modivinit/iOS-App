@@ -30,7 +30,10 @@
 
 - (void)viewDidLoad
 {
-    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+    if (IS_WIDESCREEN)
+    {
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+    }
     
     [super viewDidLoad];
     

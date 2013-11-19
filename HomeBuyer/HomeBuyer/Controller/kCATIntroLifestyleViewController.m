@@ -42,7 +42,15 @@
                      @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
                      @"Monthly Payment" : [NSNumber numberWithFloat:totalMonthlyPayment]};
         
-    self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 117, 310, 220)];
+    if (IS_WIDESCREEN)
+    {
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 117, 310, 220)];
+    }
+    else
+    {
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 97, 310, 220)];
+    }
+    
     self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
     self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -69,11 +77,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backImage.image = [UIImage imageNamed:@"home-interior_02.jpg"];
-    [self.view addSubview:backImage];
+    self.view.bounds = CGRectMake(0, 0, [Utilities getDeviceWidth], [Utilities getDeviceHeight]);
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 70)];
+    UIImage* backImage = nil;
+    UILabel* label = nil;
+    
+    if (IS_WIDESCREEN)
+    {
+        backImage = [UIImage imageNamed:@"home-interior_02.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 65, 237, 40)];
+    }
+    else
+    {
+        backImage = [UIImage imageNamed:@"home-interior-iphone4_02.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 237, 40)];
+    }
+    
+    UIImageView* backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImageView.image = backImage;
+    [self.view addSubview:backImageView];
+    
+  //  label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 70)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;

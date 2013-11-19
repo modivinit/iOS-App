@@ -27,16 +27,35 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backImage.image = [UIImage imageNamed:@"home-interior_01.jpg"];
-    [self.view addSubview:backImage];
+    UIImageView* appName  = nil;
+    UILabel* label = nil;
+    UIImage* backImage = nil;
     
-    UIImageView* appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 65, 150, 52)];
+    self.view.bounds = CGRectMake(0, 0, [Utilities getDeviceWidth], [Utilities getDeviceHeight]);
+    
+    //Renders based on screen size
+    if (IS_WIDESCREEN)
+    {
+        backImage = [UIImage imageNamed:@"home-interior_01.jpg"];
+        appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 65, 150, 52)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 150, 237, 40)];
+    }
+    else
+    {
+        backImage = [UIImage imageNamed:@"home-interior-iphone4_01.jpg"];
+        appName = [[UIImageView alloc] initWithFrame:CGRectMake(160, 25, 150, 52)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 95, 237, 40)];
+    }
+    
+    UIImageView* backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImageView.image = backImage;
+    [self.view addSubview:backImageView];
+    
     appName.center = CGPointMake(self.view.center.x, appName.center.y);
     appName.image = [UIImage imageNamed:@"appname.png"];
     [self.view addSubview:appName];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 150, 237, 40)];
+    
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;

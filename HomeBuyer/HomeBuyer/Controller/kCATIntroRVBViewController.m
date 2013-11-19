@@ -27,11 +27,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backImage.image = [UIImage imageNamed:@"home-interior_04.jpg"];
-    [self.view addSubview:backImage];
+    self.view.bounds = CGRectMake(0, 0, [Utilities getDeviceWidth], [Utilities getDeviceHeight]);
+
+    UILabel* label = nil;
+    UIImage* backImage = nil;
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 90)];
+    //Renders based on screen size
+    if (IS_WIDESCREEN)
+    {
+        backImage = [UIImage imageNamed:@"home-interior_04.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 150, 237, 40)];
+    }
+    else
+    {
+        backImage = [UIImage imageNamed:@"home-interior-iphone4_04.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 150, 237, 40)];
+    }
+    
+    UIImageView* backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImageView.image = backImage;
+    [self.view addSubview:backImageView];
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 90)];
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 4;
     label.textAlignment = NSTextAlignmentCenter;

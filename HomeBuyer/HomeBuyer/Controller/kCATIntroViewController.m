@@ -29,7 +29,21 @@
 
 -(void) addButtons
 {
-    self.mSignInButton = [[UIButton alloc] initWithFrame:CGRectMake(35, 520, 60, 44)];
+    // Determine button location based on iPhone screen size
+    
+    if (IS_WIDESCREEN)
+    {
+        self.mSignInButton = [[UIButton alloc] initWithFrame:CGRectMake(35, 520, 60, 44)];
+        self.mSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 520, 100, 44)];
+    }
+    else
+    {
+        self.mSignInButton = [[UIButton alloc] initWithFrame:CGRectMake(35, 438, 60, 44)];
+        self.mSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 438, 100, 44)];
+    }
+    
+    // Button color and font settings
+    
     [self.mSignInButton setBackgroundColor:[UIColor clearColor]];
     [self.mSignInButton addTarget:self action:@selector(signInButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignInButton setTitle:@"Sign In" forState:UIControlStateNormal];
@@ -37,7 +51,7 @@
     [self.mSignInButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal];
     [self.pageController.view addSubview:self.mSignInButton];
     
-    self.mSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 520, 100, 44)];
+    
     [self.mSignUpButton setBackgroundColor:[UIColor clearColor]];
     [self.mSignUpButton addTarget:self action:@selector(signUpButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mSignUpButton setTitle:@"Get Started" forState:UIControlStateNormal];
@@ -65,8 +79,20 @@
     viewController1 = [[kCATIntroRVBViewController alloc] init];
     [self.mPageViewControllers addObject:viewController1];
 
+    self.view.bounds = CGRectMake(0, 0, [Utilities getDeviceWidth], [Utilities getDeviceHeight]);
     self.mBackground = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    self.mBackground.image = [UIImage imageNamed:@"home-interior_01.jpg"];
+    
+    //Loads the appropriate image based on screen size
+    
+    if (IS_WIDESCREEN)
+    {
+        self.mBackground.image = [UIImage imageNamed:@"home-interior_01.jpg"];
+    }
+    else
+    {
+        self.mBackground.image = [UIImage imageNamed:@"home-interior-iphone4_01.jpg"];
+    }
+    
     [self.view addSubview:self.mBackground];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -84,8 +110,17 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController
 willTransitionToViewControllers:(NSArray *)pendingViewControllers
 {
-    NSString* imageName = [NSString stringWithFormat:@"home-interior_0%d.jpg", ((UIViewController*)pendingViewControllers[0]).view.tag+1];
-    self.mBackground.image = [UIImage imageNamed:imageName];
+    if (IS_WIDESCREEN)
+    {
+        NSString* imageName = [NSString stringWithFormat:@"home-interior_0%d.jpg", ((UIViewController*)pendingViewControllers[0]).view.tag+1];
+        self.mBackground.image = [UIImage imageNamed:imageName];
+    }
+    else
+    {
+        NSString* imageName = [NSString stringWithFormat:@"home-interior-iphone4_0%d.jpg", ((UIViewController*)pendingViewControllers[0]).view.tag+1];
+        self.mBackground.image = [UIImage imageNamed:imageName];
+    }
+    
 }
 #pragma end
 

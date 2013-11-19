@@ -29,6 +29,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSArray* views = [[NSBundle mainBundle] loadNibNamed:@"DashNoInfoViewController"
+                                                   owner:self
+                                                options:nil];
+    // Custom initialization
+            if(views && views.count >= 2)
+            {
+                if (!IS_WIDESCREEN)
+                {
+                    self.view=views[1];
+                }
+            }
+    
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer* tapAboutYou = [[UITapGestureRecognizer alloc]
                                            initWithTarget:self

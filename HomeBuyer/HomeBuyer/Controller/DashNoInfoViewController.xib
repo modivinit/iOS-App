@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -13,24 +13,21 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="4aC-ma-cBR">
+        <view contentMode="scaleToFill" id="4aC-ma-cBR" userLabel="iPhone5">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06k-S8-la0">
+                <view contentMode="scaleToFill" id="06k-S8-la0">
                     <rect key="frame" x="0.0" y="78" width="320" height="400"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash-add-home.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-4M-woH">
-                            <rect key="frame" x="142" y="204" width="35" height="40"/>
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash-add-home.png" id="Rgz-4M-woH">
+                            <rect key="frame" x="143" y="204" width="35" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOS-T7-PMN" userLabel="Button - enter profile">
-                            <rect key="frame" x="104" y="74" width="109" height="79"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DOS-T7-PMN" userLabel="Button - enter profile">
+                            <rect key="frame" x="106" y="71" width="109" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="109" id="fSw-sb-X73"/>
-                            </constraints>
                             <state key="normal" image="dash-create-profile.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -38,86 +35,58 @@
                                 <action selector="enterProfileIconTapped:" destination="-1" eventType="touchDown" id="8sr-mg-Kr2"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifestyle-beach-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="nFg-5r-oLL">
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifestyle-beach-dash.png" id="nFg-5r-oLL">
                             <rect key="frame" x="92" y="323" width="40" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compare-dash.png" translatesAutoresizingMaskIntoConstraints="NO" id="uUZ-to-iKP">
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compare-dash.png" id="uUZ-to-iKP">
                             <rect key="frame" x="180" y="321" width="40" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3C-E1-ns5">
-                            <rect key="frame" x="105" y="138" width="109" height="17"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j3C-E1-ns5">
+                            <rect key="frame" x="106" y="138" width="109" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add A Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omT-rm-LQv">
-                            <rect key="frame" x="118" y="252" width="81" height="17"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add A Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="omT-rm-LQv">
+                            <rect key="frame" x="120" y="252" width="81" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turning first-time homebuyers into pros." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxC-2k-tfA">
-                            <rect key="frame" x="25" y="12" width="268" height="18"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turning first-time homebuyers into pros." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JxC-2k-tfA">
+                            <rect key="frame" x="26" y="12" width="268" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare Cash Flow and Affordability" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAV-Yv-fUn">
-                            <rect key="frame" x="41" y="365" width="234" height="17"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare Cash Flow and Affordability" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VAV-Yv-fUn">
+                            <rect key="frame" x="43" y="365" width="234" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a few simple steps to find out." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-Dn-uOs">
-                            <rect key="frame" x="34" y="50" width="250" height="18"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a few simple steps to find out." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e2G-Dn-uOs">
+                            <rect key="frame" x="35" y="38" width="250" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doubledownarrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Qa-Zo-sLj">
-                            <rect key="frame" x="144" y="280" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doubledownarrow.png" id="8Qa-Zo-sLj">
+                            <rect key="frame" x="145" y="277" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downarrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="ptz-bt-iDW">
-                            <rect key="frame" x="151" y="163" width="15" height="30"/>
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downarrow.png" id="ptz-bt-iDW">
+                            <rect key="frame" x="153" y="163" width="15" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="JxC-2k-tfA" firstAttribute="top" secondItem="06k-S8-la0" secondAttribute="top" constant="12" id="1JB-AK-91M"/>
-                        <constraint firstItem="8Qa-Zo-sLj" firstAttribute="top" secondItem="omT-rm-LQv" secondAttribute="bottom" constant="11" id="6ja-Cq-bGi"/>
-                        <constraint firstItem="VAV-Yv-fUn" firstAttribute="centerX" secondItem="omT-rm-LQv" secondAttribute="centerX" id="CPL-XF-oKb"/>
-                        <constraint firstItem="VAV-Yv-fUn" firstAttribute="leading" secondItem="06k-S8-la0" secondAttribute="leading" constant="41" id="GMX-u3-x3f"/>
-                        <constraint firstItem="ptz-bt-iDW" firstAttribute="top" secondItem="DOS-T7-PMN" secondAttribute="bottom" constant="10" id="HTP-rC-ZbI"/>
-                        <constraint firstItem="JxC-2k-tfA" firstAttribute="centerX" secondItem="e2G-Dn-uOs" secondAttribute="centerX" id="JlT-MX-ccn"/>
-                        <constraint firstItem="DOS-T7-PMN" firstAttribute="centerX" secondItem="ptz-bt-iDW" secondAttribute="centerX" id="Kyc-2L-fdM"/>
-                        <constraint firstItem="VAV-Yv-fUn" firstAttribute="top" secondItem="uUZ-to-iKP" secondAttribute="bottom" constant="8" symbolic="YES" id="L7s-gt-BgY"/>
-                        <constraint firstItem="j3C-E1-ns5" firstAttribute="centerX" secondItem="Rgz-4M-woH" secondAttribute="centerX" id="NOe-St-96N"/>
-                        <constraint firstItem="e2G-Dn-uOs" firstAttribute="top" secondItem="JxC-2k-tfA" secondAttribute="bottom" constant="20" id="SZv-bn-4bT"/>
-                        <constraint firstItem="VAV-Yv-fUn" firstAttribute="top" secondItem="nFg-5r-oLL" secondAttribute="bottom" constant="8" symbolic="YES" id="YBa-n5-OEr"/>
-                        <constraint firstItem="DOS-T7-PMN" firstAttribute="top" secondItem="e2G-Dn-uOs" secondAttribute="bottom" constant="6" id="YvF-5i-5h9"/>
-                        <constraint firstItem="uUZ-to-iKP" firstAttribute="top" secondItem="omT-rm-LQv" secondAttribute="bottom" constant="52" id="ZMl-hF-qWr"/>
-                        <constraint firstItem="JxC-2k-tfA" firstAttribute="leading" secondItem="06k-S8-la0" secondAttribute="leading" constant="25" id="ehg-Y9-sSu"/>
-                        <constraint firstItem="j3C-E1-ns5" firstAttribute="centerX" secondItem="e2G-Dn-uOs" secondAttribute="centerX" id="hak-ki-JRX"/>
-                        <constraint firstItem="Rgz-4M-woH" firstAttribute="top" secondItem="ptz-bt-iDW" secondAttribute="bottom" constant="11" id="iyB-vI-bXi"/>
-                        <constraint firstItem="8Qa-Zo-sLj" firstAttribute="centerX" secondItem="Rgz-4M-woH" secondAttribute="centerX" id="oiD-BI-6Yk"/>
-                        <constraint firstItem="uUZ-to-iKP" firstAttribute="leading" secondItem="nFg-5r-oLL" secondAttribute="trailing" constant="48" id="pRr-YS-vAx"/>
-                        <constraint firstItem="nFg-5r-oLL" firstAttribute="leading" secondItem="06k-S8-la0" secondAttribute="leading" constant="92" id="qgl-ep-d2D"/>
-                        <constraint firstItem="ptz-bt-iDW" firstAttribute="centerX" secondItem="omT-rm-LQv" secondAttribute="centerX" id="rzE-JW-ueJ"/>
-                        <constraint firstItem="j3C-E1-ns5" firstAttribute="top" secondItem="e2G-Dn-uOs" secondAttribute="bottom" constant="70" id="tAX-TK-r5p"/>
-                        <constraint firstItem="ptz-bt-iDW" firstAttribute="top" secondItem="j3C-E1-ns5" secondAttribute="bottom" constant="8" symbolic="YES" id="vuc-UU-TDq"/>
-                        <constraint firstItem="omT-rm-LQv" firstAttribute="top" secondItem="Rgz-4M-woH" secondAttribute="bottom" constant="8" symbolic="YES" id="zgh-sX-3UD"/>
-                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgg-32-G7z">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cgg-32-G7z">
                     <rect key="frame" x="204" y="486" width="96" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="n6j-A4-4LN"/>
-                    </constraints>
                     <state key="normal" image="enterprofile.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -127,16 +96,94 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="cgg-32-G7z" firstAttribute="top" secondItem="06k-S8-la0" secondAttribute="bottom" constant="8" symbolic="YES" id="MxM-Mu-Qtj"/>
-                <constraint firstAttribute="trailing" secondItem="06k-S8-la0" secondAttribute="trailing" id="Qul-pS-6m4"/>
-                <constraint firstAttribute="bottom" secondItem="cgg-32-G7z" secondAttribute="bottom" constant="38" id="UbJ-4X-DQZ"/>
-                <constraint firstItem="06k-S8-la0" firstAttribute="top" secondItem="4aC-ma-cBR" secondAttribute="top" constant="78" id="Vds-5t-44N"/>
-                <constraint firstItem="06k-S8-la0" firstAttribute="leading" secondItem="4aC-ma-cBR" secondAttribute="leading" id="ibw-x3-Eh6"/>
-                <constraint firstAttribute="trailing" secondItem="cgg-32-G7z" secondAttribute="trailing" constant="20" symbolic="YES" id="w1L-iz-PgL"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <view contentMode="scaleToFill" id="GGX-LD-X4f" userLabel="iPhone4">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="Af0-hT-1m2">
+                    <rect key="frame" x="0.0" y="78" width="320" height="312"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidearrow.png" id="FKH-yi-Hgq">
+                            <rect key="frame" x="145" y="102" width="30" height="15"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash-add-home.png" id="dPO-nO-CRF">
+                            <rect key="frame" x="223" y="90" width="35" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GyA-Jl-uCw" userLabel="Button - enter profile">
+                            <rect key="frame" x="20" y="70" width="109" height="79"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="dash-create-profile.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="enterProfileIconTapped:" destination="-1" eventType="touchDown" id="Tu8-qD-RGL"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifestyle-beach-dash.png" id="JxW-z6-hFc">
+                            <rect key="frame" x="89" y="231" width="40" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compare-dash.png" id="QcR-sA-XTq">
+                            <rect key="frame" x="200" y="231" width="40" height="36"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eSO-15-0hC">
+                            <rect key="frame" x="20" y="138" width="109" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add A Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gJe-4y-biH">
+                            <rect key="frame" x="200" y="138" width="81" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turning first-time homebuyers into pros." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IKH-9v-DFJ">
+                            <rect key="frame" x="25" y="12" width="268" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare Cash Flow and Affordability" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FqI-mK-mdw">
+                            <rect key="frame" x="43" y="275" width="234" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a few simple steps to find out." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ljP-yf-7Oy">
+                            <rect key="frame" x="33" y="38" width="250" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doubledownarrow.png" id="pHE-3K-KZs">
+                            <rect key="frame" x="145" y="179" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xcz-vr-btv">
+                    <rect key="frame" x="204" y="398" width="96" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="enterprofile.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="enterProfileIconTapped:" destination="-1" eventType="touchDown" id="FRl-p3-19M"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
@@ -147,5 +194,6 @@
         <image name="downarrow.png" width="15" height="30"/>
         <image name="enterprofile.png" width="96" height="22"/>
         <image name="lifestyle-beach-dash.png" width="40" height="34"/>
+        <image name="sidearrow.png" width="30" height="15"/>
     </resources>
 </document>

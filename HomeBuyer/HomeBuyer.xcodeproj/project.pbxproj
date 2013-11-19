@@ -99,6 +99,8 @@
 		9E6B328A183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3288183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg */; };
 		9E6B328D183AE1F700FF0209 /* home-interior-iphone4_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B328B183AE1F700FF0209 /* home-interior-iphone4_02.jpg */; };
 		9E6B328E183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B328C183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg */; };
+		9E761FA8183BECE300D84961 /* sidearrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E761FA6183BECE300D84961 /* sidearrow.png */; };
+		9E761FA9183BECE300D84961 /* sidearrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E761FA7183BECE300D84961 /* sidearrow@2x.png */; };
 		9E8E867A182D70630001807D /* home-interior_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E8679182D70630001807D /* home-interior_02@2x.jpg */; };
 		9E8E867C182D71360001807D /* home-interior_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E867B182D71360001807D /* home-interior_02.jpg */; };
 		9E96EEEC18107367001E8FF7 /* home-interior_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE418107367001E8FF7 /* home-interior_03.jpg */; };
@@ -466,6 +468,8 @@
 		9E6B3288183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_04@2x.jpg"; sourceTree = "<group>"; };
 		9E6B328B183AE1F700FF0209 /* home-interior-iphone4_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_02.jpg"; sourceTree = "<group>"; };
 		9E6B328C183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_02@2x.jpg"; sourceTree = "<group>"; };
+		9E761FA6183BECE300D84961 /* sidearrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidearrow.png; sourceTree = "<group>"; };
+		9E761FA7183BECE300D84961 /* sidearrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidearrow@2x.png"; sourceTree = "<group>"; };
 		9E8E8679182D70630001807D /* home-interior_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_02@2x.jpg"; sourceTree = "<group>"; };
 		9E8E867B182D71360001807D /* home-interior_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_02.jpg"; sourceTree = "<group>"; };
 		9E96EEE418107367001E8FF7 /* home-interior_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03.jpg"; sourceTree = "<group>"; };
@@ -1780,6 +1784,8 @@
 		D6F9D3EF17DE66AA001DE8D1 /* DashNoInfo */ = {
 			isa = PBXGroup;
 			children = (
+				9E761FA6183BECE300D84961 /* sidearrow.png */,
+				9E761FA7183BECE300D84961 /* sidearrow@2x.png */,
 				9E587B3C1818FDCB00E65DBA /* enterprofile.png */,
 				9E587B3D1818FDCB00E65DBA /* enterprofile@2x.png */,
 				9E587B381818FCAC00E65DBA /* dash-add-home.png */,
@@ -1983,6 +1989,7 @@
 				9EA5D3FB17F1627300CE7BD8 /* location.png in Resources */,
 				9E587B361818FC3700E65DBA /* dash-create-profile.png in Resources */,
 				9E4872651811EC0B00B417F9 /* login.png in Resources */,
+				9E761FA8183BECE300D84961 /* sidearrow.png in Resources */,
 				9E53443417F555B8006BA12D /* lifestyle-music.png in Resources */,
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
@@ -2115,6 +2122,7 @@
 				9EA5D40D17F162DE00CE7BD8 /* downpayment@2x.png in Resources */,
 				9EA5D3E617F15DC500CE7BD8 /* homeprice.png in Resources */,
 				9EA5D3E417F15DC500CE7BD8 /* hoa.png in Resources */,
+				9E761FA9183BECE300D84961 /* sidearrow@2x.png in Resources */,
 				9EB873F7182CB7D200457312 /* insurance-chart@2x.png in Resources */,
 				9ECDB80517FF55AB004E5F25 /* menu-home-condo@2x.png in Resources */,
 				9ECCAD5817F0CBFC001EAF4C /* forward-icon.png in Resources */,

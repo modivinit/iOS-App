@@ -70,7 +70,7 @@
     swipeLabel.numberOfLines = 1;
     swipeLabel.textAlignment = NSTextAlignmentCenter;
     swipeLabel.text = @"Swipe Right   >>";
-    swipeLabel.font = [UIFont fontWithName:@"cocon" size:8];
+    swipeLabel.font = [UIFont fontWithName:@"cocon" size:10];
     swipeLabel.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:swipeLabel];
     

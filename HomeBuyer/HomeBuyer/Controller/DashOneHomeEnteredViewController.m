@@ -47,6 +47,7 @@
         self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 472, 25, 25)];
         self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 465, 100, 44)];
         self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 520, 44, 44)];
     }
     else
     {
@@ -55,6 +56,7 @@
         self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 25, 25)];
         self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 403, 100, 40)];
         self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 436, 44, 44)];
     }
     
     self.mRentalButton.backgroundColor = [UIColor clearColor];
@@ -98,7 +100,6 @@
         
     }
 
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped)
                forControlEvents:UIControlEventTouchUpInside];

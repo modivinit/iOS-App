@@ -143,8 +143,6 @@
 		9EB0EF28180338B500857763 /* menu-contact-realtor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */; };
 		9EB34AE7182307CE009A3041 /* menu-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB34AE5182307CE009A3041 /* menu-dashboard.png */; };
 		9EB34AE8182307CE009A3041 /* menu-dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB34AE6182307CE009A3041 /* menu-dashboard@2x.png */; };
-		9EB51D03182CD57900520009 /* Dash2HomeComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB51D01182CD57900520009 /* Dash2HomeComparisonViewController.m */; };
-		9EB51D04182CD57900520009 /* Dash2HomeComparisonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB51D02182CD57900520009 /* Dash2HomeComparisonViewController.xib */; };
 		9EB6BEAD182C533B00142F98 /* home1-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6BEA7182C533B00142F98 /* home1-pink.png */; };
 		9EB6BEAE182C533B00142F98 /* home1-pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6BEA8182C533B00142F98 /* home1-pink@2x.png */; };
 		9EB6BEAF182C533B00142F98 /* home2-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6BEA9182C533B00142F98 /* home2-blue.png */; };
@@ -515,9 +513,6 @@
 		9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-contact-realtor@2x.png"; sourceTree = "<group>"; };
 		9EB34AE5182307CE009A3041 /* menu-dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-dashboard.png"; sourceTree = "<group>"; };
 		9EB34AE6182307CE009A3041 /* menu-dashboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-dashboard@2x.png"; sourceTree = "<group>"; };
-		9EB51D00182CD57900520009 /* Dash2HomeComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dash2HomeComparisonViewController.h; path = Controller/Dash2HomeComparisonViewController.h; sourceTree = "<group>"; };
-		9EB51D01182CD57900520009 /* Dash2HomeComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dash2HomeComparisonViewController.m; path = Controller/Dash2HomeComparisonViewController.m; sourceTree = "<group>"; };
-		9EB51D02182CD57900520009 /* Dash2HomeComparisonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Dash2HomeComparisonViewController.xib; path = Controller/Dash2HomeComparisonViewController.xib; sourceTree = "<group>"; };
 		9EB6BEA7182C533B00142F98 /* home1-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home1-pink.png"; sourceTree = "<group>"; };
 		9EB6BEA8182C533B00142F98 /* home1-pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home1-pink@2x.png"; sourceTree = "<group>"; };
 		9EB6BEA9182C533B00142F98 /* home2-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home2-blue.png"; sourceTree = "<group>"; };
@@ -1086,23 +1081,6 @@
 			name = LoanInfo;
 			sourceTree = "<group>";
 		};
-		9EB51CFE182CD54F00520009 /* Dash2HomeComparison */ = {
-			isa = PBXGroup;
-			children = (
-				9EB51D02182CD57900520009 /* Dash2HomeComparisonViewController.xib */,
-			);
-			name = Dash2HomeComparison;
-			sourceTree = "<group>";
-		};
-		9EB51CFF182CD56000520009 /* Dash2HomeComparison */ = {
-			isa = PBXGroup;
-			children = (
-				9EB51D00182CD57900520009 /* Dash2HomeComparisonViewController.h */,
-				9EB51D01182CD57900520009 /* Dash2HomeComparisonViewController.m */,
-			);
-			name = Dash2HomeComparison;
-			sourceTree = "<group>";
-		};
 		D607A20B17F9029A008E093C /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1173,7 +1151,6 @@
 		D65A217817FDFDAD00884291 /* Dash2HomesEntered */ = {
 			isa = PBXGroup;
 			children = (
-				9EB51CFE182CD54F00520009 /* Dash2HomeComparison */,
 				9EEEAA3218156C1400B97A7A /* line-vertical.png */,
 				9EEEAA3318156C1400B97A7A /* line-vertical@2x.png */,
 				9E0BCA811804A5DA00863FB7 /* Dash2EstimatedTaxSavings */,
@@ -1187,7 +1164,6 @@
 		D65A217917FDFDC300884291 /* Dash2HomesEntered */ = {
 			isa = PBXGroup;
 			children = (
-				9EB51CFF182CD56000520009 /* Dash2HomeComparison */,
 				9E0BCA871804A61500863FB7 /* Dash2EstimatedTaxSavings */,
 				D6C3AB031803773200123260 /* Dash2HomesLifestyle */,
 				D6C3AAF51803729100123260 /* Dash2HomePayment */,
@@ -1997,7 +1973,6 @@
 				9ECDB80117FF55AB004E5F25 /* menu-fixedcosts@2x.png in Resources */,
 				9EE693FA1805EBD000B541DF /* aboutyou.png in Resources */,
 				9EB6BEAF182C533B00142F98 /* home2-blue.png in Resources */,
-				9EB51D04182CD57900520009 /* Dash2HomeComparisonViewController.xib in Resources */,
 				9E4DBF6A1805D04200F095F1 /* termsbox.png in Resources */,
 				9E53443917F555B8006BA12D /* lifestyle-sports@2x.png in Resources */,
 				9ECDB81017FF55AB004E5F25 /* menu-terms-and-policies.png in Resources */,
@@ -2207,7 +2182,6 @@
 				D6842E5617DD2FD80028AF00 /* userProfileInfo.m in Sources */,
 				D6841DEF1824457D00BA5F48 /* UserProfileObject.m in Sources */,
 				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
-				9EB51D03182CD57900520009 /* Dash2HomeComparisonViewController.m in Sources */,
 				D6EBEBC71815C064004B3CBF /* Cities.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,

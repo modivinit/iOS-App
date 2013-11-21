@@ -44,13 +44,17 @@
     {
         self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
         self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 405, 104, 30)];
-        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 470, 25, 25)];
-        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 463, 160, 44)];
+        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 472, 25, 25)];
+        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 465, 100, 44)];
+        self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     }
     else
     {
         self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 320, 104, 30)];
         self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 25, 25)];
+        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 403, 100, 40)];
+        self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     }
     
     self.mRentalButton.backgroundColor = [UIColor clearColor];
@@ -82,7 +86,7 @@
             [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
         }
         
-        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
         [self.mContactRealtorButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal] ;
         self.mContactRealtorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         

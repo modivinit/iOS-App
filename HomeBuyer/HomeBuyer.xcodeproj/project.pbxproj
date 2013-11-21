@@ -315,6 +315,7 @@
 		D6C890B917DC4426007CB46F /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C890B717DC4426007CB46F /* LeftMenuViewController.xib */; };
 		D6DEE54B180878AE00548955 /* HomeInfoDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DEE549180878AE00548955 /* HomeInfoDashViewController.m */; };
 		D6DEE54C180878AE00548955 /* HomeInfoDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6DEE54A180878AE00548955 /* HomeInfoDashViewController.xib */; };
+		D6E2D991183E9FB40022D559 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E2D990183E9FB40022D559 /* Parse.framework */; };
 		D6E4251F18297F0400F9DCE4 /* Realtor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4251E18297F0400F9DCE4 /* Realtor.m */; };
 		D6E4252018297F0400F9DCE4 /* Realtor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4251E18297F0400F9DCE4 /* Realtor.m */; };
 		D6E4252218299B2500F9DCE4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E4252118299B2500F9DCE4 /* MessageUI.framework */; };
@@ -710,6 +711,7 @@
 		D6DEE548180878AE00548955 /* HomeInfoDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeInfoDashViewController.h; path = Controller/HomeInfoDashViewController.h; sourceTree = "<group>"; };
 		D6DEE549180878AE00548955 /* HomeInfoDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeInfoDashViewController.m; path = Controller/HomeInfoDashViewController.m; sourceTree = "<group>"; };
 		D6DEE54A180878AE00548955 /* HomeInfoDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeInfoDashViewController.xib; path = Controller/HomeInfoDashViewController.xib; sourceTree = "<group>"; };
+		D6E2D990183E9FB40022D559 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D6E4251D18297F0400F9DCE4 /* Realtor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Realtor.h; sourceTree = "<group>"; };
 		D6E4251E18297F0400F9DCE4 /* Realtor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Realtor.m; sourceTree = "<group>"; };
 		D6E4252118299B2500F9DCE4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -769,6 +771,7 @@
 				D647038C1817094F003810B4 /* CFNetwork.framework in Frameworks */,
 				D647038A18170947003810B4 /* AudioToolbox.framework in Frameworks */,
 				D6F68A641804CD3000BE5960 /* libstdc++.6.0.9.dylib in Frameworks */,
+				D6E2D991183E9FB40022D559 /* Parse.framework in Frameworks */,
 				D6F68A621804CD2600BE5960 /* CoreText.framework in Frameworks */,
 				D6F68A601804CD1D00BE5960 /* OpenGLES.framework in Frameworks */,
 				D64703881817090A003810B4 /* Parse.framework in Frameworks */,
@@ -1197,6 +1200,7 @@
 		D67EFDE117CCE1280082F6C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6E2D990183E9FB40022D559 /* Parse.framework */,
 				D6E4252118299B2500F9DCE4 /* MessageUI.framework */,
 				D6A2CB69181ED1E700CD0BF0 /* ShinobiCharts.framework */,
 				D6470393181709BA003810B4 /* SystemConfiguration.framework */,
@@ -2354,6 +2358,7 @@
 					"$(inherited)",
 					"/Volumes/MacOS\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/Mac\\ Data/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";
@@ -2388,6 +2393,7 @@
 					"$(inherited)",
 					"/Volumes/MacOS\\ Data/Documents/Kunance/App/kCAT-iOS/HomeBuyer",
 					"/Users/shilpamodi/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
+					"/Volumes/Mac\\ Data/Development/Clients/Kunance/kCAT-iOS/HomeBuyer",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HomeBuyer/HomeBuyer-Prefix.pch";

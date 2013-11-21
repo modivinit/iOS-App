@@ -28,7 +28,14 @@
 
 -(void) setupChart
 {
-    self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+    if (IS_WIDESCREEN)
+    {
+        self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+    }
+    else
+    {
+        self.mEstTaxesChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 235, 280, 140)];
+    }
     
     self.mEstTaxesChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -129,8 +136,14 @@
 
 - (void)viewDidLoad
 {
+   
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (!IS_WIDESCREEN)
+    {
+        self.mTaxSavingsView.frame = CGRectMake(0, 310, self.mTaxSavingsView.frame.size.width, self.mTaxSavingsView.frame.size.height);
+    }
+    
     [self setupChart];
 }
 

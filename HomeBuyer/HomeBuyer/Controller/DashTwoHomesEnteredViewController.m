@@ -92,6 +92,12 @@
         ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
         contactRealtor.mContactRealtorDelegate = self;
         [self.mPageViewControllers addObject:contactRealtor];
+        
+        if (!IS_WIDESCREEN)
+        {
+            contactRealtor.mHome2DashContactRealtor.frame = CGRectMake(0, 90, contactRealtor.mHome2DashContactRealtor.frame.size.width, contactRealtor.mHome2DashContactRealtor.frame.size.height);
+        }
+        
     }
     
     [[self.pageController view] setFrame:[[self view] bounds]];

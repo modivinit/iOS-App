@@ -234,7 +234,6 @@
 		D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */; };
 		D63EA1FA17FCF42900E50E44 /* OneHomeLifestyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */; };
 		D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */; };
-		D63EA1FD17FCF47900E50E44 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FC17FCF47900E50E44 /* chart.png */; };
 		D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */; };
 		D63EA20117FCF48F00E50E44 /* logo_svl@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */; };
 		D64703881817090A003810B4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64703871817090A003810B4 /* Parse.framework */; };
@@ -604,7 +603,6 @@
 		D63EA1F717FCF42900E50E44 /* OneHomeLifestyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneHomeLifestyleViewController.h; path = Controller/OneHomeLifestyleViewController.h; sourceTree = "<group>"; };
 		D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneHomeLifestyleViewController.m; path = Controller/OneHomeLifestyleViewController.m; sourceTree = "<group>"; };
 		D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneHomeLifestyleViewController.xib; path = Controller/OneHomeLifestyleViewController.xib; sourceTree = "<group>"; };
-		D63EA1FC17FCF47900E50E44 /* chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart.png; sourceTree = "<group>"; };
 		D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_svl.gif; sourceTree = "<group>"; };
 		D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "logo_svl@2x.gif"; sourceTree = "<group>"; };
 		D64703871817090A003810B4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -1373,7 +1371,6 @@
 		D6C3AAEF18036F7500123260 /* Dash1HomeLifestyle */ = {
 			isa = PBXGroup;
 			children = (
-				D63EA1FC17FCF47900E50E44 /* chart.png */,
 				D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */,
 				D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */,
 				D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */,
@@ -2060,7 +2057,6 @@
 				D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */,
 				9E22FCDA182AFD3700AA2234 /* healthcare@2x.png in Resources */,
 				9E6B328D183AE1F700FF0209 /* home-interior-iphone4_02.jpg in Resources */,
-				D63EA1FD17FCF47900E50E44 /* chart.png in Resources */,
 				D6841DEC1824457D00BA5F48 /* TaxTableFederalSingle2013.plist in Resources */,
 				9E2F71FB18260A3A00D2B593 /* menu-current-lifestyle@2x.png in Resources */,
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,

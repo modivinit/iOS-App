@@ -50,13 +50,28 @@
     if([kunanceUser getInstance].mUserProfileStatus == ProfileStatusUser1HomeAndLoanInfoEntered ||
        [kunanceUser getInstance].mUserProfileStatus == ProfileStatusUserTwoHomesAndLoanInfoEntered)
     {
-        self.mDashButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 510, 44, 44)];
+        if (IS_WIDESCREEN)
+        {
+            self.mDashButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 510, 44, 44)];
+        }
+        else
+        {
+            self.mDashButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 422, 44, 44)];
+        }
         [self.mDashButton setImage:[UIImage imageNamed:@"dashboard.png"] forState:UIControlStateNormal];
         [self.mDashButton addTarget:self action:@selector(dashButtonTapped) forControlEvents:UIControlEventTouchDown];
         [self.pageController.view addSubview:self.mDashButton];
     }
     
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 44, 44)];
+    if (IS_WIDESCREEN)
+    {
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 44, 44)];
+    }
+    else
+    {
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 430, 44, 44)];
+    }
+    
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];

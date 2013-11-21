@@ -108,11 +108,11 @@
         
         if (IS_WIDESCREEN)
         {
-            self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 107, 310, 250)];
+            self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 250)];
         }
         else
         {
-            self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 142, 310, 190)];
+            self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 120, 310, 150)];
         }
         
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
@@ -142,6 +142,10 @@
     // Do any additional setup after loading the view from its nib.
     [self setupChart];
     [self setupOtherLabels];
+    if (IS_WIDESCREEN)
+    {
+        self.mLifestyleView.frame = CGRectMake(0, 270, self.mLifestyleView.frame.size.width, self.mLifestyleView.frame.size.height);
+    }
 }
 
 #pragma mark - SChartDelegate methods

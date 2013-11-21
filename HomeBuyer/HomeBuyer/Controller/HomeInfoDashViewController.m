@@ -69,7 +69,7 @@
     }
     else
     {
-        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 430, 44, 44)];
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 425, 44, 44)];
     }
     
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];

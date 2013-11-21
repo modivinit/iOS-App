@@ -27,15 +27,33 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backImage.image = [UIImage imageNamed:@"home-interior_04.jpg"];
-    [self.view addSubview:backImage];
+    self.view.bounds = CGRectMake(0, 0, [Utilities getDeviceWidth], [Utilities getDeviceHeight]);
+
+    UILabel* label = nil;
+    UIImage* backImage = nil;
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 250, 90)];
+    //Renders based on screen size
+    if (IS_WIDESCREEN)
+    {
+        backImage = [UIImage imageNamed:@"home-interior_04.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 55, 270, 80)];
+        label.text = @"Share results with family.\n\nConnect with realtors when ready.";
+        label.numberOfLines = 3;
+    }
+    else
+    {
+        backImage = [UIImage imageNamed:@"home-interior-iphone4_04.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 35, 270, 70)];
+        label.text = @"Share results with family.\nConnect with realtors when ready.";
+        label.numberOfLines = 2;
+    }
+    
+    UIImageView* backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImageView.image = backImage;
+    [self.view addSubview:backImageView];
+    
     label.center = CGPointMake(self.view.center.x, label.center.y);
-    label.numberOfLines = 4;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"Share results with family.\n\nConnect with realtors when you are ready.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

@@ -40,22 +40,37 @@
 
 -(void) addButtons
 {
-    self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+    if (IS_WIDESCREEN)
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 405, 104, 30)];
+        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 472, 25, 25)];
+        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 465, 100, 44)];
+        self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 520, 44, 44)];
+    }
+    else
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 320, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 25, 25)];
+        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 403, 100, 40)];
+        self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 436, 44, 44)];
+    }
+    
     self.mRentalButton.backgroundColor = [UIColor clearColor];
     [self.mRentalButton addTarget:self
                            action:@selector(rentalButtonTapped:)
                  forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mRentalButton];
     
-    self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 405, 104, 30)];
+    
     self.mHome1Button.backgroundColor = [UIColor clearColor];
     [self.mHome1Button addTarget:self
                           action:@selector(home1ButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHome1Button];
-
-    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 470, 25, 25)];
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 463, 160, 44)];
 
     if([kunanceUser getInstance].mRealtor.mIsValid)
     {
@@ -73,7 +88,7 @@
             [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
         }
         
-        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
         [self.mContactRealtorButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal] ;
         self.mContactRealtorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
@@ -85,7 +100,6 @@
         
     }
 
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped)
                forControlEvents:UIControlEventTouchUpInside];

@@ -33,7 +33,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // Custom initialization
-    CGRect rect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+20, self.view.bounds.size.width, self.view.bounds.size.height-20);
+    CGRect rect = CGRectMake(self.view.bounds.origin.x,
+                             self.view.bounds.origin.y+20,
+                             [Utilities getDeviceWidth],
+                             [Utilities getDeviceHeight]-20);
+    
     self.mMenuTableView = [[UITableView alloc] initWithFrame:rect
                                                        style:UITableViewStyleGrouped];
     self.mMenuTableView.dataSource = self;

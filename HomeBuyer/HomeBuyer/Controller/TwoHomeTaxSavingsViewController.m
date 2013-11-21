@@ -48,7 +48,16 @@
 -(void) setupChart
 {
     // create the data
-    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+    
+    if (IS_WIDESCREEN)
+    {
+        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+    }
+    else
+    {
+        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 235, 280, 140)];
+    }
+    
     //self.mTaxSavingsChart.loadDataInBackground = YES;
     self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -165,6 +174,11 @@
         else
             self.mSecondHomeType.image = [UIImage imageNamed:@"menu-home-condo.png"];
         
+    }
+    
+    if (!IS_WIDESCREEN)
+    {
+        self.mHome2TaxCompareView.frame = CGRectMake(0, 310, self.mHome2TaxCompareView.frame.size.width, self.mHome2TaxCompareView.frame.size.height);
     }
 
     [self setupChart];

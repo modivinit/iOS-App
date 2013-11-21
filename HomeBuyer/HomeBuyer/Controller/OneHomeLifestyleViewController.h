@@ -21,6 +21,7 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHomeNickName;
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 @property (nonatomic, strong) IBOutlet UILabel* mHome1CashFlow;
+@property (nonatomic, strong) IBOutlet UIView* mCompareView;
 
 - (UIImage*)snapshotWithOpenGLViews;
 @end

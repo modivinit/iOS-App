@@ -83,6 +83,12 @@
     [mixpanel track:@"View Fixed Costs Screen" properties:Nil];
 }
 
+- (void)viewDidAppear:(BOOL)animate
+{
+    [super viewDidAppear:animate];
+    [self.mFormScrollView flashScrollIndicators];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

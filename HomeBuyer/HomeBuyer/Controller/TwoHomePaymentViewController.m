@@ -23,7 +23,14 @@
 
 -(void) setupChart
 {
-    self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+    if (IS_WIDESCREEN)
+    {
+        self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+    }
+    else
+    {
+        self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 225, 280, 140)];
+    }
     
     self.mMontlyPaymentChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -122,6 +129,11 @@
         else
             self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
 
+    }
+    
+    if (!IS_WIDESCREEN)
+    {
+        self.mHome2ComparePaymentsView.frame = CGRectMake(0, 290, self.mHome2ComparePaymentsView.frame.size.width, self.mHome2ComparePaymentsView.frame.size.height);
     }
     
     [self setupChart];

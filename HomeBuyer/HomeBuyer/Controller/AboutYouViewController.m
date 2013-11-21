@@ -89,11 +89,11 @@
     
     self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
 }
-
+/*
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-}
+}*/
 
 - (void)viewDidLoad
 {
@@ -116,6 +116,13 @@
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"View About You Screen" properties:Nil];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animate
+{
+    [super viewDidAppear:animate];
+    [self.mFormScrollView flashScrollIndicators];
 }
 
 - (void)didReceiveMemoryWarning

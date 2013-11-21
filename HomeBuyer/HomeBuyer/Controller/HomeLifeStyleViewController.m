@@ -106,7 +106,15 @@
                          @"Est. Income Tax" : [NSNumber numberWithFloat:homeEstTaxesPaid],
                          @"Monthly Payment" : [NSNumber numberWithFloat:rintf([homeAndLoan getTotalMonthlyPayment])]};
         
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 107, 310, 220)];
+        if (IS_WIDESCREEN)
+        {
+            self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 250)];
+        }
+        else
+        {
+            self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 120, 310, 150)];
+        }
+        
         self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomeLifeStyleChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -134,6 +142,10 @@
     // Do any additional setup after loading the view from its nib.
     [self setupChart];
     [self setupOtherLabels];
+    if (IS_WIDESCREEN)
+    {
+        self.mLifestyleView.frame = CGRectMake(0, 270, self.mLifestyleView.frame.size.width, self.mLifestyleView.frame.size.height);
+    }
 }
 
 #pragma mark - SChartDelegate methods

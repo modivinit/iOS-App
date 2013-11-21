@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HelpProfileViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton* mDashButton;
+-(IBAction)dashButtonPressed:(id)sender;
 
 @end

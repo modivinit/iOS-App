@@ -91,6 +91,16 @@
 		9E587B3F1818FDCB00E65DBA /* enterprofile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E587B3D1818FDCB00E65DBA /* enterprofile@2x.png */; };
 		9E5D592717F23738000CA229 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D592517F23738000CA229 /* help.png */; };
 		9E5D592817F23738000CA229 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E5D592617F23738000CA229 /* help@2x.png */; };
+		9E6B327B183AD3B100FF0209 /* home-interior-iphone4_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3273183AD3B100FF0209 /* home-interior-iphone4_01.jpg */; };
+		9E6B327C183AD3B100FF0209 /* home-interior-iphone4_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3274183AD3B100FF0209 /* home-interior-iphone4_01@2x.jpg */; };
+		9E6B327F183AD3B100FF0209 /* home-interior-iphone4_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3277183AD3B100FF0209 /* home-interior-iphone4_03.jpg */; };
+		9E6B3280183AD3B100FF0209 /* home-interior-iphone4_03@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3278183AD3B100FF0209 /* home-interior-iphone4_03@2x.jpg */; };
+		9E6B3289183ADF6E00FF0209 /* home-interior-iphone4_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3287183ADF6E00FF0209 /* home-interior-iphone4_04.jpg */; };
+		9E6B328A183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B3288183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg */; };
+		9E6B328D183AE1F700FF0209 /* home-interior-iphone4_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B328B183AE1F700FF0209 /* home-interior-iphone4_02.jpg */; };
+		9E6B328E183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B328C183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg */; };
+		9E761FA8183BECE300D84961 /* sidearrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E761FA6183BECE300D84961 /* sidearrow.png */; };
+		9E761FA9183BECE300D84961 /* sidearrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E761FA7183BECE300D84961 /* sidearrow@2x.png */; };
 		9E8E867A182D70630001807D /* home-interior_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E8679182D70630001807D /* home-interior_02@2x.jpg */; };
 		9E8E867C182D71360001807D /* home-interior_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E867B182D71360001807D /* home-interior_02.jpg */; };
 		9E96EEEC18107367001E8FF7 /* home-interior_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E96EEE418107367001E8FF7 /* home-interior_03.jpg */; };
@@ -133,8 +143,6 @@
 		9EB0EF28180338B500857763 /* menu-contact-realtor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */; };
 		9EB34AE7182307CE009A3041 /* menu-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB34AE5182307CE009A3041 /* menu-dashboard.png */; };
 		9EB34AE8182307CE009A3041 /* menu-dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB34AE6182307CE009A3041 /* menu-dashboard@2x.png */; };
-		9EB51D03182CD57900520009 /* Dash2HomeComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB51D01182CD57900520009 /* Dash2HomeComparisonViewController.m */; };
-		9EB51D04182CD57900520009 /* Dash2HomeComparisonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB51D02182CD57900520009 /* Dash2HomeComparisonViewController.xib */; };
 		9EB6BEAD182C533B00142F98 /* home1-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6BEA7182C533B00142F98 /* home1-pink.png */; };
 		9EB6BEAE182C533B00142F98 /* home1-pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6BEA8182C533B00142F98 /* home1-pink@2x.png */; };
 		9EB6BEAF182C533B00142F98 /* home2-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6BEA9182C533B00142F98 /* home2-blue.png */; };
@@ -224,7 +232,6 @@
 		D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D639981F1811E0B40067EC2C /* FormNoScrollViewViewController.m */; };
 		D63EA1FA17FCF42900E50E44 /* OneHomeLifestyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */; };
 		D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */; };
-		D63EA1FD17FCF47900E50E44 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FC17FCF47900E50E44 /* chart.png */; };
 		D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */; };
 		D63EA20117FCF48F00E50E44 /* logo_svl@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */; };
 		D64703881817090A003810B4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64703871817090A003810B4 /* Parse.framework */; };
@@ -289,15 +296,10 @@
 		D6C3AB1E180384E600123260 /* HomeLifeStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB1C180384E600123260 /* HomeLifeStyleViewController.m */; };
 		D6C3AB1F180384E600123260 /* HomeLifeStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB1D180384E600123260 /* HomeLifeStyleViewController.xib */; };
 		D6C3AB281803892700123260 /* kCATIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB261803892700123260 /* kCATIntroViewController.m */; };
-		D6C3AB291803892700123260 /* kCATIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB271803892700123260 /* kCATIntroViewController.xib */; };
 		D6C3AB361803C93300123260 /* kCATIntroAffordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB341803C93300123260 /* kCATIntroAffordViewController.m */; };
-		D6C3AB371803C93300123260 /* kCATIntroAffordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB351803C93300123260 /* kCATIntroAffordViewController.xib */; };
 		D6C3AB3B1803CA3600123260 /* kCATIntroLifestyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB391803CA3600123260 /* kCATIntroLifestyleViewController.m */; };
-		D6C3AB3C1803CA3600123260 /* kCATIntroLifestyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */; };
 		D6C3AB401803CA5A00123260 /* kCATIntroRVBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB3E1803CA5A00123260 /* kCATIntroRVBViewController.m */; };
-		D6C3AB411803CA5A00123260 /* kCATIntroRVBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */; };
 		D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3AB431803CA7300123260 /* kCATIntroTaxViewController.m */; };
-		D6C3AB461803CA7300123260 /* kCATIntroTaxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */; };
 		D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2717DA79AA00DEA25D /* MainController.m */; };
 		D6C88B2E17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
 		D6C88B2F17DA7B1600DEA25D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C88B2B17DA7B1600DEA25D /* SignUpViewController.m */; };
@@ -455,6 +457,16 @@
 		9E587B3D1818FDCB00E65DBA /* enterprofile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enterprofile@2x.png"; sourceTree = "<group>"; };
 		9E5D592517F23738000CA229 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		9E5D592617F23738000CA229 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
+		9E6B3273183AD3B100FF0209 /* home-interior-iphone4_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_01.jpg"; sourceTree = "<group>"; };
+		9E6B3274183AD3B100FF0209 /* home-interior-iphone4_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_01@2x.jpg"; sourceTree = "<group>"; };
+		9E6B3277183AD3B100FF0209 /* home-interior-iphone4_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_03.jpg"; sourceTree = "<group>"; };
+		9E6B3278183AD3B100FF0209 /* home-interior-iphone4_03@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_03@2x.jpg"; sourceTree = "<group>"; };
+		9E6B3287183ADF6E00FF0209 /* home-interior-iphone4_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_04.jpg"; sourceTree = "<group>"; };
+		9E6B3288183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_04@2x.jpg"; sourceTree = "<group>"; };
+		9E6B328B183AE1F700FF0209 /* home-interior-iphone4_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_02.jpg"; sourceTree = "<group>"; };
+		9E6B328C183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior-iphone4_02@2x.jpg"; sourceTree = "<group>"; };
+		9E761FA6183BECE300D84961 /* sidearrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidearrow.png; sourceTree = "<group>"; };
+		9E761FA7183BECE300D84961 /* sidearrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidearrow@2x.png"; sourceTree = "<group>"; };
 		9E8E8679182D70630001807D /* home-interior_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_02@2x.jpg"; sourceTree = "<group>"; };
 		9E8E867B182D71360001807D /* home-interior_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_02.jpg"; sourceTree = "<group>"; };
 		9E96EEE418107367001E8FF7 /* home-interior_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-interior_03.jpg"; sourceTree = "<group>"; };
@@ -501,9 +513,6 @@
 		9EB0EF26180338B500857763 /* menu-contact-realtor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-contact-realtor@2x.png"; sourceTree = "<group>"; };
 		9EB34AE5182307CE009A3041 /* menu-dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-dashboard.png"; sourceTree = "<group>"; };
 		9EB34AE6182307CE009A3041 /* menu-dashboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-dashboard@2x.png"; sourceTree = "<group>"; };
-		9EB51D00182CD57900520009 /* Dash2HomeComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dash2HomeComparisonViewController.h; path = Controller/Dash2HomeComparisonViewController.h; sourceTree = "<group>"; };
-		9EB51D01182CD57900520009 /* Dash2HomeComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dash2HomeComparisonViewController.m; path = Controller/Dash2HomeComparisonViewController.m; sourceTree = "<group>"; };
-		9EB51D02182CD57900520009 /* Dash2HomeComparisonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Dash2HomeComparisonViewController.xib; path = Controller/Dash2HomeComparisonViewController.xib; sourceTree = "<group>"; };
 		9EB6BEA7182C533B00142F98 /* home1-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home1-pink.png"; sourceTree = "<group>"; };
 		9EB6BEA8182C533B00142F98 /* home1-pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home1-pink@2x.png"; sourceTree = "<group>"; };
 		9EB6BEA9182C533B00142F98 /* home2-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home2-blue.png"; sourceTree = "<group>"; };
@@ -589,7 +598,6 @@
 		D63EA1F717FCF42900E50E44 /* OneHomeLifestyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneHomeLifestyleViewController.h; path = Controller/OneHomeLifestyleViewController.h; sourceTree = "<group>"; };
 		D63EA1F817FCF42900E50E44 /* OneHomeLifestyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneHomeLifestyleViewController.m; path = Controller/OneHomeLifestyleViewController.m; sourceTree = "<group>"; };
 		D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneHomeLifestyleViewController.xib; path = Controller/OneHomeLifestyleViewController.xib; sourceTree = "<group>"; };
-		D63EA1FC17FCF47900E50E44 /* chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart.png; sourceTree = "<group>"; };
 		D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_svl.gif; sourceTree = "<group>"; };
 		D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "logo_svl@2x.gif"; sourceTree = "<group>"; };
 		D64703871817090A003810B4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -673,19 +681,14 @@
 		D6C3AB1D180384E600123260 /* HomeLifeStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeLifeStyleViewController.xib; path = Controller/HomeLifeStyleViewController.xib; sourceTree = "<group>"; };
 		D6C3AB251803892700123260 /* kCATIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroViewController.h; path = Controller/kCATIntroViewController.h; sourceTree = "<group>"; };
 		D6C3AB261803892700123260 /* kCATIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroViewController.m; path = Controller/kCATIntroViewController.m; sourceTree = "<group>"; };
-		D6C3AB271803892700123260 /* kCATIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroViewController.xib; path = Controller/kCATIntroViewController.xib; sourceTree = "<group>"; };
 		D6C3AB331803C93300123260 /* kCATIntroAffordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroAffordViewController.h; path = Controller/kCATIntroAffordViewController.h; sourceTree = "<group>"; };
 		D6C3AB341803C93300123260 /* kCATIntroAffordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroAffordViewController.m; path = Controller/kCATIntroAffordViewController.m; sourceTree = "<group>"; };
-		D6C3AB351803C93300123260 /* kCATIntroAffordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroAffordViewController.xib; path = Controller/kCATIntroAffordViewController.xib; sourceTree = "<group>"; };
 		D6C3AB381803CA3600123260 /* kCATIntroLifestyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroLifestyleViewController.h; path = Controller/kCATIntroLifestyleViewController.h; sourceTree = "<group>"; };
 		D6C3AB391803CA3600123260 /* kCATIntroLifestyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroLifestyleViewController.m; path = Controller/kCATIntroLifestyleViewController.m; sourceTree = "<group>"; };
-		D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroLifestyleViewController.xib; path = Controller/kCATIntroLifestyleViewController.xib; sourceTree = "<group>"; };
 		D6C3AB3D1803CA5A00123260 /* kCATIntroRVBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroRVBViewController.h; path = Controller/kCATIntroRVBViewController.h; sourceTree = "<group>"; };
 		D6C3AB3E1803CA5A00123260 /* kCATIntroRVBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroRVBViewController.m; path = Controller/kCATIntroRVBViewController.m; sourceTree = "<group>"; };
-		D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroRVBViewController.xib; path = Controller/kCATIntroRVBViewController.xib; sourceTree = "<group>"; };
 		D6C3AB421803CA7300123260 /* kCATIntroTaxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kCATIntroTaxViewController.h; path = Controller/kCATIntroTaxViewController.h; sourceTree = "<group>"; };
 		D6C3AB431803CA7300123260 /* kCATIntroTaxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = kCATIntroTaxViewController.m; path = Controller/kCATIntroTaxViewController.m; sourceTree = "<group>"; };
-		D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = kCATIntroTaxViewController.xib; path = Controller/kCATIntroTaxViewController.xib; sourceTree = "<group>"; };
 		D6C4F344182D8F4300061F35 /* SChartGLView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SChartGLView+Screenshot.h"; sourceTree = "<group>"; };
 		D6C4F345182D8F4300061F35 /* ShinobiChart+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShinobiChart+Screenshot.h"; sourceTree = "<group>"; };
 		D6C88B2717DA79AA00DEA25D /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = Controller/MainController.m; sourceTree = "<group>"; };
@@ -960,6 +963,36 @@
 			name = Dash1HomePayment;
 			sourceTree = "<group>";
 		};
+		9E6B3271183AD39100FF0209 /* iPhone4 */ = {
+			isa = PBXGroup;
+			children = (
+				9E6B3273183AD3B100FF0209 /* home-interior-iphone4_01.jpg */,
+				9E6B3274183AD3B100FF0209 /* home-interior-iphone4_01@2x.jpg */,
+				9E6B328B183AE1F700FF0209 /* home-interior-iphone4_02.jpg */,
+				9E6B328C183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg */,
+				9E6B3277183AD3B100FF0209 /* home-interior-iphone4_03.jpg */,
+				9E6B3278183AD3B100FF0209 /* home-interior-iphone4_03@2x.jpg */,
+				9E6B3287183ADF6E00FF0209 /* home-interior-iphone4_04.jpg */,
+				9E6B3288183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg */,
+			);
+			name = iPhone4;
+			sourceTree = "<group>";
+		};
+		9E6B3272183AD3A000FF0209 /* iPhone5 */ = {
+			isa = PBXGroup;
+			children = (
+				9E237BDE1811A0910095B66B /* home-interior_01.jpg */,
+				9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */,
+				9E8E867B182D71360001807D /* home-interior_02.jpg */,
+				9E8E8679182D70630001807D /* home-interior_02@2x.jpg */,
+				9E96EEE418107367001E8FF7 /* home-interior_03.jpg */,
+				9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */,
+				9EFE6ED5182DB39A00EA76E9 /* home-interior_04.jpg */,
+				9EFE6ED6182DB39A00EA76E9 /* home-interior_04@2x.jpg */,
+			);
+			name = iPhone5;
+			sourceTree = "<group>";
+		};
 		9EA5D3C917F15C1C00CE7BD8 /* HomeInfoEntry */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,23 +1081,6 @@
 			name = LoanInfo;
 			sourceTree = "<group>";
 		};
-		9EB51CFE182CD54F00520009 /* Dash2HomeComparison */ = {
-			isa = PBXGroup;
-			children = (
-				9EB51D02182CD57900520009 /* Dash2HomeComparisonViewController.xib */,
-			);
-			name = Dash2HomeComparison;
-			sourceTree = "<group>";
-		};
-		9EB51CFF182CD56000520009 /* Dash2HomeComparison */ = {
-			isa = PBXGroup;
-			children = (
-				9EB51D00182CD57900520009 /* Dash2HomeComparisonViewController.h */,
-				9EB51D01182CD57900520009 /* Dash2HomeComparisonViewController.m */,
-			);
-			name = Dash2HomeComparison;
-			sourceTree = "<group>";
-		};
 		D607A20B17F9029A008E093C /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1135,7 +1151,6 @@
 		D65A217817FDFDAD00884291 /* Dash2HomesEntered */ = {
 			isa = PBXGroup;
 			children = (
-				9EB51CFE182CD54F00520009 /* Dash2HomeComparison */,
 				9EEEAA3218156C1400B97A7A /* line-vertical.png */,
 				9EEEAA3318156C1400B97A7A /* line-vertical@2x.png */,
 				9E0BCA811804A5DA00863FB7 /* Dash2EstimatedTaxSavings */,
@@ -1149,7 +1164,6 @@
 		D65A217917FDFDC300884291 /* Dash2HomesEntered */ = {
 			isa = PBXGroup;
 			children = (
-				9EB51CFF182CD56000520009 /* Dash2HomeComparison */,
 				9E0BCA871804A61500863FB7 /* Dash2EstimatedTaxSavings */,
 				D6C3AB031803773200123260 /* Dash2HomesLifestyle */,
 				D6C3AAF51803729100123260 /* Dash2HomePayment */,
@@ -1333,7 +1347,6 @@
 		D6C3AAEF18036F7500123260 /* Dash1HomeLifestyle */ = {
 			isa = PBXGroup;
 			children = (
-				D63EA1FC17FCF47900E50E44 /* chart.png */,
 				D63EA1FE17FCF48F00E50E44 /* logo_svl.gif */,
 				D63EA1FF17FCF48F00E50E44 /* logo_svl@2x.gif */,
 				D63EA1F917FCF42900E50E44 /* OneHomeLifestyleViewController.xib */,
@@ -1395,21 +1408,10 @@
 		D6C3AB2A1803893400123260 /* kCATIntro */ = {
 			isa = PBXGroup;
 			children = (
+				9E6B3272183AD3A000FF0209 /* iPhone5 */,
+				9E6B3271183AD39100FF0209 /* iPhone4 */,
 				9E3ACB831835EEDF00F15687 /* appname.png */,
 				9E3ACB841835EEDF00F15687 /* appname@2x.png */,
-				9E237BDE1811A0910095B66B /* home-interior_01.jpg */,
-				9E237BDF1811A0910095B66B /* home-interior_01@2x.jpg */,
-				9E8E867B182D71360001807D /* home-interior_02.jpg */,
-				9E8E8679182D70630001807D /* home-interior_02@2x.jpg */,
-				9E96EEE418107367001E8FF7 /* home-interior_03.jpg */,
-				9E96EEE518107367001E8FF7 /* home-interior_03@2x.jpg */,
-				9EFE6ED5182DB39A00EA76E9 /* home-interior_04.jpg */,
-				9EFE6ED6182DB39A00EA76E9 /* home-interior_04@2x.jpg */,
-				D6C3AB441803CA7300123260 /* kCATIntroTaxViewController.xib */,
-				D6C3AB3F1803CA5A00123260 /* kCATIntroRVBViewController.xib */,
-				D6C3AB3A1803CA3600123260 /* kCATIntroLifestyleViewController.xib */,
-				D6C3AB351803C93300123260 /* kCATIntroAffordViewController.xib */,
-				D6C3AB271803892700123260 /* kCATIntroViewController.xib */,
 			);
 			name = kCATIntro;
 			sourceTree = "<group>";
@@ -1755,6 +1757,8 @@
 		D6F9D3EF17DE66AA001DE8D1 /* DashNoInfo */ = {
 			isa = PBXGroup;
 			children = (
+				9E761FA6183BECE300D84961 /* sidearrow.png */,
+				9E761FA7183BECE300D84961 /* sidearrow@2x.png */,
 				9E587B3C1818FDCB00E65DBA /* enterprofile.png */,
 				9E587B3D1818FDCB00E65DBA /* enterprofile@2x.png */,
 				9E587B381818FCAC00E65DBA /* dash-add-home.png */,
@@ -1866,6 +1870,8 @@
 				9E4872691811F08100B417F9 /* line.png in Resources */,
 				9EA5D3FE17F1627300CE7BD8 /* street@2x.png in Resources */,
 				9ECDB80417FF55AB004E5F25 /* menu-home-condo.png in Resources */,
+				9E6B328A183ADF6E00FF0209 /* home-interior-iphone4_04@2x.jpg in Resources */,
+				9E6B328E183AE1F700FF0209 /* home-interior-iphone4_02@2x.jpg in Resources */,
 				9ECCAD9A17F0E696001EAF4C /* doubledownarrow@2x.png in Resources */,
 				9EA5D3E217F15DC500CE7BD8 /* condo.png in Resources */,
 				9E5D592717F23738000CA229 /* help.png in Resources */,
@@ -1874,7 +1880,6 @@
 				9ECDB7FB17FF55AB004E5F25 /* menu-create-profile@2x.png in Resources */,
 				9E00FAA417F34DB100380997 /* HelpProfileViewController.xib in Resources */,
 				9EA5D3F917F1627300CE7BD8 /* city.png in Resources */,
-				D6C3AB3C1803CA3600123260 /* kCATIntroLifestyleViewController.xib in Resources */,
 				9E96EEED18107367001E8FF7 /* home-interior_03@2x.jpg in Resources */,
 				D6C88B3517DA7B3000DEA25D /* LoginViewController.xib in Resources */,
 				9E237BE31811A7CB0095B66B /* cocon.ttf in Resources */,
@@ -1900,6 +1905,7 @@
 				9EB873FB182CB7D200457312 /* pmi-chart@2x.png in Resources */,
 				9E2E762F1829BD61002F948C /* contact-realtor-box@2x.png in Resources */,
 				9EA5D40F17F162DE00CE7BD8 /* interestrate@2x.png in Resources */,
+				9E6B3289183ADF6E00FF0209 /* home-interior-iphone4_04.jpg in Resources */,
 				9ECDB81117FF55AB004E5F25 /* menu-terms-and-policies@2x.png in Resources */,
 				D6E6EE5C17E65AAF005D7526 /* salary.png in Resources */,
 				9EB6BEAD182C533B00142F98 /* home1-pink.png in Resources */,
@@ -1921,14 +1927,12 @@
 				D6E6EE5517E65A8A005D7526 /* couple@2x.png in Resources */,
 				9EEBB933182E2CB6008D83C2 /* addfirsthome@2x.png in Resources */,
 				D6E6EEC417E79DA8005D7526 /* back-icon@2x.png in Resources */,
-				D6C3AB411803CA5A00123260 /* kCATIntroRVBViewController.xib in Resources */,
 				9ECDB80617FF55AB004E5F25 /* menu-home-sfh.png in Resources */,
 				9ECDB7FF17FF55AB004E5F25 /* menu-empty@2x.png in Resources */,
 				D63EA20117FCF48F00E50E44 /* logo_svl@2x.gif in Resources */,
 				9E00FABE17F356EB00380997 /* helpbox.png in Resources */,
 				9EA5D3E817F15DC500CE7BD8 /* sfh-homeinfo-selected.png in Resources */,
 				9ECDED881803B63B00F2449E /* menu-add-home.png in Resources */,
-				D6C3AB461803CA7300123260 /* kCATIntroTaxViewController.xib in Resources */,
 				9ECDB80F17FF55AB004E5F25 /* menu-profile-single@2x.png in Resources */,
 				9EA5D3FC17F1627300CE7BD8 /* location@2x.png in Resources */,
 				D6841DED1824457D00BA5F48 /* TaxTableStateMFJ2013.plist in Resources */,
@@ -1952,11 +1956,13 @@
 				9EB34AE8182307CE009A3041 /* menu-dashboard@2x.png in Resources */,
 				D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */,
 				9E53443817F555B8006BA12D /* lifestyle-sports.png in Resources */,
+				9E6B327B183AD3B100FF0209 /* home-interior-iphone4_01.jpg in Resources */,
 				D6E6EE6C17E660EA005D7526 /* single-selected.png in Resources */,
 				9EEEAA3518156C1400B97A7A /* line-vertical@2x.png in Resources */,
 				9EA5D3FB17F1627300CE7BD8 /* location.png in Resources */,
 				9E587B361818FC3700E65DBA /* dash-create-profile.png in Resources */,
 				9E4872651811EC0B00B417F9 /* login.png in Resources */,
+				9E761FA8183BECE300D84961 /* sidearrow.png in Resources */,
 				9E53443417F555B8006BA12D /* lifestyle-music.png in Resources */,
 				9EA5D3DE17F15DC500CE7BD8 /* besthomefeature.png in Resources */,
 				9ECCAD8E17F0E556001EAF4C /* downarrow@2x.png in Resources */,
@@ -1967,7 +1973,6 @@
 				9ECDB80117FF55AB004E5F25 /* menu-fixedcosts@2x.png in Resources */,
 				9EE693FA1805EBD000B541DF /* aboutyou.png in Resources */,
 				9EB6BEAF182C533B00142F98 /* home2-blue.png in Resources */,
-				9EB51D04182CD57900520009 /* Dash2HomeComparisonViewController.xib in Resources */,
 				9E4DBF6A1805D04200F095F1 /* termsbox.png in Resources */,
 				9E53443917F555B8006BA12D /* lifestyle-sports@2x.png in Resources */,
 				9ECDB81017FF55AB004E5F25 /* menu-terms-and-policies.png in Resources */,
@@ -1977,7 +1982,6 @@
 				9EB873F5182CB7D200457312 /* hoa-chart@2x.png in Resources */,
 				9EE693F61805EB1C00B541DF /* fixedcosts.png in Resources */,
 				D6E6EEB717E79D6F005D7526 /* rent.png in Resources */,
-				D6C3AB371803C93300123260 /* kCATIntroAffordViewController.xib in Resources */,
 				9EB0EF27180338B500857763 /* menu-contact-realtor.png in Resources */,
 				9EB6BEB0182C533B00142F98 /* home2-blue@2x.png in Resources */,
 				9E587B3A1818FCAC00E65DBA /* dash-add-home.png in Resources */,
@@ -2010,7 +2014,6 @@
 				D6E6EE7017E660F9005D7526 /* couple-selected.png in Resources */,
 				9E8E867A182D70630001807D /* home-interior_02@2x.jpg in Resources */,
 				9E4DC4061821C0560089E94F /* state.png in Resources */,
-				D6C3AB291803892700123260 /* kCATIntroViewController.xib in Resources */,
 				D6E6EE6D17E660EA005D7526 /* single-selected@2x.png in Resources */,
 				9E53443317F555B8006BA12D /* lifestyle-food@2x.png in Resources */,
 				D6E6EE5117E659DD005D7526 /* AboutYouViewController.xib in Resources */,
@@ -2023,11 +2026,12 @@
 				9E3ACB851835EEDF00F15687 /* appname.png in Resources */,
 				9EB6BEB7182C965200142F98 /* home-fixedcosts.png in Resources */,
 				D63EA20017FCF48F00E50E44 /* logo_svl.gif in Resources */,
+				9E6B327C183AD3B100FF0209 /* home-interior-iphone4_01@2x.jpg in Resources */,
 				9E3ACB861835EEDF00F15687 /* appname@2x.png in Resources */,
 				9E237BE01811A0910095B66B /* home-interior_01.jpg in Resources */,
 				D63EA1FB17FCF42900E50E44 /* OneHomeLifestyleViewController.xib in Resources */,
 				9E22FCDA182AFD3700AA2234 /* healthcare@2x.png in Resources */,
-				D63EA1FD17FCF47900E50E44 /* chart.png in Resources */,
+				9E6B328D183AE1F700FF0209 /* home-interior-iphone4_02.jpg in Resources */,
 				D6841DEC1824457D00BA5F48 /* TaxTableFederalSingle2013.plist in Resources */,
 				9E2F71FB18260A3A00D2B593 /* menu-current-lifestyle@2x.png in Resources */,
 				9EA5D3FD17F1627300CE7BD8 /* street.png in Resources */,
@@ -2078,15 +2082,18 @@
 				9E35E9A11828D10F006A3B1A /* TaxTableFederalMFJ2014.plist in Resources */,
 				9E22FCD8182AFD3700AA2234 /* car@2x.png in Resources */,
 				9EB34AE7182307CE009A3041 /* menu-dashboard.png in Resources */,
+				9E6B3280183AD3B100FF0209 /* home-interior-iphone4_03@2x.jpg in Resources */,
 				D6E6EEC017E79D8C005D7526 /* otherexpenses@2x.png in Resources */,
 				9ECDB7FE17FF55AB004E5F25 /* menu-empty.png in Resources */,
 				9E4872661811EC0B00B417F9 /* login@2x.png in Resources */,
 				9EB6BEB8182C965200142F98 /* home-fixedcosts@2x.png in Resources */,
+				9E6B327F183AD3B100FF0209 /* home-interior-iphone4_03.jpg in Resources */,
 				9EEEAA3418156C1400B97A7A /* line-vertical.png in Resources */,
 				9EB873F6182CB7D200457312 /* insurance-chart.png in Resources */,
 				9EA5D40D17F162DE00CE7BD8 /* downpayment@2x.png in Resources */,
 				9EA5D3E617F15DC500CE7BD8 /* homeprice.png in Resources */,
 				9EA5D3E417F15DC500CE7BD8 /* hoa.png in Resources */,
+				9E761FA9183BECE300D84961 /* sidearrow@2x.png in Resources */,
 				9EB873F7182CB7D200457312 /* insurance-chart@2x.png in Resources */,
 				9ECDB80517FF55AB004E5F25 /* menu-home-condo@2x.png in Resources */,
 				9ECCAD5817F0CBFC001EAF4C /* forward-icon.png in Resources */,
@@ -2175,7 +2182,6 @@
 				D6842E5617DD2FD80028AF00 /* userProfileInfo.m in Sources */,
 				D6841DEF1824457D00BA5F48 /* UserProfileObject.m in Sources */,
 				D639981D180F5D900067EC2C /* MenuOptionCell.m in Sources */,
-				9EB51D03182CD57900520009 /* Dash2HomeComparisonViewController.m in Sources */,
 				D6EBEBC71815C064004B3CBF /* Cities.m in Sources */,
 				D6C3AB1218037C1900123260 /* TwoHomeLifestyleIncomeViewController.m in Sources */,
 				D6C3AB451803CA7300123260 /* kCATIntroTaxViewController.m in Sources */,

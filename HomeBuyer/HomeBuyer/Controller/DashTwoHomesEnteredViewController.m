@@ -23,21 +23,35 @@
 
 -(void) addButtons
 {
-    self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 360, 104, 30)];
+    if (IS_WIDESCREEN)
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 360, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 400, 104, 30)];
+        self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 447, 104, 30)];
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 520, 44, 44)];
+    }
+    else
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 320, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 407, 104, 30)];
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 436, 44, 44)];
+    }
+    
     self.mRentalButton.backgroundColor = [UIColor clearColor];
     [self.mRentalButton addTarget:self
                           action:@selector(rentalButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mRentalButton];
 
-    self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 400, 104, 30)];
+    
     self.mHome1Button.backgroundColor = [UIColor clearColor];
     [self.mHome1Button addTarget:self
                           action:@selector(home1ButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHome1Button];
 
-    self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 447, 104, 30)];
+    
     self.mHome2Button.backgroundColor = [UIColor clearColor];
     [self.mHome2Button addTarget:self
                           action:@selector(home2ButtonTapped:)
@@ -45,7 +59,6 @@
     [self.pageController.view addSubview:self.mHome2Button];
 
     
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];
@@ -54,6 +67,7 @@
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                   target:self
                                                   action:@selector(shareGraph)];
+    
     
 }
 
@@ -78,6 +92,12 @@
         ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
         contactRealtor.mContactRealtorDelegate = self;
         [self.mPageViewControllers addObject:contactRealtor];
+        
+        if (!IS_WIDESCREEN)
+        {
+            contactRealtor.mHome2DashContactRealtor.frame = CGRectMake(0, 90, contactRealtor.mHome2DashContactRealtor.frame.size.width, contactRealtor.mHome2DashContactRealtor.frame.size.height);
+        }
+        
     }
     
     [[self.pageController view] setFrame:[[self view] bounds]];
@@ -111,9 +131,14 @@
                                                                                 action:@selector(showLeftView)];
     }
     
+    CGRect pageBound = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
+                                  self.view.bounds.size.width, self.view.bounds.size.height);
+    self.pageController.view.frame = pageBound;
+    self.pageController.view.backgroundColor = [UIColor clearColor];
+    
     [self addButtons];
     self.pageController.delegate = self;
-
+    
     mCurrentViewController = lifestyleViewController;
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Viewed 2-home dashboard" properties:Nil];

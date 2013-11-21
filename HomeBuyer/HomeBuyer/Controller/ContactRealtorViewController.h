@@ -28,6 +28,7 @@ MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIButton* mCallNumber;
 @property (nonatomic, strong) IBOutlet UIButton* mTextNumber;
 @property (nonatomic, strong) IBOutlet UIImageView* mLogoImage;
+@property (nonatomic, strong) IBOutlet UIView* mHome2DashContactRealtor;
 @property (nonatomic) bool showDashboardIcon;
 -(IBAction)showDash:(id)sender;
 

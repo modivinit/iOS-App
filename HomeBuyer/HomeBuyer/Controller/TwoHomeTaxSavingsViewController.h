@@ -27,6 +27,8 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHome1TaxSavings;
 @property (nonatomic, strong) IBOutlet UILabel* mHome2TaxSavings;
 
+@property (nonatomic, strong) IBOutlet UIView* mHome2TaxCompareView;
+
 @property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
 - (UIImage*)snapshotWithOpenGLViews;
 

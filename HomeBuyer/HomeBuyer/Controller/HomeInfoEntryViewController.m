@@ -173,6 +173,12 @@
     self.mHomeAddressButton.titleLabel.textAlignment = NSTextAlignmentLeft;
 }
 
+- (void)viewDidAppear:(BOOL)animate
+{
+    [super viewDidAppear:animate];
+    [self.mFormScrollView flashScrollIndicators];
+}
+
 -(void) uploadHomeInfo
 {
     if(!self.mBestHomeFeatureField.text || self.mBestHomeFeatureField.text.length <= 0 ||

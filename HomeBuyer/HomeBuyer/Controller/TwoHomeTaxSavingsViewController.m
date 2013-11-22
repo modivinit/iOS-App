@@ -51,11 +51,11 @@
     
     if (IS_WIDESCREEN)
     {
-        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 185, 280, 180)];
     }
     else
     {
-        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 235, 280, 140)];
+        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 220, 280, 140)];
     }
     
     //self.mTaxSavingsChart.loadDataInBackground = YES;
@@ -178,7 +178,7 @@
     
     if (!IS_WIDESCREEN)
     {
-        self.mHome2TaxCompareView.frame = CGRectMake(0, 310, self.mHome2TaxCompareView.frame.size.width, self.mHome2TaxCompareView.frame.size.height);
+        self.mHome2TaxCompareView.frame = CGRectMake(0, 290, self.mHome2TaxCompareView.frame.size.width, self.mHome2TaxCompareView.frame.size.height);
     }
 
     [self setupChart];

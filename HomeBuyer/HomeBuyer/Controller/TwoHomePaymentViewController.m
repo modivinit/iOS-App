@@ -25,7 +25,7 @@
 {
     if (IS_WIDESCREEN)
     {
-        self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+        self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 185, 280, 180)];
     }
     else
     {

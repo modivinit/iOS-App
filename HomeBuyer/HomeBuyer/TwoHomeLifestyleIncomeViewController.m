@@ -25,11 +25,11 @@
 {    
     if (IS_WIDESCREEN)
     {
-        self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+        self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 185, 280, 180)];
     }
     else
     {
-        self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 235, 280, 140)];
+        self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 220, 280, 140)];
     }
     
     self.mLifestyleIncomeChart.autoresizingMask =  ~UIViewAutoresizingNone;
@@ -160,7 +160,7 @@
     
     if (!IS_WIDESCREEN)
     {
-        self.mHome2CashView.frame = CGRectMake(0, 310, self.mHome2CashView.frame.size.width, self.mHome2CashView.frame.size.height);
+        self.mHome2CashView.frame = CGRectMake(0, 290, self.mHome2CashView.frame.size.width, self.mHome2CashView.frame.size.height);
     }
     
     [self setupChart];

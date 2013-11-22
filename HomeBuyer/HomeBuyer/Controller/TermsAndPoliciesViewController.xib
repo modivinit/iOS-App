@@ -157,6 +157,45 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
+                                <fragment>
+                                    <string key="content">  (c) CHILDREN’S PRIVACY.  From our site, we do not knowingly collect personal information from individuals under the age of 18 without obtaining verifiable consent from their parents.  For more information about the Children’s Online Privacy Protection Act, visit the FTC website @ </string>
+                                    <attributes>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="www.ftc.gov">
+                                    <attributes>
+                                        <color key="NSColor" red="0.066666666666666666" green="0.33333333333333331" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <url key="NSLink" string="http://www.ftc.gov/"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                        <integer key="NSUnderline" value="1"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" ">
+                                    <attributes>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="12" name="Times-Roman"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
                                 <fragment content="2.2. USES OF INFORMATION COLLECTED">
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>

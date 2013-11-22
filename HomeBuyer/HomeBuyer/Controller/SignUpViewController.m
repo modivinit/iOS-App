@@ -1,4 +1,4 @@
-//
+    //
 //  SignUpViewController.m
 //  HomeBuyer
 //
@@ -27,6 +27,14 @@
 @end
 
 @implementation SignUpViewController
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registerUser:)
+                                                 name:kReturnButtonClickedOnSignupForm
+                                               object:nil];
+}
 
 - (void)viewDidLoad
 {
@@ -57,10 +65,10 @@
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(registerUser:)
-                                                 name:kReturnButtonClickedOnSignupForm
-                                               object:nil];
+    
+    self.mPasswordField.delegate = self;
+    self.mEmailField.delegate = self;
+    self.mNameField.delegate = self;
 }
 
 -(void) cancelScreen
@@ -85,7 +93,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-    //[self deregisterForKeyboardNotifications];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +110,14 @@
     }
 }
 
+-(BOOL) isPassowrdValid
+{
+    if(self.mPasswordField.text && self.mPasswordField.text.length >= MIN_PASSWORD_LENGTH)
+        return YES;
+    else
+        return NO;
+}
+
 -(void) registerUser:(id)sender
 {
     if([Utilities isUITextFieldEmpty:self.mNameField] ||
@@ -115,6 +131,13 @@
     if(![Utilities isValidEmail:self.mEmailField.text])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid email"];
+        return;
+    }
+    
+    if(![self isPassowrdValid])
+    {
+        [Utilities showAlertWithTitle:@"Error"
+                           andMessage:[NSString stringWithFormat:@"Password should be at least %d characters long", MIN_PASSWORD_LENGTH]];
         return;
     }
     
@@ -252,7 +275,7 @@
         futurePasswordLength = self.mPasswordField.text.length;
     }
     
-    if(futurePasswordLength >= 6 && futureNameLength > 0 && futureEmailLength > 0)
+    if(futurePasswordLength >= MIN_PASSWORD_LENGTH && futureNameLength > 0 && futureEmailLength > 0)
     {
         [self enableRegisterButton];
     }

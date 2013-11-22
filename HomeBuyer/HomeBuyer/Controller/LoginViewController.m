@@ -25,6 +25,19 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginUser)
+                                                 name:kReturnButtonClickedOnSigninForm
+                                               object:nil];
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     NSString* titleText = [NSString stringWithFormat:@"Sign In"];
@@ -57,11 +70,6 @@
 
     [self disableLoginButton];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loginUser)
-                                                 name:kReturnButtonClickedOnSigninForm
-                                               object:nil];
-
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -82,12 +90,15 @@
     NSString* email = self.mLoginEmail.text;
     NSString* password = self.mPassword.text;
     
-    if(!email || !password)
+    if(!email || !password || !email.length || !password.length)
+    {
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Password and Email cannot be empty"];
         return;
+    }
     
     if(![Utilities isValidEmail:email])
     {
-        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid email"];
+        [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter a valid Email"];
         return;
     }
     
@@ -107,7 +118,7 @@
     }
 }
 
-#pragma ResetPasswordDelegate
+#pragma ResetPasswordDelegate1
 -(void) resetRequestSent
 {
     [self.navigationController popViewControllerAnimated:NO];    
@@ -202,7 +213,7 @@
         futurePasswordLength = self.mPassword.text.length;
     }
 
-    if(futurePasswordLength >= 6 && futureEmailLength > 0)
+    if(futurePasswordLength >= 1 && futureEmailLength > 0)
     {
         [self enableLoginButton];
     }

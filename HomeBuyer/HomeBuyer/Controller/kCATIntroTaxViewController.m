@@ -85,12 +85,12 @@
     if (IS_WIDESCREEN)
     {
         backImage = [UIImage imageNamed:@"home-interior_03.jpg"];
-        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 65, 280, 40)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 65, 290, 40)];
     }
     else
     {
         backImage = [UIImage imageNamed:@"home-interior-iphone4_03.jpg"];
-        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 280, 40)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 290, 40)];
     }
 
     
@@ -101,7 +101,7 @@
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"Compare annual income tax savings across homes before you buy.";
+    label.text = @"Personalized annual income tax savings across homes before you buy.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

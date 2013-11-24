@@ -100,7 +100,7 @@
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"See how a home purchase affects your monthly cash flow.";
+    label.text = @"Find out which home fits in your wallet.";
     label.font = [UIFont fontWithName:@"cocon" size:16];
     label.textColor = [Utilities getKunanceBlueColor];
     [self.view addSubview:label];

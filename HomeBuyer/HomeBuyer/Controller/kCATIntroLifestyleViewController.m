@@ -44,11 +44,11 @@
         
     if (IS_WIDESCREEN)
     {
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 117, 310, 220)];
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 125, 280, 190)];
     }
     else
     {
-        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 97, 310, 220)];
+        self.mHomeLifeStyleChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(25, 80, 265, 180)];
     }
     
     self.mHomeLifeStyleChart.autoresizingMask =  ~UIViewAutoresizingNone;

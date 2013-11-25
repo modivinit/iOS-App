@@ -23,6 +23,18 @@
 
 -(void) addButtons
 {
+    [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
+    [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.pageController.view addSubview:self.mHelpButton];
+    
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                  target:self
+                                                  action:@selector(shareGraph)];
+}
+
+-(void) addButtonsToPageView:(UIView*) view
+{
     if (IS_WIDESCREEN)
     {
         self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 360, 104, 30)];
@@ -40,34 +52,23 @@
     
     self.mRentalButton.backgroundColor = [UIColor clearColor];
     [self.mRentalButton addTarget:self
-                          action:@selector(rentalButtonTapped:)
-                forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mRentalButton];
-
+                           action:@selector(rentalButtonTapped:)
+                 forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:self.mRentalButton];
+    
     
     self.mHome1Button.backgroundColor = [UIColor clearColor];
     [self.mHome1Button addTarget:self
                           action:@selector(home1ButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mHome1Button];
-
+    [view addSubview:self.mHome1Button];
+    
     
     self.mHome2Button.backgroundColor = [UIColor clearColor];
     [self.mHome2Button addTarget:self
                           action:@selector(home2ButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mHome2Button];
-
-    
-    [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
-    [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mHelpButton];
-    
-    self.navigationItem.rightBarButtonItem =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                  target:self
-                                                  action:@selector(shareGraph)];
-    
+    [view addSubview:self.mHome2Button];
     
 }
 
@@ -77,14 +78,17 @@
     
     lifestyleViewController = [[TwoHomeLifestyleIncomeViewController alloc] init];
     lifestyleViewController.mTwoHomeLifestyleDelegate = self;
+    [self addButtonsToPageView:lifestyleViewController.view];
     [self.mPageViewControllers addObject:lifestyleViewController];
     
     taxSavingsViewController = [[TwoHomeTaxSavingsViewController alloc] init];
     taxSavingsViewController.mTwoHomeTaxSavingsDelegate = self;
+    [self addButtonsToPageView:taxSavingsViewController.view];
     [self.mPageViewControllers addObject:taxSavingsViewController];
     
     paymentViewController = [[TwoHomePaymentViewController alloc] init];
     paymentViewController.mTwoHomePaymentDelegate = self;
+    [self addButtonsToPageView:paymentViewController.view];
     [self.mPageViewControllers addObject:paymentViewController];
     
     if([kunanceUser getInstance].mRealtor && [kunanceUser getInstance].mRealtor.mIsValid)

@@ -156,7 +156,6 @@ toggledSelectionForRadialPoint:(SChartRadialDataPoint *)dataPoint
       inSeries:(SChartRadialSeries *)series
 atPixelCoordinate:(CGPoint)pixelPoint
 {
-    NSLog(@"Selected country: %@", dataPoint.name);
 }
 
 #pragma mark - SChartDatasource methods

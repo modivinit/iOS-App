@@ -273,7 +273,7 @@ Cg
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content"> or select the “opt out” box on our online forms, but please understand that such a request will likely limit your ability to take advantage of all of the features and services we offer on the Site. In addition, we maintain a procedure for you to review and request changes to your Personal Information; this procedure is described in Section 3.1, below.</string>
+                                    <string key="content">, but please understand that such a request will likely limit your ability to take advantage of all of the features and services we offer on the Site. In addition, we maintain a procedure for you to review and request changes to your Personal Information; this procedure is described in Section 3.1, below.</string>
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="11" defaultTabInterval="36">

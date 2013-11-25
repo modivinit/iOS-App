@@ -16,7 +16,8 @@
 #define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 7
 
 @interface AboutYouViewController ()
-
+@property (nonatomic, strong) NSTimer* mUpdateProfileTimeoutTimer;
+@property (nonatomic, strong) UIAlertView* mSlowNetworkAlert;
 @end
 
 @implementation AboutYouViewController
@@ -28,6 +29,8 @@
         // Custom initialization
         self.mSelectedMaritalStatus = StatusNotDefined;
         self.mFixedCostsController = nil;
+        self.mUpdateProfileTimeoutTimer = nil;
+        self.mSlowNetworkAlert = nil;
     }
     
     return self;
@@ -163,6 +166,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
+    
     if([self.mAnnualGrossIncomeField.amount floatValue] <= 0)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
@@ -177,21 +181,58 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Updating";
 
+    self.mUpdateProfileTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_NETWORK_CALL_TIMEOUT_IN_SECS
+                                                                       target:self
+                                                                     selector:@selector(updateProfileCallTimedOut)
+                                                                     userInfo:nil
+                                                                      repeats:YES];
+    
     if(![[kunanceUser getInstance].mkunanceUserProfileInfo
                 writeUserPFInfo:[self.mAnnualGrossIncomeField.amount intValue]
                annualRetirement:[self.mAnnualRetirementContributionField.amount intValue]
                numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
                   maritalStatus:self.mSelectedMaritalStatus])
     {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self cleanUpTimerAndAlert];
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
     }
 }
 
+-(void) cleanUpTimerAndAlert
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.mUpdateProfileTimeoutTimer invalidate];
+    if(self.mSlowNetworkAlert)
+    {
+        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
+        self.mSlowNetworkAlert = nil;
+    }
+}
+
+-(void) updateProfileCallTimedOut
+{
+    if (!self.mSlowNetworkAlert)
+    {
+        self.mSlowNetworkAlert = [Utilities showSlowConnectionAlert];
+        self.mSlowNetworkAlert.delegate = self;
+    }
+}
+
+#pragma mark UIAlertViewDelegate
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView == self.mSlowNetworkAlert)
+    {
+        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
+        self.mSlowNetworkAlert = nil;
+    }
+}
+#pragma end
+
 #pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self cleanUpTimerAndAlert];
 
     if([kunanceUser getInstance].mkunanceUserProfileInfo)
     {

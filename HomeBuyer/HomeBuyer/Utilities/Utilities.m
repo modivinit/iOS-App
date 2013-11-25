@@ -47,7 +47,7 @@
     return [currencyNumberFormatter stringFromNumber:amount];
 }
 
-+(void) showAlertWithTitle:(NSString*)title andMessage:(NSString*) msg
++(UIAlertView*) showAlertWithTitle:(NSString*)title andMessage:(NSString*) msg
 {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title
                                                      message:msg
@@ -55,6 +55,12 @@
                                            cancelButtonTitle:@"OK"
                                            otherButtonTitles: nil];
     [alert show];
+    return alert;
+}
+
++(UIAlertView*) showSlowConnectionAlert
+{
+    return [Utilities showAlertWithTitle:@"Slow Connection" andMessage:@"Your profile may be slow to load due to network conditions"];
 }
 
 +(UIColor*) getKunanceBlueColor

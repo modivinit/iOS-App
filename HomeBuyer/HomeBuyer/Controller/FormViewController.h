@@ -20,6 +20,8 @@
 -(void) setupNavControl;
 -(void) deregisterForKeyboardNotifications;
 -(void) registerForKeyboardNotifications;
+-(void) startAPICallWithMessage:(NSString*) message;
+-(void) cleanUpTimerAndAlert;
 
 @property (nonatomic, strong) IBOutlet UIScrollView* mFormScrollView;
 @property (nonatomic, strong) UITextField*  mActiveField;

@@ -98,7 +98,7 @@
 #pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self cleanUpTimerAndAlert];
 
     if([[kunanceUser getInstance].mkunanceUserProfileInfo isFixedCostsInfoEntered])
     {
@@ -152,15 +152,14 @@
     if(userProfileInfo)
     {
         userProfileInfo.mUserProfileInfoDelegate =self;
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Calculating";
-
+        [self startAPICallWithMessage:@"Calculating"];
+        
         if(![userProfileInfo writeFixedCostsInfo:[self.mMonthlyRent.amount intValue]
                    monthlyCarPaments:[self.mMonthlyCarPayments.amount intValue]
                      otherFixedCosts:[self.mOtherMonthlyPayments.amount intValue]
              monthlyHealthInsurance:[self.mMonthlyHealthInsurancePayments.amount intValue]])
         {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self cleanUpTimerAndAlert];
             [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your information."];
         }
     }

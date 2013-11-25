@@ -273,12 +273,11 @@
 
     [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Calculating";
-
+    [self startAPICallWithMessage:@"Calculating"];
+    
     if(![[kunanceUser getInstance].mKunanceUserLoans writeLoanInfo:newLoanInfo])
     {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self cleanUpTimerAndAlert];
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
         return;
     }
@@ -324,7 +323,7 @@
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self cleanUpTimerAndAlert];
 
     [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
     if(self.mCompareHomesButton.enabled)

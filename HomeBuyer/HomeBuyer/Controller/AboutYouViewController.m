@@ -16,7 +16,6 @@
 #define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 7
 
 @interface AboutYouViewController ()
-@property (nonatomic, strong) NSTimer* mUpdateProfileTimeoutTimer;
 @property (nonatomic, strong) UIAlertView* mSlowNetworkAlert;
 @end
 
@@ -29,7 +28,6 @@
         // Custom initialization
         self.mSelectedMaritalStatus = StatusNotDefined;
         self.mFixedCostsController = nil;
-        self.mUpdateProfileTimeoutTimer = nil;
         self.mSlowNetworkAlert = nil;
     }
     
@@ -178,14 +176,7 @@
     
     [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Updating";
-
-    self.mUpdateProfileTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_NETWORK_CALL_TIMEOUT_IN_SECS
-                                                                       target:self
-                                                                     selector:@selector(updateProfileCallTimedOut)
-                                                                     userInfo:nil
-                                                                      repeats:YES];
+    [self startAPICallWithMessage:@"Updating"];
     
     if(![[kunanceUser getInstance].mkunanceUserProfileInfo
                 writeUserPFInfo:[self.mAnnualGrossIncomeField.amount intValue]
@@ -197,37 +188,6 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
     }
 }
-
--(void) cleanUpTimerAndAlert
-{
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.mUpdateProfileTimeoutTimer invalidate];
-    if(self.mSlowNetworkAlert)
-    {
-        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
-        self.mSlowNetworkAlert = nil;
-    }
-}
-
--(void) updateProfileCallTimedOut
-{
-    if (!self.mSlowNetworkAlert)
-    {
-        self.mSlowNetworkAlert = [Utilities showSlowConnectionAlert];
-        self.mSlowNetworkAlert.delegate = self;
-    }
-}
-
-#pragma mark UIAlertViewDelegate
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(alertView == self.mSlowNetworkAlert)
-    {
-        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
-        self.mSlowNetworkAlert = nil;
-    }
-}
-#pragma end
 
 #pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo

@@ -23,6 +23,8 @@
 #define FIRST_HOME 0
 #define SECOND_HOME 1
 
+#define MAX_NETWORK_CALL_TIMEOUT_IN_SECS 8
+
 #define MIN_PASSWORD_LENGTH 6
 // Used to specify the application used in accessing the Keychain.
 #define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]

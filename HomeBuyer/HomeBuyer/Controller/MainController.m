@@ -15,11 +15,14 @@
 #import "HomeInfoDashViewController.h"
 #import "TermsAndPoliciesViewController.h"
 #import "ContactRealtorViewController.h"
+#import "StartupScreenViewController.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @property (nonatomic, strong) kCATIntroViewController* mIntroView;
 @property (nonatomic, strong) UIAlertView* mRealtorIDEntryView;
+@property (nonatomic, strong) NSTimer* mStartupReadTimer;
+@property (nonatomic, strong) StartupScreenViewController* mStartupView;
 @end
 
 @implementation MainController
@@ -97,6 +100,20 @@
 
 -(void) readUserPFInfo
 {
+    
+    //Timer for network read timeouts
+    self.mStartupReadTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_NETWORK_CALL_TIMEOUT_IN_SECS
+                                                     target:self
+                                                   selector:@selector(networkReadTimedOut)
+                                                   userInfo:nil
+                                                    repeats:NO];
+    
+    self.mStartupView = [[StartupScreenViewController alloc] init];
+    [self setRootView:self.mStartupView];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.mStartupView.view animated:YES];
+    hud.labelText = @"Reading Profile";
+
     //Piggy back realtor API here for now.
     [[kunanceUser getInstance] readRealtorInfo];
 
@@ -108,6 +125,11 @@
         [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
         [[kunanceUser getInstance].mkunanceUserProfileInfo readUserPFInfo];
     }
+}
+
+-(void) networkReadTimedOut
+{
+    [Utilities showAlertWithTitle:@"Slow Connection" andMessage:@"Your profile may be slow to load due to network conditions"];
 }
 
 -(void) logUserOut
@@ -295,6 +317,7 @@
 -(void) finishedReadingLoanInfo
 {
     [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
+    [MBProgressHUD hideHUDForView:self.mStartupView.view animated:YES];
     [self displayDash];
 }
 #pragma end

@@ -241,6 +241,8 @@
 		D647039018170970003810B4 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D647038F18170970003810B4 /* libz.1.1.3.dylib */; };
 		D6470392181709AB003810B4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6470391181709AB003810B4 /* StoreKit.framework */; };
 		D6470394181709BA003810B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6470393181709BA003810B4 /* SystemConfiguration.framework */; };
+		D650638A1843CEE80015FF99 /* StartupScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65063881843CEE80015FF99 /* StartupScreenViewController.m */; };
+		D650638B1843CEE80015FF99 /* StartupScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65063891843CEE80015FF99 /* StartupScreenViewController.xib */; };
 		D65A217D17FDFDE900884291 /* TwoHomePaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */; };
 		D65A217E17FDFDE900884291 /* TwoHomePaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */; };
 		D65A218117FE0E9D00884291 /* DashLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A218017FE0E9D00884291 /* DashLeftMenuViewController.m */; };
@@ -608,6 +610,9 @@
 		D647038F18170970003810B4 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		D6470391181709AB003810B4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D6470393181709BA003810B4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D65063871843CEE80015FF99 /* StartupScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartupScreenViewController.h; path = Controller/StartupScreenViewController.h; sourceTree = "<group>"; };
+		D65063881843CEE80015FF99 /* StartupScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartupScreenViewController.m; path = Controller/StartupScreenViewController.m; sourceTree = "<group>"; };
+		D65063891843CEE80015FF99 /* StartupScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartupScreenViewController.xib; path = Controller/StartupScreenViewController.xib; sourceTree = "<group>"; };
 		D65A217A17FDFDE900884291 /* TwoHomePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoHomePaymentViewController.h; path = Controller/TwoHomePaymentViewController.h; sourceTree = "<group>"; };
 		D65A217B17FDFDE900884291 /* TwoHomePaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoHomePaymentViewController.m; path = Controller/TwoHomePaymentViewController.m; sourceTree = "<group>"; };
 		D65A217C17FDFDE900884291 /* TwoHomePaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoHomePaymentViewController.xib; path = Controller/TwoHomePaymentViewController.xib; sourceTree = "<group>"; };
@@ -1149,6 +1154,23 @@
 				D6C88B2D17DA7B1600DEA25D /* LoginViewController.m */,
 			);
 			name = Login/Signup;
+			sourceTree = "<group>";
+		};
+		D65063831843CAE70015FF99 /* StartupScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D65063891843CEE80015FF99 /* StartupScreenViewController.xib */,
+			);
+			name = StartupScreen;
+			sourceTree = "<group>";
+		};
+		D65063861843CEB60015FF99 /* StartupScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D65063871843CEE80015FF99 /* StartupScreenViewController.h */,
+				D65063881843CEE80015FF99 /* StartupScreenViewController.m */,
+			);
+			name = StartupScreen;
 			sourceTree = "<group>";
 		};
 		D65A217817FDFDAD00884291 /* Dash2HomesEntered */ = {
@@ -1694,6 +1716,7 @@
 		D6EEFFC517CDBDE500EB28C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D65063831843CAE70015FF99 /* StartupScreen */,
 				9E2E76251829B841002F948C /* AddRealtor */,
 				D6E6EE4B17E659A7005D7526 /* AboutYou */,
 				9E4DBF6C1805D06F00F095F1 /* ContactRealtor */,
@@ -1719,6 +1742,7 @@
 		D6EEFFC617CDBDEA00EB28C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D65063861843CEB60015FF99 /* StartupScreen */,
 				9E2E762B1829B86A002F948C /* AddRealtor */,
 				D6E6EE4C17E659AF005D7526 /* AboutYou */,
 				9E4DBF6D1805D07900F095F1 /* ContactRealtor */,
@@ -1871,6 +1895,7 @@
 				9E237BE11811A0910095B66B /* home-interior_01@2x.jpg in Resources */,
 				9ECDB80D17FF55AB004E5F25 /* menu-profile-couple@2x.png in Resources */,
 				9E0DB87318075AD700B5184E /* addahome@2x.png in Resources */,
+				D650638B1843CEE80015FF99 /* StartupScreenViewController.xib in Resources */,
 				9E4872691811F08100B417F9 /* line.png in Resources */,
 				9EA5D3FE17F1627300CE7BD8 /* street@2x.png in Resources */,
 				9ECDB80417FF55AB004E5F25 /* menu-home-condo.png in Resources */,
@@ -2194,6 +2219,7 @@
 				D6841DE81824457D00BA5F48 /* homeAndLoanInfo.m in Sources */,
 				D63998201811E0B40067EC2C /* FormNoScrollViewViewController.m in Sources */,
 				D6C88B2917DA79AA00DEA25D /* MainController.m in Sources */,
+				D650638A1843CEE80015FF99 /* StartupScreenViewController.m in Sources */,
 				D6C890B817DC4426007CB46F /* LeftMenuViewController.m in Sources */,
 				D67EFDF117CCE1280082F6C7 /* main.m in Sources */,
 				9E0BCA7E18048EF300863FB7 /* OneHomeTaxSavingsViewController.m in Sources */,

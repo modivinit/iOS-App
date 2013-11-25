@@ -69,6 +69,15 @@
     if(![kunanceUser getInstance].mRealtor.mEmail)
         self.mEmail.hidden = YES;
     
+    if(![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]])
+        self.mCallNumber.enabled = NO;
+
+    if(![MFMailComposeViewController canSendMail])
+        self.mEmail.enabled = NO;
+
+    if(![MFMessageComposeViewController canSendText])
+        self.mTextNumber.enabled = NO;
+    
     if(!self.showDashboardIcon)
         self.mDashboard.hidden = YES;
     else

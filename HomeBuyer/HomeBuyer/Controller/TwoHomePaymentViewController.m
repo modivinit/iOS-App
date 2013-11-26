@@ -63,11 +63,6 @@
     self.mMontlyPaymentChart.clipsToBounds = NO;
 }
 
-- (UIImage*)snapshotWithOpenGLViews
-{
-    return [self.mMontlyPaymentChart snapshot];
-}
-
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mTwoHomePaymentDelegate setNavTitle:@"Monthly Payments"];

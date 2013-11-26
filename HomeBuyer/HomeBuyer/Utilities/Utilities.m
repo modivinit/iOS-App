@@ -34,6 +34,19 @@
     return HUD;
 }
 
++(UIImage *)takeSnapshotOfView:(UIView*) view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [UIScreen mainScreen].scale);
+    
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    
+    // old style [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 
 +(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount
 {

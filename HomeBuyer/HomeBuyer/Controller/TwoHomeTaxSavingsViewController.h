@@ -30,7 +30,6 @@
 @property (nonatomic, strong) IBOutlet UIView* mHome2TaxCompareView;
 
 @property (nonatomic, strong) ShinobiChart* mTaxSavingsChart;
-- (UIImage*)snapshotWithOpenGLViews;
 
 @property (nonatomic, weak) id <TwoHomeTaxSavingsDelegate> mTwoHomeTaxSavingsDelegate;
 @end

@@ -31,6 +31,4 @@
 
 @property (nonatomic, strong) IBOutlet UIView* mHome2CashView;
 
-- (UIImage*)snapshotWithOpenGLViews;
-
 @end

@@ -68,11 +68,6 @@
     [self.mTwoHomeLifestyleDelegate setNavTitle:@"Monthly Cash Flow"];
 }
 
-- (UIImage*)snapshotWithOpenGLViews
-{    
-    return [self.mLifestyleIncomeChart snapshot];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

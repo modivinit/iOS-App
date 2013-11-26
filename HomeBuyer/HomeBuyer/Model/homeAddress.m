@@ -65,6 +65,45 @@ static NSString* const kHomeAddressZipCodeKey = @"HomeAddressZipCode";
     return self;
 }
 
+-(NSString*) getPrintableHomeAddress
+{
+    if(self.mStreetAddress || self.mCity || self.mState || self.mZipCode)
+    {
+        NSMutableString* addressStr = [[NSMutableString alloc] init];
+
+        if(self.mStreetAddress)
+            [addressStr appendString:self.mStreetAddress];
+        
+        if(self.mCity)
+        {
+            if(addressStr.length > 0)
+                [addressStr appendString:[NSString stringWithFormat:@", %@",self.mCity]];
+            else
+                [addressStr appendString:self.mCity];
+        }
+        
+        if(self.mState)
+        {
+            if(addressStr.length > 0)
+                [addressStr appendString:[NSString stringWithFormat:@", %@",self.mState]];
+            else
+                [addressStr appendString:self.mState];
+        }
+
+        if(self.mZipCode)
+        {
+            if(addressStr.length > 0)
+                [addressStr appendString:[NSString stringWithFormat:@", %@",self.mZipCode]];
+            else
+                [addressStr appendString:self.mZipCode];
+        }
+    
+        return addressStr;
+    }
+    else
+        return nil;
+}
+
 -(NSDictionary*) getDictionaryForAddressObject
 {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];

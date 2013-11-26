@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString* mState;
 @property (nonatomic, copy) NSString* mZipCode;
 
+-(NSString*) getPrintableHomeAddress;
 -(id) initWithDictionary:(NSDictionary*) addressDict;
 -(NSDictionary*) getDictionaryForAddressObject;
 @end

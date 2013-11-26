@@ -40,11 +40,6 @@
 {
 }
 
-- (UIImage*)snapshotWithOpenGLViews
-{
-    return [self.mTaxSavingsChart snapshot];
-}
-
 -(void) setupChart
 {
     // create the data

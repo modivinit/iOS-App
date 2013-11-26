@@ -161,6 +161,16 @@
     }
 }
 
+-(IBAction)privacyPolicyClicked:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://kunance.com/privacy.html"]];
+}
+
+-(IBAction)termsClicked:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://kunance.com/terms.html"]];
+}
+
 #pragma RealtorDelegate
 -(void) finishedReadingRealtorInfo:(NSError *)error
 {

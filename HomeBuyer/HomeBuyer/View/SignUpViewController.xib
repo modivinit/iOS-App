@@ -10,7 +10,9 @@
                 <outlet property="mEmailField" destination="jKA-3h-3vH" id="mDL-K6-zh8"/>
                 <outlet property="mNameField" destination="hsL-1G-0fQ" id="gca-aI-OiB"/>
                 <outlet property="mPasswordField" destination="hhi-Fl-KnA" id="vgo-4W-hYk"/>
+                <outlet property="mPrivacyPolicyButton" destination="ibY-Cv-cdK" id="NIK-ZJ-N56"/>
                 <outlet property="mRealtorCodeField" destination="i2x-9n-aIP" id="eNv-Uc-sHW"/>
+                <outlet property="mTermsButton" destination="19N-Xu-dAY" id="qlA-Nz-ERo"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -75,13 +77,42 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking Join I agree to the Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dYr-8p-KLC">
-                    <rect key="frame" x="42" y="252" width="237" height="10"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking Join I agree to the" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dYr-8p-KLC">
+                    <rect key="frame" x="44" y="252" width="106" height="10"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ibY-Cv-cdK">
+                    <rect key="frame" x="153" y="240" width="51" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
+                    <state key="normal" title="Privacy Policy">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="privacyPolicyClicked:" destination="-1" eventType="touchDown" id="UiZ-vq-TRs"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aB5-nn-k99">
+                    <rect key="frame" x="205" y="252" width="14" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="19N-Xu-dAY">
+                    <rect key="frame" x="221" y="240" width="60" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
+                    <state key="normal" title="Terms of Service">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="termsClicked:" destination="-1" eventType="touchDown" id="mlH-xV-P53"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

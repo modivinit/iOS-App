@@ -34,7 +34,7 @@
                     </connections>
                 </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-jy-Anf">
-                    <rect key="frame" x="8" y="491" width="44" height="44"/>
+                    <rect key="frame" x="0.0" y="491" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="jpr-xS-Akr"/>
@@ -84,7 +84,7 @@
                 <constraint firstItem="K4J-Ob-Wc9" firstAttribute="trailing" secondItem="9" secondAttribute="trailing" id="fZT-Jg-CRG"/>
                 <constraint firstAttribute="bottom" secondItem="fFr-jy-Anf" secondAttribute="bottom" constant="33" id="lJ9-5I-gLm"/>
                 <constraint firstItem="7" firstAttribute="trailing" secondItem="9" secondAttribute="trailing" id="mbA-lE-le0"/>
-                <constraint firstItem="fFr-jy-Anf" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="ucB-6Z-A0H"/>
+                <constraint firstItem="fFr-jy-Anf" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="ucB-6Z-A0H"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

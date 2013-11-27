@@ -16,4 +16,8 @@
 @property (nonatomic, strong) UIToolbar*    mKeyBoardToolbar;
 
 @property (nonatomic) BOOL mShowDoneButton;
+
+-(void) startAPICallWithMessage:(NSString*) message;
+-(void) cleanUpTimerAndAlert;
+
 @end

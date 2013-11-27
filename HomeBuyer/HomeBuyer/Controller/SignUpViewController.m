@@ -144,10 +144,8 @@
     self.view.userInteractionEnabled = NO;
     [kunanceUser getInstance].mKunanceUserDelegate = self;
 
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Signing Up";
-    
-
+    [self startAPICallWithMessage:@"Signing Up"];
+        self.navigationItem.leftBarButtonItem.enabled = NO;
     if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
                              password:self.mPasswordField.text
                                 email:self.mEmailField.text
@@ -155,7 +153,8 @@
     {
         [self disableRegisterButton];
         self.mPasswordField.text = @"";
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self cleanUpTimerAndAlert];
+                self.navigationItem.leftBarButtonItem.enabled = YES;
         self.view.userInteractionEnabled = YES;
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
     }
@@ -188,8 +187,9 @@
 #pragma LoginSignupServiceDelegate
 -(void) signupCompletedWithError:(NSError *)error
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-
+    [self cleanUpTimerAndAlert];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    
     if(error)
     {
         NSDictionary* userInfo = error.userInfo;

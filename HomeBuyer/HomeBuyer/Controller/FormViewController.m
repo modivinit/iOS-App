@@ -30,6 +30,7 @@
         self.mFormFields = nil;
         self.mActiveField = nil;
         self.mUpdateDataTimeoutTimer = nil;
+        self.mSlowNetworkAlert = nil;
     }
     
     return self;

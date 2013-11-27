@@ -105,16 +105,19 @@
     self.view.userInteractionEnabled = NO;
     [self disableLoginButton];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Logging in";
-    
+    [self startAPICallWithMessage:@"Logging In"];
     [kunanceUser getInstance].mKunanceUserDelegate = self;
+    
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    
     if(![[kunanceUser getInstance] loginWithEmail:email password:password])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];
         self.mPassword.text = @"";
+        self.navigationItem.leftBarButtonItem.enabled = YES;
         self.view.userInteractionEnabled = YES;
         [self disableLoginButton];
+        [self cleanUpTimerAndAlert];
     }
 }
 
@@ -129,8 +132,9 @@
 #pragma mark LoginSignupServiceDelegate
 -(void) loginCompletedWithError:(NSError *)error
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-
+    [self cleanUpTimerAndAlert];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    
     if(error)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Login Failed. Please try again."];

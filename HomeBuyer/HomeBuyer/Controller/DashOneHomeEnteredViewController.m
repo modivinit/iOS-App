@@ -51,8 +51,8 @@
     }
     else
     {
-        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 320, 104, 30)];
-        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 300, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 340, 104, 30)];
         self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 25, 25)];
         self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 403, 100, 40)];
         self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;

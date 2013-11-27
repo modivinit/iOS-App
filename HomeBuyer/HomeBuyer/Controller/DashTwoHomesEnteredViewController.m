@@ -45,9 +45,9 @@
     }
     else
     {
-        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 320, 104, 30)];
-        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
-        self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 407, 104, 30)];
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 300, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 340, 104, 30)];
+        self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 380, 104, 30)];
         self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 436, 44, 44)];
     }
     

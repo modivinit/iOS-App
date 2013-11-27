@@ -8,7 +8,6 @@
 
 #import "TwoHomeTaxSavingsViewController.h"
 #import "kCATCalculator.h"
-#import "ShinobiChart+Screenshot.h"
 
 
 @interface TwoHomeTaxSavingsViewController () <SChartDatasource, SChartDelegate>

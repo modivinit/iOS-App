@@ -29,6 +29,4 @@
 
 @property (nonatomic) IBOutlet UIButton* mAddAHomeButton;
 -(IBAction)addAHomeTapped:(id)sender;
-
-- (UIImage*)snapshotWithOpenGLViews;
 @end

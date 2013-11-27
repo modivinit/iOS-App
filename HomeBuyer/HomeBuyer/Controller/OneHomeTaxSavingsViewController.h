@@ -22,5 +22,4 @@
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 @property (nonatomic, strong) IBOutlet UIView* mTaxSavingsView;
 
-- (UIImage*)snapshotWithOpenGLViews;
 @end

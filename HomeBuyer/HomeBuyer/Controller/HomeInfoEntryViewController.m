@@ -14,12 +14,15 @@
 
 #define MAX_HOME_PRICE_LENGTH 10
 #define MAX_HOA_PRICE_LENGTH 5
+#define INVALID_LAT_LONG_INDICATOR -200
 
 @interface HomeInfoEntryViewController ()
 @property (nonatomic, copy) NSString* mHomeStreetAddress;
 @property (nonatomic, copy) NSString* mHomeCity;
 @property (nonatomic, copy) NSString* mHomeState;
 @property (nonatomic, copy) NSString* mHomeZip;
+@property (nonatomic) double mHomeLatitude;
+@property (nonatomic) double mHomeLongitude;
 @end
 
 @implementation HomeInfoEntryViewController
@@ -33,6 +36,8 @@
         self.mSelectedHomeType = homeTypeNotDefined;
         self.mHomeNumber = homeNumber;
         self.mLoanInfoController = nil;
+        self.mHomeLatitude = INVALID_LAT_LONG_INDICATOR;
+        self.mHomeLongitude = INVALID_LAT_LONG_INDICATOR;
     }
 
     return self;
@@ -66,7 +71,6 @@
             [Utilities emptyIfNil:address.mCity];
             [Utilities emptyIfNil:address.mState];
             
-            NSMutableString* addressStr = [[NSMutableString alloc] init];
             
             if(address.mState || address.mCity || address.mStreetAddress)
             {
@@ -74,30 +78,45 @@
                 self.mHomeCity = address.mCity;
                 self.mHomeState = address.mState;
                 self.mHomeZip = address.mZipCode;
-                
-                if(self.mHomeStreetAddress)
-                    [addressStr appendString:self.mHomeStreetAddress];
-                
-                if(self.mHomeCity)
-                {
-                    if(addressStr.length > 0)
-                        [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeCity]];
-                    else
-                        [addressStr appendString:self.mHomeCity];
-                }
-                
-                if(self.mHomeState)
-                {
-                    if(addressStr.length > 0)
-                        [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeState]];
-                    else
-                        [addressStr appendString:self.mHomeState];
-                }
+                self.mHomeLongitude = address.longitude;
+                self.mHomeLatitude = address.latitude;
 
-                [self.mHomeAddressButton setTitle:addressStr forState:UIControlStateNormal];
+                [self.mHomeAddressButton setTitle:[self getPrintableExistingAddress] forState:UIControlStateNormal];
             }
         }
     }
+}
+
+-(NSString*) getPrintableExistingAddress
+{
+    if(self.mHomeStreetAddress || self.mHomeCity || self.mHomeState)
+    {
+        NSMutableString* addressStr = [[NSMutableString alloc] init];
+
+        if(self.mHomeStreetAddress)
+            [addressStr appendString:self.mHomeStreetAddress];
+        
+        if(self.mHomeCity)
+        {
+            if(addressStr.length > 0)
+                [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeCity]];
+            else
+                [addressStr appendString:self.mHomeCity];
+        }
+        
+        if(self.mHomeState)
+        {
+            if(addressStr.length > 0)
+                [addressStr appendString:[NSString stringWithFormat:@", %@",self.mHomeState]];
+            else
+                [addressStr appendString:self.mHomeState];
+        }
+
+        return addressStr;
+
+    }
+    else
+        return nil;
 }
 
 -(void) selectSingleFamilyHome
@@ -217,6 +236,8 @@
         aHomeInfo.mHomeAddress.mState = self.mHomeState;
         aHomeInfo.mHomeAddress.mCity = self.mHomeCity;
         aHomeInfo.mHomeAddress.mZipCode = self.mHomeZip;
+        aHomeInfo.mHomeAddress.latitude = self.mHomeLatitude;
+        aHomeInfo.mHomeAddress.longitude = self.mHomeLongitude;
     }
     
     if(![kunanceUser getInstance].mKunanceUserHomes)
@@ -277,7 +298,14 @@
                              self.mHomeState];
         
         self.googlePlacesViewController.searchDisplayController.searchBar.text = address;
+        self.googlePlacesViewController.existingAddress = [self getPrintableExistingAddress];
+
+        if(self.mHomeLatitude != INVALID_LAT_LONG_INDICATOR)
+            self.googlePlacesViewController.existingLatitude = self.mHomeLatitude;
+        if(self.mHomeLongitude != INVALID_LAT_LONG_INDICATOR)
+            self.googlePlacesViewController.existingLongitude = self.mHomeLongitude;
     }
+    
     self.googlePlacesViewController.placemarkDelegate = self;
     [self.navigationController presentViewController:self.googlePlacesViewController animated:NO completion:nil];
 }
@@ -315,6 +343,8 @@
         self.mHomeStreetAddress = placemark.addressDictionary[@"Street"];
         [Utilities emptyIfNil:self.mHomeStreetAddress];
         
+        NSLog(@"Place coordinate: %f %f", placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
+        NSLog(@"Regin: %@",placemark.region);
         self.mHomeCity = placemark.addressDictionary[@"City"];
         [Utilities emptyIfNil:self.mHomeCity];
         
@@ -343,14 +373,17 @@
                 [address appendString:self.mHomeState];
         }
         
+        self.mHomeLongitude = placemark.location.coordinate.longitude;
+        self.mHomeLatitude = placemark.location.coordinate.latitude;
+        
         [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
     }
-    else if(self.googlePlacesViewController.searchDisplayController.searchBar.text.length > 0)
+    /*else if(self.googlePlacesViewController.searchDisplayController.searchBar.text.length > 0)
     {
         self.mHomeStreetAddress = self.googlePlacesViewController.searchDisplayController.searchBar.text;
         [address appendString:self.mHomeStreetAddress];
         [self.mHomeAddressButton setTitle:address forState:UIControlStateNormal];
-    }
+    }*/
     
     [self.googlePlacesViewController dismissViewControllerAnimated:YES completion:nil];
 }

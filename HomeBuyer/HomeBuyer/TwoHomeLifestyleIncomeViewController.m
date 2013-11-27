@@ -9,7 +9,6 @@
 #import "TwoHomeLifestyleIncomeViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
-#import "ShinobiChart+Screenshot.h"
 
 
 @interface TwoHomeLifestyleIncomeViewController () <SChartDatasource, SChartDelegate>

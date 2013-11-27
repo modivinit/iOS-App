@@ -13,6 +13,8 @@
 @property (nonatomic, copy) NSString* mCity;
 @property (nonatomic, copy) NSString* mState;
 @property (nonatomic, copy) NSString* mZipCode;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 
 -(NSString*) getPrintableHomeAddress;
 -(id) initWithDictionary:(NSDictionary*) addressDict;

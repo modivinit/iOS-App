@@ -11,7 +11,7 @@
 #import "SPGooglePlacesAutocompletePlace.h"
 
 @interface SPGooglePlacesAutocompleteViewController ()
-
+@property (nonatomic) BOOL mapAlreadyRecentered;
 @end
 
 @implementation SPGooglePlacesAutocompleteViewController
@@ -24,8 +24,14 @@
         placemarkSelected = nil;
         searchQuery.radius = 100.0;
         shouldBeginEditing = YES;
+        self.mapAlreadyRecentered = NO;
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.mapAlreadyRecentered = NO;
 }
 
 - (void)viewDidLoad
@@ -247,7 +253,7 @@
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
 {
     NSLog(@"mapViewDidFinishRenderingMap");
-    if(fullyRendered && !placemarkSelected)
+    if(fullyRendered && !placemarkSelected && !self.mapAlreadyRecentered)
     {
         if(!self.existingAddress)
         {
@@ -262,6 +268,8 @@
             [self addCoordinateAnnotationToMap:coord addressString:self.existingAddress];
             [self recenterMapToCoordinate:coord];
         }
+        
+        self.mapAlreadyRecentered = YES;
     }
 }
 - (MKAnnotationView *)mapView:(MKMapView *)mapViewIn viewForAnnotation:(id <MKAnnotation>)annotation {

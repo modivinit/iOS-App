@@ -96,7 +96,15 @@
                          @"Insurance" : [NSNumber numberWithFloat:insurance],
                          @"PMI" : [NSNumber numberWithFloat:PMI]};
 
-        self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 200)];
+        if (IS_WIDESCREEN)
+        {
+            self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 50, 310, 200)];
+        }
+        else
+        {
+            self.mHomePaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 60, 310, 150)];
+        }
+        
         self.mHomePaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
         self.mHomePaymentsChart.licenseKey = SHINOBI_LICENSE_KEY;
         
@@ -124,6 +132,12 @@
     // Do any additional setup after loading the view from its nib.
     [self setupChart];
     [self setupOtherLabels];
+    
+    if (IS_WIDESCREEN)
+    {
+        self.mPaymentsView.frame = CGRectMake(0, 270, self.mPaymentsView.frame.size.width, self.mPaymentsView.frame.size.height);
+        self.mCompareButton.frame = CGRectMake(233, 460, self.mCompareButton.frame.size.width, self.mCompareButton.frame.size.height);
+    }
 }
 
 -(IBAction)compareButtonTapped:(id)sender
@@ -151,7 +165,6 @@ toggledSelectionForRadialPoint:(SChartRadialDataPoint *)dataPoint
       inSeries:(SChartRadialSeries *)series
 atPixelCoordinate:(CGPoint)pixelPoint
 {
-    NSLog(@"Selected country: %@", dataPoint.name);
 }
 
 #pragma mark - SChartDatasource methods

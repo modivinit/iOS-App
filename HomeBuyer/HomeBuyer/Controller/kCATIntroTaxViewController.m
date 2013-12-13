@@ -32,7 +32,14 @@
 -(void) setupChart
 {
     // create the data
-    self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(31, 148, 280, 208)];
+    if (IS_WIDESCREEN)
+    {
+        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(31, 148, 280, 208)];
+    }
+    else
+    {
+        self.mTaxSavingsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(31, 128, 280, 208)];
+    }
     
     self.mTaxSavingsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -70,11 +77,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView* backImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backImage.image = [UIImage imageNamed:@"home-interior_03.jpg"];
-    [self.view addSubview:backImage];
+    self.view.bounds = CGRectMake(0, 0, [Utilities getDeviceWidth], [Utilities getDeviceHeight]);
+    UILabel* label= nil;
+    UIImage* backImage = nil;
+    
+    //Renders based on screen size
+    if (IS_WIDESCREEN)
+    {
+        backImage = [UIImage imageNamed:@"home-interior_03.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 65, 280, 40)];
+    }
+    else
+    {
+        backImage = [UIImage imageNamed:@"home-interior-iphone4_03.jpg"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(160, 50, 280, 40)];
+    }
 
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(160, 40, 280, 70)];
+    
+    UIImageView* backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backImageView.image = backImage;
+    [self.view addSubview:backImageView];
+
     label.center = CGPointMake(self.view.center.x, label.center.y);
     label.numberOfLines = 2;
     label.textAlignment = NSTextAlignmentCenter;

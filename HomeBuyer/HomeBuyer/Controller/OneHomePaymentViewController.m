@@ -9,7 +9,6 @@
 #import "OneHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
-#import "ShinobiChart+Screenshot.h"
 
 @interface OneHomePaymentViewController() <SChartDatasource, SChartDelegate>
 @property (nonatomic, strong) ShinobiChart* mPaymentsChart;
@@ -29,14 +28,16 @@
     return self;
 }
 
-- (UIImage*)snapshotWithOpenGLViews
-{
-    return [self.mPaymentsChart snapshot];
-}
-
 -(void) setupChart
-{
-    self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+{ 
+    if (IS_WIDESCREEN)
+    {
+        self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 202, 280, 160)];
+    }
+    else
+    {
+        self.mPaymentsChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 235, 280, 140)];
+    }
     
     self.mPaymentsChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -120,6 +121,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (!IS_WIDESCREEN)
+    {
+        self.mHomePaymentView.frame = CGRectMake(0, 310, self.mHomePaymentView.frame.size.width, self.mHomePaymentView.frame.size.height);
+        self.mAddAHomeButton.frame = CGRectMake(self.mAddAHomeButton.frame.origin.x, 400, self.mAddAHomeButton.frame.size.width, self.mAddAHomeButton.frame.size.height);
+    }
+
     [self setupChart];
 }
 

@@ -25,4 +25,5 @@
 @property (nonatomic, strong) IBOutlet UILabel* mEstIncomeTaxes;
 @property (nonatomic, strong) IBOutlet UILabel* mFixedCosts;
 @property (nonatomic, strong) IBOutlet UILabel* mTotalPayments;
+@property (nonatomic, strong) IBOutlet UIView* mLifestyleView;
 @end

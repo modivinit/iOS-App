@@ -30,5 +30,5 @@
 @property (nonatomic, strong) IBOutlet UILabel* mHome1ComparePayment;
 @property (nonatomic, strong) IBOutlet UILabel* mHome2ComparePayment;
 
-- (UIImage*)snapshotWithOpenGLViews;
+@property (nonatomic, strong) IBOutlet UIView* mHome2ComparePaymentsView;
 @end

@@ -9,7 +9,6 @@
 #import "TwoHomePaymentViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
-#import "ShinobiChart+Screenshot.h"
 
 
 @interface TwoHomePaymentViewController () <SChartDatasource, SChartDelegate>
@@ -23,7 +22,14 @@
 
 -(void) setupChart
 {
-    self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+    if (IS_WIDESCREEN)
+    {
+        self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 185, 280, 180)];
+    }
+    else
+    {
+        self.mMontlyPaymentChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 225, 280, 140)];
+    }
     
     self.mMontlyPaymentChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -54,11 +60,6 @@
     // show the legend
     
     self.mMontlyPaymentChart.clipsToBounds = NO;
-}
-
-- (UIImage*)snapshotWithOpenGLViews
-{
-    return [self.mMontlyPaymentChart snapshot];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -122,6 +123,11 @@
         else
             self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
 
+    }
+    
+    if (!IS_WIDESCREEN)
+    {
+        self.mHome2ComparePaymentsView.frame = CGRectMake(0, 290, self.mHome2ComparePaymentsView.frame.size.width, self.mHome2ComparePaymentsView.frame.size.height);
     }
     
     [self setupChart];

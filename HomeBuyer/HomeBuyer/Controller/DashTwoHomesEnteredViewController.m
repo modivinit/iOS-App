@@ -15,6 +15,7 @@
     TwoHomeLifestyleIncomeViewController* lifestyleViewController;
     TwoHomeTaxSavingsViewController* taxSavingsViewController;
     TwoHomePaymentViewController* paymentViewController;
+    ContactRealtorViewController* contactRealtorView;
     UIViewController* mCurrentViewController;
 }
 @end
@@ -23,29 +24,6 @@
 
 -(void) addButtons
 {
-    self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 360, 104, 30)];
-    self.mRentalButton.backgroundColor = [UIColor clearColor];
-    [self.mRentalButton addTarget:self
-                          action:@selector(rentalButtonTapped:)
-                forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mRentalButton];
-
-    self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 400, 104, 30)];
-    self.mHome1Button.backgroundColor = [UIColor clearColor];
-    [self.mHome1Button addTarget:self
-                          action:@selector(home1ButtonTapped:)
-                forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mHome1Button];
-
-    self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 447, 104, 30)];
-    self.mHome2Button.backgroundColor = [UIColor clearColor];
-    [self.mHome2Button addTarget:self
-                          action:@selector(home2ButtonTapped:)
-                forControlEvents:UIControlEventTouchUpInside];
-    [self.pageController.view addSubview:self.mHome2Button];
-
-    
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHelpButton];
@@ -54,6 +32,44 @@
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                   target:self
                                                   action:@selector(shareGraph)];
+}
+
+-(void) addButtonsToPageView:(UIView*) view
+{
+    if (IS_WIDESCREEN)
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 360, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 400, 104, 30)];
+        self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 447, 104, 30)];
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 520, 44, 44)];
+    }
+    else
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 300, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 340, 104, 30)];
+        self.mHome2Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 385, 104, 30)];
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 436, 44, 44)];
+    }
+    
+    self.mRentalButton.backgroundColor = [UIColor clearColor];
+    [self.mRentalButton addTarget:self
+                           action:@selector(rentalButtonTapped:)
+                 forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:self.mRentalButton];
+    
+    
+    self.mHome1Button.backgroundColor = [UIColor clearColor];
+    [self.mHome1Button addTarget:self
+                          action:@selector(home1ButtonTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:self.mHome1Button];
+    
+    
+    self.mHome2Button.backgroundColor = [UIColor clearColor];
+    [self.mHome2Button addTarget:self
+                          action:@selector(home2ButtonTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:self.mHome2Button];
     
 }
 
@@ -63,21 +79,31 @@
     
     lifestyleViewController = [[TwoHomeLifestyleIncomeViewController alloc] init];
     lifestyleViewController.mTwoHomeLifestyleDelegate = self;
+    [self addButtonsToPageView:lifestyleViewController.view];
     [self.mPageViewControllers addObject:lifestyleViewController];
     
     taxSavingsViewController = [[TwoHomeTaxSavingsViewController alloc] init];
     taxSavingsViewController.mTwoHomeTaxSavingsDelegate = self;
+    [self addButtonsToPageView:taxSavingsViewController.view];
     [self.mPageViewControllers addObject:taxSavingsViewController];
     
     paymentViewController = [[TwoHomePaymentViewController alloc] init];
     paymentViewController.mTwoHomePaymentDelegate = self;
+    [self addButtonsToPageView:paymentViewController.view];
     [self.mPageViewControllers addObject:paymentViewController];
     
     if([kunanceUser getInstance].mRealtor && [kunanceUser getInstance].mRealtor.mIsValid)
     {
-        ContactRealtorViewController* contactRealtor = [[ContactRealtorViewController alloc] init];
-        contactRealtor.mContactRealtorDelegate = self;
-        [self.mPageViewControllers addObject:contactRealtor];
+        contactRealtorView= [[ContactRealtorViewController alloc] init];
+        contactRealtorView.mContactRealtorDelegate = self;
+        [self.mPageViewControllers addObject:contactRealtorView];
+        
+        if (!IS_WIDESCREEN)
+        {
+            contactRealtorView.mHome2DashContactRealtor.frame = CGRectMake(0, 90, contactRealtorView.mHome2DashContactRealtor.frame.size.width,
+                                                                           contactRealtorView.mHome2DashContactRealtor.frame.size.height);
+        }
+        
     }
     
     [[self.pageController view] setFrame:[[self view] bounds]];
@@ -92,6 +118,14 @@
     if(completed)
     {
         mCurrentViewController = [pageViewController.viewControllers lastObject];
+        if(mCurrentViewController == contactRealtorView)
+        {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }
     }
 }
 
@@ -111,9 +145,14 @@
                                                                                 action:@selector(showLeftView)];
     }
     
+    CGRect pageBound = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
+                                  self.view.bounds.size.width, self.view.bounds.size.height);
+    self.pageController.view.frame = pageBound;
+    self.pageController.view.backgroundColor = [UIColor clearColor];
+    
     [self addButtons];
     self.pageController.delegate = self;
-
+    
     mCurrentViewController = lifestyleViewController;
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Viewed 2-home dashboard" properties:Nil];
@@ -121,47 +160,58 @@
 
 -(void)shareGraph
 {
-    if ([MFMailComposeViewController canSendMail])
-    {
-        MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
-        [emailDialog setMailComposeDelegate:self];
-        
-        NSMutableString *htmlMsg = [NSMutableString string];
-        [htmlMsg appendString:@"<html><body><p>"];
-        [htmlMsg appendString:@"I compared a couple of homes we were interested in using Kunance. Here are the results."];
-        [htmlMsg appendString:@"</p></body></html>"];
-        
-        if(mCurrentViewController == taxSavingsViewController)
-        {
-            UIImage *taxChartImage = [taxSavingsViewController snapshotWithOpenGLViews];
-            NSData *taxJpegData = UIImagePNGRepresentation(taxChartImage);
-            NSString *taxFileName = @"HomesTax";
-            taxFileName = [taxFileName stringByAppendingPathExtension:@"png"];
-            [emailDialog addAttachmentData:taxJpegData mimeType:@"image/png" fileName:taxFileName];
-        }
-        else if (mCurrentViewController == paymentViewController)
-        {
-             UIImage *paymentChartImage = [paymentViewController snapshotWithOpenGLViews];
-             NSData *paymentJpegData = UIImageJPEGRepresentation(paymentChartImage, 1);
-             NSString *paymentFileName = @"HomesPayment";
-             paymentFileName = [paymentFileName stringByAppendingPathExtension:@"jpeg"];
-             [emailDialog addAttachmentData:paymentJpegData
-                            mimeType:@"image/jpeg" fileName:paymentFileName];
-        }
-        else if(mCurrentViewController == lifestyleViewController)
-        {
-            UIImage *lifestyleChartImage = [lifestyleViewController snapshotWithOpenGLViews];
-            NSData *lifestyleJpegData = UIImageJPEGRepresentation(lifestyleChartImage, 1);
-            NSString *lifestyleFileName = @"HomesLifestyle";
-            lifestyleFileName = [lifestyleFileName stringByAppendingPathExtension:@"jpeg"];
-            [emailDialog addAttachmentData:lifestyleJpegData
-                                  mimeType:@"image/jpeg" fileName:lifestyleFileName];
-        }
+    NSMutableString *htmlMsg = [NSMutableString string];
+    UIImage *chartImage  = nil;
+    [htmlMsg appendString:@"\nI compared a couple of homes we were interested in using Kunance. Here are the results."];
+    NSString* imageType = nil;
+    
+    homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
+    homeInfo* home2 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:SECOND_HOME];
 
-        [emailDialog setSubject:@"Homes Comparision"];
-        [emailDialog setMessageBody:htmlMsg isHTML:YES];
-        [self.navigationController presentViewController:emailDialog animated:NO completion:nil];
+    NSString* home1Addr = nil;
+    NSString* home2Addr = nil;
+    
+    if(home1.mHomeAddress && [home1.mHomeAddress getPrintableHomeAddress])
+        home1Addr = [NSString stringWithFormat:@"\nHome 1 Address: %@", [home1.mHomeAddress getPrintableHomeAddress]];
+    else
+        home1Addr = @"\n Home 1 Address: None";
+    
+    if(home2.mHomeAddress && [home2.mHomeAddress getPrintableHomeAddress])
+        home2Addr = [NSString stringWithFormat:@"Home 2 Address: %@", [home2.mHomeAddress getPrintableHomeAddress]];
+    else
+        home2Addr = @"Home 2 Address: None";
+    
+    if(mCurrentViewController == taxSavingsViewController)
+    {
+        chartImage = [Utilities takeSnapshotOfView:taxSavingsViewController.view];
+        imageType = @"\nAnnual income tax savings on the different homes compared to rental:";
     }
+    else if (mCurrentViewController == paymentViewController)
+    {
+        chartImage = [Utilities takeSnapshotOfView:paymentViewController.view];
+        imageType = @"\nMonthly payments on the different homes compared to rental:";
+    }
+    else if(mCurrentViewController == lifestyleViewController)
+    {
+        chartImage = [Utilities takeSnapshotOfView:lifestyleViewController.view];
+        imageType = @"\nMonthly Cash Flow on the different homes compared to rental:";
+    }
+    
+
+    NSArray *activityItems = @[htmlMsg, chartImage, home1Addr, home2Addr, imageType];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                                                                         applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,UIActivityTypePostToFacebook,
+                                                     UIActivityTypePostToTwitter,UIActivityTypePostToWeibo,
+                                                     UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,
+                                                     UIActivityTypePostToTencentWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,
+                                                     UIActivityTypeAirDrop];
+
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
+
     
 }
 

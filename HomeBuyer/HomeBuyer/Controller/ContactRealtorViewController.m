@@ -69,10 +69,25 @@
     if(![kunanceUser getInstance].mRealtor.mEmail)
         self.mEmail.hidden = YES;
     
+    if(![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]])
+        self.mCallNumber.enabled = NO;
+
+    if(![MFMailComposeViewController canSendMail])
+        self.mEmail.enabled = NO;
+
+    if(![MFMessageComposeViewController canSendText])
+        self.mTextNumber.enabled = NO;
+    
     if(!self.showDashboardIcon)
         self.mDashboard.hidden = YES;
     else
         self.mDashboard.hidden = NO;
+    
+    if (!IS_WIDESCREEN)
+    {
+        self.mHome2DashContactRealtor.frame = CGRectMake(self.mHome2DashContactRealtor.frame.origin.x,90, self.mHome2DashContactRealtor.frame.size.width, self.mHome2DashContactRealtor.frame.size.height);
+        self.mDashboard.frame = CGRectMake(14,422, self.mDashboard.frame.size.width, self.mDashboard.frame.size.height);
+    }
 }
 
 -(IBAction)callRealtor:(id)sender

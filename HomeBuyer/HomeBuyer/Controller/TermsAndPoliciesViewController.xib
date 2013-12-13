@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermsAndPoliciesViewController">
@@ -20,15 +20,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XbC-xC-I6V" userLabel="PrivacyView">
-                    <rect key="frame" x="20" y="140" width="280" height="360"/>
+                    <rect key="frame" x="20" y="130" width="280" height="274"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="termsbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jbq-2e-F6l">
-                            <rect key="frame" x="1" y="0.0" width="278" height="360"/>
+                            <rect key="frame" x="1" y="0.0" width="278" height="272"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wax-fP-0RP">
-                            <rect key="frame" x="15" y="5" width="250" height="350"/>
+                            <rect key="frame" x="15" y="5" width="250" height="260"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <attributedString key="attributedText">
@@ -157,6 +157,45 @@ Cg
                                         </paragraphStyle>
                                     </attributes>
                                 </fragment>
+                                <fragment>
+                                    <string key="content">  (c) CHILDREN’S PRIVACY.  From our site, we do not knowingly collect personal information from individuals under the age of 18 without obtaining verifiable consent from their parents.  For more information about the Children’s Online Privacy Protection Act, visit the FTC website @ </string>
+                                    <attributes>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="www.ftc.gov">
+                                    <attributes>
+                                        <color key="NSColor" red="0.066666666666666666" green="0.33333333333333331" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <url key="NSLink" string="http://www.ftc.gov/"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                        <integer key="NSUnderline" value="1"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" ">
+                                    <attributes>
+                                        <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
+                                <fragment>
+                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                    <attributes>
+                                        <font key="NSFont" size="12" name="Times-Roman"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" minimumLineHeight="11" defaultTabInterval="36">
+                                            <tabStops/>
+                                        </paragraphStyle>
+                                    </attributes>
+                                </fragment>
                                 <fragment content="2.2. USES OF INFORMATION COLLECTED">
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
@@ -234,7 +273,7 @@ Cg
                                     </attributes>
                                 </fragment>
                                 <fragment>
-                                    <string key="content"> or select the “opt out” box on our online forms, but please understand that such a request will likely limit your ability to take advantage of all of the features and services we offer on the Site. In addition, we maintain a procedure for you to review and request changes to your Personal Information; this procedure is described in Section 3.1, below.</string>
+                                    <string key="content">, but please understand that such a request will likely limit your ability to take advantage of all of the features and services we offer on the Site. In addition, we maintain a procedure for you to review and request changes to your Personal Information; this procedure is described in Section 3.1, below.</string>
                                     <attributes>
                                         <font key="NSFont" size="11" name="TimesNewRomanPSMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16" firstLineHeadIndent="16" minimumLineHeight="11" defaultTabInterval="36">
@@ -409,15 +448,15 @@ Cg
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F28-lg-1fH" userLabel="TermsView">
-                    <rect key="frame" x="20" y="140" width="280" height="360"/>
+                    <rect key="frame" x="20" y="130" width="280" height="274"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="termsbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="TCQ-KF-Ut9">
-                            <rect key="frame" x="1" y="0.0" width="278" height="360"/>
+                            <rect key="frame" x="1" y="0.0" width="278" height="272"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mg1-sB-YMt">
-                            <rect key="frame" x="15" y="5" width="250" height="350"/>
+                            <rect key="frame" x="15" y="5" width="250" height="260"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <attributedString key="attributedText">
@@ -1074,16 +1113,20 @@ Cg
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F84-Ik-UPa">
-                    <rect key="frame" x="60" y="90" width="200" height="29"/>
+                    <rect key="frame" x="60" y="80" width="200" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Terms of Use"/>
                         <segment title="Privacy Policy"/>
                     </segments>
                 </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYh-MR-w3E" userLabel="Button -dash">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYh-MR-w3E" userLabel="Button -dash">
                     <rect key="frame" x="14" y="510" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="gsU-4d-gXl"/>
+                        <constraint firstAttribute="width" constant="44" id="vbg-Vo-QQZ"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="dashboard.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1094,6 +1137,10 @@ Cg
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="SYh-MR-w3E" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="14" id="L94-vh-gjF"/>
+                <constraint firstAttribute="bottom" secondItem="SYh-MR-w3E" secondAttribute="bottom" constant="14" id="l4w-LC-Ngz"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

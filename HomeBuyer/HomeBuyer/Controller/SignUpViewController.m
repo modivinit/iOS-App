@@ -1,4 +1,4 @@
-//
+    //
 //  SignUpViewController.m
 //  HomeBuyer
 //
@@ -28,9 +28,20 @@
 
 @implementation SignUpViewController
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registerUser:)
+                                                 name:kReturnButtonClickedOnSignupForm
+                                               object:nil];
+}
+
 - (void)viewDidLoad
 {
-    self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+    if (IS_WIDESCREEN)
+    {
+        self.mFormFields = [[NSArray alloc] initWithObjects:self.mNameField, self.mEmailField, self.mPasswordField, self.mRealtorCodeField, nil];
+    }
     
     [super viewDidLoad];
     
@@ -54,10 +65,10 @@
     [self.mNameField becomeFirstResponder];
     [self disableRegisterButton];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(registerUser:)
-                                                 name:kReturnButtonClickedOnSignupForm
-                                               object:nil];
+    
+    self.mPasswordField.delegate = self;
+    self.mEmailField.delegate = self;
+    self.mNameField.delegate = self;
 }
 
 -(void) cancelScreen
@@ -82,7 +93,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-    //[self deregisterForKeyboardNotifications];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,6 +108,14 @@
     {
         [self.mSignUpDelegate loadSignInClicked];
     }
+}
+
+-(BOOL) isPassowrdValid
+{
+    if(self.mPasswordField.text && self.mPasswordField.text.length >= MIN_PASSWORD_LENGTH)
+        return YES;
+    else
+        return NO;
 }
 
 -(void) registerUser:(id)sender
@@ -115,13 +134,18 @@
         return;
     }
     
+    if(![self isPassowrdValid])
+    {
+        [Utilities showAlertWithTitle:@"Error"
+                           andMessage:[NSString stringWithFormat:@"Password should be at least %d characters long", MIN_PASSWORD_LENGTH]];
+        return;
+    }
+    
     self.view.userInteractionEnabled = NO;
     [kunanceUser getInstance].mKunanceUserDelegate = self;
 
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Signing Up";
-    
-
+    [self startAPICallWithMessage:@"Signing Up"];
+        self.navigationItem.leftBarButtonItem.enabled = NO;
     if(![[kunanceUser getInstance] signupWithName:self.mNameField.text
                              password:self.mPasswordField.text
                                 email:self.mEmailField.text
@@ -129,10 +153,21 @@
     {
         [self disableRegisterButton];
         self.mPasswordField.text = @"";
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self cleanUpTimerAndAlert];
+                self.navigationItem.leftBarButtonItem.enabled = YES;
         self.view.userInteractionEnabled = YES;
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sign Up failed"];
     }
+}
+
+-(IBAction)privacyPolicyClicked:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://kunance.com/privacy.html"]];
+}
+
+-(IBAction)termsClicked:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://kunance.com/terms.html"]];
 }
 
 #pragma RealtorDelegate
@@ -152,8 +187,9 @@
 #pragma LoginSignupServiceDelegate
 -(void) signupCompletedWithError:(NSError *)error
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-
+    [self cleanUpTimerAndAlert];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    
     if(error)
     {
         NSDictionary* userInfo = error.userInfo;
@@ -249,7 +285,7 @@
         futurePasswordLength = self.mPasswordField.text.length;
     }
     
-    if(futurePasswordLength >= 6 && futureNameLength > 0 && futureEmailLength > 0)
+    if(futurePasswordLength >= MIN_PASSWORD_LENGTH && futureNameLength > 0 && futureEmailLength > 0)
     {
         [self enableRegisterButton];
     }

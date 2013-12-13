@@ -12,6 +12,10 @@
 @property (nonatomic, strong) UIBarButtonItem* mPrevButton;
 @property (nonatomic, strong) UIBarButtonItem* mNextButton;
 @property (nonatomic, strong) UIBarButtonItem* mDoneButton;
+
+@property (nonatomic, strong) NSTimer* mUpdateDataTimeoutTimer;
+@property (nonatomic, strong) UIAlertView* mSlowNetworkAlert;
+
 @end
 
 @implementation FormNoScrollViewViewController
@@ -25,10 +29,59 @@
         self.mFormFields = nil;
         self.mActiveField = nil;
         self.mShowDoneButton = NO;
+        self.mUpdateDataTimeoutTimer = nil;
+        self.mSlowNetworkAlert = nil;
     }
     
     return self;
 }
+
+-(void) startAPICallWithMessage:(NSString*) message
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if(message)
+        hud.labelText = message;
+    else
+        hud.labelText = @"Updating";
+    
+    self.mUpdateDataTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_NETWORK_CALL_TIMEOUT_IN_SECS
+                                                                    target:self
+                                                                  selector:@selector(updateProfileCallTimedOut)
+                                                                  userInfo:nil
+                                                                   repeats:YES];
+}
+
+-(void) cleanUpTimerAndAlert
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.mUpdateDataTimeoutTimer invalidate];
+    if(self.mSlowNetworkAlert)
+    {
+        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
+        self.mSlowNetworkAlert = nil;
+    }
+}
+
+-(void) updateProfileCallTimedOut
+{
+    if (!self.mSlowNetworkAlert)
+    {
+        self.mSlowNetworkAlert = [Utilities showSlowConnectionAlert];
+        self.mSlowNetworkAlert.delegate = self;
+    }
+}
+
+#pragma mark UIAlertViewDelegate
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView == self.mSlowNetworkAlert)
+    {
+        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
+        self.mSlowNetworkAlert = nil;
+    }
+}
+#pragma end
+
 
 -(void) setupNavControl
 {

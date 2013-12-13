@@ -16,7 +16,7 @@
 #define MAX_ANNUAL_RETIREMENT_SAVINGS_LENGTH 7
 
 @interface AboutYouViewController ()
-
+@property (nonatomic, strong) UIAlertView* mSlowNetworkAlert;
 @end
 
 @implementation AboutYouViewController
@@ -28,6 +28,7 @@
         // Custom initialization
         self.mSelectedMaritalStatus = StatusNotDefined;
         self.mFixedCostsController = nil;
+        self.mSlowNetworkAlert = nil;
     }
     
     return self;
@@ -89,11 +90,11 @@
     
     self.mNumberOfChildrenControl.selectedSegmentIndex = [theUserPFInfo getNumberOfChildren];
 }
-
+/*
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-}
+}*/
 
 - (void)viewDidLoad
 {
@@ -116,6 +117,13 @@
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"View About You Screen" properties:Nil];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animate
+{
+    [super viewDidAppear:animate];
+    [self.mFormScrollView flashScrollIndicators];
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,6 +164,7 @@
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please pick a marital status"];
         return;
     }
+    
     if([self.mAnnualGrossIncomeField.amount floatValue] <= 0)
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Please enter Annual income"];
@@ -167,16 +176,15 @@
     
     [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Updating";
-
+    [self startAPICallWithMessage:@"Updating"];
+    
     if(![[kunanceUser getInstance].mkunanceUserProfileInfo
                 writeUserPFInfo:[self.mAnnualGrossIncomeField.amount intValue]
                annualRetirement:[self.mAnnualRetirementContributionField.amount intValue]
                numberOfChildren:self.mNumberOfChildrenControl.selectedSegmentIndex
                   maritalStatus:self.mSelectedMaritalStatus])
     {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self cleanUpTimerAndAlert];
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Unable to update your fixed costs info"];
     }
 }
@@ -184,7 +192,7 @@
 #pragma mark userProfileInfoDelegate
 -(void) finishedWritingUserPFInfo
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self cleanUpTimerAndAlert];
 
     if([kunanceUser getInstance].mkunanceUserProfileInfo)
     {

@@ -23,9 +23,14 @@
     BOOL shouldBeginEditing;
 }
 
+@property (nonatomic, retain) IBOutlet UIButton* currentLocation;
+- (IBAction)recenterMapToUserLocation:(id)sender;
 @property (retain, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, assign) id <GooglePlacesDelegate> placemarkDelegate;
 @property (nonatomic, copy) NSString* existingAddress;
+@property (nonatomic) double existingLatitude;
+@property (nonatomic) double existingLongitude;
+
 -(IBAction)doneAddress:(id)sender;
 -(IBAction)cancelAddress:(id)sender;
 @end

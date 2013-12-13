@@ -17,9 +17,21 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
+        NSArray* views = [[NSBundle mainBundle] loadNibNamed:@"HelpDashboardViewController"
+                                                       owner:self
+                                                     options:nil];
         // Custom initialization
+        if(views && views.count >= 2)
+        {
+            if (!IS_WIDESCREEN)
+            {
+                self.view=views[1];
+            }
+        }
     }
+
     return self;
 }
 

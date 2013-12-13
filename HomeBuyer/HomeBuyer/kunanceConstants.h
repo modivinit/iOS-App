@@ -10,6 +10,9 @@
 #define HomeBuyer_kunanceConstants_h
 
 
+//Used to find out if the screen size is 3.5" or 4" Retina display. For iPad it defaults to 3.5" view
+#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height == 568 ))
+
 // Used for saving to NSUserDefaults that a PIN has been set, and is the unique identifier for the Keychain.
 #define PIN_SAVED @"hasSavedPIN"
 
@@ -20,6 +23,9 @@
 #define FIRST_HOME 0
 #define SECOND_HOME 1
 
+#define MAX_NETWORK_CALL_TIMEOUT_IN_SECS 8
+
+#define MIN_PASSWORD_LENGTH 6
 // Used to specify the application used in accessing the Keychain.
 #define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 

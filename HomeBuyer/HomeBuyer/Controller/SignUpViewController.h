@@ -18,4 +18,10 @@
 
 @interface SignUpViewController : FormNoScrollViewViewController <UITextFieldDelegate, kunanceUserDelegate, RealtorDelegate>
 @property (nonatomic, weak) id <SignUpDelegate> mSignUpDelegate;
+
+@property (nonatomic) IBOutlet UIButton* mPrivacyPolicyButton;
+-(IBAction)privacyPolicyClicked:(id)sender;
+
+@property (nonatomic) IBOutlet UIButton* mTermsButton;
+-(IBAction)termsClicked:(id)sender;
 @end

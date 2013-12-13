@@ -23,11 +23,10 @@
 @property (nonatomic, strong) IBOutlet UIImageView* mHomeTypeIcon;
 
 @property (nonatomic, strong) IBOutlet UILabel* mHome1ComparePayment;
+@property (nonatomic, strong) IBOutlet UIView* mHomePaymentView;
 
 @property (nonatomic, strong) HomeInfoEntryViewController* mHomeInfoViewController;
 
 @property (nonatomic) IBOutlet UIButton* mAddAHomeButton;
 -(IBAction)addAHomeTapped:(id)sender;
-
-- (UIImage*)snapshotWithOpenGLViews;
 @end

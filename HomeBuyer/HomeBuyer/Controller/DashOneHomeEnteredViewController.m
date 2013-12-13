@@ -40,22 +40,37 @@
 
 -(void) addButtons
 {
-    self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+    if (IS_WIDESCREEN)
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 405, 104, 30)];
+        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 472, 25, 25)];
+        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 465, 100, 44)];
+        self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 520, 44, 44)];
+    }
+    else
+    {
+        self.mRentalButton = [[UIButton alloc] initWithFrame:CGRectMake(49, 320, 104, 30)];
+        self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 363, 104, 30)];
+        self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 25, 25)];
+        self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 403, 100, 40)];
+        self.mContactRealtorButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 436, 44, 44)];
+    }
+    
     self.mRentalButton.backgroundColor = [UIColor clearColor];
     [self.mRentalButton addTarget:self
                            action:@selector(rentalButtonTapped:)
                  forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mRentalButton];
     
-    self.mHome1Button = [[UIButton alloc] initWithFrame:CGRectMake(49, 405, 104, 30)];
+    
     self.mHome1Button.backgroundColor = [UIColor clearColor];
     [self.mHome1Button addTarget:self
                           action:@selector(home1ButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
     [self.pageController.view addSubview:self.mHome1Button];
-
-    self.mContactRealtorIconButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 470, 25, 25)];
-    self.mContactRealtorButton = [[UIButton alloc] initWithFrame:CGRectMake(52, 463, 160, 44)];
 
     if([kunanceUser getInstance].mRealtor.mIsValid)
     {
@@ -73,7 +88,7 @@
             [self.mContactRealtorButton setTitle:@"Contact Realtor" forState:UIControlStateNormal];
         }
         
-        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+        self.mContactRealtorButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
         [self.mContactRealtorButton setTitleColor:[Utilities getKunanceBlueColor] forState:UIControlStateNormal] ;
         self.mContactRealtorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
@@ -85,7 +100,6 @@
         
     }
 
-    self.mHelpButton = [[UIButton alloc] initWithFrame:CGRectMake(274, 520, 44, 44)];
     [self.mHelpButton setImage:[UIImage imageNamed:@"help.png"] forState:UIControlStateNormal];
     [self.mHelpButton addTarget:self action:@selector(helpButtonTapped)
                forControlEvents:UIControlEventTouchUpInside];
@@ -101,47 +115,54 @@
 
 -(void)shareGraph
 {
-    if ([MFMailComposeViewController canSendMail])
+    NSMutableString *htmlMsg = [NSMutableString string];
+    UIImage *chartImage  = nil;
+    [htmlMsg appendString:@"\nI compared a home we were interested in using Kunance. Here are the results."];
+    NSString* imageType = nil;
+    
+    homeInfo* home1 = [[kunanceUser getInstance].mKunanceUserHomes getHomeAtIndex:FIRST_HOME];
+    
+    NSString* home1Addr = nil;
+    
+    if(home1.mHomeAddress && [home1.mHomeAddress getPrintableHomeAddress])
+        home1Addr = [NSString stringWithFormat:@"\nHome Address: %@", [home1.mHomeAddress getPrintableHomeAddress]];
+    else
+        home1Addr = @"\n Home Address: None";
+    
+    if(currentViewcontroller == taxsavingsController)
     {
-        MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
-        [emailDialog setMailComposeDelegate:self];
-        
-        NSMutableString *htmlMsg = [NSMutableString string];
-        [htmlMsg appendString:@"<html><body><p>"];
-        [htmlMsg appendString:@"I compared a home we were interested in using Kunance. Here are the results."];
-        [htmlMsg appendString:@"</p></body></html>"];
-        
-        if(currentViewcontroller == taxsavingsController)
-        {
-            UIImage *taxChartImage = [taxsavingsController snapshotWithOpenGLViews];
-            NSData *taxJpegData = UIImagePNGRepresentation(taxChartImage);
-            NSString *taxFileName = @"HomesTax";
-            taxFileName = [taxFileName stringByAppendingPathExtension:@"png"];
-            [emailDialog addAttachmentData:taxJpegData mimeType:@"image/png" fileName:taxFileName];
-        }
-        else if (currentViewcontroller == paymentController)
-        {
-            UIImage *paymentChartImage = [paymentController snapshotWithOpenGLViews];
-            NSData *paymentJpegData = UIImageJPEGRepresentation(paymentChartImage, 1);
-            NSString *paymentFileName = @"HomesPayment";
-            paymentFileName = [paymentFileName stringByAppendingPathExtension:@"jpeg"];
-            [emailDialog addAttachmentData:paymentJpegData
-                                  mimeType:@"image/jpeg" fileName:paymentFileName];
-        }
-        else if(currentViewcontroller == lifestyleCOntroller)
-        {
-            UIImage *lifestyleChartImage = [lifestyleCOntroller snapshotWithOpenGLViews];
-            NSData *lifestyleJpegData = UIImageJPEGRepresentation(lifestyleChartImage, 1);
-            NSString *lifestyleFileName = @"HomesLifestyle";
-            lifestyleFileName = [lifestyleFileName stringByAppendingPathExtension:@"jpeg"];
-            [emailDialog addAttachmentData:lifestyleJpegData
-                                  mimeType:@"image/jpeg" fileName:lifestyleFileName];
-        }
-        
-        [emailDialog setSubject:@"Home Comparision"];
-        [emailDialog setMessageBody:htmlMsg isHTML:YES];
-        [self.navigationController presentViewController:emailDialog animated:NO completion:nil];
+        chartImage = [Utilities takeSnapshotOfView:taxsavingsController.view];
+        imageType = @"\nAnnual income tax savings on the home compared to rental:";
     }
+    else if (currentViewcontroller == paymentController)
+    {
+        chartImage = [Utilities takeSnapshotOfView:paymentController.view];
+        imageType = @"\nMonthly payments on the home compared to rental:";
+    }
+    else if(currentViewcontroller == lifestyleCOntroller)
+    {
+        chartImage = [Utilities takeSnapshotOfView:lifestyleCOntroller.view];
+        imageType = @"\nMonthly Cash Flow on the home compared to rental:";
+    }
+    
+    
+    NSArray *activityItems = @[htmlMsg, chartImage, home1Addr, imageType];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                                                                         applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,UIActivityTypePostToFacebook,
+                                                     UIActivityTypePostToTwitter,UIActivityTypePostToWeibo,
+                                                     UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,
+                                                     UIActivityTypePostToTencentWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,
+                                                     UIActivityTypeAirDrop];
+    
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    }
+    [self presentViewController:activityViewController animated:YES completion:nil];
     
 }
 

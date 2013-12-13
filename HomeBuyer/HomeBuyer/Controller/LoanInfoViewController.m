@@ -174,11 +174,6 @@
     }
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 100)];
-}
-
 - (void)viewDidLoad
 {
     NSString* titleText = [NSString stringWithFormat:@"Home Loan Info"];
@@ -206,7 +201,12 @@
     
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.mFormScrollView setContentSize:CGSizeMake(320, 296)];
+//    [self.mFormScrollView setContentSize:CGSizeMake(320, 205)];
+    self.mFormScrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mDownPaymentFixedAmountField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mDownPaymentPercentageField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mInterestRateField.translatesAutoresizingMaskIntoConstraints = NO;
+ //   [self.mFormScrollView setContentOffset:CGPointMake(0, 0)];
     
     [self.mPercentDollarValueChoice addTarget:self
                                        action:@selector(percentDollarChoiceChanged)
@@ -273,12 +273,11 @@
 
     [kunanceUser getInstance].mKunanceUserLoans.mLoansListDelegate = self;
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Calculating";
-
+    [self startAPICallWithMessage:@"Calculating"];
+    
     if(![[kunanceUser getInstance].mKunanceUserLoans writeLoanInfo:newLoanInfo])
     {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self cleanUpTimerAndAlert];
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to create loan info"];
         return;
     }
@@ -324,7 +323,7 @@
 #pragma APILoanInfoDelegate
 -(void) finishedWritingLoanInfo
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self cleanUpTimerAndAlert];
 
     [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
     if(self.mCompareHomesButton.enabled)

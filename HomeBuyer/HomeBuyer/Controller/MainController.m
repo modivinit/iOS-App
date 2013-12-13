@@ -15,11 +15,15 @@
 #import "HomeInfoDashViewController.h"
 #import "TermsAndPoliciesViewController.h"
 #import "ContactRealtorViewController.h"
+#import "StartupScreenViewController.h"
 
 @interface MainController ()
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @property (nonatomic, strong) kCATIntroViewController* mIntroView;
 @property (nonatomic, strong) UIAlertView* mRealtorIDEntryView;
+@property (nonatomic, strong) NSTimer* mStartupReadTimer;
+@property (nonatomic, strong) StartupScreenViewController* mStartupView;
+@property (nonatomic, strong) UIAlertView* mSlowNetworkAlert;
 @end
 
 @implementation MainController
@@ -97,6 +101,20 @@
 
 -(void) readUserPFInfo
 {
+    
+    //Timer for network read timeouts
+    self.mStartupReadTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_NETWORK_CALL_TIMEOUT_IN_SECS
+                                                     target:self
+                                                   selector:@selector(networkReadTimedOut)
+                                                   userInfo:nil
+                                                    repeats:YES];
+    
+    self.mStartupView = [[StartupScreenViewController alloc] init];
+    [self setRootView:self.mStartupView];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.mStartupView.view animated:YES];
+    hud.labelText = @"Reading Profile";
+
     //Piggy back realtor API here for now.
     [[kunanceUser getInstance] readRealtorInfo];
 
@@ -107,6 +125,15 @@
     {
         [kunanceUser getInstance].mkunanceUserProfileInfo.mUserProfileInfoDelegate = self;
         [[kunanceUser getInstance].mkunanceUserProfileInfo readUserPFInfo];
+    }
+}
+
+-(void) networkReadTimedOut
+{
+    if (!self.mSlowNetworkAlert)
+    {
+        self.mSlowNetworkAlert = [Utilities showSlowConnectionAlert];
+        self.mSlowNetworkAlert.delegate = self;
     }
 }
 
@@ -295,6 +322,13 @@
 -(void) finishedReadingLoanInfo
 {
     [[kunanceUser getInstance] updateStatusWithLoanInfoStatus];
+    [MBProgressHUD hideHUDForView:self.mStartupView.view animated:YES];
+    
+    [self.mStartupReadTimer invalidate];
+    
+    if(self.mSlowNetworkAlert)
+       [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
+    
     [self displayDash];
 }
 #pragma end
@@ -310,6 +344,7 @@
     if(![[kunanceUser getInstance].mKunanceUserLoans readLoanInfo])
     {
         [Utilities showAlertWithTitle:@"Error" andMessage:@"Sorry unable to read loan info"];
+                [self.mStartupReadTimer invalidate];
         return;
     }
 }
@@ -329,10 +364,12 @@
         if(![[kunanceUser getInstance].mKunanceUserHomes readHomesInfo])
         {
             NSLog(@"Error: reading homes info for user");
+                    [self.mStartupReadTimer invalidate];
         }
     }
     else
     {
+        [self.mStartupReadTimer invalidate];
         [self displayDash];
     }
 }
@@ -397,11 +434,11 @@
 #pragma UIAlertViewDelegate
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 0)
-        [alertView dismissWithClickedButtonIndex:buttonIndex animated:NO];
-    else
+    if(alertView == self.mRealtorIDEntryView)
     {
-        if(alertView == self.mRealtorIDEntryView)
+        if(buttonIndex == 0)
+            [alertView dismissWithClickedButtonIndex:buttonIndex animated:NO];
+        else
         {
             NSString* realtorID = [self.mRealtorIDEntryView textFieldAtIndex:0].text;
             if(realtorID)
@@ -414,6 +451,11 @@
                 [[kunanceUser getInstance].mRealtor getRealtorForID:realtorID];
             }
         }
+    }
+    else if(alertView == self.mSlowNetworkAlert)
+    {
+        [self.mSlowNetworkAlert dismissWithClickedButtonIndex:0 animated:NO];
+        self.mSlowNetworkAlert = nil;
     }
 }
 #pragma end

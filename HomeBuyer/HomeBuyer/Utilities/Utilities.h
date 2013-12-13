@@ -11,7 +11,8 @@
 
 @interface Utilities : NSObject
 + (BOOL)isValidEmail:(NSString*)emailString;
-+(void) showAlertWithTitle:(NSString*)title andMessage:(NSString*)msg;
++(UIAlertView*) showAlertWithTitle:(NSString*)title andMessage:(NSString*)msg;
++(UIAlertView*) showSlowConnectionAlert;
 +(BOOL) isUITextFieldEmpty:(UITextField*) aTextField;
 +(CGFloat) getDeviceWidth;
 +(CGFloat) getDeviceHeight;
@@ -20,4 +21,5 @@
 +(NSString*)getCurrencyFormattedStringForNumber:(NSNumber*) amount;
 +(MBProgressHUD*) getHUDViewWithText:(NSString*) text onView:(UIView*) view;
 + (NSString *)emptyIfNil:(NSString *)string;
++(UIImage *)takeSnapshotOfView:(UIView*) view;
 @end

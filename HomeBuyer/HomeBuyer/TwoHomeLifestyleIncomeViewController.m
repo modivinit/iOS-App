@@ -9,7 +9,6 @@
 #import "TwoHomeLifestyleIncomeViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "kCATCalculator.h"
-#import "ShinobiChart+Screenshot.h"
 
 
 @interface TwoHomeLifestyleIncomeViewController () <SChartDatasource, SChartDelegate>
@@ -22,8 +21,15 @@
 }
 
 -(void) setupChart
-{
-    self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(15, 202, 300, 160)];
+{    
+    if (IS_WIDESCREEN)
+    {
+        self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 185, 280, 180)];
+    }
+    else
+    {
+        self.mLifestyleIncomeChart = [[ShinobiChart alloc] initWithFrame:CGRectMake(20, 220, 280, 140)];
+    }
     
     self.mLifestyleIncomeChart.autoresizingMask =  ~UIViewAutoresizingNone;
     
@@ -59,11 +65,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.mTwoHomeLifestyleDelegate setNavTitle:@"Monthly Cash Flow"];
-}
-
-- (UIImage*)snapshotWithOpenGLViews
-{    
-    return [self.mLifestyleIncomeChart snapshot];
 }
 
 - (void)viewDidLoad
@@ -149,6 +150,11 @@
         else
             self.mHome2TypeIcon.image = [UIImage imageNamed:@"menu-home-condo.png"];
         
+    }
+    
+    if (!IS_WIDESCREEN)
+    {
+        self.mHome2CashView.frame = CGRectMake(0, 290, self.mHome2CashView.frame.size.width, self.mHome2CashView.frame.size.height);
     }
     
     [self setupChart];

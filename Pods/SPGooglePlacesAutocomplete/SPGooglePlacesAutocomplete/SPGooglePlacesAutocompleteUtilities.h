@@ -5,7 +5,7 @@
 //  Created by Stephen Poletto on 7/18/12.
 //  Copyright (c) 2012 Stephen Poletto. All rights reserved.
 //
-#define kGoogleAPIKey @"AIzaSyC3XxZAHvWPeGU5YsKiyqkDKEPsCzC2U4Q"
+
 #define kGoogleAPINSErrorCode 42
 
 @class CLPlacemark;

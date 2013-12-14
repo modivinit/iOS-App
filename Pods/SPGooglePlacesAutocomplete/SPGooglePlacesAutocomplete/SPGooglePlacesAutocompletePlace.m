@@ -25,7 +25,7 @@
     place.reference = placeDictionary[@"reference"];
     place.identifier = placeDictionary[@"id"];
     place.type = SPPlaceTypeFromDictionary(placeDictionary);
-    place.key = kGoogleAPIKey;
+    place.key = apiKey;
     return place;
 }
 

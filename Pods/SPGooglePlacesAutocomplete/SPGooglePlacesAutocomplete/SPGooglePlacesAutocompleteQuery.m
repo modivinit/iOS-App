@@ -20,7 +20,7 @@
     if (self) {
         // Setup default property values.
         self.sensor = YES;
-        self.key = kGoogleAPIKey;
+        self.key = apiKey;
         self.offset = NSNotFound;
         self.location = CLLocationCoordinate2DMake(-1, -1);
         self.radius = 500;

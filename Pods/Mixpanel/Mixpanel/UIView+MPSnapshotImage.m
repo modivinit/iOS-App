@@ -1,3 +1,7 @@
+#if ! __has_feature(objc_arc)
+#error This file must be compiled with ARC. Either turn on ARC for the project or use -fobjc-arc flag on this file.
+#endif
+
 #import <QuartzCore/QuartzCore.h>
 
 #import "UIView+MPSnapshotImage.h"
@@ -7,9 +11,9 @@
 - (UIImage *)mp_snapshotImage
 {
     UIGraphicsBeginImageContext(self.bounds.size);
-    if( [self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)] ){
+    if ( [self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)] ) {
         [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
-    }else{
+    } else {
         [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

@@ -20,7 +20,7 @@
     if (self) {
         // Setup default property values.
         self.sensor = YES;
-        self.key = kGoogleAPIKey;
+        self.key = apiKey;
     }
     return self;
 }

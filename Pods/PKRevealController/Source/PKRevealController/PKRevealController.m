@@ -74,10 +74,6 @@ typedef struct
 }
 
 #pragma mark - Properties
-@property (nonatomic, strong, readwrite) UIViewController *frontViewController;
-@property (nonatomic, strong, readwrite) UIViewController *leftViewController;
-@property (nonatomic, strong, readwrite) UIViewController *rightViewController;
-
 @property (nonatomic, strong, readwrite) PKRevealControllerView *frontView;
 @property (nonatomic, strong, readwrite) PKRevealControllerView *leftView;
 @property (nonatomic, strong, readwrite) PKRevealControllerView *rightView;
@@ -340,7 +336,7 @@ typedef struct
         {
             PKLog(@"%@ ERROR - %s : Cannot implicitly determine which side to enter presentation mode for. Please use enterPresentationModeForController:animated:completion: method.", [self class], __PRETTY_FUNCTION__);
             
-            [self performBlock:^
+            [self pk_performBlock:^
             {
                 if (completion)
                 {
@@ -398,7 +394,7 @@ typedef struct
     }
     else
     {
-        [self performBlock:^
+        [self pk_performBlock:^
         {
             if (completion)
             {
@@ -418,6 +414,11 @@ typedef struct
         }
         
         _frontViewController = frontViewController;
+        
+        if (_frontViewController)
+        {
+            [self addViewController:_frontViewController container:self.frontView];
+        }
     }
 }
 
@@ -431,6 +432,11 @@ typedef struct
         }
         
         _leftViewController = leftViewController;
+        
+        if (_leftViewController)
+        {
+            [self addViewController:_leftViewController container:self.leftView];
+        }
     }
 }
 
@@ -444,6 +450,11 @@ typedef struct
         }
         
         _rightViewController = rightViewController;
+        
+        if (_rightViewController)
+        {
+            [self addViewController:_rightViewController container:self.rightView];
+        }
     }
 }
 
@@ -1061,6 +1072,7 @@ typedef struct
         [self addChildViewController:childController];
         childController.view.frame = container.bounds;
         childController.view.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+        childController.revealController = self;
         [container addSubview:childController.view];
         [self didMoveToParentViewController:self];
     }
@@ -1073,6 +1085,7 @@ typedef struct
         [childController willMoveToParentViewController:nil];
         [childController.view removeFromSuperview];
         [childController removeFromParentViewController];
+        childController.revealController = nil;
     }
 }
 
@@ -1109,7 +1122,7 @@ typedef struct
         [self updateTapGestureRecognizerPrecence];
         [self updatePanGestureRecognizerPresence];
         
-        [self performBlock:^
+        [self pk_performBlock:^
         {
             if (completion)
             {
